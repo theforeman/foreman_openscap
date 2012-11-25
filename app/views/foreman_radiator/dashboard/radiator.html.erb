@@ -1,0 +1,100 @@
+  <table class="node_summary">
+
+    <tr class='unresponsive'>
+      <td class='count'><%= @report[:reports_missing] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Unresponsive' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_unresponsive %>;">
+				<span><%= 'Unresponsive' %></span>
+			</p>
+		</div>
+	  </td>
+	</tr>
+
+    <tr class='failed'>
+      <td class='count'><%= @report[:bad_hosts_enabled] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Failed' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_failed %>;">
+				<span><%= 'Failed' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+    <tr class='pending'>
+      <td class='count'><%= @report[:pending_hosts_enabled] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Pending' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_pending %>;">
+				<span><%= 'Pending' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+
+    <tr class='changed'>
+      <td class='count'><%= @report[:active_hosts_ok_enabled] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Changed' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_changed %>;">
+				<span><%= 'Changed' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+
+    <tr class='unchanged'>
+      <td class='count'><%= @report[:ok_hosts_enabled] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Unchanged' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_unchanged %>;">
+				<span><%= 'Unchanged' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+
+    <tr class='unreported'>
+      <td class='count'><%= @report[:out_of_sync_hosts_enabled] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Unreported' %></span>
+			</p>
+			<p class="percent" style="width: <%= @perc_unreported %>;">
+				<span><%= 'Unreported' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+
+    <tr class='total'>
+      <td class='count'><%= @report[:total_hosts] %> </td>
+      <td>
+		<div>
+			<p class="label">
+				<span><%= 'Total' %></span>
+			</p>
+			<p class="percent">
+				<span><%= 'Total' %></span>
+			</p>
+		</div>
+	  </td>
+    </tr>
+
+</table>
