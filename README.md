@@ -6,7 +6,7 @@ This is a rails engine that allows users to view from within Foreman (https://gi
 
 # Installation:
 
-1) Add the gem to your Gemfile from the git repository
+1) Add the gem. Add a file (ex. radiator.rb) under the folder /bundler.d in your foreman installation and add the following line.
 
 gem 'foreman_radiator', :git => "https://github.com/isratrade/foreman_radiator.git"
 
