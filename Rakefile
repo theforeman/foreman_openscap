@@ -13,13 +13,13 @@ require 'rake'
 require 'jeweler'
 Jeweler::Tasks.new do |gem|
   # gem is a Gem::Specification... see http://docs.rubygems.org/read/chapter/20 for more options
-  gem.name = "foreman_radiator"
-  gem.homepage = "http://github.com/isratrade/foreman_radiator"
+  gem.name = "foreman_plugin_template"
+  gem.homepage = "http://github.com/isratrade/foreman_plugin_template"
   gem.license = "MIT"
-  gem.summary = %Q{Plugin engine for Foreman to view radiator dashboard}
-  gem.description = %Q{Plugin engine for Foreman to view radiator dashboard}
-  gem.email = "jmagen@redhat.com"
-  gem.authors = ["Joseph Mitchell Magen"]
+  gem.summary = %Q{Plugin engine for Foreman }
+  gem.description = %Q{Plugin engine for Foreman }
+  gem.email = "name@example.com"
+  gem.authors = ["Sample Name"]
   # dependencies defined in Gemfile
 end
 

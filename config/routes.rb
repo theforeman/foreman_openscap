@@ -1,5 +1,6 @@
+# All routes entered here will automatically be pulled in Foreman
 Rails.application.routes.draw do
 
-  match 'radiator', :to => 'foreman_radiator/dashboard#radiator', :as => "dashboard"
+  match 'new_action', :to => 'foreman_plugin_template/hosts#new_action'
 
 end
