@@ -4,11 +4,11 @@ Gem::Specification.new do |s|
   s.name        = "foreman_openscap"
   s.version     = ForemanOpenscap::VERSION
   s.date        = Date.today.to_s
-  s.authors     = ["TODO: Your name"]
-  s.email       = ["TODO: Your email"]
-  s.homepage    = "TODO"
-  s.summary     = "TODO: Summary of ForemanOpenscap."
-  s.description = "TODO: Description of ForemanOpenscap."
+  s.authors     = ["Šimon Lukašík"]
+  s.email       = ["slukasik@redhat.com"]
+  s.homepage    = "https://github.com/OpenSCAP/foreman_openscap"
+  s.summary     = "Foreman plug-in for displaying OpenSCAP audit reports"
+  s.description = "Foreman plug-in for managing security compliance reports"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
