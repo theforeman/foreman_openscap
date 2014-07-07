@@ -15,7 +15,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.4'
+        requires_foreman '>= 1.5'
 
         # Add permissions
         security_block :foreman_openscap do
