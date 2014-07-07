@@ -1,47 +1,27 @@
-# ForemanPluginTemplate
+# Foreman-OpenSCAP
 
-This repo is an example plugin which you can use as a starting point for developing
-your own Foreman plugins
+*Introdction here*
 
-## Getting Started
+## Installation
 
-First, clone this repo to a directory named for your new plugin
+See [How_to_Install_a_Plugin](http://projects.theforeman.org/projects/foreman/wiki/How_to_Install_a_Plugin)
+for how to install Foreman plugins
 
-    git clone https://github.com/theforeman/foreman_plugin_template foreman_my_plugin
+## Usage
 
-Now use the provided script to rewrite all the files in the plugin
+*Usage here*
 
-    cd foreman_my_plugin
-    ./rename.rb foreman_my_plugin
+## TODO
 
-The script will also output the required Bundler line to add the plugin to Foreman.
-Apply this change, and restart Foreman
+*Todo list here*
 
-Once working, update the README with appropriate information, and publish your plugin!
+## Contributing
 
-## Out of the box functionality
-
-This example plugin comes with:
-
-* A model and helper concern
-* An inherited controller
-* A route/view which displays the plugin name
-* A plugin registration block adding permissions/roles/menu entry
-* A functioning example rake task
-* A functioning example test and factory
-
-These examples show how to add to Foreman in various ways.
-
-## Getting help
-
-The Foreman developers IRC channel and mailing list are the best places to get help:
-
-* Freenode: #theforeman-dev
-* Google Groups: foreman-dev@googlegroups.com
+Fork and send a Pull Request. Thanks!
 
 ## Copyright
 
-Copyright (c) 2014 Red Hat
+Copyright (c) 2014 Red Hat, Inc.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -55,3 +35,4 @@ GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
+

@@ -1,5 +1,5 @@
 # Tasks
-namespace :foreman_plugin_template do
+namespace :foreman_openscap do
   namespace :example do
     desc 'Example Task'
     task :task => :environment do
@@ -10,8 +10,8 @@ end
 
 # Tests
 namespace :test do
-  desc "Test ForemanPluginTemplate"
-  Rake::TestTask.new(:foreman_plugin_template) do |t|
+  desc "Test ForemanOpenscap"
+  Rake::TestTask.new(:foreman_openscap) do |t|
     test_dir = File.join(File.dirname(__FILE__), '../..', 'test')
     t.libs << ["test",test_dir]
     t.pattern = "#{test_dir}/**/*_test.rb"
@@ -20,12 +20,12 @@ namespace :test do
 end
 
 Rake::Task[:test].enhance do
-  Rake::Task['test:foreman_plugin_template'].invoke
+  Rake::Task['test:foreman_openscap'].invoke
 end
 
 load 'tasks/jenkins.rake'
 if Rake::Task.task_defined?(:'jenkins:setup')
   Rake::Task["jenkins:unit"].enhance do
-    Rake::Task['test:foreman_plugin_template'].invoke
+    Rake::Task['test:foreman_openscap'].invoke
   end
 end
