@@ -9,6 +9,7 @@ Gem::Specification.new do |s|
   s.homepage    = "https://github.com/OpenSCAP/foreman_openscap"
   s.summary     = "Foreman plug-in for displaying OpenSCAP audit reports"
   s.description = "Foreman plug-in for managing security compliance reports"
+  s.license     = "GPL-3.0"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
