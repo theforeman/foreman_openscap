@@ -8,7 +8,7 @@ Name: rubygem-%{gem_name}
 Version: 0.0.1
 Release: 1%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
-Group: Development/Languages
+Group: Applications/System
 License: GPLv3
 URL: https://github.com/OpenSCAP/foreman_openscap
 Source0: %{gem_name}-%{version}.gem
