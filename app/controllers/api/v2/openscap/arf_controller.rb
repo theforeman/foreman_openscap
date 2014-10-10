@@ -32,9 +32,11 @@ module Api
           # also need the content-encoding to equal with x-bzip2. However, when
           # the framework sees text/xml, it will rewrite it to application/xml.
           # What's worse, a framework will try to parse body as an utf8 string,
-          # no matter what content-encoding says. Let's pass content-type x-bzip2
+          # no matter what content-encoding says. Let's pass content-type arf-bzip2
           # and move forward.
-          super unless request.content_type.end_with? "x-bzip2"
+          super unless
+            request.content_type.end_with? 'arf-bzip2' and
+            request.env['HTTP_CONTENT_ENCODING'] == 'x-bzip2'
         end
       end
     end
