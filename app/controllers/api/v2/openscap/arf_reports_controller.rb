@@ -12,7 +12,7 @@ module Api
   module V2
     module Openscap
 
-      class ArfController < V2::BaseController
+      class ArfReportsController < V2::BaseController
         include Api::Version2
         include Foreman::Controller::SmartProxyAuth
 
