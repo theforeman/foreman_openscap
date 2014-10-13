@@ -16,6 +16,8 @@ module Api
         include Api::Version2
         include Foreman::Controller::SmartProxyAuth
 
+        add_puppetmaster_filters :create
+
         api :POST, "/arf/:cname/:policy_name/:date", N_("Upload an ARF report")
         param :cname, :identifier, :required => true
         param :policy_name, :identifier, :required => true
