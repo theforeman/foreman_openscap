@@ -114,6 +114,13 @@ popd
 %doc %{gem_instdir}/README.md
 %{gem_instdir}/Rakefile
 
+%posttrans
+# We need to run the db:migrate (because of SCAPtimony) after the install transaction
+/usr/sbin/foreman-rake db:migrate  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake db:seed  >/dev/null 2>&1 || :
+/usr/sbin/foreman-rake apipie:cache  >/dev/null 2>&1 || :
+(/sbin/service foreman status && /sbin/service foreman restart) >/dev/null 2>&1
+exit 0
 
 %changelog
 * Mon Jul 28 2014 Šimon Lukašík <slukasik@redhat.com> - 0.0.1-1
