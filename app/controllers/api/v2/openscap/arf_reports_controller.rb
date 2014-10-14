@@ -26,7 +26,8 @@ module Api
         param :date, :identifier, :required => true
 
         def create
-          Scaptimony::ArfReportsHelper.create_arf(params)
+          arf_bzip2 = request.body.read
+          Scaptimony::ArfReportsHelper.create_arf(params, arf_bzip2)
           render :json => { "result" => "not implemented" }
         end
 
