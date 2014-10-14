@@ -8,6 +8,8 @@
 # along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
 #
 
+require 'scaptimony/arf_reports_helper'
+
 module Api
   module V2
     module Openscap
@@ -24,7 +26,7 @@ module Api
         param :date, :identifier, :required => true
 
         def create
-          logger.error params
+          Scaptimony::ArfReportsHelper.create_arf(params)
           render :json => { "result" => "not implemented" }
         end
 

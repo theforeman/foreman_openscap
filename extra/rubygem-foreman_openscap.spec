@@ -85,6 +85,7 @@ cp -a .%{gem_dir}/* \
 mkdir -p %{buildroot}%{foreman_bundlerd_dir}
 cat <<GEMFILE > %{buildroot}%{foreman_bundlerd_dir}/%{gem_name}.rb
 gem '%{gem_name}'
+gem 'scaptimony'
 GEMFILE
 
 
