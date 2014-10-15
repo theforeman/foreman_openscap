@@ -27,8 +27,8 @@ module Api
 
         def create
           arf_bzip2 = request.body.read
-          Scaptimony::ArfReportsHelper.create_arf(params, arf_bzip2)
-          render :json => { "result" => "not implemented" }
+          received = Scaptimony::ArfReportsHelper.create_arf(params, arf_bzip2)
+          render :json => { :result => :OK, :received => received }
         end
 
         def check_content_type
