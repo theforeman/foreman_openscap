@@ -46,11 +46,12 @@ of Foreman based infrastructure.
 
 ## Usage
 
-Deploy openscap::xccdf::foreman_audit puppet class from Foreman on your clients.
-The client will schedule OpenSCAP audit as requested by the Puppet class. The audit
-report will be then transfered from the client machine to the proxy (foreman-proxy_openscap).
-Then audit reports are forwarded from proxy to SCAPtimony in batches and achieved at
-your Foreman server.
+Deploy [puppet-openscap](https://github.com/OpenSCAP/puppet-openscap) Puppet module
+on your client systems. Apply openscap::xccdf::foreman_audit puppet class using Foreman
+on your clients. The client will schedule OpenSCAP audit as requested by the Puppet
+class. The audit report will be then transfered from the client machine to the proxy
+(foreman-proxy_openscap). Then audit reports are forwarded from proxy to SCAPtimony
+in batches and achieved at your Foreman server.
 
 More coming, see future features above.
 
