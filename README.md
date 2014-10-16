@@ -34,13 +34,13 @@ of Foreman based infrastructure.
   $ gem build foreman_openscap.gemspec
   # yum install yum-utils rpm-build scl-utils scl-utils-build ruby193-rubygems-devel
   # yum-builddep extra/rubygem-foreman_openscap.spec
-  # rpmbuild  --define "_sourcedir `pwd`" --define "scl ruby193" -ba extra/rubygem-foreman_openscap.spec
+  $ rpmbuild  --define "_sourcedir `pwd`" --define "scl ruby193" -ba extra/rubygem-foreman_openscap.spec
   ```
 
 - Install foreman_openscap RPM
 
   ```
-  $ yum local install ~/rpmbuild/RPMS/noarch/ruby193-rubygem-foreman_openscap-*.noarch.rpm
+  # yum local install ~/rpmbuild/RPMS/noarch/ruby193-rubygem-foreman_openscap-*.noarch.rpm
   # service foreman restart
   ```
 
