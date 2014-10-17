@@ -11,8 +11,8 @@ module ForemanOpenscap
 
     # Add any db migrations
     initializer "foreman_openscap.load_app_instance_data" do |app|
-      app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
       app.config.paths['db/migrate'] += Scaptimony::Engine.paths['db/migrate'].existent
+      app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
     end
 
     initializer 'foreman_openscap.register_plugin', :after=> :finisher_hook do |app|
@@ -48,8 +48,8 @@ module ForemanOpenscap
 
     rake_tasks do
       Rake::Task['db:seed'].enhance do
-        ForemanOpenscap::Engine.load_seed
         Scaptimony::Engine.load_seed
+        ForemanOpenscap::Engine.load_seed
       end
     end
 
