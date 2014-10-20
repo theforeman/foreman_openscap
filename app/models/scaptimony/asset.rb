@@ -19,10 +19,4 @@ module ::Scaptimony
     has_one :auditable_host
     has_one :host, :through => :auditable_host
   end
-
-  module ::Host
-    class Managed < ::Host::Base
-      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost", :foreign_key => :host_id
-    end
-  end
 end

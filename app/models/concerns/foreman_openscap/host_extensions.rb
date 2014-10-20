@@ -1,9 +1,11 @@
+require 'scaptimony/asset'
+
 module ForemanOpenscap
   module HostExtensions
     extend ActiveSupport::Concern
 
     included do
-      # execute callbacks
+      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost", :foreign_key => :host_id
     end
 
     # create or overwrite instance methods...
