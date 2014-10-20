@@ -22,10 +22,12 @@ module ForemanOpenscap
         # Add permissions
         security_block :foreman_openscap do
           permission :view_foreman_openscap, {:'foreman_openscap/hosts' => [:openscap] }
+          permission :view_arf_reports, {:arf_reports => [:index] }
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
         role "ForemanOpenscap", [:view_foreman_openscap]
+        role "OpenSCAP reports view", [:view_arf_reports]
 
         #add menu entry
         menu :top_menu, :template,
@@ -41,6 +43,7 @@ module ForemanOpenscap
       begin
         Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
         HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
+        ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
       rescue => e
         puts "ForemanOpenscap: skipping engine hook (#{e.to_s})"
       end

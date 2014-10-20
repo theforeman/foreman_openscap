@@ -1,0 +1,14 @@
+<table class="table table-bordered table-striped ellipsis">
+  <tr>
+    <th><%= sort :host %></th>
+    <th><%= sort :policy, :as => _("Policy") %></th>
+    <th><%= sort :date, :as => _("Date") %></th>
+  </tr>
+  <% for arf_report in @arf_reports %>
+    <tr>
+      <td><%= arf_report.asset.host %></td>
+      <td><%= arf_report.policy.name %></td>
+      <td><%= arf_report.date.getlocal %></td>
+    </tr>
+  <% end %>
+</table>

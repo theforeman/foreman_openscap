@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :arf_reports, :only => [:index] do
+  end
+
   match 'openscap', :to => 'foreman_openscap/hosts#openscap'
 
   namespace :api do
