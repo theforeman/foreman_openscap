@@ -5,7 +5,8 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
 
     included do
-      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost", :foreign_key => :host_id
+      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost",
+          :foreign_key => :host_id, :inverse_of => :host
     end
 
     # create or overwrite instance methods...
