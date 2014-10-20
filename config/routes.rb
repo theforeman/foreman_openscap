@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  match 'new_action', :to => 'foreman_openscap/hosts#new_action'
+  match 'openscap', :to => 'foreman_openscap/hosts#openscap'
 
   namespace :api do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},

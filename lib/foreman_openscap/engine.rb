@@ -21,7 +21,7 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_foreman_openscap, {:'foreman_openscap/hosts' => [:new_action] }
+          permission :view_foreman_openscap, {:'foreman_openscap/hosts' => [:openscap] }
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
@@ -29,8 +29,8 @@ module ForemanOpenscap
 
         #add menu entry
         menu :top_menu, :template,
-             :url_hash => {:controller => :'foreman_openscap/hosts', :action => :new_action },
-             :caption  => 'ForemanOpenscap',
+             :url_hash => {:controller => :'foreman_openscap/hosts', :action => :openscap },
+             :caption  => 'OpenSCAP Scans',
              :parent   => :hosts_menu,
              :after    => :hosts
       end
