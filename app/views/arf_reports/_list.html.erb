@@ -8,7 +8,7 @@
     <tr>
       <td><%= name_column(arf_report.asset.host) %></td>
       <td><%= arf_report.policy.name %></td>
-      <td><%= arf_report.date.getlocal %></td>
+      <td><%= _("%s ago") % time_ago_in_words(arf_report.date.getlocal) %></td>
     </tr>
   <% end %>
 </table>
