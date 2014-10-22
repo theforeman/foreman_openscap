@@ -6,7 +6,7 @@
   </tr>
   <% for arf_report in @arf_reports %>
     <tr>
-      <td><%= arf_report.asset.host %></td>
+      <td><%= name_column(arf_report.asset.host) %></td>
       <td><%= arf_report.policy.name %></td>
       <td><%= arf_report.date.getlocal %></td>
     </tr>
