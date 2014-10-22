@@ -31,7 +31,7 @@ module ForemanOpenscap
 
         #add menu entry
         menu :top_menu, :template,
-             :url_hash => {:controller => :'foreman_openscap/hosts', :action => :openscap },
+             :url_hash => {:controller => :'arf_reports', :action => :index },
              :caption  => 'OpenSCAP Scans',
              :parent   => :hosts_menu,
              :after    => :hosts
