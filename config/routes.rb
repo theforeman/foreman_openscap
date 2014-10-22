@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :arf_reports, :only => [:index] do
+  resources :arf_reports, :only => [:index, :show] do
   end
 
   namespace :api do
