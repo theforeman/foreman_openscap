@@ -3,12 +3,16 @@
     <th><%= sort :host %></th>
     <th><%= sort :policy, :as => _("Policy") %></th>
     <th><%= sort :date, :as => _("Date") %></th>
+    <th></th>
   </tr>
   <% for arf_report in @arf_reports %>
     <tr>
       <td><%= name_column(arf_report.asset.host) %></td>
       <td><%= arf_report.policy.name %></td>
       <td><%= _("%s ago") % time_ago_in_words(arf_report.date.getlocal) %></td>
+      <td>
+        <%= action_buttons( link_to(_("View Report"), hash_for_arf_report_path(:id => arf_report.id))) %>
+      </td>
     </tr>
   <% end %>
 </table>
