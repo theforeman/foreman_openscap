@@ -10,7 +10,7 @@
 
 %global gem_name foreman_openscap
 
-%global mainver 0.0.1
+%global mainver 0.1.0
 %global release 1
 %{?prever:
 %global gem_instdir %{gem_dir}/gems/%{gem_name}-%{mainver}%{?prever}
@@ -24,7 +24,7 @@
 %global foreman_bundlerd_dir %{foreman_dir}/bundler.d
 
 Name: %{?scl_prefix}rubygem-%{gem_name}
-Version: 0.0.1
+Version: %{mainver}
 Release: 1%{?dist}
 Summary: Foreman plug-in for displaying OpenSCAP audit reports
 Group: Applications/System
@@ -38,13 +38,13 @@ Requires: foreman >= 1.5.0
 Requires: %{?scl_prefix}ruby(release)
 Requires: %{?scl_prefix}ruby(rubygems)
 Requires: %{?scl_prefix}rubygem(deface)
-Requires: %{?scl_prefix}rubygem(scaptimony)
+Requires: %{?scl_prefix}rubygem(scaptimony) >= 0.1.0
 BuildRequires: %{?scl_prefix}ruby(release)
 %else
 Requires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 Requires: %{?scl_prefix}rubygems
 Requires: %{?scl_prefix}rubygem-deface
-Requires: %{?scl_prefix}rubygem-scaptimony
+Requires: %{?scl_prefix}rubygem-scaptimony >= 0.1.0
 BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
@@ -124,5 +124,8 @@ popd
 exit 0
 
 %changelog
+* Thu Oct 23 2014 Šimon Lukašík <slukasik@redhat.com> - 0.1.0-1
+- rebuilt
+
 * Mon Jul 28 2014 Šimon Lukašík <slukasik@redhat.com> - 0.0.1-1
 - Initial package
