@@ -5,8 +5,8 @@ of Foreman based infrastructure.
 
 + Current features:
   + Collect & achieve OpenSCAP audit results from your infrastructure
-+ Future features:
   + Display audit results
++ Future features:
   + Set-up organization defined targeting (connect set of system, a policy and time schedule)
   + Set-up periodical audits
   + Search audit results
