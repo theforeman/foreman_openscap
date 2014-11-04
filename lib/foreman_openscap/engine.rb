@@ -21,7 +21,8 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, {:arf_reports => [:index, :show] }
+          permission :view_arf_reports, {:arf_reports => [:index, :show],
+                                         :scaptimony_policies => [:index] }
         end
 
         # Add a new role called 'Discovery' if it doesn't exist
@@ -42,6 +43,7 @@ module ForemanOpenscap
         Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
         HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
         ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
+        ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
       rescue => e
         puts "ForemanOpenscap: skipping engine hook (#{e.to_s})"
       end

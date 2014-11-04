@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :arf_reports, :only => [:index, :show] do
   end
+  resources :scaptimony_policies, :only => [:index] do
+  end
 
   namespace :api do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},

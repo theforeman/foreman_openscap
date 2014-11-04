@@ -1,0 +1,11 @@
+<table class="table table-bordered table-striped ellipsis">
+  <tr>
+    <th>Name</th>
+    <th></th>
+  </tr>
+  <% for policy in @policies %>
+    <tr>
+      <td><%= policy.name %></td>
+    </tr>
+  <% end %>
+</table>
