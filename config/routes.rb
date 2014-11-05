@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   resources :arf_reports, :only => [:index, :show] do
   end
-  resources :scaptimony_policies, :only => [:index] do
+  resources :scaptimony_policies, :only => [:index, :new, :create] do
   end
 
   namespace :api do

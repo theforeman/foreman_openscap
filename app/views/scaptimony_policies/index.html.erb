@@ -1,4 +1,5 @@
 <% title _("Compliance Policies") %>
 
-<%= render :partial => 'list' %>
+<% title_actions display_link_if_authorized(_("New Compliance Policy"), hash_for_new_scaptimony_policy_path) %>
 
+<%= render :partial => 'list' %>

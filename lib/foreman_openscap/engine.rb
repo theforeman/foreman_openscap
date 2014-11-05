@@ -23,10 +23,11 @@ module ForemanOpenscap
         security_block :foreman_openscap do
           permission :view_arf_reports, {:arf_reports => [:index, :show],
                                          :scaptimony_policies => [:index] }
+          permission :edit_compliance, {:scaptimony_policies => [:new, :create] }
         end
 
-        # Add a new role called 'Discovery' if it doesn't exist
-        role "OpenSCAP reports view", [:view_arf_reports]
+        role "View compliance reports", [:view_arf_reports]
+        role "Edit compliance policies", [:edit_compliance]
 
         #add menu entries
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
