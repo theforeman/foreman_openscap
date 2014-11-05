@@ -28,12 +28,14 @@ module ForemanOpenscap
         # Add a new role called 'Discovery' if it doesn't exist
         role "OpenSCAP reports view", [:view_arf_reports]
 
-        #add menu entry
-        menu :top_menu, :template,
+        #add menu entries
+        divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
+        menu :top_menu, :compliance_policies, :caption => N_('Policies'),
+             :url_hash => {:controller => :'scaptimony_policies', :action => :index },
+             :parent => :hosts_menu
+        menu :top_menu, :compliance_reports, :caption => N_('Reports'),
              :url_hash => {:controller => :'arf_reports', :action => :index },
-             :caption  => 'Compliance',
-             :parent   => :hosts_menu,
-             :after    => :hosts
+             :parent   => :hosts_menu
       end
     end
 
