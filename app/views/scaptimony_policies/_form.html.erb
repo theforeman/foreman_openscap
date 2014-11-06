@@ -1,5 +1,5 @@
 <%= form_for @policy,
-    :url => (@policy.id? ? scaptimony_policies_path(:id => @policy.id) : scaptimony_policies_path) do |f| %>
+    :url => (@policy.id? ? scaptimony_policy_path(:id => @policy.id) : scaptimony_policies_path) do |f| %>
   <%= base_errors_for @policy %>
 
   <ul class="nav nav-tabs" data-tabs="tabs">

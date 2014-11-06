@@ -23,7 +23,7 @@ module ForemanOpenscap
         security_block :foreman_openscap do
           permission :view_arf_reports, {:arf_reports => [:index, :show],
                                          :scaptimony_policies => [:index] }
-          permission :edit_compliance, {:scaptimony_policies => [:new, :create] }
+          permission :edit_compliance, {:scaptimony_policies => [:new, :create, :edit, :update] }
         end
 
         role "View compliance reports", [:view_arf_reports]

@@ -5,7 +5,11 @@
   </tr>
   <% for policy in @policies %>
     <tr>
-      <td><%= policy.name %></td>
+      <td>
+          <%= link_to_if_authorized policy.name,
+                  hash_for_edit_scaptimony_policy_path(:id => policy).merge(
+                       :auth_object => policy, :authorizer => authorizer) %>
+      </td>
     </tr>
   <% end %>
 </table>
