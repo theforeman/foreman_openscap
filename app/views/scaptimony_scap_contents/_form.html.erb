@@ -1,0 +1,18 @@
+<%= form_for @scaptimony_scap_content,
+    :url => (@scaptimony_scap_content.id? ?
+        scaptimony_scap_content_path(:id => @scaptimony_scap_content.id) : scaptimony_scap_contents_path),
+    :html => { :multipart => true } do |f| %>
+
+  <%= base_errors_for @scaptimony_scap_content %>
+
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a href="#primary" data-toggle="tab"><%= _("File Upload") %></a></li>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="primary">
+      <%= text_f(f, :title) %>
+      <%= file_field_f f, :scap_file, :help_block  => _("Upload SCAP DataStream file") %>
+    </div>
+    <%= submit_or_cancel f %>
+  </div>
+<% end %>
