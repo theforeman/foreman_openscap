@@ -1,0 +1,22 @@
+<table class="table table-bordered table-striped table-two-pane">
+  <tr>
+    <th>Title</th>
+    <th>Filename</th>
+    <th>Created</th>
+    <th></th>
+  </tr>
+  <% for c in @contents %>
+    <tr>
+      <td>
+          <%= c.title %>
+      </td>
+      <td>
+          <%= c.original_filename %>
+      </td>
+      <td>
+          <%= _("%s ago") % time_ago_in_words(c.created_at.getlocal) %>
+      </td>
+      <td/>
+    </tr>
+  <% end %>
+</table>

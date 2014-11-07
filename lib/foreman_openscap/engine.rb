@@ -22,7 +22,9 @@ module ForemanOpenscap
         # Add permissions
         security_block :foreman_openscap do
           permission :view_arf_reports, {:arf_reports => [:index, :show],
-                                         :scaptimony_policies => [:index] }
+                                         :scaptimony_policies => [:index],
+                                         :scaptimony_scap_contents => [:index],
+                                        }
           permission :edit_compliance, {:scaptimony_policies => [:new, :create, :edit, :update] }
         end
 
@@ -33,6 +35,9 @@ module ForemanOpenscap
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
         menu :top_menu, :compliance_policies, :caption => N_('Policies'),
              :url_hash => {:controller => :'scaptimony_policies', :action => :index },
+             :parent => :hosts_menu
+        menu :top_menu, :compliance_contents, :caption => N_('SCAP content'),
+             :url_hash => {:controller => :'scaptimony_scap_contents', :action => :index },
              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
              :url_hash => {:controller => :'arf_reports', :action => :index },
@@ -47,6 +52,7 @@ module ForemanOpenscap
         HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
         ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
         ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
+        ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
       rescue => e
         puts "ForemanOpenscap: skipping engine hook (#{e.to_s})"
       end

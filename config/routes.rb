@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   end
   resources :scaptimony_policies, :only => [:index, :new, :create, :edit, :update] do
   end
+  resources :scaptimony_scap_contents, :only => [:index] do
+  end
 
   namespace :api do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},

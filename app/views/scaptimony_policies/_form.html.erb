@@ -13,6 +13,8 @@
       <%= text_f(f, :description, :size => "col-md-8" ) %>
     </div>
     <div class="tab-pane" id="scap_content">
+      <%= file_field_f f, :scap_content, :class => "scap_content", :size => "col-md-10",
+          :help_block  => _("Upload SCAP DataStream file to be associated with this policy") %>
       <%= text_f(f, :xccdf_profile) %>
     </div>
     <div class="tab-pane" id="scap_schedule">
