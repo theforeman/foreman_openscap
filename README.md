@@ -7,6 +7,7 @@ of Foreman based infrastructure.
   + Collect & achieve OpenSCAP audit results from your infrastructure
   + Display audit results
 + Future features:
+  + Centralized policy management
   + Set-up organization defined targeting (connect set of system, a policy and time schedule)
   + Set-up periodical audits
   + Search audit results
@@ -15,6 +16,7 @@ of Foreman based infrastructure.
   + Comparison of audit results
   + Waive known issues (one-time waivers, re-occurring, waivers)
   + Ad-hoc audit of given machine
+  + E-mail notifications
 
 ## Installation
 
