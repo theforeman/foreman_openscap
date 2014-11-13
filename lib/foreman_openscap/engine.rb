@@ -15,6 +15,17 @@ module ForemanOpenscap
       app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
     end
 
+    initializer 'foreman_openscap.assets.precompile' do |app|
+      app.config.assets.precompile += %w(
+        'foreman_openscap/policy_edit.js'
+      )
+    end
+
+    initializer 'foreman_openscap.configure_assets', :group => :assets do
+      SETTINGS[:foreman_openscap] =
+        { :assets => { :precompile => ['foreman_openscap/policy_edit.js']}}
+    end
+
     initializer 'foreman_openscap.register_plugin', :after=> :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
         requires_foreman '>= 1.5'

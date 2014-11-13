@@ -1,0 +1,10 @@
+<%= fields_for @policy do |f| %>
+  <%= select_f f, :scap_content_profile_id, profiles_selection, :id, :title,
+    {:selected => @policy.scap_content_profile_id,
+      :include_blank => _("Default XCCDF profile")},
+    {:label => _("XCCDF Profile"),
+      :disabled => profiles_selection.empty? ? true : false,
+      :help_inline => :indicator}
+  %>
+<% end %>
+

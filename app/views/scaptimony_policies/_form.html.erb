@@ -1,3 +1,4 @@
+<%= javascript 'policy_edit' %>
 <%= form_for @policy,
     :url => (@policy.id? ? scaptimony_policy_path(:id => @policy.id) : scaptimony_policies_path) do |f| %>
   <%= base_errors_for @policy %>
@@ -13,9 +14,21 @@
       <%= text_f(f, :description, :size => "col-md-8" ) %>
     </div>
     <div class="tab-pane" id="scap_content">
-      <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title, {:include_blank => _("Choose existing SCAP Content")},
-        {:label => _("SCAP Content")} %>
-      <%= text_f(f, :xccdf_profile) %>
+      <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,
+        {:include_blank => _("Choose existing SCAP Content")},
+        {:label => _("SCAP Content"),
+          :onchange => 'scap_content_selected(this);',
+          :'data-url' => method_path('scap_content_selected')}
+      %>
+      <span id="scap_content_profile_select">
+        <%= select_f f, :scap_content_profile_id, profiles_selection, :id, :title,
+          {:selected => @policy.scap_content_profile_id,
+            :include_blank => _("Default XCCDF profile")},
+          {:label => _("XCCDF Profile"),
+            :disabled => profiles_selection.empty? ? true : false,
+            :help_inline => :indicator}
+        %>
+      </span>
     </div>
     <div class="tab-pane" id="scap_schedule">
       <%= text_f(f, :period) %>

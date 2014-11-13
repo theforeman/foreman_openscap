@@ -32,6 +32,13 @@ class ScaptimonyPoliciesController < ApplicationController
     end
   end
 
+  def scap_content_selected
+    if params[:scap_content_id] and @scap_content = ::Scaptimony::ScapContent.find(params[:scap_content_id])
+      @policy ||= ::Scaptimony::Policy.new
+      render :partial => 'scap_content_results', :locals => { :policy => @policy }
+    end
+  end
+
   private
   def find_by_id
     @policy = resource_base.find(params[:id])

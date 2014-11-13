@@ -49,6 +49,7 @@ BuildRequires: %{?scl_prefix}ruby(abi) >= %{rubyabi}
 %endif
 BuildRequires: %{?scl_prefix}rubygems-devel
 BuildRequires: %{?scl_prefix}rubygems
+BuildRequires: foreman-assets
 
 BuildArch: noarch
 Provides: %{?scl_prefix}rubygem(%{gem_name}) = %{version}

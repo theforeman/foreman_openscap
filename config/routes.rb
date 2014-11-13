@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   resources :arf_reports, :only => [:index, :show] do
   end
   resources :scaptimony_policies, :only => [:index, :new, :create, :edit, :update] do
+    collection do
+      post 'scap_content_selected'
+    end
   end
   resources :scaptimony_scap_contents, :only => [:index, :new, :create, :edit, :update] do
   end
