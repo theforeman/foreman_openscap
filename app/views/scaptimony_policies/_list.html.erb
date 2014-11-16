@@ -19,6 +19,11 @@
       <td>
           <%= policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title %>
       </td>
+      <td>
+          <%= action_buttons(
+            link_to_if_authorized(_("Edit"), hash_for_edit_scaptimony_policy_path(:id => policy.id))
+            ) %>
+      </td>
     </tr>
   <% end %>
 </table>
