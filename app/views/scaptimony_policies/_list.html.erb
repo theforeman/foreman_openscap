@@ -13,8 +13,10 @@
                        :auth_object => policy, :authorizer => authorizer) %>
       </td>
       <td>
-          <%= link_to_if_authorized policy.scap_content.title,
+          <% if !policy.scap_content.nil? %>
+            <%= link_to_if_authorized policy.scap_content.title,
                   hash_for_edit_scaptimony_scap_content_path(:id => policy.scap_content) %>
+          <% end %>
       </td>
       <td>
           <%= policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title %>
