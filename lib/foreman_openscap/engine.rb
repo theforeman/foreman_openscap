@@ -49,7 +49,7 @@ module ForemanOpenscap
         menu :top_menu, :compliance_policies, :caption => N_('Policies'),
              :url_hash => {:controller => :'scaptimony_policies', :action => :index },
              :parent => :hosts_menu
-        menu :top_menu, :compliance_contents, :caption => N_('SCAP content'),
+        menu :top_menu, :compliance_contents, :caption => N_('SCAP contents'),
              :url_hash => {:controller => :'scaptimony_scap_contents', :action => :index },
              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
