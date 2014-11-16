@@ -2,6 +2,7 @@
   <tr>
     <th>Name</th>
     <th>Content</th>
+    <th>Profile</th>
     <th></th>
   </tr>
   <% for policy in @policies %>
@@ -14,6 +15,9 @@
       <td>
           <%= link_to_if_authorized policy.scap_content.title,
                   hash_for_edit_scaptimony_scap_content_path(:id => policy.scap_content) %>
+      </td>
+      <td>
+          <%= policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title %>
       </td>
     </tr>
   <% end %>
