@@ -1,7 +1,7 @@
 class ScaptimonyScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   before_filter :handle_file_upload, :only => [:create]
-  before_filter :find_by_id, :only => [:edit, :update]
+  before_filter :find_by_id, :only => [:show, :edit, :update]
 
   def model_of_controller
     ::Scaptimony::ScapContent
@@ -10,6 +10,12 @@ class ScaptimonyScapContentsController < ApplicationController
   # GET /scaptimony_scap_contents
   def index
     @contents = resource_base.search_for(params[:search])
+  end
+
+  def show
+    send_file @scaptimony_scap_content.path,
+      :type => "application/xml",
+      :filename => @scaptimony_scap_content.original_filename
   end
 
   def new

@@ -18,7 +18,8 @@
       </td>
       <td>
         <%= action_buttons(
-          link_to_if_authorized(_("Edit"), hash_for_edit_scaptimony_scap_content_path(:id => c.id))
+          link_to_if_authorized(_("Edit"), hash_for_edit_scaptimony_scap_content_path(:id => c.id)),
+          link_to_if_authorized(_("Download"), hash_for_scaptimony_scap_content_path(:id => c.id))
           ) %>
       </td>
     </tr>

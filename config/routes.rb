@@ -7,7 +7,7 @@ Rails.application.routes.draw do
       post 'scap_content_selected'
     end
   end
-  resources :scaptimony_scap_contents, :only => [:index, :new, :create, :edit, :update] do
+  resources :scaptimony_scap_contents, :only => [:index, :show, :new, :create, :edit, :update] do
   end
 
   namespace :api do
