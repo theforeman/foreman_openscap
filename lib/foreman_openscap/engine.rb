@@ -37,7 +37,7 @@ module ForemanOpenscap
                                          :scaptimony_scap_contents => [:index],
                                         }
           permission :edit_compliance, {:arf_reports => [:destroy],
-                                        :scaptimony_policies => [:new, :create, :edit, :update],
+                                        :scaptimony_policies => [:new, :create, :edit, :update, :destroy],
                                         :scaptimony_scap_contents => [:new, :create, :edit, :update]
                                        }
         end

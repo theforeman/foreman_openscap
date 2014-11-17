@@ -1,6 +1,6 @@
 class ScaptimonyPoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
-  before_filter :find_by_id, :only => [:show, :edit, :update]
+  before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
 
   def model_of_controller
     ::Scaptimony::Policy
@@ -30,6 +30,14 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def update
     if @policy.update_attributes(params[:policy])
+      process_success
+    else
+      process_error
+    end
+  end
+
+  def destroy
+    if @policy.destroy
       process_success
     else
       process_error
