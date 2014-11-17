@@ -23,6 +23,7 @@
       </td>
       <td>
           <%= action_buttons(
+            link_to_if_authorized(_("Show Guide"), hash_for_scaptimony_policy_path(:id => policy.id)),
             link_to_if_authorized(_("Edit"), hash_for_edit_scaptimony_policy_path(:id => policy.id))
             ) %>
       </td>

@@ -1,6 +1,6 @@
 class ScaptimonyPoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
-  before_filter :find_by_id, :only => [:edit, :update]
+  before_filter :find_by_id, :only => [:show, :edit, :update]
 
   def model_of_controller
     ::Scaptimony::Policy
@@ -13,6 +13,10 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def new
     @policy = ::Scaptimony::Policy.new
+  end
+
+  def show
+    self.response_body = ::Scaptimony::GuideGenerator.new @policy
   end
 
   def create
