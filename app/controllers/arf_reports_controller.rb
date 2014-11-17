@@ -1,7 +1,7 @@
 class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
 
-  before_filter :find_by_id, :only => [:show]
+  before_filter :find_by_id, :only => [:show, :destroy]
 
   def model_of_controller
     ::Scaptimony::ArfReport
@@ -15,6 +15,14 @@ class ArfReportsController < ApplicationController
   # GET /arf_reports/1
   def show
     self.response_body = @arf_report
+  end
+
+  def destroy
+    if @arf_report.destroy
+      process_success
+    else
+      process_error
+    end
   end
 
   def find_by_id
