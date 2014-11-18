@@ -26,7 +26,7 @@ class ScaptimonyScapContentsController < ApplicationController
   def create
     @scaptimony_scap_content = ::Scaptimony::ScapContent.new(params[:scap_content])
     if @scaptimony_scap_content.store
-      process_success
+      process_success :success_redirect => scaptimony_scap_contents_path
     else
       process_error
     end
@@ -41,7 +41,7 @@ class ScaptimonyScapContentsController < ApplicationController
 
   def update
     if @scaptimony_scap_content.update_attributes(params[:scap_content])
-      process_success
+      process_success :success_redirect => scaptimony_scap_contents_path
     else
       process_error
     end

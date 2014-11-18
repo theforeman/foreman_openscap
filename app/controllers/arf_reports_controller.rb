@@ -19,7 +19,7 @@ class ArfReportsController < ApplicationController
 
   def destroy
     if @arf_report.destroy
-      process_success
+      process_success :success_redirect => arf_reports_path
     else
       process_error
     end
