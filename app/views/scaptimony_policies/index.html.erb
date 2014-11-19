@@ -1,6 +1,9 @@
 <%= javascript 'policy_edit' %>
 <% title _("Compliance Policies") %>
 
-<% title_actions display_link_if_authorized(_("New Compliance Policy"), hash_for_new_scaptimony_policy_path) %>
+<% title_actions(
+  display_link_if_authorized(_("New Compliance Policy"), hash_for_new_scaptimony_policy_path),
+  link_to(_("Help"), :action => "welcome")
+  ) %>
 
 <%= render :partial => 'list' %>
