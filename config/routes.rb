@@ -10,6 +10,10 @@ Rails.application.routes.draw do
   resources :scaptimony_scap_contents, :only => [:index, :show, :new, :create, :edit, :update] do
   end
 
+  scope '/scaptimony' do
+    match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
+  end
+
   namespace :api do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},
           :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
