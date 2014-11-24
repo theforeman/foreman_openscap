@@ -6,7 +6,7 @@ class ScaptimonyPoliciesController < ApplicationController
     ::Scaptimony::Policy
   end
 
-  # GET /scaptimony_policies
+  # GET /scaptimony/policies
   def index
     @policies = resource_base.search_for(params[:search])
   end
