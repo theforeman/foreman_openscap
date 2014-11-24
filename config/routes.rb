@@ -7,11 +7,11 @@ Rails.application.routes.draw do
       post 'scap_content_selected'
     end
   end
-  resources :scaptimony_scap_contents, :only => [:index, :show, :new, :create, :edit, :update] do
-  end
 
   scope '/scaptimony' do
     match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
+    resources :scap_contents, :only => [:index, :show, :new, :create, :edit, :update],
+      :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
   end
 
   namespace :api do
