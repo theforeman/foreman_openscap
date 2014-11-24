@@ -9,7 +9,7 @@ class ArfReportsController < ApplicationController
 
   # GET /arf_reports
   def index
-    @arf_reports = resource_base.search_for(params[:search])
+    @arf_reports = resource_base.search_for(params[:search], :order => params[:order])
   end
 
   # GET /arf_reports/1
