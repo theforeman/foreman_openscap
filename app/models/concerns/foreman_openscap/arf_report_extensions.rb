@@ -14,7 +14,6 @@ module ForemanOpenscap
   module ArfReportExtensions
     extend ActiveSupport::Concern
     included do
-      scoped_search :on => :date, :complete_value => true
       scoped_search :on => :digest
     end
   end
