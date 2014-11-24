@@ -15,6 +15,7 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
     included do
       scoped_search :on => :digest
+      scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
     end
   end
 end
