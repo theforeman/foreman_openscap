@@ -32,11 +32,11 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, {:arf_reports => [:index, :show],
+          permission :view_arf_reports, {:scaptimony_arf_reports => [:index, :show],
                                          :scaptimony_policies => [:index, :show],
                                          :scaptimony_scap_contents => [:index, :show],
                                         }
-          permission :edit_compliance, {:arf_reports => [:destroy],
+          permission :edit_compliance, {:scaptimony_arf_reports => [:destroy],
                                         :scaptimony_policies => [:new, :create, :edit, :update, :destroy],
                                         :scaptimony_scap_contents => [:new, :create, :edit, :update]
                                        }
@@ -54,7 +54,7 @@ module ForemanOpenscap
              :url_hash => {:controller => :'scaptimony_scap_contents', :action => :index },
              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
-             :url_hash => {:controller => :'arf_reports', :action => :index },
+             :url_hash => {:controller => :'scaptimony_arf_reports', :action => :index },
              :parent   => :hosts_menu
       end
     end

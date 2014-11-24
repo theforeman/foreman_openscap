@@ -1,4 +1,4 @@
-class ArfReportsController < ApplicationController
+class ScaptimonyArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
 
   before_filter :find_by_id, :only => [:show, :destroy]
@@ -7,19 +7,19 @@ class ArfReportsController < ApplicationController
     ::Scaptimony::ArfReport
   end
 
-  # GET /arf_reports
+  # GET /scaptimony/arf_reports
   def index
     @arf_reports = resource_base.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page], :per_page => params[:per_page])
   end
 
-  # GET /arf_reports/1
+  # GET /scaptimony/arf_reports/1
   def show
     self.response_body = @arf_report
   end
 
   def destroy
     if @arf_report.destroy
-      process_success :success_redirect => arf_reports_path
+      process_success :success_redirect => scaptimony_arf_reports_path
     else
       process_error
     end
