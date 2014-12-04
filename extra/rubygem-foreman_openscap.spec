@@ -69,7 +69,9 @@ BuildArch: noarch
 Documentation for %{name}.
 
 %prep
+%{?scl:scl enable %{scl} "}
 gem unpack %{SOURCE0}
+%{?scl:"}
 
 %setup -q -D -T -n  %{gem_name}-%{version}
 mkdir -p .%{gem_dir}
