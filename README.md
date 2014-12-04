@@ -4,14 +4,14 @@ This plug-in enables automated vulnerability assessment and compliance audit
 of Foreman based infrastructure.
 
 + Current features:
+  + Centralized policy management
   + Collect & achieve OpenSCAP audit results from your infrastructure
   + Display audit results
-+ Future features:
-  + Centralized policy management
-  + Set-up organization defined targeting (connect set of system, a policy and time schedule)
-  + Set-up periodical audits
   + Search audit results
   + Search for non-compliant systems
++ Future features:
+  + Set-up organization defined targeting (connect set of system, a policy and time schedule)
+  + Set-up periodical audits
   + Search for not audited systems
   + Comparison of audit results
   + Waive known issues (one-time waivers, re-occurring, waivers)
