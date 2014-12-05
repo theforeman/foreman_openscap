@@ -8,6 +8,8 @@ Rails.application.routes.draw do
               :as => :scaptimony_policies, :controller => :scaptimony_policies do
       collection do
         post 'scap_content_selected'
+        get 'select_multiple_hosts'
+        post 'update_multiple_hosts'
       end
     end
     resources :scap_contents, :only => [:index, :show, :new, :create, :edit, :update],
