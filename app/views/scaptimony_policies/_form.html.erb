@@ -1,4 +1,4 @@
-<%= javascript 'policy_edit' %>
+<%= javascript 'foreman_openscap/policy_edit' %>
 <%= form_for @policy,
     :url => (@policy.id? ? scaptimony_policy_path(:id => @policy.id) : scaptimony_policies_path) do |f| %>
   <%= base_errors_for @policy %>
