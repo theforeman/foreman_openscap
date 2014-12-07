@@ -20,7 +20,21 @@ of Foreman based infrastructure.
   + Vulnerability Assessment (processing OVAL CVE streams)
   + E-mail notifications
 
-## Installation
+## Installation from RPMS
+
+- Install Foreman from [upstream](http://theforeman.org/)
+
+- Install foreman-proxy_openscap to all your foreman-proxies from [upstream](https://github.com/OpenSCAP/foreman-proxy_openscap)
+
+- Enable [isimluk/OpenSCAP](https://copr.fedoraproject.org/coprs/isimluk/OpenSCAP/) COPR repository
+
+- Install Foreman_OpenSCAP
+
+  ```
+  yum install rubygem-foreman_openscap ruby193-rubygem-foreman_openscap
+  ```
+
+## Installation from upstream git
 
 - Install Foreman from [upstream](http://theforeman.org/)
 - Install SCAPtimony from [upstream](https://github.com/OpenSCAP/scaptimony)
