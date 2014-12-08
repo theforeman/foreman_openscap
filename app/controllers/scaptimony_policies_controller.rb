@@ -25,7 +25,7 @@ class ScaptimonyPoliciesController < ApplicationController
     if @policy.save
       process_success :success_redirect => scaptimony_policies_path
     else
-      process_error
+      process_error :object => @policy
     end
   end
 
@@ -33,7 +33,7 @@ class ScaptimonyPoliciesController < ApplicationController
     if @policy.update_attributes(params[:policy])
       process_success :success_redirect => scaptimony_policies_path
     else
-      process_error
+      process_error :object => @policy
     end
   end
 
@@ -41,7 +41,7 @@ class ScaptimonyPoliciesController < ApplicationController
     if @policy.destroy
       process_success :success_redirect => scaptimony_policies_path
     else
-      process_error
+      process_error :object => @policy
     end
   end
 
