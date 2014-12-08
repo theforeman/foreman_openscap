@@ -1,0 +1,20 @@
+<%= javascript 'dashboard' %>
+
+<% title _("Compliance policy: #{@policy.name}") %>
+
+<div id='dashboard' class="row gridster">
+  <ul>
+    <%= policy_widget_list.map do |widget|
+          content_tag(:li, render(widget.id), :data => {
+            :id => widget.id,
+            :name => widget.name || widget.id,
+            :row => widget.row,
+            :col => widget.col,
+            :sizex=>widget.sizex,
+            :sizey => widget.sizey,
+            :hide=>widget.hide
+            })
+        end.join(' ').html_safe
+    %>
+  </ul>
+</div>

@@ -1,0 +1,10 @@
+<div id='status-table'>
+  <h4 class="header"><%= _('Hosts Breakdown') %></h4>
+  <ul>
+    <%= status_link _('Compliant with the policy'), :compliant_hosts %>
+    <%= status_link _('Not compliant with the policy'), :incompliant_hosts %>
+    <%= status_link _('Missing last audit report'), :report_delayed %>
+    <%= status_link _('Never audited'), :report_missing %>
+    <%= status_link _('Not assigned with this policy'), :unassigned_hosts %>
+  </ul>
+</div>
