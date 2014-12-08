@@ -12,7 +12,7 @@ module ForemanOpenscap
     def get_asset
       return auditable_host.asset unless auditable_host.nil?
       # TODO:RAILS-4.0: This should become: asset = Asset.find_or_create_by!(name: cname)
-      asset = Scaptimony::Asset.first_or_create!(:name => name)
+      asset = Scaptimony::Asset.where(:name => name).first_or_create!
       @auditable_host = Scaptimony::AuditableHost.where(:asset_id => asset.id, :host_id => id).first_or_create!
       @auditable_host.asset
     end
