@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  scope '/scaptimony' do
+  scope '/compliance' do
     resources :arf_reports, :only => [:index, :show, :destroy],
               :as => :scaptimony_arf_reports, :controller => :scaptimony_arf_reports
     match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
