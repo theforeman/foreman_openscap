@@ -16,5 +16,9 @@ module ForemanOpenscap
     included do
       scoped_search :on => :name, :complete_value => true
     end
+
+    def assign_hosts(hosts)
+      assign_assets hosts.map &:get_asset
+    end
   end
 end

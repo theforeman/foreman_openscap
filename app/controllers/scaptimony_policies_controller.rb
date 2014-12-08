@@ -59,9 +59,7 @@ class ScaptimonyPoliciesController < ApplicationController
       redirect_to(select_multiple_hosts_scaptimony_policies_path)
     else
       policy = ::Scaptimony::Policy.find_by_id(id)
-      @hosts.each do |host|
-        logger.error "failed to assign #{host} -- #{policy}"
-      end
+      policy.assign_hosts @hosts
       notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
       # We prefer to go back as this does not lose the current search
       redirect_to hosts_path
