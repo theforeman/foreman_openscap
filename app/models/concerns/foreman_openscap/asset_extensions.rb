@@ -8,9 +8,14 @@
 # along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
 #
 
-module ::Scaptimony
- class Asset < ActiveRecord::Base
-    has_one :auditable_host, :inverse_of => :asset
-    has_one :host, :through => :auditable_host
+require 'scaptimony/asset'
+
+module ForemanOpenscap
+  module AssetExtensions
+    extend ActiveSupport::Concern
+    included do
+      has_one :auditable_host, :inverse_of => :asset
+      has_one :host, :through => :auditable_host
+    end
   end
 end

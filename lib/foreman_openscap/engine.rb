@@ -66,6 +66,7 @@ module ForemanOpenscap
         Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
         HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
         ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
+        ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
         ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
         ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
       rescue => e
