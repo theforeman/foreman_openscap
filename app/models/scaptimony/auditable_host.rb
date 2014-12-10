@@ -9,8 +9,9 @@
 #
 
 module ::Scaptimony
- class Asset < ActiveRecord::Base
-    has_one :auditable_host, :inverse_of => :asset
-    has_one :host, :through => :auditable_host
+  class AuditableHost < ActiveRecord::Base
+    # Links Foreman's Host table with SCAPtimony's Asset table
+    belongs_to :asset, :inverse_of => :auditable_host
+    belongs_to_host :inverse_of => :auditable_host
   end
 end
