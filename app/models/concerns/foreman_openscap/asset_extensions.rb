@@ -9,6 +9,7 @@
 #
 
 require 'scaptimony/asset'
+require 'scaptimony/auditable_host'
 
 module ForemanOpenscap
   module AssetExtensions
@@ -16,6 +17,8 @@ module ForemanOpenscap
     included do
       has_one :auditable_host, :inverse_of => :asset
       has_one :host, :through => :auditable_host
+
+      scope :hosts, joins(:auditable_host)
     end
   end
 end
