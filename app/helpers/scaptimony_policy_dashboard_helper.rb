@@ -10,11 +10,10 @@
 
 module ScaptimonyPolicyDashboardHelper
   Colors = {
-    :compliant_hosts => '#4572A7',
+    :compliant_hosts => '#89A54E',
     :incompliant_hosts => '#AA4643',
-    :report_delayed => '#3D96AE',
-    :report_missing => '#DB843D',
-    :unassigned_hosts => '#92A8CD',
+    :inconclusive_hosts => '#DB843D',
+    :report_missing => '#92A8CD',
   }
 
   def policy_widget_list
@@ -25,7 +24,7 @@ module ScaptimonyPolicyDashboardHelper
     data = []
     [[:compliant_hosts, _('Compliant hosts')],
      [:incompliant_hosts, _('Incompliant hosts')],
-     [:report_delayed, _('Hosts missing last audit')],
+     [:inconclusive_hosts, _('Inconclusive')],
      [:report_missing, _('Not audited')],
     ].each { |i|
       data << {:label => i[1], :data => report[i[0]], :color => Colors[i[0]]}
