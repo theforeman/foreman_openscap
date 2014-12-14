@@ -14,7 +14,6 @@ module ForemanOpenscap
   module ScapContentExtensions
     extend ActiveSupport::Concern
     included do
-      scoped_search :on => :digest
     end
   end
 end
