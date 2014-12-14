@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy],
               :as => :scaptimony_policies, :controller => :scaptimony_policies do
       member do
+        match 'parse', :to => 'scaptimony_policies#parse'
         match 'dashboard', :to => 'scaptimony_policy_dashboard#index', :as => 'scaptimony_policy_dashboard'
       end
       collection do

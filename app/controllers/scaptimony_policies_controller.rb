@@ -1,6 +1,6 @@
 class ScaptimonyPoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
-  before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_by_id, :only => [:show, :edit, :update, :parse, :destroy]
   before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts]
 
   def model_of_controller
@@ -9,7 +9,7 @@ class ScaptimonyPoliciesController < ApplicationController
 
   # GET /scaptimony/policies
   def index
-    @policies = resource_base.search_for(params[:search])
+    @policies = resource_base.search_for(params[:search]).includes(:scap_content, :scap_content_profile)
   end
 
   def new
@@ -17,7 +17,10 @@ class ScaptimonyPoliciesController < ApplicationController
   end
 
   def show
-    self.response_body = ::Scaptimony::GuideGenerator.new @policy
+  end
+
+  def parse
+    self.response_body = @policy.to_html
   end
 
   def create
