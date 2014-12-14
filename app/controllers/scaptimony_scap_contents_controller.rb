@@ -1,6 +1,6 @@
 class ScaptimonyScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
-  before_filter :handle_file_upload, :only => [:create]
+  before_filter :handle_file_upload, :only => [:create, :update]
   before_filter :find_by_id, :only => [:show, :edit, :update]
 
   def model_of_controller
@@ -13,8 +13,8 @@ class ScaptimonyScapContentsController < ApplicationController
   end
 
   def show
-    send_file @scaptimony_scap_content.path,
-      :type => "application/xml",
+    send_data @scaptimony_scap_content.scap_file,
+      :type     => 'application/xml',
       :filename => @scaptimony_scap_content.original_filename
   end
 
@@ -25,23 +25,16 @@ class ScaptimonyScapContentsController < ApplicationController
   # POST /scaptimony/scap_contents
   def create
     @scaptimony_scap_content = ::Scaptimony::ScapContent.new(params[:scap_content])
-    if @scaptimony_scap_content.store
-      process_success :success_redirect => scaptimony_scap_contents_path
+    if @scaptimony_scap_content.save
+      process_success
     else
       process_error
     end
   end
 
-  def handle_file_upload
-    return unless params[:scap_content] and
-       t = params[:scap_content][:scap_file]
-    params[:scap_content][:original_filename] = t.original_filename
-    params[:scap_content][:scap_file] = t.read if t.respond_to?(:read)
-  end
-
   def update
     if @scaptimony_scap_content.update_attributes(params[:scap_content])
-      process_success :success_redirect => scaptimony_scap_contents_path
+      process_success
     else
       process_error
     end
@@ -51,4 +44,11 @@ class ScaptimonyScapContentsController < ApplicationController
   def find_by_id
     @scaptimony_scap_content = resource_base.find(params[:id])
   end
+
+  def handle_file_upload
+    return unless params[:scap_content] && t = params[:scap_content][:scap_file]
+    params[:scap_content][:original_filename] = t.original_filename
+    params[:scap_content][:scap_file] = t.tempfile.read if t.tempfile.respond_to?(:read)
+  end
+
 end
