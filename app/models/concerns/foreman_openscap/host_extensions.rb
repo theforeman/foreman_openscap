@@ -7,6 +7,12 @@ module ForemanOpenscap
     included do
       has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost",
           :foreign_key => :host_id, :inverse_of => :host
+      has_one :asset, :through => :auditable_host, :class_name => "::Scaptimony::Asset"
+      has_many :asset_policies, :through => :asset, :class_name => "::Scaptimony::AssetPolicy"
+      has_many :policies, :through => :asset_policies, :class_name => "::Scaptimony::Policy"
+
+      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
+                    :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
     end
 
     def get_asset
@@ -18,10 +24,10 @@ module ForemanOpenscap
     end
 
     module ClassMethods
-      # create or overwrite class methods...
-      def class_method_name
+      def search_by_policy_name(key, operator, policy_name)
+        cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
+        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select('hosts.id').joins(:policies).where(cond).ast).to_sql }
       end
     end
-
   end
 end
