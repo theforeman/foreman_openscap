@@ -17,7 +17,7 @@ class ScaptimonyArfReportsController < ApplicationController
 
   def destroy
     if @arf_report.destroy
-      process_success :success_redirect => scaptimony_arf_reports_path
+      process_success
     else
       process_error
     end
