@@ -9,6 +9,9 @@ class ScaptimonyScapContentsController < ApplicationController
 
   def index
     @contents = resource_base.search_for(params[:search])
+    if @contents.blank?
+      redirect_to :action => :new
+    end
   end
 
   def show
