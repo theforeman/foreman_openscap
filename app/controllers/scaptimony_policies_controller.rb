@@ -7,7 +7,6 @@ class ScaptimonyPoliciesController < ApplicationController
     ::Scaptimony::Policy
   end
 
-  # GET /scaptimony/policies
   def index
     @policies = resource_base.search_for(params[:search]).includes(:scap_content, :scap_content_profile)
   end

@@ -7,7 +7,6 @@ class ScaptimonyScapContentsController < ApplicationController
     ::Scaptimony::ScapContent
   end
 
-  # GET /scaptimony/scap_contents
   def index
     @contents = resource_base.search_for(params[:search])
   end
@@ -22,7 +21,6 @@ class ScaptimonyScapContentsController < ApplicationController
     @scaptimony_scap_content = ::Scaptimony::ScapContent.new
   end
 
-  # POST /scaptimony/scap_contents
   def create
     @scaptimony_scap_content = ::Scaptimony::ScapContent.new(params[:scap_content])
     if @scaptimony_scap_content.save
