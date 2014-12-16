@@ -1,7 +1,7 @@
 class ScaptimonyScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   before_filter :handle_file_upload, :only => [:create, :update]
-  before_filter :find_by_id, :only => [:show, :edit, :update]
+  before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
 
   def model_of_controller
     ::Scaptimony::ScapContent
@@ -9,7 +9,7 @@ class ScaptimonyScapContentsController < ApplicationController
 
   def index
     @contents = resource_base.search_for(params[:search])
-    if @contents.blank?
+    if Scaptimony::ScapContent.all.count == 0
       redirect_to :action => :new
     end
   end
@@ -38,6 +38,14 @@ class ScaptimonyScapContentsController < ApplicationController
       process_success
     else
       process_error
+    end
+  end
+
+  def destroy
+    if @scaptimony_scap_content.destroy
+      process_success
+    else
+      process_error :object => @scaptimony_scap_content
     end
   end
 
