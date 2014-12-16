@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   scope '/compliance' do
     resources :arf_reports, :only => [:index, :show, :destroy],
-              :as => :scaptimony_arf_reports, :controller => :scaptimony_arf_reports
+              :as => :scaptimony_arf_reports, :controller => :scaptimony_arf_reports do
+      member do
+        match 'parse', :to => 'scaptimony_arf_reports#parse'
+      end
+    end
     match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
     resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy],
               :as => :scaptimony_policies, :controller => :scaptimony_policies do
@@ -16,8 +20,8 @@ Rails.application.routes.draw do
         post 'update_multiple_hosts'
       end
     end
-    resources :scap_contents, :only => [:index, :show, :new, :create, :edit, :update],
-      :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
+    resources :scap_contents,
+              :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
   end
 
   namespace :api do
