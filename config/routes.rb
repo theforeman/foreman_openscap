@@ -16,8 +16,8 @@ Rails.application.routes.draw do
         post 'update_multiple_hosts'
       end
     end
-    resources :scap_contents, :only => [:index, :show, :new, :create, :edit, :update],
-      :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
+    resources :scap_contents,
+              :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
   end
 
   namespace :api do
