@@ -28,13 +28,15 @@ module ForemanOpenscap
     module ClassMethods
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
-        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select('hosts.id').joins(:policies).where(cond).ast).to_sql }
+        { :conditions => Host::Managed.arel_table[:id].in(
+              Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).ast
+            ).to_sql }
       end
 
       def search_by_missing_arf(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
         { :conditions => Host::Managed.arel_table[:id].in(
-             Host::Managed.select('hosts.id')
+             Host::Managed.select(Host::Managed.arel_table[:id])
                .joins(:policies)
                .where(cond)
                .where('scaptimony_assets.id not in (
