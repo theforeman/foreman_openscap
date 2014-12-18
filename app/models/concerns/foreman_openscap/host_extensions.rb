@@ -13,6 +13,8 @@ module ForemanOpenscap
 
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
+      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_report_missing_for',
+                    :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
     end
 
     def get_asset
@@ -27,6 +29,23 @@ module ForemanOpenscap
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
         { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select('hosts.id').joins(:policies).where(cond).ast).to_sql }
+      end
+
+      def search_by_missing_arf(key, operator, policy_name)
+        cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
+        { :conditions => Host::Managed.arel_table[:id].in(
+             Host::Managed.select('hosts.id')
+               .joins(:policies)
+               .where(cond)
+               .where('scaptimony_assets.id not in (
+				SELECT distinct scaptimony_arf_reports.asset_id
+				FROM scaptimony_arf_reports
+				WHERE scaptimony_arf_reports.asset_id = scaptimony_assets.id
+					AND scaptimony_arf_reports.policy_id = scaptimony_policies.id)
+			')
+               .ast
+             ).to_sql
+        }
       end
     end
   end
