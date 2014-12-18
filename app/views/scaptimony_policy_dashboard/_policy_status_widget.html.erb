@@ -1,10 +1,10 @@
 <div id='status-table'>
   <h4 class="header"><%= _('Hosts Breakdown') %></h4>
   <ul>
-    <%= status_link _('Compliant with the policy'), :compliant_hosts %>
-    <%= status_link _('Not compliant with the policy'), :incompliant_hosts %>
-    <%= status_link _('Inconclusive results'), :inconclusive_hosts %>
-    <%= status_link _('Never audited'), :report_missing %>
+    <%= status_link _('Compliant with the policy'), :compliant_hosts, hosts_path %>
+    <%= status_link _('Not compliant with the policy'), :incompliant_hosts, hosts_path %>
+    <%= status_link _('Inconclusive results'), :inconclusive_hosts, hosts_path %>
+    <%= status_link _('Never audited'), :report_missing, hosts_path %>
     <h4 class="total">
       <%= link_to(_("Total hosts: %s") % @report[:assigned_hosts], hosts_path(:search => "compliance_policy = #{@policy.name}")) %>
     </h4>

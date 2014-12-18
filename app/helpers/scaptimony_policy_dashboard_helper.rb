@@ -32,11 +32,11 @@ module ScaptimonyPolicyDashboardHelper
     flot_pie_chart 'overview', _('Compliance Status'), data, options
   end
 
-  def status_link(name, label)
+  def status_link(name, label, path)
     content_tag :li do
       content_tag(:i, raw('&nbsp;'), :class=>'label', :style => 'background-color:' + Colors[label]) +
       raw('&nbsp;') +
-      link_to(name, hosts_path, :class=>'dashboard-links') +
+      link_to(name, path, :class=>'dashboard-links') +
       content_tag(:h4, @report[label])
     end
   end
