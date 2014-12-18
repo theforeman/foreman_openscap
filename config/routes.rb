@@ -6,6 +6,9 @@ Rails.application.routes.draw do
       member do
         match 'parse', :to => 'scaptimony_arf_reports#parse'
       end
+      collection do
+        get 'auto_complete_search'
+      end
     end
     match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
     resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy],
@@ -15,13 +18,18 @@ Rails.application.routes.draw do
         match 'dashboard', :to => 'scaptimony_policy_dashboard#index', :as => 'scaptimony_policy_dashboard'
       end
       collection do
+        get 'auto_complete_search'
         post 'scap_content_selected'
         get 'select_multiple_hosts'
         post 'update_multiple_hosts'
       end
     end
     resources :scap_contents,
-              :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents
+              :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents do
+      collection do
+        get 'auto_complete_search'
+      end
+    end
   end
 
   namespace :api do
