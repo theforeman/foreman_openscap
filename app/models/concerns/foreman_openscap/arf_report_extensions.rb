@@ -14,6 +14,9 @@ module ForemanOpenscap
   module ArfReportExtensions
     extend ActiveSupport::Concern
     included do
+      has_one :auditable_host, :through => :asset
+      has_one :host, :through => :auditable_host
+
       scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
     end
   end
