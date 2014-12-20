@@ -1,0 +1,16 @@
+inherit_from:
+  - .rubocop_todo.yml
+
+AllCops:
+  RunRailsCops: true
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 125
+  Exclude:
+   - 'test/**/*'
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
