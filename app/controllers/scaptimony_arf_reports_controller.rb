@@ -8,7 +8,9 @@ class ScaptimonyArfReportsController < ApplicationController
   end
 
   def index
-    @arf_reports = resource_base.search_for(params[:search], :order => params[:order]).paginate(:page => params[:page], :per_page => params[:per_page])
+    @arf_reports = resource_base.includes(:arf_report_breakdown).includes(:host)
+      .search_for(params[:search], :order => params[:order])
+      .paginate(:page => params[:page], :per_page => params[:per_page])
   end
 
   def show
