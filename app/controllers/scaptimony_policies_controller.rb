@@ -59,15 +59,15 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def select_multiple_hosts; end
   def update_multiple_hosts
-    unless (id = params['policy']['id'])
-      error _('No compliance policy selected.')
-      redirect_to(select_multiple_hosts_scaptimony_policies_path)
-    else
+    if (id = params['policy']['id'])
       policy = ::Scaptimony::Policy.find_by_id(id)
       policy.assign_hosts @hosts
       notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
       # We prefer to go back as this does not lose the current search
       redirect_to hosts_path
+    else
+      error _('No compliance policy selected.')
+      redirect_to(select_multiple_hosts_scaptimony_policies_path)
     end
   end
 

@@ -217,7 +217,3 @@ Style/Tab:
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
 Style/TrailingComma:
   Enabled: false
-
-# Offense count: 1
-Style/UnlessElse:
-  Enabled: false
