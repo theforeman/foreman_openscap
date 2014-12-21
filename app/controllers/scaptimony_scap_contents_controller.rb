@@ -1,4 +1,4 @@
-class ScaptimonyScapContentsController < ApplicationController
+class ScaptimonyScapContentsController < ::ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   before_filter :handle_file_upload, :only => [:create, :update]
   before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
@@ -55,9 +55,9 @@ class ScaptimonyScapContentsController < ApplicationController
   end
 
   def handle_file_upload
-    return unless params[:scap_content] && t = params[:scap_content][:scap_file]
-    params[:scap_content][:original_filename] = t.original_filename
-    params[:scap_content][:scap_file] = t.tempfile.read if t.tempfile.respond_to?(:read)
+    return unless params[:scap_content] && scap_raw_file = params[:scap_content][:scap_file]
+    params[:scap_content][:original_filename] = scap_raw_file.original_filename
+    params[:scap_content][:scap_file] = scap_raw_file.tempfile.read if scap_raw_file.tempfile.respond_to?(:read)
   end
 
 end
