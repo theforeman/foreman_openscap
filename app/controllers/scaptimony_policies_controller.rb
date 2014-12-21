@@ -9,7 +9,7 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def index
     @policies = resource_base.search_for(params[:search]).includes(:scap_content, :scap_content_profile)
-    if Scaptimony::ScapContent.all.count == 0
+    if Scaptimony::ScapContent.all.count == 0 && @policies.count == 0
       redirect_to new_scaptimony_scap_content_path
     end
   end
