@@ -7,6 +7,12 @@
     <li class="active"><a href="#primary" data-toggle="tab"><%= _("General") %></a></li>
     <li><a href="#scap_content" data-toggle="tab"><%= _("SCAP Content") %></a></li>
     <li><a href="#scap_schedule" data-toggle="tab"><%= _("Schedule") %></a></li>
+    <% if show_location_tab? %>
+      <li><a href='#locations' data-toggle='tab'><%= _('Locations') %></a></li>
+    <% end %>
+    <% if show_organization_tab? %>
+      <li><a href='#organizations' data-toggle='tab'><%= _('Organizations') %></a></li>
+    <% end %>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
@@ -34,6 +40,7 @@
       <%= text_f(f, :period) %>
       <%= text_f(f, :weekday) %>
     </div>
+    <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @policy %>
     <%= submit_or_cancel f %>
   </div>
 <% end %>
