@@ -1,4 +1,4 @@
-class ScaptimonyScapContentsController < ::ApplicationController
+class ScaptimonyScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   before_filter :handle_file_upload, :only => [:create, :update]
   before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
