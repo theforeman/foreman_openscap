@@ -95,4 +95,13 @@ class ScaptimonyPoliciesController < ApplicationController
     logger.debug e.backtrace.join("\n")
     redirect_to hosts_path and return false
   end
+
+  def action_permission
+    case params[:action]
+    when 'parse'
+      :view
+    else
+      super
+    end
+  end
 end
