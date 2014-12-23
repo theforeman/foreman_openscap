@@ -16,7 +16,7 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     included do
-      attr_accessible :description, :name, :period, :scap_content_id, :scap_content_profile_id, :weekday, :location_ids, :organization_ids
+      attr_accessible :location_ids, :organization_ids
 
       scoped_search :on => :name, :complete_value => true
 

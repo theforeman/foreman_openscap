@@ -16,7 +16,8 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     included do
-      attr_accessible :original_filename, :scap_file, :title, :location_ids, :organization_ids
+      attr_accessible :location_ids, :organization_ids
+
       default_scope lambda {
         with_taxonomy_scope do
           order("scaptimony_scap_contents.title")
