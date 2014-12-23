@@ -20,11 +20,11 @@ module ForemanOpenscap
 
       scoped_search :on => :name, :complete_value => true
 
-      default_scope lambda {
-                      with_taxonomy_scope do
-                        order("scaptimony_policies.name")
-                      end
-                    }
+      default_scope {
+        with_taxonomy_scope do
+          order("scaptimony_policies.name")
+        end
+      }
     end
 
     def used_location_ids

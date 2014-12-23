@@ -18,7 +18,7 @@ module ForemanOpenscap
     included do
       attr_accessible :location_ids, :organization_ids
 
-      default_scope lambda {
+      default_scope {
         with_taxonomy_scope do
           order("scaptimony_scap_contents.title")
         end
