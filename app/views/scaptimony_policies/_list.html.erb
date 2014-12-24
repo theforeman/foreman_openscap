@@ -8,9 +8,7 @@
   <% for policy in @policies %>
     <tr>
       <td>
-          <%= link_to_if_authorized policy.name,
-                  hash_for_edit_scaptimony_policy_path(:id => policy).merge(
-                       :auth_object => policy, :authorizer => authorizer) %>
+          <%= link_to policy.name, scaptimony_policy_dashboard_scaptimony_policy_path(:id => policy.id) %>
       </td>
       <td>
           <% if !policy.scap_content.nil? %>
