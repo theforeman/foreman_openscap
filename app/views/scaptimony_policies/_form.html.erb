@@ -13,11 +13,12 @@
     <% if show_organization_tab? %>
       <li><a href='#organizations' data-toggle='tab'><%= _('Organizations') %></a></li>
     <% end %>
+    <li><a href='#hostgroups' data-toggle='tab'><%= _('Hostgroups') %></a></li>
   </ul>
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
       <%= text_f(f, :name) %>
-      <%= text_f(f, :description, :size => "col-md-8" ) %>
+      <%= textarea_f(f, :description, :rows => :auto ) %>
     </div>
     <div class="tab-pane" id="scap_content">
       <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,
@@ -37,10 +38,15 @@
       </span>
     </div>
     <div class="tab-pane" id="scap_schedule">
-      <%= text_f(f, :period) %>
-      <%= text_f(f, :weekday) %>
+      <%= select_f(f, :period, %w[Weekly Monthly], :downcase, :to_s, :include_blank => _('Choose period')) %>
+      <%= select_f(f, :weekday, Date::DAYNAMES, :downcase, :to_s, :include_blank => _('Choose weekday')) %>
     </div>
     <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @policy %>
+    <div class="tab-pane" id="hostgroups">
+      <%= multiple_selects f, :hostgroups, Hostgroup,
+                           @policy.hostgroup_ids,
+                           {:disabled => @policy.used_hostgroup_ids } %>
+    </div>
     <%= submit_or_cancel f %>
   </div>
 <% end %>

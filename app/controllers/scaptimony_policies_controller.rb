@@ -8,8 +8,11 @@ class ScaptimonyPoliciesController < ApplicationController
   end
 
   def index
-    @policies = resource_base.search_for(params[:search]).includes(:scap_content, :scap_content_profile)
-    if Scaptimony::ScapContent.all.count == 0 && @policies.count == 0
+    @policies = resource_base
+                  .search_for(params[:search], :order => params[:order])
+                  .paginate(:page => params[:page], :per_page => params[:per_page])
+                  .includes(:scap_content, :scap_content_profile)
+    if @policies.empty? && Scaptimony::ScapContent.unconfigured?
       redirect_to new_scaptimony_scap_content_path
     end
   end
@@ -27,16 +30,24 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def create
     @policy = ::Scaptimony::Policy.new(params[:policy])
-    if @policy.save
-      process_success
+    if @policy.wizard_completed? && @policy.save
+      process_success :success_redirect => scaptimony_policies_path
     else
-      process_error :object => @policy
+      if @policy.valid?
+        render 'new' and return
+      else
+        @policy.rewind_step
+        process_error :object => @policy
+      end
     end
+  end
+
+  def edit
   end
 
   def update
     if @policy.update_attributes(params[:policy])
-      process_success
+      process_success :success_redirect => scaptimony_policies_path
     else
       process_error :object => @policy
     end
@@ -51,16 +62,17 @@ class ScaptimonyPoliciesController < ApplicationController
   end
 
   def scap_content_selected
-    if params[:scap_content_id] and @scap_content = ::Scaptimony::ScapContent.find(params[:scap_content_id])
+    if params[:scap_content_id] && (@scap_content = ::Scaptimony::ScapContent.find(params[:scap_content_id]))
       @policy ||= ::Scaptimony::Policy.new
-      render :partial => 'scap_content_results', :locals => { :policy => @policy }
+      render :partial => 'scap_content_results', :locals => {:policy => @policy}
     end
   end
 
   def select_multiple_hosts; end
+
   def update_multiple_hosts
     if (id = params['policy']['id'])
-      policy = ::Scaptimony::Policy.find_by_id(id)
+      policy = ::Scaptimony::Policy.find(id)
       policy.assign_hosts @hosts
       notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
       # We prefer to go back as this does not lose the current search
@@ -98,10 +110,10 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'parse'
-      :view
-    else
-      super
+      when 'parse'
+        :view
+      else
+        super
     end
   end
 end

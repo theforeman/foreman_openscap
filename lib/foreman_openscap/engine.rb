@@ -17,13 +17,15 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.assets.precompile' do |app|
       app.config.assets.precompile += %w(
-        'foreman_openscap/policy_edit.js'
+        'foreman_openscap/policy_edit.js',
+        'foreman_openscap/policy.css'
       )
     end
 
     initializer 'foreman_openscap.configure_assets', :group => :assets do
       SETTINGS[:foreman_openscap] =
-        { :assets => { :precompile => ['foreman_openscap/policy_edit.js']}}
+          {:assets => {:precompile => ['foreman_openscap/policy_edit.js',
+                                       'foreman_openscap/policy.css']}}
     end
 
     initializer 'foreman_openscap.register_plugin', :after=> :finisher_hook do |app|
