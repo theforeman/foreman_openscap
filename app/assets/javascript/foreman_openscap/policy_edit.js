@@ -12,3 +12,8 @@ function scap_content_selected(element){
     }
   })
 }
+
+function previous_step(previous) {
+  $('#policy_current_step').val(previous);
+  return false;
+}

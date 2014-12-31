@@ -1,0 +1,13 @@
+<% select_options ||= {} %>
+<% html_options ||= {} %>
+<% html_options[:location] ||= {} %>
+<% obj = @policy %>
+<% if show_location_tab? %>
+  <div class="tab-pane <%= show_partial_wizard(step) %>" id="locations">
+    <%= wizard_header @policy.step_index, *@policy.steps %>
+    <%= location_selects f, obj.used_or_selected_location_ids,
+                         {:disabled => obj.used_location_ids}.merge!(select_options),
+                         {:data => {:descendants => obj.children_of_selected_location_ids,
+                                    :useds       => obj.used_location_ids}}.merge!(html_options[:location]) %>
+  </div>
+<% end %>
