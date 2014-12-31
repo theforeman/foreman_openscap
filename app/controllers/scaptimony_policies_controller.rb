@@ -28,15 +28,23 @@ class ScaptimonyPoliciesController < ApplicationController
   def create
     @policy = ::Scaptimony::Policy.new(params[:policy])
     if @policy.save
-      process_success
+      redirect_to edit_scaptimony_policy_path(@policy, :current_step => @policy.current_step)
     else
       process_error :object => @policy
     end
   end
 
+  def edit
+    @policy.current_step = params[:current_step]
+  end
+
   def update
     if @policy.update_attributes(params[:policy])
-      process_success
+      if @policy.current_step.blank?
+        process_success :success_redirect => scaptimony_policies_path
+      else
+        redirect_to edit_scaptimony_policy_path(@policy, :current_step => @policy.current_step)
+      end
     else
       process_error :object => @policy
     end
@@ -53,11 +61,12 @@ class ScaptimonyPoliciesController < ApplicationController
   def scap_content_selected
     if params[:scap_content_id] and @scap_content = ::Scaptimony::ScapContent.find(params[:scap_content_id])
       @policy ||= ::Scaptimony::Policy.new
-      render :partial => 'scap_content_results', :locals => { :policy => @policy }
+      render :partial => 'scap_content_results', :locals => {:policy => @policy}
     end
   end
 
   def select_multiple_hosts; end
+
   def update_multiple_hosts
     if (id = params['policy']['id'])
       policy = ::Scaptimony::Policy.find_by_id(id)
@@ -98,10 +107,10 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'parse'
-      :view
-    else
-      super
+      when 'parse'
+        :view
+      else
+        super
     end
   end
 end

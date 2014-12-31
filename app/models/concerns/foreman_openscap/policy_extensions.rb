@@ -16,7 +16,8 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     included do
-      attr_accessible :location_ids, :organization_ids
+      attr_accessible :location_ids, :organization_ids, :current_step
+      attr_writer :current_step
 
       scoped_search :on => :name, :complete_value => true
 
@@ -25,6 +26,37 @@ module ForemanOpenscap
           order("scaptimony_policies.name")
         end
       }
+    end
+
+    def steps
+      base_steps = ['Create policy', 'SCAP Content', 'Schedule']
+      base_steps << 'Locations' if SETTINGS[:locations_enabled]
+      base_steps << 'Organizations' if SETTINGS[:organizations_enabled]
+      base_steps << 'Hostgroups' #always be last.
+    end
+
+    def current_step
+      @current_step || steps.first
+    end
+
+    def previous_step
+      steps[steps.index(current_step) - 1]
+    end
+
+    def next_step
+      steps[steps.index(current_step) + 1 ]
+    end
+
+    def first_step?
+      current_step == steps.first
+    end
+
+    def last_step?
+      current_step == steps.last
+    end
+
+    def step_index
+      steps.index(current_step) + 1
     end
 
     def used_location_ids
