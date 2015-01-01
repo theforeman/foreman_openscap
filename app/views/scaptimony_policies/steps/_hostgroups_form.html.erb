@@ -1,4 +1,3 @@
 <div class="tab-pane" id="hostgroups">
-  <%# checkbox_f(f, :ignore_types, {:label => _("All host groups"), :multiple => true, :onchange => 'ignore_checked(this)'}, "Hostgroup") %>
   <%= multiple_selects f, :hostgroups, Hostgroup, @policy.hostgroup_ids %>
 </div>

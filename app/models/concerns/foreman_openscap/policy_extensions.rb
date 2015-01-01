@@ -19,8 +19,11 @@ module ForemanOpenscap
       attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
       attr_writer :current_step
 
-      has_many :policy_hostgroups
+      has_many :policy_hostgroups, :dependent => :destroy
       has_many :hostgroups, :through => :policy_hostgroups
+
+      after_save :assign_policy_to_hostgroups
+
       scoped_search :on => :name, :complete_value => true
 
       default_scope {
@@ -61,6 +64,10 @@ module ForemanOpenscap
       steps.index(current_step) + 1
     end
 
+    def scan_name
+      name
+    end
+
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
               'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
@@ -75,6 +82,38 @@ module ForemanOpenscap
 
     def assign_hosts(hosts)
       assign_assets hosts.map &:get_asset
+    end
+
+    private
+
+    def assign_policy_to_hostgroups
+      puppetclass = Puppetclass.find('openscap::xccdf::foreman_audit')
+      ## @TODO: Handle puppetclass not found
+      hostgroups.each do |hostgroup|
+        hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
+        populate_overrides(puppetclass, hostgroup)
+      end
+    end
+
+    def populate_overrides(puppetclass, hostgroup)
+      overrides = puppetclass.class_params.where(:override => true)
+      overrides.each do |override|
+        if override.key == 'foreman_proxy'
+          # override_value = hostgroup.puppet_proxy.url
+          next
+        else
+          override_value = self.send(override.key)
+        end
+        p "############## #{override_value}"
+        unless override_value.blank?
+          p "OVERRIDE ID #{override.id}"
+          p "HG:::::::::::::: #{hostgroup.to_label}"
+          lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_create
+          lookup_value.update_attribute(:value, override_value)
+          hostgroup.lookup_values << lookup_value
+        end
+
+      end
     end
   end
 end
