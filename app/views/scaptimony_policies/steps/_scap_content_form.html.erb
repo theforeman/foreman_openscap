@@ -1,3 +1,4 @@
+<%= wizard_header @policy.step_index, *@policy.steps %>
 <div id="scap_content">
   <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,
                {:include_blank => _("Choose existing SCAP Content")},

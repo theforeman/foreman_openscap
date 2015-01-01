@@ -4,7 +4,7 @@
 <% obj = @policy %>
 
 <% if show_organization_tab? %>
-
+  <%= wizard_header @policy.step_index, *@policy.steps %>
   <div class="tab-pane" id="organizations">
     <%= organization_selects f, obj.used_or_selected_organization_ids,
                              {:disabled => obj.used_organization_ids}.merge!(select_options),
