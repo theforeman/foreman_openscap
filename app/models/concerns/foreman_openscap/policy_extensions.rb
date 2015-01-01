@@ -8,13 +8,13 @@
 # along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
 #
 
-require 'scaptimony/policy'
-
 module ForemanOpenscap
   module PolicyExtensions
     extend ActiveSupport::Concern
+
     include Authorizable
     include Taxonomix
+
     included do
       attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
       attr_writer :current_step
@@ -22,7 +22,14 @@ module ForemanOpenscap
       has_many :policy_hostgroups, :dependent => :destroy
       has_many :hostgroups, :through => :policy_hostgroups, :uniq => true
 
+      validates :name, :presence => true, :uniqueness => true, :no_whitespace => true
+      validate :ensure_needed_puppetclasses
+      # validates :weekday, in
+      # validates :period, in
+      SCAP_PUPPET_CLASS = 'openscap::xccdf::foreman_audit'
+
       after_save :assign_policy_to_hostgroups
+      # before_destroy - ensure that the policy has no hostgroups, or classes
 
       scoped_search :on => :name, :complete_value => true
 
@@ -50,6 +57,10 @@ module ForemanOpenscap
 
     def next_step
       steps[steps.index(current_step) + 1 ]
+    end
+
+    def rewind_step
+      @current_step = previous_step
     end
 
     def first_step?
@@ -80,8 +91,13 @@ module ForemanOpenscap
               'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
     end
 
+    # override to not query join with hostgroups.
+    def hostgroup_ids
+      policy_hostgroups.pluck("DISTINCT hostgroup_id")
+    end
+
     def used_hostgroup_ids
-      Scaptimony::PolicyHostgroup.all.map(&:hostgroup_id) unless Scaptimony::PolicyHostgroup.all.map(&:hostgroup_id).sort == self.hostgroup_ids.sort
+      Scaptimony::PolicyHostgroup.where(['policy_id <> ?', id]).pluck('DISTINCT hostgroup_id')
     end
 
     def assign_hosts(hosts)
@@ -90,10 +106,15 @@ module ForemanOpenscap
 
     private
 
+    def ensure_needed_puppetclasses
+      unless Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
+        errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % {:class => SCAP_PUPPET_CLASS}
+      end
+    end
+
     def assign_policy_to_hostgroups
       if hostgroups
-        puppetclass = Puppetclass.find('openscap::xccdf::foreman_audit')
-        ## @TODO: Handle puppetclass not found
+        puppetclass = Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
         hostgroups.each do |hostgroup|
           hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
           populate_overrides(puppetclass, hostgroup)
@@ -104,16 +125,15 @@ module ForemanOpenscap
     def populate_overrides(puppetclass, hostgroup)
       overrides = puppetclass.class_params.where(:override => true)
       overrides.each do |override|
-        if override.key == 'foreman_proxy'
-          override_value = hostgroup.puppet_proxy.url if hostgroup.puppet_proxy
-        else
-          override_value = self.send(override.key)
-        end
-        unless override_value.blank?
-          lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_create
+        override_value = if override.key == 'foreman_proxy'
+                           hostgroup.puppet_proxy.url if hostgroup.puppet_proxy
+                         else
+                           self.send(override.key)
+                         end
+        if override_value.present?
+          lookup_value = LookupValue.where(:match => hostgroup.lookup_value_match, :lookup_key_id => override.id).first_or_create
           lookup_value.update_attribute(:value, override_value)
         end
-
       end
     end
   end

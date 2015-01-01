@@ -1,5 +1,7 @@
 <%= wizard_header @policy.step_index, *@policy.steps %>
 <% select_options ||= {} %>
 <div class="tab-pane" id="hostgroups">
-  <%= multiple_selects f, :hostgroups, Hostgroup, @policy.hostgroup_ids, {:disabled => @policy.used_hostgroup_ids }.merge!(select_options) %>
+  <%= multiple_selects f, :hostgroups, Hostgroup,
+                       @policy.hostgroup_ids,
+                       {:disabled => @policy.used_hostgroup_ids }.merge!(select_options) %>
 </div>
