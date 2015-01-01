@@ -17,7 +17,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
       <%= text_f(f, :name) %>
-      <%= text_f(f, :description, :size => "col-md-8" ) %>
+      <%= textarea_f(f, :description, :rows => :auto ) %>
     </div>
     <div class="tab-pane" id="scap_content">
       <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,

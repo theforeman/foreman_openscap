@@ -1,0 +1,7 @@
+<%= wizard_header @policy.step_index, *@policy.steps %>
+<div class="clearfix">
+  <div id="scap_schedule">
+    <%= select_f(f, :period, %w[Weekly Monthly], :downcase, :to_s, :include_blank => _('Choose period')) %>
+    <%= select_f(f, :weekday, Date::DAYNAMES, :downcase, :to_s, :include_blank => _('Choose weekday')) %>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+<%= wizard_header @policy.step_index, *@policy.steps %>
+<div id="scap_content">
+  <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,
+               {:include_blank => _("Choose existing SCAP Content")},
+               {:label => _("SCAP Content"),
+                :onchange => 'scap_content_selected(this);',
+                :'data-url' => method_path('scap_content_selected')}
+  %>
+  <span id="scap_content_profile_select">
+    <%= select_f f, :scap_content_profile_id, profiles_selection, :id, :title,
+                 {:selected => @policy.scap_content_profile_id,
+                  :include_blank => _("Default XCCDF profile")},
+                 {:label => _("XCCDF Profile"),
+                  :disabled => profiles_selection.empty? ? true : false,
+                  :help_inline => :indicator}
+    %>
+  </span>
+</div>
+

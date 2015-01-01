@@ -1,0 +1,8 @@
+<%= javascript 'foreman_openscap/policy_edit' %>
+<%= form_for @policy,
+             :url => (@policy.id? ? scaptimony_policy_path(:id => @policy.id) : scaptimony_policies_path) do |f| %>
+  <%= base_errors_for @policy %>
+  <%= f.hidden_field(:current_step, :value => @policy.next_step) unless @policy.current_step.blank? %>
+  <%= render :partial => "scaptimony_policies/steps/#{@policy.current_step.downcase.tr(' ', '_')}_form", :locals => {:f => f} %>
+  <%= submit_or_cancel_policy(f, (_('Next') unless @policy.last_step?) ) %>
+<% end %>

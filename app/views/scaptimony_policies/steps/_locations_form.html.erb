@@ -1,0 +1,15 @@
+<% select_options ||= {} %>
+<% html_options ||= {} %>
+<% html_options[:location] ||= {} %>
+<% obj = @policy %>
+
+<% if show_location_tab? %>
+  <%= wizard_header @policy.step_index, *@policy.steps %>
+  <div class="tab-pane" id="locations">
+    <%= location_selects f, obj.used_or_selected_location_ids,
+                         {:disabled => obj.used_location_ids }.merge!(select_options),
+                         {'data-descendants' => obj.children_of_selected_location_ids.to_json,
+                          'data-useds' => obj.used_location_ids.to_json }.merge!(html_options[:location]) %>
+
+  </div>
+<% end %>
