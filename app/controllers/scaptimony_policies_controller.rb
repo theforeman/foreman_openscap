@@ -40,7 +40,7 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def update
     if @policy.update_attributes(params[:policy])
-      if @policy.current_step == 'end'
+      if @policy.current_step.blank?
         process_success :success_redirect => scaptimony_policies_path
       else
         redirect_to edit_scaptimony_policy_path(@policy, :current_step => @policy.current_step)

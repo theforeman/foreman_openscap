@@ -4,6 +4,7 @@
 <% obj = @policy %>
 
 <% if show_location_tab? %>
+  <%= wizard_header @policy.step_index, *@policy.steps %>
   <div class="tab-pane" id="locations">
     <%= location_selects f, obj.used_or_selected_location_ids,
                          {:disabled => obj.used_location_ids }.merge!(select_options),

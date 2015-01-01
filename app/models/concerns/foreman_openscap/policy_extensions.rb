@@ -80,6 +80,10 @@ module ForemanOpenscap
               'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
     end
 
+    def used_hostgroup_ids
+      Scaptimony::PolicyHostgroup.all.map(&:hostgroup_id) unless Scaptimony::PolicyHostgroup.all.map(&:hostgroup_id).sort == self.hostgroup_ids.sort
+    end
+
     def assign_hosts(hosts)
       assign_assets hosts.map &:get_asset
     end
@@ -87,11 +91,13 @@ module ForemanOpenscap
     private
 
     def assign_policy_to_hostgroups
-      puppetclass = Puppetclass.find('openscap::xccdf::foreman_audit')
-      ## @TODO: Handle puppetclass not found
-      hostgroups.each do |hostgroup|
-        hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
-        populate_overrides(puppetclass, hostgroup)
+      if hostgroups
+        puppetclass = Puppetclass.find('openscap::xccdf::foreman_audit')
+        ## @TODO: Handle puppetclass not found
+        hostgroups.each do |hostgroup|
+          hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
+          populate_overrides(puppetclass, hostgroup)
+        end
       end
     end
 
@@ -99,18 +105,13 @@ module ForemanOpenscap
       overrides = puppetclass.class_params.where(:override => true)
       overrides.each do |override|
         if override.key == 'foreman_proxy'
-          # override_value = hostgroup.puppet_proxy.url
-          next
+          override_value = hostgroup.puppet_proxy.url if hostgroup.puppet_proxy
         else
           override_value = self.send(override.key)
         end
-        p "############## #{override_value}"
         unless override_value.blank?
-          p "OVERRIDE ID #{override.id}"
-          p "HG:::::::::::::: #{hostgroup.to_label}"
           lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_create
           lookup_value.update_attribute(:value, override_value)
-          hostgroup.lookup_values << lookup_value
         end
 
       end
