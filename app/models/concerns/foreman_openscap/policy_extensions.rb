@@ -16,9 +16,11 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     included do
-      attr_accessible :location_ids, :organization_ids, :current_step
+      attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
       attr_writer :current_step
 
+      has_many :policy_hostgroups
+      has_many :hostgroups, :through => :policy_hostgroups
       scoped_search :on => :name, :complete_value => true
 
       default_scope {
