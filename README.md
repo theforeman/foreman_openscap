@@ -58,7 +58,7 @@ of Foreman based infrastructure.
 - Install foreman_openscap RPM
 
   ```
-  # yum local install ~/rpmbuild/RPMS/noarch/ruby193-rubygem-foreman_openscap-*.noarch.rpm
+  # yum localinstall ~/rpmbuild/RPMS/noarch/ruby193-rubygem-foreman_openscap-*.noarch.rpm
   # service foreman restart
   ```
 
