@@ -1,0 +1,16 @@
+<td>
+  <% if host.arf_reports.any? %>
+  <table>
+    <% host.arf_reports.hosts.each do |report| %>
+      <tr>
+        <td><%= link_to h(report.policy.name), scaptimony_policy_path(report.policy) %></td>
+        <td><%= report_event_column(report.passed, "label-success")  %></td>
+        <td><%= report_event_column(report.failed, "label-danger")  %></td>
+        <td><%= report_event_column(report.othered, "label-info")  %></td>
+      </tr>
+    <% end %>
+  </table>
+  <% else %>
+    <%= _('No compliance report') %>
+  <% end %>
+</td>
