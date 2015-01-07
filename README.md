@@ -50,7 +50,7 @@ of Foreman based infrastructure.
   ```
   $ cd foreman_openscap
   $ gem build foreman_openscap.gemspec
-  # yum install yum-utils rpm-build scl-utils scl-utils-build ruby193-rubygems-devel
+  # yum install yum-utils rpm-build scl-utils scl-utils-build ruby193-rubygems-devel ruby193-build ruby193
   # yum-builddep extra/rubygem-foreman_openscap.spec
   $ rpmbuild  --define "_sourcedir `pwd`" --define "scl ruby193" -ba extra/rubygem-foreman_openscap.spec
   ```
