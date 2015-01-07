@@ -1,20 +1,26 @@
 <%= javascript 'dashboard' %>
 
-<% title _("Compliance policy: #{@policy.name}") %>
+<% title _("Compliance policy: %s") % @policy.name %>
 
 <div id='dashboard' class="row gridster">
   <ul>
     <%= policy_widget_list.map do |widget|
-          content_tag(:li, render(widget.id), :data => {
-            :id => widget.id,
-            :name => widget.name || widget.id,
-            :row => widget.row,
-            :col => widget.col,
-            :sizex=>widget.sizex,
-            :sizey => widget.sizey,
-            :hide=>widget.hide
-            })
-        end.join(' ').html_safe
+      content_tag(:li, render(widget.id), :data => {
+                         :id    => widget.id,
+                         :name  => widget.name || widget.id,
+                         :row   => widget.row,
+                         :col   => widget.col,
+                         :sizex => widget.sizex,
+                         :sizey => widget.sizey,
+                         :hide  => widget.hide
+                     })
+    end.join(' ').html_safe
     %>
   </ul>
 </div>
+<% if @policy.arf_reports.any? %>
+  <div class="row gridster">
+    <%= _("Latest reports for policy: %s") % @policy.name %>
+    <%= render :partial => 'policy_reports' %>
+  </div>
+<% end %>

@@ -20,6 +20,9 @@ module ForemanOpenscap
 
       after_save :assign_locations_organizations
 
+      scope :hosts, lambda { includes(:policy, :arf_report_breakdown) }
+      scope :latest, lambda { includes(:host, :policy, :arf_report_breakdown).limit(5).order("scaptimony_arf_reports.created_at DESC") }
+
       scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
 
       default_scope {
