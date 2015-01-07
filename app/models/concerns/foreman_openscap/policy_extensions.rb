@@ -18,8 +18,6 @@ module ForemanOpenscap
     included do
       attr_accessible :location_ids, :organization_ids
 
-      scoped_search :on => :name, :complete_value => true
-
       default_scope {
         with_taxonomy_scope do
           order("scaptimony_policies.name")
