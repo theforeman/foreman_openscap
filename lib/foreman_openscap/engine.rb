@@ -57,6 +57,10 @@ module ForemanOpenscap
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
              :url_hash => {:controller => :'scaptimony_arf_reports', :action => :index },
              :parent   => :hosts_menu
+
+        # add dashboard widget
+        widget 'foreman_openscap_host_reports_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey =>1
+        widget 'foreman_openscap_reports_breakdown_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey =>1
       end
     end
 

@@ -10,7 +10,7 @@
   <% for arf_report in @arf_reports %>
     <tr>
       <td><%= name_column(arf_report.host) %></td>
-      <td><%= _("%s ago") % time_ago_in_words(arf_report.date.getlocal) %></td>
+      <td><%= _("%s ago") % time_ago_in_words(arf_report.date) %></td>
       <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
       <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
       <td><%= report_arf_column(arf_report.othered, "label-warning") %></th>

@@ -1,0 +1,24 @@
+<h4 class="ca"><%= _('Latest compliance reports') %></h4>
+<% latest_reports = Scaptimony::ArfReport.latest %>
+<% if latest_reports.empty? %>
+  <p class="ca"><%= _("No reports available") %></p>
+<% else %>
+  <table class="table table-striped ellipsis">
+    <tr>
+      <th><%= _('Host') %></th>
+      <th><%= _('Policy') %></th>
+      <%= translated_header(s_('Passed|P'), _('Passed')).html_safe %>
+      <%= translated_header(s_('Failed|F'), _('Failed')).html_safe %>
+      <%= translated_header(s_('Othered|O'), _('Othered')).html_safe %>
+    </tr>
+    <% latest_reports.each do |report| %>
+      <tr>
+        <td><%= link_to h(report.host.name), scaptimony_arf_report_path(report) %></td>
+        <td><%= link_to h(report.policy.name), scaptimony_policy_dashboard_scaptimony_policy_path(report.policy) %></td>
+        <td><%= report_event_column(report.passed, "label-success")  %></td>
+        <td><%= report_event_column(report.failed, "label-danger")  %></td>
+        <td><%= report_event_column(report.othered, "label-info")  %></td>
+      </tr>
+    <% end %>
+  </table>
+<% end %>

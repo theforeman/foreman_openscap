@@ -10,6 +10,7 @@ module ForemanOpenscap
       has_one :asset, :through => :auditable_host, :class_name => "::Scaptimony::Asset"
       has_many :asset_policies, :through => :asset, :class_name => "::Scaptimony::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::Scaptimony::Policy"
+      has_many :arf_reports, :through => :asset, :class_name => '::Scaptimony::ArfReport'
 
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
