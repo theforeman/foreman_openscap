@@ -24,9 +24,9 @@ module ForemanOpenscap
     end
 
     def assign_locations_organizations
-      if host && policy
-        self.locations = policy.locations + [host.location]
-        self.organizations = policy.organizations + [host.organization]
+      if host
+        self.locations = [host.location]
+        self.organizations = [host.organization]
       end
     end
   end
