@@ -13,11 +13,21 @@ require 'scaptimony/arf_report'
 module ForemanOpenscap
   module ArfReportExtensions
     extend ActiveSupport::Concern
+    include Taxonomix
     included do
       has_one :auditable_host, :through => :asset
       has_one :host, :through => :auditable_host
 
+      after_save :assign_locations_organizations
+
       scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
+    end
+
+    def assign_locations_organizations
+      if self.host && self.policy
+        self.locations = self.policy.locations + [self.host.location]
+        self.organizations = self.policy.organizations + [self.host.organization]
+      end
     end
   end
 end
