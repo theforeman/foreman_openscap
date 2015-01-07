@@ -21,6 +21,12 @@ module ForemanOpenscap
       after_save :assign_locations_organizations
 
       scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
+
+      default_scope {
+        with_taxonomy_scope do
+          order("scaptimony_arf_reports.created_at DESC")
+        end
+      }
     end
 
     def assign_locations_organizations
