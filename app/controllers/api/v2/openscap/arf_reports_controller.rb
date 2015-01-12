@@ -29,8 +29,9 @@ module Api
         def create
           asset = ForemanOpenscap::Helper::get_asset(params[:cname])
           arf_bzip2 = request.body.read
-          received = Scaptimony::ArfReportsHelper.create_arf(asset, params, arf_bzip2)
-          render :json => { :result => :OK, :received => received }
+          arf_bzip2_size = request.body.size
+          Scaptimony::ArfReportsHelper.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
+          render :json => { :result => :OK, :received => arf_bzip2_size }
         end
 
         def check_content_type
