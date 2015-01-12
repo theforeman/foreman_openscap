@@ -66,16 +66,12 @@ module ForemanOpenscap
 
     #Include concerns in this config.to_prepare block
     config.to_prepare do
-      begin
-        Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
-        HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
-        ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
-        ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
-        ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
-        ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
-      rescue => e
-        puts "ForemanOpenscap: skipping engine hook (#{e.to_s})"
-      end
+      Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
+      HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
+      ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
+      ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
+      ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
+      ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
     end
 
     rake_tasks do
