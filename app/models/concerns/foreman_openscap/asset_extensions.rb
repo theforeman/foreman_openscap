@@ -9,7 +9,6 @@
 #
 
 require 'scaptimony/asset'
-require 'scaptimony/auditable_host'
 
 module ForemanOpenscap
   module AssetExtensions
