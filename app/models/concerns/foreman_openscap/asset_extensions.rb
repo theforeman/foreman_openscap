@@ -14,6 +14,7 @@ module ForemanOpenscap
   module AssetExtensions
     extend ActiveSupport::Concern
     included do
+      belongs_to :assetable, :polymorphic => true
       scope :hosts, where(:assetable_type => 'Host::Base')
     end
 
