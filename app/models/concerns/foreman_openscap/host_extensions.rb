@@ -5,9 +5,7 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
 
     included do
-      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost",
-          :foreign_key => :host_id, :inverse_of => :host
-      has_one :asset, :through => :auditable_host, :class_name => "::Scaptimony::Asset"
+      has_one :asset, :as => :assetable, :class_name => "::Scaptimony::Asset"
       has_many :asset_policies, :through => :asset, :class_name => "::Scaptimony::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::Scaptimony::Policy"
       has_many :arf_reports, :through => :asset, :class_name => '::Scaptimony::ArfReport'
@@ -19,11 +17,7 @@ module ForemanOpenscap
     end
 
     def get_asset
-      return auditable_host.asset unless auditable_host.nil?
-      # TODO:RAILS-4.0: This should become: asset = Asset.find_or_create_by!(name: cname)
-      asset = Scaptimony::Asset.where(:name => name).first_or_create!
-      @auditable_host = Scaptimony::AuditableHost.where(:asset_id => asset.id, :host_id => id).first_or_create!
-      @auditable_host.asset
+      Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => id).first_or_create!
     end
 
     module ClassMethods

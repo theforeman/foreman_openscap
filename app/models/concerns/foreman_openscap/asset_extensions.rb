@@ -15,10 +15,16 @@ module ForemanOpenscap
   module AssetExtensions
     extend ActiveSupport::Concern
     included do
-      has_one :auditable_host, :inverse_of => :asset
-      has_one :host, :through => :auditable_host
+      scope :hosts, where(:assetable_type => 'Host::Base')
+    end
 
-      scope :hosts, joins(:auditable_host)
+    def host
+      fetch_asset('Host::Base')
+    end
+
+    private
+    def fetch_asset(type)
+      assetable if assetable_type == type
     end
   end
 end

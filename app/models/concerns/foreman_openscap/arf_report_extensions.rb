@@ -15,8 +15,7 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
     include Taxonomix
     included do
-      has_one :auditable_host, :through => :asset
-      has_one :host, :through => :auditable_host
+      has_one :host, :through => :asset, :as => :assetable
 
       after_save :assign_locations_organizations
 
