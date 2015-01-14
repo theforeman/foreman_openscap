@@ -9,7 +9,8 @@
 #
 
 module ForemanOpenscap::Helper
-  def self.get_asset(cname)
-    Host.find_by_name!(cname).get_asset
+  def self.get_asset(params)
+    host = Host.find_by_name!(params[:cname])
+    host.get_asset(params[:policy])
   end
 end

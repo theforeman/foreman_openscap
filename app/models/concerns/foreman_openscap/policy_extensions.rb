@@ -18,6 +18,8 @@ module ForemanOpenscap
     included do
       attr_accessible :location_ids, :organization_ids
 
+      has_many :hosts, :through => :assets, :source => :assetable, :source_type => 'Host::Base'
+
       default_scope {
         with_taxonomy_scope do
           order("scaptimony_policies.name")

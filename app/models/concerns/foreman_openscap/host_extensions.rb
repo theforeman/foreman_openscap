@@ -5,12 +5,27 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
 
     included do
-      has_one :auditable_host, :class_name => "::Scaptimony::AuditableHost",
-          :foreign_key => :host_id, :inverse_of => :host
-      has_one :asset, :through => :auditable_host, :class_name => "::Scaptimony::Asset"
-      has_many :asset_policies, :through => :asset, :class_name => "::Scaptimony::AssetPolicy"
-      has_many :policies, :through => :asset_policies, :class_name => "::Scaptimony::Policy"
-      has_many :arf_reports, :through => :asset, :class_name => '::Scaptimony::ArfReport'
+      has_many :assets, :as => :assetable, :class_name => "::Scaptimony::Asset"
+
+      has_many :policies, :through => :assets, :class_name => '::Scaptimony::Policy'
+      has_many :arf_reports, :through => :assets, :class_name => '::Scaptimony::ArfReport'
+
+      scope :comply_with, lambda { |policy|
+                          last_arf(policy).breakdown.where(:scaptimony_arf_report_breakdowns => {:failed => 0, :othered => 0})
+                        }
+      scope :incomply_with, lambda { |policy|
+                            last_arf(policy).breakdown.where('scaptimony_arf_report_breakdowns.failed != 0') # TODO:RAILS-4.0: rewrite with: where.not()
+                          }
+      scope :inconclusive_with, lambda { |policy|
+                                last_arf(policy).breakdown.
+                                    where(:scaptimony_arf_report_breakdowns => {:failed => 0, :othered => 0}).
+                                    where('scaptimony_arf_report_breakdowns.failed != 0') # TODO:RAILS-4.0: rewrite with: where.not()
+                              }
+
+      scope :policy_reports, lambda { |policy| includes(:arf_reports).where(:scaptimony_arf_reports => { :policy_id => policy.id }) }
+      scope :policy_reports_missing, lambda { |policy|
+                                     where("id NOT IN (select asset_id from scaptimony_arf_reports where policy_id = #{policy.id})")
+                                   }
 
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
@@ -18,12 +33,10 @@ module ForemanOpenscap
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
     end
 
-    def get_asset
-      return auditable_host.asset unless auditable_host.nil?
+    def get_asset(policy_name)
+      policy = Scaptimony::Policy.find_by_name!(policy_name)
       # TODO:RAILS-4.0: This should become: asset = Asset.find_or_create_by!(name: cname)
-      asset = Scaptimony::Asset.where(:name => name).first_or_create!
-      @auditable_host = Scaptimony::AuditableHost.where(:asset_id => asset.id, :host_id => id).first_or_create!
-      @auditable_host.asset
+      Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => id, :policy_id => policy.id).first_or_create!
     end
 
     module ClassMethods

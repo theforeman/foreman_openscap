@@ -18,12 +18,12 @@ module Scaptimony::PolicyDashboard
 
     def fetch_data
       report.update(
-        {:compliant_hosts => @policy.assets.hosts.comply_with(@policy).count,
-         :incompliant_hosts => @policy.assets.hosts.incomply_with(@policy).count,
-         :inconclusive_hosts => @policy.assets.hosts.inconclusive_with(@policy).count,
-         :report_missing => @policy.assets.hosts.policy_reports_missing(@policy).count,
-         :assigned_hosts => @policy.assets.hosts.count,
-         :unassigned_hosts => hosts.count - @policy.assets.hosts.count
+        {:compliant_hosts => @policy.assets.comply_with(@policy).count,
+         :incompliant_hosts => @policy.assets.incomply_with(@policy).count,
+         :inconclusive_hosts => @policy.assets.inconclusive_with(@policy).count,
+         :report_missing => @policy.assets.policy_reports_missing(@policy).count,
+         :assigned_hosts => @policy.assets.count,
+         :unassigned_hosts => hosts.count - @policy.hosts.count
         })
     end
   end
