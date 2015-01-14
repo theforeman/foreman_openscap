@@ -22,8 +22,7 @@ module ForemanOpenscap
       SCAP_PUPPET_CLASS = 'openscap::xccdf::foreman_audit'
       SCAP_PUPPET_OVERRIDES = %w[scan_name period weekday]
 
-      has_many :policy_hostgroups, :dependent => :destroy
-      has_many :hostgroups, :through => :policy_hostgroups
+      has_many :hostgroups, :through => :assets, :as => :assetable, :source => :assetable, :source_type => '::Hostgroup'
 
       validates :name, :presence => true, :uniqueness => true, :no_whitespace => true
       validate :ensure_needed_puppetclasses
@@ -95,13 +94,8 @@ module ForemanOpenscap
               'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
     end
 
-    # override to not query join with hostgroups.
-    def hostgroup_ids
-      policy_hostgroups.pluck("DISTINCT hostgroup_id")
-    end
-
     def used_hostgroup_ids
-      Scaptimony::PolicyHostgroup.pluck('DISTINCT hostgroup_id') - [id]
+      []
     end
 
     def assign_hosts(hosts)
