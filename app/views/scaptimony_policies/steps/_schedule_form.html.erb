@@ -1,0 +1,5 @@
+<div class="tab-pane <%= show_partial_wizard(step) %>" id="scap_schedule">
+  <%= wizard_header @policy.step_index, *@policy.steps %>
+  <%= select_f(f, :period, %w[Weekly Monthly], :downcase, :to_s, :include_blank => _('Choose period')) %>
+  <%= select_f(f, :weekday, Date::DAYNAMES, :downcase, :to_s, :include_blank => _('Choose weekday')) %>
+</div>

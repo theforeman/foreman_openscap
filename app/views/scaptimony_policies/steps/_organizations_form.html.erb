@@ -1,0 +1,13 @@
+<% select_options ||= {} %>
+<% html_options ||= {} %>
+<% html_options[:organization] ||= {} %>
+<% obj = @policy %>
+<% if show_organization_tab? %>
+  <div class="tab-pane <%= show_partial_wizard(step) %>" id="organizations">
+    <%= wizard_header @policy.step_index, *@policy.steps %>
+    <%= organization_selects f, obj.used_or_selected_organization_ids,
+                             {:disabled => obj.used_organization_ids}.merge!(select_options),
+                             {:data => {:descendants => obj.children_of_selected_organization_ids,
+                                        :useds       => obj.used_organization_ids}}.merge!(html_options[:organization]) %>
+  </div>
+<% end %>
