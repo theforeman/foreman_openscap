@@ -22,8 +22,6 @@ module ForemanOpenscap
       SCAP_PUPPET_CLASS = 'openscap::xccdf::foreman_audit'
       SCAP_PUPPET_OVERRIDES = %w[scan_name period weekday]
 
-      has_many :hostgroups, :through => :assets, :as => :assetable, :source => :assetable, :source_type => '::Hostgroup'
-
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
       validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)}, :if => Proc.new { | policy | policy.step_index > 3 }
@@ -37,6 +35,24 @@ module ForemanOpenscap
           order("scaptimony_policies.name")
         end
       }
+    end
+
+    def hostgroup_ids
+      assets.where(:assetable_type => 'Hostgroup').pluck(:assetable_id)
+    end
+
+    def hostgroup_ids=(ids)
+      ids.reject(&:empty?).map do |id|
+        self.assets << assets.where(:assetable_type => 'Hostgroup', :assetable_id => id).first_or_create!
+      end
+    end
+
+    def hostgroups
+      Hostgroup.find(hostgroup_ids)
+    end
+
+    def hostgroups=(hostgroups)
+      hostgroup_ids = hostgroups.map(&:id).map(&:to_s)
     end
 
     def steps
