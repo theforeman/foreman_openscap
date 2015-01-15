@@ -19,8 +19,9 @@ module ForemanOpenscap
       attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
       attr_writer :current_step
 
-      SCAP_PUPPET_CLASS = 'openscap::xccdf::foreman_audit'
-      SCAP_PUPPET_OVERRIDES = %w[scan_name period weekday]
+      SCAP_PUPPET_CLASS = 'foreman_scap_client'
+      POLICIES_CLASS_PARAMETER = 'policies'
+      SERVER_CLASS_PARAMETER = 'server'
 
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
@@ -118,11 +119,39 @@ module ForemanOpenscap
       assign_assets hosts.map &:get_asset
     end
 
+    def to_enc
+      {
+        'id' => self.id,
+        'profile_id' => self.scap_content_profile.profile_id,
+        'content_path' => '/usr/share/xml/scap/ssg/content/ssg-rhel6-ds.xml', # TODO
+        'hour' => '0',
+        'minute' => '0',
+        'month' => '*',
+        'monthday' => '*',
+        'weekday' => '*'
+      }
+    end
+
     private
 
     def ensure_needed_puppetclasses
-      unless Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
+      unless puppetclass = Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
         errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % {:class => SCAP_PUPPET_CLASS}
+        return false
+      end
+
+      unless policies_param = puppetclass.class_params.where(:key => POLICIES_CLASS_PARAMETER).first
+        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
+        return false
+      end
+
+      policies_param.override = true
+      policies_param.key_type = 'array'
+      policies_param.default_value = '<%= @host.policies_enc %>'
+
+      if policies_param.changed? && !policies_param.save
+        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
+        return false
       end
     end
 
@@ -137,25 +166,12 @@ module ForemanOpenscap
     end
 
     def populate_overrides(puppetclass, hostgroup)
-      puppet_class_override(puppetclass).each do |override|
-        override_value = if override.key == 'foreman_proxy'
-                           hostgroup.puppet_proxy.url if hostgroup.puppet_proxy
-                         else
-                           self.send(override.key)
-                         end
-        if override_value.present?
-          lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_create
-          lookup_value.update_attribute(:value, override_value)
+      puppetclass.class_params.where(:override => true, :key => SERVER_CLASS_PARAMETER).each do |override|
+        if hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
+          lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+          lookup_value.update_attribute(:value, url)
         end
       end
-    end
-
-    def puppet_class_override(puppetclass)
-      SCAP_PUPPET_OVERRIDES.each do |override|
-        class_param = puppetclass.class_params.find_by_key(override)
-        class_param.update_attribute(:override, true) if class_param
-      end
-      puppetclass.class_params.where(:override => true)
     end
   end
 end
