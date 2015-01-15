@@ -22,6 +22,10 @@ module ForemanOpenscap
       fetch_asset('Host::Base')
     end
 
+    def name
+      assetable.name
+    end
+
     private
     def fetch_asset(type)
       assetable if assetable_type == type
