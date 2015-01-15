@@ -24,7 +24,7 @@ module ForemanOpenscap
 
       has_many :hostgroups, :through => :assets, :as => :assetable, :source => :assetable, :source_type => '::Hostgroup'
 
-      validates :name, :presence => true, :uniqueness => true, :no_whitespace => true
+      validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
       validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)}, :if => Proc.new { | policy | policy.step_index > 3 }
       validates :period, :inclusion => {:in => %w[weekly monthly]}, :if => Proc.new { | policy | policy.step_index > 3 }

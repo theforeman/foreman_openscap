@@ -15,11 +15,15 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
     included do
       belongs_to :assetable, :polymorphic => true
-      scope :hosts, where(:assetable_type => '::Host::Base')
+      scope :hosts, where(:assetable_type => 'Host::Base')
     end
 
     def host
-      fetch_asset('::Host::Base')
+      fetch_asset('Host::Base')
+    end
+
+    def name
+      assetable.name
     end
 
     private

@@ -17,7 +17,7 @@ module ForemanOpenscap
     end
 
     def get_asset
-      Scaptimony::Asset.where(:assetable_type => '::Host::Base', :assetable_id => id).first_or_create!
+      Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => id).first_or_create!
     end
 
     module ClassMethods
