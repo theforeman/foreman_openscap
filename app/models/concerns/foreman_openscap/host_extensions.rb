@@ -3,6 +3,7 @@ require 'scaptimony/asset'
 module ForemanOpenscap
   module HostExtensions
     extend ActiveSupport::Concern
+    ::Host::Managed::Jail.allow :policies_enc
 
     included do
       has_one :asset, :as => :assetable, :class_name => "::Scaptimony::Asset"
@@ -18,6 +19,10 @@ module ForemanOpenscap
 
     def get_asset
       Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => id).first_or_create!
+    end
+
+    def policies_enc
+      self.policies.map(&:to_enc).to_json
     end
 
     module ClassMethods
