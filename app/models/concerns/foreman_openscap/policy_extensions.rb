@@ -128,7 +128,7 @@ module ForemanOpenscap
     def to_enc
       {
         'id' => self.id,
-        'profile_id' => self.scap_content_profile.profile_id,
+        'profile_id' => self.scap_content_profile.try(:profile_id) || '',
         'content_path' => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
         'hour' => '0', # TODO
         'minute' => '0',
