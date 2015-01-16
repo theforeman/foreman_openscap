@@ -123,8 +123,8 @@ module ForemanOpenscap
       {
         'id' => self.id,
         'profile_id' => self.scap_content_profile.profile_id,
-        'content_path' => '/usr/share/xml/scap/ssg/content/ssg-rhel6-ds.xml', # TODO
-        'hour' => '0',
+        'content_path' => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
+        'hour' => '0', # TODO
         'minute' => '0',
         'month' => '*',
         'monthday' => '*',
