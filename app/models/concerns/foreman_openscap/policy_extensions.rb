@@ -130,15 +130,37 @@ module ForemanOpenscap
         'id' => self.id,
         'profile_id' => self.scap_content_profile.try(:profile_id) || '',
         'content_path' => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
-        'hour' => '0', # TODO
-        'minute' => '0',
-        'month' => '*',
-        'monthday' => '*',
-        'weekday' => '*'
-      }
+      }.merge(period_enc)
     end
 
     private
+
+    def period_enc
+      # get crontab expression as an array (minute hour day_of_month month day_of_week)
+      cron_parts = case period
+        when 'weekly'
+          [ '0', '1', '*', '*', weekday_number.to_s ]
+        when 'monthly'
+          [ '0', '1', day_of_month.to_s, '*', '*']
+        when 'custom'
+          cron_line_split
+        else
+          raise 'invalid period specification'
+      end
+
+      {
+        'minute' => cron_parts[0],
+        'hour' => cron_parts[1],
+        'monthday' => cron_parts[2],
+        'month' => cron_parts[3],
+        'weekday' => cron_parts[4],
+      }
+    end
+
+    def weekday_number
+      # 0 is sunday, 1 is monday in cron, while DAYS_INTO_WEEK has 0 as monday, 6 as sunday
+      (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday] + 1) % 7
+    end
 
     def ensure_needed_puppetclasses
       unless puppetclass = Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
