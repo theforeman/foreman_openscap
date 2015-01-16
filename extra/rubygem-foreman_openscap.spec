@@ -104,6 +104,7 @@ popd
 %dir %{gem_instdir}
 %{gem_libdir}
 %{gem_instdir}/app
+%{gem_instdir}/db
 %{gem_instdir}/config
 %exclude %{gem_cache}
 %{gem_spec}
