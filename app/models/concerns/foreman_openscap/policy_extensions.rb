@@ -25,8 +25,14 @@ module ForemanOpenscap
 
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
-      validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)}, :if => Proc.new { | policy | policy.step_index > 3 }
-      validates :period, :inclusion => {:in => %w[weekly monthly]}, :if => Proc.new { | policy | policy.step_index > 3 }
+      validates :period, :inclusion => {:in => %w[weekly monthly custom]}, :if => Proc.new { | policy | policy.step_index > 3 }
+      validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
+                :if => Proc.new { | policy | policy.step_index > 3 && policy.period == 'weekly' }
+      validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
+                :if => Proc.new { | policy | policy.step_index > 3 && policy.period == 'monthly' }
+      validate :valid_cron_line
+      validate :ensure_period_specification_present
+
 
       after_save :assign_policy_to_hostgroups
       # before_destroy - ensure that the policy has no hostgroups, or classes
@@ -151,6 +157,32 @@ module ForemanOpenscap
 
       if policies_param.changed? && !policies_param.save
         errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
+        return false
+      end
+    end
+
+    def cron_line_split
+      cron_line.split(' ')
+    end
+
+    def valid_cron_line
+      return true if period != 'custom' || step_index != 4
+
+      unless cron_line_split.size == 5
+        errors[:base] << _("Cron line does not consist of 5 parts separated by space")
+        return false
+      end
+    end
+
+    def ensure_period_specification_present
+      return true if period.blank? || step_index != 4
+
+      error = nil
+      error = _("You must fill weekday") if weekday.blank? && period == 'weekday'
+      error = _("You must fill day of month") if day_of_month.blank? && period == 'monthly'
+      error = _("You must fill cron line") if cron_line.blank? && period == 'custom'
+      if error
+        errors[:base] << error
         return false
       end
     end
