@@ -1,3 +1,5 @@
+<%= javascript 'foreman_openscap/period_selector' %>
+
 <div class="tab-pane <%= show_partial_wizard(step) %>" id="scap_schedule">
   <%= wizard_header @policy.step_index, *@policy.steps %>
   <%= select_f(f, :period, %w[Weekly Monthly Custom], :downcase, :to_s,
@@ -7,9 +9,3 @@
   <%= text_f(f, :day_of_month, :help_inline => _('Number of a day in month, note that not all months have same count of days')) %>
   <%= text_f(f, :cron_line, :help_inline => _('You can specify custom cron line, e.g. "0  3  *  *  *", separate each of 5 values by space')) %>
 </div>
-
-<script>
-  $(function() {
-    period_selected($("#policy_period")[0]);
-  });
-</script>

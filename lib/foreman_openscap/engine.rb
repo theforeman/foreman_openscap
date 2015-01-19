@@ -18,6 +18,7 @@ module ForemanOpenscap
     initializer 'foreman_openscap.assets.precompile' do |app|
       app.config.assets.precompile += %w(
         'foreman_openscap/policy_edit.js',
+        'foreman_openscap/period_selector.js',
         'foreman_openscap/policy.css'
       )
     end
@@ -25,6 +26,7 @@ module ForemanOpenscap
     initializer 'foreman_openscap.configure_assets', :group => :assets do
       SETTINGS[:foreman_openscap] =
           {:assets => {:precompile => ['foreman_openscap/policy_edit.js',
+                                       'foreman_openscap/period_selector.js',
                                        'foreman_openscap/policy.css']}}
     end
 
