@@ -21,9 +21,9 @@ module Api
 
         add_puppetmaster_filters :create
 
-        api :POST, "/arf/:cname/:policy_name/:date", N_("Upload an ARF report")
+        api :POST, "/arf/:cname/:policy_id/:date", N_("Upload an ARF report")
         param :cname, :identifier, :required => true
-        param :policy_name, :identifier, :required => true
+        param :policy_id, :identifier, :required => true
         param :date, :identifier, :required => true
 
         def create
