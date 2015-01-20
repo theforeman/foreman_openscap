@@ -14,6 +14,6 @@ Gem::Specification.new do |s|
   s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
   s.test_files = Dir["test/**/*"]
 
-  s.add_dependency "deface"
-  #s.add_development_dependency "sqlite3"
+  s.add_dependency 'deface', '~> 0'
+  s.add_dependency 'scaptimony', '~> 0'
 end
