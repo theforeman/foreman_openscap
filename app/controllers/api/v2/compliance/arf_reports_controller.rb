@@ -13,7 +13,7 @@ require 'foreman_openscap/helper'
 
 module Api
   module V2
-    module Openscap
+    module Compliance
 
       class ArfReportsController < V2::BaseController
         include Api::Version2
