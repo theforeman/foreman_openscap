@@ -22,7 +22,7 @@ module ForemanOpenscap
       scope :hosts, lambda { includes(:policy, :arf_report_breakdown) }
       scope :latest, lambda { includes(:host, :policy, :arf_report_breakdown).limit(5).order("scaptimony_arf_reports.created_at DESC") }
 
-      scoped_search :in => :asset, :on => :name, :complete_value => :true, :rename => "host"
+      scoped_search :in => :host, :on => :name, :complete_value => :true, :rename => "host"
 
       default_scope {
         with_taxonomy_scope do
@@ -36,6 +36,14 @@ module ForemanOpenscap
         self.locations = [host.location]
         self.organizations = [host.organization]
       end
+    end
+
+    def failed?
+      failed > 0
+    end
+
+    def passed?
+      passed > 0 && !failed?
     end
   end
 end
