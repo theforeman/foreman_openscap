@@ -30,6 +30,7 @@ Rails.application.routes.draw do
         get 'auto_complete_search'
       end
     end
+    resources :hosts, :only => [:show], :as => :scaptimony_hosts, :controller => :scaptimony_hosts
   end
 
   namespace :api do

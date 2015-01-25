@@ -21,6 +21,7 @@ module ForemanOpenscap
 
       scope :hosts, lambda { includes(:policy, :arf_report_breakdown) }
       scope :latest, lambda { includes(:host, :policy, :arf_report_breakdown).limit(5).order("scaptimony_arf_reports.created_at DESC") }
+      scope :of_policy, lambda {|policy_id| {:conditions => {:policy_id => policy_id}}}
 
       scoped_search :in => :host, :on => :name, :complete_value => :true, :rename => "host"
 
