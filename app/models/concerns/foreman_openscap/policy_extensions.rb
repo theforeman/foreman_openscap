@@ -24,8 +24,8 @@ module ForemanOpenscap
 
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
-      validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)}, :if => Proc.new { | policy | policy.step_index > 3 }
-      validates :period, :inclusion => {:in => %w[weekly monthly]}, :if => Proc.new { | policy | policy.step_index > 3 }
+      validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)}, :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
+      validates :period, :inclusion => {:in => %w[weekly monthly]}, :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
 
       after_save :assign_policy_to_hostgroups
       # before_destroy - ensure that the policy has no hostgroups, or classes
@@ -87,7 +87,7 @@ module ForemanOpenscap
     end
 
     def wizard_completed?
-      current_step.blank?
+      new_record? && current_step.blank?
     end
 
     def step_index
