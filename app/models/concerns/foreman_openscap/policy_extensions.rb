@@ -25,11 +25,12 @@ module ForemanOpenscap
 
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
-      validates :period, :inclusion => {:in => %w[weekly monthly custom]}, :if => Proc.new { | policy | policy.step_index > 3 }
+      validates :period, :inclusion => {:in => %w[weekly monthly custom]},
+                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
       validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
-                :if => Proc.new { | policy | policy.step_index > 3 && policy.period == 'weekly' }
+                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 && policy.period == 'weekly' : !policy.id.blank? }
       validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
-                :if => Proc.new { | policy | policy.step_index > 3 && policy.period == 'monthly' }
+                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 && policy.period == 'monthly' : !policy.id.blank? }
       validate :valid_cron_line
       validate :ensure_period_specification_present
 
@@ -94,7 +95,7 @@ module ForemanOpenscap
     end
 
     def wizard_completed?
-      current_step.blank?
+      new_record? && current_step.blank?
     end
 
     def step_index
