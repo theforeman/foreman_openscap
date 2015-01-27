@@ -21,21 +21,10 @@
       <%= textarea_f(f, :description, :rows => :auto ) %>
     </div>
     <div class="tab-pane" id="scap_content">
-      <%= select_f f, :scap_content_id, Scaptimony::ScapContent.all, :id, :title,
-        {:include_blank => _("Choose existing SCAP Content")},
-        {:label => _("SCAP Content"),
-          :onchange => 'scap_content_selected(this);',
-          :'data-url' => method_path('scap_content_selected')}
-      %>
+      <%= scap_content_selector(f) %>
       <span id="scap_content_profile_select">
-        <%= select_f f, :scap_content_profile_id, profiles_selection, :id, :title,
-          {:selected => @policy.scap_content_profile_id,
-            :include_blank => _("Default XCCDF profile")},
-          {:label => _("XCCDF Profile"),
-            :disabled => profiles_selection.empty? ? true : false,
-            :help_inline => :indicator}
-        %>
-      </span>
+    <%= scap_content_profile_selector(f) %>
+  </span>
     </div>
     <div class="tab-pane" id="scap_schedule">
       <%= select_f(f, :period, %w[Weekly Monthly], :downcase, :to_s, :include_blank => _('Choose period')) %>
