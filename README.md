@@ -5,14 +5,14 @@ of Foreman based infrastructure.
 
 + Current features:
   + Centralized policy management
+  + Set-up organization defined targeting (connect set of system, a policy and time schedule)
+  + Set-up periodical audits
+  + Search for not audited systems
   + Collect & achieve OpenSCAP audit results from your infrastructure
   + Display audit results
   + Search audit results
   + Search for non-compliant systems
 + Future features:
-  + Set-up organization defined targeting (connect set of system, a policy and time schedule)
-  + Set-up periodical audits
-  + Search for not audited systems
   + Comparison of audit results
   + Waive known issues (one-time waivers, re-occurring, waivers)
   + Ad-hoc audit of given machine
