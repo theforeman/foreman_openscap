@@ -9,9 +9,6 @@ class ScaptimonyScapContentsController < ApplicationController
 
   def index
     @contents = resource_base.search_for(params[:search])
-    if Scaptimony::ScapContent.all.count == 0
-      redirect_to :action => :new
-    end
   end
 
   def show
@@ -47,6 +44,16 @@ class ScaptimonyScapContentsController < ApplicationController
     else
       process_error :object => @scaptimony_scap_content
     end
+  end
+
+  def welcome
+    @searchbar = true
+    if (model_of_controller.first.nil? rescue false)
+      @searchbar = false
+      render :welcome rescue nil and return
+    end
+  rescue
+    not_found
   end
 
   private

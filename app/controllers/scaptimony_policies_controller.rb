@@ -13,7 +13,7 @@ class ScaptimonyPoliciesController < ApplicationController
                   .paginate(:page => params[:page], :per_page => params[:per_page])
                   .includes(:scap_content, :scap_content_profile)
     if @policies.empty? && Scaptimony::ScapContent.unconfigured?
-      redirect_to new_scaptimony_scap_content_path
+      redirect_to scaptimony_scap_contents_path
     end
   end
 
@@ -81,6 +81,16 @@ class ScaptimonyPoliciesController < ApplicationController
       error _('No compliance policy selected.')
       redirect_to(select_multiple_hosts_scaptimony_policies_path)
     end
+  end
+
+  def welcome
+    @searchbar = true
+    if (model_of_controller.first.nil? rescue false)
+      @searchbar = false
+      render :welcome rescue nil and return
+    end
+  rescue
+    not_found
   end
 
   private
