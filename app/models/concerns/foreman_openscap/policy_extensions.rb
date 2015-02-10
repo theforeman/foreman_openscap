@@ -224,7 +224,8 @@ module ForemanOpenscap
       puppetclass.class_params.where(:override => true, :key => SERVER_CLASS_PARAMETER).each do |override|
         if hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
           lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-          lookup_value.update_attribute(:value, url)
+          puppet_proxy_fqdn = URI.parse(url).host
+          lookup_value.update_attribute(:value, puppet_proxy_fqdn)
         end
       end
     end
