@@ -22,6 +22,8 @@ Rails.application.routes.draw do
         post 'scap_content_selected'
         get 'select_multiple_hosts'
         post 'update_multiple_hosts'
+        get 'disassociate_multiple_hosts'
+        post 'remove_policy_from_multiple_hosts'
       end
     end
     resources :scap_contents,

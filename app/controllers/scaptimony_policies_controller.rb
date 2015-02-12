@@ -1,7 +1,7 @@
 class ScaptimonyPoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   before_filter :find_by_id, :only => [:show, :edit, :update, :parse, :destroy]
-  before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts]
+  before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts, :disassociate_multiple_hosts, :remove_policy_from_multiple_hosts]
 
   def model_of_controller
     ::Scaptimony::Policy
@@ -73,13 +73,27 @@ class ScaptimonyPoliciesController < ApplicationController
   def update_multiple_hosts
     if (id = params['policy']['id'])
       policy = ::Scaptimony::Policy.find(id)
-      policy.assign_hosts @hosts
+      policy.assign_hosts(@hosts)
       notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
       # We prefer to go back as this does not lose the current search
       redirect_to hosts_path
     else
       error _('No compliance policy selected.')
       redirect_to(select_multiple_hosts_scaptimony_policies_path)
+    end
+  end
+
+  def disassociate_multiple_hosts; end
+
+  def remove_policy_from_multiple_hosts
+    if (id = params.fetch(:policy, {})[:id])
+      policy = ::Scaptimony::Policy.find(id)
+      policy.unassign_hosts(@hosts)
+      notice _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
+      redirect_to hosts_path
+    else
+      error _('No valid policy id provided')
+      redirect_to hosts_path
     end
   end
 

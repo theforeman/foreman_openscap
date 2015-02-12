@@ -126,6 +126,11 @@ module ForemanOpenscap
       assign_assets hosts.map &:get_asset
     end
 
+    def unassign_hosts(hosts)
+      host_asset_ids = Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id)).pluck(:id)
+      self.asset_ids = self.asset_ids - host_asset_ids
+    end
+
     def to_enc
       {
         'id' => self.id,
