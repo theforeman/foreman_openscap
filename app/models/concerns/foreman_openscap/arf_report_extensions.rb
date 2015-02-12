@@ -33,8 +33,8 @@ module ForemanOpenscap
 
     def assign_locations_organizations
       if host
-        self.location_ids = [host.location] if SETTINGS[:locations_enabled]
-        self.organization_ids = [host.organization] if SETTINGS[:organizations_enabled]
+        self.location_ids = [host.location_id] if SETTINGS[:locations_enabled]
+        self.organization_ids = [host.organization_id] if SETTINGS[:organizations_enabled]
       end
     end
 
