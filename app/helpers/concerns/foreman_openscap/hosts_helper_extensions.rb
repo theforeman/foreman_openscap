@@ -7,7 +7,9 @@ module ForemanOpenscap
     end
 
     def multiple_actions_with_scap
-      multiple_actions_without_scap << [_('Assign Compliance Policy'), select_multiple_hosts_scaptimony_policies_path]
+      multiple_actions_without_scap + [[_('Assign Compliance Policy'), select_multiple_hosts_scaptimony_policies_path],
+                                       [_('Unassign Compliance Policy'), disassociate_multiple_hosts_scaptimony_policies_path]]
+
     end
   end
 end
