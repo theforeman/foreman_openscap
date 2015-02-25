@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.description = "Foreman plug-in for managing security compliance reports"
   s.license     = "GPL-3.0"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "Rakefile", "README.md"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["LICENSE", "README.md"]
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'deface', '~> 0'
