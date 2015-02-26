@@ -24,8 +24,14 @@
     <div class="tab-pane" id="scap_content">
       <%= scap_content_selector(f) %>
       <span id="scap_content_profile_select">
-    <%= scap_content_profile_selector(f) %>
-  </span>
+        <%= scap_content_profile_selector(f) %>
+      </span>
+      <div class="alert alert-info">
+        <%= icon_text("info-sign", _('Notice: Ensure the selected SCAP content exists on your hosts.')) %>
+        <div id="file-location">
+          <b><%= _('SCAP content file should be /var/lib/openscap/content/%s.xml on your clients.') % @policy.scap_content.digest %></b>
+        </div>
+      </div>
     </div>
     <div class="tab-pane" id="scap_schedule">
       <%= select_f(f, :period, %w[Weekly Monthly Custom], :downcase, :to_s,

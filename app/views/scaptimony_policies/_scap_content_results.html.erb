@@ -2,3 +2,6 @@
   <%= scap_content_profile_selector(f) %>
 <% end %>
 
+<div id="file-location">
+  <b><%= _('SCAP content file should be /var/lib/openscap/content/%s.xml on your clients.') % @scap_content.digest %></b>
+</div>
