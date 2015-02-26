@@ -8,7 +8,9 @@ function scap_content_selected(element){
     url: url,
     complete: function() { $(element).indicator_hide();},
     success: function(request) {
+      $('#file-location').remove();
       $('#scap_content_profile_select').html(request);
+      $('#scap_content .alert-info').append($('#file-location'));
     }
   })
 }
