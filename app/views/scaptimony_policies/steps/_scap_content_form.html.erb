@@ -5,6 +5,8 @@
   <span id="scap_content_profile_select">
     <%= scap_content_profile_selector(f) %>
   </span>
-  <p class="alert alert-info"><%= _('Notice: Ensure the selected SCAP content exists on your hosts.') %></p>
+  <div class="alert alert-info">
+    <%= icon_text("info-sign", _('Notice: Ensure the selected SCAP content exists on your hosts.')) %>
+  </div>
 </div>
 
