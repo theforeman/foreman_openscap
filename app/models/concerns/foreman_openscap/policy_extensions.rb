@@ -22,6 +22,7 @@ module ForemanOpenscap
       SCAP_PUPPET_CLASS = 'foreman_scap_client'
       POLICIES_CLASS_PARAMETER = 'policies'
       SERVER_CLASS_PARAMETER = 'server'
+      PORT_CLASS_PARAMETER = 'port'
 
       validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
       validate :ensure_needed_puppetclasses
@@ -223,11 +224,18 @@ module ForemanOpenscap
     end
 
     def populate_overrides(puppetclass, hostgroup)
-      puppetclass.class_params.where(:override => true, :key => SERVER_CLASS_PARAMETER).each do |override|
+      puppetclass.class_params.where(:override => true).each do |override|
         if hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
-          lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-          puppet_proxy_fqdn = URI.parse(url).host
-          lookup_value.update_attribute(:value, puppet_proxy_fqdn)
+          case override.key
+            when SERVER_CLASS_PARAMETER
+              lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+              puppet_proxy_fqdn = URI.parse(url).host
+              lookup_value.update_attribute(:value, puppet_proxy_fqdn)
+            when PORT_CLASS_PARAMETER
+              lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+              puppet_proxy_port = URI.parse(url).port
+              lookup_value.update_attribute(:value, puppet_proxy_port)
+          end
         end
       end
     end
