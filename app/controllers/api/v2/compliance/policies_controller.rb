@@ -1,5 +1,5 @@
-module Api
-  module V2
+module Api::V2
+  module Compliance
     class PoliciesController < ::Api::V2::BaseController
       before_filter :find_resource, :except => %w{index create}
 
@@ -21,14 +21,14 @@ module Api
         api_base_url "/api/v2"
       end
 
-      api :GET, '/policies', N_('List SCAP contents')
+      api :GET, '/compliance/policies', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
         @policies = resource_scope_for_index(:permission => :edit_compliance)
       end
 
-      api :GET, '/policies/:id', N_('Show an SCAP content')
+      api :GET, '/compliance/policies/:id', N_('Show an SCAP content')
       param :id, :identifier, :required => true
 
       def show
@@ -47,7 +47,7 @@ module Api
         end
       end
 
-      api :POST, 'policies', N_('Create a policy')
+      api :POST, '/compliance/policies', N_('Create a policy')
       param_group :policy, :as => :create
 
       def create
@@ -55,7 +55,7 @@ module Api
         process_response @policy.save
       end
 
-      api :PUT, '/policies/:id', N_('Update a policy')
+      api :PUT, '/compliance/policies/:id', N_('Update a policy')
       param :id, :identifier, :required => true
       param_group :policy
 
@@ -63,7 +63,7 @@ module Api
         process_response @policy.update_attributes(params[:policy])
       end
 
-      api :DELETE, '/policies/:id', N_('Deletes a policy')
+      api :DELETE, '/compliance/policies/:id', N_('Deletes a policy')
       param :id, :identifier, :required => true
 
       def destroy
