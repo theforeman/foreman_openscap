@@ -1,5 +1,5 @@
-module Api
-  module V2
+module Api::V2
+  module Compliance
     class ScapContentsController < ::Api::V2::BaseController
       before_filter :find_resource, :except => %w{index create}
 
@@ -17,14 +17,14 @@ module Api
         api_base_url "/api/v2"
       end
 
-      api :GET, '/scap_contents', N_('List SCAP contents')
+      api :GET, '/compliance/scap_contents', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
         @scap_contents = resource_scope_for_index(:permission => :edit_compliance)
       end
 
-      api :GET, '/scap_contents/:id', N_('Show an SCAP content')
+      api :GET, '/compliance/scap_contents/:id', N_('Show an SCAP content')
       param :id, :identifier, :required => true
 
       def show
@@ -41,7 +41,7 @@ module Api
         end
       end
 
-      api :POST, 'scap_contents', N_('Create SCAP content')
+      api :POST, '/compliance/scap_contents', N_('Create SCAP content')
       param_group :scap_content, :as => :create
 
       def create
@@ -49,7 +49,7 @@ module Api
         process_response @scap_content.save
       end
 
-      api :PUT, '/scap_contents/:id', N_('Update an SCAP content')
+      api :PUT, '/compliance/scap_contents/:id', N_('Update an SCAP content')
       param :id, :identifier, :required => true
       param_group :scap_content
 
@@ -57,7 +57,7 @@ module Api
         process_response @scap_content.update_attributes(params[:scap_content])
       end
 
-      api :DELETE, '/scap_contents/:id', N_('Deletes an SCAP content')
+      api :DELETE, '/compliance/scap_contents/:id', N_('Deletes an SCAP content')
       param :id, :identifier, :required => true
 
       def destroy
