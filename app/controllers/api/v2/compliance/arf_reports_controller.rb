@@ -19,7 +19,7 @@ module Api
         include Api::Version2
         include Foreman::Controller::SmartProxyAuth
 
-        add_puppetmaster_filters :create
+        add_smart_proxy_filters :create, :features => 'Openscap'
 
         api :POST, "/arf/:cname/:policy_id/:date", N_("Upload an ARF report")
         param :cname, :identifier, :required => true
