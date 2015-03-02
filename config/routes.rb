@@ -38,10 +38,10 @@ Rails.application.routes.draw do
   namespace :api do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},
           :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
-      resources :arf_reports, :only => [:index, :show, :destroy]
       namespace :compliance do
         resources :scap_contents, :except => [:new, :edit]
         resources :policies, :except => [:new, :edit]
+        resources :arf_reports, :only => [:index, :show, :destroy]
         post 'arf_reports/:cname/:policy_id/:date', \
               :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
       end
