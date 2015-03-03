@@ -20,6 +20,41 @@ of Foreman based infrastructure.
   + Vulnerability Assessment (processing OVAL CVE streams)
   + E-mail notifications
 
+## Usage
+
+### Basic Concepts
+
+There are three basic concepts (entities) in OpenSCAP plug-in: SCAP Contents, Compliance
+Policies and ARF Reports.
+
+*SCAP Content* represents SCAP DataStream XML file as defined by SCAP 1.2 standard. Datastream
+file contains implementation of compliance, configuration or security baselines. Users are
+advised to acquire examplary baseline by installing scap-security-guide package. DataStream
+file usualy contains multiple XCCDF Profiles. Each for different security target. The content
+of Datastream file can be inspected by `oscap` tool from openscap-scanner package.
+
+  ```
+  # yum install -y scap-security-guide openscap-scanner
+  # oscap info /usr/share/xml/scap/ssg/content/ssg-rhel6-ds.xml
+  # oscap info /usr/share/xml/scap/ssg/content/ssg-rhel7-ds.xml
+  ```
+
+*Compliance Policy* is highlevel concept of a baseline applied to the infrastructure. Compliance
+Policy is defined by user on web interface. User may assign following information to the Policy:
++ SCAP Content
++ XCCDF Profile from particular SCAP Content
++ Host Groups that should comply with the policy
++ Schedule - the period in which the audit shall occur
+
+*ARF Report* is XML output of single scan occurance per single host. Asset Reporting File format
+is defined by SCAP 1.2 standard. Foreman plug-in stores the ARF Reports in database for later
+inspections.
+
+### User Interface
+
+There is section called *Compliance* under the *Host* menu. The section cotains three items as
+described in previous section: SCAP Contents, Compliance Policies, ARF Reports.
+
 ## Installation from RPMS
 
 - Install Foreman from [upstream](http://theforeman.org/)
@@ -62,20 +97,9 @@ of Foreman based infrastructure.
   # service foreman restart
   ```
 
-## Usage
-
-Deploy [puppet-openscap](https://github.com/OpenSCAP/puppet-openscap) Puppet module
-on your client systems. Apply openscap::xccdf::foreman_audit puppet class using Foreman
-on your clients. The client will schedule OpenSCAP audit as requested by the Puppet
-class. The audit report will be then transfered from the client machine to the proxy
-(foreman-proxy_openscap). Then audit reports are forwarded from proxy to SCAPtimony
-in batches and achieved at your Foreman server.
-
-More coming, see future features above.
-
 ## Copyright
 
-Copyright (c) 2014 Red Hat, Inc.
+Copyright (c) 2014--2015 Red Hat, Inc.
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
