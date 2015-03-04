@@ -52,8 +52,50 @@ inspections.
 
 ### User Interface
 
-There is section called *Compliance* under the *Host* menu. The section cotains three items as
-described in previous section: SCAP Contents, Compliance Policies, ARF Reports.
+The most of the Foreman-OpenSCAP controls are located in the *Compliance* section under the *Host*
+menu. The section contains three items as described in previous section: SCAP Contents, Compliance
+Policies, ARF Reports.
+
+### Prerequisites before the first use
+
+Make sure that
+1. smart_proxy_openscap and puppet-foreman_scap_client packages are installed on your proxies
+2. proxies have Foreman uri defined
+  ```
+  # echo ':foreman_url: https://foreman17.local.lan' >> /etc/foreman-proxy/settings.yml
+  ```
+3. foreman_scap_client puppet class is imported to your Foreman
+  1. Go to Configure -> Puppet classes page
+  2. Click Import button
+  3. Select foreman_scap_client
+
+### Setting-up first compliance policy
+
+1. Log-in to Web Interface
+2. Create new SCAP Content
+  1. Go to *Hosts -> Compliance -> SCAP contents* page
+  2. Upload DataSteam file
+3. Create new Policy
+  1. Go to Hosts -> Compliance -> Policies page
+  2. Assign SCAP Content to Policy
+  3. Select Profile from your SCAP Content
+  4. Define periodic scan schedule
+  5. Assign Hostgroups to the policy (hosts you want to audit should be assigned with one of the
+     hostgroups)
+4. Select particular hosts for compliance audit
+  1. Go to *Hosts -> All hosts* page
+  2. Select hosts
+  3. Use *Select Action -> Assign Compliance Policy* button
+5. Make sure the DataStream file is present on the clients' file system.
+
+   At the moment, Foreman infrastructure is not able to serve a file to the clients. Hence, users
+   are required to distribute their DataStrem file to each client. The expected location is
+   defined at *Compliance Policy -> Edit* dialogue.
+6. Inspect the compliance results
+  1. Go to *Hosts -> Compliance -> Reports* page
+  2. Wait for ARF Reports to show-up
+  3. Go to *Hosts -> Compliance -> Policies* page
+  4. Click the policy link to view dashboard and trend
 
 ## Installation from RPMS
 
