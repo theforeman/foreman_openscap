@@ -29,9 +29,9 @@ module ForemanOpenscap
       validates :period, :inclusion => {:in => %w[weekly monthly custom]},
                 :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
       validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
-                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 && policy.period == 'weekly' : !policy.id.blank? }
+                :if => Proc.new { | policy | policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
       validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
-                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 && policy.period == 'monthly' : !policy.id.blank? }
+                :if => Proc.new { | policy | policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
       validate :valid_cron_line
       validate :ensure_period_specification_present
 
