@@ -22,7 +22,12 @@ module ForemanOpenscap
     end
 
     def policies_enc
-      self.policies.map(&:to_enc).to_json
+      combined_policies.map(&:to_enc).to_json
+    end
+
+    def combined_policies
+      combined = self.policies + self.hostgroup.policies
+      combined.uniq
     end
 
     module ClassMethods
