@@ -72,6 +72,7 @@ module ForemanOpenscap
     config.to_prepare do
       Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
+      Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
       ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
       ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
       ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)

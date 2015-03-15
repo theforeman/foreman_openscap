@@ -27,7 +27,7 @@ module Api
         param :date, :identifier, :required => true
 
         def create
-          asset = ForemanOpenscap::Helper::get_asset(params[:cname])
+          asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
           arf_bzip2 = request.body.read
           arf_bzip2_size = request.body.size
           Scaptimony::ArfReportsHelper.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
