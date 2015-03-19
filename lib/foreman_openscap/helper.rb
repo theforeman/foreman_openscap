@@ -9,7 +9,9 @@
 #
 
 module ForemanOpenscap::Helper
-  def self.get_asset(cname)
-    Host.find_by_name!(cname).get_asset
+  def self.get_asset(cname, policy_id)
+    asset = Host.find_by_name!(cname).get_asset
+    asset.policy_ids += [policy_id]
+    asset
   end
 end
