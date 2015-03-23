@@ -1,5 +1,7 @@
 # Foreman-OpenSCAP
 
+[![Code Climate](https://codeclimate.com/github/OpenSCAP/foreman_openscap/badges/gpa.svg)](https://codeclimate.com/github/OpenSCAP/foreman_openscap)
+
 This plug-in enables automated vulnerability assessment and compliance audit
 of Foreman based infrastructure.
 
