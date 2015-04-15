@@ -38,6 +38,8 @@ Rails.application.routes.draw do
       namespace :compliance do
         post 'arf_reports/:cname/:policy_id/:date', \
               :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
+
+        get 'policies/:id/content', :to => 'policies#content'
       end
     end
   end
