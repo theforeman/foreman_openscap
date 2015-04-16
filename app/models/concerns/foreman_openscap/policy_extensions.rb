@@ -134,7 +134,7 @@ module ForemanOpenscap
         'id' => self.id,
         'profile_id' => self.scap_content_profile.try(:profile_id) || '',
         'content_path' => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
-        'download_path' => "/openscap/compliace/policies/#{self.id}/content" # default to proxy path
+        'download_path' => "/compliance/policies/#{self.id}/content" # default to proxy path
       }.merge(period_enc)
     end
 
