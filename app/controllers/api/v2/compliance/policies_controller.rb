@@ -4,14 +4,7 @@ module Api::V2
       include Api::Version2
       include Foreman::Controller::SmartProxyAuth
 
-      # add_puppetmaster_filters :create
-
-      skip_before_filter :require_login, :only => :content
-      skip_before_filter :require_ssl, :only => :content
-      skip_before_filter :authorize, :only => :content
-      skip_before_filter :verify_authenticity_token, :only => :content
-      skip_before_filter :set_taxonomy, :only => :content
-      skip_before_filter :session_expiry, :update_activity_time, :only => :content
+      add_puppetmaster_filters :content
 
       before_filter :find_resource, :only => %w{content}
 
