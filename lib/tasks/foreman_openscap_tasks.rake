@@ -1,9 +1,19 @@
 # Tasks
 namespace :foreman_openscap do
-  namespace :example do
-    desc 'Example Task'
-    task :task => :environment do
-      # Task goes here
+  require 'foreman_openscap/bulk_upload'
+  namespace :bulk_upload do
+    desc 'Bulk upload SCAP content from directory'
+    task :directory, [:directory] => [:environment] do |task, args|
+      abort("# No such directory, please check the path you have provided. #") unless args[:directory].blank? || Dir.exist?(args[:directory])
+      ForemanOpenscap::BulkUpload.new.upload_from_directory(args[:directory])
+    end
+
+    task :files, [:files] => [:environment] do |task, args|
+      files_array = args[:files].split(' ')
+      files_array.each do |file|
+        abort("# #{file} is a directory, expecting file. Try using 'rake foreman_openscap:bulk_upload:directory' with this directory. #") if File.directory?(file)
+      end
+      ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
     end
   end
 end
