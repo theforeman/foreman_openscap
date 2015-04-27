@@ -55,4 +55,11 @@ class Api::V2::PoliciesControllerTest < ActionController::TestCase
     assert_response :ok
     refute Scaptimony::Policy.exists?(policy.id)
   end
+
+  test "should return xml of scap content" do
+    policy = FactoryGirl.create(:policy)
+    get :content, { :id => policy.id }, set_session_user
+    assert(@response.header['Content-Type'], 'application/xml')
+    assert_response :success
+  end
 end

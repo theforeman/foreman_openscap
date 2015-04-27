@@ -19,19 +19,19 @@ module ForemanOpenscap
       attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
       attr_writer :current_step
 
-      SCAP_PUPPET_CLASS = 'foreman_scap_client'
+      SCAP_PUPPET_CLASS        = 'foreman_scap_client'
       POLICIES_CLASS_PARAMETER = 'policies'
-      SERVER_CLASS_PARAMETER = 'server'
-      PORT_CLASS_PARAMETER = 'port'
+      SERVER_CLASS_PARAMETER   = 'server'
+      PORT_CLASS_PARAMETER     = 'port'
 
-      validates :name, :presence => true, :uniqueness => true, :format => { without: /\s/ }
+      validates :name, :presence => true, :uniqueness => true, :format => {without: /\s/}
       validate :ensure_needed_puppetclasses
       validates :period, :inclusion => {:in => %w[weekly monthly custom]},
-                :if => Proc.new { | policy | policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
+                :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
       validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
-                :if => Proc.new { | policy | policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
+                :if                  => Proc.new { |policy| policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
       validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
-                :if => Proc.new { | policy | policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
+                :if                          => Proc.new { |policy| policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
       validate :valid_cron_line
       validate :ensure_period_specification_present
 
@@ -82,7 +82,7 @@ module ForemanOpenscap
     end
 
     def next_step
-      steps[steps.index(current_step) + 1 ]
+      steps[steps.index(current_step) + 1]
     end
 
     def rewind_step
@@ -111,14 +111,14 @@ module ForemanOpenscap
 
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
-              'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
-              'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+          'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
+          'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
-              'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
-              'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+          'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
+          'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_hostgroup_ids
@@ -136,9 +136,10 @@ module ForemanOpenscap
 
     def to_enc
       {
-        'id' => self.id,
-        'profile_id' => self.scap_content_profile.try(:profile_id) || '',
-        'content_path' => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
+          'id'            => self.id,
+          'profile_id'    => self.scap_content_profile.try(:profile_id) || '',
+          'content_path'  => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
+          'download_path' => "/compliance/policies/#{self.id}/content" # default to proxy path
       }.merge(period_enc)
     end
 
@@ -147,22 +148,22 @@ module ForemanOpenscap
     def period_enc
       # get crontab expression as an array (minute hour day_of_month month day_of_week)
       cron_parts = case period
-        when 'weekly'
-          [ '0', '1', '*', '*', weekday_number.to_s ]
-        when 'monthly'
-          [ '0', '1', day_of_month.to_s, '*', '*']
-        when 'custom'
-          cron_line_split
-        else
-          raise 'invalid period specification'
-      end
+                     when 'weekly'
+                       ['0', '1', '*', '*', weekday_number.to_s]
+                     when 'monthly'
+                       ['0', '1', day_of_month.to_s, '*', '*']
+                     when 'custom'
+                       cron_line_split
+                     else
+                       raise 'invalid period specification'
+                   end
 
       {
-        'minute' => cron_parts[0],
-        'hour' => cron_parts[1],
-        'monthday' => cron_parts[2],
-        'month' => cron_parts[3],
-        'weekday' => cron_parts[4],
+          'minute'   => cron_parts[0],
+          'hour'     => cron_parts[1],
+          'monthday' => cron_parts[2],
+          'month'    => cron_parts[3],
+          'weekday'  => cron_parts[4],
       }
     end
 
@@ -182,8 +183,8 @@ module ForemanOpenscap
         return false
       end
 
-      policies_param.override = true
-      policies_param.key_type = 'array'
+      policies_param.override      = true
+      policies_param.key_type      = 'array'
       policies_param.default_value = '<%= @host.policies_enc %>'
 
       if policies_param.changed? && !policies_param.save
@@ -233,11 +234,11 @@ module ForemanOpenscap
         if hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
           case override.key
             when SERVER_CLASS_PARAMETER
-              lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+              lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
               puppet_proxy_fqdn = URI.parse(url).host
               lookup_value.update_attribute(:value, puppet_proxy_fqdn)
             when PORT_CLASS_PARAMETER
-              lookup_value = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+              lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
               puppet_proxy_port = URI.parse(url).port
               lookup_value.update_attribute(:value, puppet_proxy_port)
           end

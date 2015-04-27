@@ -70,6 +70,16 @@ module Api::V2
         process_response @policy.destroy
       end
 
+      api :GET, '/compliance/policies/:id/content', N_("Show a policy's SCAP content")
+      param :id, :identifier, :required => true
+
+      def content
+        @scap_content = @policy.scap_content
+        send_data @scap_content.scap_file,
+                  :type     => 'application/xml',
+                  :filename => @scap_content.original_filename
+      end
+
       private
       def find_resource
         not_found and return if params[:id].blank?
