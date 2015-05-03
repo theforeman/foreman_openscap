@@ -13,7 +13,7 @@
     </tr>
     <% latest_reports.each do |report| %>
       <tr>
-        <td><%= link_to h(report.host.name), scaptimony_arf_report_path(report) %></td>
+        <td><%= link_to h(report.host.nil? ? _('Host does not exist anymore') : report.host.name), scaptimony_arf_report_path(report) %></td>
         <td><%= link_to h(report.policy.name), scaptimony_policy_dashboard_scaptimony_policy_path(report.policy) %></td>
         <td><%= report_event_column(report.passed, "label-success")  %></td>
         <td><%= report_event_column(report.failed, "label-danger")  %></td>
