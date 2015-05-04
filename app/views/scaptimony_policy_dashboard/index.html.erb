@@ -2,24 +2,21 @@
 
 <% title _("Compliance policy: %s") % @policy.name %>
 
-<div id='dashboard' class="row gridster">
+<div id='dashboard' class="gridster col-md-12 ready">
   <ul>
-    <%= policy_widget_list.map do |widget|
-      content_tag(:li, render(widget.id), :data => {
-                         :id    => widget.id,
-                         :name  => widget.name || widget.id,
-                         :row   => widget.row,
-                         :col   => widget.col,
-                         :sizex => widget.sizex,
-                         :sizey => widget.sizey,
-                         :hide  => widget.hide
-                     })
-    end.join(' ').html_safe
-    %>
+    <% [{:template => 'policy_status_widget', :sizex => 8, :sizey => 1, :name => N_('Status table')},
+        {:template => 'policy_chart_widget', :sizex => 4, :sizey => 1, :name => N_('Status chart')}].each do |w| %>
+      <% widget = Widget.new(w) %>
+      <%= content_tag(:li, widget_data(widget)) do %>
+        <div class="widget <%= widget.name.parameterize %>">
+          <%= render_widget(widget) %>
+        </div>
+      <% end %>
+    <% end %>
   </ul>
 </div>
 <% if @policy.arf_reports.any? %>
-  <div class="row gridster">
+  <div class="col-md-12 gridster">
     <%= _("Latest reports for policy: %s") % @policy.name %>
     <%= render :partial => 'policy_reports' %>
   </div>
