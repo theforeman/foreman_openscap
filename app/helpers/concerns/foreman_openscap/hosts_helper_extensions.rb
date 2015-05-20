@@ -4,6 +4,7 @@ module ForemanOpenscap
 
     included do
       alias_method_chain :multiple_actions, :scap
+      alias_method_chain :name_column, :scap
     end
 
     Colors = {
@@ -39,6 +40,10 @@ module ForemanOpenscap
       [{:label => _("Passed"), :data => passed, :color => Colors[:passed]},
        {:label => _("Failed"), :data => failed, :color => Colors[:failed]},
        {:label => _("Othered"), :data => othered, :color => Colors[:othered]}]
+    end
+
+    def name_column_with_scap(record)
+      record.nil? ? _('Host is deleted') : name_column_without_scap(record)
     end
   end
 end
