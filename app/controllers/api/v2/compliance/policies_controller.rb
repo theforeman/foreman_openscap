@@ -1,6 +1,10 @@
 module Api::V2
   module Compliance
     class PoliciesController < ::Api::V2::BaseController
+      include Foreman::Controller::SmartProxyAuth
+
+      add_smart_proxy_filters :content, :features => 'Openscap'
+      
       before_filter :find_resource, :except => %w{index create}
 
       def resource_name
@@ -84,6 +88,15 @@ module Api::V2
       def find_resource
         not_found and return if params[:id].blank?
         instance_variable_set("@policy", resource_scope.find(params[:id]))
+      end
+
+      def action_permission
+        case params[:action]
+          when 'content'
+            :view
+          else
+            super
+        end
       end
     end
   end
