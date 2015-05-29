@@ -16,7 +16,7 @@ module Api::V2
       end
 
       def policy_url(policy = nil)
-        api_policy_url(@policy)
+        api_compliance_policy_url(@policy)
       end
 
       resource_description do

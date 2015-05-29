@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class Api::V2::PoliciesControllerTest < ActionController::TestCase
+class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   setup do
     Scaptimony::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
   end

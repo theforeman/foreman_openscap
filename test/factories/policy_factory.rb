@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :policy, :class => Scaptimony::Policy do
-    name 'test_policy'
+    sequence(:name) { |n| "policy#{n}" }
     period 'weekly'
     weekday 'monday'
     scap_content
