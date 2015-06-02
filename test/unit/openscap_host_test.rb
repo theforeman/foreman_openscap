@@ -4,7 +4,6 @@ class OpenscapHostTest < ActiveSupport::TestCase
   setup do
     disable_orchestration
     User.current = users :admin
-    Setting[:token_duration] = 0
     Scaptimony::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
   end
 

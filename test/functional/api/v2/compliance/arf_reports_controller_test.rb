@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class Api::V2::ArfReportsControllerTest < ActionController::TestCase
+class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   setup do
     # override validation of policy (puppetclass, lookup_key overrides)
     Scaptimony::Policy.any_instance.stubs(:valid?).returns(true)

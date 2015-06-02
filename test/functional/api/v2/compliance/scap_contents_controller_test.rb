@@ -1,6 +1,6 @@
 require 'test_plugin_helper'
 
-class Api::V2::ScapContentsControllerTest < ActionController::TestCase
+class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCase
 
   test "should get index" do
     FactoryGirl.create(:scap_content)
@@ -24,7 +24,6 @@ class Api::V2::ScapContentsControllerTest < ActionController::TestCase
 
   test "should create scap content" do
     # Skipped as API does not support uploading files
-    skip
   end
 
   test "should update scap content" do
