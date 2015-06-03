@@ -8,21 +8,21 @@
   <% for content in @contents %>
     <tr>
       <td>
-          <%= content.title %>
+        <%= content.title %>
       </td>
       <td>
-          <%= content.original_filename %>
+        <%= content.original_filename %>
       </td>
       <td>
-          <%= _("%s ago") % time_ago_in_words(content.created_at.getlocal) %>
+        <%= _("%s ago") % time_ago_in_words(content.created_at.getlocal) %>
       </td>
       <td>
         <%= action_buttons(
-          link_to_if_authorized(_("Edit"), hash_for_edit_scaptimony_scap_content_path(:id => content.id)),
-          link_to_if_authorized(_("Download"), hash_for_scaptimony_scap_content_path(:id => content.id)),
-          display_delete_if_authorized(hash_for_scaptimony_scap_content_path(:id => content.id),
-                                       :confirm => _("Delete compliance policy %s with all the reports?") % content.title)
-          ) %>
+                display_link_if_authorized(_("Edit"), hash_for_edit_scaptimony_scap_content_path(:id => content.id)),
+                display_link_if_authorized(_("Download"), hash_for_scaptimony_scap_content_path(:id => content.id)),
+                display_delete_if_authorized(hash_for_scaptimony_scap_content_path(:id => content.id),
+                                             :confirm => _("Delete compliance policy %s with all the reports?") % content.title)
+            ) %>
       </td>
     </tr>
   <% end %>
