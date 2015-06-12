@@ -45,6 +45,7 @@ module ForemanOpenscap
 
           permission :view_scaptimony_policies, {:scaptimony_policies         => [:index, :show, :parse, :auto_complete_search],
                                                  :scaptimony_policy_dashboard => [:index],
+                                                 :scaptimony_dashboard        => [:index],
                                                  'api/v2/compliance/policies' => [:index, :show, :content]},
                      :resource_type => 'Scaptimony::Policy'
           permission :edit_scaptimony_policies, {:scaptimony_policies         => [:edit, :update, :scap_content_selected],
