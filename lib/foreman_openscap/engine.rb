@@ -32,41 +32,71 @@ module ForemanOpenscap
                                        'foreman_openscap/policy.css']}}
     end
 
-    initializer 'foreman_openscap.register_plugin', :after=> :finisher_hook do |app|
+    initializer 'foreman_openscap.register_plugin', :after => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
         requires_foreman '>= 1.5'
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, {:scaptimony_arf_reports => [:index, :show],
-                                         :scaptimony_policies => [:index, :show],
-                                         :scaptimony_scap_contents => [:index, :show],
-                                        }
-          permission :edit_compliance, {:scaptimony_arf_reports => [:destroy],
-                                        :scaptimony_policies => [:new, :create, :edit, :update, :destroy,
-                                          :select_multiple_hosts, :upldate_multiple_hosts],
-                                        :scaptimony_scap_contents => [:new, :create, :edit, :update]
-                                       }
+          permission :view_arf_reports, {:scaptimony_arf_reports         => [:index, :show, :parse, :auto_complete_search],
+                                         'api/v2/compliance/arf_reports' => [:index, :show],
+                                         :scaptimony_hosts               => [:show]}
+          permission :destroy_arf_reports, {:scaptimony_arf_reports         => [:destroy],
+                                            'api/v2/compliance/arf_reports' => [:destroy]}
+          permission :create_arf_reports, {'api/v2/compliance/arf_reports' => [:create]}
+
+          permission :view_scaptimony_policies, {:scaptimony_policies         => [:index, :show, :parse, :auto_complete_search],
+                                                 :scaptimony_dashboard        => [:index],
+                                                 'api/v2/compliance/policies' => [:index, :show, :content]},
+                     :resource_type => 'Scaptimony::Policy'
+          permission :edit_scaptimony_policies, {:scaptimony_policies         => [:edit, :update, :scap_content_selected],
+                                                 'api/v2/compliance/policies' => [:update]},
+                     :resource_type => 'Scaptimony::Policy'
+          permission :create_scaptimony_policies, {:scaptimony_policies         => [:new, :create],
+                                                   'api/v2/compliance/policies' => [:create]},
+                     :resource_type => 'Scaptimony::Policy'
+          permission :destroy_scaptimony_policies, {:scaptimony_policies         => [:destroy],
+                                                    'api/v2/compliance/policies' => [:destroy]},
+                     :resource_type => 'Scaptimony::Policy'
+          permission :assign_scaptimony_policies, {:scaptimony_policies => [:select_multiple_hosts, :update_multiple_hosts,
+                                                                            :disassociate_multiple_hosts,
+                                                                            :remove_policy_from_multiple_hosts]},
+                     :resource_type => 'Scaptimony::Policy'
+          permission :view_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:index, :show, :auto_complete_search],
+                                                      'api/v2/compliance/scap_contents' => [:index, :show]},
+                     :resource_type => 'Scaptimony::ScapContent'
+          permission :edit_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:edit, :update],
+                                                      'api/v2/compliance/scap_contents' => [:update]},
+                     :resource_type => 'Scaptimony::ScapContent'
+          permission :create_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:new, :create],
+                                                        'api/v2/compliance/scap_contents' => [:create]},
+                     :resource_type => 'Scaptimony::ScapContent'
+          permission :destroy_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:destroy],
+                                                         'api/v2/compliance/scap_contents' => [:destroy]},
+                     :resource_type => 'Scaptimony::ScapContent'
         end
 
-        role "View compliance reports", [:view_arf_reports]
-        role "Edit compliance policies", [:edit_compliance]
+        role "Compliance viewer", [:view_arf_reports, :view_scaptimony_policies, :view_scaptimony_scap_contents]
+        role "Compliance manager", [:view_arf_reports, :view_scaptimony_policies, :view_scaptimony_scap_contents,
+                                    :destroy_arf_reports, :edit_scaptimony_policies, :edit_scaptimony_scap_contents, :assign_scaptimony_policies,
+                                    :create_scaptimony_policies, :create_scaptimony_scap_contents, :destroy_scaptimony_policies, :destroy_scaptimony_scap_contents]
+        role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
 
         #add menu entries
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
         menu :top_menu, :compliance_policies, :caption => N_('Policies'),
-             :url_hash => {:controller => :'scaptimony_policies', :action => :index },
+             :url_hash => {:controller => :'scaptimony_policies', :action => :index},
              :parent => :hosts_menu
         menu :top_menu, :compliance_contents, :caption => N_('SCAP contents'),
-             :url_hash => {:controller => :'scaptimony_scap_contents', :action => :index },
+             :url_hash => {:controller => :'scaptimony_scap_contents', :action => :index},
              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
-             :url_hash => {:controller => :'scaptimony_arf_reports', :action => :index },
-             :parent   => :hosts_menu
+             :url_hash => {:controller => :'scaptimony_arf_reports', :action => :index},
+             :parent => :hosts_menu
 
         # add dashboard widget
-        widget 'foreman_openscap_host_reports_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey =>1
-        widget 'foreman_openscap_reports_breakdown_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey =>1
+        widget 'foreman_openscap_host_reports_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
+        widget 'foreman_openscap_reports_breakdown_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
       end
     end
 
