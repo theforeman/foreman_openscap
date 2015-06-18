@@ -7,6 +7,8 @@ module Api::V2
       
       before_filter :find_resource, :except => %w{index create}
 
+      skip_after_filter :log_response_body, :only => [:content]
+      
       def resource_name
         'Scaptimony::Policy'
       end
