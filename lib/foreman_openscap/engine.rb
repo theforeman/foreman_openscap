@@ -98,6 +98,15 @@ module ForemanOpenscap
         # add dashboard widget
         widget 'foreman_openscap_host_reports_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
         widget 'foreman_openscap_reports_breakdown_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
+
+        # As 'scaptimony_arf_report_breakdowns' is a view and does not appear in schema.rb, db:test:prepare will not create the view
+        # which will make the following tests fail.
+        tests_to_skip ({
+                          "DashboardTest" => ["dashboard page", "dashboard link hosts that had performed modifications",
+                                              "dashboard link hosts in error state", "dashboard link good host reports",
+                                              "dashboard link hosts that had pending changes", "dashboard link out of sync hosts",
+                                              "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled"]
+                      })
       end
     end
 
