@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'deface', '~> 0'
-  s.add_dependency 'scaptimony', '~> 0.3.0'
+  s.add_dependency 'scaptimony', '~> 0.3.2'
 end
