@@ -1,0 +1,44 @@
+<% th_style = "text-align: left; border-collapse: collapse;  background: #f5f5f5; background: linear-gradient(#f5f5f5, #e8e8e8); padding: 4px; border: 1px solid #cccccc;" %>
+<% td_style = "text-align: left; border-collapse: collapse; background-color: #FFFFFF; padding: 4px; border: 1px solid #cccccc;" %>
+<tr>
+  <th style="<%= th_style %>">
+    <%= _('Hostname') %>
+  </th>
+  <th style="<%= th_style %>">
+    <%= _('Passed') %>
+  </th>
+  <th style="<%= th_style %>">
+    <%= _('Failed') %>
+  </th>
+  <th style="<%= th_style %>">
+    <%= _('Other') %>
+  </th>
+  <th style="<%= th_style %>">
+    <%= _('Changed?') %>
+  </th>
+</tr>
+<% hosts.each do |host| %>
+  <tr>
+    <% last_report = host.reports_for_policy(policy, 1).first %>
+
+    <%= render "host_mailer/link_to_host", :host => host %>
+    <% if last_report %>
+      <td style="<%= td_style %>">
+        <%= last_report.passed %>
+      </td>
+      <td style="<%= td_style %>">
+        <%= last_report.failed %>
+      </td>
+      <td style="<%= td_style %>">
+        <%= last_report.othered %>
+      </td>
+      <td style="<%= td_style %>">
+        <%= host.scap_status_changed?(policy) ? _('Yes') : _('No') %>
+      </td>
+    <% else %>
+      <td style="<%= td_style %> border-right: 0px;">
+        <%= _('No ARF reports for this policy') %>
+      </td>
+    <% end %>
+  </tr>
+<% end %>

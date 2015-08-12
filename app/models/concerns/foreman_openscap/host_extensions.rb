@@ -30,6 +30,20 @@ module ForemanOpenscap
       combined.uniq
     end
 
+    def scap_status_changed?(policy)
+      last_reports = reports_for_policy(policy, 2)
+      return false if last_reports.length != 2
+      !last_reports.first.equal? last_reports.last
+    end
+
+    def reports_for_policy(policy, limit = nil)
+      if limit
+        Scaptimony::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id).limit limit
+      else
+        Scaptimony::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id)
+      end
+    end
+
     module ClassMethods
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["scaptimony_policies.name #{operator} ?", value_to_sql(operator, policy_name)])

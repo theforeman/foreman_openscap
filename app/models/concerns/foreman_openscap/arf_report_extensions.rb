@@ -46,5 +46,13 @@ module ForemanOpenscap
     def passed?
       passed > 0 && !failed?
     end
+
+    def equal?(other)
+      results = [xccdf_rule_results, other.xccdf_rule_results].flatten.group_by(&:xccdf_rule_id).values
+      # for each rule, there should be one result from both reports
+      return false unless results.map(&:length).all? { |item| item == 2 }
+      results.map { |result| result.first.xccdf_result_id == result.last.xccdf_result_id }.all? && asset_id == other.asset_id && policy_id == other.policy_id
+    end
+
   end
 end
