@@ -32,9 +32,15 @@ module ForemanOpenscap
                                        'foreman_openscap/policy.css']}}
     end
 
+    initializer 'foreman_openscap.apipie' do
+      Apipie.configuration.checksum_path += ['/compliance/']
+    end
+
     initializer 'foreman_openscap.register_plugin', :after => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
         requires_foreman '>= 1.5'
+
+        apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
         # Add permissions
         security_block :foreman_openscap do
