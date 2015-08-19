@@ -15,20 +15,21 @@ module ForemanOpenscap
       app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
     end
 
-    assets_to_precompile =
-        Dir.chdir(root) do
-          Dir['app/assets/javascripts/foreman_openscap/**/*', 'app/assets/stylesheets/foreman_openscap/**/*'].map do |f|
-            f.split(File::SEPARATOR, 4).last
-          end
-        end
-    
     initializer 'foreman_openscap.assets.precompile' do |app|
-      app.config.assets.precompile += assets_to_precompile
+      app.config.assets.precompile += %w(
+        'foreman_openscap/policy_edit.js',
+        'foreman_openscap/period_selector.js',
+        'foreman_openscap/scap_hosts_show.js',
+        'foreman_openscap/policy.css'
+      )
     end
 
     initializer 'foreman_openscap.configure_assets', :group => :assets do
       SETTINGS[:foreman_openscap] =
-          {:assets => {:precompile => assets_to_precompile}}
+          {:assets => {:precompile => ['foreman_openscap/policy_edit.js',
+                                       'foreman_openscap/period_selector.js',
+                                       'foreman_openscap/scap_hosts_show.js',
+                                       'foreman_openscap/policy.css']}}
     end
 
     initializer 'foreman_openscap.apipie' do
