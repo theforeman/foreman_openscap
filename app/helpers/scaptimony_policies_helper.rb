@@ -65,4 +65,8 @@ module ScaptimonyPoliciesHelper
       link_to((previous).html_safe, '#', :class => 'btn btn-default', :onclick => "previous_step('#{@policy.previous_step}')")
     end
   end
+
+  def days_of_week_hash
+    Hash[*Date::DAYNAMES.map{ |day| [day.downcase, day]}.flatten]
+  end
 end

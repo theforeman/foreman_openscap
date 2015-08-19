@@ -5,7 +5,7 @@
   <%= select_f(f, :period, %w[Weekly Monthly Custom], :downcase, :to_s,
                { :include_blank => _('Choose period') },
                { :onchange => 'period_selected(this)' }) %>
-  <%= select_f(f, :weekday, Date::DAYNAMES, :downcase, :to_s, :include_blank => _('Choose weekday')) %>
+  <%= select_f(f, :weekday, days_of_week_hash, :first, :last, :include_blank => _('Choose weekday')) %>
   <%= text_f(f, :day_of_month, :help_inline => _('Number of a day in month, note that not all months have same count of days')) %>
   <%= text_f(f, :cron_line, :help_inline => _('You can specify custom cron line, e.g. "0  3  *  *  *", separate each of 5 values by space')) %>
 </div>
