@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title> Summary report for OpenScap from Foreman </title>
+  </head>
+  <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #3f3f3f; background-color: #f1f1f1; padding: 10px 24px">
+    <h2 style="font-weight: normal; text-transform: uppercase; font-size: 120%;"><%= _("<b>Foreman</b> OpenScap summary").html_safe %></h2>
+    <h2 style="margin: 5px 0px;"><%= _("Summary from %{time} ago to now") % {:time => distance_of_time_in_words(Time.now - @time)} %></h2>
+    <h3 style="margin: 0px;"><%= _("Summary report from Foreman server at %{foreman_url}") % {:foreman_url => Setting[:foreman_url]} %></h3>
+    <div style="background: #e1e2e3; padding: 20px 40px; margin: 5px 0px 10px;">
+      <%= render :partial => 'dashboard', :locals => {:changed_hosts => @changed_hosts, :compliant_hosts => @compliant_hosts, :incompliant_hosts =>  @incompliant_hosts} %>
+    </div>
+    <div style="background: #fff; padding: 10px 20px; border: 1px solid #e1e2e3">
+      <%= render :partial => 'list', :locals => {:title => _("Policies with hosts:"), :list => @policies} %>
+    </div>
+  </body>
+</html>

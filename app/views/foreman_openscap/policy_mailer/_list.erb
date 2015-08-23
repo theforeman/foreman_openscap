@@ -1,0 +1,10 @@
+<div>
+  <h2><%= title %></h2>
+  <% if list.size > 0 %>
+    <% list.each do |policy| %>
+      <%= render :partial => 'policy', :locals => { :policy => policy } %>
+    <% end%>
+  <% else %>
+    <b><%= _('None!') %></b>
+  <% end %>
+</div>

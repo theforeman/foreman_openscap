@@ -66,6 +66,18 @@ module ForemanOpenscap
       hostgroup_ids = hostgroups.map(&:id).map(&:to_s)
     end
 
+    def host_ids
+      assets.where(:assetable_type => 'Host::Base').pluck(:assetable_id)
+    end
+
+    def hosts
+      Host.where(:id => host_ids)
+    end
+
+    def hosts=(hosts)
+      host_ids = hosts.map(&:id).map(&:to_s)
+    end
+
     def steps
       base_steps = ['Create policy', 'SCAP Content', 'Schedule']
       base_steps << 'Locations' if SETTINGS[:locations_enabled]

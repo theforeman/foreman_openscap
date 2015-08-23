@@ -7,5 +7,6 @@ FactoryGirl.define do
     scap_content_profile
     day_of_month '1'
     cron_line '* * * * 30'
+    hosts []
   end
 end
