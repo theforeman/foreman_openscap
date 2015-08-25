@@ -23,15 +23,15 @@ module Scaptimony::ReportDashboard
     end
 
     def passed_breakdowns
-      (::Scaptimony::ArfReportBreakdown.sum(:passed)).to_f
+      (::ForemanOpenscap::ArfReportBreakdown.sum(:passed)).to_f
     end
 
     def failed_breakdowns
-      (::Scaptimony::ArfReportBreakdown.sum(:failed)).to_f
+      (::ForemanOpenscap::ArfReportBreakdown.sum(:failed)).to_f
     end
 
     def othered_breakdowns
-      (::Scaptimony::ArfReportBreakdown.sum(:othered)).to_f
+      (::ForemanOpenscap::ArfReportBreakdown.sum(:othered)).to_f
     end
   end
 end

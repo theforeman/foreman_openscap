@@ -4,7 +4,7 @@ class ScaptimonyScapContentsController < ApplicationController
   before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
 
   def model_of_controller
-    ::Scaptimony::ScapContent
+    ::ForemanOpenscap::ScapContent
   end
 
   def index
@@ -18,11 +18,11 @@ class ScaptimonyScapContentsController < ApplicationController
   end
 
   def new
-    @scaptimony_scap_content = ::Scaptimony::ScapContent.new
+    @scaptimony_scap_content = ForemanOpenscap::ScapContent.new
   end
 
   def create
-    @scaptimony_scap_content = ::Scaptimony::ScapContent.new(params[:scap_content])
+    @scaptimony_scap_content = ForemanOpenscap::ScapContent.new(params[:scap_content])
     if @scaptimony_scap_content.save
       process_success
     else

@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   setup do
-    Scaptimony::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
+    ::ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
   end
 
   test "should get index" do
@@ -53,7 +53,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
     policy = FactoryGirl.create(:policy)
     delete :destroy, { :id => policy.id }, set_session_user
     assert_response :ok
-    refute Scaptimony::Policy.exists?(policy.id)
+    refute ForemanOpenscap::Policy.exists?(policy.id)
   end
 
   test "should return xml of scap content" do

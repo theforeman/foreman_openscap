@@ -4,7 +4,7 @@ class ScaptimonyPoliciesController < ApplicationController
   before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts, :disassociate_multiple_hosts, :remove_policy_from_multiple_hosts]
 
   def model_of_controller
-    ::Scaptimony::Policy
+    ::ForemanOpenscap::Policy
   end
 
   def index
@@ -12,13 +12,13 @@ class ScaptimonyPoliciesController < ApplicationController
                   .search_for(params[:search], :order => params[:order])
                   .paginate(:page => params[:page], :per_page => params[:per_page])
                   .includes(:scap_content, :scap_content_profile)
-    if @policies.empty? && Scaptimony::ScapContent.unconfigured?
+    if @policies.empty? && ForemanOpenscap::ScapContent.unconfigured?
       redirect_to scaptimony_scap_contents_path
     end
   end
 
   def new
-    @policy = ::Scaptimony::Policy.new
+    @policy = ::ForemanOpenscap::Policy.new
   end
 
   def show
@@ -29,7 +29,7 @@ class ScaptimonyPoliciesController < ApplicationController
   end
 
   def create
-    @policy = ::Scaptimony::Policy.new(params[:policy])
+    @policy = ::ForemanOpenscap::Policy.new(params[:policy])
     if @policy.wizard_completed? && @policy.save
       process_success :success_redirect => scaptimony_policies_path
     else
@@ -62,8 +62,8 @@ class ScaptimonyPoliciesController < ApplicationController
   end
 
   def scap_content_selected
-    if params[:scap_content_id] && (@scap_content = ::Scaptimony::ScapContent.find(params[:scap_content_id]))
-      @policy ||= ::Scaptimony::Policy.new
+    if params[:scap_content_id] && (@scap_content = ::ForemanOpenscap::ScapContent.find(params[:scap_content_id]))
+      @policy ||= ::ForemanOpenscap::Policy.new
       render :partial => 'scap_content_results', :locals => {:policy => @policy}
     end
   end
@@ -72,7 +72,7 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def update_multiple_hosts
     if (id = params['policy']['id'])
-      policy = ::Scaptimony::Policy.find(id)
+      policy = ::ForemanOpenscap::Policy.find(id)
       policy.assign_hosts(@hosts)
       notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
       # We prefer to go back as this does not lose the current search
@@ -87,7 +87,7 @@ class ScaptimonyPoliciesController < ApplicationController
 
   def remove_policy_from_multiple_hosts
     if (id = params.fetch(:policy, {})[:id])
-      policy = ::Scaptimony::Policy.find(id)
+      policy = ::ForemanOpenscap::Policy.find(id)
       policy.unassign_hosts(@hosts)
       notice _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
       redirect_to hosts_path

@@ -8,7 +8,6 @@
 # along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
 #
 
-require 'scaptimony/arf_reports_helper'
 require 'foreman_openscap/helper'
 
 module Api
@@ -24,7 +23,7 @@ module Api
         before_filter :find_resource, :only => %w{show destroy}
 
         def resource_name
-          'Scaptimony::ArfReport'
+          '::ForemanOpenscap::ArfReport'
         end
 
         def get_resource
@@ -66,7 +65,7 @@ module Api
           asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
           arf_bzip2 = request.body.read
           arf_bzip2_size = request.body.size
-          Scaptimony::ArfReportsHelper.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
+          ForemanOpenscap::ArfReport.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
           render :json => { :result => :OK, :received => arf_bzip2_size }
         end
 

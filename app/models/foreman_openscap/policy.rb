@@ -1,49 +1,65 @@
-#
-# Copyright (c) 2014 Red Hat Inc.
-#
-# This software is licensed to you under the GNU General Public License,
-# version 3 (GPLv3). There is NO WARRANTY for this software, express or
-# implied, including the implied warranties of MERCHANTABILITY or FITNESS
-# FOR A PARTICULAR PURPOSE. You should have received a copy of GPLv3
-# along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
-#
+require 'openscap'
+require 'openscap/ds/sds'
 
 module ForemanOpenscap
-  module PolicyExtensions
-    extend ActiveSupport::Concern
-
+  class Policy < ActiveRecord::Base
     include Authorizable
     include Taxonomix
+    attr_accessible :description, :name, :period, :scap_content_id, :scap_content_profile_id,
+                    :weekday, :day_of_month, :cron_line, :location_ids, :organization_ids,
+                    :current_step, :hostgroup_ids
+    attr_writer :current_step
 
-    included do
-      attr_accessible :location_ids, :organization_ids, :current_step, :hostgroup_ids
-      attr_writer :current_step
+    belongs_to :scap_content
+    belongs_to :scap_content_profile
+    has_many :arf_reports, :dependent => :destroy
+    has_many :asset_policies
+    has_many :assets, :through => :asset_policies
 
-      SCAP_PUPPET_CLASS        = 'foreman_scap_client'
-      POLICIES_CLASS_PARAMETER = 'policies'
-      SERVER_CLASS_PARAMETER   = 'server'
-      PORT_CLASS_PARAMETER     = 'port'
+    scoped_search :on => :name, :complete_value => true
 
-      validates :name, :presence => true, :uniqueness => true, :format => {without: /\s/}
-      validate :ensure_needed_puppetclasses
-      validates :period, :inclusion => {:in => %w[weekly monthly custom]},
-                :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
-      validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
-                :if                  => Proc.new { |policy| policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
-      validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
-                :if                          => Proc.new { |policy| policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
-      validate :valid_cron_line
-      validate :ensure_period_specification_present
+    SCAP_PUPPET_CLASS        = 'foreman_scap_client'
+    POLICIES_CLASS_PARAMETER = 'policies'
+    SERVER_CLASS_PARAMETER   = 'server'
+    PORT_CLASS_PARAMETER     = 'port'
+
+    validates :name, :presence => true, :uniqueness => true, :format => {without: /\s/}
+    validate :ensure_needed_puppetclasses
+    validates :period, :inclusion => {:in => %w[weekly monthly custom]},
+              :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
+    validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
+              :if                  => Proc.new { |policy| policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
+    validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
+              :if                          => Proc.new { |policy| policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
+    validate :valid_cron_line
+    validate :ensure_period_specification_present
 
 
-      after_save :assign_policy_to_hostgroups
-      # before_destroy - ensure that the policy has no hostgroups, or classes
+    after_save :assign_policy_to_hostgroups
+    # before_destroy - ensure that the policy has no hostgroups, or classes
 
-      default_scope {
-        with_taxonomy_scope do
-          order("scaptimony_policies.name")
-        end
-      }
+    default_scope {
+      with_taxonomy_scope do
+        order("foreman_openscap_policies.name")
+      end
+    }
+
+    def assign_assets(a)
+      self.asset_ids = (self.asset_ids + a.collect(&:id)).uniq
+    end
+
+    def to_html
+      if self.scap_content.nil? || self.scap_content.source.nil?
+        return (_('<h2>Cannot generate HTML guide for %{scap_content}/%{profile}</h2>') %
+          { :scap_content => self.scap_content, :profile => self.scap_content_profile }).html_safe
+      end
+
+      sds = OpenSCAP::DS::Sds.new self.scap_content.source
+      sds.select_checklist
+      profile_id = self.scap_content_profile.nil? ? nil : self.scap_content_profile.profile_id
+      html = sds.html_guide profile_id
+      sds.destroy
+      html
     end
 
     def hostgroup_ids
@@ -123,13 +139,13 @@ module ForemanOpenscap
 
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
+          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
           'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'Scaptimony::Policy',
+          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
           'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
@@ -142,7 +158,7 @@ module ForemanOpenscap
     end
 
     def unassign_hosts(hosts)
-      host_asset_ids = Scaptimony::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id)).pluck(:id)
+      host_asset_ids = ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id)).pluck(:id)
       self.asset_ids = self.asset_ids - host_asset_ids
     end
 

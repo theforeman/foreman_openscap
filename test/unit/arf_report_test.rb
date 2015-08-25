@@ -5,7 +5,7 @@ module ForemanOpenscap
     setup do
       disable_orchestration
       User.current = users :admin
-      Scaptimony::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
+      ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
       @policy = FactoryGirl.create(:policy)
       @asset = FactoryGirl.create(:asset)
       @result_1 = FactoryGirl.build(:xccdf_rule_result, :xccdf_result_id => 1, :xccdf_rule_id => 1)

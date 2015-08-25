@@ -2,6 +2,6 @@
 <%= form_for :policy,
              :url => remove_policy_from_multiple_hosts_scaptimony_policies_path(:host_ids => params[:host_ids]) do |f| %>
     <%= selectable_f f, :id, [[_('Select Compliance Policy'), 'disabled'],
-                             ] + Scaptimony::Policy.all.map{|e| [e.name, e.id]},{},
+                             ] + ForemanOpenscap::Policy.all.map{|e| [e.name, e.id]},{},
                         :onchange => 'toggle_multiple_ok_button(this)' %>
 <% end %>

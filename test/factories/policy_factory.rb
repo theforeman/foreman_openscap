@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :policy, :class => Scaptimony::Policy do
+  factory :policy, :class => ::ForemanOpenscap::Policy do
     sequence(:name) { |n| "policy#{n}" }
     period 'weekly'
     weekday 'monday'

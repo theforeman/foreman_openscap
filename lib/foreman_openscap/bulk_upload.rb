@@ -24,7 +24,7 @@ module ForemanOpenscap
         digest = Digest::SHA2.hexdigest(datastream)
         title = content_name(datastream)
         filename = original_filename(datastream)
-        scap_content = Scaptimony::ScapContent.where(:title => title, :digest => digest).first_or_initialize
+        scap_content = ScapContent.where(:title => title, :digest => digest).first_or_initialize
         unless scap_content.persisted?
           scap_content.scap_file = file
           scap_content.original_filename = filename

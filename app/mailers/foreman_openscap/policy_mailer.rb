@@ -6,7 +6,7 @@ module ForemanOpenscap
       user = ::User.find(options[:user])
       @time = options[:time] || 1.day.ago
 
-      @policies = Scaptimony::Policy.all.reject {|policy| policy.assets.map(&:host).compact.empty?}
+      @policies = ::ForemanOpenscap::Policy.all.reject {|policy| policy.assets.map(&:host).compact.empty?}
       @compliant_hosts = @policies.map { |policy| Host.where(:id => policy.assets.comply_with(policy).map(&:assetable_id)) }.flatten
       @incompliant_hosts = @policies.map { |policy| Host.where(:id => policy.assets.incomply_with(policy).map(&:assetable_id)) }.flatten
       changed_hosts_of_policies(@policies)
@@ -32,7 +32,7 @@ module ForemanOpenscap
       @changed_hosts = []
       hash.each do |key, values|
         values.each do |host|
-          @changed_hosts << host if host.scap_status_changed?(Scaptimony::Policy.find key)
+          @changed_hosts << host if host.scap_status_changed?(::ForemanOpenscap::Policy.find key)
         end
       end
       @changed_hosts.uniq

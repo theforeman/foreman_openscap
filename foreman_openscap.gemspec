@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.test_files = Dir["test/**/*"]
 
   s.add_dependency 'deface', '< 2.0'
-  s.add_dependency 'scaptimony', '~> 0.3.2'
+  s.add_dependency 'openscap', '>= 0.4.1'
 end
