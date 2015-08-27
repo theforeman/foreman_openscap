@@ -1,0 +1,3 @@
+<h4 class="header ca"><%= _('Compliance reports breakdown') %></h4>
+<% report = ForemanOpenscap::ReportDashboard::Data.new().report %>
+<%= reports_breakdown_chart(report, :class => 'statistics-pie small') %>

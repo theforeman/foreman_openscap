@@ -1,21 +1,22 @@
 Rails.application.routes.draw do
 
   scope '/compliance' do
-    resources :arf_reports, :only => [:index, :show, :destroy],
-              :as => :scaptimony_arf_reports, :controller => :scaptimony_arf_reports do
+
+    resources :arf_reports, :only => [:index, :show, :destroy] do
       member do
-        match 'parse', :to => 'scaptimony_arf_reports#parse'
+        match 'parse', :to => 'arf_reports#parse'
       end
       collection do
         get 'auto_complete_search'
       end
     end
-    match 'dashboard', :to => 'scaptimony_dashboard#index', :as => "scaptimony_dashboard"
-    resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy],
-              :as => :scaptimony_policies, :controller => :scaptimony_policies do
+
+    match 'dashboard', :to => 'compliance_dashboard#index', :as => "compliance_dashboard"
+
+    resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy] do
       member do
-        match 'parse', :to => 'scaptimony_policies#parse'
-        match 'dashboard', :to => 'scaptimony_policy_dashboard#index', :as => 'scaptimony_policy_dashboard'
+        match 'parse', :to => 'policies#parse'
+        match 'dashboard', :to => 'policy_dashboard#index', :as => 'policy_dashboard'
       end
       collection do
         get 'auto_complete_search'
@@ -26,13 +27,14 @@ Rails.application.routes.draw do
         post 'remove_policy_from_multiple_hosts'
       end
     end
-    resources :scap_contents,
-              :as => :scaptimony_scap_contents, :controller => :scaptimony_scap_contents do
+
+    resources :scap_contents do
       collection do
         get 'auto_complete_search'
       end
     end
-    resources :hosts, :only => [:show], :as => :scaptimony_hosts, :controller => :scaptimony_hosts
+
+    resources :hosts, :only => [:show], :as => :compliance_hosts, :controller => :compliance_hosts
   end
 
   namespace :api do

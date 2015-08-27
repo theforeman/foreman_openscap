@@ -31,7 +31,7 @@ module Api
         end
 
         resource_description do
-          resource_id 'scaptimony_arf_reports'
+          resource_id 'foreman_openscap_arf_reports'
           api_version 'v2'
           api_base_url "/api/v2"
         end
