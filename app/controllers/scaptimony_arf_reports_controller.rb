@@ -4,7 +4,7 @@ class ScaptimonyArfReportsController < ApplicationController
   before_filter :find_by_id, :only => [:show, :parse, :destroy]
 
   def model_of_controller
-    ::Scaptimony::ArfReport
+    ::ForemanOpenscap::ArfReport
   end
 
   def index

@@ -10,7 +10,7 @@ module Api::V2
       skip_after_filter :log_response_body, :only => [:content]
       
       def resource_name
-        'Scaptimony::Policy'
+        '::ForemanOpenscap::Policy'
       end
 
       def get_resource
@@ -57,7 +57,7 @@ module Api::V2
       param_group :policy, :as => :create
 
       def create
-        @policy = Scaptimony::Policy.new(params[:policy])
+        @policy = ForemanOpenscap::Policy.new(params[:policy])
         process_response @policy.save
       end
 

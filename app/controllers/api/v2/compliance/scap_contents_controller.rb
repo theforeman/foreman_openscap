@@ -4,7 +4,7 @@ module Api::V2
       before_filter :find_resource, :except => %w{index create}
 
       def resource_name
-        'Scaptimony::ScapContent'
+        '::ForemanOpenscap::ScapContent'
       end
 
       def get_resource
@@ -45,7 +45,7 @@ module Api::V2
       param_group :scap_content, :as => :create
 
       def create
-        @scap_content = Scaptimony::ScapContent.new(params[:scap_content])
+        @scap_content = ForemanOpenscap::ScapContent.new(params[:scap_content])
         process_response @scap_content.save
       end
 

@@ -6,7 +6,7 @@ module ScaptimonyPoliciesHelper
   end
 
   def scap_content_selector(form)
-    scap_contents = Scaptimony::ScapContent.all
+    scap_contents = ::ForemanOpenscap::ScapContent.all
     if scap_contents.length > 1
       select_f form, :scap_content_id, scap_contents, :id, :title,
                {:include_blank => _("Choose existing SCAP Content")} ,

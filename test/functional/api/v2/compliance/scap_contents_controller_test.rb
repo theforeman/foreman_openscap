@@ -43,6 +43,6 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
     scap_content = FactoryGirl.create(:scap_content)
     delete :destroy, { :id => scap_content.id }, set_session_user
     assert_response :ok
-    refute Scaptimony::ScapContent.exists?(scap_content.id)
+    refute ForemanOpenscap::ScapContent.exists?(scap_content.id)
   end
 end

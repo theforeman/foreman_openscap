@@ -14,7 +14,7 @@ class ScaptimonyPolicyDashboardController < ApplicationController
   def index; end
 
   def prefetch_data
-    @policy = ::Scaptimony::Policy.find(params[:id])
+    @policy = ::ForemanOpenscap::Policy.find(params[:id])
     dashboard = Scaptimony::PolicyDashboard::Data.new(@policy, params[:search])
     @report = dashboard.report
   end

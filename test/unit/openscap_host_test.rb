@@ -4,7 +4,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
   setup do
     disable_orchestration
     User.current = users :admin
-    Scaptimony::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
+    ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     @policy = FactoryGirl.create(:policy)
   end
 
@@ -32,12 +32,12 @@ class OpenscapHostTest < ActiveSupport::TestCase
     end
 
     test 'scap_status_changed should detect status change' do
-      Scaptimony::ArfReport.any_instance.stubs(:equal?).returns(false)
+      ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(false)
       refute(@host.scap_status_changed?(@policy))
     end
 
     test 'scap_status_changed should not detect status change when there is none' do
-      Scaptimony::ArfReport.any_instance.stubs(:equal?).returns(true)
+      ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(true)
       refute(@host.scap_status_changed?(@policy))
     end
 

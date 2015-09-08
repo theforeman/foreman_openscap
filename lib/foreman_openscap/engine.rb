@@ -1,5 +1,4 @@
 require 'deface'
-require 'scaptimony/engine'
 
 module ForemanOpenscap
   class Engine < ::Rails::Engine
@@ -11,7 +10,6 @@ module ForemanOpenscap
 
     # Add any db migrations
     initializer "foreman_openscap.load_app_instance_data" do |app|
-      app.config.paths['db/migrate'] += Scaptimony::Engine.paths['db/migrate'].existent
       app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
     end
 
@@ -54,32 +52,32 @@ module ForemanOpenscap
                                                  :scaptimony_policy_dashboard => [:index],
                                                  :scaptimony_dashboard        => [:index],
                                                  'api/v2/compliance/policies' => [:index, :show, :content]},
-                     :resource_type => 'Scaptimony::Policy'
+                     :resource_type => 'ForemanOpenscap::Policy'
           permission :edit_scaptimony_policies, {:scaptimony_policies         => [:edit, :update, :scap_content_selected],
                                                  'api/v2/compliance/policies' => [:update]},
-                     :resource_type => 'Scaptimony::Policy'
+                     :resource_type => 'ForemanOpenscap::Policy'
           permission :create_scaptimony_policies, {:scaptimony_policies         => [:new, :create],
                                                    'api/v2/compliance/policies' => [:create]},
-                     :resource_type => 'Scaptimony::Policy'
+                     :resource_type => 'ForemanOpenscap::Policy'
           permission :destroy_scaptimony_policies, {:scaptimony_policies         => [:destroy],
                                                     'api/v2/compliance/policies' => [:destroy]},
-                     :resource_type => 'Scaptimony::Policy'
+                     :resource_type => 'ForemanOpenscap::Policy'
           permission :assign_scaptimony_policies, {:scaptimony_policies => [:select_multiple_hosts, :update_multiple_hosts,
                                                                             :disassociate_multiple_hosts,
                                                                             :remove_policy_from_multiple_hosts]},
-                     :resource_type => 'Scaptimony::Policy'
+                     :resource_type => 'ForemanOpenscap::Policy'
           permission :view_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:index, :show, :auto_complete_search],
                                                       'api/v2/compliance/scap_contents' => [:index, :show]},
-                     :resource_type => 'Scaptimony::ScapContent'
+                     :resource_type => 'ForemanOpenscap::ScapContent'
           permission :edit_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:edit, :update],
                                                       'api/v2/compliance/scap_contents' => [:update]},
-                     :resource_type => 'Scaptimony::ScapContent'
+                     :resource_type => 'ForemanOpenscap::ScapContent'
           permission :create_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:new, :create],
                                                         'api/v2/compliance/scap_contents' => [:create]},
-                     :resource_type => 'Scaptimony::ScapContent'
+                     :resource_type => 'ForemanOpenscap::ScapContent'
           permission :destroy_scaptimony_scap_contents, {:scaptimony_scap_contents         => [:destroy],
                                                          'api/v2/compliance/scap_contents' => [:destroy]},
-                     :resource_type => 'Scaptimony::ScapContent'
+                     :resource_type => 'ForemanOpenscap::ScapContent'
         end
 
         role "Compliance viewer", [:view_arf_reports, :view_scaptimony_policies, :view_scaptimony_scap_contents]
@@ -121,18 +119,20 @@ module ForemanOpenscap
       Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
-      ::Scaptimony::ArfReport.send(:include, ForemanOpenscap::ArfReportExtensions)
-      ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
-      ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
-      ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
     end
 
     rake_tasks do
       Rake::Task['db:seed'].enhance do
-        Scaptimony::Engine.load_seed
         ForemanOpenscap::Engine.load_seed
       end
     end
+  end
 
+  def self.table_name_prefix
+    "foreman_openscap_"
+  end
+
+  def self.use_relative_model_naming?
+    true
   end
 end

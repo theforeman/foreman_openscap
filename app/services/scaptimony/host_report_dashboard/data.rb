@@ -3,7 +3,7 @@ module Scaptimony::HostReportDashboard
     attr_reader :report
 
     def initialize(policy_id, asset_id)
-      @latest_report = Scaptimony::ArfReport.where(:asset_id =>  asset_id, :policy_id => policy_id).order('created_at DESC').limit(1).first
+      @latest_report = ::ForemanOpenscap::ArfReport.where(:asset_id =>  asset_id, :policy_id => policy_id).order('created_at DESC').limit(1).first
       @report = {}
       fetch_data
     end
