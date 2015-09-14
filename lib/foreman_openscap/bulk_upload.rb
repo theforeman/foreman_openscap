@@ -28,6 +28,8 @@ module ForemanOpenscap
         unless scap_content.persisted?
           scap_content.scap_file = file
           scap_content.original_filename = filename
+          scap_content.location_ids = Location.all.map(&:id) if SETTINGS[:locations_enabled]
+          scap_content.organization_ids = Organization.all.map(&:id) if SETTINGS[:organizations_enabled]
           next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
           if scap_content.save
             puts "Saved #{datastream} as #{scap_content.title}"
