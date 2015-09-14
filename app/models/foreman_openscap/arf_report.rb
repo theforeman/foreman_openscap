@@ -10,7 +10,8 @@ module ForemanOpenscap
     has_many :xccdf_rule_results, :dependent => :destroy
     has_one :arf_report_raw, :dependent => :destroy
     has_one :arf_report_breakdown
-    has_one :host, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Host::Base'
+    has_one :foreman_host, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Host::Base'
+    has_one :katello_system, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Katello::System' rescue nil
 
     after_save :assign_locations_organizations
 
@@ -21,7 +22,7 @@ module ForemanOpenscap
     }
 
     scope :hosts, lambda { includes(:policy, :arf_report_breakdown) }
-    scope :latest, lambda { includes(:host, :policy, :arf_report_breakdown).limit(5).order("foreman_openscap_arf_reports.created_at DESC") }
+    scope :latest, lambda { includes(:foreman_host, :policy, :arf_report_breakdown).limit(5).order("foreman_openscap_arf_reports.created_at DESC") }
     scope :of_policy, lambda {|policy_id| {:conditions => {:policy_id => policy_id}}}
 
     scope :breakdown, joins(:arf_report_breakdown)
@@ -51,6 +52,11 @@ module ForemanOpenscap
     def passed; arf_report_breakdown ? arf_report_breakdown.passed : 0; end
     def failed; arf_report_breakdown ? arf_report_breakdown.failed : 0; end
     def othered; arf_report_breakdown ? arf_report_breakdown.othered : 0; end
+
+    def host
+      return foreman_host unless defined?(Katello::System)
+      foreman_host || katello_system
+    end
 
     def to_html
       if arf_report_raw.nil?
@@ -111,9 +117,14 @@ module ForemanOpenscap
     end
 
     def assign_locations_organizations
-      if host
-        self.location_ids = [host.location_id] if SETTINGS[:locations_enabled]
-        self.organization_ids = [host.organization_id] if SETTINGS[:organizations_enabled]
+      if foreman_host
+        self.location_ids = [foreman_host.location_id] if SETTINGS[:locations_enabled]
+        self.organization_ids = [foreman_host.organization_id] if SETTINGS[:organizations_enabled]
+      end
+
+      if katello_system
+        self.locations = Location.where(:name => katello_system.location) if SETTINGS[:locations_enabled]
+        self.organizations = [katello_system.organization] if SETTINGS[:organizations_enabled]
       end
     end
 
