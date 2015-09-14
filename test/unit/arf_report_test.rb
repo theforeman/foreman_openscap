@@ -53,5 +53,23 @@ module ForemanOpenscap
 
       refute(report_1.equal? report_2)
     end
+
+    test 'should recognize report that failed' do
+      breakdown = FactoryGirl.build(:arf_report_breakdown, :passed => 1, :failed => 1, :othered => 1)
+      report = FactoryGirl.create(:arf_report, :arf_report_breakdown => breakdown)
+      assert report.failed?
+    end
+
+    test 'should recognize report that othered' do
+      breakdown = FactoryGirl.build(:arf_report_breakdown, :passed => 1, :failed => 0, :othered => 1)
+      report = FactoryGirl.create(:arf_report, :arf_report_breakdown => breakdown)
+      assert report.othered?
+    end
+
+    test 'should recognize report that passed' do
+      breakdown = FactoryGirl.build(:arf_report_breakdown, :passed => 1, :failed => 0, :othered => 0)
+      report = FactoryGirl.create(:arf_report, :arf_report_breakdown => breakdown)
+      assert report.passed?
+    end
   end
 end

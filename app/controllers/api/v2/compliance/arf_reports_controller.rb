@@ -66,6 +66,7 @@ module Api
           arf_bzip2 = request.body.read
           arf_bzip2_size = request.body.size
           ForemanOpenscap::ArfReport.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
+          asset.host.refresh_statuses if asset.host
           render :json => { :result => :OK, :received => arf_bzip2_size }
         end
 
