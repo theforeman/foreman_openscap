@@ -18,7 +18,6 @@
     <div class="tab-pane active" id="primary">
       <%= text_f(f, :title) %>
       <%= file_field_f f, :scap_file, :help_block  => _("Upload SCAP DataStream file") %>
-      <p class="alert alert-info"><%= (_('Notice: You need to %s OpenSCAP on your hosts, and upload this content to the hosts as well.') % link_to(_('install'), 'http://www.open-scap.org/page/Documentation#Installation', :target => '_blank')).html_safe %></p>
     </div>
     <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @scaptimony_scap_content %>
     <%= submit_or_cancel f %>
