@@ -5,13 +5,5 @@
   <span id="scap_content_profile_select">
     <%= scap_content_profile_selector(f) %>
   </span>
-  <div class="alert alert-info">
-    <%= icon_text("info-sign", _('Notice: Ensure the selected SCAP content exists on your hosts.')) %>
-    <div id="file-location">
-      <% if @policy.scap_content %>
-        <b><%= _('SCAP content file should be /var/lib/openscap/content/%s.xml on your clients.') % @policy.scap_content.digest %></b>
-      <% end %>
-    </div>
-  </div>
 </div>
 
