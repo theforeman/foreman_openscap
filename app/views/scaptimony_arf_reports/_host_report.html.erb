@@ -1,8 +1,0 @@
-<% if host.arf_reports.any? %>
-  <% if host.arf_reports.search_for('failed > 0').blank? %>
-    <%= link_to(report_event_column('O', "label-success"), scaptimony_arf_reports_path(:search => "host=#{host.name}")) %>
-  <% else %>
-    <%= link_to(report_event_column('F', "label-danger"), scaptimony_arf_reports_path(:search => "host=#{host.name}")) %>
-  <% end %>
-<% end %>
-<%= render_original %>

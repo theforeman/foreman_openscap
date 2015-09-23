@@ -22,7 +22,7 @@ module Api::V2
       end
 
       resource_description do
-        resource_id 'scaptimony_policies'
+        resource_id 'foreman_openscap_policies'
         api_version 'v2'
         api_base_url "/api/v2"
       end
