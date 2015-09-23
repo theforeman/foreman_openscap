@@ -8,3 +8,8 @@ test/dummy/.sass-cache
 foreman_openscap-*.gem
 .idea/
 Gemfile.lock
+
+locale/*.mo
+locale/*/*.pox
+locale/*/*.edit.po
+locale/*/*.po.time_stamp
