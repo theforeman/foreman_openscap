@@ -1,0 +1,37 @@
+<div class="row">
+  <div class="col-md-4">
+    <div class="stats-well">
+      <h4 class="ca" ><%= _('Report Metrics') %></h4>
+      <div style="margin-top:50px;padding-bottom: 40px;">
+        <%= reports_breakdown_chart(metrics, :class => 'statistics-pie small') %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="stats-well">
+      <h4 class="ca" ><%= _('Report Status') %></h4>
+      <%= flot_bar_chart("status" ,"", _("Number of Events"), status, :class => "statistics-bar")%>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <table class='table table-bordered table-striped'>
+      <tbody>
+        <% metrics.sort.each do |title, value|%>
+          <tr>
+            <td>
+              <%= title %>
+            </td>
+            <td>
+              <%= value %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th><%= _("Total") %></th><th><%= @arf_report.rules_count %></th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</div>

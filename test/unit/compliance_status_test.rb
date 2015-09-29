@@ -19,13 +19,38 @@ class ComplianceStatusTest < ActiveSupport::TestCase
 
   test 'status should be incompliant' do
     status = ForemanOpenscap::ComplianceStatus.new
-    host = FactoryGirl.create(:compliance_host, :policies => [@policy_a, @policy_b])
-    host.stubs(:last_report_for_policy).returns(@failed_report, @passed_report)
+    host = FactoryGirl.create(:compliance_host, :policies => [@policy_a])
     status.host = host
+    host.stubs(:last_report_for_policy).returns(@failed_report)
+    s = status.to_status
     assert_equal 2, status.to_status
   end
 
   test 'status should be inconclusive' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryGirl.create(:compliance_host, :policies => [@policy_a])
+    host.stubs(:last_report_for_policy).returns(@othered_report)
+    status.host = host
+    assert_equal 1, status.to_status
+  end
+
+  test 'status should be compliant' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryGirl.create(:compliance_host, :policies => [@policy_a])
+    host.stubs(:last_report_for_policy).returns(@passed_report)
+    status.host = host
+    assert_equal 0, status.to_status
+  end
+
+  test 'status should be incompliant for multiple policies' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryGirl.create(:compliance_host, :policies => [@policy_a, @policy_b])
+    status.host = host
+    host.stubs(:last_report_for_policy).returns(@failed_report, @passed_report)
+    assert_equal 2, status.to_status
+  end
+
+  test 'status should be inconclusive for multiple policies' do
     status = ForemanOpenscap::ComplianceStatus.new
     host = FactoryGirl.create(:compliance_host, :policies => [@policy_a, @policy_b])
     host.stubs(:last_report_for_policy).returns(@othered_report, @passed_report)
@@ -33,15 +58,14 @@ class ComplianceStatusTest < ActiveSupport::TestCase
     assert_equal 1, status.to_status
   end
 
-  test 'status should be compliant' do
+  test 'status should be compliant for multiple policies' do
     status = ForemanOpenscap::ComplianceStatus.new
     host = FactoryGirl.create(:compliance_host, :policies => [@policy_a, @policy_b])
     passed_report = FactoryGirl.create(:arf_report)
-    passed_report.stubs(:failed?).returns(false)
     passed_report.stubs(:othered?).returns(false)
+    passed_report.stubs(:failed?).returns(false)
     host.stubs(:last_report_for_policy).returns(passed_report, @passed_report)
     status.host = host
     assert_equal 0, status.to_status
   end
-
 end

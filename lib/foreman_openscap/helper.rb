@@ -15,6 +15,14 @@ module ForemanOpenscap::Helper
     asset
   end
 
+  def self.find_name_or_uuid_by_host(host)
+    if defined?(::Katello::System)
+      host.content_host.uuid
+    else
+      host.name
+    end
+  end
+
   private
 
   def self.find_host_by_name_or_uuid(cname)

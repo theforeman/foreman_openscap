@@ -40,7 +40,7 @@ module Api
         param_group :search_and_pagination, ::Api::V2::BaseController
 
         def index
-          @arf_reports = resource_scope_for_index(:permission => :edit_compliance).includes(:arf_report_breakdown, :asset)
+          @arf_reports = resource_scope_for_index(:permission => :edit_compliance).includes(:asset)
         end
 
         api :GET, '/compliance/arf_reports/:id', N_('Show an Arf report')
@@ -63,28 +63,13 @@ module Api
 
         def create
           asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
-          arf_bzip2 = request.body.read
-          arf_bzip2_size = request.body.size
-          ForemanOpenscap::ArfReport.create_arf(asset, params, arf_bzip2, arf_bzip2_size)
+          arf_report = ForemanOpenscap::ArfReport.create_arf(asset, params)
           asset.host.refresh_statuses if asset.host
-          render :json => { :result => :OK, :received => arf_bzip2_size }
-        end
-
-        def check_content_type
-          # Well, this is unfortunate. Parent class asserts that content-type is
-          # application/json. While we want to have content-type text/xml. We
-          # also need the content-encoding to equal with x-bzip2. However, when
-          # the framework sees text/xml, it will rewrite it to application/xml.
-          # What's worse, a framework will try to parse body as an utf8 string,
-          # no matter what content-encoding says. Let's pass content-type arf-bzip2
-          # and move forward.
-          super unless
-            params[:action] == 'create' and
-            request.content_type.end_with? 'arf-bzip2' and
-            request.env['HTTP_CONTENT_ENCODING'] == 'x-bzip2'
+          render :json => { :result => :OK, :id => arf_report.id.to_s }
         end
 
         private
+
         def find_resource
           not_found and return if params[:id].blank?
           instance_variable_set("@arf_report", resource_scope.find(params[:id]))

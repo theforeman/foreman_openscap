@@ -40,16 +40,19 @@ Metrics/CyclomaticComplexity:
 # Offense count: 3
 # Configuration parameters: AllowURI, URISchemes.
 Metrics/LineLength:
-  Max: 123
+  Max: 200
 
 # Offense count: 2
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 16
+  Max: 20
 
 # Offense count: 1
 Metrics/PerceivedComplexity:
   Max: 8
+
+Metrics/ClassLength:
+  Max: 250
 
 # Offense count: 6
 # Cop supports --auto-correct.
@@ -216,4 +219,7 @@ Style/Tab:
 # Cop supports --auto-correct.
 # Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
 Style/TrailingComma:
+  Enabled: false
+
+Style/Lambda:
   Enabled: false

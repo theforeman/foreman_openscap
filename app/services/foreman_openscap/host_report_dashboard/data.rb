@@ -2,8 +2,10 @@ module ForemanOpenscap::HostReportDashboard
   class Data
     attr_reader :report
 
-    def initialize(policy_id, asset_id)
-      @latest_report = ::ForemanOpenscap::ArfReport.where(:asset_id =>  asset_id, :policy_id => policy_id).order('created_at DESC').limit(1).first
+    def initialize(policy, host)
+      @latest_report = ::ForemanOpenscap::ArfReport.latest_of_policy(policy)
+        .where(:host_id => host.id)
+        .order('created_at DESC').first
       @report = {}
       fetch_data
     end

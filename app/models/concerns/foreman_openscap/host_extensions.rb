@@ -7,17 +7,43 @@ module ForemanOpenscap
       has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset"
       has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
-      has_many :arf_reports, :through => :asset, :class_name => '::ForemanOpenscap::ArfReport'
+      has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
       has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
+
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_report_missing_for',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
+
       scoped_search :in => :compliance_status_object, :on => :status, :rename => :compliance_status,
                     :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                         :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                         :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
+
+      scope :comply_with, lambda { |policy|
+        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.passed)
+      }
+
+      scope :incomply_with, lambda { |policy|
+        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.failed)
+      }
+
+      scope :inconclusive_with, lambda { |policy|
+        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.othered)
+      }
+
+      scope :policy_reports_missing, lambda { |policy|
+        where("id NOT IN (SELECT host_id
+                          FROM reports INNER JOIN foreman_openscap_policy_arf_reports
+                              ON reports.id = foreman_openscap_policy_arf_reports.arf_report_id
+                          WHERE policy_id = #{policy.id})
+              AND id IN (SELECT assetable_id
+                         FROM foreman_openscap_asset_policies INNER JOIN foreman_openscap_assets
+                              ON foreman_openscap_asset_policies.asset_id = foreman_openscap_assets.id
+                         WHERE foreman_openscap_assets.assetable_type = 'Host::Base'
+                               AND foreman_openscap_asset_policies.policy_id = '#{policy.id}')")
+      }
     end
 
     def get_asset
@@ -45,9 +71,11 @@ module ForemanOpenscap
 
     def reports_for_policy(policy, limit = nil)
       if limit
-        ForemanOpenscap::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id).limit limit
+        ForemanOpenscap::ArfReport.joins(:policy_arf_report)
+          .merge(ForemanOpenscap::PolicyArfReport.of_policy policy.id).where(:host_id => id).limit limit
       else
-        ForemanOpenscap::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id)
+        ForemanOpenscap::ArfReport.joins(:policy_arf_report)
+          .merge(ForemanOpenscap::PolicyArfReport.of_policy policy.id).where(:host_id => id)
       end
     end
 
@@ -73,16 +101,15 @@ module ForemanOpenscap
              Host::Managed.select(Host::Managed.arel_table[:id])
                .joins(:policies)
                .where(cond)
-               .where('foreman_openscap_assets.id not in (
-				SELECT distinct foreman_openscap_arf_reports.asset_id
-				FROM foreman_openscap_arf_reports
-				WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
-					AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)
-			')
-               .ast
-             ).to_sql
+               .where("foreman_openscap_assets.id NOT IN (
+                        SELECT DISTINCT foreman_openscap_arf_reports.asset_id
+                        FROM foreman_openscap_arf_reports
+                        WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
+                            AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)
+                      ").ast).to_sql
         }
       end
+
     end
   end
 end

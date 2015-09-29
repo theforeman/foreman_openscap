@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
     resources :arf_reports, :only => [:index, :show, :destroy] do
       member do
-        match 'parse', :to => 'arf_reports#parse'
+        get 'show_html'
+        get 'parse_html'
+        get 'parse_bzip'
       end
       collection do
         get 'auto_complete_search'
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
 
     resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy] do
       member do
-        match 'parse', :to => 'policies#parse'
+        # match 'parse', :to => 'policies#parse'
         match 'dashboard', :to => 'policy_dashboard#index', :as => 'policy_dashboard'
       end
       collection do

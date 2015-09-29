@@ -4,7 +4,7 @@
 <% @host.combined_policies.each do |policy| %>
   <h2 class="center-block"><%= _('Policy %s') % policy %></h2>
   <div class="row">
-    <% data = ForemanOpenscap::HostReportDashboard::Data.new(policy.id, @host.asset.id) %>
+    <% data = ForemanOpenscap::HostReportDashboard::Data.new(policy, @host) %>
     <% if data.has_data? %>
     <div class="col-md-4">
       <div class="stats-well">

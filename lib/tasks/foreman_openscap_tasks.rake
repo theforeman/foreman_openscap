@@ -16,6 +16,20 @@ namespace :foreman_openscap do
       ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
     end
   end
+
+  task :rubocop do
+    begin
+      require 'rubocop/rake_task'
+      RuboCop::RakeTask.new(:rubocop_foreman_openscap) do |task|
+        task.patterns = ["#{ForemanOpenscap::Engine.root}/app/**/*.rb",
+        "#{ForemanOpenscap::Engine.root}/lib/**/*.rb",
+        "#{ForemanOpenscap::Engine.root}/test/**/*.rb"]
+      end
+    rescue
+      puts 'Rubocop not loaded.'
+    end
+    Rake::Task['rubocop_foreman_openscap'].invoke
+  end
 end
 
 # Tests

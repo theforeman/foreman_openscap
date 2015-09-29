@@ -23,15 +23,15 @@ module ForemanOpenscap::ReportDashboard
     end
 
     def passed_breakdowns
-      (::ForemanOpenscap::ArfReportBreakdown.sum(:passed)).to_f
+      Log.where(:result => 'pass').joins("INNER JOIN reports ON reports.id = report_id").count(:id).to_f
     end
 
     def failed_breakdowns
-      (::ForemanOpenscap::ArfReportBreakdown.sum(:failed)).to_f
+      Log.where(:result => 'fail').joins("INNER JOIN reports ON reports.id = report_id").count(:id).to_f
     end
 
     def othered_breakdowns
-      (::ForemanOpenscap::ArfReportBreakdown.sum(:othered)).to_f
+      Log.where(:result => ForemanOpenscap::ArfReport::RESULT[2..-1]).joins("INNER JOIN reports ON reports.id = report_id").count(:id).to_f
     end
   end
 end

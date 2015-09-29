@@ -8,6 +8,10 @@ module ForemanOpenscap
       N_('Compliance')
     end
 
+    def self.bit_mask(status)
+      "#{ArfReport::BIT_NUM * ArfReport::METRIC.index(status)} & #{ArfReport::MAX}"
+    end
+
     def to_label(options = {})
       case to_status
       when COMPLIANT

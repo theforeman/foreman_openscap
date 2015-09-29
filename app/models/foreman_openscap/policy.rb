@@ -9,7 +9,8 @@ module ForemanOpenscap
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
-    has_many :arf_reports, :dependent => :destroy
+    has_many :policy_arf_reports
+    has_many :arf_reports, :through => :policy_arf_reports, :dependent => :destroy
     has_many :asset_policies
     has_many :assets, :through => :asset_policies
 

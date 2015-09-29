@@ -1,12 +1,14 @@
-<%= javascript 'foreman_openscap/load_report'%>
-<div class="row">
+<% title "#{@arf_report.host}" %>
+<p class='ra'> <%= _("Reported at %s ") % @arf_report.reported_at %> </p>
 
-  <div id="loading">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <%= image_tag('/assets/spinner.gif') %>
-      <%= _('Loading...') %>
-    </div>
-  </div>
-  <iframe id="frame" style="display: none" height="100%" width="100%" frameborder="0" src="<%= parse_arf_report_path(@arf_report) %>"></iframe>
-</div>
+<% content_for(:search_bar) {show_logs} %>
+
+<%= render 'output', :logs => @arf_report.logs%>
+<%= render 'metrics', :status => @arf_report.status, :metrics => @arf_report.metrics %>
+
+<%= title_actions link_to(_('Back'), :back),
+  display_delete_if_authorized(hash_for_arf_report_path(:id => @arf_report), :class=> "btn btn-danger"),
+  link_to(_("Host details"), @arf_report.host),
+  link_to(_("View full report"), show_html_arf_report_path(:id => @arf_report.id)),
+  link_to(_("Download XML in bzip"), parse_bzip_arf_report_path(:id => @arf_report.id))
+%>
