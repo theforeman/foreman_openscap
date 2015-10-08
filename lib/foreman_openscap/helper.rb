@@ -10,8 +10,26 @@
 
 module ForemanOpenscap::Helper
   def self.get_asset(cname, policy_id)
-    asset = Host.find_by_name!(cname).get_asset
+    asset = find_host_by_name_or_uuid(cname).get_asset
     asset.policy_ids += [policy_id]
     asset
+  end
+
+  private
+
+  def self.find_host_by_name_or_uuid(cname)
+    if defined?(Katello::System)
+      host = Host.includes(:content_host).where(:katello_systems => {:uuid => cname}).first
+      host ||= Katello::System.find_by_uuid(cname)
+      host ||= Host.find_by_name(cname)
+    else
+      host = Host.find_by_name(cname)
+    end
+    unless host
+      Rails.logger.error "Could not find Host with name: #{cname}"
+      Rails.logger.error "Please check that Content host is linked to Foreman host" if defined?(Katello::System)
+      raise ActiveRecord::RecordNotFound
+    end
+    host
   end
 end

@@ -15,12 +15,13 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
     include Taxonomix
     included do
-      has_one :host, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Host::Base'
+      has_one :foreman_host, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Host::Base'
+      has_one :katello_system, :through => :asset, :as => :assetable, :source => :assetable, :source_type => 'Katello::System'
 
       after_save :assign_locations_organizations
 
       scope :hosts, lambda { includes(:policy, :arf_report_breakdown) }
-      scope :latest, lambda { includes(:host, :policy, :arf_report_breakdown).limit(5).order("scaptimony_arf_reports.created_at DESC") }
+      scope :latest, lambda { includes(:foreman_host, :policy, :arf_report_breakdown).limit(5).order("scaptimony_arf_reports.created_at DESC") }
 
       scoped_search :in => :host, :on => :name, :complete_value => :true, :rename => "host"
 
@@ -31,10 +32,20 @@ module ForemanOpenscap
       }
     end
 
+    def host
+      return foreman_host unless defined?(Katello::System)
+      foreman_host || katello_system
+    end
+
     def assign_locations_organizations
-      if host
-        self.location_ids = [host.location_id] if SETTINGS[:locations_enabled]
-        self.organization_ids = [host.organization_id] if SETTINGS[:organizations_enabled]
+      if foreman_host
+        self.location_ids = [foreman_host.location_id] if SETTINGS[:locations_enabled]
+        self.organization_ids = [foreman_host.organization_id] if SETTINGS[:organizations_enabled]
+      end
+
+      if katello_system
+        self.locations = Location.where(:name => katello_system.location) if SETTINGS[:locations_enabled]
+        self.organizations = [katello_system.organization] if SETTINGS[:organizations_enabled]
       end
     end
 

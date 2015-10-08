@@ -108,6 +108,7 @@ module ForemanOpenscap
       ::Scaptimony::Asset.send(:include, ForemanOpenscap::AssetExtensions)
       ::Scaptimony::Policy.send(:include, ForemanOpenscap::PolicyExtensions)
       ::Scaptimony::ScapContent.send(:include, ForemanOpenscap::ScapContentExtensions)
+      Katello::System.send(:include, ForemanOpenscap::KatelloSystemExtensions) if defined?(::Katello::Syst)
     end
 
     rake_tasks do
