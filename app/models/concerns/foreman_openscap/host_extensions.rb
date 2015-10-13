@@ -8,11 +8,16 @@ module ForemanOpenscap
       has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
       has_many :arf_reports, :through => :asset, :class_name => '::ForemanOpenscap::ArfReport'
+      has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
       scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_report_missing_for',
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
+      scoped_search :in => :compliance_status_object, :on => :status, :rename => :compliance_status,
+                    :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
+                                        :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
+                                        :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
     end
 
     def get_asset
@@ -34,12 +39,24 @@ module ForemanOpenscap
       !last_reports.first.equal? last_reports.last
     end
 
+    def last_report_for_policy(policy)
+      reports_for_policy(policy, 1)
+    end
+
     def reports_for_policy(policy, limit = nil)
       if limit
         ForemanOpenscap::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id).limit limit
       else
         ForemanOpenscap::ArfReport.where(:asset_id => asset.id, :policy_id => policy.id)
       end
+    end
+
+    def compliance_status(options = {})
+      @compliance_status ||= get_status(ForemanOpenscap::ComplianceStatus).to_status(options)
+    end
+
+    def compliance_status_label(options = {})
+      @compliance_status_label ||= get_status(ForemanOpenscap::ComplianceStatus).to_label(options)
     end
 
     module ClassMethods

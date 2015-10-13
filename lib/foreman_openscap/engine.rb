@@ -19,7 +19,7 @@ module ForemanOpenscap
             f.split(File::SEPARATOR, 4).last
           end
         end
-    
+
     initializer 'foreman_openscap.assets.precompile' do |app|
       app.config.assets.precompile += assets_to_precompile
     end
@@ -38,6 +38,9 @@ module ForemanOpenscap
         requires_foreman '>= 1.5'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
+
+        version = SETTINGS[:version]
+        register_custom_status ForemanOpenscap::ComplianceStatus if version.major.to_i >= 1 && version.minor.to_i >= 10
 
         # Add permissions
         security_block :foreman_openscap do
@@ -99,8 +102,10 @@ module ForemanOpenscap
              :parent => :hosts_menu
 
         # add dashboard widget
-        widget 'foreman_openscap_host_reports_widget', :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
-        widget 'foreman_openscap_reports_breakdown_widget', :name => N_('OpenSCAP Reports breakdown widget'), :sizex => 4, :sizey => 1
+        widget 'compliance_host_reports_widget',
+          :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
+        widget 'compliance_reports_breakdown_widget',
+          :name => N_('OpenSCAP Reports breakdown widget'), :sizex => 4, :sizey => 1
 
         # As 'arf_report_breakdowns' is a view and does not appear in schema.rb, db:test:prepare will not create the view
         # which will make the following tests fail.

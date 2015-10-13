@@ -122,7 +122,11 @@ module ForemanOpenscap
     end
 
     def passed?
-      passed > 0 && !failed?
+      passed > 0 && failed == 0 && othered == 0
+    end
+
+    def othered?
+      !passed? && !failed?
     end
 
     def equal?(other)
