@@ -1,6 +1,3 @@
-require 'openscap'
-require 'openscap/ds/sds'
-
 module ForemanOpenscap
   class Policy < ActiveRecord::Base
     include Authorizable
@@ -49,17 +46,18 @@ module ForemanOpenscap
     end
 
     def to_html
-      if self.scap_content.nil? || self.scap_content.source.nil?
+      if scap_content.nil? || scap_content_profile.nil?
         return (_('<h2>Cannot generate HTML guide for %{scap_content}/%{profile}</h2>') %
           { :scap_content => self.scap_content, :profile => self.scap_content_profile }).html_safe
       end
 
-      sds = OpenSCAP::DS::Sds.new self.scap_content.source
-      sds.select_checklist
-      profile_id = self.scap_content_profile.nil? ? nil : self.scap_content_profile.profile_id
-      html = sds.html_guide profile_id
-      sds.destroy
-      html
+      if (proxy = scap_content.proxy_url)
+        api = ProxyAPI::Openscap.new(:url => proxy)
+      else
+        return _('<h2>No valid OpenScap proxy server found.</h2>').html_safe
+      end
+
+      api.policy_html_guide(scap_content.scap_file, scap_content_profile.profile_id)
     end
 
     def hostgroup_ids

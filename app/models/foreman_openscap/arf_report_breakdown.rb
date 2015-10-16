@@ -7,7 +7,7 @@ module ForemanOpenscap
     # Frameworks like scoped_search cannot do group-by, so this is implemented
     # as a database view.
 
-    set_primary_key :arf_report_id
+    self.primary_key = :arf_report_id
 
     protected
     def readonly?; true end

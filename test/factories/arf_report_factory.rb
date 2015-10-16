@@ -5,6 +5,5 @@ FactoryGirl.define do
     f.sequence(:digest) { |n| "#{n}1212aa#{n}" }
     date '1973-01-13'
     xccdf_rule_results []
-    f.arf_report_breakdown
   end
 end
