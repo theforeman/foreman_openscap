@@ -124,6 +124,7 @@ module ForemanOpenscap
       Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
+      Katello::System.send(:include, ForemanOpenscap::KatelloSystemExtensions) if defined?(Katello::System)
     end
 
     rake_tasks do

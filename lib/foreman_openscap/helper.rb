@@ -20,6 +20,7 @@ module ForemanOpenscap::Helper
   def self.find_host_by_name_or_uuid(cname)
     if defined?(Katello::System)
       host = Host.includes(:content_host).where(:katello_systems => {:uuid => cname}).first
+      host ||= Katello::System.find_by_uuid(cname)
       host ||= Host.find_by_name(cname)
     else
       host = Host.find_by_name(cname)
