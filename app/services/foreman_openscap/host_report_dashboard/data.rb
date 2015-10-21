@@ -8,6 +8,10 @@ module ForemanOpenscap::HostReportDashboard
       fetch_data
     end
 
+    def has_data?
+      latest_report.present?
+    end
+
     private
     attr_writer :report
     attr_accessor :latest_report
@@ -23,15 +27,15 @@ module ForemanOpenscap::HostReportDashboard
     end
 
     def report_passed
-      @latest_report.passed
+      has_data? ? @latest_report.passed : 0
     end
 
     def report_failed
-      @latest_report.failed
+      has_data? ? @latest_report.failed : 0
     end
 
     def report_othered
-      @latest_report.othered
+      has_data? ? @latest_report.othered : 0
     end
 
   end

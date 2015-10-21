@@ -4,10 +4,12 @@
 <% @host.combined_policies.each do |policy| %>
   <h2 class="center-block"><%= _('Policy %s') % policy %></h2>
   <div class="row">
+    <% data = ForemanOpenscap::HostReportDashboard::Data.new(policy.id, @host.asset.id) %>
+    <% if data.has_data? %>
     <div class="col-md-4">
       <div class="stats-well">
         <h4 class="header ca"><%= _('%s latest report') % policy.name %></h4>
-        <% report = ForemanOpenscap::HostReportDashboard::Data.new(policy.id, @host.asset.id).report %>
+        <% report = data.report %>
         <%= host_policy_breakdown_chart(report, :class => 'statistics-pie small') %>
       </div>
     </div>
@@ -18,6 +20,11 @@
         <%= flot_chart('resource_graph', '', '', host_arf_reports_chart(policy.id)) %>
       </div>
     </div>
+    <% else %>
+      <div class="col-md-4">
+        <h4 class="header ca"><%= _('No report for this policy') %></h4>
+      </div>
+    <% end %>
   </div>
   <hr style="border: 1px solid #eeeeee"/>
 <% end %>
