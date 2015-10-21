@@ -29,7 +29,7 @@ class PolicyMailerTest < ActiveSupport::TestCase
 
   test 'policy mailer should have a correct subject' do
     refute @email.subject.empty?
-    assert @email.subject.include? Setting[:email_subject_prefix]
+    assert @email.subject.include? Setting[:email_subject_prefix].first
   end
 
   test 'policy mailer sends Foreman URL in body' do

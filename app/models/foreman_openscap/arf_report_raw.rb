@@ -5,7 +5,7 @@ require 'openscap/xccdf/ruleresult'
 
 module ForemanOpenscap
   class ArfReportRaw < ActiveRecord::Base
-    set_primary_key :arf_report_id
+    self.primary_key = :arf_report_id
     belongs_to :arf_report
     after_create :save_dependent_entities
 
