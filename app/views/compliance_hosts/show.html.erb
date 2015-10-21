@@ -1,7 +1,7 @@
 <%= javascript 'dashboard', 'foreman_openscap/scap_hosts_show' %>
 
 <% title _("%s compliance reports by policy") % @host.to_label %>
-<% @host.policies.each do |policy| %>
+<% @host.combined_policies.each do |policy| %>
   <h2 class="center-block"><%= _('Policy %s') % policy %></h2>
   <div class="row">
     <div class="col-md-4">
