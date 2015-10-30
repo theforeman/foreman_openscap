@@ -6,7 +6,11 @@ module ForemanOpenscap
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
+    config.autoload_paths += Dir["#{config.root}/app/models"]
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
+    config.autoload_paths += Dir["#{config.root}/app/lib"]
+    config.autoload_paths += Dir["#{config.root}/lib"]
+    config.autoload_paths += Dir["#{config.root}/test/"]
 
     # Add any db migrations
     initializer "foreman_openscap.load_app_instance_data" do |app|
@@ -44,7 +48,8 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, {:arf_reports => [:index, :show, :parse, :auto_complete_search],
+          permission :view_arf_reports, {:arf_reports => [:index, :show, :parse_html, :show_html,
+                                                          :parse_bzip, :auto_complete_search],
                                          'api/v2/compliance/arf_reports' => [:index, :show],
                                          :compliance_hosts => [:show]}
           permission :destroy_arf_reports, {:arf_reports => [:destroy],
@@ -124,6 +129,7 @@ module ForemanOpenscap
       Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
+      Report.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
     end
 
     rake_tasks do

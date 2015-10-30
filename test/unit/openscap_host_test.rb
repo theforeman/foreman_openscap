@@ -26,24 +26,33 @@ class OpenscapHostTest < ActiveSupport::TestCase
 
   context 'testing scap_status_changed?' do
     setup do
-      @host = FactoryGirl.create(:host)
-      @report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host => @host)
-      @report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host => @host)
+      @host = FactoryGirl.create(:compliance_host)
+      @report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      @report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      @policy_report_1 = FactoryGirl.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_1.id)
+      @policy_report_2 = FactoryGirl.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_2.id)
+    end
+
+    test "reports for policy should return expected reports" do
+      reports = @host.reports_for_policy(@policy)
+      assert_equal 2, reports.count
+      assert reports.include?(@report_1)
+      assert reports.include?(@report_2)
     end
 
     test 'scap_status_changed should detect status change' do
       ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(false)
-      refute(@host.scap_status_changed?(@policy))
+      assert @host.scap_status_changed?(@policy)
     end
 
     test 'scap_status_changed should not detect status change when there is none' do
       ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(true)
-      refute(@host.scap_status_changed?(@policy))
+      refute @host.scap_status_changed?(@policy)
     end
 
     test 'scap_status_changed should not detect status change when there are reports < 2' do
       @report_2.destroy
-      refute(@host.scap_status_changed?(@policy))
+      refute @host.scap_status_changed?(@policy)
     end
   end
 end

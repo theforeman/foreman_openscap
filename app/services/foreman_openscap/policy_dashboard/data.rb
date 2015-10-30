@@ -18,10 +18,10 @@ module ForemanOpenscap::PolicyDashboard
 
     def fetch_data
       report.update(
-        {:compliant_hosts => @policy.assets.hosts.comply_with(@policy).count,
-         :incompliant_hosts => @policy.assets.hosts.incomply_with(@policy).count,
-         :inconclusive_hosts => @policy.assets.hosts.inconclusive_with(@policy).count,
-         :report_missing => @policy.assets.hosts.policy_reports_missing(@policy).count,
+        {:compliant_hosts => Host::Managed.comply_with(@policy).count,
+         :incompliant_hosts => Host::Managed.incomply_with(@policy).count,
+         :inconclusive_hosts => Host::Managed.inconclusive_with(@policy).count,
+         :report_missing => Host::Managed.policy_reports_missing(@policy).count,
          :assigned_hosts => @policy.assets.hosts.count,
          :unassigned_hosts => hosts.count - @policy.assets.hosts.count
         })
