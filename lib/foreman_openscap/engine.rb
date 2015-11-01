@@ -39,7 +39,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :after => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.5'
+        requires_foreman '>= 1.11'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
