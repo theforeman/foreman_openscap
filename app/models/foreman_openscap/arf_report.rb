@@ -15,7 +15,12 @@ module ForemanOpenscap
     has_one :policy, :through => :policy_arf_report
     has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
     after_save :assign_locations_organizations
+    has_one :log, :foreign_key => :report_id
+
+    delegate :result, :to => :log, :allow_nil => true
     validate :result, :inclusion => { :in => RESULT }
+
+    delegate :asset=, :to => :host
 
     default_scope do
       with_taxonomy_scope do
@@ -26,12 +31,12 @@ module ForemanOpenscap
     scope :hosts, lambda { includes(:policy) }
     scope :of_policy, lambda { |policy_id| joins(:policy_arf_report).merge(PolicyArfReport.of_policy(policy_id)) }
 
-    scope :latest,
+    scope :latest, -> {
        joins('INNER JOIN (SELECT host_id, policy_id, max(reports.id) AS id
                           FROM reports INNER JOIN foreman_openscap_policy_arf_reports
                               ON reports.id = foreman_openscap_policy_arf_reports.arf_report_id
                           GROUP BY host_id, policy_id) latest
-              ON reports.id = latest.id')
+              ON reports.id = latest.id') }
 
     scope :latest_of_policy, lambda { |policy|
       joins("INNER JOIN (SELECT host_id, policy_id, max(reports.id) AS id

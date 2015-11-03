@@ -55,6 +55,11 @@ module ForemanOpenscap
       assign_hostgroup_attributes %w(openscap_proxy_id)
     end
 
+    def policies=(policies)
+      self.create_asset(:assetable => self) if self.asset.blank?
+      self.asset.policies = policies
+    end
+
     def get_asset
       ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base', :assetable_id => id).first_or_create!
     end

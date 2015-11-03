@@ -15,12 +15,12 @@ Rails.application.routes.draw do
       end
     end
 
-    match 'dashboard', :to => 'compliance_dashboard#index', :as => "compliance_dashboard"
+    get 'dashboard', :to => 'compliance_dashboard#index', :as => "compliance_dashboard"
 
     resources :policies, :only => [:index, :new, :show, :create, :edit, :update, :destroy] do
       member do
-        match 'parse'
-        match 'dashboard', :to => 'policy_dashboard#index', :as => 'policy_dashboard'
+        get 'parse', :to => 'policies#parse'
+        get 'dashboard', :to => 'policy_dashboard#index', :as => 'policy_dashboard'
       end
       collection do
         get 'auto_complete_search'
