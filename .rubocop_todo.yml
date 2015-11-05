@@ -224,9 +224,6 @@ Style/TrailingComma:
 Style/Lambda:
   Enabled: false
 
-Style/Lambda:
-  Enabled: false
-
 Style/RedundantSelf:
   Enabled: false
 
