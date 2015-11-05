@@ -51,6 +51,10 @@ class OpenscapHostTest < ActiveSupport::TestCase
     end
 
     test 'scap_status_changed should not detect status change when there are reports < 2' do
+      proxy = ::ProxyAPI::Openscap.new(:url => 'https://test-proxy.com:9090')
+      proxy.stubs(:destroy_report).returns(true)
+      ForemanOpenscap::Helper.stubs(:find_name_or_uuid_by_host).returns("abcde")
+      ForemanOpenscap::ArfReport.any_instance.stubs(:proxy).returns(proxy)
       @report_2.destroy
       refute @host.scap_status_changed?(@policy)
     end

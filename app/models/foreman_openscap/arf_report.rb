@@ -154,6 +154,14 @@ module ForemanOpenscap
         policy.id == other.policy.id
     end
 
+    def destroy
+      if proxy.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
+        super
+      else
+        false
+      end
+    end
+
     def proxy
       return @proxy if @proxy
       scap_class = host.info['classes']['foreman_scap_client']
