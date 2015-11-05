@@ -19,7 +19,7 @@ module ForemanOpenscap
         api = ProxyAPI::Openscap.new(:url => scap_content.proxy_url)
         errors = api.validate_scap_content(scap_content.scap_file)
         if errors && errors['errors'].any?
-          errors['errors'].each {|error| scap_content.errors.add(:scap_file, _(error))}
+          errors['errors'].each { |error| scap_content.errors.add(:scap_file, _(error)) }
           return false
         end
       rescue *ProxyAPI::AvailableProxy::HTTP_ERRORS => e

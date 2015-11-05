@@ -6,7 +6,7 @@ class BulkUploadTest < ActiveSupport::TestCase
   end
 
   test 'upload_from_files should create only one scap content' do
-    scap_files = ['../foreman_openscap/test/files/scap_contents/ssg-fedora-ds.xml']
+    scap_files = ["#{ForemanOpenscap::Engine.root}/test/files/scap_contents/ssg-fedora-ds.xml"]
     assert_difference('ForemanOpenscap::ScapContent.count', 1) do
       2.times do
         ForemanOpenscap::BulkUpload.new.upload_from_files(scap_files)

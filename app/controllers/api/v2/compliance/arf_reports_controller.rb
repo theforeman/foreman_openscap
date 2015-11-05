@@ -20,14 +20,14 @@ module Api
 
         add_smart_proxy_filters :create, :features => 'Openscap'
 
-        before_filter :find_resource, :only => %w{show destroy}
+        before_filter :find_resource, :only => %w(show destroy)
 
         def resource_name
           '::ForemanOpenscap::ArfReport'
         end
 
         def get_resource
-          instance_variable_get :"@arf_report" or raise 'no resource loaded'
+          instance_variable_get :"@arf_report" or fail 'no resource loaded'
         end
 
         resource_description do

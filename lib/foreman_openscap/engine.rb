@@ -114,13 +114,12 @@ module ForemanOpenscap
 
         # As 'arf_report_breakdowns' is a view and does not appear in schema.rb, db:test:prepare will not create the view
         # which will make the following tests fail.
-        tests_to_skip ({
-                          "DashboardIntegrationTest" => ["dashboard page", "dashboard link hosts that had performed modifications",
-                                              "dashboard link hosts in error state", "dashboard link good host reports",
-                                              "dashboard link hosts that had pending changes", "dashboard link out of sync hosts",
-                                              "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
-                                              "widgets not in dashboard show up in list"]
-                      })
+        tests_to_skip({ "DashboardIntegrationTest" => ["dashboard page", "dashboard link hosts that had performed modifications",
+                           "dashboard link hosts in error state", "dashboard link good host reports",
+                           "dashboard link hosts that had pending changes", "dashboard link out of sync hosts",
+                           "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
+                           "widgets not in dashboard show up in list"]
+                     })
       end
     end
 

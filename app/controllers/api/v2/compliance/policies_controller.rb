@@ -5,7 +5,7 @@ module Api::V2
 
       add_smart_proxy_filters :content, :features => 'Openscap'
 
-      before_filter :find_resource, :except => %w{index create}
+      before_filter :find_resource, :except => %w(index create)
 
       skip_after_filter :log_response_body, :only => [:content]
 
@@ -14,7 +14,7 @@ module Api::V2
       end
 
       def get_resource
-        instance_variable_get :"@policy" or raise 'no resource loaded'
+        instance_variable_get :"@policy" or fail 'no resource loaded'
       end
 
       def policy_url(policy = nil)
@@ -94,10 +94,10 @@ module Api::V2
 
       def action_permission
         case params[:action]
-          when 'content'
-            :view
-          else
-            super
+        when 'content'
+          :view
+        else
+          super
         end
       end
     end

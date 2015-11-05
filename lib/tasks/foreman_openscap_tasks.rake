@@ -37,7 +37,7 @@ namespace :test do
   desc "Test ForemanOpenscap"
   Rake::TestTask.new(:foreman_openscap) do |t|
     test_dir = File.join(File.dirname(__FILE__), '../..', 'test')
-    t.libs << ["test",test_dir]
+    t.libs << ["test", test_dir]
     t.pattern = "#{test_dir}/**/*_test.rb"
     t.verbose = true
   end
@@ -48,8 +48,9 @@ Rake::Task[:test].enhance do
 end
 
 load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:setup')
+if Rake::Task.task_defined?(:'jenkins:unit')
   Rake::Task["jenkins:unit"].enhance do
     Rake::Task['test:foreman_openscap'].invoke
+    Rake::Task['foreman_openscap:rubocop'].invoke
   end
 end

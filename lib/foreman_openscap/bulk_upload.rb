@@ -2,7 +2,7 @@ require 'digest/sha2'
 module ForemanOpenscap
   class BulkUpload
     attr_accessor :from_scap_security_guide
-    def initialize(from_scap_security_guide=false)
+    def initialize(from_scap_security_guide = false)
       @from_scap_security_guide = from_scap_security_guide
     end
 
@@ -25,17 +25,16 @@ module ForemanOpenscap
         title = content_name(datastream)
         filename = original_filename(datastream)
         scap_content = ScapContent.where(:title => title, :digest => digest).first_or_initialize
-        unless scap_content.persisted?
-          scap_content.scap_file = file
-          scap_content.original_filename = filename
-          scap_content.location_ids = Location.all.map(&:id) if SETTINGS[:locations_enabled]
-          scap_content.organization_ids = Organization.all.map(&:id) if SETTINGS[:organizations_enabled]
-          next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
-          if scap_content.save
-            puts "Saved #{datastream} as #{scap_content.title}"
-          else
-            puts "Failed saving #{datastream}"
-          end
+        next if scap_content.persisted?
+        scap_content.scap_file = file
+        scap_content.original_filename = filename
+        scap_content.location_ids = Location.all.map(&:id) if SETTINGS[:locations_enabled]
+        scap_content.organization_ids = Organization.all.map(&:id) if SETTINGS[:organizations_enabled]
+        next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
+        if scap_content.save
+          puts "Saved #{datastream} as #{scap_content.title}"
+        else
+          puts "Failed saving #{datastream}"
         end
       end
     end

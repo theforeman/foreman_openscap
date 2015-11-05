@@ -134,10 +134,10 @@ class PoliciesController < ApplicationController
 
   def action_permission
     case params[:action]
-      when 'parse'
-        :view
-      else
-        super
+    when 'parse'
+      :view
+    else
+      super
     end
   end
 end

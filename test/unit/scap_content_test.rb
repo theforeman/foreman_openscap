@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class ScapContentTest < ActiveSupport::TestCase
   setup do
-    @scap_file = File.new('../foreman_openscap/test/files/scap_contents/ssg-fedora-ds.xml', 'rb').read
+    @scap_file = File.new("#{ForemanOpenscap::Engine.root}/test/files/scap_contents/ssg-fedora-ds.xml", 'rb').read
   end
   context 'validate scap contents' do
     test 'create scap content' do
