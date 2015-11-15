@@ -2,13 +2,13 @@ module ::ProxyAPI
   class AvailableProxy
 
     HTTP_ERRORS = [
-        EOFError,
-        Errno::ECONNRESET,
-        Errno::EINVAL,
-        Net::HTTPBadResponse,
-        Net::HTTPHeaderSyntaxError,
-        Net::ProtocolError,
-        Timeout::Error
+      EOFError,
+      Errno::ECONNRESET,
+      Errno::EINVAL,
+      Net::HTTPBadResponse,
+      Net::HTTPHeaderSyntaxError,
+      Net::ProtocolError,
+      Timeout::Error
     ]
 
     def initialize(args)

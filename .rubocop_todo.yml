@@ -31,11 +31,11 @@ Lint/UnusedMethodArgument:
 
 # Offense count: 3
 Metrics/AbcSize:
-  Max: 28
+  Max: 36
 
 # Offense count: 1
 Metrics/CyclomaticComplexity:
-  Max: 7
+  Max: 10
 
 # Offense count: 3
 # Configuration parameters: AllowURI, URISchemes.
@@ -45,11 +45,11 @@ Metrics/LineLength:
 # Offense count: 2
 # Configuration parameters: CountComments.
 Metrics/MethodLength:
-  Max: 20
+  Max: 24
 
 # Offense count: 1
 Metrics/PerceivedComplexity:
-  Max: 8
+  Max: 10
 
 Metrics/ClassLength:
   Max: 250
@@ -222,4 +222,31 @@ Style/TrailingComma:
   Enabled: false
 
 Style/Lambda:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Style/Proc:
+  Enabled: false
+
+Style/RedundantBegin:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/PredicateName:
+  Enabled: false
+
+Lint/UselessAssignment:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+Rails/ReadWriteAttribute:
   Enabled: false

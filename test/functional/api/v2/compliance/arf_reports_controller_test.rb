@@ -4,8 +4,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   setup do
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
-    @asset = FactoryGirl.create(:asset)
-    @report = FactoryGirl.create(:arf_report, :asset => @asset)
+    @host = FactoryGirl.create(:compliance_host)
+    @report = FactoryGirl.create(:arf_report, :host_id => @host.id)
   end
   test "should get index" do
     get :index, {}, set_session_user

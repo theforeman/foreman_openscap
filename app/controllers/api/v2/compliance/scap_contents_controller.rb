@@ -1,14 +1,14 @@
 module Api::V2
   module Compliance
     class ScapContentsController < ::Api::V2::BaseController
-      before_filter :find_resource, :except => %w{index create}
+      before_filter :find_resource, :except => %w(index create)
 
       def resource_name
         '::ForemanOpenscap::ScapContent'
       end
 
       def get_resource
-        instance_variable_get :"@scap_content" or raise 'no resource loaded'
+        instance_variable_get :"@scap_content" or fail 'no resource loaded'
       end
 
       resource_description do

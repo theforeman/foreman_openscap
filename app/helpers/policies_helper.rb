@@ -9,7 +9,7 @@ module PoliciesHelper
     scap_contents = ::ForemanOpenscap::ScapContent.all
     if scap_contents.length > 1
       select_f form, :scap_content_id, scap_contents, :id, :title,
-               {:include_blank => _("Choose existing SCAP Content")} ,
+               {:include_blank => _("Choose existing SCAP Content")},
                {:label => _("SCAP Content"),
                 :onchange => 'scap_content_selected(this);',
                 :'data-url' => method_path('scap_content_selected')}
@@ -44,7 +44,7 @@ module PoliciesHelper
       content_tag(:div, :class => "form-actions") do
         text    = overwrite ? overwrite : _("Submit")
         options = {:class => "btn btn-primary"}
-        options.merge! :'data-id' => form_to_submit_id(form) unless options.has_key?(:'data-id')
+        options.merge! :'data-id' => form_to_submit_id(form) unless options.key?(:'data-id')
         previous = form.object.first_step? ? ' ' : previous_link(form)
         cancel_and_submit = content_tag(:div, :class => "pull-right") do
           link_to(_("Cancel"), args[:cancel_path], :class => "btn btn-default") + ' ' +
@@ -67,6 +67,6 @@ module PoliciesHelper
   end
 
   def days_of_week_hash
-    Hash[*Date::DAYNAMES.map{ |day| [day.downcase, day]}.flatten]
+    Hash[*Date::DAYNAMES.map { |day| [day.downcase, day] }.flatten]
   end
 end

@@ -13,7 +13,7 @@ Spork.each_run do
 
     def add_smart_proxy
       FactoryGirl.create(:smart_proxy, :url => 'http://localhost:8443', :features => [FactoryGirl.create(:feature, :name => 'Openscap')])
-      ::ProxyAPI::Features.any_instance.stubs(:features).returns(['puppet', 'openscap'])
+      ::ProxyAPI::Features.any_instance.stubs(:features).returns(%w(puppet openscap))
       ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({'errors' => []})
       ProxyAPI::Openscap.any_instance.stubs(:fetch_policies_for_scap_content)
           .returns({'xccdf_org.ssgproject.content_profile_common' => 'Common Profile for General-Purpose Fedora Systems'})
@@ -27,7 +27,7 @@ Spork.each_run do
 
     def add_smart_proxy
       FactoryGirl.create(:smart_proxy, :url => 'http://localhost:8443', :features => [FactoryGirl.create(:feature, :name => 'Openscap')])
-      ::ProxyAPI::Features.any_instance.stubs(:features).returns(['puppet', 'openscap'])
+      ::ProxyAPI::Features.any_instance.stubs(:features).returns(%w(puppet openscap))
       ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({'errors' => []})
       ProxyAPI::Openscap.any_instance.stubs(:fetch_policies_for_scap_content)
           .returns({'xccdf_org.ssgproject.content_profile_common' => 'Common Profile for General-Purpose Fedora Systems'})

@@ -29,7 +29,7 @@ module ForemanOpenscap
         search_by_policy_results policy_name, &:othered
       end
 
-       def search_by_policy_results(policy_name, &selection)
+      def search_by_policy_results(policy_name, &selection)
         cond = sanitize_policy_name(policy_name)
         { :conditions => ArfReport.arel_table[:id].in(
           ArfReport.select(ArfReport.arel_table[:id])

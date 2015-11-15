@@ -1,8 +1,8 @@
 module ArfReportDashboardHelper
   COLORS = {
-      :passed => '#89A54E',
-      :failed => '#AA4643',
-      :othered => '#DB843D',
+    :passed => '#89A54E',
+    :failed => '#AA4643',
+    :othered => '#DB843D',
   }
 
   def reports_breakdown_chart(report, options = {})

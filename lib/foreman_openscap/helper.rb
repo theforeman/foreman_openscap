@@ -35,7 +35,7 @@ module ForemanOpenscap::Helper
     unless host
       Rails.logger.error "Could not find Host with name: #{cname}"
       Rails.logger.error "Please check that Content host is linked to Foreman host" if defined?(Katello::System)
-      raise ActiveRecord::RecordNotFound
+      fail ActiveRecord::RecordNotFound
     end
     host
   end

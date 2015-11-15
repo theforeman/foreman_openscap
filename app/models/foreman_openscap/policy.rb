@@ -21,9 +21,9 @@ module ForemanOpenscap
     SERVER_CLASS_PARAMETER   = 'server'
     PORT_CLASS_PARAMETER     = 'port'
 
-    validates :name, :presence => true, :uniqueness => true, :format => {without: /\s/}
+    validates :name, :presence => true, :uniqueness => true, :format => { :without => /\s/ }
     validate :ensure_needed_puppetclasses
-    validates :period, :inclusion => {:in => %w[weekly monthly custom]},
+    validates :period, :inclusion => {:in => %w(weekly monthly custom)},
               :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
     validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
               :if                  => Proc.new { |policy| policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
@@ -163,10 +163,10 @@ module ForemanOpenscap
 
     def to_enc
       {
-          'id'            => self.id,
-          'profile_id'    => self.scap_content_profile.try(:profile_id) || '',
-          'content_path'  => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
-          'download_path' => "/compliance/policies/#{self.id}/content" # default to proxy path
+        'id'            => self.id,
+        'profile_id'    => self.scap_content_profile.try(:profile_id) || '',
+        'content_path'  => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
+        'download_path' => "/compliance/policies/#{self.id}/content" # default to proxy path
       }.merge(period_enc)
     end
 
@@ -175,22 +175,22 @@ module ForemanOpenscap
     def period_enc
       # get crontab expression as an array (minute hour day_of_month month day_of_week)
       cron_parts = case period
-                     when 'weekly'
-                       ['0', '1', '*', '*', weekday_number.to_s]
-                     when 'monthly'
-                       ['0', '1', day_of_month.to_s, '*', '*']
-                     when 'custom'
-                       cron_line_split
-                     else
-                       raise 'invalid period specification'
+                   when 'weekly'
+                     ['0', '1', '*', '*', weekday_number.to_s]
+                   when 'monthly'
+                     ['0', '1', day_of_month.to_s, '*', '*']
+                   when 'custom'
+                     cron_line_split
+                   else
+                     fail 'invalid period specification'
                    end
 
       {
-          'minute'   => cron_parts[0],
-          'hour'     => cron_parts[1],
-          'monthday' => cron_parts[2],
-          'month'    => cron_parts[3],
-          'weekday'  => cron_parts[4],
+        'minute'   => cron_parts[0],
+        'hour'     => cron_parts[1],
+        'monthday' => cron_parts[2],
+        'month'    => cron_parts[3],
+        'weekday'  => cron_parts[4],
       }
     end
 
@@ -258,17 +258,17 @@ module ForemanOpenscap
 
     def populate_overrides(puppetclass, hostgroup)
       puppetclass.class_params.where(:override => true).each do |override|
-        if hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
-          case override.key
-            when SERVER_CLASS_PARAMETER
-              lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-              puppet_proxy_fqdn = URI.parse(url).host
-              lookup_value.update_attribute(:value, puppet_proxy_fqdn)
-            when PORT_CLASS_PARAMETER
-              lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-              puppet_proxy_port = URI.parse(url).port
-              lookup_value.update_attribute(:value, puppet_proxy_port)
-          end
+        next unless hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
+
+        case override.key
+        when SERVER_CLASS_PARAMETER
+          lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+          puppet_proxy_fqdn = URI.parse(url).host
+          lookup_value.update_attribute(:value, puppet_proxy_fqdn)
+        when PORT_CLASS_PARAMETER
+          lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
+          puppet_proxy_port = URI.parse(url).port
+          lookup_value.update_attribute(:value, puppet_proxy_port)
         end
       end
     end
