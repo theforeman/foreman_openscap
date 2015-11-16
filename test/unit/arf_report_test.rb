@@ -144,5 +144,15 @@ module ForemanOpenscap
         @passed_reports.each { |pass| assert ForemanOpenscap::ArfReport.passed.include?(pass) }
       end
     end
+
+    test 'should destroy report' do
+      proxy = ::ProxyAPI::Openscap.new(:url => 'https://test-proxy.com:9090')
+      proxy.stubs(:destroy_report).returns(true)
+      ForemanOpenscap::Helper.stubs(:find_name_or_uuid_by_host).returns("abcde")
+      ForemanOpenscap::ArfReport.any_instance.stubs(:proxy).returns(proxy)
+      report = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report.destroy
+      refute ForemanOpenscap::ArfReport.all.include? report
+    end
   end
 end

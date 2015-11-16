@@ -41,7 +41,7 @@ class ArfReportsController < ApplicationController
     if @arf_report.destroy
       process_success(:success_msg => (_("Successfully deleted Arf report.")), :success_redirect => arf_reports_path)
     else
-      process_error
+      process_error(:error_msg => _("Failed to delete Arf Report for host #{@arf_report.host.name} reported at #{@arf_report.reported_at}"))
     end
   end
 
