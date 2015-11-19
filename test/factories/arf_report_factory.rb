@@ -4,6 +4,7 @@ FactoryGirl.define do
     policy nil
     policy_arf_report nil
     sequence(:reported_at) { |n| Time.new(1490 + n, 01, 13, 15, 24, 00) }
+    sequence(:created_at) { |n| Time.new(1490 + n, 01, 13, 15, 24, 00) }
     logs []
     status 0
     metrics {}

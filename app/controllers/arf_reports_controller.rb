@@ -2,6 +2,7 @@ class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
 
   before_filter :find_by_id, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip]
+  before_filter :find_multiple, :only => [:delete_multiple, :submit_delete_multiple]
 
   def model_of_controller
     ::ForemanOpenscap::ArfReport
@@ -45,16 +46,51 @@ class ArfReportsController < ApplicationController
     end
   end
 
+  def delete_multiple
+  end
+
+  def submit_delete_multiple
+    failed_deletes = @arf_reports.reject(&:destroy).count
+    if failed_deletes > 0
+      process_error(:error_msg => (_("Failed to delete %s compliance reports") % failed_deletes),
+                    :error_redirect => arf_reports_path)
+    else
+      process_success(:success_msg => (_("Successfully deleted %s compliance reports") % @arf_reports.count),
+                      :success_redirect => arf_reports_path)
+    end
+  end
+
   private
 
   def find_by_id
     @arf_report = resource_base.find(params[:id])
   end
 
+  def find_multiple
+    if params[:arf_report_ids].present?
+      @arf_reports = ::ForemanOpenscap::ArfReport.where(:id => params[:arf_report_ids])
+      if @arf_reports.empty?
+        error _('No complince reports were found.')
+        redirect_to(arf_reports_path) and return false
+      end
+    else
+      error _('No complince reports selected')
+      redirect_to(arf_reports_path) and return false
+    end
+    return @arf_reports
+  rescue => e
+    error _("Something went wrong while selecting compliance reports - %s") % (e)
+    logger.debug e.message
+    logger.debug e.backtrace.join("\n")
+    redirect_to arf_reports_path and return false
+  end
+
   def action_permission
     case params[:action]
     when 'show_html', 'parse_html', 'parse_bzip'
       :view
+    when 'delete_multiple', 'submit_delete_multiple'
+      :destroy
     else
       super
     end

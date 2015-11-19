@@ -10,6 +10,8 @@ Rails.application.routes.draw do
       end
       collection do
         get 'auto_complete_search'
+        get 'delete_multiple'
+        post 'submit_delete_multiple'
       end
     end
 
