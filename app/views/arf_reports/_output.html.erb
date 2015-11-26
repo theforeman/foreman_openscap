@@ -1,7 +1,7 @@
 <table id='report_log' class="table table-bordered table-striped">
   <thead>
     <tr>
-      <th><%= _("Level") %></th>
+      <th><%= _("Severity") %></th>
       <th><%= _("Resource") %></th>
       <th><%= _("Message") %></th>
       <th><%= _("Result") %></th>
@@ -10,9 +10,11 @@
   <tbody>
     <% logs.each do |log| %>
       <tr>
-        <td><span <%= report_tag log.level %>><%= h log.level %></span></td>
-        <td><%= h log.source %></td>
-        <td><%= h log.message %></td>
+        <td><span <%= severity_tag log.message.severity %>><%= h log.message.severity %></span></td>
+        <td>
+          <%= render :partial => 'detailed_message', :locals => { :log => log.message } %>
+        </td>
+        <td><%= h trunc_with_tooltip(log.source) %></td>
         <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
       </tr>
     <% end %>

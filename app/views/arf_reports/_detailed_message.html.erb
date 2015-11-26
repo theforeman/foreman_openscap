@@ -1,0 +1,6 @@
+<div><%= log.value %> <%= link_to_function(content_tag(:span, "", {:rel => "twipsy", :class => 'glyphicon glyphicon-info-sign', :"data-original-title" => _('More details')} ), "showReportDetails(#{log.id}, $(this))", :class => 'small') %> </div>
+<div class="hidden" id="details-<%= log.id %>">
+  <p><b><%= _('Description') %>:</b> <%= sanitize(log.description) %></p>
+  <p><b><%= _('Rationale') %>:</b> <%= sanitize(log.rationale) %></p>
+  <p><b><%= _('References') %>:</b> <%= sanitize(log.scap_references) %></p>
+</div>

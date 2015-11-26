@@ -105,7 +105,8 @@ module ForemanOpenscap
         if params[:logs]
           params[:logs].each do |log|
             src = Source.find_or_create(log[:source])
-            msg = Message.find_or_create(N_(log[:title]))
+            msg = Message.where(:value => N_(log[:title]), :severity => log[:severity], :description => newline_to_space(log[:description]),
+            :rationale => newline_to_space(log[:rationale]), :scap_references => references_links(log[:references])).first_or_create
             #TODO: log level
             Log.create!(:source_id => src.id,
                         :message_id => msg.id,
@@ -168,6 +169,21 @@ module ForemanOpenscap
       port = scap_class['port']
       server = scap_class['server']
       @proxy = ::ProxyAPI::Openscap.new(:url => "https://#{server}:#{port}")
+    end
+
+    def self.newline_to_space(string)
+      string.gsub(/ *\n+/, " ")
+    end
+
+    def self.references_links(references)
+      return if references.nil?
+      html_links = []
+      references.each do |reference|
+        next if reference['title'] == 'test_attestation' # A blank url created by OpenSCAP
+        reference['html_link'] = "<a href='#{reference['href']}'>#{reference['href']}</a>" if reference['title'].blank?
+        html_links << reference['html_link']
+      end
+      html_links.join(', ')
     end
   end
 end
