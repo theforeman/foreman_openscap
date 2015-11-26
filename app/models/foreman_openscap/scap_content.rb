@@ -57,22 +57,22 @@ module ForemanOpenscap
     scoped_search :on => :title,             :complete_value => true
     scoped_search :on => :original_filename, :complete_value => true, :rename => :filename
 
-    default_scope {
+    default_scope do
       with_taxonomy_scope do
         order("foreman_openscap_scap_contents.title")
       end
-    }
+    end
 
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
-          'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
+        'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
-          'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
+        'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def to_label
@@ -100,9 +100,9 @@ module ForemanOpenscap
 
     def create_profiles
       profiles = fetch_profiles
-      profiles.each {|key, title|
+      profiles.each do|key, title|
         scap_content_profiles.find_or_create_by_profile_id_and_title(key, title)
-      }
+      end
     end
 
     def redigest

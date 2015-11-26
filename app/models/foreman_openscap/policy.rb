@@ -36,11 +36,11 @@ module ForemanOpenscap
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
 
-    default_scope {
+    default_scope do
       with_taxonomy_scope do
         order("foreman_openscap_policies.name")
       end
-    }
+    end
 
     def assign_assets(a)
       self.asset_ids = (self.asset_ids + a.collect(&:id)).uniq
@@ -138,14 +138,14 @@ module ForemanOpenscap
 
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
-          'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
+        'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
-          'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
-          'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
+        'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_hostgroup_ids
@@ -205,7 +205,7 @@ module ForemanOpenscap
         return false
       end
 
-      unless policies_param = puppetclass.class_params.where(:key => POLICIES_CLASS_PARAMETER).first
+      unless policies_param = puppetclass.class_params.find_by(:key => POLICIES_CLASS_PARAMETER)
         errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
         return false
       end
@@ -257,7 +257,7 @@ module ForemanOpenscap
     end
 
     def populate_overrides(puppetclass, hostgroup)
-      puppetclass.class_params.where(:override => true).each do |override|
+      puppetclass.class_params.where(:override => true).find_each do |override|
         next unless hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
 
         case override.key

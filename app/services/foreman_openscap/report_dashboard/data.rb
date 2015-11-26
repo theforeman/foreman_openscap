@@ -14,11 +14,11 @@ module ForemanOpenscap::ReportDashboard
 
     def fetch_data
       report.update(
-          {
-            :passed  => passed_breakdowns,
-            :failed  => failed_breakdowns,
-            :othered => othered_breakdowns
-          }
+        {
+          :passed  => passed_breakdowns,
+          :failed  => failed_breakdowns,
+          :othered => othered_breakdowns
+        }
       )
     end
 

@@ -25,7 +25,7 @@ class MigrateFromScaptimony < ActiveRecord::Migration
           SQL
 
     taxonomies = TaxableTaxonomy.where(:taxable_type => ["Scaptimony::ArfReport", "Scaptimony::Policy", "Scaptimony::ScapContent"])
-    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap")}.map(&:save!)
+    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap") }.map(&:save!)
   end
 
   def down
@@ -54,6 +54,6 @@ class MigrateFromScaptimony < ActiveRecord::Migration
           SQL
 
     taxonomies = TaxableTaxonomy.where(:taxable_type => ["ForemanOpenscap::ArfReport", "ForemanOpenscap::Policy", "ForemanOpenscap::ScapContent"])
-    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^ForemanOpenscap/, "Scaptimony")}.map(&:save!)
+    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^ForemanOpenscap/, "Scaptimony") }.map(&:save!)
   end
 end

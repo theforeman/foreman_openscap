@@ -71,7 +71,8 @@ module ForemanOpenscap
     end
 
     test 'should recognize report that passed' do
-      @status[:failed], @status[:othered] = 0, 0
+      @status[:failed] = 0
+      @status[:othered] = 0
       report = FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
       assert report.passed?
     end

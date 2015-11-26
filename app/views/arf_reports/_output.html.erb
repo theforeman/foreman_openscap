@@ -2,8 +2,8 @@
   <thead>
     <tr>
       <th><%= _("Severity") %></th>
-      <th><%= _("Resource") %></th>
       <th><%= _("Message") %></th>
+      <th><%= _("Resource") %></th>
       <th><%= _("Result") %></th>
     </tr>
   </thead>
@@ -12,7 +12,7 @@
       <tr>
         <td><span <%= severity_tag log.message.severity %>><%= h log.message.severity %></span></td>
         <td>
-          <%= render :partial => 'detailed_message', :locals => { :log => log.message } %>
+          <%= render :partial => 'detailed_message', :locals => { :message => log.message } %>
         </td>
         <td><%= h trunc_with_tooltip(log.source) %></td>
         <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
