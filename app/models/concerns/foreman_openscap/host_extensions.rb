@@ -20,6 +20,7 @@ module ForemanOpenscap
                     :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                         :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                         :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
+      after_save :puppetrun!, :if => :openscap_proxy_id_changed?
 
       scope :comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.passed)
@@ -44,6 +45,14 @@ module ForemanOpenscap
                          WHERE foreman_openscap_assets.assetable_type = 'Host::Base'
                                AND foreman_openscap_asset_policies.policy_id = '#{policy.id}')")
       }
+
+      alias_method_chain :set_hostgroup_defaults, :openscap
+    end
+
+    def set_hostgroup_defaults_with_openscap
+      set_hostgroup_defaults_without_openscap
+      return unless hostgroup
+      assign_hostgroup_attributes %w(openscap_proxy_id)
     end
 
     def get_asset
@@ -109,7 +118,6 @@ module ForemanOpenscap
                    ").ast).to_sql
         }
       end
-
     end
   end
 end

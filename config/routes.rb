@@ -56,3 +56,17 @@ Rails.application.routes.draw do
     end
   end
 end
+
+Foreman::Application.routes.draw do
+  resources :hosts do
+    collection do
+      post 'openscap_proxy_changed'
+    end
+  end
+
+  resources :hostgroups do
+    collection do
+      post 'openscap_proxy_changed'
+    end
+  end
+end

@@ -86,6 +86,8 @@ module ForemanOpenscap
           permission :destroy_scap_contents, {:scap_contents => [:destroy],
                                                          'api/v2/compliance/scap_contents' => [:destroy]},
                      :resource_type => 'ForemanOpenscap::ScapContent'
+          permission :edit_hosts, { :hosts => [:openscap_proxy_changed] }, :resource_type => "Host"
+          permission :edit_hostgroups, { :hostgroups => [:openscap_proxy_changed] }, :resource_type => "Hostgroup"
         end
 
         role "Compliance viewer", [:view_arf_reports, :view_policies, :view_scap_contents]
@@ -125,10 +127,19 @@ module ForemanOpenscap
 
     #Include concerns in this config.to_prepare block
     config.to_prepare do
+      Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
+      Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
       Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
+      Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
+      Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
       Report.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
+      SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
+      HostsController.send(:include, ForemanOpenscap::HostsControllerExtensions)
+      HostsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
+      HostgroupsController.send(:include, ForemanOpenscap::HostgroupsControllerExtensions)
+      HostgroupsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
     end
 
     rake_tasks do

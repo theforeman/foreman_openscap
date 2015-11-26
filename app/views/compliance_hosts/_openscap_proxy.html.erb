@@ -1,0 +1,8 @@
+<%= javascript 'foreman_openscap/openscap_proxy' %>
+<% data_url = @host ? openscap_proxy_changed_hosts_path : openscap_proxy_changed_hostgroups_path%>
+<%= select_f f, :openscap_proxy_id, SmartProxy.with_features("Openscap"), :id, :name,
+    { :include_blank => blank_or_inherit_f(f, :openscap_proxy) },
+    { :label => _('Openscap Proxy'),
+      :onchange => 'updateOpenscapProxy(this)',
+      :'data-url' => data_url,
+      :help_inline => :indicator } %>
