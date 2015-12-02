@@ -15,11 +15,11 @@ module ForemanOpenscap
     after_save :assign_locations_organizations
     validate :result, :inclusion => { :in => RESULT }
 
-    default_scope {
+    default_scope do
       with_taxonomy_scope do
         order("#{self.table_name}.created_at DESC")
       end
-    }
+    end
 
     scope :hosts, lambda { includes(:policy) }
     scope :of_policy, lambda { |policy_id| joins(:policy_arf_report).merge(PolicyArfReport.of_policy(policy_id)) }
@@ -40,13 +40,13 @@ module ForemanOpenscap
              ON reports.id = latest.id")
     }
 
-    scope :failed, lambda { where("(#{report_status_column} >> #{ bit_mask 'failed' }) > 0") }
-    scope :not_failed, lambda { where("(#{report_status_column} >> #{ bit_mask 'failed' }) = 0") }
+    scope :failed, lambda { where("(#{report_status_column} >> #{bit_mask 'failed'}) > 0") }
+    scope :not_failed, lambda { where("(#{report_status_column} >> #{bit_mask 'failed'}) = 0") }
 
-    scope :othered, lambda { where("(#{report_status_column} >> #{ bit_mask 'othered' }) > 0").merge(not_failed) }
-    scope :not_othered, lambda { where("(#{report_status_column} >> #{ bit_mask 'othered' }) = 0") }
+    scope :othered, lambda { where("(#{report_status_column} >> #{bit_mask 'othered'}) > 0").merge(not_failed) }
+    scope :not_othered, lambda { where("(#{report_status_column} >> #{bit_mask 'othered'}) = 0") }
 
-    scope :passed, lambda { where("(#{report_status_column} >> #{ bit_mask 'passed' }) > 0").merge(not_failed).merge(not_othered) }
+    scope :passed, lambda { where("(#{report_status_column} >> #{bit_mask 'passed'}) > 0").merge(not_failed).merge(not_othered) }
 
     def self.bit_mask(status)
       ComplianceStatus.bit_mask(status)
@@ -105,7 +105,10 @@ module ForemanOpenscap
         if params[:logs]
           params[:logs].each do |log|
             src = Source.find_or_create(log[:source])
-            msg = Message.find_or_create(N_(log[:title]))
+            digest = Digest::SHA1.hexdigest(log[:title])
+            msg = Message.where(:value => N_(log[:title]), :digest => digest, :severity => log[:severity],
+                                :description => newline_to_space(log[:description]), :rationale => newline_to_space(log[:rationale]),
+                                :scap_references => references_links(log[:references])).first_or_create
             #TODO: log level
             Log.create!(:source_id => src.id,
                         :message_id => msg.id,
@@ -168,6 +171,21 @@ module ForemanOpenscap
       port = scap_class['port']
       server = scap_class['server']
       @proxy = ::ProxyAPI::Openscap.new(:url => "https://#{server}:#{port}")
+    end
+
+    def self.newline_to_space(string)
+      string.gsub(/ *\n+/, " ")
+    end
+
+    def self.references_links(references)
+      return if references.nil?
+      html_links = []
+      references.each do |reference|
+        next if reference['title'] == 'test_attestation' # A blank url created by OpenSCAP
+        reference['html_link'] = "<a href='#{reference['href']}'>#{reference['href']}</a>" if reference['title'].blank?
+        html_links << reference['html_link']
+      end
+      html_links.join(', ')
     end
   end
 end

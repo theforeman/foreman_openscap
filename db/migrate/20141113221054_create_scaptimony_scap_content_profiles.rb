@@ -1,7 +1,7 @@
 class CreateScaptimonyScapContentProfiles < ActiveRecord::Migration
   def change
     create_table :scaptimony_scap_content_profiles do |t|
-      t.references :scap_content, index: true
+      t.references :scap_content, :index => true
       t.string :profile_id
       t.string :title
 

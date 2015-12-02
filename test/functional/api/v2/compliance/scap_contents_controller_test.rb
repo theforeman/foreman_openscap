@@ -33,7 +33,7 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
     assert scap_content.title, 'RHEL7 SCAP'
   end
 
-  test "should not update invalid scap content"  do
+  test "should not update invalid scap content" do
     skip("Solve 'ActiveRecord::RecordInvalid' error")
     ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({'errors' => ['Invalid file']})
     scap_content = FactoryGirl.create(:scap_content)

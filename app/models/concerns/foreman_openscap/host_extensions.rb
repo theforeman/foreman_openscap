@@ -10,10 +10,10 @@ module ForemanOpenscap
       has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
       has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
-      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_policy',
+      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
 
-      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :'compliance_report_missing_for',
+      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
 
       scoped_search :in => :compliance_status_object, :on => :status, :rename => :compliance_status,
@@ -91,22 +91,22 @@ module ForemanOpenscap
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
         { :conditions => Host::Managed.arel_table[:id].in(
-              Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).ast
-            ).to_sql }
+          Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).ast
+        ).to_sql }
       end
 
       def search_by_missing_arf(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
         { :conditions => Host::Managed.arel_table[:id].in(
-             Host::Managed.select(Host::Managed.arel_table[:id])
-               .joins(:policies)
-               .where(cond)
-               .where("foreman_openscap_assets.id NOT IN (
-                        SELECT DISTINCT foreman_openscap_arf_reports.asset_id
-                        FROM foreman_openscap_arf_reports
-                        WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
-                            AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)
-                      ").ast).to_sql
+          Host::Managed.select(Host::Managed.arel_table[:id])
+            .joins(:policies)
+            .where(cond)
+            .where("foreman_openscap_assets.id NOT IN (
+                     SELECT DISTINCT foreman_openscap_arf_reports.asset_id
+                     FROM foreman_openscap_arf_reports
+                     WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
+                         AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)
+                   ").ast).to_sql
         }
       end
 

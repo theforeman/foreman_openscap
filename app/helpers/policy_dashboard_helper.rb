@@ -26,9 +26,9 @@ module PolicyDashboardHelper
      [:incompliant_hosts, _('Incompliant hosts')],
      [:inconclusive_hosts, _('Inconclusive')],
      [:report_missing, _('Not audited')],
-    ].each { |i|
+    ].each do |i|
       data << {:label => i[1], :data => report[i[0]], :color => COLORS[i[0]]}
-    }
+    end
     flot_pie_chart 'overview', _('Compliance Status'), data, options
   end
 

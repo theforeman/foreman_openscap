@@ -7,6 +7,6 @@ class AddColumnsToScaptimonyPolicies < ActiveRecord::Migration
 
     # This works only with rails-4, I want to support rails-3 too
     # add_reference :scaptimony_policies, :scap_content, index: true
-    add_column :scaptimony_policies, :scap_content_id, :integer, references: :scap_content
+    add_column :scaptimony_policies, :scap_content_id, :integer, :references => :scap_content
   end
 end

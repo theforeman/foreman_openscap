@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class PolicyMailer  < ::ApplicationMailer
+  class PolicyMailer < ::ApplicationMailer
 
     def policy_summary(options = {})
       set_url

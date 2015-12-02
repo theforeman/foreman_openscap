@@ -34,4 +34,18 @@ module ArfReportsHelper
           end
     "class='label label-#{tag}'".html_safe
   end
+
+  def severity_tag(level)
+    tag = case level.downcase.to_sym
+          when :low
+            "info"
+          when :medium
+            "warning"
+          when :high
+            "danger"
+          else
+            "default"
+          end
+    "class='label label-#{tag}'".html_safe
+  end
 end

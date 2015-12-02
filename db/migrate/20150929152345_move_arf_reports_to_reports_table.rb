@@ -20,7 +20,7 @@ class MoveArfReportsToReportsTable < ActiveRecord::Migration
       #reported_at attribute must be unique
       reported_at = DateTime.strptime(item["created_at"], "%Y-%m-%d %H:%M:%S")
 
-      reported_at += 1.seconds until arfs_by_reported(reported_at).empty?
+      reported_at += 1.second until arfs_by_reported(reported_at).empty?
 
       arf = ForemanOpenscap::ArfReport.create!(:metrics => metrics,
                                                :reported_at => reported_at,

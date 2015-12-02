@@ -20,11 +20,11 @@ module ForemanOpenscap::HostReportDashboard
 
     def fetch_data
       report.update(
-          {
-            :passed  => report_passed,
-            :failed  => report_failed,
-            :othered => report_othered
-          }
+        {
+          :passed  => report_passed,
+          :failed  => report_failed,
+          :othered => report_othered
+        }
       )
     end
 

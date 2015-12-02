@@ -97,13 +97,13 @@ module ForemanOpenscap
         #add menu entries
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
         menu :top_menu, :compliance_policies, :caption => N_('Policies'),
-             :url_hash => {:controller => :'policies', :action => :index},
+             :url_hash => {:controller => :policies, :action => :index},
              :parent => :hosts_menu
         menu :top_menu, :compliance_contents, :caption => N_('SCAP contents'),
-             :url_hash => {:controller => :'scap_contents', :action => :index},
+             :url_hash => {:controller => :scap_contents, :action => :index},
              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
-             :url_hash => {:controller => :'arf_reports', :action => :index},
+             :url_hash => {:controller => :arf_reports, :action => :index},
              :parent => :hosts_menu
 
         # add dashboard widget

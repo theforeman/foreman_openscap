@@ -10,7 +10,7 @@ class PolicyMailerTest < ActiveSupport::TestCase
                        :mailer => 'ForemanOpenscap::PolicyMailer',
                        :method => 'policy_summary',
                        :subscription_type => 'report',
-    )
+                      )
 
     @user.mail_notifications << MailNotification[:openscap_policy_summary]
 
