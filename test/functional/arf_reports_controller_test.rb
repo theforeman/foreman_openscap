@@ -4,10 +4,9 @@ class ArfReportsControllerTest < ActionController::TestCase
 
   test "should delete selected reports" do
     host = FactoryGirl.create(:compliance_host)
-    openscap_proxy = ::ProxyAPI::Openscap.new(:url => "http://test.org:8080")
     ForemanOpenscap::Helper.stubs(:find_name_or_uuid_by_host)
     ::ProxyAPI::Openscap.any_instance.stubs(:destroy_report).returns(true)
-    ForemanOpenscap::ArfReport.any_instance.stubs(:proxy).returns(openscap_proxy)
+    ForemanOpenscap::ArfReport.any_instance.stubs(:openscap_proxy).returns(host.openscap_proxy)
     arf_reports = []
     3.times do
       arf_reports << FactoryGirl.create(:arf_report, :host_id => host.id)
