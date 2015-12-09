@@ -1,5 +1,8 @@
+<%= javascript "jquery.cookie", "host_checkbox", "foreman_openscap/arf_reports" %>
+
 <table class="table table-bordered table-striped ellipsis">
   <tr>
+  <th class="ca" width="40px"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th><%= sort :host %></th>
     <th><%= sort :reported_at, :as => _("Reported At") %></th>
     <th><%= sort :passed, :as => _("Passed") %></th>
@@ -9,6 +12,9 @@
   </tr>
   <% for arf_report in @arf_reports %>
     <tr>
+    <td class="ca">
+          <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{arf_report.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' %>
+        </td>
       <td><%= name_column(arf_report.host) %></td>
       <td><%= _("%s ago") % time_ago_in_words(arf_report.reported_at) %></td>
       <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
@@ -24,4 +30,20 @@
     </tr>
   <% end %>
 </table>
+<div id="confirmation-modal" class="modal fade">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title"><%= _('Please Confirm') %></h4>
+      </div>
+      <div class="modal-body">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= _('Cancel') %></button>
+        <button type="button" class="btn btn-primary" onclick="submit_modal_form()"><%= _('Submit') %></button>
+      </div>
+    </div>
+  </div>
+</div>
 <%= will_paginate_with_info @arf_reports %>

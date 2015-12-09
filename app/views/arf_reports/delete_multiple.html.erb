@@ -1,0 +1,29 @@
+<div class="row">
+  <div class="col-md-8">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>
+            <%= _("Host") %>
+          </th>
+          <th>
+            <%= _("Reported At") %>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @arf_reports.each do |report| %>
+          <tr>
+            <td><%= report.host %></td>
+            <td><%=h report.created_at %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= form_tag submit_delete_multiple_arf_reports_path({:arf_report_ids => params[:arf_report_ids]}) do %>
+  <span class="label label-danger"><%= _('Delete') %></span>
+  <%= _('these Complinace reports') %>
+<% end %>

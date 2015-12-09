@@ -48,4 +48,18 @@ module ArfReportsHelper
           end
     "class='label label-#{tag}'".html_safe
   end
+
+  def multiple_actions_arf_report
+    actions = [
+      [_('Delete reports'), delete_multiple_arf_reports_path]
+    ]
+  end
+
+  def multiple_actions_arf_report_select
+    select_action_button(_("Select Action"), {:id => 'submit_multiple'},
+      multiple_actions_arf_report.map do |action|
+        link_to_function(action[0], "buildArfModal(this, '#{action[1]}')",
+         :'data-dialog-title' => _("%s - The following compliance reports are about to be changed") % action[0])
+      end.flatten)
+  end
 end

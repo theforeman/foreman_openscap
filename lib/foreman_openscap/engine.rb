@@ -52,7 +52,7 @@ module ForemanOpenscap
                                                           :parse_bzip, :auto_complete_search],
                                          'api/v2/compliance/arf_reports' => [:index, :show],
                                          :compliance_hosts => [:show]}
-          permission :destroy_arf_reports, {:arf_reports => [:destroy],
+          permission :destroy_arf_reports, {:arf_reports => [:destroy, :delete_multiple, :submit_delete_multiple],
                                             'api/v2/compliance/arf_reports' => [:destroy]}
           permission :create_arf_reports, {'api/v2/compliance/arf_reports' => [:create]}
 
