@@ -4,7 +4,7 @@ module ForemanOpenscap
 
     included do
       belongs_to :openscap_proxy, :class_name => "SmartProxy"
-      attr_accessible :openscap_proxy_id
+      attr_accessible :openscap_proxy_id, :openscap_proxy
     end
 
     def openscap_proxy_api
