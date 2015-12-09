@@ -140,6 +140,7 @@ module ForemanOpenscap
       HostsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
       HostgroupsController.send(:include, ForemanOpenscap::HostgroupsControllerExtensions)
       HostgroupsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
+      Log.send(:include, ForemanOpenscap::LogExtensions)
     end
 
     rake_tasks do

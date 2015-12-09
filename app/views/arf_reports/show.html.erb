@@ -6,7 +6,7 @@
 <% content_for(:search_bar) {show_logs} %>
 
 <%= render 'output', :logs => @arf_report.logs%>
-<%= render 'metrics', :status => @arf_report.status, :metrics => @arf_report.metrics %>
+<%= render 'metrics', :status => @arf_report.status, :metrics => @arf_report.metrics  if @arf_report.logs.any? %>
 
 <%= title_actions link_to(_('Back'), :back),
   display_delete_if_authorized(hash_for_arf_report_path(:id => @arf_report), :class=> "btn btn-danger"),
