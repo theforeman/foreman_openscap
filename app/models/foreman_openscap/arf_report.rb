@@ -3,6 +3,7 @@ require 'foreman_openscap/helper'
 module ForemanOpenscap
   class ArfReport < ::Report
     include Taxonomix
+    include OpenscapProxyExtensions
 
     RESULT = %w(pass fail error unknown notapplicable notchecked notselected informational fixed)
     METRIC = %w(passed othered failed)
@@ -100,7 +101,8 @@ module ForemanOpenscap
         arf_report = ArfReport.create!(:host_id => asset.host.id,
                                        :reported_at => Time.at(params[:date].to_i),
                                        :status => params[:metrics],
-                                       :metrics => params[:metrics])
+                                       :metrics => params[:metrics],
+                                       :openscap_proxy => asset.host.openscap_proxy)
         PolicyArfReport.where(:arf_report_id => arf_report.id, :policy_id => policy.id, :digest => params[:digest]).first_or_create!
         if params[:logs]
           params[:logs].each do |log|
@@ -141,11 +143,11 @@ module ForemanOpenscap
     end
 
     def to_html
-      proxy.arf_report_html(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
+      openscap_proxy_api.arf_report_html(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
     end
 
     def to_bzip
-      proxy.arf_report_bzip(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
+      openscap_proxy_api.arf_report_bzip(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
     end
 
     def equal?(other)
@@ -158,19 +160,11 @@ module ForemanOpenscap
     end
 
     def destroy
-      if proxy.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
+      if openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
         super
       else
         false
       end
-    end
-
-    def proxy
-      return @proxy if @proxy
-      scap_class = host.info['classes']['foreman_scap_client']
-      port = scap_class['port']
-      server = scap_class['server']
-      @proxy = ::ProxyAPI::Openscap.new(:url => "https://#{server}:#{port}")
     end
 
     def self.newline_to_space(string)
