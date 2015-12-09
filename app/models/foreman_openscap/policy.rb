@@ -205,7 +205,7 @@ module ForemanOpenscap
         return false
       end
 
-      unless policies_param = puppetclass.class_params.find_by(:key => POLICIES_CLASS_PARAMETER)
+      unless policies_param = puppetclass.class_params.find_by_key(POLICIES_CLASS_PARAMETER)
         errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
         return false
       end

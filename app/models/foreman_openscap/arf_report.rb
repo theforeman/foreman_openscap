@@ -5,6 +5,7 @@ module ForemanOpenscap
     include Taxonomix
     include OpenscapProxyExtensions
 
+    # attr_accessible :host_id, :reported_at, :status, :metrics
     RESULT = %w(pass fail error unknown notapplicable notchecked notselected informational fixed)
     METRIC = %w(passed othered failed)
     BIT_NUM = 10
@@ -12,7 +13,7 @@ module ForemanOpenscap
 
     has_one :policy_arf_report, :dependent => :destroy
     has_one :policy, :through => :policy_arf_report
-    has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset'
+    has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
     after_save :assign_locations_organizations
     validate :result, :inclusion => { :in => RESULT }
 
@@ -98,7 +99,7 @@ module ForemanOpenscap
       policy = Policy.find(params[:policy_id])
       ArfReport.transaction do
         # TODO:RAILS-4.0: This should become arf_report = ArfReport.find_or_create_by! ...
-        arf_report = ArfReport.create!(:host_id => asset.host.id,
+        arf_report = ArfReport.create!(:host => asset.host,
                                        :reported_at => Time.at(params[:date].to_i),
                                        :status => params[:metrics],
                                        :metrics => params[:metrics],
@@ -114,9 +115,9 @@ module ForemanOpenscap
             #TODO: log level
             Log.create!(:source_id => src.id,
                         :message_id => msg.id,
-                        :level_id => 1,
+                        :level => :info,
                         :result => log[:result],
-                        :report_id => arf_report.id)
+                        :report => arf_report)
           end
         end
       end

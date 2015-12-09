@@ -1,7 +1,7 @@
 class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
 
-  before_filter :find_by_id, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip]
+  before_filter :find_arf_report, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip]
   before_filter :find_multiple, :only => [:delete_multiple, :submit_delete_multiple]
 
   def model_of_controller
@@ -9,7 +9,7 @@ class ArfReportsController < ApplicationController
   end
 
   def index
-    @arf_reports = resource_base.includes(:asset)
+    @arf_reports = resource_base.includes(:host => [:policies, :last_report_object, :host_statuses])
       .search_for(params[:search], :order => params[:order])
       .paginate(:page => params[:page], :per_page => params[:per_page])
   end
@@ -62,8 +62,8 @@ class ArfReportsController < ApplicationController
 
   private
 
-  def find_by_id
-    @arf_report = resource_base.find(params[:id])
+  def find_arf_report
+    @arf_report = resource_base.includes(:logs => [:message, :source]).find(params[:id])
   end
 
   def find_multiple
