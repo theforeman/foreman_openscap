@@ -31,7 +31,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
 
   test "should not update invalid" do
     policy = FactoryGirl.create(:policy)
-    put :update, {:id => policy.id, :policy => {:name => 'say my name'}}
+    put :update, {:id => policy.id, :policy => {:name => ''}}
     assert_response :unprocessable_entity
   end
 
