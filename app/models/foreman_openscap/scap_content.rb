@@ -96,13 +96,18 @@ module ForemanOpenscap
       end
     end
 
+    def as_json(*args)
+      hash = super
+      hash["scap_file"] = scap_file.to_s.encode('utf-8', :invalid => :replace, :undef => :replace, :replace => '_')
+    end
+
     private
 
     def create_profiles
       profiles = fetch_profiles
-      profiles.each do|key, title|
-        scap_content_profiles.find_or_create_by_profile_id_and_title(key, title)
-      end
+      profiles.each {|key, title|
+        scap_content_profiles.where(:profile_id => key, :title => title).first_or_create
+      }
     end
 
     def redigest

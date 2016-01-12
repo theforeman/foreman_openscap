@@ -1,5 +1,11 @@
 class MigrateFromScaptimony < ActiveRecord::Migration
   def up
+    ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
+      # rename_tables renames the indexes, and their new names overflow, we cancel out the renaming of the indexes
+      alias_method :old_rename_table_indexes, :rename_table_indexes
+      def rename_table_indexes(a,b)
+      end
+    end
     ActiveRecord::Base.connection.tables.grep(/^scaptimony/).each do |table|
       rename_table table, table.sub(/^scaptimony/, "foreman_openscap")
     end
@@ -25,7 +31,11 @@ class MigrateFromScaptimony < ActiveRecord::Migration
           SQL
 
     taxonomies = TaxableTaxonomy.where(:taxable_type => ["Scaptimony::ArfReport", "Scaptimony::Policy", "Scaptimony::ScapContent"])
-    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap") }.map(&:save!)
+    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap")}.map(&:save!)
+  ensure
+    ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
+      alias_method :rename_table_indexes, :old_rename_table_indexes
+    end
   end
 
   def down

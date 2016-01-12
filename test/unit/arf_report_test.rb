@@ -86,8 +86,8 @@ module ForemanOpenscap
         reports << FactoryGirl.create(:arf_report, :host_id => host.id, :status => @status)
         FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id)
       end
-      assert ForemanOpenscap::ArfReport.latest.include? reports[-2]
-      assert ForemanOpenscap::ArfReport.latest.include? reports[-1]
+      assert ForemanOpenscap::ArfReport.latest.to_a.include? reports[-2]
+      assert ForemanOpenscap::ArfReport.latest.to_a.include? reports[-1]
     end
 
     test 'should return latest report of policy for each of the hosts' do

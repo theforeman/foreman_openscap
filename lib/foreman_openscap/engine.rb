@@ -14,7 +14,9 @@ module ForemanOpenscap
 
     # Add any db migrations
     initializer "foreman_openscap.load_app_instance_data" do |app|
-      app.config.paths['db/migrate'] += ForemanOpenscap::Engine.paths['db/migrate'].existent
+      ForemanOpenscap::Engine.paths['db/migrate'].existent.each do |path|
+        app.config.paths['db/migrate'] << path
+      end
     end
 
     assets_to_precompile =
