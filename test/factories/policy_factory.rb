@@ -8,5 +8,6 @@ FactoryGirl.define do
     day_of_month '1'
     cron_line '* * * * 30'
     hosts []
+    assets []
   end
 end
