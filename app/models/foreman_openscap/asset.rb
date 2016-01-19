@@ -4,7 +4,7 @@ module ForemanOpenscap
     has_many :policies, :through => :asset_policies
     belongs_to :assetable, :polymorphic => true
 
-    scope :hosts, where(:assetable_type => 'Host::Base')
+    scope :hosts, lambda { where(:assetable_type => 'Host::Base') }
 
     def host
       fetch_asset('Host::Base')
