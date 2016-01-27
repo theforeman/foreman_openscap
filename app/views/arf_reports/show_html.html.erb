@@ -3,8 +3,7 @@
   <div id="loading">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-      <%= image_tag('/assets/spinner.gif') %>
-      <%= _('Loading...') %>
+      <%= spinner(_('Loading...')) %>
     </div>
   </div>
   <iframe id="frame" style="display: none" height="100%" width="100%" frameborder="0" src="<%= parse_html_arf_report_path(@arf_report) %>"></iframe>
