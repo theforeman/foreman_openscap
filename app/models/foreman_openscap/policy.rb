@@ -48,14 +48,14 @@ module ForemanOpenscap
 
     def to_html
       if scap_content.nil? || scap_content_profile.nil?
-        return (_('<h2>Cannot generate HTML guide for %{scap_content}/%{profile}</h2>') %
-          { :scap_content => self.scap_content, :profile => self.scap_content_profile }).html_safe
+        return ("<h2>%s</h2>" % (_('Cannot generate HTML guide for %{scap_content}/%{profile}') %
+          { :scap_content => self.scap_content, :profile => self.scap_content_profile })).html_safe
       end
 
       if (proxy = scap_content.proxy_url)
         api = ProxyAPI::Openscap.new(:url => proxy)
       else
-        return _('<h2>No valid OpenScap proxy server found.</h2>').html_safe
+        return ("<h2>%s</h2>" % _('No valid OpenScap proxy server found.')).html_safe
       end
 
       api.policy_html_guide(scap_content.scap_file, scap_content_profile.profile_id)

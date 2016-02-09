@@ -74,7 +74,7 @@ class PoliciesController < ApplicationController
     if (id = params['policy']['id'])
       policy = ::ForemanOpenscap::Policy.find(id)
       policy.assign_hosts(@hosts)
-      notice _("Updated hosts: Assigned with compliance policy: #{policy.name}")
+      notice _("Updated hosts: Assigned with compliance policy: %s")  % policy.name
       # We prefer to go back as this does not lose the current search
       redirect_to hosts_path
     else
