@@ -33,7 +33,7 @@ class ArfReportsController < ApplicationController
       response = @arf_report.to_bzip
       send_data response, :filename => "#{@arf_report.id}_arf_report.bz2", :type => 'application/octet-stream', :disposition => 'attachement'
     rescue => e
-      process_error(:error_msg => (_("Failed to downloaded Arf report as bzip: #{e.message}")),
+      process_error(:error_msg => (_("Failed to downloaded Arf report as bzip: %s") % (e.message)),
                     :error_redirect => arf_report_path(@arf_report.id))
     end
   end
@@ -42,7 +42,7 @@ class ArfReportsController < ApplicationController
     if @arf_report.destroy
       process_success(:success_msg => (_("Successfully deleted Arf report.")), :success_redirect => arf_reports_path)
     else
-      process_error(:error_msg => _("Failed to delete Arf Report for host #{@arf_report.host.name} reported at #{@arf_report.reported_at}"))
+      process_error(:error_msg => _("Failed to delete Arf Report for host %{host_name} reported at %{reported_at}") % {:host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at})
     end
   end
 

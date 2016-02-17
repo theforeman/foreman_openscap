@@ -1,0 +1,631 @@
+# Chinese translations for foreman_openscap package.
+# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_openscap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_openscap 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2016-02-09 16:41-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: Chinese\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"\n"
+
+msgid "List Arf reports"
+msgstr ""
+
+msgid "Show an Arf report"
+msgstr ""
+
+msgid "Deletes an Arf Report"
+msgstr ""
+
+msgid "Upload an ARF report"
+msgstr ""
+
+msgid "List SCAP contents"
+msgstr ""
+
+msgid "Show an SCAP content"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Policy description"
+msgstr ""
+
+msgid "Policy scap content id"
+msgstr ""
+
+msgid "Policy scap content profile id"
+msgstr ""
+
+msgid "Policy schedule period"
+msgstr ""
+
+msgid "Policy schedule weekday"
+msgstr ""
+
+msgid "Apply policy to hostgroups"
+msgstr ""
+
+msgid "Create a policy"
+msgstr ""
+
+msgid "Update a policy"
+msgstr ""
+
+msgid "Deletes a policy"
+msgstr ""
+
+msgid "Show a policy's SCAP content"
+msgstr ""
+
+msgid "Scap content name"
+msgstr ""
+
+msgid "Create SCAP content"
+msgstr ""
+
+msgid "Update an SCAP content"
+msgstr ""
+
+msgid "Deletes an SCAP content"
+msgstr ""
+
+msgid "Failed to downloaded Arf report as bzip: %s"
+msgstr ""
+
+msgid "Successfully deleted Arf report."
+msgstr ""
+
+msgid "Failed to delete Arf Report for host %{host_name} reported at %{reported_at}"
+msgstr ""
+
+msgid "Failed to delete %s compliance reports"
+msgstr ""
+
+msgid "Successfully deleted %s compliance reports"
+msgstr ""
+
+msgid "No complince reports were found."
+msgstr ""
+
+msgid "No complince reports selected"
+msgstr ""
+
+msgid "Something went wrong while selecting compliance reports - %s"
+msgstr ""
+
+msgid "Updated hosts: Assigned with compliance policy: %s"
+msgstr ""
+
+msgid "No compliance policy selected."
+msgstr ""
+
+msgid "Updated hosts: Unassigned from compliance policy '%s'"
+msgstr ""
+
+msgid "No valid policy id provided"
+msgstr ""
+
+msgid "No hosts were found."
+msgstr ""
+
+msgid "No hosts selected"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Passed"
+msgstr ""
+
+msgid "Othered"
+msgstr ""
+
+msgid "Compliance reports breakdown"
+msgstr ""
+
+msgid "Show log messages:"
+msgstr ""
+
+msgid "Failed and Othered"
+msgstr ""
+
+msgid "All messages"
+msgstr ""
+
+msgid "Failed only"
+msgstr ""
+
+msgid "Delete reports"
+msgstr ""
+
+msgid "Select Action"
+msgstr ""
+
+msgid "%s - The following compliance reports are about to be changed"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Assign Compliance Policy"
+msgstr ""
+
+msgid "Unassign Compliance Policy"
+msgstr ""
+
+msgid "Host is deleted"
+msgstr ""
+
+msgid "Choose existing SCAP Content"
+msgstr ""
+
+msgid "SCAP Content"
+msgstr ""
+
+msgid "XCCDF Profile"
+msgstr ""
+
+msgid "Default XCCDF profile"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Compliant hosts"
+msgstr ""
+
+msgid "Incompliant hosts"
+msgstr ""
+
+msgid "Inconclusive"
+msgstr ""
+
+msgid "Not audited"
+msgstr ""
+
+msgid "Compliance Status"
+msgstr ""
+
+msgid "Unable to get html version of requested report from Smart Proxy"
+msgstr ""
+
+msgid "Unable to get xml version of requested report from Smart Proxy"
+msgstr ""
+
+msgid "Scap policies summary"
+msgstr ""
+
+msgid ""
+"Puppetclass 'foreman_scap_client' not found, make sure it is imported form Pup"
+"petmaster"
+msgstr ""
+
+msgid "No openscap proxy found for %s"
+msgstr ""
+
+msgid "Unsupported report status format"
+msgstr ""
+
+msgid "Compliance"
+msgstr ""
+
+msgid "Compliant"
+msgstr ""
+
+msgid "Incompliant"
+msgstr ""
+
+msgid "Unknown Compliance status"
+msgstr ""
+
+msgid "Cannot generate HTML guide for %{scap_content}/%{profile}"
+msgstr ""
+
+msgid "No valid OpenScap proxy server found."
+msgstr ""
+
+msgid "Required Puppet class %{class} is not found, please ensure it imported first."
+msgstr ""
+
+msgid "Puppet class %{class} does not have %{parameter} class parameter."
+msgstr ""
+
+msgid "%{parameter} class parameter for class %{class} could not be configured."
+msgstr ""
+
+msgid "Cron line does not consist of 5 parts separated by space"
+msgstr ""
+
+msgid "You must fill weekday"
+msgstr ""
+
+msgid "You must fill day of month"
+msgstr ""
+
+msgid "You must fill cron line"
+msgstr ""
+
+msgid "No Proxy with OpenScap features"
+msgstr ""
+
+msgid "No Available Proxy to validate SCAP content"
+msgstr ""
+
+msgid "No available proxy to validate. Returned with error: %s"
+msgstr ""
+
+msgid "Changed file does not include existing SCAP Content profiles"
+msgstr ""
+
+msgid "invalid type %s"
+msgstr ""
+
+msgid "More details"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Rationale"
+msgstr ""
+
+msgid "References"
+msgstr ""
+
+msgid "Select all items in this page"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr ""
+
+msgid "Reported At"
+msgstr ""
+
+msgid "%s ago"
+msgstr ""
+
+msgid "Delete compliance report for %s?"
+msgstr ""
+
+msgid "Please Confirm"
+msgstr ""
+
+msgid "Report Metrics"
+msgstr ""
+
+msgid "Report Status"
+msgstr ""
+
+msgid "Number of Events"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Resource"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Nothing to show"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "these Complinace reports"
+msgstr ""
+
+msgid "Compliance Reports"
+msgstr ""
+
+msgid "Reported at %s "
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Host details"
+msgstr ""
+
+msgid "View full report"
+msgstr ""
+
+msgid "Download XML in bzip"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Host compliance details"
+msgstr ""
+
+msgid "Openscap Proxy"
+msgstr ""
+
+msgid "%s compliance reports by policy"
+msgstr ""
+
+msgid "Policy %s"
+msgstr ""
+
+msgid "%s latest report"
+msgstr ""
+
+msgid "%s reports over time"
+msgstr ""
+
+msgid "No report for this policy"
+msgstr ""
+
+msgid "Latest compliance reports"
+msgstr ""
+
+msgid "No reports available"
+msgstr ""
+
+msgid "Policy"
+msgstr ""
+
+msgid "Passed|P"
+msgstr ""
+
+msgid "Failed|F"
+msgstr ""
+
+msgid "Othered|O"
+msgstr ""
+
+msgid "Host does not exist anymore"
+msgstr ""
+
+msgid "Changed"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "Changed?"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "No ARF reports for this policy"
+msgstr ""
+
+msgid "None!"
+msgstr ""
+
+msgid "Total of one host"
+msgid_plural "Total of %{hosts} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "<b>Foreman</b> OpenScap summary"
+msgstr ""
+
+msgid "Summary from %{time} ago to now"
+msgstr ""
+
+msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "Policies with hosts:"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
+
+msgid "Hostgroups"
+msgstr ""
+
+msgid "Choose period"
+msgstr ""
+
+msgid "Choose weekday"
+msgstr ""
+
+msgid "Number of a day in month, note that not all months have same count of days"
+msgstr ""
+
+msgid ""
+"You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 val"
+"ues by space"
+msgstr ""
+
+msgid "Show Guide"
+msgstr ""
+
+msgid "Edit"
+msgstr ""
+
+msgid "Delete compliance policy %s with all the reports?"
+msgstr ""
+
+msgid "New Compliance Policy"
+msgstr ""
+
+msgid "Select Compliance Policy"
+msgstr ""
+
+msgid "Edit Compliance Policy"
+msgstr ""
+
+msgid "Compliance Policies"
+msgstr ""
+
+msgid "Help"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "New Compliance policy"
+msgstr ""
+
+msgid "Compliance policy configuration"
+msgstr ""
+
+msgid ""
+"A compliance policy is defined by security professionals who specify desired s"
+"ettings\n"
+"          (often in the form of a checklist) that are to be used in the comput"
+"ing environment. Compliance audit is a process of figuring out\n"
+"          whether a given object follows all the rules written out in a compli"
+"ance policy."
+msgstr ""
+
+msgid ""
+"In Foreman, a compliance policy checklist is defined via %s, once SCAP content"
+" is present, you can create a policy,\n"
+"            assign select hostgroups and schedule to run."
+msgstr ""
+
+msgid "SCAP content"
+msgstr ""
+
+msgid "Host Breakdown Chart"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "View Report"
+msgstr ""
+
+msgid "Hosts Breakdown"
+msgstr ""
+
+msgid "Compliant with the policy"
+msgstr ""
+
+msgid "Not compliant with the policy"
+msgstr ""
+
+msgid "Inconclusive results"
+msgstr ""
+
+msgid "Never audited"
+msgstr ""
+
+msgid "Total hosts: %s"
+msgstr ""
+
+msgid "Compliance policy: %s"
+msgstr ""
+
+msgid "Status table"
+msgstr ""
+
+msgid "Status chart"
+msgstr ""
+
+msgid "Latest reports for policy: %s"
+msgstr ""
+
+msgid "File Upload"
+msgstr ""
+
+msgid "Upload SCAP DataStream file"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Edit SCAP Content"
+msgstr ""
+
+msgid "SCAP Contents"
+msgstr ""
+
+msgid "Upload New SCAP Content"
+msgstr ""
+
+msgid "Upload new SCAP content file"
+msgstr ""
+
+msgid "New SCAP content"
+msgstr ""
+
+msgid "SCAP content configuration"
+msgstr ""
+
+msgid ""
+"The Security Content Automation Protocol (SCAP), combines a number of open sta"
+"ndards that are used to enumerate software flaws and\n"
+"        configuration issues related to security. They measure systems to find"
+" vulnerabilities and offer methods to score those findings in order\n"
+"        to evaluate the possible impact. It is a method for using those open s"
+"tandards for automated vulnerability management, measurement,\n"
+"        and policy compliance evaluation. "
+msgstr ""
+
+msgid "Source: Wikipedia %s"
+msgstr ""
+
+msgid "read more"
+msgstr ""
+
+msgid ""
+"In Foreman, scap_contents represent the SCAP security guides on your hosts, an"
+"d create SCAP profiles for you to assign to hosts / hostgroups\n"
+"          via %s"
+msgstr ""
+
+msgid "A summary of reports for OpenScap policies"
+msgstr ""
+
+msgid "Policies"
+msgstr ""
+
+msgid "SCAP contents"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "OpenSCAP Host reports widget"
+msgstr ""
+
+msgid "OpenSCAP Reports breakdown widget"
+msgstr ""

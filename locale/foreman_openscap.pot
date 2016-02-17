@@ -1,0 +1,873 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_openscap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_openscap 1.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-09 18:56-0500\n"
+"PO-Revision-Date: 2016-02-09 18:56-0500\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:39
+msgid "List Arf reports"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:46
+msgid "Show an Arf report"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:52
+msgid "Deletes an Arf Report"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:59
+msgid "Upload an ARF report"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:30
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:20
+msgid "List SCAP contents"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:37
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:27
+msgid "Show an SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:45
+msgid "Policy name"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:46
+msgid "Policy description"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:47
+msgid "Policy scap content id"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:48
+msgid "Policy scap content profile id"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:49
+msgid "Policy schedule period"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:50
+msgid "Policy schedule weekday"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:51
+msgid "Apply policy to hostgroups"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:56
+msgid "Create a policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:64
+msgid "Update a policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:72
+msgid "Deletes a policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:79
+msgid "Show a policy's SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:38
+msgid "Scap content name"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:44
+msgid "Create SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:52
+msgid "Update an SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:60
+msgid "Deletes an SCAP content"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:36
+msgid "Failed to downloaded Arf report as bzip: %s"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:43
+msgid "Successfully deleted Arf report."
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:45
+msgid "Failed to delete Arf Report for host %{host_name} reported at %{reported_at}"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:55
+msgid "Failed to delete %s compliance reports"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:58
+msgid "Successfully deleted %s compliance reports"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:73
+msgid "No complince reports were found."
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:77
+msgid "No complince reports selected"
+msgstr ""
+
+#: ../app/controllers/arf_reports_controller.rb:82
+msgid "Something went wrong while selecting compliance reports - %s"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:77
+msgid "Updated hosts: Assigned with compliance policy: %s"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:81
+msgid "No compliance policy selected."
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:92
+msgid "Updated hosts: Unassigned from compliance policy '%s'"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:95
+msgid "No valid policy id provided"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:120
+msgid "No hosts were found."
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:124
+msgid "No hosts selected"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:129
+msgid "Something went wrong while selecting hosts - %s"
+msgstr ""
+
+#: ../app/helpers/arf_report_dashboard_helper.rb:10
+#: ../app/helpers/compliance_hosts_helper.rb:6
+#: ../app/helpers/compliance_hosts_helper.rb:24
+#: ../app/views/arf_reports/_list.html.erb:9
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:11
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:6
+msgid "Failed"
+msgstr ""
+
+#: ../app/helpers/arf_report_dashboard_helper.rb:11
+#: ../app/helpers/compliance_hosts_helper.rb:5
+#: ../app/helpers/compliance_hosts_helper.rb:23
+#: ../app/views/arf_reports/_list.html.erb:8
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:10
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:8
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:5
+msgid "Passed"
+msgstr ""
+
+#: ../app/helpers/arf_report_dashboard_helper.rb:12
+#: ../app/helpers/compliance_hosts_helper.rb:25
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:12
+msgid "Othered"
+msgstr ""
+
+#: ../app/helpers/arf_report_dashboard_helper.rb:16
+#: ../app/helpers/compliance_hosts_helper.rb:11
+#: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
+msgid "Compliance reports breakdown"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:20
+msgid "Show log messages:"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:21
+msgid "Failed and Othered"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:21
+msgid "All messages"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:21
+msgid "Failed only"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:54
+msgid "Delete reports"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:59
+msgid "Select Action"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:62
+msgid "%s - The following compliance reports are about to be changed"
+msgstr ""
+
+#: ../app/helpers/compliance_hosts_helper.rb:7
+#: ../app/views/arf_reports/_list.html.erb:10
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:14
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:7
+msgid "Other"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:11
+msgid "Assign Compliance Policy"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:12
+msgid "Unassign Compliance Policy"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:16
+msgid "Host is deleted"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:12
+msgid "Choose existing SCAP Content"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:13 ../app/helpers/policies_helper.rb:18
+#: ../app/views/policies/_form.html.erb:9
+msgid "SCAP Content"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:28 ../app/helpers/policies_helper.rb:35
+msgid "XCCDF Profile"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:34
+msgid "Default XCCDF profile"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:45
+#: ../app/views/arf_reports/_list.html.erb:42
+msgid "Submit"
+msgstr ""
+
+#: ../app/helpers/policies_helper.rb:50
+#: ../app/views/arf_reports/_list.html.erb:41
+msgid "Cancel"
+msgstr ""
+
+#: ../app/helpers/policy_dashboard_helper.rb:25
+msgid "Compliant hosts"
+msgstr ""
+
+#: ../app/helpers/policy_dashboard_helper.rb:26
+msgid "Incompliant hosts"
+msgstr ""
+
+#: ../app/helpers/policy_dashboard_helper.rb:27
+#: ../app/models/foreman_openscap/compliance_status.rb:20
+msgid "Inconclusive"
+msgstr ""
+
+#: ../app/helpers/policy_dashboard_helper.rb:28
+msgid "Not audited"
+msgstr ""
+
+#: ../app/helpers/policy_dashboard_helper.rb:32
+msgid "Compliance Status"
+msgstr ""
+
+#: ../app/lib/proxy_api/openscap.rb:27
+msgid "Unable to get html version of requested report from Smart Proxy"
+msgstr ""
+
+#: ../app/lib/proxy_api/openscap.rb:36
+msgid "Unable to get xml version of requested report from Smart Proxy"
+msgstr ""
+
+#: ../app/mailers/foreman_openscap/policy_mailer.rb:18
+msgid "Scap policies summary"
+msgstr ""
+
+#: ../app/models/concerns/foreman_openscap/openscap_proxy_core_extensions.rb:13
+msgid ""
+"Puppetclass 'foreman_scap_client' not found, make sure it is imported form Pup"
+"petmaster"
+msgstr ""
+
+#: ../app/models/concerns/foreman_openscap/openscap_proxy_extensions.rb:13
+msgid "No openscap proxy found for %s"
+msgstr ""
+
+#: ../app/models/foreman_openscap/arf_report.rb:73
+msgid "Unsupported report status format"
+msgstr ""
+
+#: ../app/models/foreman_openscap/compliance_status.rb:8
+#: ../app/views/compliance_hosts/_compliance_status.erb:2
+#: ../lib/foreman_openscap/engine.rb:102
+msgid "Compliance"
+msgstr ""
+
+#: ../app/models/foreman_openscap/compliance_status.rb:18
+#: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:13
+msgid "Compliant"
+msgstr ""
+
+#: ../app/models/foreman_openscap/compliance_status.rb:22
+#: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:17
+msgid "Incompliant"
+msgstr ""
+
+#: ../app/models/foreman_openscap/compliance_status.rb:24
+msgid "Unknown Compliance status"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:51
+msgid "Cannot generate HTML guide for %{scap_content}/%{profile}"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:58
+msgid "No valid OpenScap proxy server found."
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:204
+msgid "Required Puppet class %{class} is not found, please ensure it imported first."
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:209
+msgid "Puppet class %{class} does not have %{parameter} class parameter."
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:218
+msgid "%{parameter} class parameter for class %{class} could not be configured."
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:231
+msgid "Cron line does not consist of 5 parts separated by space"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:240
+msgid "You must fill weekday"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:241
+msgid "You must fill day of month"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:242
+msgid "You must fill cron line"
+msgstr ""
+
+#: ../app/models/foreman_openscap/scap_content.rb:9
+msgid "No Proxy with OpenScap features"
+msgstr ""
+
+#: ../app/models/foreman_openscap/scap_content.rb:14
+msgid "No Available Proxy to validate SCAP content"
+msgstr ""
+
+#: ../app/models/foreman_openscap/scap_content.rb:26
+msgid "No available proxy to validate. Returned with error: %s"
+msgstr ""
+
+#: ../app/models/foreman_openscap/scap_content.rb:32
+msgid "Changed file does not include existing SCAP Content profiles"
+msgstr ""
+
+#: ../app/services/foreman_openscap/arf_report_status_calculator.rb:31
+msgid "invalid type %s"
+msgstr ""
+
+#: ../app/views/arf_reports/_detailed_message.html.erb:3
+msgid "More details"
+msgstr ""
+
+#: ../app/views/arf_reports/_detailed_message.html.erb:6
+msgid "Description"
+msgstr ""
+
+#: ../app/views/arf_reports/_detailed_message.html.erb:7
+msgid "Rationale"
+msgstr ""
+
+#: ../app/views/arf_reports/_detailed_message.html.erb:8
+msgid "References"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:5
+msgid "Select all items in this page"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:5
+msgid "items selected. Uncheck to Clear"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:7
+#: ../app/views/arf_reports/delete_multiple.html.erb:10
+msgid "Reported At"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:19
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:13
+#: ../app/views/scap_contents/_list.html.erb:17
+msgid "%s ago"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:25
+msgid "Delete compliance report for %s?"
+msgstr ""
+
+#: ../app/views/arf_reports/_list.html.erb:36
+msgid "Please Confirm"
+msgstr ""
+
+#: ../app/views/arf_reports/_metrics.html.erb:4
+msgid "Report Metrics"
+msgstr ""
+
+#: ../app/views/arf_reports/_metrics.html.erb:12
+msgid "Report Status"
+msgstr ""
+
+#: ../app/views/arf_reports/_metrics.html.erb:13
+msgid "Number of Events"
+msgstr ""
+
+#: ../app/views/arf_reports/_metrics.html.erb:32
+msgid "Total"
+msgstr ""
+
+#: ../app/views/arf_reports/_output.html.erb:4
+msgid "Severity"
+msgstr ""
+
+#: ../app/views/arf_reports/_output.html.erb:5
+msgid "Message"
+msgstr ""
+
+#: ../app/views/arf_reports/_output.html.erb:6
+msgid "Resource"
+msgstr ""
+
+#: ../app/views/arf_reports/_output.html.erb:7
+msgid "Result"
+msgstr ""
+
+#: ../app/views/arf_reports/_output.html.erb:23
+msgid "Nothing to show"
+msgstr ""
+
+#: ../app/views/arf_reports/delete_multiple.html.erb:7
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:8
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:3
+msgid "Host"
+msgstr ""
+
+#: ../app/views/arf_reports/delete_multiple.html.erb:27
+msgid "Delete"
+msgstr ""
+
+#: ../app/views/arf_reports/delete_multiple.html.erb:28
+msgid "these Complinace reports"
+msgstr ""
+
+#: ../app/views/arf_reports/index.html.erb:1
+msgid "Compliance Reports"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:4
+msgid "Reported at %s "
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:11
+msgid "Back"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:13
+msgid "Host details"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:14
+msgid "View full report"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:15
+msgid "Download XML in bzip"
+msgstr ""
+
+#: ../app/views/arf_reports/show_html.html.erb:6
+msgid "Loading..."
+msgstr ""
+
+#: ../app/views/compliance_hosts/_compliance_status.erb:4
+msgid "Host compliance details"
+msgstr ""
+
+#: ../app/views/compliance_hosts/_openscap_proxy.html.erb:5
+msgid "Openscap Proxy"
+msgstr ""
+
+#: ../app/views/compliance_hosts/show.html.erb:3
+msgid "%s compliance reports by policy"
+msgstr ""
+
+#: ../app/views/compliance_hosts/show.html.erb:5
+msgid "Policy %s"
+msgstr ""
+
+#: ../app/views/compliance_hosts/show.html.erb:11
+msgid "%s latest report"
+msgstr ""
+
+#: ../app/views/compliance_hosts/show.html.erb:19
+msgid "%s reports over time"
+msgstr ""
+
+#: ../app/views/compliance_hosts/show.html.erb:25
+msgid "No report for this policy"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
+msgid "Latest compliance reports"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:4
+msgid "No reports available"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:9
+msgid "Policy"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:10
+msgid "Passed|P"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
+msgid "Failed|F"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:12
+msgid "Othered|O"
+msgstr ""
+
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:16
+msgid "Host does not exist anymore"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:9
+msgid "Changed"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:5
+msgid "Hostname"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:17
+msgid "Changed?"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:36
+msgid "No"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:36
+msgid "Yes"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:40
+msgid "No ARF reports for this policy"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_list.erb:8
+msgid "None!"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/_policy.erb:7
+msgid "Total of one host"
+msgid_plural "Total of %{hosts} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:9
+msgid "<b>Foreman</b> OpenScap summary"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:10
+msgid "Summary from %{time} ago to now"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:11
+msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr ""
+
+#: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:16
+msgid "Policies with hosts:"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:8
+msgid "General"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:10
+msgid "Schedule"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:12
+#: ../app/views/scap_contents/_form.html.erb:11
+msgid "Locations"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:15
+#: ../app/views/scap_contents/_form.html.erb:14
+msgid "Organizations"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:17
+msgid "Hostgroups"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:32
+#: ../app/views/policies/steps/_schedule_form.html.erb:6
+msgid "Choose period"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:34
+#: ../app/views/policies/steps/_schedule_form.html.erb:8
+msgid "Choose weekday"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:35
+#: ../app/views/policies/steps/_schedule_form.html.erb:9
+msgid "Number of a day in month, note that not all months have same count of days"
+msgstr ""
+
+#: ../app/views/policies/_form.html.erb:36
+#: ../app/views/policies/steps/_schedule_form.html.erb:10
+msgid ""
+"You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 val"
+"ues by space"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:24
+msgid "Show Guide"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:25
+#: ../app/views/scap_contents/_list.html.erb:21
+msgid "Edit"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:27
+#: ../app/views/scap_contents/_list.html.erb:24
+msgid "Delete compliance policy %s with all the reports?"
+msgstr ""
+
+#: ../app/views/policies/create.html.erb:1
+#: ../app/views/policies/index.html.erb:5 ../app/views/policies/new.html.erb:1
+msgid "New Compliance Policy"
+msgstr ""
+
+#: ../app/views/policies/disassociate_multiple_hosts.html.erb:4
+#: ../app/views/policies/select_multiple_hosts.html.erb:5
+msgid "Select Compliance Policy"
+msgstr ""
+
+#: ../app/views/policies/edit.html.erb:1
+msgid "Edit Compliance Policy"
+msgstr ""
+
+#: ../app/views/policies/index.html.erb:2
+msgid "Compliance Policies"
+msgstr ""
+
+#: ../app/views/policies/index.html.erb:6
+#: ../app/views/scap_contents/index.html.erb:4
+msgid "Help"
+msgstr ""
+
+#: ../app/views/policies/steps/_step_form.html.erb:10
+msgid "Next"
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:1
+msgid "New Compliance policy"
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:3
+msgid "Compliance policy configuration"
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:6
+msgid ""
+"A compliance policy is defined by security professionals who specify desired s"
+"ettings\n"
+"          (often in the form of a checklist) that are to be used in the comput"
+"ing environment. Compliance audit is a process of figuring out\n"
+"          whether a given object follows all the rules written out in a compli"
+"ance policy."
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:11
+msgid ""
+"In Foreman, a compliance policy checklist is defined via %s, once SCAP content"
+" is present, you can create a policy,\n"
+"            assign select hostgroups and schedule to run."
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:12
+msgid "SCAP content"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_chart_widget.html.erb:2
+msgid "Host Breakdown Chart"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:4
+msgid "Date"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:19
+msgid "View Report"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:2
+msgid "Hosts Breakdown"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:4
+msgid "Compliant with the policy"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:5
+msgid "Not compliant with the policy"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:6
+msgid "Inconclusive results"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:7
+msgid "Never audited"
+msgstr ""
+
+#: ../app/views/policy_dashboard/_policy_status_widget.html.erb:9
+msgid "Total hosts: %s"
+msgstr ""
+
+#: ../app/views/policy_dashboard/index.html.erb:3
+msgid "Compliance policy: %s"
+msgstr ""
+
+#: ../app/views/policy_dashboard/index.html.erb:7
+msgid "Status table"
+msgstr ""
+
+#: ../app/views/policy_dashboard/index.html.erb:8
+msgid "Status chart"
+msgstr ""
+
+#: ../app/views/policy_dashboard/index.html.erb:20
+msgid "Latest reports for policy: %s"
+msgstr ""
+
+#: ../app/views/scap_contents/_form.html.erb:9
+msgid "File Upload"
+msgstr ""
+
+#: ../app/views/scap_contents/_form.html.erb:20
+msgid "Upload SCAP DataStream file"
+msgstr ""
+
+#: ../app/views/scap_contents/_list.html.erb:22
+msgid "Download"
+msgstr ""
+
+#: ../app/views/scap_contents/edit.html.erb:1
+msgid "Edit SCAP Content"
+msgstr ""
+
+#: ../app/views/scap_contents/index.html.erb:1
+msgid "SCAP Contents"
+msgstr ""
+
+#: ../app/views/scap_contents/index.html.erb:3
+msgid "Upload New SCAP Content"
+msgstr ""
+
+#: ../app/views/scap_contents/new.html.erb:1
+msgid "Upload new SCAP content file"
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:1
+msgid "New SCAP content"
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:3
+msgid "SCAP content configuration"
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:6
+msgid ""
+"The Security Content Automation Protocol (SCAP), combines a number of open sta"
+"ndards that are used to enumerate software flaws and\n"
+"        configuration issues related to security. They measure systems to find"
+" vulnerabilities and offer methods to score those findings in order\n"
+"        to evaluate the possible impact. It is a method for using those open s"
+"tandards for automated vulnerability management, measurement,\n"
+"        and policy compliance evaluation. "
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:9
+msgid "Source: Wikipedia %s"
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:9
+msgid "read more"
+msgstr ""
+
+#: ../app/views/scap_contents/welcome.html.erb:12
+msgid ""
+"In Foreman, scap_contents represent the SCAP security guides on your hosts, an"
+"d create SCAP profiles for you to assign to hosts / hostgroups\n"
+"          via %s"
+msgstr ""
+
+#: ../db/seeds.d/openscap_policy_notification.rb:3
+msgid "A summary of reports for OpenScap policies"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:103
+msgid "Policies"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:106
+msgid "SCAP contents"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:109
+msgid "Reports"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:115
+msgid "OpenSCAP Host reports widget"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:117
+msgid "OpenSCAP Reports breakdown widget"
+msgstr ""
