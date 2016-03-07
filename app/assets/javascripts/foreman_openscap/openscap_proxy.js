@@ -9,7 +9,7 @@ function updateOpenscapProxy(element){
   }
 
   toggleErrorText("");
-  $(element).indicator_show();
+  foreman.tools.showSpinner();
   $.ajax({
     type: 'post',
     url:  url,
@@ -17,12 +17,12 @@ function updateOpenscapProxy(element){
     error: function(response) {
       var text = $(response.responseText).find('.form-group.has-error').find('.help-block.help-inline').text();
       addOpenscapProxyError(text);
-      $(element).indicator_hide();
+      reloadOnAjaxComplete($(element));
     },
     success: function(response) {
       removeOpenscapProxyError();
       $('#puppetclasses_parameters').replaceWith($(response).find("#puppetclasses_parameters"));
-      $(element).indicator_hide();
+      reloadOnAjaxComplete($(element));
     }
   })
 }
