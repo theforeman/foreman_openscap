@@ -15,6 +15,10 @@ namespace :foreman_openscap do
       end
       ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
     end
+
+    task :default => [:environment] do
+      ForemanOpenscap::BulkUpload.new(true).generate_scap_default_content
+    end
   end
 
   task :rubocop do
