@@ -10,7 +10,7 @@ module ForemanOpenscap
     def openscap_proxy_api
       return @openscap_api if @openscap_api
       proxy_url = openscap_proxy.url if openscap_proxy
-      fail(_("No openscap proxy found for %s") % id) unless proxy_url
+      fail(_("No OpenSCAP proxy found for %s") % id) unless proxy_url
       @openscap_api = ::ProxyAPI::Openscap.new(:url => proxy_url)
     end
   end

@@ -33,16 +33,16 @@ class ArfReportsController < ApplicationController
       response = @arf_report.to_bzip
       send_data response, :filename => "#{@arf_report.id}_arf_report.bz2", :type => 'application/octet-stream', :disposition => 'attachement'
     rescue => e
-      process_error(:error_msg => (_("Failed to downloaded Arf report as bzip: %s") % (e.message)),
+      process_error(:error_msg => (_("Failed to downloaded ARF report as bzip: %s") % (e.message)),
                     :error_redirect => arf_report_path(@arf_report.id))
     end
   end
 
   def destroy
     if @arf_report.destroy
-      process_success(:success_msg => (_("Successfully deleted Arf report.")), :success_redirect => arf_reports_path)
+      process_success(:success_msg => (_("Successfully deleted ARF report.")), :success_redirect => arf_reports_path)
     else
-      process_error(:error_msg => _("Failed to delete Arf Report for host %{host_name} reported at %{reported_at}") % {:host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at})
+      process_error(:error_msg => _("Failed to delete ARF Report for host %{host_name} reported at %{reported_at}") % {:host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at})
     end
   end
 
@@ -70,11 +70,11 @@ class ArfReportsController < ApplicationController
     if params[:arf_report_ids].present?
       @arf_reports = ::ForemanOpenscap::ArfReport.where(:id => params[:arf_report_ids])
       if @arf_reports.empty?
-        error _('No complince reports were found.')
+        error _('No compliance reports were found.')
         redirect_to(arf_reports_path) and return false
       end
     else
-      error _('No complince reports selected')
+      error _('No compliance reports selected')
       redirect_to(arf_reports_path) and return false
     end
     return @arf_reports

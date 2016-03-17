@@ -10,7 +10,7 @@ module ForemanOpenscap
       new_proxy = SmartProxy.find proxy_id
       model_match = self.class.name.underscore.match(/\Ahostgroup\z/) ? "hostgroup" : "fqdn"
       puppetclass = Puppetclass.find_by_name("foreman_scap_client")
-      fail _("Puppetclass 'foreman_scap_client' not found, make sure it is imported form Puppetmaster") if puppetclass.nil?
+      fail _("Puppet class 'foreman_scap_client' not found, make sure it is imported form Puppet master") if puppetclass.nil?
       scap_params = puppetclass.class_params
       server_lookup_key = scap_params.find { |param| param.key == "server" }
       port_lookup_key = scap_params.find { |param| param.key == "port" }

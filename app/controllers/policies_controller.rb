@@ -92,7 +92,7 @@ class PoliciesController < ApplicationController
       notice _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
       redirect_to hosts_path
     else
-      error _('No valid policy id provided')
+      error _('No valid policy ID provided')
       redirect_to hosts_path
     end
   end

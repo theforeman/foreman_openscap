@@ -55,7 +55,7 @@ module ForemanOpenscap
       if (proxy = scap_content.proxy_url)
         api = ProxyAPI::Openscap.new(:url => proxy)
       else
-        return ("<h2>%s</h2>" % _('No valid OpenScap proxy server found.')).html_safe
+        return ("<h2>%s</h2>" % _('No valid OpenSCAP proxy server found.')).html_safe
       end
 
       api.policy_html_guide(scap_content.scap_file, scap_content_profile.profile_id)

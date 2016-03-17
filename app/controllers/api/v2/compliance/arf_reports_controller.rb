@@ -36,20 +36,20 @@ module Api
           api_base_url "/api/v2"
         end
 
-        api :GET, '/compliance/arf_reports', N_('List Arf reports')
+        api :GET, '/compliance/arf_reports', N_('List ARF reports')
         param_group :search_and_pagination, ::Api::V2::BaseController
 
         def index
           @arf_reports = resource_scope_for_index(:permission => :edit_compliance).includes(:asset)
         end
 
-        api :GET, '/compliance/arf_reports/:id', N_('Show an Arf report')
+        api :GET, '/compliance/arf_reports/:id', N_('Show an ARF report')
         param :id, :identifier, :required => true
 
         def show
         end
 
-        api :DELETE, '/compliance/arf_reports/:id', N_('Deletes an Arf Report')
+        api :DELETE, '/compliance/arf_reports/:id', N_('Deletes an ARF Report')
         param :id, :identifier, :required => true
 
         def destroy

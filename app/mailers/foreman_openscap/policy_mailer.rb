@@ -15,7 +15,7 @@ module ForemanOpenscap
         logger.warn "User with valid email not supplied, mail report will not be sent"
       else
         set_locale_for(user) do
-          subject = _("Scap policies summary")
+          subject = _("SCAP policies summary")
           mail(:to => user.mail, :subject => subject)
         end
       end

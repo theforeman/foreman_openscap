@@ -35,7 +35,7 @@ module Api::V2
 
       def_param_group :scap_content do
         param :scap_content, Hash, :required => true, :action_aware => true do
-          param :title, String, :required => true, :desc => N_('Scap content name')
+          param :title, String, :required => true, :desc => N_('SCAP content name')
           param :scap_file, String, :required => true
           param_group :taxonomies, ::Api::V2::BaseController
         end
