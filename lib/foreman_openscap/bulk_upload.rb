@@ -15,12 +15,10 @@ module ForemanOpenscap
       end
 
       files_array = `rpm -ql scap-security-guide | grep ds.xml`.split
-      # If no proxy with Openscap feature, we're gonna skip scap_security_guide files validation
-      skip_validation = (!SmartProxy.with_features('Openscap').any? && ensure_in_db_seed)
-      upload_from_files(files_array, skip_validation) unless files_array.empty?
+      upload_from_files(files_array) unless files_array.empty?
     end
 
-    def upload_from_files(files_array, skip_validation = false)
+    def upload_from_files(files_array)
       files_array.each do |datastream|
         file = File.open(datastream, 'rb').read
         digest = Digest::SHA2.hexdigest(datastream)
@@ -32,19 +30,12 @@ module ForemanOpenscap
         scap_content.original_filename = filename
         scap_content.location_ids = Location.all.map(&:id) if SETTINGS[:locations_enabled]
         scap_content.organization_ids = Organization.all.map(&:id) if SETTINGS[:organizations_enabled]
-        if skip_validation
-          if (scap_content.save(:validate => false))
-            puts "Saved #{datastream} as #{scap_content.title}"
-          else
-            puts "Failed saving #{datastream}"
-          end
+
+        next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
+        if scap_content.save
+          puts "Saved #{datastream} as #{scap_content.title}"
         else
-          next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
-          if scap_content.save
-            puts "Saved #{datastream} as #{scap_content.title}"
-          else
-            puts "Failed saving #{datastream}"
-          end
+          puts "Failed saving #{datastream}"
         end
       end
     end
@@ -69,10 +60,6 @@ module ForemanOpenscap
     def content_name(datastream)
       os_name = extract_name_from_file(datastream)
       @from_scap_security_guide ? "Red Hat #{os_name} default content" : "#{os_name} content"
-    end
-
-    def ensure_in_db_seed
-      defined?(Rake) && Rake.application.top_level_tasks.include?('db:seed')
     end
   end
 end
