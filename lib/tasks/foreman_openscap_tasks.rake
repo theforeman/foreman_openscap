@@ -21,6 +21,16 @@ namespace :foreman_openscap do
     end
   end
 
+  task :migrate, [:proxy] => [:environment] do |task, args|
+    require 'foreman_openscap/data_migration'
+    puts 'Starting ARF reports migration process...'
+    puts "Migrating with proxy id: #{args[:proxy]}"
+    abort("Please pass migrating proxy id. run 'rake foreman_openscap:migrate[scap_proxy_id]'") unless args[:proxy]
+    migrate = ForemanOpenscap::DataMigration.new(args[:proxy])
+    abort("Foreman & proxy should be up for this migration") unless migrate.available?
+    migrate.migrate
+  end
+
   task :rubocop do
     begin
       require 'rubocop/rake_task'
