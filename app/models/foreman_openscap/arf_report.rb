@@ -173,6 +173,18 @@ module ForemanOpenscap
       end
     end
 
+    # can be removed after http://projects.theforeman.org/issues/14458 is fixed
+    def self.inner_select(taxonomy, inner_method = which_ancestry_method)
+      # always include ancestor_ids in inner select
+      conditions = { :taxable_type => self.base_class.name }
+      if taxonomy.present?
+        taxonomy_ids = get_taxonomy_ids(taxonomy, inner_method)
+        conditions.merge!(:taxonomy_id => taxonomy_ids)
+      end
+
+      TaxableTaxonomy.where(conditions).uniq.pluck(:taxable_id).compact
+    end
+
     def self.newline_to_space(string)
       string.gsub(/ *\n+/, " ")
     end
