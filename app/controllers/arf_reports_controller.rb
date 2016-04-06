@@ -12,6 +12,8 @@ class ArfReportsController < ApplicationController
     @arf_reports = resource_base.includes(:host => [:policies, :last_report_object, :host_statuses])
       .search_for(params[:search], :order => params[:order])
       .paginate(:page => params[:page], :per_page => params[:per_page])
+  rescue NoMethodError
+    process_error :error_msg => _("Wrong search syntax")
   end
 
   def show
