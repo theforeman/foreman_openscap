@@ -69,7 +69,7 @@ module ForemanOpenscap
 
     included do
       scoped_search :in => :policy, :on => :name, :complete_value => true, :rename => :compliance_policy,
-                    :ext_method => :search_by_policy_name
+        :only_explicit => true, :ext_method => :search_by_policy_name
 
       scoped_search :on => :id, :rename => :last_for, :complete_value => { :host => 0, :policy => 1 },
         :only_explicit => true, :ext_method => :search_by_last_for
