@@ -136,7 +136,7 @@ module ForemanOpenscap
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
       Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
       Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
-      Report.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
+      ForemanOpenscap::ArfReport.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
       HostsController.send(:include, ForemanOpenscap::HostsControllerExtensions)
       HostsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
