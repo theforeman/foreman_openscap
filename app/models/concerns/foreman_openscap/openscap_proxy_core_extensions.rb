@@ -4,18 +4,22 @@ module ForemanOpenscap
 
     included do
       validate :openscap_proxy_has_feature
+      validate :scap_client_class_present
+      after_save :update_scap_client
     end
 
-    def update_scap_client_params(proxy_id)
-      new_proxy = SmartProxy.find proxy_id
+    def update_scap_client
+      update_scap_client_params if openscap_proxy_id_changed? && openscap_proxy_id
+    end
+
+    def update_scap_client_params
       model_match = self.class.name.underscore.match(/\Ahostgroup\z/) ? "hostgroup" : "fqdn"
-      puppetclass = Puppetclass.find_by_name("foreman_scap_client")
-      fail _("Puppetclass 'foreman_scap_client' not found, make sure it is imported form Puppetmaster") if puppetclass.nil?
+      puppetclass = find_scap_client
       scap_params = puppetclass.class_params
       server_lookup_key = scap_params.find { |param| param.key == "server" }
       port_lookup_key = scap_params.find { |param| param.key == "port" }
       pairs = scap_client_lookup_values_for([server_lookup_key, port_lookup_key], model_match)
-      mapping = { "server" => new_proxy.hostname, "port" => new_proxy.port }
+      mapping = { "server" => openscap_proxy.hostname, "port" => openscap_proxy.port }
       update_scap_client_lookup_values(pairs, model_match, mapping)
     end
 
@@ -24,6 +28,10 @@ module ForemanOpenscap
     end
 
     private
+
+    def find_scap_client
+      Puppetclass.find_by_name("foreman_scap_client")
+    end
 
     def scap_client_lookup_values_for(lookup_keys, model_match)
       lookup_keys.inject({}) do |result, key|
@@ -48,8 +56,14 @@ module ForemanOpenscap
     end
 
     def openscap_proxy_has_feature
-      return true unless openscap_proxy_id
-      openscap_proxy.has_feature? "Openscap"
+      errors.add(:openscap_proxy_id, "Openscap Proxy must have Openscap feature") if openscap_proxy_id && !openscap_proxy.has_feature?("Openscap")
+    end
+
+    def scap_client_class_present
+      if openscap_proxy_id_changed? && openscap_proxy_id
+        puppetclass = find_scap_client
+        errors.add(:openscap_proxy_id, _("Puppetclass 'foreman_scap_client' not found, make sure it is imported from Puppetmaster")) unless puppetclass
+      end
     end
   end
 end
