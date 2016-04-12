@@ -139,10 +139,9 @@ module ForemanOpenscap
       ForemanOpenscap::ArfReport.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
       HostsController.send(:include, ForemanOpenscap::HostsControllerExtensions)
-      HostsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
       HostgroupsController.send(:include, ForemanOpenscap::HostgroupsControllerExtensions)
-      HostgroupsController.send(:include, ForemanOpenscap::HostsCommonControllerExtensions)
       Log.send(:include, ForemanOpenscap::LogExtensions)
+      LookupKeysHelper.send(:include, ForemanOpenscap::LookupKeysHelperExtensions)
     end
 
     rake_tasks do
