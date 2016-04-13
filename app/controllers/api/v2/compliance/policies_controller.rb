@@ -44,11 +44,11 @@ module Api::V2
         param :policy, Hash, :required => true, :action_aware => true do
           param :name, String, :required => true, :desc => N_('Policy name')
           param :description, String, :desc => N_('Policy description')
-          param :scap_content_id, Integer, :required => true, :desc => N_('Policy scap content id')
-          param :scap_content_profile_id, Integer, :required => true, :desc => N_('Policy scap content profile id')
+          param :scap_content_id, Integer, :required => true, :desc => N_('Policy SCAP content ID')
+          param :scap_content_profile_id, Integer, :required => true, :desc => N_('Policy SCAP content profile ID')
           param :period, String, :required => true, :desc => N_('Policy schedule period')
           param :weekday, String, :required => true, :desc => N_('Policy schedule weekday')
-          param :hostgroup_ids, Array, :desc => N_('Apply policy to hostgroups')
+          param :hostgroup_ids, Array, :desc => N_('Apply policy to host groups')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end

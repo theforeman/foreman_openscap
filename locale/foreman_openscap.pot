@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-02-09 18:56-0500\n"
-"PO-Revision-Date: 2016-02-09 18:56-0500\n"
+"POT-Creation-Date: 2016-03-18 13:13-0400\n"
+"PO-Revision-Date: 2016-03-18 13:13-0400\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -19,15 +19,15 @@ msgstr ""
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
 
 #: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:39
-msgid "List Arf reports"
+msgid "List ARF reports"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:46
-msgid "Show an Arf report"
+msgid "Show an ARF report"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:52
-msgid "Deletes an Arf Report"
+msgid "Deletes an ARF Report"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:59
@@ -53,11 +53,11 @@ msgid "Policy description"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:47
-msgid "Policy scap content id"
+msgid "Policy SCAP content ID"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:48
-msgid "Policy scap content profile id"
+msgid "Policy SCAP content profile ID"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:49
@@ -69,7 +69,7 @@ msgid "Policy schedule weekday"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:51
-msgid "Apply policy to hostgroups"
+msgid "Apply policy to host groups"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:56
@@ -89,7 +89,7 @@ msgid "Show a policy's SCAP content"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:38
-msgid "Scap content name"
+msgid "SCAP content name"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:44
@@ -105,15 +105,15 @@ msgid "Deletes an SCAP content"
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:36
-msgid "Failed to downloaded Arf report as bzip: %s"
+msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:43
-msgid "Successfully deleted Arf report."
+msgid "Successfully deleted ARF report."
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:45
-msgid "Failed to delete Arf Report for host %{host_name} reported at %{reported_at}"
+msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:55
@@ -125,11 +125,11 @@ msgid "Successfully deleted %s compliance reports"
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:73
-msgid "No complince reports were found."
+msgid "No compliance reports were found."
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:77
-msgid "No complince reports selected"
+msgid "No compliance reports selected"
 msgstr ""
 
 #: ../app/controllers/arf_reports_controller.rb:82
@@ -149,7 +149,7 @@ msgid "Updated hosts: Unassigned from compliance policy '%s'"
 msgstr ""
 
 #: ../app/controllers/policies_controller.rb:95
-msgid "No valid policy id provided"
+msgid "No valid policy ID provided"
 msgstr ""
 
 #: ../app/controllers/policies_controller.rb:120
@@ -168,7 +168,7 @@ msgstr ""
 #: ../app/helpers/compliance_hosts_helper.rb:6
 #: ../app/helpers/compliance_hosts_helper.rb:24
 #: ../app/views/arf_reports/_list.html.erb:9
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:13
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:11
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:6
 msgid "Failed"
@@ -178,7 +178,7 @@ msgstr ""
 #: ../app/helpers/compliance_hosts_helper.rb:5
 #: ../app/helpers/compliance_hosts_helper.rb:23
 #: ../app/views/arf_reports/_list.html.erb:8
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:10
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:8
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:5
 msgid "Passed"
@@ -186,7 +186,7 @@ msgstr ""
 
 #: ../app/helpers/arf_report_dashboard_helper.rb:12
 #: ../app/helpers/compliance_hosts_helper.rb:25
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:12
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:15
 msgid "Othered"
 msgstr ""
 
@@ -292,25 +292,25 @@ msgid "Compliance Status"
 msgstr ""
 
 #: ../app/lib/proxy_api/openscap.rb:27
-msgid "Unable to get html version of requested report from Smart Proxy"
+msgid "Unable to get HTML version of requested report from Smart Proxy"
 msgstr ""
 
 #: ../app/lib/proxy_api/openscap.rb:36
-msgid "Unable to get xml version of requested report from Smart Proxy"
+msgid "Unable to get XML version of requested report from Smart Proxy"
 msgstr ""
 
 #: ../app/mailers/foreman_openscap/policy_mailer.rb:18
-msgid "Scap policies summary"
+msgid "SCAP policies summary"
 msgstr ""
 
 #: ../app/models/concerns/foreman_openscap/openscap_proxy_core_extensions.rb:13
 msgid ""
-"Puppetclass 'foreman_scap_client' not found, make sure it is imported form Pup"
-"petmaster"
+"Puppet class 'foreman_scap_client' not found, make sure it is imported form Pu"
+"ppet master"
 msgstr ""
 
 #: ../app/models/concerns/foreman_openscap/openscap_proxy_extensions.rb:13
-msgid "No openscap proxy found for %s"
+msgid "No OpenSCAP proxy found for %s"
 msgstr ""
 
 #: ../app/models/foreman_openscap/arf_report.rb:73
@@ -342,7 +342,7 @@ msgid "Cannot generate HTML guide for %{scap_content}/%{profile}"
 msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:58
-msgid "No valid OpenScap proxy server found."
+msgid "No valid OpenSCAP proxy server found."
 msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:204
@@ -374,7 +374,7 @@ msgid "You must fill cron line"
 msgstr ""
 
 #: ../app/models/foreman_openscap/scap_content.rb:9
-msgid "No Proxy with OpenScap features"
+msgid "No Proxy with OpenSCAP features"
 msgstr ""
 
 #: ../app/models/foreman_openscap/scap_content.rb:14
@@ -386,7 +386,7 @@ msgid "No available proxy to validate. Returned with error: %s"
 msgstr ""
 
 #: ../app/models/foreman_openscap/scap_content.rb:32
-msgid "Changed file does not include existing SCAP Content profiles"
+msgid "Changed file does not include existing SCAP content profiles"
 msgstr ""
 
 #: ../app/services/foreman_openscap/arf_report_status_calculator.rb:31
@@ -483,7 +483,7 @@ msgid "Delete"
 msgstr ""
 
 #: ../app/views/arf_reports/delete_multiple.html.erb:28
-msgid "these Complinace reports"
+msgid "these Complianace reports"
 msgstr ""
 
 #: ../app/views/arf_reports/index.html.erb:1
@@ -491,7 +491,7 @@ msgid "Compliance Reports"
 msgstr ""
 
 #: ../app/views/arf_reports/show.html.erb:4
-msgid "Reported at %s "
+msgid "Reported at %s"
 msgstr ""
 
 #: ../app/views/arf_reports/show.html.erb:11
@@ -519,12 +519,14 @@ msgid "Host compliance details"
 msgstr ""
 
 #: ../app/views/compliance_hosts/_openscap_proxy.html.erb:5
-msgid "Openscap Proxy"
+msgid "OpenSCAP Proxy"
 msgstr ""
 
 #: ../app/views/compliance_hosts/show.html.erb:3
-msgid "%s compliance reports by policy"
-msgstr ""
+msgid "%s compliance report by policy"
+msgid_plural "%s compliance reports by policy"
+msgstr[0] ""
+msgstr[1] ""
 
 #: ../app/views/compliance_hosts/show.html.erb:5
 msgid "Policy %s"
@@ -554,19 +556,19 @@ msgstr ""
 msgid "Policy"
 msgstr ""
 
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:10
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
 msgid "Passed|P"
 msgstr ""
 
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:11
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:13
 msgid "Failed|F"
 msgstr ""
 
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:12
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:15
 msgid "Othered|O"
 msgstr ""
 
-#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:16
+#: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:19
 msgid "Host does not exist anymore"
 msgstr ""
 
@@ -605,7 +607,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:9
-msgid "<b>Foreman</b> OpenScap summary"
+msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr ""
 
 #: ../app/views/foreman_openscap/policy_mailer/policy_summary.erb:10
@@ -639,7 +641,7 @@ msgid "Organizations"
 msgstr ""
 
 #: ../app/views/policies/_form.html.erb:17
-msgid "Hostgroups"
+msgid "Host Groups"
 msgstr ""
 
 #: ../app/views/policies/_form.html.erb:32
@@ -716,21 +718,19 @@ msgstr ""
 #: ../app/views/policies/welcome.html.erb:6
 msgid ""
 "A compliance policy is defined by security professionals who specify desired s"
-"ettings\n"
-"          (often in the form of a checklist) that are to be used in the comput"
-"ing environment. Compliance audit is a process of figuring out\n"
-"          whether a given object follows all the rules written out in a compli"
-"ance policy."
-msgstr ""
-
-#: ../app/views/policies/welcome.html.erb:11
-msgid ""
-"In Foreman, a compliance policy checklist is defined via %s, once SCAP content"
-" is present, you can create a policy,\n"
-"            assign select hostgroups and schedule to run."
+"ettings (often in the form of a checklist) that are to be used in the computin"
+"g environment. Compliance audit is a process of figuring out whether a given o"
+"bject follows all the rules written out in a compliance policy."
 msgstr ""
 
 #: ../app/views/policies/welcome.html.erb:12
+msgid ""
+"In Foreman, a compliance policy checklist is defined via %s, once SCAP content"
+" is present, you can create a policy, assign select host groups and schedule t"
+"o run."
+msgstr ""
+
+#: ../app/views/policies/welcome.html.erb:13
 msgid "SCAP content"
 msgstr ""
 
@@ -844,12 +844,12 @@ msgstr ""
 #: ../app/views/scap_contents/welcome.html.erb:12
 msgid ""
 "In Foreman, scap_contents represent the SCAP security guides on your hosts, an"
-"d create SCAP profiles for you to assign to hosts / hostgroups\n"
+"d create SCAP profiles for you to assign to hosts / host groups\n"
 "          via %s"
 msgstr ""
 
 #: ../db/seeds.d/openscap_policy_notification.rb:3
-msgid "A summary of reports for OpenScap policies"
+msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
 #: ../lib/foreman_openscap/engine.rb:103

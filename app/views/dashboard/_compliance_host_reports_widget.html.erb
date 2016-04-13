@@ -5,11 +5,7 @@
 <% else %>
   <table class="table table-striped ellipsis">
     <tr>
-      <th><%= _('Host') %></th>
-      <th><%= _('Policy') %></th>
-      <%= translated_header(s_('Passed|P'), _('Passed')).html_safe %>
-      <%= translated_header(s_('Failed|F'), _('Failed')).html_safe %>
-      <%= translated_header(s_('Othered|O'), _('Othered')).html_safe %>
+      <%= latest_headers() %>
     </tr>
     <% latest_reports.each do |report| %>
       <tr>

@@ -6,12 +6,12 @@ module ForemanOpenscap
       return unless scap_content.scap_file_changed?
 
       unless SmartProxy.with_features('Openscap').any?
-        scap_content.errors.add(:base, _('No Proxy with OpenScap features'))
+        scap_content.errors.add(:base, _('No proxy with OpenSCAP features'))
         return false
       end
 
       if scap_content.proxy_url.nil?
-        scap_content.errors.add(:base, _('No Available Proxy to validate SCAP content'))
+        scap_content.errors.add(:base, _('No available proxy to validate SCAP content'))
         return false
       end
 
@@ -29,7 +29,7 @@ module ForemanOpenscap
 
 
       unless (scap_content.scap_content_profiles.map(&:profile_id) - scap_content.fetch_profiles.keys).empty?
-        scap_content.errors.add(:scap_file, _('Changed file does not include existing SCAP Content profiles'))
+        scap_content.errors.add(:scap_file, _('Changed file does not include existing SCAP content profiles'))
         return false
       end
     end

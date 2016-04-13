@@ -24,7 +24,7 @@ module ::ProxyAPI
         @connect_params[:headers] = { :accept => 'application/html' }
         get "/arf/#{report.id}/#{cname}/#{report.reported_at.to_i}/#{report.policy_arf_report.digest}/html"
       rescue => e
-        raise ::ProxyAPI::ProxyException.new(url, e, N_("Unable to get html version of requested report from Smart Proxy"))
+        raise ::ProxyAPI::ProxyException.new(url, e, N_("Unable to get HTML version of requested report from Smart Proxy"))
       end
     end
 
@@ -33,7 +33,7 @@ module ::ProxyAPI
         @connect_params[:headers] = { :content_type => 'application/arf-bzip2', :content_encoding => 'x-bzip2' }
         get "/arf/#{report.id}/#{cname}/#{report.reported_at.to_i}/#{report.policy_arf_report.digest}/xml"
       rescue => e
-        raise ::ProxyAPI::ProxyException.new(url, e, N_("Unable to get xml version of requested report from Smart Proxy"))
+        raise ::ProxyAPI::ProxyException.new(url, e, N_("Unable to get XML version of requested report from Smart Proxy"))
       end
     end
 

@@ -1,14 +1,15 @@
-<% title_actions display_link_if_authorized(_("New Compliance policy"), hash_for_new_policy_path) %>
+<% title_actions display_link_if_authorized(_("New Compliance Policy"), hash_for_new_policy_path) %>
 
 <% title _("Compliance policy configuration") %>
 <div id="welcome">
   <p>
-    <%= _('A compliance policy is defined by security professionals who specify desired settings
-          (often in the form of a checklist) that are to be used in the computing environment. Compliance audit is a process of figuring out
-          whether a given object follows all the rules written out in a compliance policy.') %>
+    <%= _('A compliance policy is defined by security professionals who specify desired ' +
+          'settings (often in the form of a checklist) that are to be used in the computing ' +
+          'environment. Compliance audit is a process of figuring out whether a given object ' +
+          'follows all the rules written out in a compliance policy.') %>
   </p>
   <p>
-    <%= (_('In Foreman, a compliance policy checklist is defined via %s, once SCAP content is present, you can create a policy,
-            assign select hostgroups and schedule to run.') % link_to(_('SCAP content'), scap_contents_path)).html_safe %>
+    <%= (_('In Foreman, a compliance policy checklist is defined via %s, once SCAP content ' +
+           'is present, you can create a policy, assign select host groups and schedule to run.') % link_to(_('SCAP content'), scap_contents_path)).html_safe %>
   </p>
 </div>
