@@ -112,9 +112,9 @@ module ForemanOpenscap
 
         # add dashboard widget
         widget 'compliance_host_reports_widget',
-          :name => N_('OpenSCAP Host reports widget'), :sizex => 4, :sizey => 1
+          :name => N_('OpenSCAP Host reports widget'), :sizex => 6, :sizey => 1
         widget 'compliance_reports_breakdown_widget',
-          :name => N_('OpenSCAP Reports breakdown widget'), :sizex => 4, :sizey => 1
+          :name => N_('OpenSCAP Reports breakdown widget'), :sizex => 6, :sizey => 1
 
         # As 'arf_report_breakdowns' is a view and does not appear in schema.rb, db:test:prepare will not create the view
         # which will make the following tests fail.
