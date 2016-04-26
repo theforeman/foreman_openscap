@@ -20,7 +20,7 @@ module ForemanOpenscap
     has_one :log, :foreign_key => :report_id
 
     delegate :result, :to => :log, :allow_nil => true
-    validate :result, :inclusion => { :in => RESULT }
+    validates :result, :inclusion => { :in => RESULT }
 
     delegate :asset=, :to => :host
 
