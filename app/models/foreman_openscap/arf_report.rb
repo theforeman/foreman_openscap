@@ -6,7 +6,6 @@ module ForemanOpenscap
     include OpenscapProxyExtensions
 
     # attr_accessible :host_id, :reported_at, :status, :metrics
-    RESULT = %w(pass fail error unknown notapplicable notchecked notselected informational fixed)
     METRIC = %w(passed othered failed)
     BIT_NUM = 10
     MAX = (1 << BIT_NUM) - 1
@@ -18,9 +17,6 @@ module ForemanOpenscap
     has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
     after_save :assign_locations_organizations
     has_one :log, :foreign_key => :report_id
-
-    delegate :result, :to => :log, :allow_nil => true
-    validates :result, :inclusion => { :in => RESULT }
 
     delegate :asset=, :to => :host
 
