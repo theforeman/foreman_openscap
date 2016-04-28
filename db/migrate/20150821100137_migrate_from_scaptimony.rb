@@ -6,12 +6,13 @@ class MigrateFromScaptimony < ActiveRecord::Migration
       def rename_table_indexes(a,b)
       end
     end
+
+    execute 'DROP VIEW IF EXISTS scaptimony_arf_report_breakdowns'
+    execute 'DROP VIEW IF EXISTS foreman_openscap_arf_report_breakdowns'
+
     ActiveRecord::Base.connection.tables.grep(/^scaptimony/).each do |table|
       rename_table table, table.sub(/^scaptimony/, "foreman_openscap")
     end
-
-    execute 'DROP VIEW scaptimony_arf_report_breakdowns' if table_exists? 'scaptimony_arf_report_breakdowns'
-    execute 'DROP VIEW foreman_openscap_arf_report_breakdowns' if table_exists? 'foreman_openscap_arf_report_breakdowns'
 
     execute <<-SQL
       CREATE VIEW foreman_openscap_arf_report_breakdowns AS
@@ -39,12 +40,12 @@ class MigrateFromScaptimony < ActiveRecord::Migration
   end
 
   def down
+    execute 'DROP VIEW IF EXISTS scaptimony_arf_report_breakdowns'
+    execute 'DROP VIEW IF EXISTS foreman_openscap_arf_report_breakdowns'
+
     ActiveRecord::Base.connection.tables.grep(/^foreman_openscap/).each do |table|
       rename_table table, table.sub(/^foreman_openscap/, "scaptimony")
     end
-
-    execute 'DROP VIEW scaptimony_arf_report_breakdowns' if table_exists? 'scaptimony_arf_report_breakdowns'
-    execute 'DROP VIEW foreman_openscap_arf_report_breakdowns' if table_exists? 'foreman_openscap_arf_report_breakdowns'
 
     execute <<-SQL
       CREATE VIEW scaptimony_arf_report_breakdowns AS

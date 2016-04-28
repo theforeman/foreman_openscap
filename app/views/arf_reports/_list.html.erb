@@ -13,7 +13,13 @@
   <% for arf_report in @arf_reports %>
     <tr>
     <td class="ca">
-          <%= check_box_tag "host_ids[]", nil, false, :id => "host_ids_#{arf_report.id}", :disabled => !authorized?, :class => 'host_select_boxes', :onclick => 'hostChecked(this)' %>
+          <%= check_box_tag "host_ids[]",
+                             nil,
+                             false,
+                             :id => "host_ids_#{arf_report.id}",
+                             :disabled => !authorized_for(:controller => :arf_reports, :action => :destroy),
+                             :class => 'host_select_boxes',
+                             :onclick => 'hostChecked(this)' %>
         </td>
       <td><%= name_column(arf_report.host) %></td>
       <td><%= display_link_if_authorized(_("%s ago") % time_ago_in_words(arf_report.reported_at), hash_for_arf_report_path(:id => arf_report.id)) %></td>
