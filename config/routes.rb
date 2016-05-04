@@ -45,7 +45,11 @@ Rails.application.routes.draw do
     scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},
           :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
       namespace :compliance do
-        resources :scap_contents, :except => [:new, :edit]
+        resources :scap_contents, :except => [:new, :edit] do
+          member do
+            get 'xml'
+          end
+        end
         resources :policies, :except => [:new, :edit] do
           member do
             get 'content'

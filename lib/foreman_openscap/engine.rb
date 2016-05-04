@@ -77,7 +77,7 @@ module ForemanOpenscap
                                                                             :remove_policy_from_multiple_hosts]},
                      :resource_type => 'ForemanOpenscap::Policy'
           permission :view_scap_contents, {:scap_contents => [:index, :show, :auto_complete_search],
-                                                      'api/v2/compliance/scap_contents' => [:index, :show]},
+                                                      'api/v2/compliance/scap_contents' => [:index, :show, :xml]},
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :edit_scap_contents, {:scap_contents => [:edit, :update],
                                                       'api/v2/compliance/scap_contents' => [:update]},

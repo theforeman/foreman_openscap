@@ -12,13 +12,12 @@ module ::ProxyAPI
     ]
 
     def initialize(args)
-      @features = ::ProxyAPI::Features.new(args).features
-      @versions = ::ProxyAPI::Version.new(args).proxy_versions['modules']
+      @args = args
     end
 
     def available?
       begin
-        return true if (@features.include?('openscap') && minimum_version)
+        return true if (has_scap_feature? && minimum_version)
       rescue *HTTP_ERRORS
         return false
       end
@@ -27,8 +26,14 @@ module ::ProxyAPI
 
     private
 
+    def has_scap_feature?
+      @features ||= ::ProxyAPI::Features.new(@args).features
+      @features.include?('openscap')
+    end
+
     def openscap_proxy_version
-      @versions['openscap'] if @versions['openscap']
+      @versions ||= ::ProxyAPI::Version.new(@args).proxy_versions['modules']
+      @versions['openscap'] if @versions && @versions['openscap']
     end
 
     def minimum_version

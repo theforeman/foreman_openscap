@@ -90,10 +90,11 @@ module ForemanOpenscap
     end
 
     def proxy_url
-      @proxy_url ||= SmartProxy.with_features('Openscap').each do |proxy|
+      @proxy_url ||= SmartProxy.with_features('Openscap').find do |proxy|
         available = ProxyAPI::AvailableProxy.new(:url => proxy.url)
-        break proxy.url if available.available?
-      end
+        available.available?
+      end.try(:url)
+      @proxy_url
     end
 
     def as_json(*args)

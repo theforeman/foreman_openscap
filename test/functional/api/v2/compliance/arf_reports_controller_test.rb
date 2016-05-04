@@ -5,7 +5,9 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
     @host = FactoryGirl.create(:compliance_host)
-    @report = FactoryGirl.create(:arf_report, :host_id => @host.id)
+    @report = FactoryGirl.create(:arf_report,
+                                 :host_id => @host.id,
+                                 :openscap_proxy => FactoryGirl.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
   end
   test "should get index" do
     get :index, {}, set_session_user

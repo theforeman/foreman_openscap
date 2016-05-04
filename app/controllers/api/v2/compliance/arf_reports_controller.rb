@@ -30,12 +30,6 @@ module Api
           instance_variable_get :"@arf_report" or fail 'no resource loaded'
         end
 
-        resource_description do
-          resource_id 'foreman_openscap_arf_reports'
-          api_version 'v2'
-          api_base_url "/api/v2"
-        end
-
         api :GET, '/compliance/arf_reports', N_('List ARF reports')
         param_group :search_and_pagination, ::Api::V2::BaseController
 
