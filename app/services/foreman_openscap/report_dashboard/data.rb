@@ -31,7 +31,7 @@ module ForemanOpenscap::ReportDashboard
     end
 
     def othered_breakdowns
-      Log.where(:result => ForemanOpenscap::ArfReport::RESULT[2..-1]).joins("INNER JOIN reports ON reports.id = report_id").count(:id).to_f
+      Log.where(:result => Log::SCAP_RESULT[2..-1]).joins("INNER JOIN reports ON reports.id = report_id").count(:id).to_f
     end
   end
 end
