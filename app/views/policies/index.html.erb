@@ -2,8 +2,8 @@
 <% title _("Compliance Policies") %>
 
 <% title_actions(
-  display_link_if_authorized(_("New Compliance Policy"), hash_for_new_policy_path),
-  link_to(_("Help"), :action => "welcome")
+  display_link_if_authorized(_("New Compliance Policy"), hash_for_new_policy_path, :class => "btn btn-default"),
+  link_to(_("Help"), { :action => "welcome" }, { :class => "btn btn-info" })
   ) %>
 
 <%= render :partial => 'list' %>
