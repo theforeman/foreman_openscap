@@ -16,10 +16,6 @@ module PolicyDashboardHelper
     :report_missing => '#92A8CD',
   }
 
-  def policy_widget_list
-    ForemanOpenscap::PolicyDashboard::Manager.widgets
-  end
-
   def host_breakdown_chart(report, options = {})
     data = []
     [[:compliant_hosts, _('Compliant hosts')],
@@ -39,5 +35,14 @@ module PolicyDashboardHelper
       link_to(name, path, :class=>'dashboard-links') +
       content_tag(:h4, @report[label])
     end
+  end
+
+  def compliance_widget(opts)
+    name = opts.delete(:name)
+    template = opts.delete(:template)
+    widget = Widget.new(opts)
+    widget.name = name
+    widget.template = template
+    widget
   end
 end
