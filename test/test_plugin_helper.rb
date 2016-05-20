@@ -6,8 +6,23 @@ FactoryGirl.definition_file_paths << File.join(File.dirname(__FILE__), 'factorie
 FactoryGirl.reload
 
 Spork.each_run do
+  module ScapClientPuppetclass
+    def skip_scap_callback
+      Host::Managed.any_instance.stubs(:update_scap_client).returns(nil)
+      Host::Managed.any_instance.stubs(:scap_client_class_present).returns(nil)
+      Hostgroup.any_instance.stubs(:update_scap_client).returns(nil)
+    end
+  end
+
+  class ActionMailer::TestCase
+    include ScapClientPuppetclass
+    setup :skip_scap_callback
+  end
+
   class ActionController::TestCase
-    setup :add_smart_proxy
+    include ScapClientPuppetclass
+
+    setup :add_smart_proxy, :skip_scap_callback
 
     private
 
@@ -23,7 +38,9 @@ Spork.each_run do
   end
 
   class ActiveSupport::TestCase
-    setup :add_smart_proxy
+    include ScapClientPuppetclass
+
+    setup :add_smart_proxy, :skip_scap_callback
 
     private
 
