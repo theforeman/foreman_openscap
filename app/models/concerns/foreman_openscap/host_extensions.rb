@@ -20,7 +20,7 @@ module ForemanOpenscap
                     :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                         :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                         :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
-      after_save :puppetrun!, :if => :openscap_proxy_id_changed?
+      after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.openscap_proxy_id_changed? }
 
       scope :comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.passed)
