@@ -11,12 +11,6 @@ module Api::V2
         instance_variable_get :"@scap_content" or fail 'no resource loaded'
       end
 
-      resource_description do
-        resource_id 'foreman_openscap_scap_contents'
-        api_version 'v2'
-        api_base_url "/api/v2"
-      end
-
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
 
@@ -24,19 +18,24 @@ module Api::V2
         @scap_contents = resource_scope_for_index(:permission => :edit_compliance)
       end
 
-      api :GET, '/compliance/scap_contents/:id', N_('Show an SCAP content')
+      api :GET, '/compliance/scap_contents/:id/xml', N_('Show an SCAP content as XML')
       param :id, :identifier, :required => true
 
-      def show
+      def xml
         send_data @scap_content.scap_file,
                   :type     => 'application/xml',
                   :filename => @scap_content.original_filename
       end
 
+      api :GET, '/compliance/scap_contents/:id', N_('Show an SCAP content')
+      param :id, :identifier, :required => true
+      def show
+      end
+
       def_param_group :scap_content do
         param :scap_content, Hash, :required => true, :action_aware => true do
           param :title, String, :required => true, :desc => N_('SCAP content name')
-          param :scap_file, String, :required => true
+          param :scap_file, String, :required => true, :desc => N_('XML containing SCAP content')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
@@ -68,6 +67,15 @@ module Api::V2
       def find_resource
         not_found and return if params[:id].blank?
         instance_variable_set("@scap_content", resource_scope.find(params[:id]))
+      end
+
+      def action_permission
+        case params[:action]
+        when 'xml'
+          :view
+        else
+          super
+        end
       end
     end
   end

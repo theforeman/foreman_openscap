@@ -21,12 +21,6 @@ module Api::V2
         api_compliance_policy_url(@policy)
       end
 
-      resource_description do
-        resource_id 'foreman_openscap_policies'
-        api_version 'v2'
-        api_base_url "/api/v2"
-      end
-
       api :GET, '/compliance/policies', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
 

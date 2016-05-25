@@ -8,5 +8,6 @@ FactoryGirl.define do
     logs []
     status 0
     metrics {}
+    openscap_proxy nil
   end
 end
