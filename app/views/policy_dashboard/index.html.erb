@@ -6,7 +6,7 @@
   <ul>
     <% [{:template => 'policy_status_widget', :sizex => 8, :sizey => 1, :name => N_('Status table')},
         {:template => 'policy_chart_widget', :sizex => 4, :sizey => 1, :name => N_('Status chart')}].each do |w| %>
-      <% widget = Widget.new(w) %>
+      <% widget = compliance_widget(w) %>
       <%= content_tag(:li, widget_data(widget)) do %>
         <div class="widget <%= widget.name.parameterize %>">
           <%= render_widget(widget) %>
