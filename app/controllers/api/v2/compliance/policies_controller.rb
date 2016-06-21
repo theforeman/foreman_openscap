@@ -40,8 +40,10 @@ module Api::V2
           param :description, String, :desc => N_('Policy description')
           param :scap_content_id, Integer, :required => true, :desc => N_('Policy SCAP content ID')
           param :scap_content_profile_id, Integer, :required => true, :desc => N_('Policy SCAP content profile ID')
-          param :period, String, :required => true, :desc => N_('Policy schedule period')
-          param :weekday, String, :required => true, :desc => N_('Policy schedule weekday')
+          param :period, String, :desc => N_('Policy schedule period')
+          param :weekday, String, :desc => N_('Policy schedule weekday')
+          param :day_of_month, Integer, :desc => N_('Policy schedule day of month')
+          param :cron_line, String, :desc => N_('Policy schedule cron line')
           param :hostgroup_ids, Array, :desc => N_('Apply policy to host groups')
           param_group :taxonomies, ::Api::V2::BaseController
         end
