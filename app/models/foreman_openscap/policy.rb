@@ -70,7 +70,8 @@ module ForemanOpenscap
       ids.reject(&:empty?).map do |id|
         hostgroup_assets << assets.where(:assetable_type => 'Hostgroup', :assetable_id => id).first_or_create!
       end
-      self.assets = hostgroup_assets
+      existing_host_assets = self.assets.where(:assetable_type => 'Host::Base')
+      self.assets = existing_host_assets + hostgroup_assets
     end
 
     def hostgroups
