@@ -47,7 +47,7 @@ module ForemanOpenscap
     before_destroy EnsureNotUsedBy.new(:policies)
 
     validates_with DataStreamValidator
-    validates :title, :presence => true
+    validates :title, :presence => true, :length => { :maximum => 255 }
     validates :digest, :presence => true
     validates :scap_file, :presence => true
 
