@@ -164,11 +164,13 @@ module ForemanOpenscap
     end
 
     def destroy
-      if openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
-        super
-      else
-        false
+      begin
+        openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
+      rescue Foreman::Exception => e
+        logger.error "Failed to delete report with id #{id} from proxy, cause: #{e.message}"
+        logger.debug e.backtrace.join("\n\t")
       end
+      super
     end
 
     def self.newline_to_space(string)
