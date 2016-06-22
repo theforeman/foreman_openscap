@@ -10,6 +10,11 @@ class ScapContentTest < ActiveSupport::TestCase
       assert(scap_content.valid?)
     end
 
+    test 'should not allow title.length > 255' do
+      scap_content = ForemanOpenscap::ScapContent.new(:title => ("a" * 256), :scap_file => @scap_file)
+      refute(scap_content.valid?)
+    end
+
     test 'scap content should fail if no openscap proxy' do
       SmartProxy.stubs(:with_features).returns([])
       ProxyAPI::AvailableProxy.any_instance.stubs(:available?).returns(false)
