@@ -5,6 +5,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
     disable_orchestration
     User.current = users :admin
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryGirl.create(:puppetclass, :name => 'foreman_scap_client'))
     @policy = FactoryGirl.create(:policy)
   end
 
@@ -19,7 +20,8 @@ class OpenscapHostTest < ActiveSupport::TestCase
   test 'Host has policies via its hostgroup' do
     host = FactoryGirl.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
-    assert(@policy.hostgroup_ids = ["#{hostgroup.id}"])
+    @policy.hostgroup_ids = ["#{hostgroup.id}"]
+    assert @policy.save
     refute_empty(host.combined_policies)
     assert_includes(host.combined_policies, @policy)
   end

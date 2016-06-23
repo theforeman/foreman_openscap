@@ -67,8 +67,8 @@ module ForemanOpenscap
 
     def hostgroup_ids=(ids)
       hostgroup_assets = []
-      ids.reject(&:empty?).map do |id|
-        hostgroup_assets << assets.where(:assetable_type => 'Hostgroup', :assetable_id => id).first_or_create!
+      ids.reject { |id| id.respond_to?(:empty?) && id.empty? }.map do |id|
+        hostgroup_assets << assets.where(:assetable_type => 'Hostgroup', :assetable_id => id).first_or_initialize
       end
       existing_host_assets = self.assets.where(:assetable_type => 'Host::Base')
       self.assets = existing_host_assets + hostgroup_assets
@@ -249,12 +249,16 @@ module ForemanOpenscap
 
     def assign_policy_to_hostgroups
       if hostgroups.any?
-        puppetclass = Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
+        puppetclass = find_scap_puppetclass
         hostgroups.each do |hostgroup|
           hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
           populate_overrides(puppetclass, hostgroup)
         end
       end
+    end
+
+    def find_scap_puppetclass
+      Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
     end
 
     def populate_overrides(puppetclass, hostgroup)
