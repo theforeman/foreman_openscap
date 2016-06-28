@@ -2,7 +2,7 @@ module Api::V2
   module Compliance
     class PoliciesController < ::Api::V2::BaseController
       include Foreman::Controller::SmartProxyAuth
-      include Foreman::Controller::Parameters::Policy
+      include Foreman::Controller::Parameters::PolicyApi
 
       add_smart_proxy_filters :content, :features => 'Openscap'
 

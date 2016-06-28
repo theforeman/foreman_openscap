@@ -20,7 +20,7 @@ class PoliciesController < ApplicationController
   end
 
   def new
-    @policy = ::ForemanOpenscap::Policy.new
+    @policy = ::ForemanOpenscap::Policy.new(:wizard_initiated => true)
   end
 
   def show

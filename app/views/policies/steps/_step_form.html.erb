@@ -3,6 +3,7 @@
 <%= form_for @policy,
              :url => (@policy.id? ? policy_path(:id => @policy.id) : policies_path) do |f| %>
   <%= base_errors_for @policy %>
+  <%= f.hidden_field(:wizard_initiated, :value => @policy.wizard_initiated?) %>
   <%= f.hidden_field(:current_step, :value => @policy.next_step) unless @policy.current_step.blank? %>
   <% @policy.steps.each do | step | %>
     <%= render :partial => "policies/steps/#{step.downcase.tr(' ', '_')}_form", :locals => {:f => f, :step => step} %>
