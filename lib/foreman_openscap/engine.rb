@@ -39,7 +39,7 @@ module ForemanOpenscap
       Apipie.configuration.checksum_path += ['/compliance/']
     end
 
-    initializer 'foreman_openscap.register_plugin', :after => :finisher_hook do |app|
+    initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
         requires_foreman '>= 1.11'
 
