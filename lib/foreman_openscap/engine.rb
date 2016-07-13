@@ -127,6 +127,12 @@ module ForemanOpenscap
       end
     end
 
+    initializer 'foreman_openscap.register_gettext', after: :load_config_initializers do |_app|
+      locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
+      locale_domain = 'foreman_openscap'
+      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
+    end
+
     #Include concerns in this config.to_prepare block
     config.to_prepare do
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
