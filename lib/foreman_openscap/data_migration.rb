@@ -64,7 +64,7 @@ module ForemanOpenscap
 
     def fetch_host_name(asset_id)
       asset = ForemanOpenscap::Asset.find(asset_id)
-      asset.host.to_label
+      ForemanOpenscap::Helper.find_name_or_uuid_by_host(asset.host)
     end
 
     def arfs_by_reported(time)
