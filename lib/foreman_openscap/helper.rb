@@ -16,25 +16,15 @@ module ForemanOpenscap::Helper
   end
 
   def self.find_name_or_uuid_by_host(host)
-    if defined?(::Katello::System)
-      host.content_host.uuid
-    else
-      host.name
-    end
+    host.name
   end
 
   private
 
   def self.find_host_by_name_or_uuid(cname)
-    if defined?(Katello::System)
-      host = Host.includes(:content_host).where(:katello_systems => {:uuid => cname}).first
-      host ||= Host.find_by_name(cname)
-    else
-      host = Host.find_by_name(cname)
-    end
+    host = Host.find_by_name(cname)
     unless host
       Rails.logger.error "Could not find Host with name: #{cname}"
-      Rails.logger.error "Please check that Content host is linked to Foreman host" if defined?(Katello::System)
       fail ActiveRecord::RecordNotFound
     end
     host
