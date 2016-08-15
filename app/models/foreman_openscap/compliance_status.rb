@@ -36,7 +36,7 @@ module ForemanOpenscap
       end
     end
 
-    def relevant?
+    def relevant?(options = {})
       # May fail host status during migration
       return false unless ForemanOpenscap::Asset.table_exists?
       host.policies.present?
