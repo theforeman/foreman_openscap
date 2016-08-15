@@ -1,5 +1,7 @@
 class PoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
+  include Foreman::Controller::Parameters::Policy
+
   before_filter :find_by_id, :only => [:show, :edit, :update, :parse, :destroy]
   before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts, :disassociate_multiple_hosts, :remove_policy_from_multiple_hosts]
 
@@ -29,7 +31,7 @@ class PoliciesController < ApplicationController
   end
 
   def create
-    @policy = ::ForemanOpenscap::Policy.new(params[:policy])
+    @policy = ::ForemanOpenscap::Policy.new(policy_params)
     if @policy.wizard_completed? && @policy.save
       process_success :success_redirect => policies_path
     else
@@ -46,7 +48,7 @@ class PoliciesController < ApplicationController
   end
 
   def update
-    if @policy.update_attributes(params[:policy])
+    if @policy.update_attributes(policy_params)
       process_success :success_redirect => policies_path
     else
       process_error :object => @policy

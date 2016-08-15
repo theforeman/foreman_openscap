@@ -2,6 +2,7 @@ module Api::V2
   module Compliance
     class PoliciesController < ::Api::V2::BaseController
       include Foreman::Controller::SmartProxyAuth
+      include Foreman::Controller::Parameters::Policy
 
       add_smart_proxy_filters :content, :features => 'Openscap'
 
@@ -53,7 +54,7 @@ module Api::V2
       param_group :policy, :as => :create
 
       def create
-        @policy = ForemanOpenscap::Policy.new(params[:policy])
+        @policy = ForemanOpenscap::Policy.new(policy_params)
         process_response @policy.save
       end
 
@@ -62,7 +63,7 @@ module Api::V2
       param_group :policy
 
       def update
-        process_response @policy.update_attributes(params[:policy])
+        process_response @policy.update_attributes(policy_params)
       end
 
       api :DELETE, '/compliance/policies/:id', N_('Deletes a policy')

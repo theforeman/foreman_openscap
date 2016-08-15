@@ -1,5 +1,7 @@
 class ScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
+  include Foreman::Controller::Parameters::ScapContent
+
   before_filter :handle_file_upload, :only => [:create, :update]
   before_filter :find_by_id, :only => [:show, :edit, :update, :destroy]
 
@@ -22,7 +24,7 @@ class ScapContentsController < ApplicationController
   end
 
   def create
-    @scap_content = ForemanOpenscap::ScapContent.new(params[:scap_content])
+    @scap_content = ForemanOpenscap::ScapContent.new(scap_content_params)
     if @scap_content.save
       process_success
     else
@@ -31,7 +33,7 @@ class ScapContentsController < ApplicationController
   end
 
   def update
-    if @scap_content.update_attributes(params[:scap_content])
+    if @scap_content.update_attributes(scap_content_params)
       process_success
     else
       process_error

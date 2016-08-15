@@ -2,7 +2,6 @@ module ForemanOpenscap
   module LogExtensions
     extend ActiveSupport::Concern
     included do
-      attr_accessible :result
       SCAP_RESULT = %w(pass fail error unknown notapplicable notchecked notselected informational fixed)
       validate :scap_result
     end
