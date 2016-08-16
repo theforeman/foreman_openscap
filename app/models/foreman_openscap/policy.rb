@@ -2,9 +2,6 @@ module ForemanOpenscap
   class Policy < ActiveRecord::Base
     include Authorizable
     include Taxonomix
-    attr_accessible :description, :name, :period, :scap_content_id, :scap_content_profile_id,
-                    :weekday, :day_of_month, :cron_line, :location_ids, :organization_ids,
-                    :current_step, :hostgroup_ids
     attr_writer :current_step
 
     belongs_to :scap_content

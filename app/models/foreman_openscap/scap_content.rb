@@ -39,8 +39,6 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
 
-    attr_accessible :original_filename, :scap_file, :title, :location_ids, :organization_ids
-
     has_many :scap_content_profiles, :dependent => :destroy
     has_many :policies
 

@@ -1,6 +1,7 @@
 module Api::V2
   module Compliance
     class ScapContentsController < ::Api::V2::BaseController
+      include Foreman::Controller::Parameter::ScapContent
       before_filter :find_resource, :except => %w(index create)
 
       def resource_name
@@ -44,7 +45,7 @@ module Api::V2
       param_group :scap_content, :as => :create
 
       def create
-        @scap_content = ForemanOpenscap::ScapContent.new(params[:scap_content])
+        @scap_content = ForemanOpenscap::ScapContent.new(scap_content_params)
         process_response @scap_content.save
       end
 
@@ -53,7 +54,7 @@ module Api::V2
       param_group :scap_content
 
       def update
-        process_response @scap_content.update_attributes(params[:scap_content])
+        process_response @scap_content.update_attributes(scap_content_params)
       end
 
       api :DELETE, '/compliance/scap_contents/:id', N_('Deletes an SCAP content')

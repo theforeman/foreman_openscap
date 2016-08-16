@@ -124,6 +124,10 @@ module ForemanOpenscap
                            "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
                            "widgets not in dashboard show up in list"]
                      })
+        # strong params
+        parameter_filter Host::Managed, :openscap_proxy_id, :openscap_proxy
+        parameter_filter Log, :result
+
       end
     end
 
