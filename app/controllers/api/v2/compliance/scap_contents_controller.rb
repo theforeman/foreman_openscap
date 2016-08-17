@@ -1,7 +1,7 @@
 module Api::V2
   module Compliance
     class ScapContentsController < ::Api::V2::BaseController
-      include Foreman::Controller::Parameter::ScapContent
+      include Foreman::Controller::Parameters::ScapContent
       before_filter :find_resource, :except => %w(index create)
 
       def resource_name
