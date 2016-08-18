@@ -5,15 +5,15 @@
 <% else %>
   <table class="table table-striped ellipsis">
     <tr>
-      <%= latest_headers() %>
+      <%= latest_compliance_headers %>
     </tr>
     <% latest_reports.each do |report| %>
       <tr>
         <td><%= link_to h(report.host.nil? ? _('Host does not exist anymore') : report.host.name), arf_report_path(report) %></td>
         <td><%= report.policy.nil? ? _('Policy is missing') :  link_to(h(report.policy.name), policy_dashboard_policy_path(report.policy)) %></td>
-        <td><%= report_event_column(report.passed, "label-success")  %></td>
-        <td><%= report_event_column(report.failed, "label-danger")  %></td>
-        <td><%= report_event_column(report.othered, "label-info")  %></td>
+        <td class="ca"><%= report_event_column(report.passed, "label-success")  %></td>
+        <td class="ca"><%= report_event_column(report.failed, "label-danger")  %></td>
+        <td class="ca"><%= report_event_column(report.othered, "label-info")  %></td>
       </tr>
     <% end %>
   </table>
