@@ -8,9 +8,9 @@
 # along with this software; if not, see http://www.gnu.org/licenses/gpl.txt
 #
 
-module DashboardHelper
+module ComplianceDashboardHelper
 
-  def latest_headers
+  def latest_compliance_headers
     string =  "<th>#{_("Host")}</th>"
     string += "<th>#{_("Policy")}</th>"
     # TRANSLATORS: initial character of Passed
