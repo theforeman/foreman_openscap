@@ -1,7 +1,7 @@
 function scap_content_selected(element){
   var attrs = attribute_hash(['scap_content_id']);
   var url = $(element).attr('data-url');
-  foreman.tools.showSpinner();
+  tfm.tools.showSpinner();
   $.ajax({
     data: attrs,
     type: 'post',
