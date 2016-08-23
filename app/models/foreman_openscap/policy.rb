@@ -18,7 +18,7 @@ module ForemanOpenscap
     SERVER_CLASS_PARAMETER   = 'server'
     PORT_CLASS_PARAMETER     = 'port'
 
-    validates :name, :presence => true, :uniqueness => true, :format => { :without => /\s/ }
+    validates :name, :presence => true, :uniqueness => true
     validate :ensure_needed_puppetclasses
     validates :period, :inclusion => {:in => %w(weekly monthly custom)},
               :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
