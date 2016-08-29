@@ -46,13 +46,11 @@ module ForemanOpenscap
                                AND foreman_openscap_asset_policies.policy_id = '#{policy.id}')")
       }
 
-      alias_method_chain :set_hostgroup_defaults, :openscap
+      alias_method_chain :inherited_attributes, :openscap
     end
 
-    def set_hostgroup_defaults_with_openscap
-      set_hostgroup_defaults_without_openscap
-      return unless hostgroup
-      assign_hostgroup_attributes %w(openscap_proxy_id)
+    def inherited_attributes_with_openscap
+      inherited_attributes_without_openscap.concat(%w(openscap_proxy_id))
     end
 
     def policies=(policies)
