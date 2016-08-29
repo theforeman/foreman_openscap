@@ -9,7 +9,7 @@
       <% widget = compliance_widget(w) %>
       <%= content_tag(:li, widget_data(widget)) do %>
         <div class="widget <%= widget.name.parameterize %>">
-          <%= render_widget(widget) %>
+          <%= render(:partial => widget.template, :locals => widget.data) %>
         </div>
       <% end %>
     <% end %>
