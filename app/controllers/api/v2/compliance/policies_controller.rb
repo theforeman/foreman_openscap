@@ -22,14 +22,14 @@ module Api::V2
         api_compliance_policy_url(@policy)
       end
 
-      api :GET, '/compliance/policies', N_('List SCAP contents')
+      api :GET, '/compliance/policies', N_('List Policies')
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
         @policies = resource_scope_for_index(:permission => :edit_compliance)
       end
 
-      api :GET, '/compliance/policies/:id', N_('Show an SCAP content')
+      api :GET, '/compliance/policies/:id', N_('Show a Policy')
       param :id, :identifier, :required => true
 
       def show
@@ -41,16 +41,16 @@ module Api::V2
           param :description, String, :desc => N_('Policy description')
           param :scap_content_id, Integer, :required => true, :desc => N_('Policy SCAP content ID')
           param :scap_content_profile_id, Integer, :required => true, :desc => N_('Policy SCAP content profile ID')
-          param :period, String, :desc => N_('Policy schedule period')
-          param :weekday, String, :desc => N_('Policy schedule weekday')
-          param :day_of_month, Integer, :desc => N_('Policy schedule day of month')
-          param :cron_line, String, :desc => N_('Policy schedule cron line')
+          param :period, String, :desc => N_('Policy schedule period (weekly, monthly, custom)')
+          param :weekday, String, :desc => N_('Policy schedule weekday (only if period == "weekly")')
+          param :day_of_month, Integer, :desc => N_('Policy schedule day of month (only if period == "monthly")')
+          param :cron_line, String, :desc => N_('Policy schedule cron line (only if period == "custom")')
           param :hostgroup_ids, Array, :desc => N_('Apply policy to host groups')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
 
-      api :POST, '/compliance/policies', N_('Create a policy')
+      api :POST, '/compliance/policies', N_('Create a Policy')
       param_group :policy, :as => :create
 
       def create
@@ -58,7 +58,7 @@ module Api::V2
         process_response @policy.save
       end
 
-      api :PUT, '/compliance/policies/:id', N_('Update a policy')
+      api :PUT, '/compliance/policies/:id', N_('Update a Policy')
       param :id, :identifier, :required => true
       param_group :policy
 
@@ -66,7 +66,7 @@ module Api::V2
         process_response @policy.update_attributes(policy_params)
       end
 
-      api :DELETE, '/compliance/policies/:id', N_('Deletes a policy')
+      api :DELETE, '/compliance/policies/:id', N_('Delete a Policy')
       param :id, :identifier, :required => true
 
       def destroy
