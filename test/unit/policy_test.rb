@@ -21,12 +21,12 @@ class PolicyTest < ActiveSupport::TestCase
   test "should remove associated hostgroup" do
     ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryGirl.create(:puppetclass, :name => 'foreman_scap_client'))
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
-    hg1 = FactoryGirl.create(:hostgroup)
-    asset = FactoryGirl.create(:asset, :assetable_id => hg1.id, :assetable_type => 'Hostgroup')
+    hg = FactoryGirl.create(:hostgroup)
+    asset = FactoryGirl.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
     policy = FactoryGirl.create(:policy, :assets => [asset])
-    policy.hostgroup_ids = [hg1].map(&:id)
     policy.save!
-    hg1.destroy
+    hg.hostgroup_classes.destroy_all
+    hg.destroy
     assert_equal 0, policy.hostgroups.count
   end
 end
