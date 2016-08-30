@@ -1,3 +1,5 @@
+N_('Openscap policy summary')
+
 policy_notification = {
   :name => :openscap_policy_summary,
   :description => N_('A summary of reports for OpenSCAP policies'),
