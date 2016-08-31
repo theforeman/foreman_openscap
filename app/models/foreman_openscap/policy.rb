@@ -9,7 +9,7 @@ module ForemanOpenscap
     has_many :policy_arf_reports
     has_many :arf_reports, :through => :policy_arf_reports, :dependent => :destroy
     has_many :asset_policies
-    has_many :assets, :through => :asset_policies
+    has_many :assets, :through => :asset_policies, :as => :assetable, :dependent => :destroy
 
     scoped_search :on => :name, :complete_value => true
 
