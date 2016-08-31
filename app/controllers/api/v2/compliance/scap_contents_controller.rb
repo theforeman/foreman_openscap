@@ -37,6 +37,7 @@ module Api::V2
         param :scap_content, Hash, :required => true, :action_aware => true do
           param :title, String, :required => true, :desc => N_('SCAP content name')
           param :scap_file, String, :required => true, :desc => N_('XML containing SCAP content')
+          param :original_filename, String, :desc => N_('Original file name of the XML file')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
