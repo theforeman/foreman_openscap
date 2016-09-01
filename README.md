@@ -141,6 +141,20 @@ Make sure that
   # service foreman restart
   ```
 
+## Releasing
+
+follow these steps:
+
+1. Bump the version.rb to desired number
+2. git commit -a -m "Version $number"
+3. rake release
+
+the commit gets tagged with what it find in version.rb
+
+if you have commit permissions, the commit and the tag gets pushed to origin remote
+
+if you're the gem owner, gem is built and uploaded to rubygems.org
+
 ## Copyright
 
 Copyright (c) 2014--2015 Red Hat, Inc.
