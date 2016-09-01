@@ -5,8 +5,8 @@ FactoryGirl.define do
     weekday 'monday'
     scap_content
     scap_content_profile
-    day_of_month '1'
-    cron_line '* * * * 30'
+    day_of_month nil
+    cron_line nil
     hosts []
     assets []
   end

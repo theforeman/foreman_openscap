@@ -2,7 +2,7 @@ module ForemanOpenscap
   class Policy < ActiveRecord::Base
     include Authorizable
     include Taxonomix
-    attr_writer :current_step
+    attr_writer :current_step, :wizard_initiated
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
@@ -18,17 +18,15 @@ module ForemanOpenscap
     SERVER_CLASS_PARAMETER   = 'server'
     PORT_CLASS_PARAMETER     = 'port'
 
+    before_validation :update_period_attrs
+
     validates :name, :presence => true, :uniqueness => true
     validate :ensure_needed_puppetclasses
-    validates :period, :inclusion => {:in => %w(weekly monthly custom)},
-              :if                 => Proc.new { |policy| policy.new_record? ? policy.step_index > 3 : !policy.id.blank? }
-    validates :weekday, :inclusion => {:in => Date::DAYNAMES.map(&:downcase)},
-              :if                  => Proc.new { |policy| policy.period == 'weekly' && (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
-    validates :day_of_month, :numericality => {:greater_than => 0, :less_than => 32},
-              :if                          => Proc.new { |policy| policy.period == 'monthly'&& (policy.new_record? ? policy.step_index > 3 : !policy.id.blank?) }
-    validate :valid_cron_line
-    validate :ensure_period_specification_present
+    validates :period, :inclusion => {:in => %w(weekly monthly custom), :message => _('is not a valid value')},
+              :if => Proc.new { |policy| policy.should_validate?('Schedule') }
 
+
+    validate :valid_cron_line, :valid_weekday, :valid_day_of_month
 
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
@@ -89,6 +87,10 @@ module ForemanOpenscap
 
     def hosts=(hosts)
       host_ids = hosts.map(&:id).map(&:to_s)
+    end
+
+    def step_to_i(step_name)
+      steps.index(step_name) + 1
     end
 
     def steps
@@ -168,7 +170,36 @@ module ForemanOpenscap
       }.merge(period_enc)
     end
 
+    def should_validate?(step_name)
+      if new_record? && wizard_initiated?
+        step_index > step_to_i(step_name)
+      elsif new_record? && !wizard_initiated?
+        true
+      else
+        persisted?
+      end
+    end
+
+    def wizard_initiated?
+      @wizard_initiated
+    end
+
+    def update_period_attrs
+      case period
+      when 'monthly'
+        erase_period_attrs(['cron_line', 'weekday'])
+      when 'weekly'
+        erase_period_attrs(['cron_line', 'day_of_month'])
+      when 'custom'
+        erase_period_attrs(['weekday', 'day_of_month'])
+      end
+    end
+
     private
+
+    def erase_period_attrs(attrs)
+       attrs.each { |attr| self.public_send("#{attr}=", nil) }
+    end
 
     def period_enc
       # get crontab expression as an array (minute hour day_of_month month day_of_week)
@@ -219,28 +250,24 @@ module ForemanOpenscap
     end
 
     def cron_line_split
-      cron_line.split(' ')
+      cron_line.to_s.split(' ')
     end
 
     def valid_cron_line
-      return true if period != 'custom' || step_index != 4
-
-      unless cron_line_split.size == 5
-        errors[:base] << _("Cron line does not consist of 5 parts separated by space")
-        return false
+      if period == 'custom' && should_validate?('Schedule')
+        errors.add(:cron_line, _("does not consist of 5 parts separated by space")) unless cron_line_split.size == 5
       end
     end
 
-    def ensure_period_specification_present
-      return true if period.blank? || step_index != 4
+    def valid_weekday
+      if(period == 'weekly' && should_validate?('Schedule'))
+        errors.add(:weekday, _("is not a valid value")) unless Date::DAYNAMES.map(&:downcase).include? weekday
+      end
+    end
 
-      error = nil
-      error = _("You must fill weekday") if weekday.blank? && period == 'weekday'
-      error = _("You must fill day of month") if day_of_month.blank? && period == 'monthly'
-      error = _("You must fill cron line") if cron_line.blank? && period == 'custom'
-      if error
-        errors[:base] << error
-        return false
+    def valid_day_of_month
+      if(period == 'monthly' && should_validate?('Schedule'))
+        errors.add(:day_of_month, _("must be between 1 and 31")) if !day_of_month || (day_of_month < 1 || day_of_month > 31)
       end
     end
 

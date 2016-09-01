@@ -23,7 +23,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
 
   test "should update a policy" do
     policy = FactoryGirl.create(:policy)
-    put :update, {:id => policy.id, :policy => {:period => 'monthly'}}
+    put :update, { :id => policy.id, :policy => { :period => 'monthly', :day_of_month => 15 }}
     updated_policy = ActiveSupport::JSON.decode(@response.body)
     assert(updated_policy['period'], 'monthly')
     assert_response :ok
@@ -37,7 +37,11 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
 
   test "should create a policy" do
     scap_content_profile = FactoryGirl.create(:scap_content_profile)
-    attributes = {:policy => {:name => 'my_policy', :scap_content_profile_id => scap_content_profile.id, :scap_content_id => scap_content_profile.scap_content_id}}
+    attributes = { :policy => { :name => 'my_policy',
+                                :scap_content_profile_id => scap_content_profile.id,
+                                :scap_content_id => scap_content_profile.scap_content_id,
+                                :period => 'weekly',
+                                :weekday => 'friday' }}
     post :create, attributes, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     assert response['scap_content_profile_id'], scap_content_profile.to_param
