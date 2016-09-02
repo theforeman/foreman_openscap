@@ -1,6 +1,6 @@
 module Foreman::Controller::Parameters::Policy
   extend ActiveSupport::Concern
-  include PolicyApi
+  include Foreman::Controller::Parameters::PolicyApi
 
   class_methods do
     def policy_params_filter
