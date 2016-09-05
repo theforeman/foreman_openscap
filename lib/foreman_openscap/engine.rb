@@ -126,6 +126,7 @@ module ForemanOpenscap
                      })
         # strong params
         parameter_filter Host::Managed, :openscap_proxy_id, :openscap_proxy
+        parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
         parameter_filter Log, :result
 
       end
