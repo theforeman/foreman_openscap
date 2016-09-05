@@ -55,7 +55,7 @@ class ArfReportsController < ApplicationController
       process_error(:error_msg => (_("Failed to delete %s compliance reports") % failed_deletes),
                     :error_redirect => arf_reports_path)
     else
-      process_success(:success_msg => (_("Successfully deleted %s compliance reports") % @arf_reports.count),
+      process_success(:success_msg => (_("Successfully deleted %s compliance reports") % @arf_reports.size),
                       :success_redirect => arf_reports_path)
     end
   end
