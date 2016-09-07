@@ -122,4 +122,22 @@ class PolicyTest < ActiveSupport::TestCase
     p.day_of_month = nil
     assert p.save
   end
+
+  test "should not create policy without SCAP content" do
+    p = ForemanOpenscap::Policy.new(:name => "custom_policy",
+                                    :scap_content_profile_id => @scap_profile.id,
+                                    :period => 'monthly',
+                                    :day_of_month => '5')
+    refute p.save
+    assert p.errors[:scap_content_id].include?("can't be blank")
+  end
+
+  test "should not create policy without SCAP content profile" do
+    p = ForemanOpenscap::Policy.new(:name => "custom_policy",
+                                    :scap_content_id => @scap_content.id,
+                                    :period => 'monthly',
+                                    :day_of_month => '5')
+    refute p.save
+    assert p.errors[:scap_content_profile_id].include?("can't be blank")
+  end
 end
