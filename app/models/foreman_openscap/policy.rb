@@ -25,6 +25,8 @@ module ForemanOpenscap
     validates :period, :inclusion => {:in => %w(weekly monthly custom), :message => _('is not a valid value')},
               :if => Proc.new { |policy| policy.should_validate?('Schedule') }
 
+    validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
+    validates :scap_content_profile_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
 
     validate :valid_cron_line, :valid_weekday, :valid_day_of_month
 
