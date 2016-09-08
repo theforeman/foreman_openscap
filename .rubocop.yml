@@ -12,5 +12,6 @@ Metrics/LineLength:
   Exclude:
    - 'test/**/*'
 
+# Support both ruby19 and hash_rockets
 Style/HashSyntax:
-  EnforcedStyle: hash_rockets
+  Enabled: false
