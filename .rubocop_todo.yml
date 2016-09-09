@@ -247,11 +247,14 @@ Style/SpaceInsideHashLiteralBraces:
 Style/StringLiterals:
   Enabled: false
 
-# Offense count: 8
-# Cop supports --auto-correct.
-# Configuration parameters: EnforcedStyleForMultiline, SupportedStyles.
-Style/TrailingComma:
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+Style/TrailingCommaInArguments:
   Enabled: false
 
 Performance/Count:
+  Enabled: false
+
+Style/StringLiteralsInInterpolation:
   Enabled: false

@@ -1,8 +1,8 @@
 inherit_from:
   - .rubocop_todo.yml
 
-AllCops:
-  RunRailsCops: true
+Rails:
+  Enabled: true
 
 Style/Documentation:
   Enabled: false
