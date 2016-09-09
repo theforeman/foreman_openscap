@@ -1,0 +1,14 @@
+scss:
+  enabled: false
+
+ruby:
+  config_file: .rubocop.yml
+
+# TODO: enable jshint & eslint 
+jshint:
+  enabled: false
+
+eslint:
+  enabled: false
+
+fail_on_violations: true
