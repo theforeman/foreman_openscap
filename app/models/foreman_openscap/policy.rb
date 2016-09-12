@@ -20,7 +20,7 @@ module ForemanOpenscap
 
     before_validation :update_period_attrs
 
-    validates :name, :presence => true, :uniqueness => true
+    validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 }
     validate :ensure_needed_puppetclasses
     validates :period, :inclusion => {:in => %w(weekly monthly custom), :message => _('is not a valid value')},
               :if => Proc.new { |policy| policy.should_validate?('Schedule') }
