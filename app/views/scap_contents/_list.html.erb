@@ -1,18 +1,14 @@
-<table class="table table-bordered table-striped table-two-pane">
+<table class="table table-bordered table-striped table-two-pane table-fixed">
   <tr>
-    <th>Title</th>
-    <th>Filename</th>
-    <th>Created</th>
-    <th></th>
+    <th class="col-md-4">Title</th>
+    <th class="col-md-4">Filename</th>
+    <th class="col-md-3">Created</th>
+    <th class="col-md-1"></th>
   </tr>
   <% for content in @contents %>
     <tr>
-      <td>
-        <%= content.title %>
-      </td>
-      <td>
-        <%= content.original_filename %>
-      </td>
+      <td class="ellipsis"><%= content.title %></td>
+      <td class="ellipsis"><%= content.original_filename %></td>
       <td>
         <%= _("%s ago") % time_ago_in_words(content.created_at.getlocal) %>
       </td>
