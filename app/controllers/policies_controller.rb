@@ -31,9 +31,7 @@ class PoliciesController < ApplicationController
   end
 
   def create
-    # we must call unscoped, otherwise taxonomix default scope gets mixed into taxable_taxonomies object
-    # setting taxable_id, making them invalid
-    @policy = ::ForemanOpenscap::Policy.unscoped.new(policy_params)
+    @policy = ::ForemanOpenscap::Policy.new(policy_params)
     if @policy.wizard_completed? && @policy.save
       process_success :success_redirect => policies_path
     else
