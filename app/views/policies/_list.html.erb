@@ -1,4 +1,4 @@
-<table class="table table-bordered table-striped">
+<table class="table table-bordered table-striped table-fixed">
   <tr>
     <th>Name</th>
     <th>Content</th>
@@ -7,7 +7,7 @@
   </tr>
   <% for policy in @policies %>
     <tr>
-      <td>
+      <td class="ellipsis">
         <%= link_to_if_authorized(policy.name.to_s, hash_for_policy_dashboard_policy_path(:id => policy.id)) %>
       </td>
       <td>
