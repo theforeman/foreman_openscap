@@ -67,7 +67,7 @@ module ForemanOpenscap
     end
 
     def scap_client_class_present
-      if openscap_proxy_id_changed? && openscap_proxy_id
+      if changed.include?('openscap_proxy_id') && self.respond_to?(:openscap_proxy_id) && openscap_proxy_id
         errors.add(:openscap_proxy_id, _("Puppet class 'foreman_scap_client' not found, make sure it is imported from Puppet master")) unless find_scap_client
       end
     end
