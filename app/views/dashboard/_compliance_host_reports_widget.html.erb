@@ -1,4 +1,4 @@
-<h4 class="ca"><%= _('Latest compliance reports') %></h4>
+<h4 class="ca"><%= _('Latest Compliance Reports') %></h4>
 <% latest_reports = ForemanOpenscap::ArfReport.latest.limit(9) %>
 <% if latest_reports.empty? %>
   <p class="ca"><%= _("No reports available") %></p>
