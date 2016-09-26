@@ -55,7 +55,11 @@ Rails.application.routes.draw do
             get 'content'
           end
         end
-        resources :arf_reports, :only => [:index, :show, :destroy]
+        resources :arf_reports, :only => [:index, :show, :destroy] do
+          member do
+            get 'download'
+          end
+        end
         post 'arf_reports/:cname/:policy_id/:date', \
               :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
       end
