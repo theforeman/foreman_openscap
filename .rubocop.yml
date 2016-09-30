@@ -15,3 +15,6 @@ Metrics/LineLength:
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
   Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
