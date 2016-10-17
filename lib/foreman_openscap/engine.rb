@@ -52,7 +52,7 @@ module ForemanOpenscap
         security_block :foreman_openscap do
           permission :view_arf_reports, {:arf_reports => [:index, :show, :parse_html, :show_html,
                                                           :parse_bzip, :auto_complete_search],
-                                         'api/v2/compliance/arf_reports' => [:index, :show],
+                                         'api/v2/compliance/arf_reports' => [:index, :show, :download],
                                          :compliance_hosts => [:show]}
           permission :destroy_arf_reports, {:arf_reports => [:destroy, :delete_multiple, :submit_delete_multiple],
                                             'api/v2/compliance/arf_reports' => [:destroy]}
