@@ -99,16 +99,6 @@ class PoliciesController < ApplicationController
     end
   end
 
-  def welcome
-    @searchbar = true
-    if (model_of_controller.first.nil? rescue false)
-      @searchbar = false
-      render :welcome rescue nil and return
-    end
-  rescue
-    not_found
-  end
-
   private
   def find_by_id
     @policy = resource_base.find(params[:id])

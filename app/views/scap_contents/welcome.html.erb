@@ -1,15 +1,16 @@
-<% title_actions display_link_if_authorized(_("New SCAP content"), hash_for_new_scap_content_path, :class => "btn btn-default") %>
+<% content_for(:title, _("SCAP Content")) %>
+<div class="blank-slate-pf">
+  <div class="blank-slate-pf-icon">
+    <%= icon_text("key", "", :kind => "fa") %>
+  </div>
+  <h1><%= _('SCAP Content') %></h1>
+  <p><%= _('The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and
+        configuration issues related to security. ') %></br>
+    <%= (_('In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups
+    via %s') % link_to('compliance policies', policies_path)).html_safe %>
+  </p>
 
-<% title _("SCAP content configuration") %>
-<div id="welcome">
-  <p>
-  <%= _('The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and
-        configuration issues related to security. They measure systems to find vulnerabilities and offer methods to score those findings in order
-        to evaluate the possible impact. It is a method for using those open standards for automated vulnerability management, measurement,
-        and policy compliance evaluation. ') %><small><%= (_('Source: Wikipedia %s') % link_to(_('read more'), 'http://en.wikipedia.org/wiki/Security_Content_Automation_Protocol')).html_safe %></small>
-  </p>
-  <p>
-    <%= (_("In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups
-          via %s") % link_to('compliance policies', policies_path)).html_safe %>
-  </p>
+  <div class="blank-slate-pf-main-action">
+    <%= new_link(_('New SCAP Content'), {}, { :class => "btn-lg" }) %>
+  </div>
 </div>
