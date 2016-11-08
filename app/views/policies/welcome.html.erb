@@ -1,15 +1,14 @@
-<% title_actions display_link_if_authorized(_("New Compliance Policy"), hash_for_new_policy_path, :class => "btn btn-default") %>
+<% content_for(:title, _("Compliance Policies")) %>
+<div class="blank-slate-pf">
+  <div class="blank-slate-pf-icon">
+    <%= icon_text("key", "", :kind => "fa") %>
+  </div>
+  <h1><%= _('Compliance Policies') %></h1>
+  <p><%= (_('In Foreman, a compliance policy checklist is defined via %s.') % link_to(_('SCAP content'), scap_contents_path)).html_safe %></br>
+    <%= _('Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.') %>
+  </p>
 
-<% title _("Compliance policy configuration") %>
-<div id="welcome">
-  <p>
-    <%= _('A compliance policy is defined by security professionals who specify desired ' +
-          'settings (often in the form of a checklist) that are to be used in the computing ' +
-          'environment. Compliance audit is a process of figuring out whether a given object ' +
-          'follows all the rules written out in a compliance policy.') %>
-  </p>
-  <p>
-    <%= (_('In Foreman, a compliance policy checklist is defined via %s, once SCAP content ' +
-           'is present, you can create a policy, assign select host groups and schedule to run.') % link_to(_('SCAP content'), scap_contents_path)).html_safe %>
-  </p>
+  <div class="blank-slate-pf-main-action">
+    <%= new_link(_('New Policy'), {}, { :class => "btn-lg" }) %>
+  </div>
 </div>
