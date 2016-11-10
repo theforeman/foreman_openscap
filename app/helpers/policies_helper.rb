@@ -5,6 +5,14 @@ module PoliciesHelper
     return []
   end
 
+  def policy_profile_from_scap_content(policy)
+    policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title
+  end
+
+  def effective_policy_profile(policy)
+    policy.tailoring_file ? policy.tailoring_file_profile.title : policy_profile_from_scap_content(policy)
+  end
+
   def scap_content_selector(form)
     scap_contents = ::ForemanOpenscap::ScapContent.authorized(:view_scap_contents).all
     if scap_contents.length > 1
@@ -35,6 +43,23 @@ module PoliciesHelper
                {:label => _("XCCDF Profile"),
                 :disabled => profiles_selection.empty? ? true : false,
                 :help_inline => :indicator}
+    end
+  end
+
+  def tailoring_file_selector(form)
+    select_f form, :tailoring_file_id, ForemanOpenscap::TailoringFile.all.authorized(:view_tailoring_files), :id, :name,
+             { :include_blank => _('Choose Tailoring File') },
+             { :label => _('Tailoring File'),
+               :onchange => 'tailoring_file_selected(this)',
+               :'data-url' => method_path('tailoring_file_selected') }
+  end
+
+  def tailoring_file_profile_selector(form, tailoring_file)
+    if tailoring_file
+      select_f form, :tailoring_file_profile_id, tailoring_file.scap_content_profiles, :id, :title,
+               { :selected => tailoring_file.scap_content_profiles.first.id },
+               { :label => _("XCCDF Profile in Tailoring File"),
+                 :help_inline => _("This profile will be used to override the one from scap content") }
     end
   end
 

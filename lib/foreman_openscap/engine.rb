@@ -90,12 +90,27 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :edit_hosts, { :hosts => [:openscap_proxy_changed] }, :resource_type => "Host"
           permission :edit_hostgroups, { :hostgroups => [:openscap_proxy_changed] }, :resource_type => "Hostgroup"
+          permission :create_tailoring_files, { :tailoring_files => [:create, :new],
+                                                'api/v2/compliance/tailoring_files' => [:create]},
+                     :resource_type => 'ForemanOpenscap::TailoringFile'
+          permission :view_tailoring_files, { :tailoring_files => [:index, :auto_complete_search, :xml],
+                                              :policies => [:tailoring_file_selected],
+                                              'api/v2/compliance/tailoring_files' => [:show, :xml, :index],
+                                              'api/v2/compliance/policies' => [:tailoring] },
+                      :resource_type => 'ForemanOpenscap::TailoringFile'
+          permission :edit_tailoring_files, { :tailoring_files => [:edit, :update],
+                                              'api/v2/compliance/tailoring_files' => [:update] },
+                      :resource_type => 'ForemanOpenscap::TailoringFile'
+          permission :destroy_tailoring_files, { :tailoring_files => [:destroy],
+                                                 'api/v2/compliance/tailoring_files' => [:destroy] },
+                      :resource_type => 'ForemanOpenscap::TailoringFile'
         end
 
-        role "Compliance viewer", [:view_arf_reports, :view_policies, :view_scap_contents]
+        role "Compliance viewer", [:view_arf_reports, :view_policies, :view_scap_contents, :view_tailoring_files]
         role "Compliance manager", [:view_arf_reports, :view_policies, :view_scap_contents,
                                     :destroy_arf_reports, :edit_policies, :edit_scap_contents, :assign_policies,
-                                    :create_policies, :create_scap_contents, :destroy_policies, :destroy_scap_contents]
+                                    :create_policies, :create_scap_contents, :destroy_policies, :destroy_scap_contents,
+                                    :create_tailoring_files, :view_tailoring_files, :edit_tailoring_files, :destroy_tailoring_files]
         role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
 
         #add menu entries
@@ -109,6 +124,10 @@ module ForemanOpenscap
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
              :url_hash => {:controller => :arf_reports, :action => :index},
              :parent => :hosts_menu
+        menu :top_menu, :compliance_files, :caption => N_('Tailoring Files'),
+             :url_hash => {:controller => :tailoring_files, :action => :index},
+             :parent => :hosts_menu
+
 
         # add dashboard widget
         widget 'compliance_host_reports_widget',

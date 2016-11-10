@@ -4,8 +4,8 @@ module Foreman::Controller::Parameters::PolicyApi
   class_methods do
     def filter_params_list
       [:description, :name, :period, :scap_content_id, :scap_content_profile_id,
-       :weekday, :day_of_month, :cron_line, :location_ids => [], :organization_ids => [],
-       :hostgroup_ids => []]
+       :weekday, :day_of_month, :cron_line, :tailoring_file_id, :tailoring_file_profile_id,
+       :location_ids => [], :organization_ids => [], :hostgroup_ids => []]
     end
 
     def policy_params_filter
