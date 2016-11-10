@@ -12,4 +12,11 @@ FactoryGirl.define do
     f.profile_id 'xccdf_org.test.common_test_profile'
     f.title 'test Profile for testing'
   end
+
+  factory :tailoring_file, :class => ForemanOpenscap::TailoringFile do |f|
+    f.sequence(:name) { |n| "tailoring_file_#{n}" }
+    f.original_filename 'original tailoring filename'
+    f.scap_file { File.new("#{ForemanOpenscap::Engine.root}/test/files/tailoring_files/ssg-firefox-ds-tailoring.xml", 'rb').read }
+    f.scap_content_profiles []
+  end
 end

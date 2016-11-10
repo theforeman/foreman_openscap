@@ -4,7 +4,7 @@ module Api::V2
       include Foreman::Controller::SmartProxyAuth
       include Foreman::Controller::Parameters::PolicyApi
 
-      add_smart_proxy_filters :content, :features => 'Openscap'
+      add_smart_proxy_filters [:content, :tailoring], :features => 'Openscap'
 
       before_filter :find_resource, :except => %w(index create)
 
@@ -46,6 +46,8 @@ module Api::V2
           param :day_of_month, Integer, :desc => N_('Policy schedule day of month (only if period == "monthly")')
           param :cron_line, String, :desc => N_('Policy schedule cron line (only if period == "custom")')
           param :hostgroup_ids, Array, :desc => N_('Apply policy to host groups')
+          param :tailoring_file_id, Integer, :desc => N_('Tailoring file ID')
+          param :tailoring_file_profile_id, Integer, :desc => N_('Tailoring file profile ID')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
@@ -83,6 +85,16 @@ module Api::V2
                   :filename => @scap_content.original_filename
       end
 
+      api :GET, '/compliance/policies/:id/tailoring', N_("Show a policy's Tailoring file")
+      param :id, :identifier, :required => true
+
+      def tailoring
+        @tailoring_file = @policy.tailoring_file
+        send_data @tailoring_file.scap_file,
+                  :type => 'application/xml',
+                  :filename => @tailoring_file.original_filename
+      end
+
       private
       def find_resource
         not_found and return if params[:id].blank?
@@ -91,7 +103,7 @@ module Api::V2
 
       def action_permission
         case params[:action]
-        when 'content'
+        when 'content', 'tailoring'
           :view
         else
           super
