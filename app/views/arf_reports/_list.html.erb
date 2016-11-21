@@ -27,8 +27,9 @@
       <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
       <td><%= report_arf_column(arf_report.othered, "label-warning") %></th>
       <td>
-        <%= display_delete_if_authorized(hash_for_arf_report_path(:id => arf_report.id),
-                                         :confirm => _("Delete compliance report for %s?") % arf_report.host)
+        <%= action_buttons(display_delete_if_authorized(hash_for_arf_report_path(:id => arf_report.id),
+                                                        :confirm => _("Delete compliance report for %s?") % arf_report.host),
+                           display_link_if_authorized(_("Full Report"), hash_for_show_html_arf_report_path(:id => arf_report.id)))
         %>
       </td>
     </tr>
