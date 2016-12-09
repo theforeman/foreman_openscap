@@ -172,7 +172,7 @@ module ForemanOpenscap
         'content_path'  => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
         'tailoring_path' => tailoring_file ? "/var/lib/openscap/tailoring/#{self.tailoring_file.digest}.xml" : '',
         'download_path' => "/compliance/policies/#{self.id}/content/#{scap_content.digest}",
-        'tailoring_download_path' => "/compliance/policies/#{self.id}/tailoring"
+        'tailoring_download_path' => tailoring_file ? "/compliance/policies/#{self.id}/tailoring/#{tailoring_file.digest}" : ''
       }.merge(period_enc)
     end
 
