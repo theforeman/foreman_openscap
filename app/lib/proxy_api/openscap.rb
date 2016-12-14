@@ -4,6 +4,7 @@ module ::ProxyAPI
       @url = args[:url] + '/compliance/'
       super args
       @connect_params[:headers].merge!(:content_type => :xml)
+      @connect_params[:timeout] = timeout
     end
 
     def fetch_policies_for_scap_content(scap_file)
@@ -12,6 +13,8 @@ module ::ProxyAPI
 
     def validate_scap_content(scap_file)
       parse(post(scap_file, "scap_content/validator"))
+    rescue RestClient::RequestTimeout => e
+      raise ::ProxyAPI::ProxyException.new(url, e, N_("Request timed out. Please try increasing Settings -> proxy_request_timeout"))
     end
 
     def policy_html_guide(scap_file, policy)
@@ -45,6 +48,12 @@ module ::ProxyAPI
         logger.debug e.backtrace.join("\n\t")
         false
       end
+    end
+
+    private
+
+    def timeout
+      Setting[:proxy_request_timeout] && Setting[:proxy_request_timeout] > 120 ? Setting[:proxy_request_timeout] : 120
     end
   end
 end
