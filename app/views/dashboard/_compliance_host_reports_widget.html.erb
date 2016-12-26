@@ -3,14 +3,14 @@
 <% if latest_reports.empty? %>
   <p class="ca"><%= _("No reports available") %></p>
 <% else %>
-  <table class="table table-striped ellipsis">
+  <table class="table table-striped table-fixed">
     <tr>
       <%= latest_compliance_headers %>
     </tr>
     <% latest_reports.each do |report| %>
       <tr>
-        <td><%= link_to h(report.host.nil? ? _('Host does not exist anymore') : report.host.name), arf_report_path(report) %></td>
-        <td><%= report.policy.nil? ? _('Policy is missing') :  link_to(h(report.policy.name), policy_dashboard_policy_path(report.policy)) %></td>
+        <td class="ellipsis"><%= link_to h(report.host.nil? ? _('Host does not exist anymore') : report.host.name), arf_report_path(report) %></td>
+        <td class="ellipsis"><%= report.policy.nil? ? _('Policy is missing') :  link_to(h(report.policy.name), policy_dashboard_policy_path(report.policy)) %></td>
         <td class="ca"><%= report_event_column(report.passed, "label-success")  %></td>
         <td class="ca"><%= report_event_column(report.failed, "label-danger")  %></td>
         <td class="ca"><%= report_event_column(report.othered, "label-info")  %></td>

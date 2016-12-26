@@ -1,8 +1,8 @@
 module ComplianceDashboardHelper
 
   def latest_compliance_headers
-    string =  "<th>#{_("Host")}</th>"
-    string += "<th>#{_("Policy")}</th>"
+    string =  "<th class='col-md-7'>#{_("Host")}</th>"
+    string += "<th class='col-md-3'>#{_("Policy")}</th>"
     # TRANSLATORS: initial character of Passed
     string += translated_header(s_('Passed|P'), _('Passed'))
     # TRANSLATORS: initial character of Failed
