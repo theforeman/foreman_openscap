@@ -166,4 +166,14 @@ class PolicyTest < ActiveSupport::TestCase
     p.tailoring_file_profile = tailoring_profile
     assert p.save
   end
+
+  test "should have digest in enc download path for scap content" do
+    p = ForemanOpenscap::Policy.new(:name => "custom_policy",
+                                    :scap_content_id => @scap_content.id,
+                                    :scap_content_profile_id => @scap_profile.id,
+                                    :period => 'monthly',
+                                    :day_of_month => '5')
+    assert_equal 6, p.to_enc['download_path'].split('/').length
+    assert_equal @scap_content.digest, p.to_enc['download_path'].split('/').last
+  end
 end
