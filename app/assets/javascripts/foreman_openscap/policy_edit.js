@@ -13,6 +13,21 @@ function scap_content_selected(element){
   })
 }
 
+function tailoring_file_selected(element) {
+  var attrs = attribute_hash(['tailoring_file_id']);
+  var url = $(element).attr('data-url');
+  tfm.tools.showSpinner();
+  $.ajax({
+    data: attrs,
+    type: 'post',
+    url: url,
+    complete: function() { reloadOnAjaxComplete($(element));},
+    success: function(request) {
+      $('#tailoring_file_profile_select').html(request);
+    }
+  })
+}
+
 function previous_step(previous) {
   $('#policy_current_step').val(previous);
   $('#new_policy').submit();

@@ -1,0 +1,25 @@
+<table class="table table-bordered table-striped table-fixed">
+  <tr>
+    <th><%= _('Name')%></th>
+    <th><%= _('Filename') %></th>
+    <th></th>
+  </tr>
+  <% @tailoring_files.each do |file| %>
+    <tr>
+      <td class="ellipsis">
+        <%= file.name %>
+      </td>
+      <td>
+        <%= file.original_filename %>
+      </td>
+      <td>
+        <%= action_buttons(
+                display_link_if_authorized(_("Edit"), hash_for_edit_tailoring_file_path(:id => file.id)),
+                display_delete_if_authorized(hash_for_tailoring_file_path(:id => file.id),
+                                             :confirm => _("Delete tailoring file %s?") % file.name),
+                display_link_if_authorized(_("Download"), hash_for_xml_tailoring_file_path(:id => file.id), :data => { :no_turbolink => true })
+            ) %>
+      </td>
+    </tr>
+  <% end %>
+</table>

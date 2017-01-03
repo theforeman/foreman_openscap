@@ -26,6 +26,15 @@
       <span id="scap_content_profile_select">
         <%= scap_content_profile_selector(f) %>
       </span>
+      <span>
+        <%= tailoring_file_selector(f) %>
+      </span>
+      <span id="tailoring_file_profile_select">
+        <% if @policy.tailoring_file %>
+          <%= render 'tailoring_file_selected', :f => f, :policy => @policy, :tailoring_file => @policy.tailoring_file  %>
+        <% end %>
+      </span>
+
     </div>
     <div class="tab-pane" id="scap_schedule">
       <%= select_f(f, :period, %w[Weekly Monthly Custom], :downcase, :to_s,

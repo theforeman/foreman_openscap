@@ -5,6 +5,8 @@ FactoryGirl.define do
     weekday 'monday'
     scap_content
     scap_content_profile
+    tailoring_file nil
+    tailoring_file_profile nil
     day_of_month nil
     cron_line nil
     hosts []

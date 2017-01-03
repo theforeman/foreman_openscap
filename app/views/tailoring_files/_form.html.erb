@@ -1,0 +1,25 @@
+<%= form_for @tailoring_file,
+    :url => (@tailoring_file.id? ?
+        tailoring_file_path(:id => @tailoring_file.id) : tailoring_files_path),
+    :html => { :multipart => true } do |f| %>
+
+  <%= base_errors_for @tailoring_file %>
+
+  <ul class="nav nav-tabs" data-tabs="tabs">
+    <li class="active"><a href="#primary" data-toggle="tab"><%= _("File Upload") %></a></li>
+    <% if show_location_tab? %>
+      <li><a href='#locations' data-toggle='tab'><%= _('Locations') %></a></li>
+    <% end %>
+    <% if show_organization_tab? %>
+      <li><a href='#organizations' data-toggle='tab'><%= _('Organizations') %></a></li>
+    <% end %>
+  </ul>
+  <div class="tab-content">
+    <div class="tab-pane active" id="primary">
+      <%= text_f(f, :name) %>
+      <%= file_field_f f, :scap_file, :help_block  => _("Upload DataStream Tailoring file") %>
+    </div>
+    <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @tailoring_file %>
+    <%= submit_or_cancel f %>
+  </div>
+<% end %>

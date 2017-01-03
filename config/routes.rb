@@ -25,6 +25,7 @@ Rails.application.routes.draw do
       collection do
         get 'auto_complete_search'
         post 'scap_content_selected'
+        post 'tailoring_file_selected'
         get 'select_multiple_hosts'
         post 'update_multiple_hosts'
         get 'disassociate_multiple_hosts'
@@ -33,6 +34,15 @@ Rails.application.routes.draw do
     end
 
     resources :scap_contents do
+      collection do
+        get 'auto_complete_search'
+      end
+    end
+
+    resources :tailoring_files, :except => [:show] do
+      member do
+        get 'xml'
+      end
       collection do
         get 'auto_complete_search'
       end
@@ -50,9 +60,15 @@ Rails.application.routes.draw do
             get 'xml'
           end
         end
+        resources :tailoring_files, :except => [:new, :edit] do
+          member do
+            get 'xml'
+          end
+        end
         resources :policies, :except => [:new, :edit] do
           member do
             get 'content'
+            get 'tailoring'
           end
         end
         resources :arf_reports, :only => [:index, :show, :destroy] do

@@ -11,10 +11,17 @@ module ::ProxyAPI
       parse(post(scap_file, "scap_content/policies"))
     end
 
-    def validate_scap_content(scap_file)
-      parse(post(scap_file, "scap_content/validator"))
+    def fetch_profiles_for_tailoring_file(scap_file)
+      parse(post(scap_file, "tailoring_file/profiles"))
+    end
+
+    def validate_scap_file(scap_file, type)
+      parse(post(scap_file, "scap_file/validator/#{type}"))
     rescue RestClient::RequestTimeout => e
       raise ::ProxyAPI::ProxyException.new(url, e, N_("Request timed out. Please try increasing Settings -> proxy_request_timeout"))
+    rescue RestClient::ResourceNotFound => e
+      raise ::ProxyAPI::ProxyException.new(url, e,
+        N_("Could not validate %s. Please make sure you have appropriate proxy version to use this functionality") % scap_file.class)
     end
 
     def policy_html_guide(scap_file, policy)
