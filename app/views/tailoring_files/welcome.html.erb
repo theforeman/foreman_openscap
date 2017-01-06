@@ -1,0 +1,15 @@
+<% content_for(:title, _("Tailoring Files")) %>
+<div class="blank-slate-pf">
+  <div class="blank-slate-pf-icon">
+    <%= icon_text("key", "", :kind => "fa") %>
+  </div>
+  <h1><%= _('Tailoring Files') %></h1>
+  <p><%= _('It may sometimes be required to adjust the security policy to your specific needs. ') %></br>
+    <%= (_('In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts
+    via %s') % link_to('compliance policies', policies_path)).html_safe %>
+  </p>
+
+  <div class="blank-slate-pf-main-action">
+    <%= new_link(_('New Tailoring File'), {}, { :class => "btn-lg" }) %>
+  </div>
+</div>

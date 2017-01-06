@@ -21,3 +21,15 @@ Metrics/LineLength:
 
 Style/StringLiterals:
   Enabled: false
+
+Style/CollectionMethods:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded

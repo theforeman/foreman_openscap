@@ -4,16 +4,16 @@ class PoliciesController < ApplicationController
 
   before_filter :find_by_id, :only => [:show, :edit, :update, :parse, :destroy]
   before_filter :find_multiple, :only => [:select_multiple_hosts, :update_multiple_hosts, :disassociate_multiple_hosts, :remove_policy_from_multiple_hosts]
+  before_filter :find_tailoring_file, :only => [:tailoring_file_selected]
 
   def model_of_controller
     ::ForemanOpenscap::Policy
   end
 
   def index
-    @policies = resource_base
-                  .search_for(params[:search], :order => params[:order])
-                  .paginate(:page => params[:page], :per_page => params[:per_page])
-                  .includes(:scap_content, :scap_content_profile)
+    @policies = resource_base.search_for(params[:search], :order => params[:order]).
+                paginate(:page => params[:page], :per_page => params[:per_page]).
+                includes(:scap_content, :scap_content_profile, :tailoring_file)
     if @policies.empty? && ForemanOpenscap::ScapContent.unconfigured?
       redirect_to scap_contents_path
     end
@@ -70,6 +70,11 @@ class PoliciesController < ApplicationController
     end
   end
 
+  def tailoring_file_selected
+    @policy ||= ::ForemanOpenscap::Policy.new
+    render :partial => 'tailoring_file_selected', :locals => { :policy => @policy, :tailoring_file => @tailoring_file }
+  end
+
   def select_multiple_hosts; end
 
   def update_multiple_hosts
@@ -104,6 +109,10 @@ class PoliciesController < ApplicationController
     @policy = resource_base.find(params[:id])
   end
 
+  def find_tailoring_file
+    @tailoring_file = ForemanOpenscap::TailoringFile.find(params[:tailoring_file_id]) if params[:tailoring_file_id].present?
+  end
+
   def find_multiple
     # Lets search by name or id and make sure one of them exists first
     if params[:host_ids].present?
@@ -126,7 +135,7 @@ class PoliciesController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'parse'
+    when 'parse', 'tailoring_file_selected'
       :view
     else
       super

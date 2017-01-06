@@ -3,6 +3,8 @@ require 'test_plugin_helper'
 class PolicyTest < ActiveSupport::TestCase
   setup do
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
+    ForemanOpenscap::DataStreamValidator.any_instance.stubs(:validate)
+    ForemanOpenscap::ScapContent.any_instance.stubs(:fetch_profiles).returns({ 'test_profile_key' => 'test_profile_title' })
     @scap_content = FactoryGirl.create(:scap_content)
     @scap_profile = FactoryGirl.create(:scap_content_profile)
   end
@@ -139,5 +141,29 @@ class PolicyTest < ActiveSupport::TestCase
                                     :day_of_month => '5')
     refute p.save
     assert p.errors[:scap_content_profile_id].include?("can't be blank")
+  end
+
+  test "should have correct scap profile in enc" do
+    p = FactoryGirl.create(:policy)
+    profile_id = p.scap_content_profile.profile_id
+    assert_equal profile_id, p.to_enc['profile_id']
+    tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
+    p.tailoring_file_profile = tailoring_profile
+    assert_equal tailoring_profile.profile_id, p.to_enc['profile_id']
+  end
+
+  test "should not create policy with incorrect tailoring profile" do
+    tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.common_tailoring_profile')
+    tailoring_file = FactoryGirl.create(:tailoring_file, :scap_content_profiles => [tailoring_profile])
+    p = ForemanOpenscap::Policy.create(:name => "custom_policy",
+                                       :period => 'monthly',
+                                       :day_of_month => '5',
+                                       :scap_content => @scap_content,
+                                       :scap_content_profile => @scap_profile,
+                                       :tailoring_file => tailoring_file,
+                                       :tailoring_file_profile => @scap_profile)
+    refute p.valid?
+    p.tailoring_file_profile = tailoring_profile
+    assert p.save
   end
 end

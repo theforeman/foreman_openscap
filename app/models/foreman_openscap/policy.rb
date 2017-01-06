@@ -6,6 +6,8 @@ module ForemanOpenscap
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
+    belongs_to :tailoring_file
+    belongs_to :tailoring_file_profile, :class_name => ForemanOpenscap::ScapContentProfile
     has_many :policy_arf_reports
     has_many :arf_reports, :through => :policy_arf_reports, :dependent => :destroy
     has_many :asset_policies
@@ -28,7 +30,7 @@ module ForemanOpenscap
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validates :scap_content_profile_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
 
-    validate :valid_cron_line, :valid_weekday, :valid_day_of_month
+    validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :valid_tailoring, :valid_tailoring_profile
 
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
@@ -166,9 +168,11 @@ module ForemanOpenscap
     def to_enc
       {
         'id'            => self.id,
-        'profile_id'    => self.scap_content_profile.try(:profile_id) || '',
+        'profile_id'    => profile_for_scan,
         'content_path'  => "/var/lib/openscap/content/#{self.scap_content.digest}.xml",
-        'download_path' => "/compliance/policies/#{self.id}/content" # default to proxy path
+        'tailoring_path' => tailoring_file ? "/var/lib/openscap/tailoring/#{self.tailoring_file.digest}.xml" : '',
+        'download_path' => "/compliance/policies/#{self.id}/content", # default to proxy path
+        'tailoring_download_path' => "/compliance/policies/#{self.id}/tailoring"
       }.merge(period_enc)
     end
 
@@ -273,6 +277,17 @@ module ForemanOpenscap
       end
     end
 
+    def valid_tailoring
+      errors.add(:tailoring_file_id, _("must be present when tailoring file profile present")) if tailoring_file_profile_id && !tailoring_file_id
+      errors.add(:tailoring_file_profile_id, _("must be present when tailoring file present")) if !tailoring_file_profile_id && tailoring_file_id
+    end
+
+    def valid_tailoring_profile
+      if tailoring_file && tailoring_file_profile && !ScapContentProfile.where(:tailoring_file_id => tailoring_file_id).include?(tailoring_file_profile)
+        errors.add(:tailoring_file_profile, _("does not come from selected tailoring file"))
+      end
+    end
+
     def assign_policy_to_hostgroups
       if hostgroups.any?
         puppetclass = find_scap_puppetclass
@@ -280,6 +295,16 @@ module ForemanOpenscap
           hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
           populate_overrides(puppetclass, hostgroup)
         end
+      end
+    end
+
+    def profile_for_scan
+      if tailoring_file_profile
+        tailoring_file_profile.profile_id
+      elsif scap_content_profile
+        scap_content_profile.profile_id
+      else
+        ''
       end
     end
 

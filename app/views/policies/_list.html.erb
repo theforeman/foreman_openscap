@@ -1,8 +1,10 @@
 <table class="table table-bordered table-striped table-fixed">
   <tr>
-    <th>Name</th>
-    <th>Content</th>
-    <th>Profile</th>
+    <th><%= _('Name') %></th>
+    <th><%= _('Content') %></th>
+    <th><%= _('Profile') %></th>
+    <th><%= _('Tailoring File') %></th>
+    <th><%= _('Effective Profile') %></th>
     <th></th>
   </tr>
   <% for policy in @policies %>
@@ -17,7 +19,17 @@
         <% end %>
       </td>
       <td>
-        <%= policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title %>
+        <%= policy_profile_from_scap_content policy %>
+      </td>
+      <td>
+        <% if policy.tailoring_file %>
+          <%=  link_to_if_authorized policy.tailoring_file.name, hash_for_edit_tailoring_file_path(:id => policy.tailoring_file_id) %>
+        <% else %>
+          <%= _('None') %>
+        <% end%>
+      </td>
+      <td>
+        <%= effective_policy_profile policy %>
       </td>
       <td>
         <%= action_buttons(
