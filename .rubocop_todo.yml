@@ -258,3 +258,7 @@ Performance/Count:
 
 Style/StringLiteralsInInterpolation:
   Enabled: false
+
+Style/SpaceInsideBrackets:
+  Enabled: false
+
