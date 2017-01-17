@@ -67,7 +67,7 @@ module ForemanOpenscap
     end
 
     def combined_policies
-      combined = self.hostgroup ? self.policies + self.hostgroup.policies : self.policies
+      combined = self.hostgroup ? self.policies + self.hostgroup.policies + self.hostgroup.inherited_policies : self.policies
       combined.uniq
     end
 

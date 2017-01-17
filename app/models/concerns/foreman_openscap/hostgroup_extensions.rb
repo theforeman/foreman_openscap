@@ -8,6 +8,14 @@ module ForemanOpenscap
       has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
     end
 
+    def inherited_policies
+      return [] unless parent
+
+      ancestors.inject([]) do |policies, hostgroup|
+        policies += hostgroup.policies
+      end.uniq
+    end
+
     unless defined?(Katello::System)
       private
 
