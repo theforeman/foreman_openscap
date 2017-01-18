@@ -155,6 +155,10 @@ if you have commit permissions, the commit and the tag gets pushed to origin rem
 
 if you're the gem owner, gem is built and uploaded to rubygems.org
 
+## Found a bug?
+
+We use the issue tracker at [http://projects.theforeman.org/projects/foreman_openscap/issues](http://projects.theforeman.org/projects/foreman_openscap/issues), it supports github SSO so it's straightforward to open new issues there. If you think you found a bug, please take search through existing issues and if you haven't found any, free free to open a new one. Thank you.
+
 ## Copyright
 
 Copyright (c) 2014--2015 Red Hat, Inc.
