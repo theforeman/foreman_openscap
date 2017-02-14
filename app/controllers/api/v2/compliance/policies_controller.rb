@@ -14,8 +14,8 @@ module Api::V2
         '::ForemanOpenscap::Policy'
       end
 
-      def get_resource
-        instance_variable_get :"@policy" or fail 'no resource loaded'
+      def get_resource(message = 'no resource loaded')
+        instance_variable_get :"@policy" or fail message
       end
 
       def policy_url(policy = nil)

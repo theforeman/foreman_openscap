@@ -8,8 +8,8 @@ module Api::V2
         '::ForemanOpenscap::ScapContent'
       end
 
-      def get_resource
-        instance_variable_get :"@scap_content" or fail 'no resource loaded'
+      def get_resource(message = 'no resource loaded')
+        instance_variable_get :"@scap_content" or fail message
       end
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
