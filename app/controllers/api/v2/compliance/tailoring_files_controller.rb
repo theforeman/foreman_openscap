@@ -8,8 +8,8 @@ module Api::V2
         '::ForemanOpenscap::TailoringFile'
       end
 
-      def get_resource
-        instance_variable_get :"@tailoring_file" or fail 'no resource loaded'
+      def get_resource(message = 'no resource loaded')
+        instance_variable_get :"@tailoring_file" or fail message
       end
 
       api :GET, '/compliance/tailoring_files', N_('List Tailoring files')

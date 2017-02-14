@@ -17,8 +17,8 @@ module Api
           '::ForemanOpenscap::ArfReport'
         end
 
-        def get_resource
-          instance_variable_get :"@arf_report" or fail 'no resource loaded'
+        def get_resource(message = 'no resource loaded')
+          instance_variable_get :"@arf_report" or fail message
         end
 
         api :GET, '/compliance/arf_reports', N_('List ARF reports')

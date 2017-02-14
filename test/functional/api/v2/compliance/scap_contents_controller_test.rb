@@ -17,7 +17,7 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
     assert_response :success
   end
 
-  test "should create invalid scap content" do
+  test "should not create invalid scap content" do
     post :create, {}, set_session_user
     assert_response :unprocessable_entity
   end
