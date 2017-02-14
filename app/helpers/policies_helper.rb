@@ -60,6 +60,9 @@ module PoliciesHelper
                { :selected => tailoring_file.scap_content_profiles.first.id },
                { :label => _("XCCDF Profile in Tailoring File"),
                  :help_inline => _("This profile will be used to override the one from scap content") }
+    else
+      # to make sure tailoring profile id is nil when tailoring file is deselected
+      form.hidden_field(:tailoring_file_profile_id, :value => nil)
     end
   end
 
