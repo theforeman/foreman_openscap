@@ -53,10 +53,13 @@ module ForemanOpenscap
           permission :view_arf_reports, {:arf_reports => [:index, :show, :parse_html, :show_html,
                                                           :parse_bzip, :auto_complete_search],
                                          'api/v2/compliance/arf_reports' => [:index, :show, :download],
-                                         :compliance_hosts => [:show]}
+                                         :compliance_hosts => [:show]},
+                     :resource_type => 'ForemanOpenscap::ArfReport'
           permission :destroy_arf_reports, {:arf_reports => [:destroy, :delete_multiple, :submit_delete_multiple],
-                                            'api/v2/compliance/arf_reports' => [:destroy]}
-          permission :create_arf_reports, {'api/v2/compliance/arf_reports' => [:create]}
+                                            'api/v2/compliance/arf_reports' => [:destroy]},
+                     :resource_type => 'ForemanOpenscap::ArfReport'
+          permission :create_arf_reports, {'api/v2/compliance/arf_reports' => [:create]},
+                     :resource_type => 'ForemanOpenscap::ArfReport'
 
           permission :view_policies, {:policies => [:index, :show, :parse, :auto_complete_search],
                                                  :policy_dashboard => [:index],
