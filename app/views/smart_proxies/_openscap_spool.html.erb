@@ -1,0 +1,9 @@
+<span>
+  <% if last_error %>
+    <span>
+      <a href="#logs" onclick="findSpoolLogs();"><%= _('%s ago') % time_ago_in_words(Time.at(last_error["timestamp"])) %></a>
+    </span>
+  <% else %>
+    <%= _('None found') %>
+  <% end %>
+</span>

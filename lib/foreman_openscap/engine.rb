@@ -107,13 +107,16 @@ module ForemanOpenscap
           permission :destroy_tailoring_files, { :tailoring_files => [:destroy],
                                                  'api/v2/compliance/tailoring_files' => [:destroy] },
                       :resource_type => 'ForemanOpenscap::TailoringFile'
+          permission :view_openscap_proxies, { :openscap_proxies => [:openscap_spool] },
+                      :resource_type => 'SmartProxy'
         end
 
-        role "Compliance viewer", [:view_arf_reports, :view_policies, :view_scap_contents, :view_tailoring_files]
+        role "Compliance viewer", [:view_arf_reports, :view_policies, :view_scap_contents, :view_tailoring_files, :view_openscap_proxies]
         role "Compliance manager", [:view_arf_reports, :view_policies, :view_scap_contents,
                                     :destroy_arf_reports, :edit_policies, :edit_scap_contents, :assign_policies,
                                     :create_policies, :create_scap_contents, :destroy_policies, :destroy_scap_contents,
-                                    :create_tailoring_files, :view_tailoring_files, :edit_tailoring_files, :destroy_tailoring_files]
+                                    :create_tailoring_files, :view_tailoring_files, :edit_tailoring_files, :destroy_tailoring_files,
+                                    :view_openscap_proxies]
         role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
 
         #add menu entries

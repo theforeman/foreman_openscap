@@ -48,6 +48,12 @@ Rails.application.routes.draw do
       end
     end
 
+    resources :openscap_proxies, :only => [] do
+      member do
+        get 'openscap_spool'
+      end
+    end
+
     resources :hosts, :only => [:show], :as => :compliance_hosts, :controller => :compliance_hosts
   end
 
