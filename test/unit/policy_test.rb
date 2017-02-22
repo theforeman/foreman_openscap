@@ -7,6 +7,7 @@ class PolicyTest < ActiveSupport::TestCase
     ForemanOpenscap::ScapContent.any_instance.stubs(:fetch_profiles).returns({ 'test_profile_key' => 'test_profile_title' })
     @scap_content = FactoryGirl.create(:scap_content)
     @scap_profile = FactoryGirl.create(:scap_content_profile)
+    @tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
   end
 
   test "should assign hostgroups by their ids" do
@@ -175,5 +176,18 @@ class PolicyTest < ActiveSupport::TestCase
                                     :day_of_month => '5')
     assert_equal 6, p.to_enc['download_path'].split('/').length
     assert_equal @scap_content.digest, p.to_enc['download_path'].split('/').last
+  end
+
+  test "should have digest in enc download path for tailoring file" do
+    tailoring_file = FactoryGirl.create(:tailoring_file)
+    p = ForemanOpenscap::Policy.new(:name => "custom_policy",
+                                    :scap_content_id => @scap_content.id,
+                                    :scap_content_profile_id => @scap_profile.id,
+                                    :tailoring_file => tailoring_file,
+                                    :tailoring_file_profile => @tailoring_profile,
+                                    :period => 'monthly',
+                                    :day_of_month => '5')
+    assert_equal 6, p.to_enc['tailoring_download_path'].split('/').length
+    assert_equal tailoring_file.digest, p.to_enc['tailoring_download_path'].split('/').last
   end
 end
