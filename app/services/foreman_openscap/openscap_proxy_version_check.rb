@@ -9,7 +9,7 @@ module ForemanOpenscap
 
     def run
       @versions = openscap_proxy_versions.select do |key, value|
-        Gem::Version.new(value) <= Gem::Version.new("0.6.1")
+        Gem::Version.new(value) < Gem::Version.new("0.6.1")
       end
       self
     end
