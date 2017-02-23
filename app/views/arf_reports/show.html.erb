@@ -12,5 +12,6 @@
   display_delete_if_authorized(hash_for_arf_report_path(:id => @arf_report), :class=> "btn btn-danger"),
   link_to(_("Host details"), @arf_report.host, :class => "btn btn-default"),
   link_to(_("View full report"), show_html_arf_report_path(:id => @arf_report.id), :class => "btn btn-default"),
-  link_to(_("Download XML in bzip"), parse_bzip_arf_report_path(:id => @arf_report.id), :class => "btn btn-default", :data => { :no_turbolink => true })
+  link_to(_("Download XML in bzip"), parse_bzip_arf_report_path(:id => @arf_report.id), :class => "btn btn-default", :data => { :no_turbolink => true }),
+  link_to(_("Download HTML"), download_html_arf_report_path(:id => @arf_report.id), :class => "btn btn-default", :data => { :no_turbolink => true })
 %>

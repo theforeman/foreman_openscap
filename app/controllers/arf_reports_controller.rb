@@ -1,7 +1,8 @@
 class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
+  include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
-  before_filter :find_arf_report, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip]
+  before_filter :find_arf_report, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip, :download_html]
   before_filter :find_multiple, :only => [:delete_multiple, :submit_delete_multiple]
 
   def model_of_controller
@@ -31,9 +32,20 @@ class ArfReportsController < ApplicationController
   def parse_bzip
     begin
       response = @arf_report.to_bzip
-      send_data response, :filename => "#{@arf_report.id}_arf_report.bz2", :type => 'application/octet-stream', :disposition => 'attachement'
+      send_data response, :filename => "#{format_filename}.xml.bz2", :type => 'application/octet-stream', :disposition => 'attachement'
     rescue => e
       process_error(:error_msg => (_("Failed to downloaded ARF report as bzip: %s") % (e.message)),
+                    :error_redirect => arf_report_path(@arf_report.id))
+    end
+  end
+
+  def download_html
+    begin
+      response = @arf_report.to_html
+      send_data response, :filename => "#{format_filename}.html",
+                          :type => 'text/html', :disposition => 'attachement'
+    rescue => e
+      process_error(:error_msg => _("Failed to downloaded ARF report in HTML: %s") % e.message,
                     :error_redirect => arf_report_path(@arf_report.id))
     end
   end
@@ -87,7 +99,7 @@ class ArfReportsController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'show_html', 'parse_html', 'parse_bzip'
+    when 'show_html', 'parse_html', 'parse_bzip', 'download_html'
       :view
     when 'delete_multiple', 'submit_delete_multiple'
       :destroy

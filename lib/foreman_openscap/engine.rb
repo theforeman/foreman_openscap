@@ -52,8 +52,8 @@ module ForemanOpenscap
         # Add permissions
         security_block :foreman_openscap do
           permission :view_arf_reports, {:arf_reports => [:index, :show, :parse_html, :show_html,
-                                                          :parse_bzip, :auto_complete_search],
-                                         'api/v2/compliance/arf_reports' => [:index, :show, :download],
+                                                          :parse_bzip, :auto_complete_search, :download_html],
+                                         'api/v2/compliance/arf_reports' => [:index, :show, :download, :download_html],
                                          :compliance_hosts => [:show]},
                      :resource_type => 'ForemanOpenscap::ArfReport'
           permission :destroy_arf_reports, {:arf_reports => [:destroy, :delete_multiple, :submit_delete_multiple],
