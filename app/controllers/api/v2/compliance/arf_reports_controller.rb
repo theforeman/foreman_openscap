@@ -7,11 +7,12 @@ module Api
       class ArfReportsController < V2::BaseController
         include Api::Version2
         include Foreman::Controller::SmartProxyAuth
+        include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
         add_smart_proxy_filters :create, :features => 'Openscap'
 
-        before_filter :find_resource, :only => %w(show destroy download)
-        skip_after_filter :log_response_body, :only => %w(download)
+        before_filter :find_resource, :only => %w(show destroy download download_html)
+        skip_after_filter :log_response_body, :only => %w(download download_html)
 
         def resource_name
           '::ForemanOpenscap::ArfReport'
@@ -58,9 +59,19 @@ module Api
 
         def download
           response = @arf_report.to_bzip
-          send_data response, :filename => "#{@arf_report.id}_arf_report.bz2"
+          send_data response, :filename => "#{format_filename}.xml.bz2"
         rescue => e
-          render_error 'standard_error', :status => :internal_error, :locals => { :exception => e }
+          handle_download_error e
+        end
+
+        api :GET, "/compliance/arf_reports/:id/download_html/", N_("Download ARF report in HTML")
+        param :id, :identifier, :required => true
+
+        def download_html
+          response = @arf_report.to_html
+          send_data response, :filename => "#{format_filename}.html"
+        rescue => e
+          handle_download_error e
         end
 
         private
@@ -70,9 +81,13 @@ module Api
           instance_variable_set("@arf_report", resource_scope.find(params[:id]))
         end
 
+        def handle_download_error(error)
+          render_error 'standard_error', :status => :internal_error, :locals => { :exception => error }
+        end
+
         def action_permission
           case params[:action]
-          when 'download'
+          when 'download', 'download_html'
             :view
           else
             super

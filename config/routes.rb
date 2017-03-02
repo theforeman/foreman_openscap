@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         get 'show_html'
         get 'parse_html'
         get 'parse_bzip'
+        get 'download_html'
       end
       collection do
         get 'auto_complete_search'
@@ -80,6 +81,7 @@ Rails.application.routes.draw do
         resources :arf_reports, :only => [:index, :show, :destroy] do
           member do
             get 'download'
+            get 'download_html'
           end
         end
         post 'arf_reports/:cname/:policy_id/:date', \
