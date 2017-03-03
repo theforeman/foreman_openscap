@@ -156,8 +156,8 @@ module ForemanOpenscap
         parameter_filter Log, :result
 
         if ForemanOpenscap.with_remote_execution?
-          RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run Openscap scan"),
-                                          :description => N_("Run Openscap scan"),
+          RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"),
+                                          :description => N_("Run OpenSCAP scan"),
                                           :host_action_button => true,
                                           :provided_inputs => "policies")
         end
