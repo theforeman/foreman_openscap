@@ -155,6 +155,12 @@ module ForemanOpenscap
         parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
         parameter_filter Log, :result
 
+        if ForemanOpenscap.with_remote_execution?
+          RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run Openscap scan"),
+                                          :description => N_("Run Openscap scan"),
+                                          :host_action_button => true,
+                                          :provided_inputs => "policies")
+        end
       end
     end
 
@@ -194,5 +200,9 @@ module ForemanOpenscap
 
   def self.use_relative_model_naming?
     true
+  end
+
+  def self.with_remote_execution?
+    RemoteExecutionFeature rescue false
   end
 end
