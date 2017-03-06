@@ -68,19 +68,19 @@ module ForemanOpenscap
     end
 
     included do
-      scoped_search :in => :policy, :on => :name, :complete_value => true, :rename => :compliance_policy,
+      scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :compliance_policy,
         :only_explicit => true, :ext_method => :search_by_policy_name
 
       scoped_search :on => :id, :rename => :last_for, :complete_value => { :host => 0, :policy => 1 },
         :only_explicit => true, :ext_method => :search_by_last_for
 
-      scoped_search :in => :policy, :on => :name, :complete_value => true, :rename => :comply_with,
+      scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :comply_with,
         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_comply_with
 
-      scoped_search :in => :policy, :on => :name, :complete_value => true, :rename => :not_comply_with,
+      scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :not_comply_with,
         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_not_comply_with
 
-      scoped_search :in => :policy, :on => :name, :complete_value => true, :rename => :inconclusive_with,
+      scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :inconclusive_with,
         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_inconclusive_with
 
       compliance_status_scoped_search 'passed', :on => :status, :rename => :compliance_passed
