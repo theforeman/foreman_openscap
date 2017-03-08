@@ -10,13 +10,13 @@ module ForemanOpenscap
       has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
       has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
-      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
-                    :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_name
+      scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_policy_name
 
-      scoped_search :in => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
+      scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
 
-      scoped_search :in => :compliance_status_object, :on => :status, :rename => :compliance_status,
+      scoped_search :relation => :compliance_status_object, :on => :status, :rename => :compliance_status,
                     :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                         :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                         :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
