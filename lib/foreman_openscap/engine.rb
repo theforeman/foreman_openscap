@@ -42,7 +42,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.13'
+        requires_foreman '>= 1.15'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -119,6 +119,8 @@ module ForemanOpenscap
                                     :create_tailoring_files, :view_tailoring_files, :edit_tailoring_files, :destroy_tailoring_files,
                                     :view_openscap_proxies]
         role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
+
+        add_all_permissions_to_default_roles
 
         #add menu entries
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
