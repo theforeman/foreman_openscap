@@ -27,9 +27,9 @@ Rails.application.routes.draw do
         get 'auto_complete_search'
         post 'scap_content_selected'
         post 'tailoring_file_selected'
-        get 'select_multiple_hosts'
+        post 'select_multiple_hosts'
         post 'update_multiple_hosts'
-        get 'disassociate_multiple_hosts'
+        post 'disassociate_multiple_hosts'
         post 'remove_policy_from_multiple_hosts'
       end
     end
