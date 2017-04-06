@@ -155,5 +155,32 @@ module ForemanOpenscap
       report.destroy
       refute ForemanOpenscap::ArfReport.all.include? report
     end
+
+    context 'taxonomies' do
+      setup do
+        Taxonomy.stubs(:enabled?).with(:location).returns(false)
+        Taxonomy.stubs(:enabled?).with(:organization).returns(true)
+      end
+
+      teardown do
+        Organization.current = nil
+      end
+
+      test 'should retrieve report in taxonomy context' do
+        organization = FactoryGirl.create(:organization)
+        @host.organization_id = organization.id
+        @host.save
+        report = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+        Organization.current = organization
+        assert_includes(ForemanOpenscap::ArfReport.all, report, 'report should be included')
+      end
+
+      test 'should not retrieve report if host has no taxonomy' do
+        organization = FactoryGirl.create(:organization)
+        report = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+        Organization.current = organization
+        refute_includes(ForemanOpenscap::ArfReport.all, report, 'report should not be included')
+      end
+    end
   end
 end
