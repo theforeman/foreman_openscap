@@ -6,12 +6,12 @@ module ForemanOpenscap
       content_type = data_type(data_stream_content)
 
       unless SmartProxy.with_features('Openscap').any?
-        data_stream_content.errors.add(:base, _('No proxy with OpenSCAP features'))
+        data_stream_content.errors.add(:base, _('No proxy with OpenSCAP feature was found.'))
         return false
       end
 
       if data_stream_content.proxy_url.nil?
-        data_stream_content.errors.add(:base, _('No available proxy to validate SCAP data stream file'))
+        data_stream_content.errors.add(:base, _('No proxy with OpenSCAP feature is running.'))
         return false
       end
 

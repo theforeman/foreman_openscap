@@ -20,7 +20,7 @@ class ScapContentTest < ActiveSupport::TestCase
       ProxyAPI::AvailableProxy.any_instance.stubs(:available?).returns(false)
       scap_content = ForemanOpenscap::ScapContent.new(:title => 'Fedora', :scap_file => @scap_file)
       refute(scap_content.save)
-      assert_includes(scap_content.errors.messages[:base], 'No proxy with OpenSCAP features')
+      assert_includes(scap_content.errors.messages[:base], 'No proxy with OpenSCAP feature was found.')
     end
 
     test 'proxy_url should return the first available proxy it finds' do

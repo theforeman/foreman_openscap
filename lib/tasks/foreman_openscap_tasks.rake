@@ -5,6 +5,7 @@ namespace :foreman_openscap do
     desc 'Bulk upload SCAP content from directory'
     task :directory, [:directory] => [:environment] do |task, args|
       abort("# No such directory, please check the path you have provided. #") unless args[:directory].blank? || Dir.exist?(args[:directory])
+      User.current = User.anonymous_admin
       ForemanOpenscap::BulkUpload.new.upload_from_directory(args[:directory])
     end
 
@@ -13,10 +14,12 @@ namespace :foreman_openscap do
       files_array.each do |file|
         abort("# #{file} is a directory, expecting file. Try using 'rake foreman_openscap:bulk_upload:directory' with this directory. #") if File.directory?(file)
       end
+      User.current = User.anonymous_admin
       ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
     end
 
     task :default => [:environment] do
+      User.current = User.anonymous_admin
       ForemanOpenscap::BulkUpload.new(true).generate_scap_default_content
     end
   end
