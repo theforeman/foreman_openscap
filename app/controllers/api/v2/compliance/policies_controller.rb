@@ -4,7 +4,7 @@ module Api::V2
       include Foreman::Controller::SmartProxyAuth
       include Foreman::Controller::Parameters::PolicyApi
 
-      add_smart_proxy_filters [:content, :tailoring], :features => 'Openscap'
+      add_smart_proxy_filters %i(content tailoring), :features => 'Openscap'
 
       before_filter :find_resource, :except => %w(index create)
 
@@ -15,7 +15,7 @@ module Api::V2
       end
 
       def get_resource(message = 'no resource loaded')
-        instance_variable_get :"@policy" or fail message
+        instance_variable_get :"@policy" or raise message
       end
 
       def policy_url(policy = nil)

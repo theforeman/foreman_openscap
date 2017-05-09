@@ -21,13 +21,15 @@ module ForemanOpenscap
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
         'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
-        'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_id' => id
+      ).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
         'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::ScapContent',
-        'taxable_taxonomies.taxable_id' => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_id' => id
+      ).pluck("#{Location.arel_table.name}.id")
     end
 
     def to_label

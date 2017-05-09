@@ -15,7 +15,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
     FactoryGirl.create(:policy)
     get :index, {}, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
-    assert response['results'].length > 0
+    assert !response['results'].empty?
     assert_response :success
   end
 

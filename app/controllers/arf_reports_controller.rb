@@ -2,17 +2,17 @@ class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
-  before_filter :find_arf_report, :only => [:show, :show_html, :destroy, :parse_html, :parse_bzip, :download_html]
-  before_filter :find_multiple, :only => [:delete_multiple, :submit_delete_multiple]
+  before_filter :find_arf_report, :only => %i(show show_html destroy parse_html parse_bzip download_html)
+  before_filter :find_multiple, :only => %i(delete_multiple submit_delete_multiple)
 
   def model_of_controller
     ::ForemanOpenscap::ArfReport
   end
 
   def index
-    @arf_reports = resource_base.includes(:host => [:policies, :last_report_object, :host_statuses])
-      .search_for(params[:search], :order => params[:order])
-      .paginate(:page => params[:page], :per_page => params[:per_page])
+    @arf_reports = resource_base.includes(:host => %i(policies last_report_object host_statuses))
+                                .search_for(params[:search], :order => params[:order])
+                                .paginate(:page => params[:page], :per_page => params[:per_page])
   end
 
   def show
@@ -34,7 +34,7 @@ class ArfReportsController < ApplicationController
       response = @arf_report.to_bzip
       send_data response, :filename => "#{format_filename}.xml.bz2", :type => 'application/octet-stream', :disposition => 'attachement'
     rescue => e
-      process_error(:error_msg => (_("Failed to downloaded ARF report as bzip: %s") % (e.message)),
+      process_error(:error_msg => (_("Failed to downloaded ARF report as bzip: %s") % e.message),
                     :error_redirect => arf_report_path(@arf_report.id))
     end
   end
@@ -52,7 +52,7 @@ class ArfReportsController < ApplicationController
 
   def destroy
     if @arf_report.destroy
-      process_success(:success_msg => (_("Successfully deleted ARF report.")), :success_redirect => arf_reports_path)
+      process_success(:success_msg => _("Successfully deleted ARF report."), :success_redirect => arf_reports_path)
     else
       process_error(:error_msg => _("Failed to delete ARF Report for host %{host_name} reported at %{reported_at}") % {:host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at})
     end
@@ -75,7 +75,7 @@ class ArfReportsController < ApplicationController
   private
 
   def find_arf_report
-    @arf_report = resource_base.includes(:logs => [:message, :source]).find(params[:id])
+    @arf_report = resource_base.includes(:logs => %i(message source)).find(params[:id])
   end
 
   def find_multiple
@@ -91,7 +91,7 @@ class ArfReportsController < ApplicationController
     end
     return @arf_reports
   rescue => e
-    error _("Something went wrong while selecting compliance reports - %s") % (e)
+    error _("Something went wrong while selecting compliance reports - %s") % e
     logger.debug e.message
     logger.debug e.backtrace.join("\n")
     redirect_to arf_reports_path and return false

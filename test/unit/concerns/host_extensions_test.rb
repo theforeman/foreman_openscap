@@ -10,15 +10,15 @@ class HostExtensionsTest < ActiveSupport::TestCase
   end
 
   test "should have download_path in enc without digest" do
-    ForemanOpenscap::OpenscapProxyAssignedVersionCheck.any_instance.stubs(:openscap_proxy_versions).
-      returns('test-proxy' => '0.5.4')
+    ForemanOpenscap::OpenscapProxyAssignedVersionCheck.any_instance.stubs(:openscap_proxy_versions)
+                                                      .returns('test-proxy' => '0.5.4')
     enc_out = JSON.parse @host.policies_enc
     assert_equal 5, enc_out.first['download_path'].split('/').length
   end
 
   test "should have download_path in enc with digest" do
-    ForemanOpenscap::OpenscapProxyAssignedVersionCheck.any_instance.stubs(:openscap_proxy_versions).
-      returns({})
+    ForemanOpenscap::OpenscapProxyAssignedVersionCheck.any_instance.stubs(:openscap_proxy_versions)
+                                                      .returns({})
     enc_out = JSON.parse @host.policies_enc
     assert_equal 6, enc_out.first['download_path'].split('/').length
   end

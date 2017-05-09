@@ -23,15 +23,15 @@ module ForemanOpenscap
       after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
 
       scope :comply_with, lambda { |policy|
-        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.passed)
+        joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.passed)
       }
 
       scope :incomply_with, lambda { |policy|
-        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.failed)
+        joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.failed)
       }
 
       scope :inconclusive_with, lambda { |policy|
-        joins(:arf_reports).merge(ArfReport.latest_of_policy policy).merge(ArfReport.othered)
+        joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.othered)
       }
 
       scope :policy_reports_missing, lambda { |policy|
@@ -86,10 +86,10 @@ module ForemanOpenscap
     def reports_for_policy(policy, limit = nil)
       if limit
         ForemanOpenscap::ArfReport.joins(:policy_arf_report)
-          .merge(ForemanOpenscap::PolicyArfReport.of_policy policy.id).where(:host_id => id).limit limit
+                                  .merge(ForemanOpenscap::PolicyArfReport.of_policy(policy.id)).where(:host_id => id).limit limit
       else
         ForemanOpenscap::ArfReport.joins(:policy_arf_report)
-          .merge(ForemanOpenscap::PolicyArfReport.of_policy policy.id).where(:host_id => id)
+                                  .merge(ForemanOpenscap::PolicyArfReport.of_policy(policy.id)).where(:host_id => id)
       end
     end
 
@@ -109,16 +109,15 @@ module ForemanOpenscap
 
       def search_by_missing_arf(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
-        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id]).
-            joins(:policies).
-            where(cond).
-            where("foreman_openscap_assets.id NOT IN (
+        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id])
+            .joins(:policies)
+            .where(cond)
+            .where("foreman_openscap_assets.id NOT IN (
                      SELECT DISTINCT foreman_openscap_arf_reports.asset_id
                      FROM foreman_openscap_arf_reports
                      WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
-                         AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)").
-            pluck(:id)).to_sql
-        }
+                         AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)")
+            .pluck(:id)).to_sql}
       end
     end
   end

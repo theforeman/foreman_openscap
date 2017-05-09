@@ -4,7 +4,8 @@ module ForemanOpenscap
 
     module ClassMethods
       def compliance_status_scoped_search(status, options = {})
-        options.merge!(:offset => ArfReport::METRIC.index(status.to_s), :word_size => ArfReport::BIT_NUM)
+        options[:offset] = ArfReport::METRIC.index(status.to_s)
+        options[:word_size] = ArfReport::BIT_NUM
         scoped_search options
       end
 
@@ -12,9 +13,8 @@ module ForemanOpenscap
         cond = sanitize_policy_name(policy_name)
         { :conditions => ArfReport.arel_table[:id].in(
           PolicyArfReport.select(PolicyArfReport.arel_table[:arf_report_id])
-            .of_policy(Policy.find_by_name(cond).id).ast
-        ).to_sql
-        }
+            .of_policy(Policy.find_by(name: cond).id).ast
+        ).to_sql}
       end
 
       def search_by_comply_with(_key, _operator, policy_name)
@@ -33,9 +33,8 @@ module ForemanOpenscap
         cond = sanitize_policy_name(policy_name)
         { :conditions => ArfReport.arel_table[:id].in(
           ArfReport.select(ArfReport.arel_table[:id])
-              .latest_of_policy(Policy.find_by_name cond).instance_eval(&selection).ast
-        ).to_sql
-        }
+              .latest_of_policy(Policy.find_by(name: cond)).instance_eval(&selection).ast
+        ).to_sql}
       end
 
       def search_by_last_for(key, operator, by)
@@ -56,7 +55,7 @@ module ForemanOpenscap
                            ) latest
                 ON foreman_openscap_policies.id = latest.policy_id)' }
         else
-          fail "Cannot search last by #{by}"
+          raise "Cannot search last by #{by}"
         end
       end
 

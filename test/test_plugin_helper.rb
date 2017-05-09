@@ -22,10 +22,10 @@ module ScapTestProxy
     versions = { "version" => "1.11.0", "modules" => { "openscap" => "0.5.3" } }
     ProxyAPI::Version.any_instance.stubs(:proxy_versions).returns(versions)
     ProxyAPI::Openscap.any_instance.stubs(:validate_scap_file).returns({'errors' => []})
-    ProxyAPI::Openscap.any_instance.stubs(:fetch_policies_for_scap_content).
-      returns({'xccdf_org.ssgproject.content_profile_common' => 'Common Profile for General-Purpose Fedora Systems'})
-    ProxyAPI::Openscap.any_instance.stubs(:fetch_profiles_for_tailoring_file).
-      returns({'xccdf_org.ssgproject.test_profile_common' => 'Stubbed test profile'})
+    ProxyAPI::Openscap.any_instance.stubs(:fetch_policies_for_scap_content)
+                      .returns({'xccdf_org.ssgproject.content_profile_common' => 'Common Profile for General-Purpose Fedora Systems'})
+    ProxyAPI::Openscap.any_instance.stubs(:fetch_profiles_for_tailoring_file)
+                      .returns({'xccdf_org.ssgproject.test_profile_common' => 'Stubbed test profile'})
   end
 end
 

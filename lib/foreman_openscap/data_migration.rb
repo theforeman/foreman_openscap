@@ -45,7 +45,7 @@ module ForemanOpenscap
 
     def foreman_available?
       foreman_status_url = Setting[:foreman_url] + '/status'
-      response = JSON.parse(RestClient.get foreman_status_url)
+      response = JSON.parse(RestClient.get(foreman_status_url))
       return true if response["status"] == "ok"
     rescue *::ProxyAPI::AvailableProxy::HTTP_ERRORS
       return false
@@ -79,4 +79,3 @@ module ForemanOpenscap
     end
   end
 end
-

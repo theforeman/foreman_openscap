@@ -1,31 +1,51 @@
+# TODO: remove this file by either moving cops here or fixing code
 inherit_from:
   - .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 2.0
+  Include:
+    - 'app/views/api/**/*.rabl'
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'vendor/**/*'
 
 Rails:
   Enabled: true
 
-Style/Documentation:
+# Don't prefer is_a? over kind_of?
+Style/ClassCheck:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 200
-  Exclude:
-   - 'test/**/*'
+# Don't enforce documentation
+Style/Documentation:
+  Enabled: false
 
 # Support both ruby19 and hash_rockets
 Style/HashSyntax:
   Enabled: false
 
-Metrics/LineLength:
-  Enabled: false
-
+# Both double and single quotes are OK
 Style/StringLiterals:
   Enabled: false
 
-Style/CollectionMethods:
+# Don't enforce frozen string literals
+Style/FrozenStringLiteralComment:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
+Metrics/ClassLength:
+  Exclude:
+    - 'test/**/*'
+
+Performance/FixedSize:
+  Exclude:
+    - 'test/**/*'
+
+Metrics/LineLength:
+  Enabled: false
+
+Style/CollectionMethods:
   Enabled: false
 
 Rails/HttpPositionalArguments:
@@ -33,3 +53,90 @@ Rails/HttpPositionalArguments:
 
 Style/EmptyMethod:
   EnforcedStyle: expanded
+
+Rails/Date:
+  Enabled: false
+
+Rails/HttpPositionalArguments:
+  Enabled: false
+
+# Force before_filter until upgrade to Rails 4
+Rails/ActionFilter:
+  EnforcedStyle: filter
+
+Metrics/MethodLength:
+  Max: 40
+
+Style/TrailingCommaInLiteral:
+  Enabled: false
+
+#Style/TrailingCommaInArguments:
+#Enabled: false
+
+Style/AccessorMethodName:
+  Enabled: false
+
+Style/RedundantSelf:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 500
+  Exclude:
+       - 'test/**/*'
+
+Style/WordArray:
+  Enabled: false
+
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+Style/RescueModifier:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/EachWithObject:
+  Enabled: false
+
+Style/GuardClause:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Style/VariableNumber:
+  Enabled: false
+
+# a == 0 is not the same as a.zero?, when a is not a number
+Style/NumericPredicate:
+  Enabled: false
+
+Style/FormatString:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+# update_attribute makes sense in some cases
+Rails/SkipsModelValidations:
+  Enabled: false
+
+Rails/OutputSafety:
+  Enabled: false
+
+Style/FileName:
+  Exclude:
+       - 'Gemfile'
+       - 'db/**/*'
+
+Rails/ReversibleMigration:
+  Exclude:
+       - 'db/migrate/20150111085317_polymorph_asset.rb'
+
+# fails - rubocop bug - https://github.com/bbatsov/rubocop/issues/4171
+Rails/Blank:
+  Enabled: false
+
+Style/DotPosition:
+  Enabled: false

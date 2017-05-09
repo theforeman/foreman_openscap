@@ -4,8 +4,8 @@ module ForemanOpenscap::HostReportDashboard
 
     def initialize(policy, host)
       @latest_report = ::ForemanOpenscap::ArfReport.latest_of_policy(policy)
-        .where(:host_id => host.id)
-        .order('created_at DESC').first
+                                                   .where(:host_id => host.id)
+                                                   .order('created_at DESC').first
       @report = {}
       fetch_data
     end

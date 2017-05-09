@@ -32,7 +32,7 @@ class MigrateFromScaptimony < ActiveRecord::Migration
           SQL
 
     taxonomies = TaxableTaxonomy.where(:taxable_type => ["Scaptimony::ArfReport", "Scaptimony::Policy", "Scaptimony::ScapContent"])
-    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap")}.map(&:save!)
+    taxonomies.each { |t| t.taxable_type = t.taxable_type.sub(/^Scaptimony/, "ForemanOpenscap") }.map(&:save!)
   ensure
     ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
       alias_method :rename_table_indexes, :old_rename_table_indexes

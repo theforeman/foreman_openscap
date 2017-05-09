@@ -9,7 +9,7 @@ module Api::V2
       end
 
       def get_resource(message = 'no resource loaded')
-        instance_variable_get :"@scap_content" or fail message
+        instance_variable_get :"@scap_content" or raise message
       end
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')

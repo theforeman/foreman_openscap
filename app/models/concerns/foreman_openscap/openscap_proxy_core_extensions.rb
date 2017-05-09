@@ -13,7 +13,7 @@ module ForemanOpenscap
     end
 
     def update_scap_client_params
-      model_match = self.class.name.underscore.match(/\Ahostgroup\z/) ? "hostgroup" : "fqdn"
+      model_match = self.class.name.underscore =~ /\Ahostgroup\z/ ? "hostgroup" : "fqdn"
       scap_params = find_scap_client.class_params
       server_lookup_key = scap_params.find { |param| param.key == "server" }
       port_lookup_key = scap_params.find { |param| param.key == "port" }
@@ -34,7 +34,7 @@ module ForemanOpenscap
 
     def scap_client_lookup_values_for(lookup_keys, model_match)
       lookup_keys.inject({}) do |result, key|
-        result[key] = key.lookup_values.find { |value| value.match == "#{lookup_matcher(model_match)}" }
+        result[key] = key.lookup_values.find { |value| value.match == lookup_matcher(model_match).to_s }
         result
       end
     end
@@ -55,7 +55,7 @@ module ForemanOpenscap
     end
 
     def find_scap_client
-      Puppetclass.find_by_name("foreman_scap_client")
+      Puppetclass.find_by(name: "foreman_scap_client")
     end
 
     def lookup_matcher(model_match)

@@ -23,8 +23,8 @@ module ForemanOpenscap::PolicyDashboard
          :inconclusive_hosts => Host::Managed.inconclusive_with(@policy).count,
          :report_missing => Host::Managed.policy_reports_missing(@policy).count,
          :assigned_hosts => @policy.assets.hosts.count,
-         :unassigned_hosts => hosts.count - @policy.assets.hosts.count
-        })
+         :unassigned_hosts => hosts.count - @policy.assets.hosts.count}
+      )
     end
   end
 end

@@ -9,7 +9,7 @@ module ::ProxyAPI
       Net::HTTPHeaderSyntaxError,
       Net::ProtocolError,
       Timeout::Error
-    ]
+    ].freeze
 
     def initialize(args)
       @args = args
@@ -17,7 +17,7 @@ module ::ProxyAPI
 
     def available?
       begin
-        return true if (has_scap_feature? && minimum_version)
+        return true if has_scap_feature? && minimum_version
       rescue *HTTP_ERRORS
         return false
       end
