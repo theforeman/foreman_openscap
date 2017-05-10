@@ -13,7 +13,9 @@ FactoryGirl.define do
     sequence(:name) { |n| "host#{n}" }
     sequence(:hostname) { |n| "hostname#{n}" }
     root_pass 'xybxa6JUkz63w'
-    openscap_proxy FactoryGirl.create(:openscap_proxy)
+    openscap_proxy do
+      FactoryGirl.create(:openscap_proxy)
+    end
     policies []
   end
 end
