@@ -46,11 +46,11 @@ module ForemanOpenscap
                                AND foreman_openscap_asset_policies.policy_id = '#{policy.id}')")
       }
 
-      alias_method_chain :inherited_attributes, :openscap
+      alias_method_chain :hostgroup_inherited_attributes, :openscap
     end
 
-    def inherited_attributes_with_openscap
-      inherited_attributes_without_openscap.concat(%w(openscap_proxy_id))
+    def hostgroup_inherited_attributes_with_openscap
+      hostgroup_inherited_attributes_without_openscap.concat(%w(openscap_proxy_id))
     end
 
     def policies=(policies)
