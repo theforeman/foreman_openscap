@@ -17,7 +17,7 @@ class DataTest < ActiveSupport::TestCase
   end
 
   test 'should fetch data' do
-    report_data = ForemanOpenscap::ReportDashboard::Data.new().report
+    report_data = ForemanOpenscap::ReportDashboard::Data.new.report
     assert_equal 3, report_data[:failed]
     assert_equal 2, report_data[:passed]
     assert_equal 1, report_data[:othered]

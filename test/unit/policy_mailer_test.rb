@@ -9,8 +9,7 @@ class PolicyMailerTest < ActiveSupport::TestCase
                        :description => N_('A summary of reports for OpenScap policies'),
                        :mailer => 'ForemanOpenscap::PolicyMailer',
                        :method => 'policy_summary',
-                       :subscription_type => 'report',
-                      )
+                       :subscription_type => 'report',)
     #just to have some content to send
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     host = FactoryGirl.create(:compliance_host)

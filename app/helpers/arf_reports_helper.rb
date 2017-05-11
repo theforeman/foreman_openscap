@@ -5,7 +5,7 @@ module ArfReportsHelper
   end
 
   def show_logs
-    return unless @arf_report.logs.size > 0
+    return if @arf_report.logs.empty?
     form_tag arf_report_path(@arf_report), :id => 'level_filter', :method => :get, :class => "form form-horizontal" do
       content_tag(:span, _("Show log messages:") + ' ') +
       select(nil, 'level', [[_('All messages'), 'info'],[_('Failed and Othered'), 'warning'],[_('Failed only'), 'error']],

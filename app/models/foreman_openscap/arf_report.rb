@@ -6,7 +6,7 @@ module ForemanOpenscap
     include OpenscapProxyExtensions
 
     # attr_accessible :host_id, :reported_at, :status, :metrics
-    METRIC = %w(passed othered failed)
+    METRIC = %w(passed othered failed).freeze
     BIT_NUM = 10
     MAX = (1 << BIT_NUM) - 1
 
@@ -30,11 +30,12 @@ module ForemanOpenscap
     scope :of_policy, lambda { |policy_id| joins(:policy_arf_report).merge(PolicyArfReport.of_policy(policy_id)) }
 
     scope :latest, -> {
-       joins('INNER JOIN (SELECT host_id, policy_id, max(reports.id) AS id
-                          FROM reports INNER JOIN foreman_openscap_policy_arf_reports
-                              ON reports.id = foreman_openscap_policy_arf_reports.arf_report_id
-                          GROUP BY host_id, policy_id) latest
-              ON reports.id = latest.id') }
+      joins('INNER JOIN (SELECT host_id, policy_id, max(reports.id) AS id
+                         FROM reports INNER JOIN foreman_openscap_policy_arf_reports
+                             ON reports.id = foreman_openscap_policy_arf_reports.arf_report_id
+                         GROUP BY host_id, policy_id) latest
+             ON reports.id = latest.id')
+    }
 
     scope :latest_of_policy, lambda { |policy|
       joins("INNER JOIN (SELECT host_id, policy_id, max(reports.id) AS id
@@ -63,12 +64,12 @@ module ForemanOpenscap
 
     def status=(st)
       s = case st
-          when Integer, Fixnum
+          when Integer, Integer
             st
           when Hash
             ArfReportStatusCalculator.new(:counters => st).calculate
           else
-            fail Foreman::Exception(N_('Unsupported report status format'))
+            raise Foreman::Exception(N_('Unsupported report status format'))
           end
       write_attribute(:status, s)
     end

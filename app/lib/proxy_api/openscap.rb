@@ -3,7 +3,7 @@ module ::ProxyAPI
     def initialize(args)
       @url = args[:url] + '/compliance/'
       super args
-      @connect_params[:headers].merge!(:content_type => :xml)
+      @connect_params[:headers][:content_type] = :xml
       @connect_params[:timeout] = timeout
     end
 

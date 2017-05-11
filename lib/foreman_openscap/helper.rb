@@ -6,22 +6,20 @@ module ForemanOpenscap::Helper
   end
 
   def self.find_name_or_uuid_by_host(host)
-    (host.respond_to?(:subscription_facet) && !host.subscription_facet.nil?) ? host.subscription_facet.try(:uuid) : host.name
+    host.respond_to?(:subscription_facet) && !host.subscription_facet.nil? ? host.subscription_facet.try(:uuid) : host.name
   end
-
-  private
 
   def self.find_host_by_name_or_uuid(cname)
     if Facets.registered_facets.keys.include?(:subscription_facet)
-      host = Katello::Host::SubscriptionFacet.find_by_uuid(cname).try(:host)
-      host ||= Host.find_by_name(cname)
+      host = Katello::Host::SubscriptionFacet.find_by(uuid: cname).try(:host)
+      host ||= Host.find_by(name: cname)
     else
-      host = Host.find_by_name(cname)
+      host = Host.find_by(name: cname)
     end
 
     unless host
       Rails.logger.error "Could not find Host with name: #{cname}"
-      fail ActiveRecord::RecordNotFound
+      raise ActiveRecord::RecordNotFound
     end
     host
   end

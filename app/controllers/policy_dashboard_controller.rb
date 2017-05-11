@@ -1,7 +1,8 @@
 class PolicyDashboardController < ApplicationController
   before_filter :prefetch_data, :only => :index
 
-  def index; end
+  def index
+  end
 
   def prefetch_data
     @policy = ::ForemanOpenscap::Policy.find(params[:id])

@@ -1,7 +1,7 @@
 module PoliciesHelper
   def profiles_selection
-    return @scap_content.scap_content_profiles unless @scap_content.blank?
-    return @policy.scap_content.scap_content_profiles unless @policy.scap_content.blank?
+    return @scap_content.scap_content_profiles if @scap_content.present?
+    return @policy.scap_content.scap_content_profiles if @policy.scap_content.present?
     return []
   end
 
@@ -72,7 +72,7 @@ module PoliciesHelper
       content_tag(:div, :class => "form-actions") do
         text    = overwrite ? overwrite : _("Submit")
         options = {:class => "btn btn-primary"}
-        options.merge! :'data-id' => form_to_submit_id(form) unless options.key?(:'data-id')
+        options[:'data-id'] = form_to_submit_id(form) unless options.key?(:'data-id')
         previous = form.object.first_step? ? ' ' : previous_link(form)
         cancel_and_submit = content_tag(:div, :class => "pull-right") do
           link_to(_("Cancel"), args[:cancel_path], :class => "btn btn-default") + ' ' +
@@ -90,7 +90,7 @@ module PoliciesHelper
   def previous_link(form)
     previous = content_tag(:span, :class => 'glyphicon glyphicon-chevron-left') {}
     content_tag(:div, :class => 'pull-left') do
-      link_to((previous).html_safe, '#', :class => 'btn btn-default', :onclick => "previous_step('#{@policy.previous_step}')")
+      link_to(previous.html_safe, '#', :class => 'btn btn-default', :onclick => "previous_step('#{@policy.previous_step}')")
     end
   end
 

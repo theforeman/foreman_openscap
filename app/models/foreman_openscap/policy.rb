@@ -15,10 +15,10 @@ module ForemanOpenscap
 
     scoped_search :on => :name, :complete_value => true
 
-    SCAP_PUPPET_CLASS        = 'foreman_scap_client'
-    POLICIES_CLASS_PARAMETER = 'policies'
-    SERVER_CLASS_PARAMETER   = 'server'
-    PORT_CLASS_PARAMETER     = 'port'
+    SCAP_PUPPET_CLASS        = 'foreman_scap_client'.freeze
+    POLICIES_CLASS_PARAMETER = 'policies'.freeze
+    SERVER_CLASS_PARAMETER   = 'server'.freeze
+    PORT_CLASS_PARAMETER     = 'port'.freeze
 
     before_validation :update_period_attrs
 
@@ -48,7 +48,7 @@ module ForemanOpenscap
     def to_html
       if scap_content.nil? || scap_content_profile.nil?
         return ("<h2>%s</h2>" % (_('Cannot generate HTML guide for %{scap_content}/%{profile}') %
-          { :scap_content => self.scap_content, :profile => self.scap_content_profile })).html_safe
+          { :scap_content => h(self.scap_content), :profile => h(self.scap_content_profile) })).html_safe
       end
 
       if (proxy = scap_content.proxy_url)
@@ -143,13 +143,15 @@ module ForemanOpenscap
     def used_location_ids
       Location.joins(:taxable_taxonomies).where(
         'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
-        'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_id'   => id
+      ).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_organization_ids
       Organization.joins(:taxable_taxonomies).where(
         'taxable_taxonomies.taxable_type' => 'ForemanOpenscap::Policy',
-        'taxable_taxonomies.taxable_id'   => id).pluck("#{Location.arel_table.name}.id")
+        'taxable_taxonomies.taxable_id'   => id
+      ).pluck("#{Location.arel_table.name}.id")
     end
 
     def used_hostgroup_ids
@@ -197,18 +199,18 @@ module ForemanOpenscap
     def update_period_attrs
       case period
       when 'monthly'
-        erase_period_attrs(['cron_line', 'weekday'])
+        erase_period_attrs(%w(cron_line weekday))
       when 'weekly'
-        erase_period_attrs(['cron_line', 'day_of_month'])
+        erase_period_attrs(%w(cron_line day_of_month))
       when 'custom'
-        erase_period_attrs(['weekday', 'day_of_month'])
+        erase_period_attrs(%w(weekday day_of_month))
       end
     end
 
     private
 
     def erase_period_attrs(attrs)
-       attrs.each { |attr| self.public_send("#{attr}=", nil) }
+      attrs.each { |attr| self.public_send("#{attr}=", nil) }
     end
 
     def period_enc
@@ -221,7 +223,7 @@ module ForemanOpenscap
                    when 'custom'
                      cron_line_split
                    else
-                     fail 'invalid period specification'
+                     raise 'invalid period specification'
                    end
 
       {
@@ -239,12 +241,12 @@ module ForemanOpenscap
     end
 
     def ensure_needed_puppetclasses
-      unless puppetclass = Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
+      unless puppetclass = Puppetclass.find_by(name: SCAP_PUPPET_CLASS)
         errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % {:class => SCAP_PUPPET_CLASS}
         return false
       end
 
-      unless policies_param = puppetclass.class_params.find_by_key(POLICIES_CLASS_PARAMETER)
+      unless policies_param = puppetclass.class_params.find_by(key: POLICIES_CLASS_PARAMETER)
         errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
         return false
       end
@@ -270,13 +272,13 @@ module ForemanOpenscap
     end
 
     def valid_weekday
-      if(period == 'weekly' && should_validate?('Schedule'))
+      if period == 'weekly' && should_validate?('Schedule')
         errors.add(:weekday, _("is not a valid value")) unless Date::DAYNAMES.map(&:downcase).include? weekday
       end
     end
 
     def valid_day_of_month
-      if(period == 'monthly' && should_validate?('Schedule'))
+      if period == 'monthly' && should_validate?('Schedule')
         errors.add(:day_of_month, _("must be between 1 and 31")) if !day_of_month || (day_of_month < 1 || day_of_month > 31)
       end
     end
@@ -313,7 +315,7 @@ module ForemanOpenscap
     end
 
     def find_scap_puppetclass
-      Puppetclass.find_by_name(SCAP_PUPPET_CLASS)
+      Puppetclass.find_by(name: SCAP_PUPPET_CLASS)
     end
 
     def populate_overrides(puppetclass, hostgroup)

@@ -6,7 +6,7 @@ class CreateScaptimonyScapContentProfiles < ActiveRecord::Migration
       t.string :title
 
     end
-    add_index :scaptimony_scap_content_profiles, [:scap_content_id, :profile_id],
+    add_index :scaptimony_scap_content_profiles, %i(scap_content_id profile_id),
       :unique => true, :name => :index_scaptimony_scap_content_profiles_scipi
   end
 end

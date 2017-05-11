@@ -28,7 +28,7 @@ module ForemanOpenscap
     end
 
     def status_of(counter)
-      fail(Foreman::Exception.new(N_("invalid type %s"), counter)) unless ArfReport::METRIC.include?(counter)
+      raise(Foreman::Exception.new(N_("invalid type %s"), counter)) unless ArfReport::METRIC.include?(counter)
       status[counter]
     end
 

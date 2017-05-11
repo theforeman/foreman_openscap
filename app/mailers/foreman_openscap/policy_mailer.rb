@@ -32,7 +32,7 @@ module ForemanOpenscap
       @changed_hosts = []
       hash.each do |key, values|
         values.each do |host|
-          @changed_hosts << host if host.scap_status_changed?(::ForemanOpenscap::Policy.find key)
+          @changed_hosts << host if host.scap_status_changed?(::ForemanOpenscap::Policy.find(key))
         end
       end
       @changed_hosts.uniq

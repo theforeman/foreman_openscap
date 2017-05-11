@@ -22,7 +22,7 @@ module ForemanOpenscap
       report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
-      assert(report_1.equal? report_2)
+      assert(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when there is change in report results' do
@@ -31,14 +31,14 @@ module ForemanOpenscap
       report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
-      refute(report_1.equal? report_2)
+      refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different sets of rules' do
       report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3])
 
-      refute(report_1.equal? report_2)
+      refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different hosts' do
@@ -47,7 +47,7 @@ module ForemanOpenscap
       report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => host.id, :logs => [@log_3, log_4])
 
-      refute(report_1.equal? report_2)
+      refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different policies' do
@@ -56,7 +56,7 @@ module ForemanOpenscap
       report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report_2 = FactoryGirl.create(:arf_report, :policy => policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
-      refute(report_1.equal? report_2)
+      refute(report_1.equal?(report_2))
     end
 
     test 'should recognize report that failed' do

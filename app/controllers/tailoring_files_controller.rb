@@ -2,16 +2,16 @@ class TailoringFilesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::Parameters::TailoringFile
 
-  before_filter :find_tailoring_file, :only => [:destroy, :update, :edit, :xml]
-  before_filter :handle_file_upload, :only => [:create, :update]
+  before_filter :find_tailoring_file, :only => %i(destroy update edit xml)
+  before_filter :handle_file_upload, :only => %i(create update)
 
   def model_of_controller
     ::ForemanOpenscap::TailoringFile
   end
 
   def index
-    @tailoring_files = resource_base.search_for(params[:search], :order => params[:order]).
-                       paginate(:page => params[:page], :per_page => params[:per_page])
+    @tailoring_files = resource_base.search_for(params[:search], :order => params[:order])
+                                    .paginate(:page => params[:page], :per_page => params[:per_page])
   end
 
   def new
