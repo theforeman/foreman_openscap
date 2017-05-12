@@ -170,11 +170,11 @@ view_openscap_proxies)
         end
 
         add_controller_action_scope(::Api::V2::HostsController, :index) do |base_scope|
-          base_scope.includes(:policies)
+          base_scope.preload(:policies)
         end
 
         add_controller_action_scope(::HostsController, :index) do |base_scope|
-          base_scope.includes(:policies)
+          base_scope.preload(:policies)
         end
       end
     end
