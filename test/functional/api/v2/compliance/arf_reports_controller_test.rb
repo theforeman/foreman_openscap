@@ -9,7 +9,13 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     @report = FactoryGirl.create(:arf_report,
                                  :host_id => @host.id,
                                  :openscap_proxy => FactoryGirl.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
+    @policy = FactoryGirl.create(:policy)
+    @asset = FactoryGirl.create(:asset)
+
+    @from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.json"
+    @cname = '9521a5c5-8f44-495f-b087-20e86b30bf67'
   end
+
   test "should get index" do
     get :index, {}, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
@@ -27,12 +33,116 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   end
 
   test "should download report" do
-    bzipped_report = File.open "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.bz2", &:read
+    bzipped_report = File.read "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.bz2"
     ForemanOpenscap::ArfReport.any_instance.stubs(:to_bzip).returns(bzipped_report)
     get :download, { :id => @report.to_param }, set_session_user
     t = Tempfile.new('tmp_report')
     t.write @response.body
     t.close
     refute t.size.zero?
+  end
+
+  test "should create report" do
+    reports_cleanup
+    date = Time.new(1984, 9, 15)
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    post :create,
+         @from_json.merge(:cname => @cname,
+                          :policy_id => @policy.id,
+                          :date => date.to_i),
+         set_session_user
+    report = ForemanOpenscap::ArfReport.unscoped.last
+    assert_equal date, report.reported_at
+    report_logs = report.logs
+    msg_count = report_logs.flat_map(&:message).count
+    src_count = report_logs.flat_map(&:source).count
+    assert(msg_count > 0)
+    assert_equal msg_count, src_count
+  end
+
+  test "should not duplicate messages" do
+    dates = [Time.new(1984, 9, 15), Time.new(1932, 3, 27)]
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    2.times do |num|
+      post :create,
+           @from_json.merge(:cname => @cname,
+                            :policy_id => @policy.id,
+                            :date => dates[num].to_i),
+           set_session_user
+    end
+    assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
+  end
+
+  test "should recognize changes in messages" do
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    post :create,
+         @from_json.merge(:cname => @cname,
+                          :policy_id => @policy.id,
+                          :date => Time.new(2017, 5, 6).to_i),
+          set_session_user
+    assert_response :success
+
+    changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_desc_changed.json"
+    post :create,
+         changed_from_json.merge(:cname => @cname,
+                                 :policy_id => @policy.id,
+                                 :date => Time.new(2017, 6, 6).to_i),
+         set_session_user
+
+    assert_response :success
+
+    src_ids = Source.where(:value => "xccdf_org.ssgproject.content_rule_firefox_preferences-lock_settings_obscure").pluck(:id)
+    msgs = Log.where(:source_id => src_ids).map(&:message)
+    assert_equal 2, msgs.count
+    msg_a, msg_b = msgs.sort_by(&:id)
+    assert_equal msg_a.description, msg_b.description
+    assert_equal "Disable ROT-13 encoding by setting general.config.obscure_value\nto 42, not 0 as before.", msg_a.description
+  end
+
+  test "should recognize change in message title/value" do
+    reports_cleanup
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    post :create,
+         @from_json.merge(:cname => @cname,
+                          :policy_id => @policy.id,
+                          :date => Time.new(2017, 7, 6).to_i),
+          set_session_user
+
+    assert_response :success
+
+    changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_value_changed.json"
+    post :create,
+         changed_from_json.merge(:cname => @cname,
+                                 :policy_id => @policy.id,
+                                 :date => Time.new(2017, 8, 6).to_i),
+         set_session_user
+
+    assert_response :success
+
+    reports = ForemanOpenscap::ArfReport.unscoped.all
+    assert_equal reports.count, 2
+
+    new_msgs = Message.where(:value => "Disable Firefox Configuration File ROT-13 Encoding Changed For Test")
+    old_msgs = Message.where(:value => "Disable Firefox Configuration File ROT-13 Encoding")
+    assert_equal new_msgs.count, 1
+    assert_equal old_msgs.count, 0
+    assert_equal new_msgs.first.digest, Digest::SHA1.hexdigest("Disable Firefox Configuration File ROT-13 Encoding Changed For Test")
+  end
+
+  private
+
+  def reports_cleanup
+    reports = ForemanOpenscap::ArfReport.unscoped.all
+    report_ids = reports.pluck(:id)
+    all_logs = Log.where(:report_id => report_ids)
+    Source.where(:id => all_logs.pluck(:source_id)).map(&:destroy)
+    Message.where(:id => all_logs.pluck(:message_id)).map(&:destroy)
+    all_logs.map(&:destroy)
+    reports.map(&:destroy)
+  end
+
+  def arf_from_json(path)
+    file_content = File.read path
+    JSON.parse file_content
   end
 end

@@ -112,10 +112,19 @@ module ForemanOpenscap
         if params[:logs]
           params[:logs].each do |log|
             src = Source.find_or_create(log[:source])
-            digest = Digest::SHA1.hexdigest(log[:title])
-            msg = Message.where(:value => N_(log[:title]), :digest => digest, :severity => log[:severity],
-                                :description => newline_to_space(log[:description]), :rationale => newline_to_space(log[:rationale]),
-                                :scap_references => references_links(log[:references])).first_or_create
+            msg = nil
+            if src.logs.count > 0
+              msg = Log.where(:source_id => src.id).order(:id => :desc).first.message
+              update_msg_with_changes(msg, log)
+            else
+              digest = Digest::SHA1.hexdigest(log[:title])
+              msg = Message.create!(:value => N_(log[:title]),
+                                    :digest => digest,
+                                    :severity => log[:severity],
+                                    :description => newline_to_space(log[:description]),
+                                    :rationale => newline_to_space(log[:rationale]),
+                                    :scap_references => references_links(log[:references]))
+            end
             #TODO: log level
             Log.create!(:source_id => src.id,
                         :message_id => msg.id,
@@ -191,6 +200,18 @@ module ForemanOpenscap
         html_links << reference['html_link']
       end
       html_links.join(', ')
+    end
+
+    def self.update_msg_with_changes(msg, incoming_data)
+      msg.severity = incoming_data['severity']
+      msg.description = incoming_data['description']
+      msg.rationale = incoming_data['rationale']
+      msg.scap_references = incoming_data['references']
+      msg.value = incoming_data['title']
+
+      return unless msg.changed?
+      msg.digest = Digest::SHA1.hexdigest(msg.value) if msg.value_changed?
+      msg.save
     end
   end
 end
