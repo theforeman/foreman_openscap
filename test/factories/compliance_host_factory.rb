@@ -4,8 +4,8 @@ FactoryGirl.define do
   end
 
   factory :openscap_proxy, :class => SmartProxy do
-    sequence(:name) { |n| "proxy#{n}" }
-    sequence(:url) { |n| "https://somewhere#{n}.net:8443" }
+    sequence(:name) { |n| "openscap_proxy#{n}" }
+    sequence(:url) { |n| "https://anywhere#{n}.net:8443" }
     features { |sp| [sp.association(:openscap_feature)] }
   end
 
