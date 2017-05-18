@@ -41,9 +41,6 @@ msgstr ""
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr ""
 
-msgid "A compliance policy is defined by security professionals who specify desired settings (often in the form of a checklist) that are to be used in the computing environment. Compliance audit is a process of figuring out whether a given object follows all the rules written out in a compliance policy."
-msgstr ""
-
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
@@ -74,6 +71,12 @@ msgstr ""
 msgid "Changed?"
 msgstr ""
 
+msgid "Choose Tailoring File"
+msgstr ""
+
+msgid "Choose day in month"
+msgstr ""
+
 msgid "Choose existing SCAP Content"
 msgstr ""
 
@@ -92,10 +95,10 @@ msgstr ""
 msgid "Compliance Reports"
 msgstr ""
 
-msgid "Compliance Status"
+msgid "Compliance Reports Breakdown"
 msgstr ""
 
-msgid "Compliance policy configuration"
+msgid "Compliance Status"
 msgstr ""
 
 msgid "Compliance policy: %s"
@@ -113,13 +116,22 @@ msgstr ""
 msgid "Compliant with the policy"
 msgstr ""
 
+msgid "Content"
+msgstr ""
+
+msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
+msgstr ""
+
 msgid "Create SCAP content"
 msgstr ""
 
-msgid "Create a policy"
+msgid "Create a Policy"
 msgstr ""
 
-msgid "Cron line does not consist of 5 parts separated by space"
+msgid "Create a Tailoring file"
+msgstr ""
+
+msgid "Created"
 msgstr ""
 
 msgid "Date"
@@ -131,6 +143,12 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Delete a Policy"
+msgstr ""
+
+msgid "Delete an ARF Report"
+msgstr ""
+
 msgid "Delete compliance policy %s with all the reports?"
 msgstr ""
 
@@ -140,10 +158,10 @@ msgstr ""
 msgid "Delete reports"
 msgstr ""
 
-msgid "Deletes a policy"
+msgid "Delete tailoring file %s?"
 msgstr ""
 
-msgid "Deletes an ARF Report"
+msgid "Deletes a Tailoring file"
 msgstr ""
 
 msgid "Deletes an SCAP content"
@@ -155,7 +173,16 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
+msgid "Download ARF report in HTML"
+msgstr ""
+
+msgid "Download HTML"
+msgstr ""
+
 msgid "Download XML in bzip"
+msgstr ""
+
+msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit"
@@ -165,6 +192,12 @@ msgid "Edit Compliance Policy"
 msgstr ""
 
 msgid "Edit SCAP Content"
+msgstr ""
+
+msgid "Edit Tailoring File"
+msgstr ""
+
+msgid "Effective Profile"
 msgstr ""
 
 msgid "Failed"
@@ -185,10 +218,20 @@ msgstr ""
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr ""
 
+msgid "Failed to downloaded ARF report in HTML: %s"
+msgstr ""
+
+#. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
 msgstr ""
 
 msgid "File Upload"
+msgstr ""
+
+msgid "Filename"
+msgstr ""
+
+msgid "Full Report"
 msgstr ""
 
 msgid "General"
@@ -224,12 +267,17 @@ msgstr ""
 msgid "Hosts Breakdown"
 msgstr ""
 
-msgid "In Foreman, a compliance policy checklist is defined via %s, once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
+msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr ""
 
 msgid ""
 "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\n"
-"          via %s"
+"    via %s"
+msgstr ""
+
+msgid ""
+"In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\n"
+"    via %s"
 msgstr ""
 
 msgid "Incompliant"
@@ -244,7 +292,13 @@ msgstr ""
 msgid "Inconclusive results"
 msgstr ""
 
-msgid "Latest compliance reports"
+msgid "It may sometimes be required to adjust the security policy to your specific needs. "
+msgstr ""
+
+msgid "Last spool error"
+msgstr ""
+
+msgid "Latest Compliance Reports"
 msgstr ""
 
 msgid "Latest reports for policy: %s"
@@ -253,7 +307,13 @@ msgstr ""
 msgid "List ARF reports"
 msgstr ""
 
+msgid "List Policies"
+msgstr ""
+
 msgid "List SCAP contents"
+msgstr ""
+
+msgid "List Tailoring files"
 msgstr ""
 
 msgid "Loading..."
@@ -268,16 +328,22 @@ msgstr ""
 msgid "More details"
 msgstr ""
 
+msgid "Name"
+msgstr ""
+
 msgid "Never audited"
 msgstr ""
 
 msgid "New Compliance Policy"
 msgstr ""
 
-msgid "New Compliance policy"
+msgid "New Policy"
 msgstr ""
 
-msgid "New SCAP content"
+msgid "New SCAP Content"
+msgstr ""
+
+msgid "New Tailoring File"
 msgstr ""
 
 msgid "Next"
@@ -289,13 +355,10 @@ msgstr ""
 msgid "No ARF reports for this policy"
 msgstr ""
 
-msgid "No Available Proxy to validate SCAP content"
+msgid "No OpenSCAP proxy found for %{class} with %{id}"
 msgstr ""
 
-msgid "No OpenSCAP proxy found for %s"
-msgstr ""
-
-msgid "No Proxy with OpenSCAP features"
+msgid "No available proxy to validate SCAP data stream file"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
@@ -316,6 +379,9 @@ msgstr ""
 msgid "No hosts were found."
 msgstr ""
 
+msgid "No proxy with OpenSCAP features"
+msgstr ""
+
 msgid "No report for this policy"
 msgstr ""
 
@@ -326,6 +392,12 @@ msgid "No valid OpenSCAP proxy server found."
 msgstr ""
 
 msgid "No valid policy ID provided"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "None found"
 msgstr ""
 
 msgid "None!"
@@ -346,16 +418,19 @@ msgstr ""
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr ""
 
-msgid "OpenSCAP Host reports widget"
+msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
 
-msgid "OpenSCAP Proxy"
+msgid "Openscap Proxy"
 msgstr ""
 
-msgid "OpenSCAP Reports breakdown widget"
+msgid "Openscap policy summary"
 msgstr ""
 
 msgid "Organizations"
+msgstr ""
+
+msgid "Original file name of the XML file"
 msgstr ""
 
 msgid "Other"
@@ -364,12 +439,14 @@ msgstr ""
 msgid "Othered"
 msgstr ""
 
+#. TRANSLATORS: initial character of Othered which is an SCAP term
 msgid "Othered|O"
 msgstr ""
 
 msgid "Passed"
 msgstr ""
 
+#. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr ""
 
@@ -380,9 +457,6 @@ msgid "Policies"
 msgstr ""
 
 msgid "Policies with hosts:"
-msgstr ""
-
-msgid "Policy"
 msgstr ""
 
 msgid "Policy %s"
@@ -397,19 +471,34 @@ msgstr ""
 msgid "Policy description"
 msgstr ""
 
+msgid "Policy is missing"
+msgstr ""
+
 msgid "Policy name"
 msgstr ""
 
-msgid "Policy schedule period"
+msgid "Policy schedule cron line (only if period == \"custom\")"
 msgstr ""
 
-msgid "Policy schedule weekday"
+msgid "Policy schedule day of month (only if period == \"monthly\")"
+msgstr ""
+
+msgid "Policy schedule period (weekly, monthly, custom)"
+msgstr ""
+
+msgid "Policy schedule weekday (only if period == \"weekly\")"
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
 
 msgid "Puppet class %{class} does not have %{parameter} class parameter."
 msgstr ""
 
-msgid "Puppet class 'foreman_scap_client' not found, make sure it is imported form Puppet master"
+msgid "Puppet class 'foreman_scap_client' not found, make sure it is imported from Puppet master"
 msgstr ""
 
 msgid "Rationale"
@@ -433,6 +522,9 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
+msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
+msgstr ""
+
 msgid "Required Puppet class %{class} is not found, please ensure it imported first."
 msgstr ""
 
@@ -442,6 +534,9 @@ msgstr ""
 msgid "Result"
 msgstr ""
 
+msgid "Run OpenSCAP scan"
+msgstr ""
+
 msgid "SCAP Content"
 msgstr ""
 
@@ -449,9 +544,6 @@ msgid "SCAP Contents"
 msgstr ""
 
 msgid "SCAP content"
-msgstr ""
-
-msgid "SCAP content configuration"
 msgstr ""
 
 msgid "SCAP content name"
@@ -481,13 +573,28 @@ msgstr ""
 msgid "Show Guide"
 msgstr ""
 
+msgid "Show a Policy"
+msgstr ""
+
+msgid "Show a Tailoring file"
+msgstr ""
+
+msgid "Show a Tailoring file as XML"
+msgstr ""
+
 msgid "Show a policy's SCAP content"
+msgstr ""
+
+msgid "Show a policy's Tailoring file"
 msgstr ""
 
 msgid "Show an ARF report"
 msgstr ""
 
 msgid "Show an SCAP content"
+msgstr ""
+
+msgid "Show an SCAP content as XML"
 msgstr ""
 
 msgid "Show log messages:"
@@ -497,9 +604,6 @@ msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
-
-msgid "Source: Wikipedia %s"
 msgstr ""
 
 msgid "Status chart"
@@ -523,11 +627,36 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr ""
 
+msgid "Tailoring File"
+msgstr ""
+
+msgid "Tailoring Files"
+msgstr ""
+
+msgid "Tailoring file ID"
+msgstr ""
+
+msgid "Tailoring file name"
+msgstr ""
+
+msgid "Tailoring file profile ID"
+msgstr ""
+
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
-"        configuration issues related to security. They measure systems to find vulnerabilities and offer methods to score those findings in order\n"
-"        to evaluate the possible impact. It is a method for using those open standards for automated vulnerability management, measurement,\n"
-"        and policy compliance evaluation. "
+"        configuration issues related to security. "
+msgstr ""
+
+msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
+msgstr ""
+
+msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
+msgstr ""
+
+msgid "This feature is temporarily disabled. "
+msgstr ""
+
+msgid "This profile will be used to override the one from scap content"
 msgstr ""
 
 msgid "Total"
@@ -556,7 +685,10 @@ msgstr ""
 msgid "Unsupported report status format"
 msgstr ""
 
-msgid "Update a policy"
+msgid "Update a Policy"
+msgstr ""
+
+msgid "Update a Tailoring file"
 msgstr ""
 
 msgid "Update an SCAP content"
@@ -568,7 +700,13 @@ msgstr ""
 msgid "Updated hosts: Unassigned from compliance policy '%s'"
 msgstr ""
 
+msgid "Upload DataStream Tailoring file"
+msgstr ""
+
 msgid "Upload New SCAP Content"
+msgstr ""
+
+msgid "Upload New Tailoring file"
 msgstr ""
 
 msgid "Upload SCAP DataStream file"
@@ -580,6 +718,9 @@ msgstr ""
 msgid "Upload new SCAP content file"
 msgstr ""
 
+msgid "Upload new Tailoring File"
+msgstr ""
+
 msgid "View Report"
 msgstr ""
 
@@ -589,28 +730,49 @@ msgstr ""
 msgid "XCCDF Profile"
 msgstr ""
 
+msgid "XCCDF Profile in Tailoring File"
+msgstr ""
+
+msgid "XML containing SCAP content"
+msgstr ""
+
+msgid "XML containing tailoring file"
+msgstr ""
+
 msgid "Yes"
 msgstr ""
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr ""
 
-msgid "You must fill cron line"
+msgid "does not come from selected tailoring file"
 msgstr ""
 
-msgid "You must fill day of month"
-msgstr ""
-
-msgid "You must fill weekday"
+msgid "does not consist of 5 parts separated by space"
 msgstr ""
 
 msgid "invalid type %s"
 msgstr ""
 
+msgid "is not a valid value"
+msgstr ""
+
+msgid "is not included in SCAP_RESULT"
+msgstr ""
+
 msgid "items selected. Uncheck to Clear"
 msgstr ""
 
-msgid "read more"
+msgid "must be between 1 and 31"
+msgstr ""
+
+msgid "must be present when tailoring file present"
+msgstr ""
+
+msgid "must be present when tailoring file profile present"
+msgstr ""
+
+msgid "must have Openscap feature"
 msgstr ""
 
 msgid "these Complianace reports"

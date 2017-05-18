@@ -11,7 +11,7 @@ end
 Gem::Specification.new do |s|
   s.name        = "foreman_openscap"
   s.version     = ForemanOpenscap::VERSION
-  s.authors     = IO.readlines("CONTRIBUTORS").map(&:strip)
+  s.authors     = ["slukasik@redhat.com"]
   s.email       = ["slukasik@redhat.com"]
   s.homepage    = "https://github.com/OpenSCAP/foreman_openscap"
   s.summary     = "Foreman plug-in for displaying OpenSCAP audit reports"
