@@ -26,10 +26,8 @@ class ScapContentTest < ActiveSupport::TestCase
     test 'proxy_url should return the first available proxy it finds' do
       available_proxy = SmartProxy.with_features('Openscap').first
       unavailable_proxy = FactoryGirl.create(:smart_proxy, :url => 'http://proxy.example.com:8443', :features => [FactoryGirl.create(:feature, :name => 'Openscap')])
-      proxy1_url = ProxyAPI::AvailableProxy.new(:url => available_proxy.url)
-      proxy2_url = ProxyAPI::AvailableProxy.new(:url => unavailable_proxy.url)
-      proxy1_url.stubs(:available?).returns(available_proxy.url)
-      proxy2_url.stubs(:available?).returns(false)
+      available_proxy.stubs(:proxy_url).returns(available_proxy.url)
+      unavailable_proxy.stubs(:proxy_url).returns(nil)
       scap_content = ForemanOpenscap::ScapContent.new(:title => 'Fedora', :scap_file => @scap_file)
       assert_equal(available_proxy.url, scap_content.proxy_url)
     end
