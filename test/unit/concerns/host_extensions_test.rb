@@ -22,4 +22,64 @@ class HostExtensionsTest < ActiveSupport::TestCase
     enc_out = JSON.parse @host.policies_enc
     assert_equal 6, enc_out.first['download_path'].split('/').length
   end
+
+  test "should find hosts with direct policy assignment that were never audited" do
+    policy, host, host_2 = setup_hosts_with_policy.values_at(:policy, :host, :host_2)
+    report = FactoryGirl.create(:arf_report, :host_id => host_2.id)
+    FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
+
+    res = Host.policy_reports_missing policy
+    assert_equal res.count, 1
+    assert_include res, host
+  end
+
+  test "should find hosts with inherited policy that were never audited" do
+    policy, host, host_2 = setup_hosts_with_inherited_policy.values_at(:policy, :host, :host_2)
+    report = FactoryGirl.create(:arf_report, :host_id => host_2.id)
+    FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
+
+    res = Host.policy_reports_missing policy
+    assert_equal res.count, 1
+    assert_include res, host
+  end
+
+  test "should find hosts that are assigned to policy directly" do
+    policy, host, host_2 = setup_hosts_with_policy.values_at(:policy, :host, :host_2)
+    res = Host.assigned_to_policy(policy)
+    assert_equal 2, res.count
+    assert_include res, host
+    assert_include res, host_2
+  end
+
+  test "should find hosts with policy inherited from hostgroup" do
+    policy, host, host_2 = setup_hosts_with_inherited_policy.values_at(:policy, :host, :host_2)
+    res = Host.assigned_to_policy(policy)
+    assert_equal 2, res.count
+    assert_include res, host
+    assert_include res, host_2
+  end
+
+  private
+
+  def setup_hosts_with_policy
+    policy = FactoryGirl.create(:policy)
+    host = FactoryGirl.create(:compliance_host)
+    host_2 = FactoryGirl.create(:compliance_host)
+    asset = FactoryGirl.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    asset_2 = FactoryGirl.create(:asset, :assetable_id => host_2.id, :assetable_type => 'Host::Base')
+    FactoryGirl.create(:asset_policy, :asset_id => asset.id, :policy_id => policy.id)
+    FactoryGirl.create(:asset_policy, :asset_id => asset_2.id, :policy_id => policy.id)
+    { :host => host, :policy => policy, :host_2 => host_2 }
+  end
+
+  def setup_hosts_with_inherited_policy
+    policy = FactoryGirl.create(:policy)
+    parent = FactoryGirl.create(:hostgroup)
+    child = FactoryGirl.create(:hostgroup, :ancestry => parent.id.to_s)
+    asset = FactoryGirl.create(:asset, :assetable_id => parent.id, :assetable_type => 'Hostgroup')
+    FactoryGirl.create(:asset_policy, :asset_id => asset.id, :policy_id => policy.id)
+    host = FactoryGirl.create(:compliance_host, :hostgroup_id => child.id)
+    host_2 = FactoryGirl.create(:compliance_host, :hostgroup_id => child.id)
+    { :policy => policy, :host => host, :host_2 => host_2 }
+  end
 end

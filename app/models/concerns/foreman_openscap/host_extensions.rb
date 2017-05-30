@@ -35,15 +35,11 @@ module ForemanOpenscap
       }
 
       scope :policy_reports_missing, lambda { |policy|
-        where("id NOT IN (SELECT host_id
-                          FROM reports INNER JOIN foreman_openscap_policy_arf_reports
-                              ON reports.id = foreman_openscap_policy_arf_reports.arf_report_id
-                          WHERE policy_id = #{policy.id})
-              AND id IN (SELECT assetable_id
-                         FROM foreman_openscap_asset_policies INNER JOIN foreman_openscap_assets
-                              ON foreman_openscap_asset_policies.asset_id = foreman_openscap_assets.id
-                         WHERE foreman_openscap_assets.assetable_type = 'Host::Base'
-                               AND foreman_openscap_asset_policies.policy_id = '#{policy.id}')")
+        search_for("compliance_report_missing_for = \"#{policy.name}\"")
+      }
+
+      scope :assigned_to_policy, lambda { |policy|
+        search_for("compliance_policy = \"#{policy.name}\"")
       }
 
       alias_method_chain :inherited_attributes, :openscap
@@ -104,20 +100,44 @@ module ForemanOpenscap
     module ClassMethods
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
-        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).pluck(:id)).to_sql }
+
+        host_group_host_ids = policy_assigned_using_hostgroup_host_ids cond, []
+        host_group_cond = if host_group_host_ids.any?
+                            ' OR ' + sanitize_sql_for_conditions("hosts.id IN (#{host_group_host_ids.join(',')})")
+                          else
+                            ''
+                          end
+        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).pluck(:id)).to_sql + host_group_cond }
       end
 
       def search_by_missing_arf(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
-        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id])
-            .joins(:policies)
-            .where(cond)
-            .where("foreman_openscap_assets.id NOT IN (
-                     SELECT DISTINCT foreman_openscap_arf_reports.asset_id
-                     FROM foreman_openscap_arf_reports
-                     WHERE foreman_openscap_arf_reports.asset_id = foreman_openscap_assets.id
-                         AND foreman_openscap_arf_reports.policy_id = foreman_openscap_policies.id)")
-            .pluck(:id)).to_sql}
+
+        host_ids_from_arf_of_policy = ForemanOpenscap::ArfReport.joins(:policy).where(cond).pluck(:host_id).uniq
+
+        direct_result = policy_assigned_directly_host_ids cond, host_ids_from_arf_of_policy
+
+        hg_result = policy_assigned_using_hostgroup_host_ids cond, host_ids_from_arf_of_policy
+
+        result = (direct_result + hg_result).uniq
+        { :conditions => "hosts.id IN (#{result.empty? ? 'NULL' : result.join(',')})" }
+      end
+
+      def policy_assigned_directly_host_ids(condition, host_ids_from_arf)
+        ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base')
+                              .joins(:policies)
+                              .where(condition)
+                              .where.not(:assetable_id => host_ids_from_arf)
+                              .pluck(:assetable_id)
+      end
+
+      def policy_assigned_using_hostgroup_host_ids(condition, host_ids_from_arf)
+        hostgroup_with_policy_ids = ForemanOpenscap::Asset.where(:assetable_type => 'Hostgroup')
+                                                          .joins(:policies)
+                                                          .where(condition)
+                                                          .pluck(:assetable_id)
+        subtree_ids = Hostgroup.where(:id => hostgroup_with_policy_ids).flat_map(&:subtree_ids).uniq
+        Host.where(:hostgroup_id => subtree_ids).where.not(:id => host_ids_from_arf).pluck(:id)
       end
     end
   end
