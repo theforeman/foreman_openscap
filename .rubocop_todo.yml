@@ -33,7 +33,7 @@ Lint/UselessAssignment:
 
 # Offense count: 19
 Metrics/AbcSize:
-  Max: 42
+  Max: 48
 
 # Offense count: 6
 # Configuration parameters: CountComments.
