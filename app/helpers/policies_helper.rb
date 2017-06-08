@@ -97,4 +97,8 @@ module PoliciesHelper
   def days_of_week_hash
     Hash[*Date::DAYNAMES.map { |day| [day.downcase, day] }.flatten]
   end
+
+  def translate_steps(policy)
+    policy.steps.map { |step| _(step) }
+  end
 end
