@@ -18,7 +18,7 @@ module ScapTestProxy
 
   def add_smart_proxy
     FactoryGirl.create(:smart_proxy, :url => 'http://localhost:8443', :features => [FactoryGirl.create(:feature, :name => 'Openscap')])
-    ProxyAPI::Features.any_instance.stubs(:features).returns(%w(puppet openscap))
+    ProxyAPI::Features.any_instance.stubs(:features).returns(%w[puppet openscap])
     versions = { "version" => "1.11.0", "modules" => { "openscap" => "0.5.3" } }
     ProxyAPI::Version.any_instance.stubs(:proxy_versions).returns(versions)
     ProxyAPI::Openscap.any_instance.stubs(:validate_scap_file).returns({'errors' => []})

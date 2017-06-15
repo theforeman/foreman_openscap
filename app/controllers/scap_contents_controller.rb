@@ -2,8 +2,8 @@ class ScapContentsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::Parameters::ScapContent
 
-  before_filter :handle_file_upload, :only => %i(create update)
-  before_filter :find_by_id, :only => %i(show edit update destroy)
+  before_filter :handle_file_upload, :only => %i[create update]
+  before_filter :find_by_id, :only => %i[show edit update destroy]
 
   def model_of_controller
     ::ForemanOpenscap::ScapContent

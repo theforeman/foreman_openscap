@@ -46,7 +46,7 @@ module ForemanOpenscap
     end
 
     def inherited_attributes_with_openscap
-      inherited_attributes_without_openscap.concat(%w(openscap_proxy_id))
+      inherited_attributes_without_openscap.concat(%w[openscap_proxy_id])
     end
 
     def policies=(policies)

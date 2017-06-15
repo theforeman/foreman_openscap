@@ -5,7 +5,7 @@ module Foreman::Controller::Parameters::Policy
   class_methods do
     def policy_params_filter
       Foreman::ParameterFilter.new(::ForemanOpenscap::Policy).tap do |filter|
-        filter.permit(%i(current_step wizard_initiated) + filter_params_list)
+        filter.permit(%i[current_step wizard_initiated] + filter_params_list)
       end
     end
   end

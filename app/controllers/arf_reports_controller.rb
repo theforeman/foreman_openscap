@@ -2,15 +2,15 @@ class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
-  before_filter :find_arf_report, :only => %i(show show_html destroy parse_html parse_bzip download_html)
-  before_filter :find_multiple, :only => %i(delete_multiple submit_delete_multiple)
+  before_filter :find_arf_report, :only => %i[show show_html destroy parse_html parse_bzip download_html]
+  before_filter :find_multiple, :only => %i[delete_multiple submit_delete_multiple]
 
   def model_of_controller
     ::ForemanOpenscap::ArfReport
   end
 
   def index
-    @arf_reports = resource_base.includes(:host => %i(policies last_report_object host_statuses))
+    @arf_reports = resource_base.includes(:host => %i[policies last_report_object host_statuses])
                                 .search_for(params[:search], :order => params[:order])
                                 .paginate(:page => params[:page], :per_page => params[:per_page])
   end
@@ -75,7 +75,7 @@ class ArfReportsController < ApplicationController
   private
 
   def find_arf_report
-    @arf_report = resource_base.includes(:logs => %i(message source)).find(params[:id])
+    @arf_report = resource_base.includes(:logs => %i[message source]).find(params[:id])
   end
 
   def find_multiple
