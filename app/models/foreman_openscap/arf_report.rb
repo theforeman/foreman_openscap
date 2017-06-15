@@ -6,7 +6,7 @@ module ForemanOpenscap
     include OpenscapProxyExtensions
 
     # attr_accessible :host_id, :reported_at, :status, :metrics
-    METRIC = %w(passed othered failed).freeze
+    METRIC = %w[passed othered failed].freeze
     BIT_NUM = 10
     MAX = (1 << BIT_NUM) - 1
 

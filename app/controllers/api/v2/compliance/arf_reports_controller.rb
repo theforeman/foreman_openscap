@@ -11,8 +11,8 @@ module Api
 
         add_smart_proxy_filters :create, :features => 'Openscap'
 
-        before_filter :find_resource, :only => %w(show destroy download download_html)
-        skip_after_filter :log_response_body, :only => %w(download download_html)
+        before_filter :find_resource, :only => %w[show destroy download download_html]
+        skip_after_filter :log_response_body, :only => %w[download download_html]
 
         def resource_name
           '::ForemanOpenscap::ArfReport'

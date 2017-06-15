@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class TailoringFile < ActiveRecord::Base
+  class TailoringFile < ApplicationRecord
     include Authorizable
     include Taxonomix
     include DataStreamContent

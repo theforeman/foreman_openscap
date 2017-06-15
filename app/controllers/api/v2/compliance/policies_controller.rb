@@ -4,9 +4,9 @@ module Api::V2
       include Foreman::Controller::SmartProxyAuth
       include Foreman::Controller::Parameters::PolicyApi
 
-      add_smart_proxy_filters %i(content tailoring), :features => 'Openscap'
+      add_smart_proxy_filters %i[content tailoring], :features => 'Openscap'
 
-      before_filter :find_resource, :except => %w(index create)
+      before_filter :find_resource, :except => %w[index create]
 
       skip_after_filter :log_response_body, :only => [:content]
 

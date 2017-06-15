@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class Policy < ActiveRecord::Base
+  class Policy < ApplicationRecord
     include Authorizable
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
@@ -24,7 +24,7 @@ module ForemanOpenscap
 
     validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 }
     validate :ensure_needed_puppetclasses
-    validates :period, :inclusion => {:in => %w(weekly monthly custom), :message => _('is not a valid value')},
+    validates :period, :inclusion => {:in => %w[weekly monthly custom], :message => _('is not a valid value')},
               :if => Proc.new { |policy| policy.should_validate?('Schedule') }
 
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
@@ -199,11 +199,11 @@ module ForemanOpenscap
     def update_period_attrs
       case period
       when 'monthly'
-        erase_period_attrs(%w(cron_line weekday))
+        erase_period_attrs(%w[cron_line weekday])
       when 'weekly'
-        erase_period_attrs(%w(cron_line day_of_month))
+        erase_period_attrs(%w[cron_line day_of_month])
       when 'custom'
-        erase_period_attrs(%w(weekday day_of_month))
+        erase_period_attrs(%w[weekday day_of_month])
       end
     end
 

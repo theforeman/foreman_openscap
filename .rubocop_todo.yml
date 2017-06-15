@@ -262,3 +262,5 @@ Style/StringLiteralsInInterpolation:
 Style/SpaceInsideBrackets:
   Enabled: false
 
+Style/FormatStringToken:
+  Enabled: false
