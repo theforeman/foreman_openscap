@@ -22,10 +22,11 @@ class OpenscapProxiesController < ApplicationController
   end
 
   def find_spool_error
-    @smart_proxy.statuses[:logs]
-                .logs
-                .log_entries
-                .reverse
-                .find { |entry| entry["level"] == "ERROR" && entry["message"].start_with?("Failed to parse Arf Report") }
+    log_status = @smart_proxy.statuses[:logs]
+    return {} unless log_status
+    log_status.logs
+              .log_entries
+              .reverse
+              .find { |entry| entry["level"] == "ERROR" && entry["message"].start_with?("Failed to parse Arf Report") }
   end
 end
