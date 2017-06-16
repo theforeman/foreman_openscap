@@ -98,10 +98,10 @@ module ForemanOpenscap
     end
 
     def steps
-      base_steps = ['Create policy', 'SCAP Content', 'Schedule']
-      base_steps << 'Locations' if SETTINGS[:locations_enabled]
-      base_steps << 'Organizations' if SETTINGS[:organizations_enabled]
-      base_steps << 'Hostgroups' #always be last.
+      base_steps = [N_('Create policy'), N_('SCAP Content'), N_('Schedule')]
+      base_steps << N_('Locations') if SETTINGS[:locations_enabled]
+      base_steps << N_('Organizations') if SETTINGS[:organizations_enabled]
+      base_steps << N_('Hostgroups') #always be last.
     end
 
     def current_step
