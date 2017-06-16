@@ -130,6 +130,9 @@ msgstr ""
 msgid "Create a Tailoring file"
 msgstr ""
 
+msgid "Create policy"
+msgstr ""
+
 msgid "Created"
 msgstr ""
 
@@ -199,6 +202,9 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
+msgid "Enable \"logs\" feature on proxy to search for errors"
+msgstr ""
+
 msgid "Failed"
 msgstr ""
 
@@ -258,6 +264,9 @@ msgid "Host does not exist anymore"
 msgstr ""
 
 msgid "Host is deleted"
+msgstr ""
+
+msgid "Hostgroups"
 msgstr ""
 
 msgid "Hostname"
@@ -357,9 +366,6 @@ msgstr ""
 msgid "No OpenSCAP proxy found for %{class} with %{id}"
 msgstr ""
 
-msgid "No available proxy to validate SCAP data stream file"
-msgstr ""
-
 msgid "No available proxy to validate. Returned with error: %s"
 msgstr ""
 
@@ -378,7 +384,10 @@ msgstr ""
 msgid "No hosts were found."
 msgstr ""
 
-msgid "No proxy with OpenSCAP features"
+msgid "No proxy with OpenSCAP feature is running."
+msgstr ""
+
+msgid "No proxy with OpenSCAP feature was found."
 msgstr ""
 
 msgid "No report for this policy"
