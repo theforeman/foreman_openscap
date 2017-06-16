@@ -16,6 +16,15 @@ module ForemanOpenscap
       end.uniq
     end
 
+    def openscap_proxy
+      return super if ancestry.nil? || self.openscap_proxy_id.present?
+      ::SmartProxy.find_by(:id => inherited_openscap_proxy_id)
+    end
+
+    def inherited_openscap_proxy_id
+      inherited_ancestry_attribute(:openscap_proxy_id)
+    end
+
     unless defined?(Katello::System)
       private
 
