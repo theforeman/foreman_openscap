@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class ScapContentProfile < ApplicationRecord
+  class ScapContentProfile < ActiveRecord::Base
     belongs_to :scap_content
     has_many :policies
     belongs_to :tailoring_file

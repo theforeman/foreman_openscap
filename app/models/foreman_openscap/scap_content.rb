@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class ScapContent < ApplicationRecord
+  class ScapContent < ActiveRecord::Base
     include Authorizable
     include Taxonomix
     include DataStreamContent

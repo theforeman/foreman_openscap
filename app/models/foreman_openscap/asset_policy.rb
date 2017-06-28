@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class AssetPolicy < ApplicationRecord
+  class AssetPolicy < ActiveRecord::Base
     belongs_to :policy
     belongs_to :asset
   end

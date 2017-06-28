@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class Asset < ApplicationRecord
+  class Asset < ActiveRecord::Base
     has_many :asset_policies
     has_many :policies, :through => :asset_policies
     belongs_to :assetable, :polymorphic => true

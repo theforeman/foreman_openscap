@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  class Policy < ApplicationRecord
+  class Policy < ActiveRecord::Base
     include Authorizable
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
