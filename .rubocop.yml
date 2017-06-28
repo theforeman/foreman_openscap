@@ -140,3 +140,7 @@ Rails/Blank:
 
 Style/DotPosition:
   Enabled: false
+
+# we don't have this in 1.15
+Rails/ApplicationRecord:
+  Enabled: false
