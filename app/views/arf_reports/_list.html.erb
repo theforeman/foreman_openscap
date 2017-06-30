@@ -5,6 +5,8 @@
   <th class="ca" width="40px"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th><%= sort :host %></th>
     <th><%= sort :reported, :as => _("Reported At") %></th>
+    <th><%= sort :policy, :as => _("Policy") %></th>
+    <th><%= sort :openscap_proxy, :as => _("Openscap Proxy") %></th>
     <th><%= sort :compliance_passed, :as => _("Passed") %></th>
     <th><%= sort :compliance_failed, :as => _("Failed") %></th>
     <th><%= sort :compliance_othered, :as => _("Other") %></th>
@@ -21,8 +23,10 @@
                              :class => 'host_select_boxes',
                              :onclick => 'hostChecked(this)' %>
         </td>
-      <td><%= name_column(arf_report.host) %></td>
+      <td class="elipsis"><%= name_column(arf_report.host) %></td>
       <td><%= display_link_if_authorized(_("%s ago") % time_ago_in_words(arf_report.reported_at), hash_for_arf_report_path(:id => arf_report.id)) %></td>
+      <td class="ellipsis"><%= display_link_if_authorized(arf_report.policy.name, hash_for_edit_policy_path(:id => arf_report.policy.id)) %></th>
+      <td class="ellipsis"><%= openscap_proxy_link arf_report %></th>
       <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
       <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
       <td><%= report_arf_column(arf_report.othered, "label-warning") %></th>
