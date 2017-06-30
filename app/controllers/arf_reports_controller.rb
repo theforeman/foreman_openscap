@@ -10,7 +10,7 @@ class ArfReportsController < ApplicationController
   end
 
   def index
-    @arf_reports = resource_base.includes(:host => %i[policies last_report_object host_statuses])
+    @arf_reports = resource_base.includes(:policy, :openscap_proxy, :host => %i[policies last_report_object host_statuses])
                                 .search_for(params[:search], :order => params[:order])
                                 .paginate(:page => params[:page], :per_page => params[:per_page])
   end
