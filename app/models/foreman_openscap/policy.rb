@@ -1,3 +1,4 @@
+require 'rack/utils'
 module ForemanOpenscap
   class Policy < ApplicationRecord
     include Authorizable
@@ -46,18 +47,17 @@ module ForemanOpenscap
     end
 
     def to_html
-      if scap_content.nil? || scap_content_profile.nil?
-        return ("<h2>%s</h2>" % (_('Cannot generate HTML guide for %{scap_content}/%{profile}') %
-          { :scap_content => h(self.scap_content), :profile => h(self.scap_content_profile) })).html_safe
+      if scap_content.nil?
+        return html_error_message(_('Cannot generate HTML guide, scap content is missing.'))
       end
 
       if (proxy = scap_content.proxy_url)
         api = ProxyAPI::Openscap.new(:url => proxy)
       else
-        return ("<h2>%s</h2>" % _('No valid OpenSCAP proxy server found.')).html_safe
+        return html_error_message(_('Cannot generate HTML guide, no valid OpenSCAP proxy server found.'))
       end
 
-      api.policy_html_guide(scap_content.scap_file, scap_content_profile.profile_id)
+      api.policy_html_guide(scap_content.scap_file, scap_content_profile.try(:profile_id))
     end
 
     def hostgroup_ids
@@ -208,6 +208,13 @@ module ForemanOpenscap
     end
 
     private
+
+    def html_error_message(message)
+      error_message = '<div class="alert alert-danger"><span class="pficon pficon-error-circle-o"></span><strong>' <<
+        message <<
+        '</strong></div>'
+      error_message.html_safe
+    end
 
     def erase_period_attrs(attrs)
       attrs.each { |attr| self.public_send("#{attr}=", nil) }
