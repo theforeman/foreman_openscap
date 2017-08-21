@@ -17,6 +17,8 @@ module ForemanOpenscap
     has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
     after_save :assign_locations_organizations
     has_one :log, :foreign_key => :report_id
+    belongs_to :openscap_proxy, :class_name => "SmartProxy"
+
 
     delegate :asset=, :to => :host
 
