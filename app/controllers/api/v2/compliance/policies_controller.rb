@@ -90,9 +90,13 @@ module Api::V2
 
       def tailoring
         @tailoring_file = @policy.tailoring_file
-        send_data @tailoring_file.scap_file,
-                  :type => 'application/xml',
-                  :filename => @tailoring_file.original_filename
+        if @tailoring_file
+          send_data @tailoring_file.scap_file,
+                    :type => 'application/xml',
+                    :filename => @tailoring_file.original_filename
+        else
+          render(:json => { :error => { :message => _("No Tailoring file assigned for policy with id %s") % @policy.id } }, :status => 404)
+        end
       end
 
       private
