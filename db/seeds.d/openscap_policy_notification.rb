@@ -1,7 +1,7 @@
-N_('Openscap policy summary')
+N_('Compliance policy summary')
 
 policy_notification = {
-  :name => :openscap_policy_summary,
+  :name => :compliance_policy_summary,
   :description => N_('A summary of reports for OpenSCAP policies'),
   :mailer => 'ForemanOpenscap::PolicyMailer',
   :method => 'policy_summary',
