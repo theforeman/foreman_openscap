@@ -93,4 +93,12 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
     assert(@response.header['Content-Type'], 'application/xml')
     assert_response :success
   end
+
+  test "should return meaningufull error when no tailioring file assigned" do
+    policy = FactoryGirl.create(:policy)
+    get :tailoring, { :id => policy.id }, set_session_user
+    assert_response :not_found
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal "No Tailoring file assigned for policy with id #{policy.id}", response['error']['message']
+  end
 end
