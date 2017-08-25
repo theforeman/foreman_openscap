@@ -296,7 +296,7 @@ module ForemanOpenscap
 
     def matching_content_profile
       if scap_content_id && scap_content_profile_id && !ScapContent.find(scap_content_id).scap_content_profile_ids.include?(scap_content_profile_id)
-        errors.add(:scap_content_id, _("does not have the selected scap content profile"))
+        errors.add(:scap_content_id, _("does not have the selected SCAP content profile"))
       end
     end
 
