@@ -3,6 +3,7 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
+    audited
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
