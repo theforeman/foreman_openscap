@@ -3,7 +3,8 @@
 <% stylesheet 'foreman_openscap/reports' %>
 
 <% title "#{@arf_report.host}" %>
-<p class='ra'> <%= _("Reported at %s") % @arf_report.reported_at %> </p>
+
+<p class='ra'><%= reported_info @arf_report %></p>
 
 <% content_for(:search_bar) {show_logs} %>
 
