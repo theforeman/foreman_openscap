@@ -28,16 +28,23 @@ module ForemanOpenscap
       self[:digest] ||= Digest::SHA256.hexdigest(scap_file.to_s)
     end
 
+    def create_profiles
+      fetch_profiles.each do |key, title|
+        create_or_update_profile key, title
+      end
+    end
+
+    def create_or_update_profile(profile_id, title)
+      profile = ScapContentProfile.find_by(:profile_id => profile_id, "#{self.class.to_s.demodulize.underscore}_id".to_sym => id)
+      return ScapContentProfile.create(:profile_id => profile_id, :title => title, "#{self.class.to_s.demodulize.underscore}_id".to_sym => id) unless profile
+      profile.update(:title => title) unless profile.title == title
+      profile
+    end
+
     private
 
     def redigest
       self[:digest] = Digest::SHA256.hexdigest(scap_file.to_s)
-    end
-
-    def create_profiles
-      fetch_profiles.each do |key, title|
-        ScapContentProfile.where(:profile_id => key, :title => title, "#{self.class.to_s.demodulize.underscore}_id".to_sym => id).first_or_create
-      end
     end
   end
 end
