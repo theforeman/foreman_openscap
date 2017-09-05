@@ -205,6 +205,6 @@ class PolicyTest < ActiveSupport::TestCase
                                         :period => 'monthly',
                                         :day_of_month => '5')
     refute q.valid?
-    assert_equal "does not have the selected scap content profile", q.errors.messages[:scap_content_id].first
+    assert_equal "does not have the selected SCAP content profile", q.errors.messages[:scap_content_id].first
   end
 end
