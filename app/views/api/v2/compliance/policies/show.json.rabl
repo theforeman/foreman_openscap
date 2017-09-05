@@ -1,11 +1,7 @@
 object @policy
 
 child :hostgroups => :hostgroups do |hostgroup|
-  attributes :id, :name
+  attributes :id, :name, :title
 end
 
 extends "api/v2/compliance/policies/main"
-
-child :hostgroups => :hostgroups do |hg|
-  attributes :id, :title
-end
