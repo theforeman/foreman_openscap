@@ -52,4 +52,17 @@ module ArfReportsHelper
          :'data-dialog-title' => _("%s - The following compliance reports are about to be changed") % action[0])
       end.flatten)
   end
+
+  def openscap_proxy_link(arf_report)
+    return _("No proxy found!") unless arf_report.openscap_proxy
+    display_link_if_authorized(arf_report.openscap_proxy.name, hash_for_smart_proxy_path(:id => arf_report.openscap_proxy_id))
+  end
+
+  def reported_info(arf_report)
+    msg = _("Reported at %s") % arf_report.reported_at
+    msg << _(" for policy %s") % display_link_if_authorized(arf_report.policy.name, hash_for_edit_policy_path(:id => arf_report.policy.id)) if arf_report.policy
+    return msg.html_safe unless arf_report.openscap_proxy
+    msg += _(" through %s") % openscap_proxy_link(arf_report)
+    msg.html_safe
+  end
 end

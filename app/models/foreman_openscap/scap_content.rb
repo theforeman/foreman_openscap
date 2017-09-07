@@ -3,11 +3,13 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     include DataStreamContent
+    audited :except => [ :scap_file ]
 
     has_many :scap_content_profiles, :dependent => :destroy
     has_many :policies
 
     validates :title, :presence => true, :length => { :maximum => 255 }
+    validates :original_filename, :length => { :maximum => 255 }
 
     scoped_search :on => :title,             :complete_value => true
     scoped_search :on => :original_filename, :complete_value => true, :rename => :filename

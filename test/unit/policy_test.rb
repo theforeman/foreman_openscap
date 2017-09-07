@@ -6,7 +6,7 @@ class PolicyTest < ActiveSupport::TestCase
     ForemanOpenscap::DataStreamValidator.any_instance.stubs(:validate)
     ForemanOpenscap::ScapContent.any_instance.stubs(:fetch_profiles).returns({ 'test_profile_key' => 'test_profile_title' })
     @scap_content = FactoryGirl.create(:scap_content)
-    @scap_profile = FactoryGirl.create(:scap_content_profile)
+    @scap_profile = FactoryGirl.create(:scap_content_profile, :scap_content => @scap_content)
     @tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
   end
 
@@ -16,7 +16,7 @@ class PolicyTest < ActiveSupport::TestCase
     hg1 = FactoryGirl.create(:hostgroup)
     hg2 = FactoryGirl.create(:hostgroup)
     asset = FactoryGirl.create(:asset, :assetable_id => hg1.id, :assetable_type => 'Hostgroup')
-    policy = FactoryGirl.create(:policy, :assets => [asset])
+    policy = FactoryGirl.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.hostgroup_ids = [hg1, hg2].map(&:id)
     policy.save!
     assert_equal 2, policy.hostgroups.count
@@ -28,7 +28,7 @@ class PolicyTest < ActiveSupport::TestCase
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hg = FactoryGirl.create(:hostgroup)
     asset = FactoryGirl.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
-    policy = FactoryGirl.create(:policy, :assets => [asset])
+    policy = FactoryGirl.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.save!
     hg.hostgroup_classes.destroy_all
     hg.destroy
@@ -145,7 +145,7 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should have correct scap profile in enc" do
-    p = FactoryGirl.create(:policy)
+    p = FactoryGirl.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     profile_id = p.scap_content_profile.profile_id
     assert_equal profile_id, p.to_enc['profile_id']
     tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
@@ -189,5 +189,22 @@ class PolicyTest < ActiveSupport::TestCase
                                     :day_of_month => '5')
     assert_equal 6, p.to_enc['tailoring_download_path'].split('/').length
     assert_equal tailoring_file.digest, p.to_enc['tailoring_download_path'].split('/').last
+  end
+
+  test "should have assigned a content profile that belongs to assigned scap content" do
+    scap_content_2 = FactoryGirl.create(:scap_content)
+    p = ForemanOpenscap::Policy.create(:name => "valid_profile_policy",
+                                        :scap_content_id => @scap_content.id,
+                                        :scap_content_profile_id => @scap_profile.id,
+                                        :period => 'monthly',
+                                        :day_of_month => '5')
+    assert p.valid?
+    q = ForemanOpenscap::Policy.create(:name => "invalid_profile_policy",
+                                        :scap_content_id => scap_content_2.id,
+                                        :scap_content_profile_id => @scap_profile.id,
+                                        :period => 'monthly',
+                                        :day_of_month => '5')
+    refute q.valid?
+    assert_equal "does not have the selected SCAP content profile", q.errors.messages[:scap_content_id].first
   end
 end

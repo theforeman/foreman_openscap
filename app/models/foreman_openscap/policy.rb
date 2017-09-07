@@ -3,6 +3,7 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
+    audited
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
@@ -29,9 +30,9 @@ module ForemanOpenscap
 
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validates :scap_content_profile_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
+    validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
 
     validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :valid_tailoring, :valid_tailoring_profile
-
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
 
@@ -291,6 +292,12 @@ module ForemanOpenscap
     def valid_tailoring_profile
       if tailoring_file && tailoring_file_profile && !ScapContentProfile.where(:tailoring_file_id => tailoring_file_id).include?(tailoring_file_profile)
         errors.add(:tailoring_file_profile, _("does not come from selected tailoring file"))
+      end
+    end
+
+    def matching_content_profile
+      if scap_content_id && scap_content_profile_id && !ScapContent.find(scap_content_id).scap_content_profile_ids.include?(scap_content_profile_id)
+        errors.add(:scap_content_id, _("does not have the selected SCAP content profile"))
       end
     end
 
