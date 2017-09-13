@@ -5,7 +5,7 @@
 <%= show_feature_version(feature.downcase) %>
 <div class="row">
   <% msg = _("Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.") %>
-  <div class="col-md-4"><%= _('Last spool error') %>&nbsp;<%= popover("", msg) %></div>
+  <div class="col-md-4"><strong><%= _('Last spool error') %></strong>&nbsp;<%= popover("", msg) %></div>
   <div class="col-md-8" data-ajax-url="<%= openscap_spool_openscap_proxy_path(:smart_proxy_id => @smart_proxy) %>">
       <%= spinner %>
   </div>
