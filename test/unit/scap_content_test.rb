@@ -32,4 +32,19 @@ class ScapContentTest < ActiveSupport::TestCase
       assert_equal(available_proxy.url, scap_content.proxy_url)
     end
   end
+
+  test 'should update profile title when fetching profiles from proxy' do
+    scap_content = FactoryGirl.create(:scap_content)
+    scap_content.stubs(:fetch_profiles).returns({ "xccdf.test.profile" => "Changed title" })
+    scap_profile = FactoryGirl.create(:scap_content_profile, :scap_content => scap_content, :profile_id => 'xccdf.test.profile', :title => "Original title")
+    scap_content.create_profiles
+    assert_equal scap_profile.reload.title, 'Changed title'
+  end
+
+  test 'should create profile when fetching profiles from proxy' do
+    scap_content = FactoryGirl.create(:scap_content)
+    scap_content.stubs(:fetch_profiles).returns({ "xccdf.test.profile" => "My title" })
+    scap_content.create_profiles
+    assert scap_content.reload.scap_content_profiles.where(:title => 'My title').first
+  end
 end
