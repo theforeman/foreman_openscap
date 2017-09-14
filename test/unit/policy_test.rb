@@ -135,13 +135,12 @@ class PolicyTest < ActiveSupport::TestCase
     assert p.errors[:scap_content_id].include?("can't be blank")
   end
 
-  test "should not create policy without SCAP content profile" do
+  test "should create a policy with default SCAP content profile (profile id is nil)" do
     p = ForemanOpenscap::Policy.new(:name => "custom_policy",
                                     :scap_content_id => @scap_content.id,
                                     :period => 'monthly',
                                     :day_of_month => '5')
-    refute p.save
-    assert p.errors[:scap_content_profile_id].include?("can't be blank")
+    assert p.save
   end
 
   test "should have correct scap profile in enc" do
