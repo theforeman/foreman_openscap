@@ -156,6 +156,18 @@ view_openscap_proxies]
         parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
         parameter_filter Log, :result
 
+        smart_proxy_for Hostgroup, :openscap_proxy,
+                        :feature => 'Openscap',
+                        :label => N_('OpenSCAP Proxy'),
+                        :description => N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports'),
+                        :api_description => N_('ID of OpenSCAP Proxy')
+        smart_proxy_for Host::Managed, :openscap_proxy,
+                        :feature => 'Openscap',
+                        :label => N_('OpenSCAP Proxy'),
+                        :description => N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports'),
+                        :api_description => N_('ID of OpenSCAP Proxy')
+
+
         if ForemanOpenscap.with_remote_execution?
           options = {
             :description => N_("Run OpenSCAP scan"),
