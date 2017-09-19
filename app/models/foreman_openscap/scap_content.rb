@@ -8,7 +8,7 @@ module ForemanOpenscap
     has_many :scap_content_profiles, :dependent => :destroy
     has_many :policies
 
-    validates :title, :presence => true, :length => { :maximum => 255 }
+    validates :title, :presence => true, :length => { :maximum => 255 }, uniqueness: true
     validates :original_filename, :length => { :maximum => 255 }
 
     scoped_search :on => :title,             :complete_value => true
