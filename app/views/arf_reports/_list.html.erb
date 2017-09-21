@@ -25,7 +25,7 @@
         </td>
       <td class="elipsis"><%= name_column(arf_report.host) %></td>
       <td><%= display_link_if_authorized(_("%s ago") % time_ago_in_words(arf_report.reported_at), hash_for_arf_report_path(:id => arf_report.id)) %></td>
-      <td class="ellipsis"><%= display_link_if_authorized(arf_report.policy.name, hash_for_edit_policy_path(:id => arf_report.policy.id)) %></th>
+      <td class="ellipsis"><%= arf_report.policy.present? ? display_link_if_authorized(arf_report.policy.name, hash_for_edit_policy_path(:id => arf_report.policy.id)) : _('Deleted policy') %></th>
       <td class="ellipsis"><%= openscap_proxy_link arf_report %></th>
       <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
       <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
