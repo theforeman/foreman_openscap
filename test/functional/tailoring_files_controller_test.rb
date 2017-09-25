@@ -22,9 +22,8 @@ class TailoringFilesControllerTest < ActionController::TestCase
   end
 
   test 'create' do
-    uploaded_file = ActionDispatch::Http::UploadedFile.new(:tempfile => @scap_file,
-                                                           :content_type => 'text/xml')
-    uploaded_file.original_filename = 'uploaded-tailoring-file.xml'
+    uploaded_file = Rack::Test::UploadedFile.new(@scap_file, 'text/xml')
+    # uploaded_file.original_filename = 'uploaded-tailoring-file.xml'
     post :create, { :tailoring_file => { :name => 'some_file', :scap_file => uploaded_file } }, set_session_user
     assert_redirected_to tailoring_files_url
   end

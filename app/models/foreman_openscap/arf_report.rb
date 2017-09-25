@@ -66,12 +66,12 @@ module ForemanOpenscap
 
     def status=(st)
       s = case st
-          when Integer, Integer
+          when Integer
             st
-          when Hash
+          when Hash, ActionController::Parameters
             ArfReportStatusCalculator.new(:counters => st).calculate
           else
-            raise Foreman::Exception(N_('Unsupported report status format'))
+            raise "Unsupported report status format #{st.class}"
           end
       write_attribute(:status, s)
     end
@@ -120,12 +120,24 @@ module ForemanOpenscap
               update_msg_with_changes(msg, log)
             else
               digest = Digest::SHA1.hexdigest(log[:title])
-              msg = Message.create!(:value => N_(log[:title]),
-                                    :digest => digest,
-                                    :severity => log[:severity],
-                                    :description => newline_to_space(log[:description]),
-                                    :rationale => newline_to_space(log[:rationale]),
-                                    :scap_references => references_links(log[:references]))
+              if (msg = Message.find_by(:digest => digest))
+                msg.attributes = {
+                  :value => N_(log[:title]),
+                  :digest => digest,
+                  :severity => log[:severity],
+                  :description => newline_to_space(log[:description]),
+                  :rationale => newline_to_space(log[:rationale]),
+                  :scap_references => references_links(log[:references])
+                }
+              else
+                msg = Message.new(:value => N_(log[:title]),
+                                  :digest => digest,
+                                  :severity => log[:severity],
+                                  :description => newline_to_space(log[:description]),
+                                  :rationale => newline_to_space(log[:rationale]),
+                                  :scap_references => references_links(log[:references]))
+              end
+              msg.save!
             end
             #TODO: log level
             Log.create!(:source_id => src.id,

@@ -3,6 +3,9 @@ require 'tmpdir'
 
 class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   setup do
+    # required for mysql where database cleaner does not cleanup things properly
+    # because of arf_create does explicit transaction commit
+    Message.delete_all
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
     @host = FactoryGirl.create(:compliance_host)
@@ -62,26 +65,28 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
   test "should not duplicate messages" do
     dates = [Time.new(1984, 9, 15), Time.new(1932, 3, 27)]
-    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
-    2.times do |num|
-      post :create,
-           @from_json.merge(:cname => @cname,
-                            :policy_id => @policy.id,
-                            :date => dates[num].to_i),
-           set_session_user
-    end
-    assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
-  end
+    params = @from_json.with_indifferent_access.merge(:cname => @cname,
+                                                      :policy_id => @policy.id,
+                                                      :date => dates[0].to_i)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
 
-  test "should recognize changes in messages" do
+
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
          @from_json.merge(:cname => @cname,
                           :policy_id => @policy.id,
-                          :date => Time.new(2017, 5, 6).to_i),
-          set_session_user
-    assert_response :success
+                          :date => dates[1].to_i),
+         set_session_user
+    assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
+  end
 
+  test "should recognize changes in messages" do
+    params = @from_json.with_indifferent_access.merge(:cname => @cname,
+                                                      :policy_id => @policy.id,
+                                                      :date => Time.new(2017, 5, 6).to_i)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
+
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_desc_changed.json"
     post :create,
          changed_from_json.merge(:cname => @cname,
@@ -101,15 +106,12 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
   test "should recognize change in message title/value" do
     reports_cleanup
+    params = @from_json.with_indifferent_access.merge(:cname => @cname,
+                                                      :policy_id => @policy.id,
+                                                      :date => Time.new(2017, 7, 6).to_i)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
+
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
-    post :create,
-         @from_json.merge(:cname => @cname,
-                          :policy_id => @policy.id,
-                          :date => Time.new(2017, 7, 6).to_i),
-          set_session_user
-
-    assert_response :success
-
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_value_changed.json"
     post :create,
          changed_from_json.merge(:cname => @cname,

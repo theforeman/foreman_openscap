@@ -65,8 +65,11 @@ Rails/ActionFilter:
   EnforcedStyle: filter
 
 Metrics/MethodLength:
-  Max: 40
+  Max: 50
 
+Metrics/AbcSize:
+  Max: 60
+ 
 Style/TrailingCommaInLiteral:
   Enabled: false
 
