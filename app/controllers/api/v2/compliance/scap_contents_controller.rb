@@ -16,7 +16,7 @@ module Api::V2
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
-        @scap_contents = resource_scope_for_index(:permission => :edit_compliance)
+        @scap_contents = resource_scope_for_index(:permission => :view_scap_contents)
       end
 
       api :GET, '/compliance/scap_contents/:id/xml', N_('Show an SCAP content as XML')

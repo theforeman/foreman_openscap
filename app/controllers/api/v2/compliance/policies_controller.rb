@@ -26,7 +26,7 @@ module Api::V2
       param_group :search_and_pagination, ::Api::V2::BaseController
 
       def index
-        @policies = resource_scope_for_index(:permission => :edit_compliance)
+        @policies = resource_scope_for_index(:permission => :view_policies)
       end
 
       api :GET, '/compliance/policies/:id', N_('Show a Policy')
