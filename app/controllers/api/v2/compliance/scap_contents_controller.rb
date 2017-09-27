@@ -25,7 +25,7 @@ module Api::V2
       def xml
         send_data @scap_content.scap_file,
                   :type     => 'application/xml',
-                  :filename => @scap_content.original_filename
+                  :filename => @scap_content.original_filename || "#{@scap_content.title}.xml"
       end
 
       api :GET, '/compliance/scap_contents/:id', N_('Show an SCAP content')
