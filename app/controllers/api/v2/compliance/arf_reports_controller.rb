@@ -26,7 +26,7 @@ module Api
         param_group :search_and_pagination, ::Api::V2::BaseController
 
         def index
-          @arf_reports = resource_scope_for_index(:permission => :edit_compliance).includes(:openscap_proxy, :policy, :host)
+          @arf_reports = resource_scope_for_index(:permission => :view_arf_reports).includes(:openscap_proxy, :policy, :host)
         end
 
         api :GET, '/compliance/arf_reports/:id', N_('Show an ARF report')
