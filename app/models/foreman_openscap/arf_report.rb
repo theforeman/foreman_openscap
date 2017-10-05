@@ -12,8 +12,8 @@ module ForemanOpenscap
 
     scoped_search :on => :status, :offset => 0, :word_size => 4*BIT_NUM, :complete_value => {:true => true, :false => false}, :rename => :eventful
 
-    has_one :policy_arf_report, :dependent => :destroy
-    has_one :policy, :through => :policy_arf_report
+    has_one :policy_arf_report
+    has_one :policy, :through => :policy_arf_report, :dependent => :destroy
     has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
     after_save :assign_locations_organizations
     has_one :log, :foreign_key => :report_id
