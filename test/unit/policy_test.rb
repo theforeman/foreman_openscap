@@ -206,4 +206,14 @@ class PolicyTest < ActiveSupport::TestCase
     refute q.valid?
     assert_equal "does not have the selected SCAP content profile", q.errors.messages[:scap_content_id].first
   end
+
+  test "should delete arf_report when deleting policy" do
+    policy = FactoryGirl.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    host = FactoryGirl.create(:compliance_host)
+    arf_report = FactoryGirl.create(:arf_report, :host_id => host.id)
+    policy_arf_report = FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => arf_report.id)
+    policy.destroy
+    assert_empty ForemanOpenscap::PolicyArfReport.where(:id => policy_arf_report.id)
+    assert_empty ForemanOpenscap::ArfReport.where(:id => arf_report.id)
+  end
 end
