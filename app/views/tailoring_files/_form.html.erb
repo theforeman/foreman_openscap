@@ -17,7 +17,7 @@
   <div class="tab-content">
     <div class="tab-pane active" id="primary">
       <%= text_f(f, :name) %>
-      <%= file_field_f f, :scap_file, :help_block  => _("Upload DataStream Tailoring file") %>
+      <%= file_field_f f, :scap_file, :file_name => @tailoring_file.original_filename, :label_help => _("DataStream Tailoring file") %>
     </div>
     <%= render 'taxonomies/loc_org_tabs', :f => f, :obj => @tailoring_file %>
     <%= submit_or_cancel f %>
