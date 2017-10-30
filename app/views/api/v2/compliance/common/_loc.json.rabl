@@ -1,3 +1,3 @@
 child :locations => :locations do |loc|
-  attributes :id, :name
+  attributes :id, :name, :title
 end

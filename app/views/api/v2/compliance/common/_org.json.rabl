@@ -1,3 +1,3 @@
 child :organizations => :organizations do |org|
-  attributes :id, :name
+  attributes :id, :name, :title
 end
