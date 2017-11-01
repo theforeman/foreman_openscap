@@ -2,18 +2,18 @@ require 'test_plugin_helper'
 
 class DataTest < ActiveSupport::TestCase
   setup do
-    @host = FactoryGirl.create(:compliance_host)
-    @arf = FactoryGirl.create(:arf_report, :host_id => @host.id)
-    @source = FactoryGirl.create(:source)
+    @host = FactoryBot.create(:compliance_host)
+    @arf = FactoryBot.create(:arf_report, :host_id => @host.id)
+    @source = FactoryBot.create(:source)
     @failed = []
     @passed = []
     3.times do
-      @failed << FactoryGirl.create(:compliance_log, :report_id => @arf.id, :source => @source)
+      @failed << FactoryBot.create(:compliance_log, :report_id => @arf.id, :source => @source)
     end
     2.times do
-      @passed << FactoryGirl.create(:compliance_log, :report_id => @arf.id, :result => "pass", :source => @source)
+      @passed << FactoryBot.create(:compliance_log, :report_id => @arf.id, :result => "pass", :source => @source)
     end
-    @othered = [FactoryGirl.create(:compliance_log, :report_id => @arf.id, :result => "unknown", :source => @source)]
+    @othered = [FactoryBot.create(:compliance_log, :report_id => @arf.id, :result => "unknown", :source => @source)]
   end
 
   test 'should fetch data' do

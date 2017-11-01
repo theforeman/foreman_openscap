@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class TailoringFilesControllerTest < ActionController::TestCase
   setup do
-    @tailoring_file = FactoryGirl.create(:tailoring_file)
+    @tailoring_file = FactoryBot.create(:tailoring_file)
     @scap_file = File.new("#{ForemanOpenscap::Engine.root}/test/files/tailoring_files/ssg-firefox-ds-tailoring.xml", 'rb')
   end
 

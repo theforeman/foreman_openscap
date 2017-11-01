@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :arf_report, :class => ::ForemanOpenscap::ArfReport do
     host_id 1
     policy nil

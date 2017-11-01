@@ -2,7 +2,7 @@ require 'test_plugin_helper'
 
 class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCase
   test "should get index" do
-    FactoryGirl.create(:scap_content)
+    FactoryBot.create(:scap_content)
     get :index, {}, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     assert response['results'].any?
@@ -10,7 +10,7 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
   end
 
   test "should return xml of scap content" do
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     get :show, { :id => scap_content.id }, set_session_user
     assert(@response.header['Content-Type'], 'application/xml')
     assert_response :success
@@ -26,7 +26,7 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
   end
 
   test "should update scap content" do
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     put :update, { :id => scap_content.id, :scap_content => { :title => 'RHEL7 SCAP' } }, set_session_user
     assert_response :success
     assert scap_content.title, 'RHEL7 SCAP'
@@ -35,13 +35,13 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
   test "should not update invalid scap content" do
     skip("Solve 'ActiveRecord::RecordInvalid' error")
     ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({ 'errors' => ['Invalid file'] })
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     put :update, { :id => scap_content.id, :scap_content => { :scap_file => '<xml>blah</xml>' } }, set_session_user
     assert_response :unprocessable_entity
   end
 
   test "should destory scap content" do
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     delete :destroy, { :id => scap_content.id }, set_session_user
     assert_response :ok
     refute ForemanOpenscap::ScapContent.exists?(scap_content.id)

@@ -25,7 +25,7 @@ class ScapContentTest < ActiveSupport::TestCase
 
     test 'proxy_url should return the first available proxy it finds' do
       available_proxy = SmartProxy.with_features('Openscap').first
-      unavailable_proxy = FactoryGirl.create(:smart_proxy, :url => 'http://proxy.example.com:8443', :features => [FactoryGirl.create(:feature, :name => 'Openscap')])
+      unavailable_proxy = FactoryBot.create(:smart_proxy, :url => 'http://proxy.example.com:8443', :features => [FactoryBot.create(:feature, :name => 'Openscap')])
       available_proxy.stubs(:proxy_url).returns(available_proxy.url)
       unavailable_proxy.stubs(:proxy_url).returns(nil)
       scap_content = ForemanOpenscap::ScapContent.new(:title => 'Fedora', :scap_file => @scap_file)
@@ -34,15 +34,15 @@ class ScapContentTest < ActiveSupport::TestCase
   end
 
   test 'should update profile title when fetching profiles from proxy' do
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     scap_content.stubs(:fetch_profiles).returns({ "xccdf.test.profile" => "Changed title" })
-    scap_profile = FactoryGirl.create(:scap_content_profile, :scap_content => scap_content, :profile_id => 'xccdf.test.profile', :title => "Original title")
+    scap_profile = FactoryBot.create(:scap_content_profile, :scap_content => scap_content, :profile_id => 'xccdf.test.profile', :title => "Original title")
     scap_content.create_profiles
     assert_equal scap_profile.reload.title, 'Changed title'
   end
 
   test 'should create profile when fetching profiles from proxy' do
-    scap_content = FactoryGirl.create(:scap_content)
+    scap_content = FactoryBot.create(:scap_content)
     scap_content.stubs(:fetch_profiles).returns({ "xccdf.test.profile" => "My title" })
     scap_content.create_profiles
     assert scap_content.reload.scap_content_profiles.where(:title => 'My title').first

@@ -5,18 +5,18 @@ class PolicyTest < ActiveSupport::TestCase
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     ForemanOpenscap::DataStreamValidator.any_instance.stubs(:validate)
     ForemanOpenscap::ScapContent.any_instance.stubs(:fetch_profiles).returns({ 'test_profile_key' => 'test_profile_title' })
-    @scap_content = FactoryGirl.create(:scap_content)
-    @scap_profile = FactoryGirl.create(:scap_content_profile, :scap_content => @scap_content)
-    @tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
+    @scap_content = FactoryBot.create(:scap_content)
+    @scap_profile = FactoryBot.create(:scap_content_profile, :scap_content => @scap_content)
+    @tailoring_profile = FactoryBot.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
   end
 
   test "should assign hostgroups by their ids" do
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryGirl.create(:puppetclass, :name => 'foreman_scap_client'))
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
-    hg1 = FactoryGirl.create(:hostgroup)
-    hg2 = FactoryGirl.create(:hostgroup)
-    asset = FactoryGirl.create(:asset, :assetable_id => hg1.id, :assetable_type => 'Hostgroup')
-    policy = FactoryGirl.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    hg1 = FactoryBot.create(:hostgroup)
+    hg2 = FactoryBot.create(:hostgroup)
+    asset = FactoryBot.create(:asset, :assetable_id => hg1.id, :assetable_type => 'Hostgroup')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.hostgroup_ids = [hg1, hg2].map(&:id)
     policy.save!
     assert_equal 2, policy.hostgroups.count
@@ -24,11 +24,11 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should remove associated hostgroup" do
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryGirl.create(:puppetclass, :name => 'foreman_scap_client'))
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
-    hg = FactoryGirl.create(:hostgroup)
-    asset = FactoryGirl.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
-    policy = FactoryGirl.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    hg = FactoryBot.create(:hostgroup)
+    asset = FactoryBot.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.save!
     hg.hostgroup_classes.destroy_all
     hg.destroy
@@ -144,17 +144,17 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should have correct scap profile in enc" do
-    p = FactoryGirl.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    p = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     profile_id = p.scap_content_profile.profile_id
     assert_equal profile_id, p.to_enc['profile_id']
-    tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
+    tailoring_profile = FactoryBot.create(:scap_content_profile, :profile_id => 'xccdf_org.test.tailoring_test_profile')
     p.tailoring_file_profile = tailoring_profile
     assert_equal tailoring_profile.profile_id, p.to_enc['profile_id']
   end
 
   test "should not create policy with incorrect tailoring profile" do
-    tailoring_profile = FactoryGirl.create(:scap_content_profile, :profile_id => 'xccdf_org.test.common_tailoring_profile')
-    tailoring_file = FactoryGirl.create(:tailoring_file, :scap_content_profiles => [tailoring_profile])
+    tailoring_profile = FactoryBot.create(:scap_content_profile, :profile_id => 'xccdf_org.test.common_tailoring_profile')
+    tailoring_file = FactoryBot.create(:tailoring_file, :scap_content_profiles => [tailoring_profile])
     p = ForemanOpenscap::Policy.create(:name => "custom_policy",
                                        :period => 'monthly',
                                        :day_of_month => '5',
@@ -178,7 +178,7 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should have digest in enc download path for tailoring file" do
-    tailoring_file = FactoryGirl.create(:tailoring_file)
+    tailoring_file = FactoryBot.create(:tailoring_file)
     p = ForemanOpenscap::Policy.new(:name => "custom_policy",
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
@@ -191,7 +191,7 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should have assigned a content profile that belongs to assigned scap content" do
-    scap_content_2 = FactoryGirl.create(:scap_content)
+    scap_content_2 = FactoryBot.create(:scap_content)
     p = ForemanOpenscap::Policy.create(:name => "valid_profile_policy",
                                        :scap_content_id => @scap_content.id,
                                        :scap_content_profile_id => @scap_profile.id,
@@ -208,10 +208,10 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should delete arf_report when deleting policy" do
-    policy = FactoryGirl.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
-    host = FactoryGirl.create(:compliance_host)
-    arf_report = FactoryGirl.create(:arf_report, :host_id => host.id)
-    policy_arf_report = FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => arf_report.id)
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    host = FactoryBot.create(:compliance_host)
+    arf_report = FactoryBot.create(:arf_report, :host_id => host.id)
+    policy_arf_report = FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => arf_report.id)
     policy.destroy
     assert_empty ForemanOpenscap::PolicyArfReport.where(:id => policy_arf_report.id)
     assert_empty ForemanOpenscap::ArfReport.where(:id => arf_report.id)

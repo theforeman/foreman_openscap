@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :compliance_log, :class => :log do
     result "fail"
     association :report

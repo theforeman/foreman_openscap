@@ -1,6 +1,6 @@
 include ActionDispatch::TestProcess
 
-FactoryGirl.define do
+FactoryBot.define do
   factory :scap_content, :class => ::ForemanOpenscap::ScapContent do |f|
     f.title 'fedora'
     f.original_filename 'fedora ds'
