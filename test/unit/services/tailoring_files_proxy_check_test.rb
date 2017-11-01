@@ -19,7 +19,7 @@ class TailoringFilesProxyCheckTest < ActiveSupport::TestCase
 
   test 'should fail when proxy cannot be reached' do
     ProxyStatus::Version.any_instance.stubs(:version).raises(Foreman::WrappedException.new(nil, 'test message'))
-    ForemanOpenscap::OpenscapProxyVersionCheck.any_instance.stubs(:get_openscap_proxies).returns([FactoryGirl.create(:openscap_proxy)])
+    ForemanOpenscap::OpenscapProxyVersionCheck.any_instance.stubs(:get_openscap_proxies).returns([FactoryBot.create(:openscap_proxy)])
     check = ForemanOpenscap::OpenscapProxyVersionCheck.new.run
     refute check.pass?
     refute check.message.empty?

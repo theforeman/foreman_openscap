@@ -8,12 +8,12 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     Message.delete_all
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
-    @host = FactoryGirl.create(:compliance_host)
-    @report = FactoryGirl.create(:arf_report,
+    @host = FactoryBot.create(:compliance_host)
+    @report = FactoryBot.create(:arf_report,
                                  :host_id => @host.id,
-                                 :openscap_proxy => FactoryGirl.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
-    @policy = FactoryGirl.create(:policy)
-    @asset = FactoryGirl.create(:asset)
+                                 :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
+    @policy = FactoryBot.create(:policy)
+    @asset = FactoryBot.create(:asset)
 
     @from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.json"
     @cname = '9521a5c5-8f44-495f-b087-20e86b30bf67'

@@ -5,12 +5,12 @@ class OpenscapHostTest < ActiveSupport::TestCase
     disable_orchestration
     User.current = users :admin
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryGirl.create(:puppetclass, :name => 'foreman_scap_client'))
-    @policy = FactoryGirl.create(:policy)
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
+    @policy = FactoryBot.create(:policy)
   end
 
   test 'Host has policy' do
-    host = FactoryGirl.create(:host)
+    host = FactoryBot.create(:host)
     assert_empty(host.policies)
 
     assert(@policy.assign_hosts([host]), 'Host policies should be assigned')
@@ -18,7 +18,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
   end
 
   test 'Host has policies via its hostgroup' do
-    host = FactoryGirl.create(:host, :with_hostgroup)
+    host = FactoryBot.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
     @policy.hostgroup_ids = [hostgroup.id]
     assert @policy.save
@@ -27,9 +27,9 @@ class OpenscapHostTest < ActiveSupport::TestCase
   end
 
   test 'Host has policies via its host group and its parent host groups' do
-    host = FactoryGirl.create(:host, :with_hostgroup)
+    host = FactoryBot.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
-    hostgroup.parent = FactoryGirl.create(:hostgroup)
+    hostgroup.parent = FactoryBot.create(:hostgroup)
     @policy.hostgroup_ids = [hostgroup.parent.id]
     assert @policy.save
     refute_empty(host.combined_policies)
@@ -38,11 +38,11 @@ class OpenscapHostTest < ActiveSupport::TestCase
 
   context 'testing scap_status_changed?' do
     setup do
-      @host = FactoryGirl.create(:compliance_host)
-      @report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id)
-      @report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id)
-      @policy_report_1 = FactoryGirl.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_1.id)
-      @policy_report_2 = FactoryGirl.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_2.id)
+      @host = FactoryBot.create(:compliance_host)
+      @report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      @report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      @policy_report_1 = FactoryBot.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_1.id)
+      @policy_report_2 = FactoryBot.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => @report_2.id)
     end
 
     test "reports for policy should return expected reports" do

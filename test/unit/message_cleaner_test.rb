@@ -6,15 +6,15 @@ class MessageCleanerTest < ActiveSupport::TestCase
   end
 
   test "should clean up messages" do
-    host = FactoryGirl.create(:compliance_host)
-    policy = FactoryGirl.create(:policy)
+    host = FactoryBot.create(:compliance_host)
+    policy = FactoryBot.create(:policy)
     reports = []
-    source = FactoryGirl.create(:source, :value => "xccdf_org.ssgproject.content_rule_firefox_preferences-lock_settings_obscure")
+    source = FactoryBot.create(:source, :value => "xccdf_org.ssgproject.content_rule_firefox_preferences-lock_settings_obscure")
     2.times do
-      report = FactoryGirl.create(:arf_report, :host_id => host.id)
-      message = FactoryGirl.create(:compliance_message, :value => "Disable Firefox Configuration File ROT-13 Encoding")
-      FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
-      FactoryGirl.create(:compliance_log, :source_id => source.id, :message_id => message.id, :report_id => report.id)
+      report = FactoryBot.create(:arf_report, :host_id => host.id)
+      message = FactoryBot.create(:compliance_message, :value => "Disable Firefox Configuration File ROT-13 Encoding")
+      FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
+      FactoryBot.create(:compliance_log, :source_id => source.id, :message_id => message.id, :report_id => report.id)
       report.reload
       reports << report
     end

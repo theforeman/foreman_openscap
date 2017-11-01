@@ -4,7 +4,7 @@ class PolicyMailerTest < ActiveSupport::TestCase
   setup do
     @user = User.current = users :admin
 
-    FactoryGirl.create(:mail_notification,
+    FactoryBot.create(:mail_notification,
                        :name => :openscap_policy_summary,
                        :description => N_('A summary of reports for OpenScap policies'),
                        :mailer => 'ForemanOpenscap::PolicyMailer',
@@ -12,11 +12,11 @@ class PolicyMailerTest < ActiveSupport::TestCase
                        :subscription_type => 'report',)
     # just to have some content to send
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
-    host = FactoryGirl.create(:compliance_host)
-    asset = FactoryGirl.create(:asset, :assetable_id => host.id)
-    policy = FactoryGirl.create(:policy, :assets => [asset])
-    arf_report = FactoryGirl.create(:arf_report, :policy => policy, :host_id => host.id)
-    policy_arf_report = FactoryGirl.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => arf_report.id)
+    host = FactoryBot.create(:compliance_host)
+    asset = FactoryBot.create(:asset, :assetable_id => host.id)
+    policy = FactoryBot.create(:policy, :assets => [asset])
+    arf_report = FactoryBot.create(:arf_report, :policy => policy, :host_id => host.id)
+    policy_arf_report = FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => arf_report.id)
 
     @user.mail_notifications << MailNotification[:openscap_policy_summary]
     ActionMailer::Base.deliveries = []

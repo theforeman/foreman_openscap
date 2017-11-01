@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :openscap_feature, :class => Feature do
     name 'Openscap'
   end
@@ -13,7 +13,7 @@ FactoryGirl.define do
     sequence(:name) { |n| "host#{n}" }
     sequence(:hostname) { |n| "hostname#{n}" }
     root_pass 'xybxa6JUkz63w'
-    openscap_proxy { SmartProxy.unscoped.with_features('Openscap').first || FactoryGirl.create(:openscap_proxy) }
+    openscap_proxy { SmartProxy.unscoped.with_features('Openscap').first || FactoryBot.create(:openscap_proxy) }
     policies []
   end
 end

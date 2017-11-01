@@ -6,85 +6,85 @@ module ForemanOpenscap
       disable_orchestration
       User.current = users :admin
       ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
-      @policy = FactoryGirl.create(:policy)
-      @asset = FactoryGirl.create(:asset)
-      @host = FactoryGirl.create(:compliance_host)
-      @failed_source = FactoryGirl.create(:source)
-      @passed_source = FactoryGirl.create(:source)
-      @log_1 = FactoryGirl.create(:compliance_log, :result => "pass", :source => @passed_source)
-      @log_2 = FactoryGirl.create(:compliance_log, :result => "fail", :source => @failed_source)
-      @log_3 = FactoryGirl.create(:compliance_log, :result => "pass", :source => @passed_source)
+      @policy = FactoryBot.create(:policy)
+      @asset = FactoryBot.create(:asset)
+      @host = FactoryBot.create(:compliance_host)
+      @failed_source = FactoryBot.create(:source)
+      @passed_source = FactoryBot.create(:source)
+      @log_1 = FactoryBot.create(:compliance_log, :result => "pass", :source => @passed_source)
+      @log_2 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
+      @log_3 = FactoryBot.create(:compliance_log, :result => "pass", :source => @passed_source)
       @status = { :passed => 5, :failed => 1, :othered => 7 }.with_indifferent_access
     end
 
     test 'equal? should return true when there is no change in report results' do
-      log_4 = FactoryGirl.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
+      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
       assert(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when there is change in report results' do
-      new_source = FactoryGirl.create(:source)
-      log_4 = FactoryGirl.build(:compliance_log, :result => "pass", :source => new_source)
-      report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
+      new_source = FactoryBot.create(:source)
+      log_4 = FactoryBot.build(:compliance_log, :result => "pass", :source => new_source)
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different sets of rules' do
-      report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3])
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different hosts' do
-      host = FactoryGirl.create(:compliance_host)
-      log_4 = FactoryGirl.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => host.id, :logs => [@log_3, log_4])
+      host = FactoryBot.create(:compliance_host)
+      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => host.id, :logs => [@log_3, log_4])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different policies' do
-      policy = FactoryGirl.create(:policy)
-      log_4 = FactoryGirl.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryGirl.create(:arf_report, :policy => policy, :host_id => @host.id, :logs => [@log_3, log_4])
+      policy = FactoryBot.create(:policy)
+      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report_2 = FactoryBot.create(:arf_report, :policy => policy, :host_id => @host.id, :logs => [@log_3, log_4])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'should recognize report that failed' do
-      report = FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
+      report = FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
       assert report.failed?
     end
 
     test 'should recognize report that othered' do
       @status[:failed] = 0
-      report = FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
+      report = FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
       assert report.othered?
     end
 
     test 'should recognize report that passed' do
       @status[:failed] = 0
       @status[:othered] = 0
-      report = FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
+      report = FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
       assert report.passed?
     end
 
     test 'should return latest report for each of the hosts' do
       reports = []
-      host = FactoryGirl.create(:compliance_host)
+      host = FactoryBot.create(:compliance_host)
       5.times do
-        reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id)
-        reports << FactoryGirl.create(:arf_report, :host_id => host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id)
+        reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id)
+        reports << FactoryBot.create(:arf_report, :host_id => host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id)
       end
       assert ForemanOpenscap::ArfReport.latest.to_a.include? reports[-2]
       assert ForemanOpenscap::ArfReport.latest.to_a.include? reports[-1]
@@ -92,20 +92,20 @@ module ForemanOpenscap
 
     test 'should return latest report of policy for each of the hosts' do
       reports = []
-      host = FactoryGirl.create(:compliance_host)
-      policy = FactoryGirl.create(:policy)
+      host = FactoryBot.create(:compliance_host)
+      policy = FactoryBot.create(:policy)
       3.times do
-        reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
+        reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
 
-        reports << FactoryGirl.create(:arf_report, :host_id => host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
+        reports << FactoryBot.create(:arf_report, :host_id => host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
 
-        reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
+        reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
 
-        reports << FactoryGirl.create(:arf_report, :host_id => host.id, :status => @status)
-        FactoryGirl.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
+        reports << FactoryBot.create(:arf_report, :host_id => host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
       end
 
       assert ForemanOpenscap::ArfReport.latest_of_policy(policy).include? reports[-1]
@@ -124,9 +124,9 @@ module ForemanOpenscap
         @othered_reports = []
         @passed_reports = []
         3.times do
-          @failed_reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @status)
-          @passed_reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @passed_status)
-          @othered_reports << FactoryGirl.create(:arf_report, :host_id => @host.id, :status => @othered_status)
+          @failed_reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+          @passed_reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @passed_status)
+          @othered_reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @othered_status)
         end
       end
 
@@ -151,7 +151,7 @@ module ForemanOpenscap
       openscap_proxy_api.stubs(:destroy_report).returns(true)
       ForemanOpenscap::Helper.stubs(:find_name_or_uuid_by_host).returns("abcde")
       ForemanOpenscap::ArfReport.any_instance.stubs(:openscap_proxy_api).returns(openscap_proxy_api)
-      report = FactoryGirl.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
       report.destroy
       refute ForemanOpenscap::ArfReport.all.include? report
     end
