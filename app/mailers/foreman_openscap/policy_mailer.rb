@@ -1,6 +1,5 @@
 module ForemanOpenscap
   class PolicyMailer < ::ApplicationMailer
-
     def policy_summary(options = {})
       set_url
       user = ::User.find(options[:user])
@@ -37,6 +36,5 @@ module ForemanOpenscap
       end
       @changed_hosts.uniq
     end
-
   end
 end

@@ -15,6 +15,7 @@ module ForemanOpenscap::HostReportDashboard
     end
 
     private
+
     attr_writer :report
     attr_accessor :latest_report
 
@@ -39,6 +40,5 @@ module ForemanOpenscap::HostReportDashboard
     def report_othered
       has_data? ? @latest_report.othered : 0
     end
-
   end
 end

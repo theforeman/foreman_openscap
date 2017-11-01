@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-
   scope '/compliance' do
-
-    resources :arf_reports, :only => %i(index show destroy) do
+    resources :arf_reports, :only => %i[index show destroy] do
       member do
         get 'show_html'
         get 'parse_html'
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
 
     get 'dashboard', :to => 'compliance_dashboard#index', :as => "compliance_dashboard"
 
-    resources :policies, :only => %i(index new show create edit update destroy) do
+    resources :policies, :only => %i[index new show create edit update destroy] do
       member do
         get 'parse', :to => 'policies#parse'
         get 'dashboard', :to => 'policy_dashboard#index', :as => 'policy_dashboard'
@@ -59,33 +57,33 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
-    scope "(:apiv)", :module => :v2, :defaults => {:apiv => 'v2'},
-          :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
+    scope "(:apiv)", :module => :v2, :defaults => { :apiv => 'v2' },
+                     :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
       namespace :compliance do
-        resources :scap_contents, :except => %i(new edit) do
+        resources :scap_contents, :except => %i[new edit] do
           member do
             get 'xml'
           end
         end
-        resources :tailoring_files, :except => %i(new edit) do
+        resources :tailoring_files, :except => %i[new edit] do
           member do
             get 'xml'
           end
         end
-        resources :policies, :except => %i(new edit) do
+        resources :policies, :except => %i[new edit] do
           member do
             get 'content'
             get 'tailoring'
           end
         end
-        resources :arf_reports, :only => %i(index show destroy) do
+        resources :arf_reports, :only => %i[index show destroy] do
           member do
             get 'download'
             get 'download_html'
           end
         end
         post 'arf_reports/:cname/:policy_id/:date', \
-              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
+             :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
       end
     end
   end

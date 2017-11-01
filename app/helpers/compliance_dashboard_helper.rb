@@ -1,5 +1,4 @@
 module ComplianceDashboardHelper
-
   def latest_compliance_headers
     string =  "<th class='col-md-7'>#{_("Host")}</th>"
     string += "<th class='col-md-3'>#{_("Policy")}</th>"
@@ -12,5 +11,4 @@ module ComplianceDashboardHelper
 
     string.html_safe
   end
-
 end

@@ -12,7 +12,7 @@ class AddScaptimonyScapContentDigest < ActiveRecord::Migration
     end
   end
 
-  class ScapContentHack < ActiveRecord::Base
+  class ScapContentHack < ApplicationRecord
     self.table_name = 'scaptimony_scap_contents'
     def digest
       self[:digest] ||= Digest::SHA256.hexdigest scap_file.to_s

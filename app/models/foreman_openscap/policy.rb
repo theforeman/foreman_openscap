@@ -26,8 +26,8 @@ module ForemanOpenscap
 
     validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 }
     validate :ensure_needed_puppetclasses
-    validates :period, :inclusion => {:in => %w[weekly monthly custom], :message => _('is not a valid value')},
-              :if => Proc.new { |policy| policy.should_validate?('Schedule') }
+    validates :period, :inclusion => { :in => %w[weekly monthly custom], :message => _('is not a valid value') },
+                       :if => Proc.new { |policy| policy.should_validate?('Schedule') }
 
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
@@ -101,7 +101,7 @@ module ForemanOpenscap
       base_steps = [N_('Create policy'), N_('SCAP Content'), N_('Schedule')]
       base_steps << N_('Locations') if SETTINGS[:locations_enabled]
       base_steps << N_('Organizations') if SETTINGS[:organizations_enabled]
-      base_steps << N_('Hostgroups') #always be last.
+      base_steps << N_('Hostgroups') # always be last.
     end
 
     def current_step
@@ -249,12 +249,12 @@ module ForemanOpenscap
 
     def ensure_needed_puppetclasses
       unless puppetclass = Puppetclass.find_by(name: SCAP_PUPPET_CLASS)
-        errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % {:class => SCAP_PUPPET_CLASS}
+        errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % { :class => SCAP_PUPPET_CLASS }
         return false
       end
 
       unless policies_param = puppetclass.class_params.find_by(key: POLICIES_CLASS_PARAMETER)
-        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
+        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % { :class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER }
         return false
       end
 
@@ -263,7 +263,7 @@ module ForemanOpenscap
       policies_param.default_value = '<%= @host.policies_enc %>'
 
       if policies_param.changed? && !policies_param.save
-        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % {:class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER}
+        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % { :class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER }
         return false
       end
     end

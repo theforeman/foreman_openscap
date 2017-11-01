@@ -4,7 +4,7 @@ class OpenscapProxiesControllerTest < ActionController::TestCase
   include ActionView::Helpers::DateHelper
 
   test "should render spool error" do
-    spool_error = { "timestamp" => 1_487_144_633.951_368, "level" => "ERROR", "message"=> "Failed to parse Arf Report in test" }
+    spool_error = { "timestamp" => 1_487_144_633.951_368, "level" => "ERROR", "message" => "Failed to parse Arf Report in test" }
     OpenscapProxiesController.any_instance.stubs(:find_spool_error).returns(spool_error)
     proxy = FactoryGirl.create(:openscap_proxy)
     get :openscap_spool, { :id => proxy.id }, set_session_user

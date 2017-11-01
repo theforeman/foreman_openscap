@@ -1,6 +1,5 @@
 module ForemanOpenscap
   class ArfReportStatusCalculator
-
     def initialize(options = {})
       @counters   = options[:counters]  || {}
       @raw_status = options[:bit_field] || 0

@@ -3,7 +3,7 @@ class MigrateFromScaptimony < ActiveRecord::Migration
     ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
       # rename_tables renames the indexes, and their new names overflow, we cancel out the renaming of the indexes
       alias_method :old_rename_table_indexes, :rename_table_indexes
-      def rename_table_indexes(a,b)
+      def rename_table_indexes(a, b)
       end
     end
 

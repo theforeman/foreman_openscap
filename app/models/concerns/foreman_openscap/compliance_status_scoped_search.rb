@@ -14,7 +14,7 @@ module ForemanOpenscap
         { :conditions => ArfReport.arel_table[:id].in(
           PolicyArfReport.select(PolicyArfReport.arel_table[:arf_report_id])
             .of_policy(Policy.find_by(name: cond).id).ast
-        ).to_sql}
+        ).to_sql }
       end
 
       def search_by_comply_with(_key, _operator, policy_name)
@@ -34,7 +34,7 @@ module ForemanOpenscap
         { :conditions => ArfReport.arel_table[:id].in(
           ArfReport.select(ArfReport.arel_table[:id])
               .latest_of_policy(Policy.find_by(name: cond)).instance_eval(&selection).ast
-        ).to_sql}
+        ).to_sql }
       end
 
       def search_by_last_for(key, operator, by)
@@ -68,19 +68,19 @@ module ForemanOpenscap
 
     included do
       scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :compliance_policy,
-        :only_explicit => true, :ext_method => :search_by_policy_name
+                    :only_explicit => true, :ext_method => :search_by_policy_name
 
       scoped_search :on => :id, :rename => :last_for, :complete_value => { :host => 0, :policy => 1 },
-        :only_explicit => true, :ext_method => :search_by_last_for
+                    :only_explicit => true, :ext_method => :search_by_last_for
 
       scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :comply_with,
-        :only_explicit => true, :operators => ['= '], :ext_method => :search_by_comply_with
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_comply_with
 
       scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :not_comply_with,
-        :only_explicit => true, :operators => ['= '], :ext_method => :search_by_not_comply_with
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_not_comply_with
 
       scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :inconclusive_with,
-        :only_explicit => true, :operators => ['= '], :ext_method => :search_by_inconclusive_with
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_inconclusive_with
 
       compliance_status_scoped_search 'passed', :on => :status, :rename => :compliance_passed
       compliance_status_scoped_search 'failed', :on => :status, :rename => :compliance_failed

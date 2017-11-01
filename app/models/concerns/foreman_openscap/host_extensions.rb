@@ -17,9 +17,9 @@ module ForemanOpenscap
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
 
       scoped_search :relation => :compliance_status_object, :on => :status, :rename => :compliance_status,
-                    :complete_value => {:compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
-                                        :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
-                                        :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE}
+                    :complete_value => { :compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
+                                         :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
+                                         :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE }
       after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
 
       scope :comply_with, lambda { |policy|

@@ -17,32 +17,32 @@ module PoliciesHelper
     scap_contents = ::ForemanOpenscap::ScapContent.authorized(:view_scap_contents).all
     if scap_contents.length > 1
       select_f form, :scap_content_id, scap_contents, :id, :title,
-               {:include_blank => _("Choose existing SCAP Content")},
-               {:label => _("SCAP Content"),
-                :onchange => 'scap_content_selected(this);',
-                :'data-url' => method_path('scap_content_selected')}
+               { :include_blank => _("Choose existing SCAP Content") },
+               { :label => _("SCAP Content"),
+                 :onchange => 'scap_content_selected(this);',
+                 :'data-url' => method_path('scap_content_selected') }
     else
       select_f form, :scap_content_id, scap_contents, :id, :title,
-               {:label => _("SCAP Content"),
-                :onchange => 'scap_content_selected(this);',
-                :'data-url' => method_path('scap_content_selected')}
+               { :label => _("SCAP Content"),
+                 :onchange => 'scap_content_selected(this);',
+                 :'data-url' => method_path('scap_content_selected') }
     end
   end
 
   def scap_content_profile_selector(form)
     if profiles_selection.length == 1
       select_f form, :scap_content_profile_id, profiles_selection, :id, :title,
-               {:selected => @policy.scap_content_profile_id },
-               {:label => _("XCCDF Profile"),
-                :disabled => profiles_selection.empty? ? true : false,
-                :help_inline => :indicator}
+               { :selected => @policy.scap_content_profile_id },
+               { :label => _("XCCDF Profile"),
+                 :disabled => profiles_selection.empty? ? true : false,
+                 :help_inline => :indicator }
     else
       select_f form, :scap_content_profile_id, profiles_selection, :id, :title,
-               {:selected => @policy.scap_content_profile_id,
-                :include_blank => _("Default XCCDF profile")},
-               {:label => _("XCCDF Profile"),
-                :disabled => profiles_selection.empty? ? true : false,
-                :help_inline => :indicator}
+               { :selected => @policy.scap_content_profile_id,
+                 :include_blank => _("Default XCCDF profile") },
+               { :label => _("XCCDF Profile"),
+                 :disabled => profiles_selection.empty? ? true : false,
+                 :help_inline => :indicator }
     end
   end
 
@@ -66,12 +66,12 @@ module PoliciesHelper
     end
   end
 
-  def submit_or_cancel_policy(form, overwrite = nil, args = { })
+  def submit_or_cancel_policy(form, overwrite = nil, args = {})
     args[:cancel_path] ||= send("#{controller_name}_path")
     content_tag(:div, :class => "clearfix") do
       content_tag(:div, :class => "form-actions") do
         text    = overwrite ? overwrite : _("Submit")
-        options = {:class => "btn btn-primary"}
+        options = { :class => "btn btn-primary" }
         options[:'data-id'] = form_to_submit_id(form) unless options.key?(:'data-id')
         previous = form.object.first_step? ? ' ' : previous_link(form)
         cancel_and_submit = content_tag(:div, :class => "pull-right") do

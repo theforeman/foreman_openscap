@@ -14,7 +14,7 @@ module ForemanOpenscap
       @log_1 = FactoryGirl.create(:compliance_log, :result => "pass", :source => @passed_source)
       @log_2 = FactoryGirl.create(:compliance_log, :result => "fail", :source => @failed_source)
       @log_3 = FactoryGirl.create(:compliance_log, :result => "pass", :source => @passed_source)
-      @status = {:passed => 5, :failed => 1, :othered => 7}.with_indifferent_access
+      @status = { :passed => 5, :failed => 1, :othered => 7 }.with_indifferent_access
     end
 
     test 'equal? should return true when there is no change in report results' do
@@ -118,8 +118,8 @@ module ForemanOpenscap
 
     context 'retrieving reports by status' do
       setup do
-        @passed_status = {:passed => 5, :failed => 0, :othered => 0}.with_indifferent_access
-        @othered_status = {:passed => 5, :failed => 0, :othered => 3}.with_indifferent_access
+        @passed_status = { :passed => 5, :failed => 0, :othered => 0 }.with_indifferent_access
+        @othered_status = { :passed => 5, :failed => 0, :othered => 3 }.with_indifferent_access
         @failed_reports = []
         @othered_reports = []
         @passed_reports = []

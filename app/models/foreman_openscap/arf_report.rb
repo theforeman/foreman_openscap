@@ -10,7 +10,7 @@ module ForemanOpenscap
     BIT_NUM = 10
     MAX = (1 << BIT_NUM) - 1
 
-    scoped_search :on => :status, :offset => 0, :word_size => 4*BIT_NUM, :complete_value => {:true => true, :false => false}, :rename => :eventful
+    scoped_search :on => :status, :offset => 0, :word_size => 4 * BIT_NUM, :complete_value => { :true => true, :false => false }, :rename => :eventful
 
     has_one :policy_arf_report
     has_one :policy, :through => :policy_arf_report, :dependent => :destroy
@@ -18,7 +18,6 @@ module ForemanOpenscap
     after_save :assign_locations_organizations
     has_one :log, :foreign_key => :report_id
     belongs_to :openscap_proxy, :class_name => "SmartProxy"
-
 
     delegate :asset=, :to => :host
 
@@ -139,7 +138,7 @@ module ForemanOpenscap
               end
               msg.save!
             end
-            #TODO: log level
+            # TODO: log level
             Log.create!(:source_id => src.id,
                         :message_id => msg.id,
                         :level => :info,

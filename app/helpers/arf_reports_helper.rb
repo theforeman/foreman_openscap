@@ -1,15 +1,15 @@
 module ArfReportsHelper
   def report_arf_column(event, style = "")
     style = "label-default" if event == 0
-    content_tag(:span, event, :class=>'label ' + style)
+    content_tag(:span, event, :class => 'label ' + style)
   end
 
   def show_logs
     return if @arf_report.logs.empty?
     form_tag arf_report_path(@arf_report), :id => 'level_filter', :method => :get, :class => "form form-horizontal" do
       content_tag(:span, _("Show log messages:") + ' ') +
-      select(nil, 'level', [[_('All messages'), 'info'],[_('Failed and Othered'), 'warning'],[_('Failed only'), 'error']],
-             {}, {:class=>"col-md-1 form-control", :onchange =>"filter_by_level(this);"})
+      select(nil, 'level', [[_('All messages'), 'info'], [_('Failed and Othered'), 'warning'], [_('Failed only'), 'error']],
+             {}, { :class => "col-md-1 form-control", :onchange => "filter_by_level(this);" })
     end
   end
 
@@ -46,11 +46,11 @@ module ArfReportsHelper
   end
 
   def multiple_actions_arf_report_select
-    select_action_button(_("Select Action"), {:id => 'submit_multiple'},
-      multiple_actions_arf_report.map do |action|
-        link_to_function(action[0], "buildArfModal(this, '#{action[1]}')",
-         :'data-dialog-title' => _("%s - The following compliance reports are about to be changed") % action[0])
-      end.flatten)
+    select_action_button(_("Select Action"), { :id => 'submit_multiple' },
+                         multiple_actions_arf_report.map do |action|
+                           link_to_function(action[0], "buildArfModal(this, '#{action[1]}')",
+                                            :'data-dialog-title' => _("%s - The following compliance reports are about to be changed") % action[0])
+                         end.flatten)
   end
 
   def openscap_proxy_link(arf_report)

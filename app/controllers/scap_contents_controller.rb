@@ -15,8 +15,8 @@ class ScapContentsController < ApplicationController
 
   def show
     send_data @scap_content.scap_file,
-      :type     => 'application/xml',
-      :filename => @scap_content.original_filename
+              :type     => 'application/xml',
+              :filename => @scap_content.original_filename
   end
 
   def new
@@ -49,6 +49,7 @@ class ScapContentsController < ApplicationController
   end
 
   private
+
   def find_by_id
     @scap_content = resource_base.find(params[:id])
   end
@@ -58,5 +59,4 @@ class ScapContentsController < ApplicationController
     params[:scap_content][:original_filename] = scap_raw_file.original_filename
     params[:scap_content][:scap_file] = scap_raw_file.tempfile.read if scap_raw_file.tempfile.respond_to?(:read)
   end
-
 end

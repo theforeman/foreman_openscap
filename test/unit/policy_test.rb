@@ -193,16 +193,16 @@ class PolicyTest < ActiveSupport::TestCase
   test "should have assigned a content profile that belongs to assigned scap content" do
     scap_content_2 = FactoryGirl.create(:scap_content)
     p = ForemanOpenscap::Policy.create(:name => "valid_profile_policy",
-                                        :scap_content_id => @scap_content.id,
-                                        :scap_content_profile_id => @scap_profile.id,
-                                        :period => 'monthly',
-                                        :day_of_month => '5')
+                                       :scap_content_id => @scap_content.id,
+                                       :scap_content_profile_id => @scap_profile.id,
+                                       :period => 'monthly',
+                                       :day_of_month => '5')
     assert p.valid?
     q = ForemanOpenscap::Policy.create(:name => "invalid_profile_policy",
-                                        :scap_content_id => scap_content_2.id,
-                                        :scap_content_profile_id => @scap_profile.id,
-                                        :period => 'monthly',
-                                        :day_of_month => '5')
+                                       :scap_content_id => scap_content_2.id,
+                                       :scap_content_profile_id => @scap_profile.id,
+                                       :period => 'monthly',
+                                       :day_of_month => '5')
     refute q.valid?
     assert_equal "does not have the selected SCAP content profile", q.errors.messages[:scap_content_id].first
   end

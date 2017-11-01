@@ -1,6 +1,5 @@
 module ::ProxyAPI
   class AvailableProxy
-
     HTTP_ERRORS = [
       EOFError,
       Errno::ECONNRESET,
