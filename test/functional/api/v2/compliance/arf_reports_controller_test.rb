@@ -70,7 +70,6 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
                                                       :date => dates[0].to_i)
     assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
 
-
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
          @from_json.merge(:cname => @cname,

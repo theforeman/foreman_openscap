@@ -10,7 +10,7 @@ module Api::V2
       end
 
       def get_resource(message = 'no resource loaded')
-        instance_variable_get :"@tailoring_file" or raise message
+        instance_variable_get(:"@tailoring_file") || raise(message)
       end
 
       api :GET, '/compliance/tailoring_files', N_('List Tailoring files')
@@ -67,8 +67,9 @@ module Api::V2
       end
 
       private
+
       def find_resource
-        not_found and return if params[:id].blank?
+        not_found && return if params[:id].blank?
         instance_variable_set("@tailoring_file", resource_scope.find(params[:id]))
       end
 

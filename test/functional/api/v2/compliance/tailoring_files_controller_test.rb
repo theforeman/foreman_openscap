@@ -1,7 +1,6 @@
 require 'test_plugin_helper'
 
 class Api::V2::Compliance::TailoringFilesControllerTest < ActionController::TestCase
-
   test "should get index" do
     FactoryGirl.create(:tailoring_file)
     get :index, {}, set_session_user
@@ -33,15 +32,15 @@ class Api::V2::Compliance::TailoringFilesControllerTest < ActionController::Test
 
   test "should update tailoring_file" do
     tailoring_file = FactoryGirl.create(:tailoring_file)
-    put :update, { :id => tailoring_file.id, :tailoring_file => { :name => 'RHEL7 SCAP' }}, set_session_user
+    put :update, { :id => tailoring_file.id, :tailoring_file => { :name => 'RHEL7 SCAP' } }, set_session_user
     assert_response :success
     assert tailoring_file.name, 'RHEL7 SCAP'
   end
 
   test "should not update invalid tailoring_file" do
     tailoring_file = FactoryGirl.create(:tailoring_file)
-    ProxyAPI::Openscap.any_instance.stubs(:validate_scap_file).returns({'errors' => ['Invalid file']})
-    put :update, { :id => tailoring_file.id, :tailoring_file => { :scap_file => '<xml>blah</xml>' }}, set_session_user
+    ProxyAPI::Openscap.any_instance.stubs(:validate_scap_file).returns({ 'errors' => ['Invalid file'] })
+    put :update, { :id => tailoring_file.id, :tailoring_file => { :scap_file => '<xml>blah</xml>' } }, set_session_user
     assert_response :unprocessable_entity
   end
 

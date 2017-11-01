@@ -50,7 +50,7 @@ module ForemanOpenscap
     def extract_name_from_file(file)
       # SCAP datastream files are in format of ssg-<OS>-ds.xml
       # We wish to extract the <OS> and create a name of it
-      original_filename(file).gsub('ssg-','').gsub('-ds.xml', '')
+      original_filename(file).gsub('ssg-', '').gsub('-ds.xml', '')
     end
 
     def original_filename(file)

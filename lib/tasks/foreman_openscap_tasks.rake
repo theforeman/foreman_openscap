@@ -41,8 +41,8 @@ namespace :foreman_openscap do
       require 'rubocop/rake_task'
       RuboCop::RakeTask.new(:rubocop_foreman_openscap) do |task|
         task.patterns = ["#{ForemanOpenscap::Engine.root}/app/**/*.rb",
-        "#{ForemanOpenscap::Engine.root}/lib/**/*.rb",
-        "#{ForemanOpenscap::Engine.root}/test/**/*.rb"]
+                         "#{ForemanOpenscap::Engine.root}/lib/**/*.rb",
+                         "#{ForemanOpenscap::Engine.root}/test/**/*.rb"]
       end
     rescue
       puts 'Rubocop not loaded.'

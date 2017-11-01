@@ -9,7 +9,7 @@ module Api::V2
       end
 
       def get_resource(message = 'no resource loaded')
-        instance_variable_get :"@scap_content" or raise message
+        instance_variable_get(:"@scap_content") || raise(message)
       end
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
@@ -66,8 +66,9 @@ module Api::V2
       end
 
       private
+
       def find_resource
-        not_found and return if params[:id].blank?
+        not_found && return if params[:id].blank?
         instance_variable_set("@scap_content", resource_scope.find(params[:id]))
       end
 

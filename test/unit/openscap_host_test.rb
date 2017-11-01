@@ -20,7 +20,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
   test 'Host has policies via its hostgroup' do
     host = FactoryGirl.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
-    @policy.hostgroup_ids = [ hostgroup.id ]
+    @policy.hostgroup_ids = [hostgroup.id]
     assert @policy.save
     refute_empty(host.combined_policies)
     assert_includes(host.combined_policies, @policy)
@@ -30,7 +30,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
     host = FactoryGirl.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
     hostgroup.parent = FactoryGirl.create(:hostgroup)
-    @policy.hostgroup_ids = [ hostgroup.parent.id ]
+    @policy.hostgroup_ids = [hostgroup.parent.id]
     assert @policy.save
     refute_empty(host.combined_policies)
     assert_includes(host.combined_policies, @policy)

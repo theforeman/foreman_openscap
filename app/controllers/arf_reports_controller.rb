@@ -54,7 +54,7 @@ class ArfReportsController < ApplicationController
     if @arf_report.destroy
       process_success(:success_msg => _("Successfully deleted ARF report."), :success_redirect => arf_reports_path)
     else
-      process_error(:error_msg => _("Failed to delete ARF Report for host %{host_name} reported at %{reported_at}") % {:host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at})
+      process_error(:error_msg => _("Failed to delete ARF Report for host %{host_name} reported at %{reported_at}") % { :host_name => @arf_report.host.name, :reported_at => @arf_report.reported_at })
     end
   end
 
@@ -83,18 +83,18 @@ class ArfReportsController < ApplicationController
       @arf_reports = ::ForemanOpenscap::ArfReport.where(:id => params[:arf_report_ids])
       if @arf_reports.empty?
         error _('No compliance reports were found.')
-        redirect_to(arf_reports_path) and return false
+        redirect_to(arf_reports_path) && (return false)
       end
     else
       error _('No compliance reports selected')
-      redirect_to(arf_reports_path) and return false
+      redirect_to(arf_reports_path) && (return false)
     end
     return @arf_reports
   rescue => e
     error _("Something went wrong while selecting compliance reports - %s") % e
     logger.debug e.message
     logger.debug e.backtrace.join("\n")
-    redirect_to arf_reports_path and return false
+    redirect_to(arf_reports_path) && (return false)
   end
 
   def action_permission

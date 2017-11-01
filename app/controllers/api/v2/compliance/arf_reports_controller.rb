@@ -3,7 +3,6 @@ require 'foreman_openscap/helper'
 module Api
   module V2
     module Compliance
-
       class ArfReportsController < V2::BaseController
         include Api::Version2
         include Foreman::Controller::SmartProxyAuth
@@ -19,7 +18,7 @@ module Api
         end
 
         def get_resource(message = 'no resource loaded')
-          instance_variable_get :"@arf_report" or raise message
+          instance_variable_get(:"@arf_report") || raise(message)
         end
 
         api :GET, '/compliance/arf_reports', N_('List ARF reports')
@@ -77,7 +76,7 @@ module Api
         private
 
         def find_resource
-          not_found and return if params[:id].blank?
+          not_found && return if params[:id].blank?
           instance_variable_set("@arf_report", resource_scope.find(params[:id]))
         end
 

@@ -1,7 +1,6 @@
 require 'test_plugin_helper'
 
 class OpenscapProxyExtensionsTest < ActiveSupport::TestCase
-
   setup do
     @host = FactoryGirl.create(:compliance_host)
   end

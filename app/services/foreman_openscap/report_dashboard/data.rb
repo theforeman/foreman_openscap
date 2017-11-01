@@ -9,6 +9,7 @@ module ForemanOpenscap::ReportDashboard
     end
 
     private
+
     attr_writer :report
     attr_accessor :filter
 

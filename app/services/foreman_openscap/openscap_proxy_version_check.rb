@@ -1,6 +1,5 @@
 module ForemanOpenscap
   class OpenscapProxyVersionCheck
-
     def initialize
       @versions = {}
       @message = ''

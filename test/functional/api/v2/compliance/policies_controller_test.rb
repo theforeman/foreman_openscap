@@ -8,7 +8,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
                                  :scap_content_profile_id => @scap_content_profile.id,
                                  :scap_content_id => @scap_content_profile.scap_content_id,
                                  :period => 'weekly',
-                                 :weekday => 'friday' }}
+                                 :weekday => 'friday' } }
   end
 
   test "should get index" do
@@ -29,7 +29,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
 
   test "should update a policy" do
     policy = FactoryGirl.create(:policy)
-    put :update, { :id => policy.id, :policy => { :period => 'monthly', :day_of_month => 15 }}
+    put :update, { :id => policy.id, :policy => { :period => 'monthly', :day_of_month => 15 } }
     updated_policy = ActiveSupport::JSON.decode(@response.body)
     assert(updated_policy['period'], 'monthly')
     assert_response :ok
@@ -37,7 +37,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
 
   test "should not update invalid" do
     policy = FactoryGirl.create(:policy)
-    put :update, {:id => policy.id, :policy => {:name => ''}}
+    put :update, { :id => policy.id, :policy => { :name => '' } }
     assert_response :unprocessable_entity
   end
 

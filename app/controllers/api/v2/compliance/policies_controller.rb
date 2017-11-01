@@ -15,7 +15,7 @@ module Api::V2
       end
 
       def get_resource(message = 'no resource loaded')
-        instance_variable_get :"@policy" or raise message
+        instance_variable_get(:"@policy") || raise(message)
       end
 
       def policy_url(policy = nil)
@@ -100,8 +100,9 @@ module Api::V2
       end
 
       private
+
       def find_resource
-        not_found and return if params[:id].blank?
+        not_found && return if params[:id].blank?
         instance_variable_set("@policy", resource_scope.find(params[:id]))
       end
 

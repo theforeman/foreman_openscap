@@ -3,7 +3,7 @@ inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.0
+  TargetRubyVersion: 2.2
   Include:
     - 'app/views/api/**/*.rabl'
   Exclude:
@@ -76,7 +76,7 @@ Style/TrailingCommaInLiteral:
 #Style/TrailingCommaInArguments:
 #Enabled: false
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: false
 
 Style/RedundantSelf:
@@ -108,7 +108,7 @@ Style/GuardClause:
 Metrics/ParameterLists:
   Enabled: false
 
-Style/VariableNumber:
+Naming/VariableNumber:
   Enabled: false
 
 # a == 0 is not the same as a.zero?, when a is not a number
@@ -128,7 +128,7 @@ Rails/SkipsModelValidations:
 Rails/OutputSafety:
   Enabled: false
 
-Style/FileName:
+Naming/FileName:
   Exclude:
        - 'Gemfile'
        - 'db/**/*'
@@ -141,5 +141,8 @@ Rails/ReversibleMigration:
 Rails/Blank:
   Enabled: false
 
-Style/DotPosition:
+Layout/DotPosition:
+  Enabled: false
+
+Lint/UnderscorePrefixedVariableName:
   Enabled: false

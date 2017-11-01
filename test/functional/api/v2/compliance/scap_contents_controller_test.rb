@@ -1,7 +1,6 @@
 require 'test_plugin_helper'
 
 class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCase
-
   test "should get index" do
     FactoryGirl.create(:scap_content)
     get :index, {}, set_session_user
@@ -28,16 +27,16 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
 
   test "should update scap content" do
     scap_content = FactoryGirl.create(:scap_content)
-    put :update, { :id => scap_content.id, :scap_content => {:title => 'RHEL7 SCAP'}}, set_session_user
+    put :update, { :id => scap_content.id, :scap_content => { :title => 'RHEL7 SCAP' } }, set_session_user
     assert_response :success
     assert scap_content.title, 'RHEL7 SCAP'
   end
 
   test "should not update invalid scap content" do
     skip("Solve 'ActiveRecord::RecordInvalid' error")
-    ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({'errors' => ['Invalid file']})
+    ProxyAPI::Openscap.any_instance.stubs(:validate_scap_content).returns({ 'errors' => ['Invalid file'] })
     scap_content = FactoryGirl.create(:scap_content)
-    put :update, { :id => scap_content.id, :scap_content => {:scap_file => '<xml>blah</xml>'}}, set_session_user
+    put :update, { :id => scap_content.id, :scap_content => { :scap_file => '<xml>blah</xml>' } }, set_session_user
     assert_response :unprocessable_entity
   end
 

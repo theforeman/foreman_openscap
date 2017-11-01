@@ -35,7 +35,7 @@ class PoliciesController < ApplicationController
     if @policy.wizard_completed? && @policy.save
       process_success :success_redirect => policies_path
     elsif @policy.valid?
-      render 'new' and return
+      render('new') && return
     else
       @policy.rewind_step
       process_error :object => @policy
@@ -64,7 +64,7 @@ class PoliciesController < ApplicationController
   def scap_content_selected
     if params[:scap_content_id] && (@scap_content = ::ForemanOpenscap::ScapContent.find(params[:scap_content_id]))
       @policy ||= ::ForemanOpenscap::Policy.new
-      render :partial => 'scap_content_results', :locals => {:policy => @policy}
+      render :partial => 'scap_content_results', :locals => { :policy => @policy }
     end
   end
 
@@ -104,6 +104,7 @@ class PoliciesController < ApplicationController
   end
 
   private
+
   def find_by_id
     @policy = resource_base.find(params[:id])
   end
@@ -118,18 +119,18 @@ class PoliciesController < ApplicationController
       @hosts = Host.where("id IN (?)", params[:host_ids])
       if @hosts.empty?
         error _('No hosts were found.')
-        redirect_to(hosts_path) and return false
+        redirect_to(hosts_path) && (return false)
       end
     else
       error _('No hosts selected')
-      redirect_to(hosts_path) and return false
+      redirect_to(hosts_path) && (return false)
     end
     return @hosts
   rescue => e
     error _("Something went wrong while selecting hosts - %s") % e
     logger.debug e.message
     logger.debug e.backtrace.join("\n")
-    redirect_to hosts_path and return false
+    redirect_to(hosts_path) && (return false)
   end
 
   def action_permission

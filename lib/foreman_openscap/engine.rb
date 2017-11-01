@@ -33,7 +33,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.configure_assets', :group => :assets do
       SETTINGS[:foreman_openscap] =
-        {:assets => {:precompile => assets_to_precompile}}
+        { :assets => { :precompile => assets_to_precompile } }
     end
 
     initializer 'foreman_openscap.apipie' do
@@ -51,106 +51,105 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, {:arf_reports => %i[index show parse_html show_html
-parse_bzip auto_complete_search download_html],
-                                         'api/v2/compliance/arf_reports' => %i[index show download download_html],
-                                         :compliance_hosts => [:show]},
+          permission :view_arf_reports, { :arf_reports => %i[index show parse_html show_html
+                                                             parse_bzip auto_complete_search download_html],
+                                          'api/v2/compliance/arf_reports' => %i[index show download download_html],
+                                          :compliance_hosts => [:show] },
                      :resource_type => 'ForemanOpenscap::ArfReport'
-          permission :destroy_arf_reports, {:arf_reports => %i[destroy delete_multiple submit_delete_multiple],
-                                            'api/v2/compliance/arf_reports' => [:destroy]},
+          permission :destroy_arf_reports, { :arf_reports => %i[destroy delete_multiple submit_delete_multiple],
+                                             'api/v2/compliance/arf_reports' => [:destroy] },
                      :resource_type => 'ForemanOpenscap::ArfReport'
-          permission :create_arf_reports, {'api/v2/compliance/arf_reports' => [:create]},
+          permission :create_arf_reports, { 'api/v2/compliance/arf_reports' => [:create] },
                      :resource_type => 'ForemanOpenscap::ArfReport'
 
-          permission :view_policies, {:policies => %i[index show parse auto_complete_search],
-                                                 :policy_dashboard => [:index],
-                                                 :compliance_dashboard        => [:index],
-                                                 'api/v2/compliance/policies' => %i[index show content]},
+          permission :view_policies, { :policies => %i[index show parse auto_complete_search],
+                                       :policy_dashboard => [:index],
+                                       :compliance_dashboard        => [:index],
+                                       'api/v2/compliance/policies' => %i[index show content] },
                      :resource_type => 'ForemanOpenscap::Policy'
-          permission :edit_policies, {:policies => %i[edit update scap_content_selected],
-                                                 'api/v2/compliance/policies' => [:update]},
+          permission :edit_policies, { :policies => %i[edit update scap_content_selected],
+                                       'api/v2/compliance/policies' => [:update] },
                      :resource_type => 'ForemanOpenscap::Policy'
-          permission :create_policies, {:policies => %i[new create],
-                                                   'api/v2/compliance/policies' => [:create]},
+          permission :create_policies, { :policies => %i[new create],
+                                         'api/v2/compliance/policies' => [:create] },
                      :resource_type => 'ForemanOpenscap::Policy'
-          permission :destroy_policies, {:policies => [:destroy],
-                                                    'api/v2/compliance/policies' => [:destroy]},
+          permission :destroy_policies, { :policies => [:destroy],
+                                          'api/v2/compliance/policies' => [:destroy] },
                      :resource_type => 'ForemanOpenscap::Policy'
-          permission :assign_policies, {:policies => %i[select_multiple_hosts update_multiple_hosts
-disassociate_multiple_hosts
-remove_policy_from_multiple_hosts]},
+          permission :assign_policies, { :policies => %i[select_multiple_hosts update_multiple_hosts
+                                                         disassociate_multiple_hosts
+                                                         remove_policy_from_multiple_hosts] },
                      :resource_type => 'ForemanOpenscap::Policy'
-          permission :view_scap_contents, {:scap_contents => %i[index show auto_complete_search],
-                                                      'api/v2/compliance/scap_contents' => %i[index show xml]},
+          permission :view_scap_contents, { :scap_contents => %i[index show auto_complete_search],
+                                            'api/v2/compliance/scap_contents' => %i[index show xml] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
-          permission :edit_scap_contents, {:scap_contents => %i[edit update],
-                                                      'api/v2/compliance/scap_contents' => [:update]},
+          permission :edit_scap_contents, { :scap_contents => %i[edit update],
+                                            'api/v2/compliance/scap_contents' => [:update] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
-          permission :create_scap_contents, {:scap_contents => %i[new create],
-                                                        'api/v2/compliance/scap_contents' => [:create]},
+          permission :create_scap_contents, { :scap_contents => %i[new create],
+                                              'api/v2/compliance/scap_contents' => [:create] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
-          permission :destroy_scap_contents, {:scap_contents => [:destroy],
-                                                         'api/v2/compliance/scap_contents' => [:destroy]},
+          permission :destroy_scap_contents, { :scap_contents => [:destroy],
+                                               'api/v2/compliance/scap_contents' => [:destroy] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :edit_hosts, { :hosts => [:openscap_proxy_changed] }, :resource_type => "Host"
           permission :edit_hostgroups, { :hostgroups => [:openscap_proxy_changed] }, :resource_type => "Hostgroup"
           permission :create_tailoring_files, { :tailoring_files => %i[create new],
-                                                'api/v2/compliance/tailoring_files' => [:create]},
+                                                'api/v2/compliance/tailoring_files' => [:create] },
                      :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :view_tailoring_files, { :tailoring_files => %i[index auto_complete_search xml],
                                               :policies => [:tailoring_file_selected],
                                               'api/v2/compliance/tailoring_files' => %i[show xml index],
                                               'api/v2/compliance/policies' => [:tailoring] },
-                      :resource_type => 'ForemanOpenscap::TailoringFile'
+                     :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :edit_tailoring_files, { :tailoring_files => %i[edit update],
                                               'api/v2/compliance/tailoring_files' => [:update] },
-                      :resource_type => 'ForemanOpenscap::TailoringFile'
+                     :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :destroy_tailoring_files, { :tailoring_files => [:destroy],
                                                  'api/v2/compliance/tailoring_files' => [:destroy] },
-                      :resource_type => 'ForemanOpenscap::TailoringFile'
+                     :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :view_openscap_proxies, { :openscap_proxies => [:openscap_spool] },
-                      :resource_type => 'SmartProxy'
+                     :resource_type => 'SmartProxy'
         end
 
         role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies]
         role "Compliance manager", %i[view_arf_reports view_policies view_scap_contents
-destroy_arf_reports edit_policies edit_scap_contents assign_policies
-create_policies create_scap_contents destroy_policies destroy_scap_contents
-create_tailoring_files view_tailoring_files edit_tailoring_files destroy_tailoring_files
-view_openscap_proxies]
+                                      destroy_arf_reports edit_policies edit_scap_contents assign_policies
+                                      create_policies create_scap_contents destroy_policies destroy_scap_contents
+                                      create_tailoring_files view_tailoring_files edit_tailoring_files destroy_tailoring_files
+                                      view_openscap_proxies]
         role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
 
         add_all_permissions_to_default_roles
 
-        #add menu entries
+        # add menu entries
         divider :top_menu, :caption => N_('Compliance'), :parent => :hosts_menu
         menu :top_menu, :compliance_policies, :caption => N_('Policies'),
-             :url_hash => {:controller => :policies, :action => :index},
-             :parent => :hosts_menu
+                                              :url_hash => { :controller => :policies, :action => :index },
+                                              :parent => :hosts_menu
         menu :top_menu, :compliance_contents, :caption => N_('SCAP contents'),
-             :url_hash => {:controller => :scap_contents, :action => :index},
-             :parent => :hosts_menu
+                                              :url_hash => { :controller => :scap_contents, :action => :index },
+                                              :parent => :hosts_menu
         menu :top_menu, :compliance_reports, :caption => N_('Reports'),
-             :url_hash => {:controller => :arf_reports, :action => :index},
-             :parent => :hosts_menu
+                                             :url_hash => { :controller => :arf_reports, :action => :index },
+                                             :parent => :hosts_menu
         menu :top_menu, :compliance_files, :caption => N_('Tailoring Files'),
-             :url_hash => {:controller => :tailoring_files, :action => :index},
-             :parent => :hosts_menu
-
+                                           :url_hash => { :controller => :tailoring_files, :action => :index },
+                                           :parent => :hosts_menu
 
         # add dashboard widget
         widget 'compliance_host_reports_widget',
-          :name => N_('Latest Compliance Reports'), :sizex => 6, :sizey => 1
+               :name => N_('Latest Compliance Reports'), :sizex => 6, :sizey => 1
         widget 'compliance_reports_breakdown_widget',
-          :name => N_('Compliance Reports Breakdown'), :sizex => 6, :sizey => 1
+               :name => N_('Compliance Reports Breakdown'), :sizex => 6, :sizey => 1
 
         # As 'arf_report_breakdowns' is a view and does not appear in schema.rb, db:test:prepare will not create the view
         # which will make the following tests fail.
         tests_to_skip({ "DashboardIntegrationTest" => ["dashboard page", "dashboard link hosts that had performed modifications",
-                           "dashboard link hosts in error state", "dashboard link good host reports",
-                           "dashboard link hosts that had pending changes", "dashboard link out of sync hosts",
-                           "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
-                           "widgets not in dashboard show up in list"]})
+                                                       "dashboard link hosts in error state", "dashboard link good host reports",
+                                                       "dashboard link hosts that had pending changes", "dashboard link out of sync hosts",
+                                                       "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
+                                                       "widgets not in dashboard show up in list"] })
         # strong params
         parameter_filter Host::Managed, :openscap_proxy_id, :openscap_proxy
         parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
@@ -166,7 +165,6 @@ view_openscap_proxies]
                         :label => N_('OpenSCAP Proxy'),
                         :description => N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports'),
                         :api_description => N_('ID of OpenSCAP Proxy')
-
 
         if ForemanOpenscap.with_remote_execution?
           options = {
@@ -197,7 +195,7 @@ view_openscap_proxies]
       Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
-    #Include concerns in this config.to_prepare block
+    # Include concerns in this config.to_prepare block
     config.to_prepare do
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)

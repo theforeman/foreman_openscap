@@ -10,7 +10,7 @@ module ArfReportDashboardHelper
     [[:failed, _('Failed')],
      [:passed, _('Passed')],
      [:othered, _('Othered')],].each do |i|
-      data << {:label => i[1], :data => report[i[0]], :color => COLORS[i[0]]}
+      data << { :label => i[1], :data => report[i[0]], :color => COLORS[i[0]] }
     end
     flot_pie_chart 'overview', _('Compliance reports breakdown'), data, options
   end
