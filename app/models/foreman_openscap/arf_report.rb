@@ -15,10 +15,11 @@ module ForemanOpenscap
     has_one :policy_arf_report
     has_one :policy, :through => :policy_arf_report, :dependent => :destroy
     has_one :asset, :through => :host, :class_name => 'ForemanOpenscap::Asset', :as => :assetable
-    after_save :assign_locations_organizations
     has_one :log, :foreign_key => :report_id
     belongs_to :openscap_proxy, :class_name => "SmartProxy"
 
+    after_save :assign_locations_organizations
+    before_destroy :destroy_from_proxy
 
     delegate :asset=, :to => :host
 
@@ -175,7 +176,7 @@ module ForemanOpenscap
         policy.id == other.policy.id
     end
 
-    def destroy
+    def destroy_from_proxy
       if host
         begin
           openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
@@ -186,7 +187,6 @@ module ForemanOpenscap
       else
         logger.error "Failed to delete report with id #{id} from proxy, no host associated with report"
       end
-      super
     end
 
     def self.newline_to_space(string)

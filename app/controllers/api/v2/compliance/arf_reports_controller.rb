@@ -49,9 +49,13 @@ module Api
 
         def create
           asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
-          arf_report = ForemanOpenscap::ArfReport.create_arf(asset, params)
-          asset.host.refresh_statuses if asset.host
-          render :json => { :result => :OK, :id => arf_report.id.to_s }
+          if asset.host.openscap_proxy
+            arf_report = ForemanOpenscap::ArfReport.create_arf(asset, params)
+            asset.host.refresh_statuses
+            render :json => { :result => :OK, :id => arf_report.id.to_s }
+          else
+            no_proxy_for_host asset
+          end
         end
 
         api :GET, "/compliance/arf_reports/:id/download/", N_("Download bzipped ARF report")
@@ -83,6 +87,12 @@ module Api
 
         def handle_download_error(error)
           render_error 'standard_error', :status => :internal_error, :locals => { :exception => error }
+        end
+
+        def no_proxy_for_host(asset)
+          msg = _('Failed to upload Arf Report, no OpenSCAP proxy set for host %s') % asset.host.name
+          logger.error msg
+          render :json => { :result => msg }, :status => :unprocessable_entity
         end
 
         def action_permission
