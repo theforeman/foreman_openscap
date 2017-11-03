@@ -10,8 +10,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
     @host = FactoryBot.create(:compliance_host)
     @report = FactoryBot.create(:arf_report,
-                                 :host_id => @host.id,
-                                 :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
+                                :host_id => @host.id,
+                                :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
     @policy = FactoryBot.create(:policy)
     @asset = FactoryBot.create(:asset)
 
