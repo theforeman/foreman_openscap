@@ -9,17 +9,15 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
     @host = FactoryBot.create(:compliance_host)
-    @report = FactoryBot.create(:arf_report,
-                                :host_id => @host.id,
-                                :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
     @policy = FactoryBot.create(:policy)
-    @asset = FactoryBot.create(:asset)
+    @asset = FactoryBot.create(:asset, :assetable_id => @host.id)
 
     @from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.json"
     @cname = '9521a5c5-8f44-495f-b087-20e86b30bf67'
   end
 
   test "should get index" do
+    create_arf_report
     get :index, {}, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     assert_not response['results'].empty?
@@ -27,7 +25,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   end
 
   test "should get show" do
-    get :show, { :id => @report.to_param }, set_session_user
+    report = create_arf_report
+    get :show, { :id => report.to_param }, set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     refute response['passed'].blank?
     refute response['failed'].blank?
@@ -36,9 +35,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   end
 
   test "should download report" do
+    report = create_arf_report
     bzipped_report = File.read "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.bz2"
     ForemanOpenscap::ArfReport.any_instance.stubs(:to_bzip).returns(bzipped_report)
-    get :download, { :id => @report.to_param }, set_session_user
+    get :download, { :id => report.to_param }, set_session_user
     t = Tempfile.new('tmp_report')
     t.write @response.body
     t.close
@@ -61,6 +61,20 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     src_count = report_logs.flat_map(&:source).count
     assert(msg_count > 0)
     assert_equal msg_count, src_count
+  end
+
+  test "should not create report for host without proxy" do
+    asset = FactoryBot.create(:asset)
+    date = Time.new(1944, 6, 6)
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(asset)
+    post :create,
+         @from_json.merge(:cname => @cname,
+                          :policy_id => @policy.id,
+                          :date => date.to_i),
+         set_session_user
+    assert_response :unprocessable_entity
+    res = JSON.parse(@response.body)
+    assert_equal "Failed to upload Arf Report, no OpenSCAP proxy set for host #{asset.host.name}", res["result"]
   end
 
   test "should not duplicate messages" do
@@ -145,5 +159,11 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   def arf_from_json(path)
     file_content = File.read path
     JSON.parse file_content
+  end
+
+  def create_arf_report
+    FactoryBot.create(:arf_report,
+                      :host_id => @host.id,
+                      :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
   end
 end

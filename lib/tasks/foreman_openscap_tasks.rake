@@ -56,6 +56,15 @@ namespace :foreman_openscap do
     ForemanOpenscap::MessageCleaner.new.clean
     puts 'Done'
   end
+
+  desc "Delete ArfReports without OpenSCAP proxy"
+  task :clean_reports_without_proxy => :environment do
+    User.as_anonymous_admin do
+      report_ids_without_proxy = ForemanOpenscap::ArfReport.unscoped.where(:openscap_proxy => nil).pluck(:id)
+      total = ForemanOpenscap::ArfReport.delete report_ids_without_proxy
+      puts "Done cleaning #{total} reports"
+    end
+  end
 end
 
 # Tests

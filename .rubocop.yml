@@ -69,7 +69,7 @@ Metrics/MethodLength:
 
 Metrics/AbcSize:
   Max: 60
- 
+
 Style/TrailingCommaInLiteral:
   Enabled: false
 
