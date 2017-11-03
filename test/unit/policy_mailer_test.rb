@@ -5,11 +5,11 @@ class PolicyMailerTest < ActiveSupport::TestCase
     @user = User.current = users :admin
 
     FactoryBot.create(:mail_notification,
-                       :name => :openscap_policy_summary,
-                       :description => N_('A summary of reports for OpenScap policies'),
-                       :mailer => 'ForemanOpenscap::PolicyMailer',
-                       :method => 'policy_summary',
-                       :subscription_type => 'report',)
+                      :name => :openscap_policy_summary,
+                      :description => N_('A summary of reports for OpenScap policies'),
+                      :mailer => 'ForemanOpenscap::PolicyMailer',
+                      :method => 'policy_summary',
+                      :subscription_type => 'report',)
     # just to have some content to send
     ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     host = FactoryBot.create(:compliance_host)

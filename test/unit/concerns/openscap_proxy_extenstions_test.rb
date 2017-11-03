@@ -7,8 +7,8 @@ class OpenscapProxyExtensionsTest < ActiveSupport::TestCase
 
   test "should return proxy api for openscap" do
     arf = FactoryBot.create(:arf_report,
-                             :host_id => @host.id,
-                             :openscap_proxy => @host.openscap_proxy)
+                            :host_id => @host.id,
+                            :openscap_proxy => @host.openscap_proxy)
     api = arf.openscap_proxy_api
     assert_equal (@host.openscap_proxy.url + "/compliance/"), api.url
   end

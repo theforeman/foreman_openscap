@@ -88,7 +88,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   test "should return xml of a tailoring file" do
     tailoring_profile = FactoryBot.create(:scap_content_profile)
     policy = FactoryBot.create(:policy, :tailoring_file => FactoryBot.create(:tailoring_file, :scap_content_profiles => [tailoring_profile]),
-                                         :tailoring_file_profile => tailoring_profile)
+                                        :tailoring_file_profile => tailoring_profile)
     get :tailoring, { :id => policy.id }, set_session_user
     assert(@response.header['Content-Type'], 'application/xml')
     assert_response :success
