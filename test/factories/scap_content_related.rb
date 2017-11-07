@@ -2,7 +2,7 @@ include ActionDispatch::TestProcess
 
 FactoryBot.define do
   factory :scap_content, :class => ::ForemanOpenscap::ScapContent do |f|
-    f.title 'fedora'
+    f.sequence(:title) { |n| "scap_content_title_#{n}" }
     f.original_filename 'fedora ds'
     f.scap_file { File.new("#{ForemanOpenscap::Engine.root}/test/files/scap_contents/ssg-fedora-ds.xml", 'rb').read }
   end
