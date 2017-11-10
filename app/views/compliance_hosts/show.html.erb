@@ -8,7 +8,9 @@
     <% if data.has_data? %>
     <div class="col-md-4">
       <div class="stats-well">
-        <h4 class="header ca"><%= _('%s latest report') % policy.name %></h4>
+        <h4 class="header ca"><%= link_to_if_authorized(_('%s latest report') % policy.name,
+                                                        hash_for_arf_report_path(:id => data.latest_report.id)
+                                                          .merge(:auth_object => data.latest_report)) %></h4>
         <% report = data.report %>
         <%= host_policy_breakdown_chart(report, :class => 'statistics-pie small') %>
       </div>
