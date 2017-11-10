@@ -1,6 +1,6 @@
 module ForemanOpenscap::HostReportDashboard
   class Data
-    attr_reader :report
+    attr_reader :report, :latest_report
 
     def initialize(policy, host)
       @latest_report = ::ForemanOpenscap::ArfReport.latest_of_policy(policy)
@@ -17,7 +17,6 @@ module ForemanOpenscap::HostReportDashboard
     private
 
     attr_writer :report
-    attr_accessor :latest_report
 
     def fetch_data
       report.update(
