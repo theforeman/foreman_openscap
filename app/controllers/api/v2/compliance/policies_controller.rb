@@ -46,6 +46,7 @@ module Api::V2
           param :day_of_month, Integer, :desc => N_('Policy schedule day of month (only if period == "monthly")')
           param :cron_line, String, :desc => N_('Policy schedule cron line (only if period == "custom")')
           param :hostgroup_ids, Array, :desc => N_('Apply policy to host groups')
+          param :host_ids, Array, :desc => N_('Apply policy to hosts')
           param :tailoring_file_id, Integer, :desc => N_('Tailoring file ID')
           param :tailoring_file_profile_id, Integer, :desc => N_('Tailoring file profile ID')
           param_group :taxonomies, ::Api::V2::BaseController
