@@ -7,7 +7,8 @@ module ::ProxyAPI
       Net::HTTPBadResponse,
       Net::HTTPHeaderSyntaxError,
       Net::ProtocolError,
-      Timeout::Error
+      Timeout::Error,
+      ProxyAPI::ProxyException
     ].freeze
 
     def initialize(args)
