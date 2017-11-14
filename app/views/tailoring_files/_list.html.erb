@@ -14,7 +14,7 @@
         <%= file.original_filename %>
       </td>
       <td>
-        <%= _("%s ago") % time_ago_in_words(file.created_at.getlocal) %>
+        <%= date_time_relative_value(file.created_at.getlocal) %>
       </td>
       <td>
         <%= action_buttons(
