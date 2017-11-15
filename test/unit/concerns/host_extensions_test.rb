@@ -59,6 +59,22 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_include res, host_2
   end
 
+  test "should find hosts with directly assigned policy when searching by policy id" do
+    policy, host, host_2 = setup_hosts_with_policy.values_at(:policy, :host, :host_2)
+    res = Host.search_for "compliance_policy_id = #{policy.id}"
+    assert_equal 2, res.count
+    assert_include res, host
+    assert_include res, host_2
+  end
+
+  test "should find hosts with inherited policy when searching by policy id" do
+    policy, host, host_2 = setup_hosts_with_inherited_policy.values_at(:policy, :host, :host_2)
+    res = Host.search_for "compliance_policy_id = #{policy.id}"
+    assert_equal 2, res.count
+    assert_include res, host
+    assert_include res, host_2
+  end
+
   private
 
   def setup_hosts_with_policy
