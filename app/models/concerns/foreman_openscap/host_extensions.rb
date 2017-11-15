@@ -13,6 +13,9 @@ module ForemanOpenscap
       scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
                     :only_explicit => true, :operators => ['= '], :ext_method => :search_by_policy_name
 
+      scoped_search :relation => :policies, :on => :id, :complete_value => false, :rename => :compliance_policy_id,
+                    :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_id
+
       scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
 
@@ -110,15 +113,22 @@ module ForemanOpenscap
         { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).pluck(:id)).to_sql + host_group_cond }
       end
 
+      def search_by_policy_id(key, operator, policy_id)
+        cond = sanitize_sql_for_conditions(["foreman_openscap_policies.id #{operator} ?", value_to_sql(operator, policy_id)])
+        search_assigned_all cond, []
+      end
+
       def search_by_missing_arf(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
 
         host_ids_from_arf_of_policy = ForemanOpenscap::ArfReport.joins(:policy).where(cond).pluck(:host_id).uniq
 
-        direct_result = policy_assigned_directly_host_ids cond, host_ids_from_arf_of_policy
+        search_assigned_all cond, host_ids_from_arf_of_policy
+      end
 
-        hg_result = policy_assigned_using_hostgroup_host_ids cond, host_ids_from_arf_of_policy
-
+      def search_assigned_all(condition, not_in_host_ids)
+        direct_result = policy_assigned_directly_host_ids condition, not_in_host_ids
+        hg_result = policy_assigned_using_hostgroup_host_ids condition, not_in_host_ids
         result = (direct_result + hg_result).uniq
         { :conditions => "hosts.id IN (#{result.empty? ? 'NULL' : result.join(',')})" }
       end
