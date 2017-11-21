@@ -1,7 +1,7 @@
 <span>
   <% if last_error && last_error.has_key?('timestamp') %>
     <span>
-      <a href="#logs" onclick="findSpoolLogs();"><%= _('%s ago') % time_ago_in_words(Time.at(last_error["timestamp"])) %></a>
+      <a href="#logs" onclick="findSpoolLogs();"><%= date_time_relative_value(Time.at(last_error["timestamp"])) %></a>
     </span>
   <% elsif !last_error.nil? && last_error.empty? %>
     <span>

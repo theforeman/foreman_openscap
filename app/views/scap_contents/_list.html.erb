@@ -10,7 +10,7 @@
       <td class="ellipsis"><%= content.title %></td>
       <td class="ellipsis"><%= content.original_filename %></td>
       <td>
-        <%= _("%s ago") % time_ago_in_words(content.created_at.getlocal) %>
+        <%= date_time_relative_value(content.created_at.getlocal) %>
       </td>
       <td>
         <%= action_buttons(
