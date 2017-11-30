@@ -1,4 +1,4 @@
-class CreateScaptimonyArfReportBreakdowns < ActiveRecord::Migration
+class CreateScaptimonyArfReportBreakdowns < ActiveRecord::Migration[4.2]
   def self.up
     execute <<-SQL.strip_heredoc
       CREATE VIEW scaptimony_arf_report_breakdowns AS

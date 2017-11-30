@@ -1,4 +1,4 @@
-class MoveArfReportsToReportsTable < ActiveRecord::Migration
+class MoveArfReportsToReportsTable < ActiveRecord::Migration[4.2]
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def up

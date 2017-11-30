@@ -1,6 +1,6 @@
 require 'digest/sha2'
 
-class AddScaptimonyScapContentDigest < ActiveRecord::Migration
+class AddScaptimonyScapContentDigest < ActiveRecord::Migration[4.2]
   def change
     unless column_exists?(:scaptimony_scap_contents, :digest)
       add_column :scaptimony_scap_contents, :digest, :string, :limit => 128

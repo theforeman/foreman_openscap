@@ -1,4 +1,4 @@
-class AddPermissionsToArfReport < ActiveRecord::Migration
+class AddPermissionsToArfReport < ActiveRecord::Migration[4.2]
   def up
     Permission.where(:name => %w[view_arf_reports destroy_arf_reports])
               .update_all(:resource_type => 'ForemanOpenscap::ArfReport')

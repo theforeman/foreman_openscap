@@ -1,4 +1,4 @@
-class MigrateFromScaptimony < ActiveRecord::Migration
+class MigrateFromScaptimony < ActiveRecord::Migration[4.2]
   def up
     ActiveRecord::ConnectionAdapters::SchemaStatements.module_eval do
       # rename_tables renames the indexes, and their new names overflow, we cancel out the renaming of the indexes

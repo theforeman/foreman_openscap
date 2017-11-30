@@ -1,4 +1,4 @@
-class CreateScaptimonyAssetsPolicies < ActiveRecord::Migration
+class CreateScaptimonyAssetsPolicies < ActiveRecord::Migration[4.2]
   def change
     create_table :scaptimony_assets_policies, :id => false do |t|
       t.references :asset, :index => true, :null => false

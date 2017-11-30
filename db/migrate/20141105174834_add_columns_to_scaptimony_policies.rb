@@ -1,4 +1,4 @@
-class AddColumnsToScaptimonyPolicies < ActiveRecord::Migration
+class AddColumnsToScaptimonyPolicies < ActiveRecord::Migration[4.2]
   def change
     add_column :scaptimony_policies, :xccdf_profile, :string
     add_column :scaptimony_policies, :period, :string
