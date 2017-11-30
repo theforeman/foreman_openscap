@@ -1,4 +1,4 @@
-class AddColumnsToScaptimonyScapContents < ActiveRecord::Migration
+class AddColumnsToScaptimonyScapContents < ActiveRecord::Migration[4.2]
   def change
     add_column :scaptimony_scap_contents, :title, :string
     add_column :scaptimony_scap_contents, :original_filename, :string

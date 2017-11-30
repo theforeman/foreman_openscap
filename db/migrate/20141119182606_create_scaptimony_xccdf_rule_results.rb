@@ -1,4 +1,4 @@
-class CreateScaptimonyXccdfRuleResults < ActiveRecord::Migration
+class CreateScaptimonyXccdfRuleResults < ActiveRecord::Migration[4.2]
   def change
     create_table :scaptimony_xccdf_rule_results do |t|
       t.references :arf_report, :index => true, :null => false

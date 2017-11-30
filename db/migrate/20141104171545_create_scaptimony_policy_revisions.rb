@@ -1,4 +1,4 @@
-class CreateScaptimonyPolicyRevisions < ActiveRecord::Migration
+class CreateScaptimonyPolicyRevisions < ActiveRecord::Migration[4.2]
   def change
     create_table :scaptimony_policy_revisions do |t|
       t.references :policy, :index => true

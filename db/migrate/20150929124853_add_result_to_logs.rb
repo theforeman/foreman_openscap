@@ -1,4 +1,4 @@
-class AddResultToLogs < ActiveRecord::Migration
+class AddResultToLogs < ActiveRecord::Migration[4.2]
   def up
     add_column :logs, :result, :string
   end

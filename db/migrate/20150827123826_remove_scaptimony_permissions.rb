@@ -1,4 +1,4 @@
-class RemoveScaptimonyPermissions < ActiveRecord::Migration
+class RemoveScaptimonyPermissions < ActiveRecord::Migration[4.2]
   def up
     permissions = Permission.where(:resource_type => ["Scaptimony::Policy", "Scaptimony::ScapContent"])
     new_type = "ForemanOpenscap"

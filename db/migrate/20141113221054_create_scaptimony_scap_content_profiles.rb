@@ -1,4 +1,4 @@
-class CreateScaptimonyScapContentProfiles < ActiveRecord::Migration
+class CreateScaptimonyScapContentProfiles < ActiveRecord::Migration[4.2]
   def change
     create_table :scaptimony_scap_content_profiles do |t|
       t.references :scap_content, :index => true

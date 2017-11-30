@@ -1,4 +1,4 @@
-class CreateTailoringFiles < ActiveRecord::Migration
+class CreateTailoringFiles < ActiveRecord::Migration[4.2]
   def up
     create_table :foreman_openscap_tailoring_files do |t|
       t.string :name, :unique => true, :null => false

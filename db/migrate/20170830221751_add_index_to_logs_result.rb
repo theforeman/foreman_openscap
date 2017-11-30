@@ -1,4 +1,4 @@
-class AddIndexToLogsResult < ActiveRecord::Migration
+class AddIndexToLogsResult < ActiveRecord::Migration[4.2]
   def up
     add_index :logs, :result
   end

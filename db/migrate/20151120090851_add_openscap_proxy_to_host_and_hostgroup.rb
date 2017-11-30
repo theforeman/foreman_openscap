@@ -1,4 +1,4 @@
-class AddOpenscapProxyToHostAndHostgroup < ActiveRecord::Migration
+class AddOpenscapProxyToHostAndHostgroup < ActiveRecord::Migration[4.2]
   def up
     add_column :hostgroups, :openscap_proxy_id, :integer
     add_column :hosts, :openscap_proxy_id, :integer

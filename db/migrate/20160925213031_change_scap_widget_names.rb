@@ -1,4 +1,4 @@
-class ChangeScapWidgetNames < ActiveRecord::Migration
+class ChangeScapWidgetNames < ActiveRecord::Migration[4.2]
   def up
     Widget.where(:name => 'OpenSCAP Host reports widget')\
           .update_all(:name => 'Latest Compliance Reports')

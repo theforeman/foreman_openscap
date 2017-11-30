@@ -1,4 +1,4 @@
-class RemoveArfReportsWithoutPolicy < ActiveRecord::Migration
+class RemoveArfReportsWithoutPolicy < ActiveRecord::Migration[4.2]
   def up
     ids_to_keep = ForemanOpenscap::ArfReport.unscoped.all.joins(:policy_arf_report).pluck(:id)
     ForemanOpenscap::ArfReport.unscoped.where.not(:id => ids_to_keep).find_in_batches do |batch|

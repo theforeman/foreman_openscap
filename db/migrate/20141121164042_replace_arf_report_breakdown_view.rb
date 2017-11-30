@@ -1,4 +1,4 @@
-class ReplaceArfReportBreakdownView < ActiveRecord::Migration
+class ReplaceArfReportBreakdownView < ActiveRecord::Migration[4.2]
   def self.up
     execute 'DROP VIEW IF EXISTS scaptimony_arf_report_breakdowns'
     execute <<-SQL.strip_heredoc

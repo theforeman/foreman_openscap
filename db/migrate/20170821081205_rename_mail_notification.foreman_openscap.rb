@@ -1,4 +1,4 @@
-class RenameMailNotification < ActiveRecord::Migration
+class RenameMailNotification < ActiveRecord::Migration[4.2]
   def up
     notification = MailNotification.where(:name => 'openscap_policy_summary').first
     if notification

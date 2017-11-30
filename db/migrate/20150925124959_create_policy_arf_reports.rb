@@ -1,4 +1,4 @@
-class CreatePolicyArfReports < ActiveRecord::Migration
+class CreatePolicyArfReports < ActiveRecord::Migration[4.2]
   def up
     create_table :foreman_openscap_policy_arf_reports do |t|
       t.integer :policy_id

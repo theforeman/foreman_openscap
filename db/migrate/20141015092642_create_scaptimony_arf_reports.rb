@@ -1,4 +1,4 @@
-class CreateScaptimonyArfReports < ActiveRecord::Migration
+class CreateScaptimonyArfReports < ActiveRecord::Migration[4.2]
   def change
     create_table :scaptimony_arf_reports do |t|
       t.references :asset, :index => true
