@@ -17,10 +17,13 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n>1;\n"
 "\n"
 
-msgid "%s - The following compliance reports are about to be changed"
+msgid " for policy %s"
 msgstr ""
 
-msgid "%s ago"
+msgid " through %s"
+msgstr ""
+
+msgid "%s - The following compliance reports are about to be changed"
 msgstr ""
 
 msgid "%s compliance report by policy"
@@ -49,6 +52,9 @@ msgstr ""
 msgid "Apply policy to host groups"
 msgstr ""
 
+msgid "Apply policy to hosts"
+msgstr ""
+
 msgid "Assign Compliance Policy"
 msgstr ""
 
@@ -58,7 +64,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-msgid "Cannot generate HTML guide for %{scap_content}/%{profile}"
+msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
+msgstr ""
+
+msgid "Cannot generate HTML guide, scap content is missing."
 msgstr ""
 
 msgid "Changed"
@@ -98,6 +107,9 @@ msgid "Compliance Reports Breakdown"
 msgstr ""
 
 msgid "Compliance Status"
+msgstr ""
+
+msgid "Compliance policy summary"
 msgstr ""
 
 msgid "Compliance policy: %s"
@@ -151,6 +163,9 @@ msgstr ""
 msgid "Delete an ARF Report"
 msgstr ""
 
+msgid "Delete compliance policy %s with all of its reports?"
+msgstr ""
+
 msgid "Delete compliance policy %s with all the reports?"
 msgstr ""
 
@@ -163,6 +178,9 @@ msgstr ""
 msgid "Delete tailoring file %s?"
 msgstr ""
 
+msgid "Deleted policy"
+msgstr ""
+
 msgid "Deletes a Tailoring file"
 msgstr ""
 
@@ -170,6 +188,9 @@ msgid "Deletes an SCAP content"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Documentation"
 msgstr ""
 
 msgid "Download"
@@ -226,6 +247,9 @@ msgstr ""
 msgid "Failed to downloaded ARF report in HTML: %s"
 msgstr ""
 
+msgid "Failed to upload Arf Report, no OpenSCAP proxy set for host %s"
+msgstr ""
+
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
 msgstr ""
@@ -273,6 +297,9 @@ msgid "Hostname"
 msgstr ""
 
 msgid "Hosts Breakdown"
+msgstr ""
+
+msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
@@ -363,7 +390,10 @@ msgstr ""
 msgid "No ARF reports for this policy"
 msgstr ""
 
-msgid "No OpenSCAP proxy found for %{class} with %{id}"
+msgid "No OpenSCAP proxy found for %{class} with id %{id}"
+msgstr ""
+
+msgid "No Tailoring file assigned for policy with id %s"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
@@ -384,6 +414,9 @@ msgstr ""
 msgid "No hosts were found."
 msgstr ""
 
+msgid "No proxy found!"
+msgstr ""
+
 msgid "No proxy with OpenSCAP feature is running."
 msgstr ""
 
@@ -394,9 +427,6 @@ msgid "No report for this policy"
 msgstr ""
 
 msgid "No reports available"
-msgstr ""
-
-msgid "No valid OpenSCAP proxy server found."
 msgstr ""
 
 msgid "No valid policy ID provided"
@@ -429,10 +459,13 @@ msgstr ""
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
 
-msgid "Openscap Proxy"
+msgid "OpenSCAP Proxy"
 msgstr ""
 
-msgid "Openscap policy summary"
+msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports"
+msgstr ""
+
+msgid "Openscap Proxy"
 msgstr ""
 
 msgid "Organizations"
@@ -465,6 +498,9 @@ msgid "Policies"
 msgstr ""
 
 msgid "Policies with hosts:"
+msgstr ""
+
+msgid "Policy"
 msgstr ""
 
 msgid "Policy %s"
@@ -690,9 +726,6 @@ msgstr ""
 msgid "Unknown Compliance status"
 msgstr ""
 
-msgid "Unsupported report status format"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr ""
 
@@ -753,10 +786,16 @@ msgstr ""
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr ""
 
+msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
+msgstr ""
+
 msgid "does not come from selected tailoring file"
 msgstr ""
 
 msgid "does not consist of 5 parts separated by space"
+msgstr ""
+
+msgid "does not have the selected SCAP content profile"
 msgstr ""
 
 msgid "invalid type %s"
@@ -783,5 +822,5 @@ msgstr ""
 msgid "must have Openscap feature"
 msgstr ""
 
-msgid "these Complianace reports"
+msgid "these Compliance reports"
 msgstr ""
