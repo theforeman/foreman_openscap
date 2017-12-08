@@ -50,7 +50,7 @@ module Api
           asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
           if asset.host.openscap_proxy
             arf_report = ForemanOpenscap::ArfReport.create_arf(asset, params)
-            asset.host.refresh_statuses
+            asset.host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
             render :json => { :result => :OK, :id => arf_report.id.to_s }
           else
             no_proxy_for_host asset
