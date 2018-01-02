@@ -2,8 +2,8 @@ class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
-  before_filter :find_arf_report, :only => %i[show show_html destroy parse_html parse_bzip download_html]
-  before_filter :find_multiple, :only => %i[delete_multiple submit_delete_multiple]
+  before_action :find_arf_report, :only => %i[show show_html destroy parse_html parse_bzip download_html]
+  before_action :find_multiple, :only => %i[delete_multiple submit_delete_multiple]
 
   def model_of_controller
     ::ForemanOpenscap::ArfReport

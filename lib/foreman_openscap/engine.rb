@@ -199,16 +199,16 @@ module ForemanOpenscap
     config.to_prepare do
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
-      Host::Managed.send(:include, ForemanOpenscap::HostExtensions)
-      HostsHelper.send(:include, ForemanOpenscap::HostsHelperExtensions)
+      Host::Managed.send(:prepend, ForemanOpenscap::HostExtensions)
+      HostsHelper.send(:prepend, ForemanOpenscap::HostsHelperExtensions)
       Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
       Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
       ForemanOpenscap::ArfReport.send(:include, ForemanOpenscap::ComplianceStatusScopedSearch)
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
-      HostsController.send(:include, ForemanOpenscap::HostsControllerExtensions)
+      HostsController.send(:prepend, ForemanOpenscap::HostsControllerExtensions)
       Log.send(:include, ForemanOpenscap::LogExtensions)
-      LookupKeysHelper.send(:include, ForemanOpenscap::LookupKeysHelperExtensions)
+      LookupKeysHelper.send(:prepend, ForemanOpenscap::LookupKeysHelperExtensions)
     end
 
     rake_tasks do

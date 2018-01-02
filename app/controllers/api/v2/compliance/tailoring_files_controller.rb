@@ -2,8 +2,8 @@ module Api::V2
   module Compliance
     class TailoringFilesController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::TailoringFile
-      before_filter :find_resource, :except => %w[index create]
-      before_filter :openscap_proxy_check, :only => %w[create]
+      before_action :find_resource, :except => %w[index create]
+      before_action :openscap_proxy_check, :only => %w[create]
 
       def resource_name
         '::ForemanOpenscap::TailoringFile'

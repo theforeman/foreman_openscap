@@ -2,9 +2,9 @@ class PoliciesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::Parameters::Policy
 
-  before_filter :find_by_id, :only => %i[show edit update parse destroy]
-  before_filter :find_multiple, :only => %i[select_multiple_hosts update_multiple_hosts disassociate_multiple_hosts remove_policy_from_multiple_hosts]
-  before_filter :find_tailoring_file, :only => [:tailoring_file_selected]
+  before_action :find_by_id, :only => %i[show edit update parse destroy]
+  before_action :find_multiple, :only => %i[select_multiple_hosts update_multiple_hosts disassociate_multiple_hosts remove_policy_from_multiple_hosts]
+  before_action :find_tailoring_file, :only => [:tailoring_file_selected]
 
   def model_of_controller
     ::ForemanOpenscap::Policy
