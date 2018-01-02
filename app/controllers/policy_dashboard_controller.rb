@@ -1,5 +1,5 @@
 class PolicyDashboardController < ApplicationController
-  before_filter :prefetch_data, :only => :index
+  before_action :prefetch_data, :only => :index
 
   def index
   end

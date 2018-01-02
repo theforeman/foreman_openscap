@@ -6,9 +6,9 @@ module Api::V2
 
       add_smart_proxy_filters %i[content tailoring], :features => 'Openscap'
 
-      before_filter :find_resource, :except => %w[index create]
+      before_action :find_resource, :except => %w[index create]
 
-      skip_after_filter :log_response_body, :only => [:content]
+      skip_after_action :log_response_body, :only => [:content]
 
       def resource_name
         '::ForemanOpenscap::Policy'

@@ -2,8 +2,8 @@ class TailoringFilesController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include Foreman::Controller::Parameters::TailoringFile
 
-  before_filter :find_tailoring_file, :only => %i[destroy update edit xml]
-  before_filter :handle_file_upload, :only => %i[create update]
+  before_action :find_tailoring_file, :only => %i[destroy update edit xml]
+  before_action :handle_file_upload, :only => %i[create update]
 
   def model_of_controller
     ::ForemanOpenscap::TailoringFile

@@ -1,55 +1,54 @@
 module ForemanOpenscap
   module HostExtensions
-    extend ActiveSupport::Concern
     ::Host::Managed::Jail.allow :policies_enc
 
-    included do
-      has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset"
-      has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
-      has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
-      has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
-      has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
+    def self.prepended(base)
+      base.has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset"
+      base.has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
+      base.has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
+      base.has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
+      base.has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
-      scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
+      base.scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
                     :only_explicit => true, :operators => ['= '], :ext_method => :search_by_policy_name
 
-      scoped_search :relation => :policies, :on => :id, :complete_value => false, :rename => :compliance_policy_id,
+      base.scoped_search :relation => :policies, :on => :id, :complete_value => false, :rename => :compliance_policy_id,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_policy_id
 
-      scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
+      base.scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_report_missing_for,
                     :only_explicit => true, :operators => ['= ', '!= '], :ext_method => :search_by_missing_arf
 
-      scoped_search :relation => :compliance_status_object, :on => :status, :rename => :compliance_status,
+      base.scoped_search :relation => :compliance_status_object, :on => :status, :rename => :compliance_status,
                     :complete_value => { :compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                          :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                          :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE }
-      after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
+      base.after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
 
-      scope :comply_with, lambda { |policy|
+      base.scope :comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.passed)
       }
 
-      scope :incomply_with, lambda { |policy|
+      base.scope :incomply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.failed)
       }
 
-      scope :inconclusive_with, lambda { |policy|
+      base.scope :inconclusive_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.othered)
       }
 
-      scope :policy_reports_missing, lambda { |policy|
+      base.scope :policy_reports_missing, lambda { |policy|
         search_for("compliance_report_missing_for = \"#{policy.name}\"")
       }
 
-      scope :assigned_to_policy, lambda { |policy|
+      base.scope :assigned_to_policy, lambda { |policy|
         search_for("compliance_policy = \"#{policy.name}\"")
       }
 
-      alias_method_chain :inherited_attributes, :openscap
+      base.send :extend, ClassMethods
     end
 
-    def inherited_attributes_with_openscap
-      inherited_attributes_without_openscap.concat(%w[openscap_proxy_id])
+    def inherited_attributes
+      super.concat(%w[openscap_proxy_id])
     end
 
     def policies=(policies)
