@@ -59,7 +59,7 @@ module ArfReportsHelper
   end
 
   def reported_info(arf_report)
-    msg = _("Reported at %s") % arf_report.reported_at
+    msg = _("Reported at %s") % date_time_absolute(arf_report.reported_at)
     msg << _(" for policy %s") % display_link_if_authorized(arf_report.policy.name, hash_for_edit_policy_path(:id => arf_report.policy.id)) if arf_report.policy
     return msg.html_safe unless arf_report.openscap_proxy
     msg += _(" through %s") % openscap_proxy_link(arf_report)
