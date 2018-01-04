@@ -4,6 +4,7 @@ inherit_from:
 
 AllCops:
   TargetRubyVersion: 2.2
+  TargetRailsVersion: 5.1
   Include:
     - 'app/views/api/**/*.rabl'
   Exclude:
@@ -48,16 +49,10 @@ Metrics/LineLength:
 Style/CollectionMethods:
   Enabled: false
 
-Rails/HttpPositionalArguments:
-  Enabled: false
-
 Style/EmptyMethod:
   EnforcedStyle: expanded
 
 Rails/Date:
-  Enabled: false
-
-Rails/HttpPositionalArguments:
   Enabled: false
 
 Metrics/MethodLength:
@@ -132,10 +127,6 @@ Naming/FileName:
 Rails/ReversibleMigration:
   Exclude:
        - 'db/migrate/20150111085317_polymorph_asset.rb'
-
-# fails - rubocop bug - https://github.com/bbatsov/rubocop/issues/4171
-Rails/Blank:
-  Enabled: false
 
 Layout/DotPosition:
   Enabled: false
