@@ -11,7 +11,7 @@ class ArfReportsControllerTest < ActionController::TestCase
     ForemanOpenscap::ArfReport.any_instance.stubs(:openscap_proxy).returns(@host.openscap_proxy)
     arf_report = FactoryBot.create(:arf_report, :host_id => @host.id)
     assert_difference("ForemanOpenscap::ArfReport.count", -1) do
-      delete :destroy, { :id => arf_report.id }, set_session_user
+      delete :destroy, :params => { :id => arf_report.id }, :session => set_session_user
     end
     assert_redirected_to arf_reports_path
   end
@@ -24,7 +24,7 @@ class ArfReportsControllerTest < ActionController::TestCase
     end
     last_arf = arf_reports[-1]
     assert_difference("ForemanOpenscap::ArfReport.unscoped.count", -2) do
-      post :submit_delete_multiple, { :arf_report_ids => arf_reports[0..-2].map(&:id) }, set_session_user
+      post :submit_delete_multiple, :params => { :arf_report_ids => arf_reports[0..-2].map(&:id) }, :session => set_session_user
     end
     assert_redirected_to arf_reports_path
     assert_equal last_arf, ForemanOpenscap::ArfReport.unscoped.first
@@ -34,7 +34,7 @@ class ArfReportsControllerTest < ActionController::TestCase
     arf_report = FactoryBot.create(:arf_report, :host_id => @host.id)
     report_html = File.read("#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.html")
     ForemanOpenscap::ArfReport.any_instance.stubs(:to_html).returns(report_html)
-    get :download_html, { :id => arf_report.id }, set_session_user
+    get :download_html, :params => { :id => arf_report.id }, :session => set_session_user
     assert_equal report_html, @response.body
   end
 end

@@ -18,7 +18,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
   test "should get index" do
     create_arf_report
-    get :index, {}, set_session_user
+    get :index, :session => set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     assert_not response['results'].empty?
     assert_response :success
@@ -26,7 +26,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
   test "should get show" do
     report = create_arf_report
-    get :show, { :id => report.to_param }, set_session_user
+    get :show, :params => { :id => report.to_param }, :session => set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     refute response['passed'].blank?
     refute response['failed'].blank?
@@ -38,7 +38,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     report = create_arf_report
     bzipped_report = File.read "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.bz2"
     ForemanOpenscap::ArfReport.any_instance.stubs(:to_bzip).returns(bzipped_report)
-    get :download, { :id => report.to_param }, set_session_user
+    get :download, :params => { :id => report.to_param }, :session => set_session_user
     t = Tempfile.new('tmp_report')
     t.write @response.body
     t.close
@@ -50,10 +50,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     date = Time.new(1984, 9, 15)
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
-         @from_json.merge(:cname => @cname,
-                          :policy_id => @policy.id,
-                          :date => date.to_i),
-         set_session_user
+         :params => @from_json.merge(:cname => @cname,
+                                     :policy_id => @policy.id,
+                                     :date => date.to_i),
+         :session => set_session_user
     report = ForemanOpenscap::ArfReport.unscoped.last
     assert_equal date, report.reported_at
     report_logs = report.logs
@@ -68,10 +68,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     date = Time.new(1944, 6, 6)
     ForemanOpenscap::Helper.stubs(:get_asset).returns(asset)
     post :create,
-         @from_json.merge(:cname => @cname,
-                          :policy_id => @policy.id,
-                          :date => date.to_i),
-         set_session_user
+         :params => @from_json.merge(:cname => @cname,
+                                     :policy_id => @policy.id,
+                                     :date => date.to_i),
+         :session => set_session_user
     assert_response :unprocessable_entity
     res = JSON.parse(@response.body)
     assert_equal "Failed to upload Arf Report, no OpenSCAP proxy set for host #{asset.host.name}", res["result"]
@@ -86,10 +86,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
-         @from_json.merge(:cname => @cname,
-                          :policy_id => @policy.id,
-                          :date => dates[1].to_i),
-         set_session_user
+         :params => @from_json.merge(:cname => @cname,
+                                     :policy_id => @policy.id,
+                                     :date => dates[1].to_i),
+         :session => set_session_user
     assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
   end
 
@@ -102,10 +102,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_desc_changed.json"
     post :create,
-         changed_from_json.merge(:cname => @cname,
-                                 :policy_id => @policy.id,
-                                 :date => Time.new(2017, 6, 6).to_i),
-         set_session_user
+         :params => changed_from_json.merge(:cname => @cname,
+                                            :policy_id => @policy.id,
+                                            :date => Time.new(2017, 6, 6).to_i),
+         :session => set_session_user
 
     assert_response :success
 
@@ -127,10 +127,10 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_value_changed.json"
     post :create,
-         changed_from_json.merge(:cname => @cname,
+         :params => changed_from_json.merge(:cname => @cname,
                                  :policy_id => @policy.id,
                                  :date => Time.new(2017, 8, 6).to_i),
-         set_session_user
+         :session => set_session_user
 
     assert_response :success
 

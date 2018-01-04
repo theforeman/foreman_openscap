@@ -2,7 +2,7 @@ class MoveArfReportsToReportsTable < ActiveRecord::Migration[4.2]
   # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
   def up
-    execute 'DROP VIEW foreman_openscap_arf_report_breakdowns' if table_exists? 'foreman_openscap_arf_report_breakdowns'
+    execute 'DROP VIEW foreman_openscap_arf_report_breakdowns' if view_exists? 'foreman_openscap_arf_report_breakdowns'
     drop_table :foreman_openscap_xccdf_results
     drop_table :foreman_openscap_xccdf_rules
     drop_table :foreman_openscap_xccdf_rule_results
