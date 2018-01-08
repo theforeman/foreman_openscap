@@ -88,7 +88,7 @@ module PoliciesHelper
   end
 
   def previous_link(form)
-    previous = content_tag(:span, :class => 'glyphicon glyphicon-chevron-left') {}
+    previous = content_tag(:span, :class => 'glyphicon glyphicon-chevron-left')
     content_tag(:div, :class => 'pull-left') do
       link_to(previous.html_safe, '#', :class => 'btn btn-default', :onclick => "previous_step('#{@policy.previous_step}')")
     end

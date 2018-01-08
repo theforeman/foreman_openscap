@@ -7,7 +7,7 @@ FactoryBot.define do
     sequence(:created_at) { |n| Time.new(1490 + n, 0o1, 13, 15, 24, 0o0) }
     logs []
     status 0
-    metrics {}
+    metrics({})
     openscap_proxy nil
   end
 end
