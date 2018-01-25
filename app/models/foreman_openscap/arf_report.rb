@@ -10,6 +10,8 @@ module ForemanOpenscap
     BIT_NUM = 10
     MAX = (1 << BIT_NUM) - 1
 
+    include ComplianceStatusScopedSearch
+
     scoped_search :on => :status, :offset => 0, :word_size => 4 * BIT_NUM, :complete_value => { :true => true, :false => false }, :rename => :eventful
 
     has_one :policy_arf_report
