@@ -9,6 +9,11 @@ module ForemanOpenscap
         scoped_search options
       end
 
+      def policy_search(search_alias)
+        scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => search_alias,
+              :only_explicit => true, :ext_method => :search_by_policy_name
+      end
+
       def search_by_policy_name(_key, _operator, policy_name)
         cond = sanitize_policy_name(policy_name)
         { :conditions => ArfReport.arel_table[:id].in(
@@ -67,8 +72,9 @@ module ForemanOpenscap
     end
 
     included do
-      scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :compliance_policy,
-                    :only_explicit => true, :ext_method => :search_by_policy_name
+      policy_search :compliance_policy
+
+      policy_search :policy
 
       scoped_search :on => :id, :rename => :last_for, :complete_value => { :host => 0, :policy => 1 },
                     :only_explicit => true, :ext_method => :search_by_last_for
@@ -81,6 +87,8 @@ module ForemanOpenscap
 
       scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => :inconclusive_with,
                     :only_explicit => true, :operators => ['= '], :ext_method => :search_by_inconclusive_with
+
+      scoped_search :relation => :openscap_proxy, :on => :name, :complete_value => true, :only_explicit => true, :rename => :openscap_proxy
 
       compliance_status_scoped_search 'passed', :on => :status, :rename => :compliance_passed
       compliance_status_scoped_search 'failed', :on => :status, :rename => :compliance_failed
