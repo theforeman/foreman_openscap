@@ -51,8 +51,9 @@ module ::ProxyAPI
       begin
         parse(delete("arf/#{report.id}/#{cname}/#{report.reported_at.to_i}/#{report.policy_arf_report.digest}"))
       rescue => e
-        logger.error "Failed to destroy arf report with id #{report.id} on Smart Proxy"
-        logger.debug e.backtrace.join("\n\t")
+        msg = "Failed to destroy arf report with id #{report.id} on Smart Proxy, cause: #{e.message}"
+        logger.error msg
+        report.errors.add(:base, msg)
         false
       end
     end

@@ -177,16 +177,20 @@ module ForemanOpenscap
     end
 
     def destroy_from_proxy
-      if host
-        begin
-          openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
-        rescue Foreman::Exception => e
-          logger.error "Failed to delete report with id #{id} from proxy, cause: #{e.message}"
-          logger.debug e.backtrace.join("\n\t")
-        end
+      if !host
+        destroy_from_proxy_warning "host"
+      elsif !policy
+        destroy_from_proxy_warning "policy"
+      elsif !openscap_proxy
+        destroy_from_proxy_warning "OpenSCAP proxy"
       else
-        logger.error "Failed to delete report with id #{id} from proxy, no host associated with report"
+        openscap_proxy_api.destroy_report(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
       end
+    end
+
+    def destroy_from_proxy_warning(associated)
+      logger.warn "Skipping deletion of report with id #{id} from proxy, no #{associated} associated with report"
+      true
     end
 
     def self.newline_to_space(string)
