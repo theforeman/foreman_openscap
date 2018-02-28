@@ -99,47 +99,29 @@ Make sure that
   3. Go to *Hosts -> Compliance -> Policies* page
   4. Click the policy link to view dashboard and trend
 
-## Installation from RPMS
+## Installation
 
-- Install Foreman from [upstream](http://theforeman.org/)
+- Follow the official guide on [theforeman.org](https://theforeman.org/plugins/foreman_openscap/0.8/index.html#2.Installation)
 
-- Install foreman-proxy_openscap to all your foreman-proxies from [upstream](https://github.com/OpenSCAP/foreman-proxy_openscap)
+## Development setup
 
-- Enable [isimluk/OpenSCAP](https://copr.fedoraproject.org/coprs/isimluk/OpenSCAP/) COPR repository
-
-- Install Foreman_OpenSCAP
-
+- set up Foreman for development, preferably using [forklift](https://github.com/theforeman/forklift)
+- clone this repo
   ```
-  yum install rubygem-foreman_openscap ruby193-rubygem-foreman_openscap
+    git clone https://github.com/theforeman/foreman_openscap.git
   ```
-
-## Installation from upstream git
-
-- Install Foreman from [upstream](http://theforeman.org/)
-- Install SCAPtimony from [upstream](https://github.com/OpenSCAP/scaptimony)
-- Install foreman-proxy_openscap to all your foreman-proxies from [upstream](https://github.com/OpenSCAP/foreman-proxy_openscap)
-- Get foreman_openscap sources
-
+- point foreman to your checkout
   ```
-  $ git clone https://github.com/OpenSCAP/foreman_openscap.git
+  echo "gemspec :path => 'path/to/foreman_openscap'" >> foreman/bundler.d/Gemfile.local.rb
   ```
-
-- Build foreman_openscap RPM (instructions for Red Hat Enterprise Linux 6)
-
+- run bundler, migrations and seeds from foreman dir
   ```
-  $ cd foreman_openscap
-  $ gem build foreman_openscap.gemspec
-  # yum install yum-utils rpm-build scl-utils scl-utils-build ruby193-rubygems-devel ruby193-build ruby193
-  # yum-builddep extra/rubygem-foreman_openscap.spec
-  $ rpmbuild  --define "_sourcedir `pwd`" --define "scl ruby193" -ba extra/rubygem-foreman_openscap.spec
+  cd foreman
+  bundle install
+  rake db:migrate
+  rake db:seed
   ```
-
-- Install foreman_openscap RPM
-
-  ```
-  # yum localinstall ~/rpmbuild/RPMS/noarch/ruby193-rubygem-foreman_openscap-*.noarch.rpm
-  # service foreman restart
-  ```
+- start your Rails server, verify openscap plugin is present
 
 ## Releasing
 
