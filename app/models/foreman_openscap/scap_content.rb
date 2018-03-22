@@ -1,9 +1,9 @@
 module ForemanOpenscap
   class ScapContent < ApplicationRecord
+    audited :except => [:scap_file]
     include Authorizable
     include Taxonomix
     include DataStreamContent
-    audited :except => [:scap_file]
 
     has_many :scap_content_profiles, :dependent => :destroy
     has_many :policies
