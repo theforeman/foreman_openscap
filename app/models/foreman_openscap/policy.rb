@@ -1,10 +1,10 @@
 require 'rack/utils'
 module ForemanOpenscap
   class Policy < ApplicationRecord
+    audited
     include Authorizable
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
-    audited
 
     belongs_to :scap_content
     belongs_to :scap_content_profile
