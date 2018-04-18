@@ -21,7 +21,10 @@ module ::ProxyAPI
       raise ::ProxyAPI::ProxyException.new(url, e, N_("Request timed out. Please try increasing Settings -> proxy_request_timeout"))
     rescue RestClient::ResourceNotFound => e
       raise ::ProxyAPI::ProxyException.new(url, e,
-                                           N_("Could not validate %s. Please make sure you have appropriate proxy version to use this functionality") % scap_file.class)
+                                           N_("Could not validate %s. Please make sure you have appropriate proxy version to use this functionality") % type.humanize)
+    rescue => e
+      raise ::ProxyAPI::ProxyException.new(url, e,
+                                           N_("Could not validate %{file_type}. Error %{error}") % { :file_type => type.humanize, :error => e.message })
     end
 
     def policy_html_guide(scap_file, policy)
