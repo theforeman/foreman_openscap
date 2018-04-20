@@ -56,9 +56,9 @@ Rails.application.routes.draw do
     resources :hosts, :only => [:show], :as => :compliance_hosts, :controller => :compliance_hosts
   end
 
-  namespace :api do
+  namespace :api, :defaults => { :format => 'json' } do
     scope "(:apiv)", :module => :v2, :defaults => { :apiv => 'v2' },
-                     :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2) do
+                     :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2, :default => true) do
       namespace :compliance do
         resources :scap_contents, :except => %i[new edit] do
           member do

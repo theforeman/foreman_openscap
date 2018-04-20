@@ -13,6 +13,19 @@ module ArfReportsHelper
     end
   end
 
+  def arf_report_breadcrumbs
+    if @arf_report && @arf_report.host
+      breadcrumbs(:resource_url => api_compliance_arf_reports_path,
+                  :switchable => false,
+                  :items => [
+                    { :caption => _('Compliance Reports'),
+                      :url => url_for(arf_reports_path) },
+                    { :caption => @arf_report.host.name,
+                      :url => (arf_report_path(@arf_report) if authorized_for(hash_for_arf_report_path(@arf_report))) }
+                  ])
+    end
+  end
+
   def result_tag(level)
     tag = case level
           when 'pass'

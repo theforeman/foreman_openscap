@@ -1,3 +1,15 @@
 <% title _("Edit SCAP Content") %>
+<%= breadcrumbs(:resource_url => api_compliance_scap_contents_path,
+                :name_field => 'title',
+                :items => [
+                  { :caption => _('Scap Contents'),
+                    :url => url_for(scap_contents_path)
+                  },
+                  { :caption => @scap_content.title,
+                    :url => (edit_scap_content_path(@scap_content) if authorized_for(hash_for_edit_scap_content_path(@scap_content)))
+                  }
+                ]
+              ) if @scap_content %>
+
 
 <%= render :partial => 'form' %>
