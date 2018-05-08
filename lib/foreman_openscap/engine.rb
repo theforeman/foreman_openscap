@@ -92,7 +92,10 @@ module ForemanOpenscap
           permission :destroy_scap_contents, { :scap_contents => [:destroy],
                                                'api/v2/compliance/scap_contents' => [:destroy] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
-          permission :edit_hosts, { :hosts => [:openscap_proxy_changed] }, :resource_type => "Host"
+          permission :edit_hosts, { :hosts => %i[openscap_proxy_changed
+                                                 select_multiple_openscap_proxy
+                                                 update_multiple_openscap_proxy] },
+                     :resource_type => "Host"
           permission :edit_hostgroups, { :hostgroups => [:openscap_proxy_changed] }, :resource_type => "Hostgroup"
           permission :create_tailoring_files, { :tailoring_files => %i[create new],
                                                 'api/v2/compliance/tailoring_files' => [:create] },

@@ -93,6 +93,8 @@ Foreman::Application.routes.draw do
   resources :hosts do
     collection do
       post 'openscap_proxy_changed'
+      post 'select_multiple_openscap_proxy'
+      post 'update_multiple_openscap_proxy'
     end
   end
 
