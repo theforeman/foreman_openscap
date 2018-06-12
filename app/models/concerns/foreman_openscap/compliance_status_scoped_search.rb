@@ -15,11 +15,9 @@ module ForemanOpenscap
       end
 
       def search_by_policy_name(_key, _operator, policy_name)
-        cond = sanitize_policy_name(policy_name)
-        { :conditions => ArfReport.arel_table[:id].in(
-          PolicyArfReport.select(PolicyArfReport.arel_table[:arf_report_id])
-            .of_policy(Policy.find_by(name: cond).id).ast
-        ).to_sql }
+        query = PolicyArfReport.of_policy(Policy.find_by(:name => policy_name))
+                               .select(PolicyArfReport.arel_table[:arf_report_id]).to_sql
+        query_conditions query
       end
 
       def search_by_comply_with(_key, _operator, policy_name)
@@ -35,11 +33,9 @@ module ForemanOpenscap
       end
 
       def search_by_policy_results(policy_name, &selection)
-        cond = sanitize_policy_name(policy_name)
-        { :conditions => ArfReport.arel_table[:id].in(
-          ArfReport.select(ArfReport.arel_table[:id])
-              .latest_of_policy(Policy.find_by(name: cond)).instance_eval(&selection).ast
-        ).to_sql }
+        query = ArfReport.of_policy(Policy.find_by(:name => policy_name).id)
+                         .instance_eval(&selection).select(ArfReport.arel_table[:id]).to_sql
+        query_conditions query
       end
 
       def search_by_last_for(key, operator, by)
@@ -66,8 +62,8 @@ module ForemanOpenscap
 
       private
 
-      def sanitize_policy_name(policy_name)
-        sanitize_sql_for_conditions('foreman_openscap_policies.name' => policy_name)
+      def query_conditions(query)
+        { :conditions => "reports.id IN (#{query})" }
       end
     end
 

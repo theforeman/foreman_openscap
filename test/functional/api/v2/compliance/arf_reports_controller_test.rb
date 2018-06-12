@@ -14,6 +14,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
     @from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.json"
     @cname = '9521a5c5-8f44-495f-b087-20e86b30bf67'
+    @proxy = FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000")
   end
 
   test "should get index" do
@@ -144,6 +145,99 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     assert_equal new_msgs.first.digest, Digest::SHA1.hexdigest("Disable Firefox Configuration File ROT-13 Encoding Changed For Test")
   end
 
+  test "should find reports by policy name" do
+    reports_cleanup
+    report_a = create_arf_report
+    report_b = create_arf_report
+    policy = FactoryBot.create(:policy)
+    FactoryBot.create(:policy_arf_report, :policy_id => @policy.id, :arf_report_id => report_a.id)
+    FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report_b.id)
+
+    get :index, :params => { :search => "compliance_policy=#{policy.name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+  end
+
+  test "should find reports compliant with policy" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 3 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 3, "othered" => 0, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 5, "othered" => 0, "failed" => 0 }, policy)
+
+    get :index, :params => { :search => "comply_with=#{@policy.name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+  end
+
+  test "should find reports inconclusive for policy" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 5, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 3 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 0 }, policy)
+
+    get :index, :params => { :search => "inconclusive_with=#{@policy.name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+  end
+
+  test "should find reports failing for policy" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 0, "othered" => 0, "failed" => 1 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 2, "failed" => 4 }, @policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy)
+
+    get :index, :params => { :search => "not_comply_with=#{@policy.name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+  end
+
+  test "should find last report for policy" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 4 }, @policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy)
+
+    get :index, :params => { :search => "last_for=policy" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+    assert_equal 7, response['results'].find { |hash| hash["policy"]["name"] == policy.name }["failed"]
+    assert_equal 4, response['results'].find { |hash| hash["policy"]["name"] == @policy.name }["failed"]
+  end
+
+  test "should find last report for hosts" do
+    reports_cleanup
+    host_a = FactoryBot.create(:compliance_host)
+    host_b = FactoryBot.create(:compliance_host)
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy, host_a)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 4 }, policy, host_a)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy, host_b)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy, host_b)
+
+    get :index, :params => { :search => "last_for=host" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+    assert_equal 4, response['results'].find { |hash| hash["host"]["name"] == host_a.name }["failed"]
+    assert_equal 7, response['results'].find { |hash| hash["host"]["name"] == host_b.name }["failed"]
+  end
+
   private
 
   def reports_cleanup
@@ -161,9 +255,19 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     JSON.parse file_content
   end
 
+  def create_arf_report_for_search(status, policy, host = @host)
+    report = FactoryBot.create(:arf_report,
+                               :host_id => host.id,
+                               :status => status,
+                               :metrics => status,
+                               :openscap_proxy => @proxy)
+    FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
+    report
+  end
+
   def create_arf_report
     FactoryBot.create(:arf_report,
                       :host_id => @host.id,
-                      :openscap_proxy => FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000"))
+                      :openscap_proxy => @proxy)
   end
 end
