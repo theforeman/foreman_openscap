@@ -19,11 +19,59 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should get index without hosts and hostgroups" do
+    FactoryBot.create(:policy)
+    get :index, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert response['results'][0]['hosts'].empty?
+    assert response['results'][0]['hostgroups'].empty?
+    assert_response :success
+  end
+
+  test "should get index and show hosts" do
+    host = FactoryBot.create(:host)
+    asset = FactoryBot.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [asset])
+    get :index, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert !response['results'].empty?
+    assert !response['results'][0]['hosts'].empty?
+    assert_response :success
+  end
+
+  test "should get index and show hostgroups" do
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
+    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
+    hostgroup = FactoryBot.create(:hostgroup)
+    asset = FactoryBot.create(:asset, :assetable_id => hostgroup.id, :assetable_type => 'Hostgroup')
+    policy = FactoryBot.create(:policy, :assets => [asset])
+    get :index, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert !response['results'].empty?
+    assert !response['results'][0]['hostgroups'].empty?
+    assert_response :success
+  end
+
   test "should show a policy" do
     policy = FactoryBot.create(:policy)
     get :show, :params => { :id => policy.to_param }, :session => set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
     assert response['name'], policy.name
+    assert_response :success
+  end
+
+  test "should show a policy hosts and hostgroups" do
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
+    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
+    hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:host)
+    hostgroup_asset = FactoryBot.create(:asset, :assetable_id => hostgroup.id, :assetable_type => 'Hostgroup')
+    host_asset = FactoryBot.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [hostgroup_asset, host_asset])
+    get :show, :params => { :id => policy.to_param }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert !response['hosts'].empty?
+    assert !response['hostgroups'].empty?
     assert_response :success
   end
 
