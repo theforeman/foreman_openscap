@@ -210,7 +210,6 @@ module ForemanOpenscap
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
       HostsController.send(:prepend, ForemanOpenscap::HostsControllerExtensions)
       Log.send(:include, ForemanOpenscap::LogExtensions)
-      LookupKeysHelper.send(:prepend, ForemanOpenscap::LookupKeysHelperExtensions)
     end
 
     rake_tasks do
