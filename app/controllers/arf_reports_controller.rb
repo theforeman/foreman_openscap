@@ -25,7 +25,7 @@ class ArfReportsController < ApplicationController
     begin
       self.response_body = @arf_report.to_html
     rescue => e
-      render :text => _(e.message)
+      render :plain => _(e.message)
     end
   end
 
