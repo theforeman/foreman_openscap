@@ -313,6 +313,97 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     end
   end
 
+  test "should find reports with rule name" do
+    reports_cleanup
+    host = FactoryBot.create(:compliance_host)
+    rule_name = 'xccdf_org.something_installed'
+    rule_names_1 = ['xccdf_org.something_tested', rule_name]
+    rule_names_2 = ['xccdf_org.nothing', 'xccdf_org.whatever']
+    rule_results_1 = ['fail', 'pass']
+    rule_results_2 = ['fail', 'fail']
+    report = create_report_with_rules(host, rule_names_1, rule_results_1)
+    create_report_with_rules(host, rule_names_2, rule_results_2)
+
+    get :index, :params => { :search => "xccdf_rule_name=#{rule_name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+    assert_equal report.id, response['results'].first["id"].to_i
+  end
+
+  test "should find reports by rule with fail" do
+    reports_cleanup
+    host = FactoryBot.create(:compliance_host)
+    rule_name = 'xccdf_org.something_installed'
+    rule_names_1 = [rule_name, 'xccdf_org.nothing', 'xccdf_org.othered']
+    rule_names_2 = [rule_name, 'xccdf_org.whatever', 'xccdf_org.original']
+    rule_results_1 = ['fail', 'pass', 'fixed']
+    rule_results_2 = ['pass', 'pass', 'unknown']
+    report = create_report_with_rules(host, rule_names_1, rule_results_1)
+    create_report_with_rules(host, rule_names_2, rule_results_2)
+
+    get :index, :params => { :search => "xccdf_rule_failed=#{rule_name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+    assert_equal report.id, response['results'].first["id"].to_i
+  end
+
+  test "should find reports by rule with pass" do
+    reports_cleanup
+    host = FactoryBot.create(:compliance_host)
+    rule_name = 'xccdf_org.something_installed'
+    rule_names_1 = [rule_name, 'xccdf_org.nothing', 'xccdf_org.othered']
+    rule_names_2 = [rule_name, 'xccdf_org.whatever', 'xccdf_org.original']
+    rule_results_1 = ['pass', 'fail', 'fixed']
+    rule_results_2 = ['notchecked', 'fail', 'unknown']
+    report = create_report_with_rules(host, rule_names_1, rule_results_1)
+    create_report_with_rules(host, rule_names_2, rule_results_2)
+
+    get :index, :params => { :search => "xccdf_rule_passed=#{rule_name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+    assert_equal report.id, response['results'].first["id"].to_i
+  end
+
+  test "should find reports by rule with othered" do
+    reports_cleanup
+    host = FactoryBot.create(:compliance_host)
+    rule_name = 'xccdf_org.something_installed'
+    rule_names_1 = [rule_name, 'xccdf_org.nothing', 'xccdf_org.othered']
+    rule_names_2 = [rule_name, 'xccdf_org.whatever', 'xccdf_org.original']
+    rule_results_1 = ['notapplicable', 'fail', 'fixed']
+    rule_results_2 = ['pass', 'fail', 'unknown']
+    report = create_report_with_rules(host, rule_names_1, rule_results_1)
+    create_report_with_rules(host, rule_names_2, rule_results_2)
+
+    get :index, :params => { :search => "xccdf_rule_othered=#{rule_name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+    assert_equal report.id, response['results'].first["id"].to_i
+  end
+
+  test "should find reports with rule name" do
+    reports_cleanup
+    host = FactoryBot.create(:compliance_host)
+    rule_name = 'xccdf_org.something_installed'
+    rule_names_1 = ['xccdf_org.something_tested', rule_name]
+    rule_names_2 = ['xccdf_org.nothing', 'xccdf_org.whatever']
+    rule_results_1 = ['fail', 'pass']
+    rule_results_2 = ['fail', 'fail']
+    host = FactoryBot.create(:compliance_host)
+    report = create_report_with_rules(host, rule_names_1, rule_results_1)
+    create_report_with_rules(host, rule_names_2, rule_results_2)
+
+    get :index, :params => { :search => "xccdf_rule_name=#{rule_name}" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 1, response['results'].count
+    assert_equal report.id, response['results'].first["id"].to_i
+  end
+
   private
 
   def reports_cleanup

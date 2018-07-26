@@ -165,6 +165,19 @@ module ForemanOpenscap
       refute ForemanOpenscap::ArfReport.all.include? report
     end
 
+    test 'should get reports by rule result' do
+      rule_name = 'xccdf_org.something_installed'
+      rule_names_1 = ['xccdf_org.something_tested', rule_name]
+      rule_names_2 = ['xccdf_org.nothing', 'xccdf_org.whatever']
+      rule_results_1 = ['fail', 'pass']
+      rule_results_2 = ['fail', 'fail']
+      host = FactoryBot.create(:compliance_host)
+      report_1 = create_report_with_rules(host, rule_names_1, rule_results_1)
+      report_2 = create_report_with_rules(host, rule_names_2, rule_results_2)
+      res = ForemanOpenscap::ArfReport.by_rule_result(rule_name, 'pass').first
+      assert_equal res, report_1
+    end
+
     private
 
     def create_logs_for_report(report, log_params)

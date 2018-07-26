@@ -59,6 +59,8 @@ module ForemanOpenscap
 
     scope :passed, lambda { where("(#{report_status_column} >> #{bit_mask 'passed'}) > 0").merge(not_failed).merge(not_othered) }
 
+    scope :by_rule_result, lambda { |rule_name, rule_result| joins(:sources).where(:sources => { :value => rule_name }, :logs => { :result => rule_result }) }
+
     def self.bit_mask(status)
       ComplianceStatus.bit_mask(status)
     end

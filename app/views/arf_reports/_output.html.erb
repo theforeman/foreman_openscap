@@ -3,8 +3,9 @@
     <tr>
       <th><%= _("Severity") %></th>
       <th><%= _("Message") %></th>
-      <th><%= _("Resource") %></th>
-      <th><%= _("Result") %></th>
+      <th class="col-md-4"><%= _("Resource") %></th>
+      <th class="col-md-1"><%= _("Result") %></th>
+      <th class="col-md-1"><%= _("Actions") %></th>
     </tr>
   </thead>
   <tbody>
@@ -14,8 +15,9 @@
         <td>
           <%= render :partial => 'detailed_message', :locals => { :message => log.message } %>
         </td>
-        <td><%= h trunc_with_tooltip(log.source) %></td>
+        <td><%= log.source %></td>
         <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
+        <td><%= host_search_by_rule_result_buttons(log.source) %></td>
       </tr>
     <% end %>
     <tr id='ntsh' <%= "style='display: none;'".html_safe if logs.size > 0%>>

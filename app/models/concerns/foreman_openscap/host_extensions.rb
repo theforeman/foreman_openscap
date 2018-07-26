@@ -22,6 +22,16 @@ module ForemanOpenscap
                     :complete_value => { :compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
                                          :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                          :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE }
+
+      base.scoped_search :on => :id, :rename => :passes_xccdf_rule,
+              :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_passed
+
+      base.scoped_search :on => :id, :rename => :fails_xccdf_rule,
+              :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_failed
+
+      base.scoped_search :on => :id, :rename => :others_xccdf_rule,
+              :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_othered
+
       base.after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
 
       base.scope :comply_with, lambda { |policy|
@@ -100,6 +110,33 @@ module ForemanOpenscap
     end
 
     module ClassMethods
+      def search_by_rule_passed(key, operator, rule_name)
+        search_by_rule rule_name, 'pass'
+      end
+
+      def search_by_rule_failed(key, operator, rule_name)
+        search_by_rule rule_name, 'fail'
+      end
+
+      def search_by_rule_othered(key, operator, rule_name)
+        search_by_rule rule_name, LogExtensions.othered_result_constants
+      end
+
+      def search_by_rule(rule_name, rule_result)
+        query = Host.joins(:arf_reports)
+                    .merge(ArfReport.latest
+                                    .by_rule_result(rule_name, rule_result)
+                                    .unscope(:order))
+                    .distinct
+                    .select(Host.arel_table[:id]).to_sql
+
+        query_conditions query
+      end
+
+      def query_conditions(query)
+        { :conditions => "hosts.id IN (#{query})" }
+      end
+
       def search_by_policy_name(key, operator, policy_name)
         cond = sanitize_sql_for_conditions(["foreman_openscap_policies.name #{operator} ?", value_to_sql(operator, policy_name)])
 

@@ -29,6 +29,20 @@ module ScapTestProxy
   end
 end
 
+module ScapTestCommon
+  private
+
+  def create_report_with_rules(host, rule_names, rule_results)
+    raise "rule_names and rule_results should have the same length!" if rule_names.size != rule_results.size
+    report = FactoryBot.create(:arf_report, :host_id => host.id)
+    rule_names.each_with_index do |item, index|
+      source = FactoryBot.create(:compliance_source, :value => rule_names[index])
+      log = FactoryBot.create(:compliance_log, :source => source, :report => report, :result => rule_results[index])
+    end
+    report
+  end
+end
+
 class ActionMailer::TestCase
   include ScapClientPuppetclass
   setup :skip_scap_callback
@@ -37,6 +51,7 @@ end
 class ActionController::TestCase
   include ScapClientPuppetclass
   include ScapTestProxy
+  include ScapTestCommon
 
   setup :add_smart_proxy, :skip_scap_callback
 end
@@ -44,6 +59,7 @@ end
 class ActiveSupport::TestCase
   include ScapClientPuppetclass
   include ScapTestProxy
+  include ScapTestCommon
 
   setup :add_smart_proxy, :skip_scap_callback
 end

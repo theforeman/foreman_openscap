@@ -6,6 +6,10 @@ module ForemanOpenscap
       validate :scap_result
     end
 
+    def self.othered_result_constants
+      SCAP_RESULT.reject { |item| item == "pass" || item == "fail" }
+    end
+
     private
 
     def scap_result
