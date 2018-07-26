@@ -13,4 +13,11 @@ FactoryBot.define do
       msg.digest = Digest::SHA1.hexdigest(msg.value)
     end
   end
+
+  factory :compliance_source, :class => :source do
+    sequence(:value) { |n| "source#{n}" }
+    after(:build) do |source|
+      source.digest = Digest::SHA1.hexdigest(source.value)
+    end
+  end
 end

@@ -78,4 +78,10 @@ module ArfReportsHelper
     msg += _(" through %s") % openscap_proxy_link(arf_report)
     msg.html_safe
   end
+
+  def host_search_by_rule_result_buttons(source)
+    action_buttons(display_link_if_authorized(_('Hosts failing this rule'), hash_for_hosts_path(:search => "fails_xccdf_rule = #{source}")),
+                   display_link_if_authorized(_('Hosts passing this rule'), hash_for_hosts_path(:search => "passes_xccdf_rule = #{source}")),
+                   display_link_if_authorized(_('Hosts othering this rule'), hash_for_hosts_path(:search => "others_xccdf_rule = #{source}")))
+  end
 end

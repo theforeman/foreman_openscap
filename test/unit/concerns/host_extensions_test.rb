@@ -75,6 +75,26 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_include res, host_2
   end
 
+  test "should correctly find hosts based on rule result" do
+    rule_name = 'xccdf_org.something'
+    rule_names = [rule_name, 'xccdf_org.nothing']
+    rule_results_1 = ['pass', 'fail']
+    rule_results_2 = ['fail', 'fail']
+    rule_results_3 = ['notchecked', 'fail']
+    host_1 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_2, rule_results_1], @policy)
+    host_2 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_1, rule_results_2], @policy)
+    host_3 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_1, rule_results_3], @policy)
+
+    res = Host.search_for "passes_xccdf_rule = #{rule_name}"
+    assert_equal res.first, host_1
+
+    res = Host.search_for "fails_xccdf_rule = #{rule_name}"
+    assert_equal res.first, host_2
+
+    res = Host.search_for "others_xccdf_rule = #{rule_name}"
+    assert_equal res.first, host_3
+  end
+
   private
 
   def setup_hosts_with_policy
@@ -97,5 +117,15 @@ class HostExtensionsTest < ActiveSupport::TestCase
     host = FactoryBot.create(:compliance_host, :hostgroup_id => child.id)
     host_2 = FactoryBot.create(:compliance_host, :hostgroup_id => child.id)
     { :policy => policy, :host => host, :host_2 => host_2 }
+  end
+
+  def setup_host_with_reports_and_rules(rule_names_ary, rule_results_ary, policy)
+    raise "rule_names_ary must have the same length as rule_results_ary" if rule_names_ary.size != rule_results_ary.size
+    host = FactoryBot.create(:host)
+    rule_names_ary.each_with_index do |item, index|
+      report = create_report_with_rules host, rule_names_ary[index], rule_results_ary[index]
+      FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
+    end
+    host
   end
 end

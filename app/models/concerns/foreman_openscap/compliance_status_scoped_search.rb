@@ -32,6 +32,18 @@ module ForemanOpenscap
         query_conditions query
       end
 
+      def search_by_rule_failed(key, operator, rule_name)
+        search_by_rule rule_name, "fail"
+      end
+
+      def search_by_rule_passed(key, operator, rule_name)
+        search_by_rule rule_name, "pass"
+      end
+
+      def search_by_rule_othered(key, operator, rule_name)
+        search_by_rule rule_name, LogExtensions.othered_result_constants
+      end
+
       def search_by_last_for(key, operator, by)
         by.gsub!(/[^[:alnum:]]/, '')
         case by.downcase
@@ -72,6 +84,13 @@ module ForemanOpenscap
       def query_conditions(query)
         { :conditions => "reports.id IN (#{query})" }
       end
+
+      def search_by_rule(rule_name, rule_result)
+        query = ArfReport.by_rule_result(rule_name, rule_result)
+                         .select(ArfReport.arel_table[:id]).to_sql
+
+        query_conditions query
+      end
     end
 
     included do
@@ -93,12 +112,24 @@ module ForemanOpenscap
 
       scoped_search :relation => :openscap_proxy, :on => :name, :complete_value => true, :only_explicit => true, :rename => :openscap_proxy
 
+      scoped_search :relation => :sources, :on => :value, :complete_value => true, :rename => :xccdf_rule_name,
+                    :only_explicit => true, :operators => ['= ']
+
+      scoped_search :relation => :sources, :on => :value, :rename => :xccdf_rule_failed,
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_failed
+
+      scoped_search :relation => :sources, :on => :value, :rename => :xccdf_rule_passed,
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_passed
+
+      scoped_search :relation => :sources, :on => :value, :rename => :xccdf_rule_othered,
+                    :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_othered
+
       scoped_search :on => :status, :rename => :compliance_status, :operators => ['= '],
-                          :ext_method => :search_by_compliance_status,
-                          :complete_value => { :compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
-                                               :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
-                                               :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE },
-                          :validator => ->(value) { ['compliant', 'incompliant', 'inconclusive'].reduce(false) { |memo, item| memo || (item == value) } }
+                           :ext_method => :search_by_compliance_status,
+                           :complete_value => { :compliant => ::ForemanOpenscap::ComplianceStatus::COMPLIANT,
+                                                :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
+                                                :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE },
+                           :validator => ->(value) { ['compliant', 'incompliant', 'inconclusive'].reduce(false) { |memo, item| memo || (item == value) } }
     end
   end
 end
