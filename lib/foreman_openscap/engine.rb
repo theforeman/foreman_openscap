@@ -158,15 +158,17 @@ module ForemanOpenscap
         parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
         parameter_filter Log, :result
 
+        proxy_description = N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.')
+
         smart_proxy_for Hostgroup, :openscap_proxy,
                         :feature => 'Openscap',
                         :label => N_('OpenSCAP Proxy'),
-                        :description => N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports'),
+                        :description => proxy_description,
                         :api_description => N_('ID of OpenSCAP Proxy')
         smart_proxy_for Host::Managed, :openscap_proxy,
                         :feature => 'Openscap',
                         :label => N_('OpenSCAP Proxy'),
-                        :description => N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports'),
+                        :description => proxy_description,
                         :api_description => N_('ID of OpenSCAP Proxy')
 
         if ForemanOpenscap.with_remote_execution?

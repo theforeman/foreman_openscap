@@ -102,7 +102,7 @@ module ForemanOpenscap
       status.values.sum
     end
 
-    def self.create_arf(asset, params)
+    def self.create_arf(asset, proxy, params)
       # fail if policy does not exist.
       arf_report = nil
       policy = Policy.find(params[:policy_id])
@@ -112,7 +112,7 @@ module ForemanOpenscap
                                        :reported_at => Time.at(params[:date].to_i),
                                        :status => params[:metrics],
                                        :metrics => params[:metrics],
-                                       :openscap_proxy => asset.host.openscap_proxy)
+                                       :openscap_proxy => proxy)
         PolicyArfReport.where(:arf_report_id => arf_report.id, :policy_id => policy.id, :digest => params[:digest]).first_or_create!
         if params[:logs]
           params[:logs].each do |log|

@@ -11,6 +11,7 @@ module Api
         add_smart_proxy_filters :create, :features => 'Openscap'
 
         before_action :find_resource, :only => %w[show destroy download download_html]
+        before_action :find_resources_before_create, :only => %w[create]
         skip_after_action :log_response_body, :only => %w[download download_html]
 
         def resource_name
@@ -47,14 +48,9 @@ module Api
         param :date, :identifier, :required => true
 
         def create
-          asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
-          if asset.host.openscap_proxy
-            arf_report = ForemanOpenscap::ArfReport.create_arf(asset, params.to_unsafe_h)
-            asset.host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
-            render :json => { :result => :OK, :id => arf_report.id.to_s }
-          else
-            no_proxy_for_host asset
-          end
+          arf_report = ForemanOpenscap::ArfReport.create_arf(@asset, @smart_proxy, params.to_unsafe_h)
+          @asset.host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
+          render :json => { :result => :OK, :id => arf_report.id.to_s }
         end
 
         api :GET, "/compliance/arf_reports/:id/download/", N_("Download bzipped ARF report")
@@ -84,12 +80,33 @@ module Api
           instance_variable_set("@arf_report", resource_scope.find(params[:id]))
         end
 
+        def find_resources_before_create
+          @asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
+
+          if !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && !@asset.host.openscap_proxy
+            msg = _('Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy') % @asset.host.name
+            no_proxy_for_host(msg)
+            return
+          elsif !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && @asset.host.openscap_proxy
+            logger.debug 'No proxy params found when uploading arf report, falling back to asset.host.openscap_proxy'
+            @smart_proxy = @asset.host.openscap_proxy
+          else
+            @smart_proxy = SmartProxy.unscoped.find_by :name => params[:openscap_proxy_name]
+            @smart_proxy ||= SmartProxy.unscoped.find_by :url => params[:openscap_proxy_url]
+          end
+
+          unless @smart_proxy
+            msg = _('No proxy found for %{name} or %{url}') % { :name => params[:openscap_proxy_name], :url => params[:openscap_proxy_url] }
+            no_proxy_for_host(msg)
+            return
+          end
+        end
+
         def handle_download_error(error)
           render_error 'standard_error', :status => :internal_error, :locals => { :exception => error }
         end
 
-        def no_proxy_for_host(asset)
-          msg = _('Failed to upload Arf Report, no OpenSCAP proxy set for host %s') % asset.host.name
+        def no_proxy_for_host(msg)
           logger.error msg
           render :json => { :result => msg }, :status => :unprocessable_entity
         end

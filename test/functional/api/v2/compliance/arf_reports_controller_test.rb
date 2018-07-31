@@ -14,7 +14,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
     @from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.json"
     @cname = '9521a5c5-8f44-495f-b087-20e86b30bf67'
-    @proxy = FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000")
+    @proxy = FactoryBot.create(:smart_proxy, :url => "http://smart-proxy.org:8000", :name => 'smart_proxy_with_openscap')
   end
 
   test "should get index" do
@@ -46,14 +46,15 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     refute t.size.zero?
   end
 
-  test "should create report" do
+  test "should create report using proxy name" do
     reports_cleanup
     date = Time.new(1984, 9, 15)
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
          :params => @from_json.merge(:cname => @cname,
                                      :policy_id => @policy.id,
-                                     :date => date.to_i),
+                                     :date => date.to_i,
+                                     :openscap_proxy_name => @proxy.name),
          :session => set_session_user
     report = ForemanOpenscap::ArfReport.unscoped.last
     assert_equal date, report.reported_at
@@ -64,7 +65,20 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     assert_equal msg_count, src_count
   end
 
-  test "should not create report for host without proxy" do
+  test "should create report using proxy url" do
+    reports_cleanup
+    date = Time.new(1984, 9, 15)
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    post :create,
+         :params => @from_json.merge(:cname => @cname,
+                                     :policy_id => @policy.id,
+                                     :date => date.to_i,
+                                     :openscap_proxy_url => @proxy.url),
+         :session => set_session_user
+    assert_response :success
+  end
+
+  test "should not create report when no proxy params present" do
     asset = FactoryBot.create(:asset)
     date = Time.new(1944, 6, 6)
     ForemanOpenscap::Helper.stubs(:get_asset).returns(asset)
@@ -75,7 +89,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
          :session => set_session_user
     assert_response :unprocessable_entity
     res = JSON.parse(@response.body)
-    assert_equal "Failed to upload Arf Report, no OpenSCAP proxy set for host #{asset.host.name}", res["result"]
+    msg = "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for #{asset.host.name} and host is missing openscap_proxy"
+    assert_equal msg, res["result"]
   end
 
   test "should not duplicate messages" do
@@ -83,13 +98,14 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     params = @from_json.with_indifferent_access.merge(:cname => @cname,
                                                       :policy_id => @policy.id,
                                                       :date => dates[0].to_i)
-    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, @proxy, params)
 
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     post :create,
          :params => @from_json.merge(:cname => @cname,
                                      :policy_id => @policy.id,
-                                     :date => dates[1].to_i),
+                                     :date => dates[1].to_i,
+                                     :openscap_proxy_name => @proxy.name),
          :session => set_session_user
     assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
   end
@@ -98,14 +114,15 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     params = @from_json.with_indifferent_access.merge(:cname => @cname,
                                                       :policy_id => @policy.id,
                                                       :date => Time.new(2017, 5, 6).to_i)
-    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, @proxy, params)
 
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_desc_changed.json"
     post :create,
          :params => changed_from_json.merge(:cname => @cname,
                                             :policy_id => @policy.id,
-                                            :date => Time.new(2017, 6, 6).to_i),
+                                            :date => Time.new(2017, 6, 6).to_i,
+                                            :openscap_proxy_name => @proxy.name),
          :session => set_session_user
 
     assert_response :success
@@ -123,14 +140,15 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     params = @from_json.with_indifferent_access.merge(:cname => @cname,
                                                       :policy_id => @policy.id,
                                                       :date => Time.new(2017, 7, 6).to_i)
-    assert ForemanOpenscap::ArfReport.create_arf(@asset, params)
+    assert ForemanOpenscap::ArfReport.create_arf(@asset, @proxy, params)
 
     ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
     changed_from_json = arf_from_json "#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report_msg_value_changed.json"
     post :create,
          :params => changed_from_json.merge(:cname => @cname,
                                  :policy_id => @policy.id,
-                                 :date => Time.new(2017, 8, 6).to_i),
+                                 :date => Time.new(2017, 8, 6).to_i,
+                                 :openscap_proxy_name => @proxy.name),
          :session => set_session_user
 
     assert_response :success
