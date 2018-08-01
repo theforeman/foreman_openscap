@@ -10,7 +10,7 @@
     <th><%= sort :compliance_passed, :as => _("Passed") %></th>
     <th><%= sort :compliance_failed, :as => _("Failed") %></th>
     <th><%= sort :compliance_othered, :as => _("Other") %></th>
-    <th></th>
+    <th><%= _("Actions") %></th>
   </tr>
   <% for arf_report in @arf_reports %>
     <tr>
