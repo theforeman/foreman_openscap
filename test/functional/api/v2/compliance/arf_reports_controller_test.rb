@@ -247,6 +247,9 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 4 }, policy, host_a)
     create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy, host_b)
     create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy, host_b)
+    # Add config reports to test for STI type
+    FactoryBot.create(:config_report, :host_id => host_a.id)
+    FactoryBot.create(:config_report, :host_id => host_b.id)
 
     get :index, :params => { :search => "last_for=host" }, :session => set_session_user
     response = ActiveSupport::JSON.decode(@response.body)
@@ -254,6 +257,60 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     assert_equal 2, response['results'].count
     assert_equal 4, response['results'].find { |hash| hash["host"]["name"] == host_a.name }["failed"]
     assert_equal 7, response['results'].find { |hash| hash["host"]["name"] == host_b.name }["failed"]
+  end
+
+  test "should find passed reports by compliance status" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    passing_1 = create_arf_report_for_search({ "passed" => 4, "othered" => 0, "failed" => 0 }, policy)
+    passing_2 = create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 15, "othered" => 9, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy)
+
+    get :index, :params => { :search => "compliance_status=compliant" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+    response['results'].each do |result|
+      assert(result['passed'] > 0)
+      assert(result['othered'] = 0)
+      assert(result['failed'] = 0)
+    end
+  end
+
+  test "should find failed reports by compliance status" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 4, "othered" => 0, "failed" => 1 }, policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 0, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 15, "othered" => 9, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy)
+
+    get :index, :params => { :search => "compliance_status=incompliant" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+    response['results'].each do |result|
+      assert(result['failed'] > 0)
+    end
+  end
+
+  test "should find othered reports by compliance status" do
+    reports_cleanup
+    policy = FactoryBot.create(:policy)
+    create_arf_report_for_search({ "passed" => 4, "othered" => 0, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 1, "othered" => 42, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 0, "othered" => 9, "failed" => 0 }, policy)
+    create_arf_report_for_search({ "passed" => 2, "othered" => 3, "failed" => 7 }, policy)
+
+    get :index, :params => { :search => "compliance_status=inconclusive" }, :session => set_session_user
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_response :success
+    assert_equal 2, response['results'].count
+    response['results'].each do |result|
+      assert(result['failed'] = 0)
+      assert(result['othered'] > 0)
+    end
   end
 
   private
