@@ -16,18 +16,18 @@ module ForemanOpenscap
     has_many :assets, :through => :asset_policies, :as => :assetable, :dependent => :destroy
 
     scoped_search :on => :name, :complete_value => true
-
-    SCAP_PUPPET_CLASS        = 'foreman_scap_client'.freeze
-    POLICIES_CLASS_PARAMETER = 'policies'.freeze
-    SERVER_CLASS_PARAMETER   = 'server'.freeze
-    PORT_CLASS_PARAMETER     = 'port'.freeze
-
     before_validation :update_period_attrs
 
-    validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 }
-    validate :ensure_needed_puppetclasses
+    def self.deploy_by_variants
+      %w[puppet ansible manual]
+    end
+
+    validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 },
+                     :if => Proc.new { |policy| policy.should_validate?('Create policy') }
     validates :period, :inclusion => { :in => %w[weekly monthly custom], :message => _('is not a valid value') },
                        :if => Proc.new { |policy| policy.should_validate?('Schedule') }
+    validates :deploy_by, :inclusion => { :in => Policy.deploy_by_variants },
+                          :if => Proc.new { |policy| policy.should_validate?('Client Deployment') }
 
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
@@ -97,7 +97,7 @@ module ForemanOpenscap
     end
 
     def steps
-      base_steps = [N_('Create policy'), N_('SCAP Content'), N_('Schedule')]
+      base_steps = [N_('Client Deployment'), N_('Create policy'), N_('SCAP Content'), N_('Schedule')]
       base_steps << N_('Locations') if SETTINGS[:locations_enabled]
       base_steps << N_('Organizations') if SETTINGS[:organizations_enabled]
       base_steps << N_('Hostgroups') # always be last.
@@ -121,6 +121,10 @@ module ForemanOpenscap
 
     def first_step?
       current_step == steps.first
+    end
+
+    def current_step?(step_name)
+      current_step == step_name
     end
 
     def last_step?
@@ -246,49 +250,6 @@ module ForemanOpenscap
       (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday] + 1) % 7
     end
 
-    def ensure_needed_puppetclasses
-      unless puppetclass = Puppetclass.find_by(name: SCAP_PUPPET_CLASS)
-        errors[:base] << _("Required Puppet class %{class} is not found, please ensure it imported first.") % { :class => SCAP_PUPPET_CLASS }
-        return false
-      end
-
-      return false unless override_policies_param(puppetclass)
-      return false unless override_port_param(puppetclass)
-      return false unless override_server_param(puppetclass)
-    end
-
-    def override_policies_param(puppetclass)
-      override_param(puppetclass, POLICIES_CLASS_PARAMETER) do |param|
-        param.key_type      = 'array'
-        param.default_value = '<%= @host.policies_enc %>'
-      end
-    end
-
-    def override_port_param(puppetclass)
-      override_param puppetclass, PORT_CLASS_PARAMETER
-    end
-
-    def override_server_param(puppetclass)
-      override_param puppetclass, SERVER_CLASS_PARAMETER
-    end
-
-    def override_param(puppetclass, param_name)
-      unless param = puppetclass.class_params.find_by(key: param_name)
-        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % { :class => SCAP_PUPPET_CLASS, :parameter => param_name }
-        return
-      end
-
-      param.override = true
-
-      yield param if block_given?
-
-      if param.changed? && !param.save
-        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % { :class => SCAP_PUPPET_CLASS, :parameter => param_name }
-        return
-      end
-      param
-    end
-
     def cron_line_split
       cron_line.to_s.split(' ')
     end
@@ -329,13 +290,7 @@ module ForemanOpenscap
     end
 
     def assign_policy_to_hostgroups
-      if hostgroups.any?
-        puppetclass = find_scap_puppetclass
-        hostgroups.each do |hostgroup|
-          hostgroup.puppetclasses << puppetclass unless hostgroup.puppetclasses.include? puppetclass
-          populate_overrides(puppetclass, hostgroup)
-        end
-      end
+      HostgroupOverrider.new(self).populate
     end
 
     def profile_for_scan
@@ -345,27 +300,6 @@ module ForemanOpenscap
         scap_content_profile.profile_id
       else
         ''
-      end
-    end
-
-    def find_scap_puppetclass
-      Puppetclass.find_by(name: SCAP_PUPPET_CLASS)
-    end
-
-    def populate_overrides(puppetclass, hostgroup)
-      puppetclass.class_params.where(:override => true).find_each do |override|
-        next unless hostgroup.puppet_proxy && (url = hostgroup.puppet_proxy.url).present?
-
-        case override.key
-        when SERVER_CLASS_PARAMETER
-          lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-          puppet_proxy_fqdn = URI.parse(url).host
-          lookup_value.update_attribute(:value, puppet_proxy_fqdn)
-        when PORT_CLASS_PARAMETER
-          lookup_value      = LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}", :lookup_key_id => override.id).first_or_initialize
-          puppet_proxy_port = URI.parse(url).port
-          lookup_value.update_attribute(:value, puppet_proxy_port)
-        end
       end
     end
 

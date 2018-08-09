@@ -11,5 +11,6 @@ FactoryBot.define do
     cron_line nil
     hosts []
     assets []
+    deploy_by 'manual'
   end
 end

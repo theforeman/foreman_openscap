@@ -9,6 +9,33 @@ module PoliciesHelper
     policy.scap_content_profile.nil? ? "Default" : policy.scap_content_profile.title
   end
 
+  def deploy_by_radios(f, policy)
+    ForemanOpenscap::ConfigNameService.new.configs.map do |tool|
+      label = label_tag('', :class => 'col-md-2 control-label') do
+        tool.type.to_s.capitalize
+      end
+
+      radio = content_tag(:div, :class => "col-md-2") do
+        f.radio_button(:deploy_by, tool.type, :disabled => !tool.available?, :checked => deploy_by_radio_checked(policy, tool))
+      end
+
+      help_block = content_tag(:span, :class => 'help-block help-inline') do |variable|
+        tool.help_text unless tool.available?
+      end
+
+      content_tag(:div, :class => "clearfix") do
+        content_tag(:div, :class => "form-group") do
+          label + radio + help_block
+        end
+      end
+    end.join('').html_safe
+  end
+
+  def deploy_by_radio_checked(policy, tool)
+    type = policy.deploy_by ? policy.deploy_by.to_sym : :puppet
+    tool.type == type
+  end
+
   def effective_policy_profile(policy)
     policy.tailoring_file ? policy.tailoring_file_profile.title : policy_profile_from_scap_content(policy)
   end

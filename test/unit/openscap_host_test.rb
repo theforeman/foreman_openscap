@@ -4,8 +4,6 @@ class OpenscapHostTest < ActiveSupport::TestCase
   setup do
     disable_orchestration
     User.current = users :admin
-    ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
     @policy = FactoryBot.create(:policy)
   end
 

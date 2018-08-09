@@ -5,7 +5,8 @@
   <%= base_errors_for @policy %>
 
   <ul class="nav nav-tabs" data-tabs="tabs">
-    <li class="active"><a href="#primary" data-toggle="tab"><%= _("General") %></a></li>
+    <li class="active"><a href="#deployment" data-toggle="tab"><%= _("Deployment Options") %></a></li>
+    <li><a href="#primary" data-toggle="tab"><%= _("General") %></a></li>
     <li><a href="#scap_content" data-toggle="tab"><%= _("SCAP Content") %></a></li>
     <li><a href="#scap_schedule" data-toggle="tab"><%= _("Schedule") %></a></li>
     <% if show_location_tab? %>
@@ -17,7 +18,10 @@
     <li><a href='#hostgroups' data-toggle='tab'><%= _('Host Groups') %></a></li>
   </ul>
   <div class="tab-content">
-    <div class="tab-pane active" id="primary">
+    <div class="tab-pane active" id="deployment">
+      <%= deploy_by_radios f, @policy %>
+    </div>
+    <div class="tab-pane" id="primary">
       <%= text_f(f, :name) %>
       <%= textarea_f(f, :description, :rows => :auto ) %>
     </div>

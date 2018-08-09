@@ -2,13 +2,13 @@ require 'test_plugin_helper'
 
 class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   setup do
-    ::ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     @scap_content_profile = FactoryBot.create(:scap_content_profile)
     @attributes = { :policy => { :name => 'my_policy',
                                  :scap_content_profile_id => @scap_content_profile.id,
                                  :scap_content_id => @scap_content_profile.scap_content_id,
                                  :period => 'weekly',
-                                 :weekday => 'friday' } }
+                                 :weekday => 'friday',
+                                 :deploy_by => 'manual' } }
   end
 
   test "should get index" do

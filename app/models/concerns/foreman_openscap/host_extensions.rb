@@ -36,7 +36,11 @@ module ForemanOpenscap
       base.scoped_search :on => :id, :rename => :others_xccdf_rule,
               :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_othered
 
-      base.after_update :puppetrun!, :if => ->(host) { Setting[:puppetrun] && host.changed.include?('openscap_proxy_id') }
+      base.after_update :puppetrun!, :if => ->(host) do
+        Setting[:puppetrun] &&
+        host.changed.include?('openscap_proxy_id') &&
+        (host.individual_puppetclasses + host.parent_classes).pluck(:name).include?(ClientConfig::Puppet.new.puppetclass_name)
+      end
 
       base.scope :comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.passed)

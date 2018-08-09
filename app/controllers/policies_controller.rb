@@ -32,9 +32,10 @@ class PoliciesController < ApplicationController
 
   def create
     @policy = ::ForemanOpenscap::Policy.new(policy_params)
+    ForemanOpenscap::LookupKeyOverrider.new(@policy).override if @policy.current_step?('Create policy')
     if @policy.wizard_completed? && @policy.save
       process_success :success_redirect => policies_path
-    elsif @policy.valid?
+    elsif @policy.errors.none? && @policy.valid?
       render('new') && return
     else
       @policy.rewind_step
