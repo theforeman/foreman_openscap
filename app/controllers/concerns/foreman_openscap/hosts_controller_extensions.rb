@@ -23,7 +23,7 @@ module ForemanOpenscap
           host.openscap_proxy = smart_proxy
           host.save!
         end
-        notice _("Updated hosts: Assigned with OpenSCAP Proxy: %s") % smart_proxy.name
+        success _("Updated hosts: Assigned with OpenSCAP Proxy: %s") % smart_proxy.name
         redirect_to hosts_path
       else
         error _('No OpenSCAP Proxy selected.')
