@@ -65,12 +65,7 @@ module ForemanOpenscap
     end
 
     def hostgroup_ids=(ids)
-      hostgroup_assets = []
-      ids.reject { |id| id.respond_to?(:empty?) && id.empty? }.map do |id|
-        hostgroup_assets << assets.where(:assetable_type => 'Hostgroup', :assetable_id => id).first_or_initialize
-      end
-      existing_host_assets = self.assets.where(:assetable_type => 'Host::Base')
-      self.assets = existing_host_assets + hostgroup_assets
+      assign_ids ids, 'Hostgroup'
     end
 
     def hostgroups
@@ -83,6 +78,10 @@ module ForemanOpenscap
 
     def host_ids
       assets.where(:assetable_type => 'Host::Base').pluck(:assetable_id)
+    end
+
+    def host_ids=(ids)
+      assign_ids ids, 'Host::Base'
     end
 
     def hosts
@@ -346,6 +345,15 @@ module ForemanOpenscap
           lookup_value.update_attribute(:value, puppet_proxy_port)
         end
       end
+    end
+
+    def assign_ids(ids, class_name)
+      new_assets = ids.reject { |id| id.respond_to?(:empty?) && id.empty? }.reduce([]) do |memo, id|
+        memo << assets.where(:assetable_type => class_name, :assetable_id => id).first_or_initialize
+      end
+      complimentary_class_name = class_name == 'Host::Base' ? 'Hostgroup' : 'Host::Base'
+      existing_assets = self.assets.where(:assetable_type => complimentary_class_name)
+      self.assets = existing_assets + new_assets
     end
   end
 end

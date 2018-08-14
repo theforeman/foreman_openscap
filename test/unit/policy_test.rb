@@ -15,12 +15,31 @@ class PolicyTest < ActiveSupport::TestCase
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hg1 = FactoryBot.create(:hostgroup)
     hg2 = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:compliance_host)
     asset = FactoryBot.create(:asset, :assetable_id => hg1.id, :assetable_type => 'Hostgroup')
-    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    host_asset = FactoryBot.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [asset, host_asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.hostgroup_ids = [hg1, hg2].map(&:id)
     policy.save!
     assert_equal 2, policy.hostgroups.count
-    assert policy.hostgroups.include?(hg2)
+    assert_equal 3, policy.assets.count
+    assert_equal host, policy.hosts.first
+  end
+
+  test "should assign hosts by their ids" do
+    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
+    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
+    host1 = FactoryBot.create(:compliance_host)
+    host2 = FactoryBot.create(:compliance_host)
+    hostgroup = FactoryBot.create(:hostgroup)
+    asset = FactoryBot.create(:asset, :assetable_id => host1.id, :assetable_type => 'Host::Base')
+    hostgroup_asset = FactoryBot.create(:asset, :assetable_id => hostgroup.id, :assetable_type => 'Hostgroup')
+    policy = FactoryBot.create(:policy, :assets => [asset, hostgroup_asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    policy.host_ids = [host1, host2].map(&:id)
+    policy.save!
+    assert_equal 2, policy.hosts.count
+    assert_equal 3, policy.assets.count
+    assert_equal hostgroup, policy.hostgroups.first
   end
 
   test "should remove associated hostgroup" do
