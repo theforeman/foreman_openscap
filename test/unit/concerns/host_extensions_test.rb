@@ -95,6 +95,28 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_equal res.first, host_3
   end
 
+  context "find_with_any_policy" do
+    setup do
+      @host.destroy
+      policy, host, host_2 = setup_hosts_with_inherited_policy.values_at(:policy, :host, :host_2)
+      policy, host_3, host_4 = setup_hosts_with_policy.values_at(:policy, :host, :host_2)
+      @compliance_hosts = [host, host_2, host_3, host_4]
+      @host_without_policy = FactoryBot.create(:host)
+    end
+
+    test "should find compliance hosts" do
+      res = Host.search_for "is_compliance_host = true"
+      assert_equal 4, res.count
+      assert_empty(@compliance_hosts - res | res - @compliance_hosts)
+    end
+
+    test "should find all but compliance hosts" do
+      res = Host.search_for "is_compliance_host = false"
+      assert_equal 1, res.count
+      assert_equal @host_without_policy, res.first
+    end
+  end
+
   private
 
   def setup_hosts_with_policy

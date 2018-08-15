@@ -23,6 +23,10 @@ module ForemanOpenscap
                                          :incompliant => ::ForemanOpenscap::ComplianceStatus::INCOMPLIANT,
                                          :inconclusive => ::ForemanOpenscap::ComplianceStatus::INCONCLUSIVE }
 
+      base.scoped_search :relation => :policies, :on => :name, :complete_value => { :true => true, :false => false },
+                         :only_explicit => true, :rename => :is_compliance_host, :operators => ['= '], :ext_method => :search_for_any_with_policy,
+                         :validator => ->(value) { ['true', 'false'].include? value }
+
       base.scoped_search :on => :id, :rename => :passes_xccdf_rule,
               :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_passed
 
@@ -162,11 +166,16 @@ module ForemanOpenscap
         search_assigned_all cond, host_ids_from_arf_of_policy
       end
 
-      def search_assigned_all(condition, not_in_host_ids)
+      def search_for_any_with_policy(key, operator, value)
+        search_assigned_all nil, [], (value == "false")
+      end
+
+      def search_assigned_all(condition, not_in_host_ids, negate = false)
+        sql_not = negate ? "NOT" : ""
         direct_result = policy_assigned_directly_host_ids condition, not_in_host_ids
         hg_result = policy_assigned_using_hostgroup_host_ids condition, not_in_host_ids
         result = (direct_result + hg_result).uniq
-        { :conditions => "hosts.id IN (#{result.empty? ? 'NULL' : result.join(',')})" }
+        { :conditions => "hosts.id #{sql_not} IN (#{result.empty? ? 'NULL' : result.join(',')})" }
       end
 
       def policy_assigned_directly_host_ids(condition, host_ids_from_arf)
