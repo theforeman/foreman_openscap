@@ -9,7 +9,7 @@ module ForemanOpenscap
     belongs_to :scap_content
     belongs_to :scap_content_profile
     belongs_to :tailoring_file
-    belongs_to :tailoring_file_profile, :class_name => ForemanOpenscap::ScapContentProfile
+    belongs_to :tailoring_file_profile, :class_name => 'ForemanOpenscap::ScapContentProfile'
     has_many :policy_arf_reports
     has_many :arf_reports, :through => :policy_arf_reports, :dependent => :destroy
     has_many :asset_policies
