@@ -252,19 +252,41 @@ module ForemanOpenscap
         return false
       end
 
-      unless policies_param = puppetclass.class_params.find_by(key: POLICIES_CLASS_PARAMETER)
-        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % { :class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER }
-        return false
+      return false unless override_policies_param(puppetclass)
+      return false unless override_port_param(puppetclass)
+      return false unless override_server_param(puppetclass)
+    end
+
+    def override_policies_param(puppetclass)
+      override_param(puppetclass, POLICIES_CLASS_PARAMETER) do |param|
+        param.key_type      = 'array'
+        param.default_value = '<%= @host.policies_enc %>'
+      end
+    end
+
+    def override_port_param(puppetclass)
+      override_param puppetclass, PORT_CLASS_PARAMETER
+    end
+
+    def override_server_param(puppetclass)
+      override_param puppetclass, SERVER_CLASS_PARAMETER
+    end
+
+    def override_param(puppetclass, param_name)
+      unless param = puppetclass.class_params.find_by(key: param_name)
+        errors[:base] << _("Puppet class %{class} does not have %{parameter} class parameter.") % { :class => SCAP_PUPPET_CLASS, :parameter => param_name }
+        return
       end
 
-      policies_param.override      = true
-      policies_param.key_type      = 'array'
-      policies_param.default_value = '<%= @host.policies_enc %>'
+      param.override = true
 
-      if policies_param.changed? && !policies_param.save
-        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % { :class => SCAP_PUPPET_CLASS, :parameter => POLICIES_CLASS_PARAMETER }
-        return false
+      yield param if block_given?
+
+      if param.changed? && !param.save
+        errors[:base] << _("%{parameter} class parameter for class %{class} could not be configured.") % { :class => SCAP_PUPPET_CLASS, :parameter => param_name }
+        return
       end
+      param
     end
 
     def cron_line_split
