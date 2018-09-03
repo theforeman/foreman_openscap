@@ -2,6 +2,7 @@ module Api::V2
   module Compliance
     class ScapContentsController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::ScapContent
+      include ForemanOpenscap::BodyLogExtensions
       before_action :find_resource, :except => %w[index create]
 
       def resource_name
@@ -19,7 +20,7 @@ module Api::V2
         @scap_contents = resource_scope_for_index(:permission => :view_scap_contents)
       end
 
-      api :GET, '/compliance/scap_contents/:id/xml', N_('Show an SCAP content as XML')
+      api :GET, '/compliance/scap_contents/:id/xml', N_('Download an SCAP content as XML')
       param :id, :identifier, :required => true
 
       def xml

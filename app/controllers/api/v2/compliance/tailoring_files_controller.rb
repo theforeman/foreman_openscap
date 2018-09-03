@@ -2,6 +2,7 @@ module Api::V2
   module Compliance
     class TailoringFilesController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::TailoringFile
+      include ForemanOpenscap::BodyLogExtensions
       before_action :find_resource, :except => %w[index create]
       before_action :openscap_proxy_check, :only => %w[create]
 
@@ -20,7 +21,7 @@ module Api::V2
         @tailoring_files = resource_scope_for_index(:permission => :view_tailoring_files)
       end
 
-      api :GET, '/compliance/tailoring_files/:id/xml', N_('Show a Tailoring file as XML')
+      api :GET, '/compliance/tailoring_files/:id/xml', N_('Download a Tailoring file as XML')
       param :id, :identifier, :required => true
 
       def xml
