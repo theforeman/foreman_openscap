@@ -1,5 +1,14 @@
 <% javascript 'charts', 'dashboard', 'foreman_openscap/scap_hosts_show' %>
 
+<%= breadcrumbs(:resource_url => api_hosts_path,
+    :name_field => 'name',
+    :switchable => false,
+    :items => [
+      { :caption => _('Compliance Hosts') },
+      { :caption => (N_("%s compliance reports by policy") % @host.to_label) }
+    ])
+%>
+
 <% title n_("%s compliance report by policy", "%s compliance reports by policy" , @host.combined_policies.length) % @host.to_label %>
 <% @host.combined_policies.each do |policy| %>
   <h2 class="center-block"><%= _('Policy %s') % policy %></h2>
