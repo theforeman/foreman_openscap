@@ -40,7 +40,7 @@ module ForemanOpenscap
     end
 
     def destroy_scap_client_lookup_values(pairs)
-      pairs.values.map(&:destroy)
+      pairs.values.compact.map(&:destroy)
     end
 
     def update_scap_client_lookup_values(pairs, model_match, mapping)
