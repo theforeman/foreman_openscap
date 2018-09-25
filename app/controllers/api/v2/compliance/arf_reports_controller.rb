@@ -14,8 +14,8 @@ module Api
         before_action :find_resources_before_create, :only => %w[create]
         skip_after_action :log_response_body, :only => %w[download download_html]
 
-        def resource_name
-          '::ForemanOpenscap::ArfReport'
+        def resource_name(resource = '::ForemanOpenscap::ArfReport')
+          super resource
         end
 
         def get_resource(message = 'no resource loaded')

@@ -4,8 +4,8 @@ module Api::V2
       include Foreman::Controller::Parameters::ScapContent
       before_action :find_resource, :except => %w[index create]
 
-      def resource_name
-        '::ForemanOpenscap::ScapContent'
+      def resource_name(resource = '::ForemanOpenscap::ScapContent')
+        super resource
       end
 
       def get_resource(message = 'no resource loaded')
