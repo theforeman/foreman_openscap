@@ -9,9 +9,9 @@ module ForemanOpenscap
       end
 
       def search_by_policy_name(_key, _operator, policy_name)
-        query = PolicyArfReport.of_policy(Policy.find_by(:name => policy_name))
+        scope = PolicyArfReport.of_policy(Policy.find_by(:name => policy_name))
                                .select(PolicyArfReport.arel_table[:arf_report_id]).to_sql
-        query_conditions query
+        query_conditions scope
       end
 
       def search_by_comply_with(_key, _operator, policy_name)
@@ -27,9 +27,9 @@ module ForemanOpenscap
       end
 
       def search_by_policy_results(policy_name, &selection)
-        query = ArfReport.of_policy(Policy.find_by(:name => policy_name).id)
-                         .instance_eval(&selection).select(ArfReport.arel_table[:id]).to_sql
-        query_conditions query
+        scope = ArfReport.of_policy(Policy.find_by(:name => policy_name).id)
+                         .instance_eval(&selection)
+        query_conditions_from_scope scope
       end
 
       def search_by_rule_failed(key, operator, rule_name)
@@ -76,10 +76,22 @@ module ForemanOpenscap
                 when 'inconclusive'
                   ArfReport.othered
                 end
-        query_conditions scope.select(ArfReport.arel_table[:id]).to_sql
+        query_conditions_from_scope scope
+      end
+
+      def search_by_host_collection_name(key, operator, value)
+        scope = apply_condition(Host.joins(:host_collections),
+                                operator == '!= ',
+                                :katello_host_collections => { :name => value })
+        query_conditions_from_scope ForemanOpenscap::ArfReport.where(:host_id => scope)
       end
 
       private
+
+      def query_conditions_from_scope(scope)
+        query = scope.select(ArfReport.arel_table[:id]).to_sql
+        query_conditions query
+      end
 
       def query_conditions(query)
         { :conditions => "reports.id IN (#{query})" }
@@ -91,9 +103,27 @@ module ForemanOpenscap
 
         query_conditions query
       end
+
+      def apply_condition(scope, negate, conditions)
+        if negate
+          scope.where.not(conditions)
+        else
+          scope.where(conditions)
+        end
+      end
     end
 
     included do
+      if ForemanOpenscap.with_katello?
+        has_one :lifecycle_environment, :through => :host
+
+        has_many :host_collections, :through => :host
+
+        scoped_search :relation => :lifecycle_environment, :on => :name, :complete_value => true, :rename => :lifecycle_environment
+        scoped_search :relation => :host_collections, :on => :name, :complete_value => true, :rename => :host_collection,
+                      :operators => ['= ', '!= '], :ext_method => :search_by_host_collection_name
+      end
+
       policy_search :compliance_policy
 
       policy_search :policy
