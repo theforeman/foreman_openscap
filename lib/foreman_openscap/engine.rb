@@ -1,6 +1,10 @@
 require 'deface'
 
 module ForemanOpenscap
+  def self.with_katello?
+    defined?(::Katello)
+  end
+
   class Engine < ::Rails::Engine
     engine_name 'foreman_openscap'
     config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
