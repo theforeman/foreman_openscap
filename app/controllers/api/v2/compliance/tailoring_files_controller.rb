@@ -5,8 +5,8 @@ module Api::V2
       before_action :find_resource, :except => %w[index create]
       before_action :openscap_proxy_check, :only => %w[create]
 
-      def resource_name
-        '::ForemanOpenscap::TailoringFile'
+      def resource_name(resource = '::ForemanOpenscap::TailoringFile')
+        super resource
       end
 
       def get_resource(message = 'no resource loaded')

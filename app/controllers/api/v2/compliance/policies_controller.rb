@@ -10,8 +10,8 @@ module Api::V2
 
       skip_after_action :log_response_body, :only => [:content]
 
-      def resource_name
-        '::ForemanOpenscap::Policy'
+      def resource_name(resource = '::ForemanOpenscap::Policy')
+        super resource
       end
 
       def get_resource(message = 'no resource loaded')

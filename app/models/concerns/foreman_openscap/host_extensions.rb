@@ -52,7 +52,7 @@ module ForemanOpenscap
     end
 
     def policies=(policies)
-      self.create_asset(:assetable => self) if self.asset.blank?
+      self.build_asset(:assetable => self) if self.asset.blank?
       self.asset.policies = policies
     end
 

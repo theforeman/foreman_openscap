@@ -11,50 +11,57 @@ module ForemanOpenscap
       @host = FactoryBot.create(:compliance_host)
       @failed_source = FactoryBot.create(:source)
       @passed_source = FactoryBot.create(:source)
-      @log_1 = FactoryBot.create(:compliance_log, :result => "pass", :source => @passed_source)
-      @log_2 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
-      @log_3 = FactoryBot.create(:compliance_log, :result => "pass", :source => @passed_source)
+
+      @passed_log_params = { :result => "pass", :source => @passed_source }
+      @failed_log_params = { :result => "fail", :source => @failed_source }
       @status = { :passed => 5, :failed => 1, :othered => 7 }.with_indifferent_access
     end
 
     test 'equal? should return true when there is no change in report results' do
-      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
+      create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
       assert(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when there is change in report results' do
       new_source = FactoryBot.create(:source)
-      log_4 = FactoryBot.build(:compliance_log, :result => "pass", :source => new_source)
-      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3, log_4])
+
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
+      create_logs_for_report(report_2, [@passed_log_params, @passed_log_params])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different sets of rules' do
-      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_3])
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
+      create_logs_for_report(report_2, [@passed_log_params])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different hosts' do
       host = FactoryBot.create(:compliance_host)
-      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => host.id, :logs => [@log_3, log_4])
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => host.id)
+      create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
+      create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
       refute(report_1.equal?(report_2))
     end
 
     test 'equal? should return false when reports have different policies' do
       policy = FactoryBot.create(:policy)
-      log_4 = FactoryBot.create(:compliance_log, :result => "fail", :source => @failed_source)
-      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
-      report_2 = FactoryBot.create(:arf_report, :policy => policy, :host_id => @host.id, :logs => [@log_3, log_4])
+      report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      report_2 = FactoryBot.create(:arf_report, :policy => policy, :host_id => @host.id)
+      create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
+      create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
       refute(report_1.equal?(report_2))
     end
@@ -151,9 +158,19 @@ module ForemanOpenscap
       openscap_proxy_api.stubs(:destroy_report).returns(true)
       ForemanOpenscap::Helper.stubs(:find_name_or_uuid_by_host).returns("abcde")
       ForemanOpenscap::ArfReport.any_instance.stubs(:openscap_proxy_api).returns(openscap_proxy_api)
-      report = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id, :logs => [@log_1, @log_2])
+      report = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
+      create_logs_for_report(report, [@passed_log_params, @failed_log_params])
+
       report.destroy
       refute ForemanOpenscap::ArfReport.all.include? report
+    end
+
+    private
+
+    def create_logs_for_report(report, log_params)
+      log_params.each do |param_group|
+        FactoryBot.create(:compliance_log, param_group.merge(:report_id => report.id))
+      end
     end
   end
 end
