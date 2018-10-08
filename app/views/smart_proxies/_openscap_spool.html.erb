@@ -1,11 +1,11 @@
 <span>
-  <% if last_error && last_error.has_key?('timestamp') %>
+  <% if spool_errors && spool_errors['errors_count'] > 0 %>
     <span>
-      <a href="#logs" onclick="findSpoolLogs();"><%= date_time_relative_value(Time.at(last_error["timestamp"])) %></a>
+      <%= _('%s spool errors detected, inspect the appropriate file directly on proxy') % spool_errors['errors_count'] %>
     </span>
-  <% elsif !last_error.nil? && last_error.empty? %>
+  <% elsif !spool_errors.nil? && spool_errors.empty? %>
     <span>
-      <%= _('Enable "logs" feature on proxy to search for errors') %>
+      <%= _('Failed to fetch spool status from proxy') %>
     </span>
   <% else %>
     <%= _('None found') %>

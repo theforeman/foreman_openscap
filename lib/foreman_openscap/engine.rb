@@ -217,6 +217,7 @@ module ForemanOpenscap
       HostsController.send(:prepend, ForemanOpenscap::HostsControllerExtensions)
       Log.send(:include, ForemanOpenscap::LogExtensions)
       BookmarkControllerValidator.send(:prepend, ForemanOpenscap::BookmarkControllerValidatorExtensions)
+      ProxyStatus.status_registry.add(ProxyStatus::OpenscapSpool)
     end
 
     rake_tasks do
