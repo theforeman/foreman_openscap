@@ -61,6 +61,14 @@ module ::ProxyAPI
       end
     end
 
+    def spool_status
+      parse(get('spool_errors'))
+    rescue => e
+      msg = "Failed to get spool status from proxy, cause: #{e.message}"
+      logger.error msg
+      {}
+    end
+
     private
 
     def timeout

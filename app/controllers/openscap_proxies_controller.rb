@@ -2,8 +2,8 @@ class OpenscapProxiesController < ApplicationController
   before_action :find_proxy, :only => [:openscap_spool]
 
   def openscap_spool
-    last_error = @smart_proxy ? find_spool_error : nil
-    render :partial => 'smart_proxies/openscap_spool', :locals => { :last_error => last_error }
+    spool_errors = @smart_proxy ? @smart_proxy.statuses[:openscap].spool_status : nil
+    render :partial => 'smart_proxies/openscap_spool', :locals => { :spool_errors => spool_errors }
   end
 
   private
@@ -19,14 +19,5 @@ class OpenscapProxiesController < ApplicationController
 
   def find_proxy
     @smart_proxy = SmartProxy.find params[:id]
-  end
-
-  def find_spool_error
-    log_status = @smart_proxy.statuses[:logs]
-    return {} unless log_status
-    log_status.logs
-              .log_entries
-              .reverse
-              .find { |entry| entry["level"] == "ERROR" && entry["message"].start_with?("Failed to parse Arf Report") }
   end
 end
