@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.0\n"
+"Project-Id-Version: foreman_openscap 0.11.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-02-09 16:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -52,6 +52,12 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
+msgid "Abstract async task"
+msgstr ""
+
+msgid "Action with sub plans"
+msgstr ""
+
 msgid "Actions"
 msgstr ""
 
@@ -65,6 +71,15 @@ msgid "Apply policy to hosts"
 msgstr ""
 
 msgid "Assign Compliance Policy"
+msgstr ""
+
+msgid "Attach subscriptions"
+msgstr ""
+
+msgid "Auto attach subscriptions"
+msgstr ""
+
+msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
@@ -142,6 +157,9 @@ msgstr ""
 msgid "Compliant with the policy"
 msgstr ""
 
+msgid "Configure capsule"
+msgstr ""
+
 msgid "Content"
 msgstr ""
 
@@ -149,6 +167,12 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr ""
 
 msgid "Could not validate %{file_type}. Error %{error}"
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Create Package Group"
 msgstr ""
 
 msgid "Create SCAP content"
@@ -160,7 +184,13 @@ msgstr ""
 msgid "Create a Tailoring file"
 msgstr ""
 
+msgid "Create client"
+msgstr ""
+
 msgid "Create policy"
+msgstr ""
+
+msgid "Create repos"
 msgstr ""
 
 msgid "Created"
@@ -178,10 +208,25 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
+msgid "Delete Activation Key"
+msgstr ""
+
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+msgid "Delete Package Group"
+msgstr ""
+
+msgid "Delete Product"
+msgstr ""
+
 msgid "Delete a Policy"
 msgstr ""
 
 msgid "Delete an ARF Report"
+msgstr ""
+
+msgid "Delete client"
 msgstr ""
 
 msgid "Delete compliance policy %s with all of its reports?"
@@ -191,6 +236,9 @@ msgid "Delete compliance policy %s with all the reports?"
 msgstr ""
 
 msgid "Delete compliance report for %s?"
+msgstr ""
+
+msgid "Delete host"
 msgstr ""
 
 msgid "Delete reports"
@@ -209,6 +257,15 @@ msgid "Deletes an SCAP content"
 msgstr ""
 
 msgid "Description"
+msgstr ""
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Content Host"
+msgstr ""
+
+msgid "Disable"
 msgstr ""
 
 msgid "Documentation"
@@ -250,6 +307,15 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
+msgid "Enable"
+msgstr ""
+
+msgid "Errata mail"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
 msgid "Failed"
 msgstr ""
 
@@ -281,10 +347,16 @@ msgstr ""
 msgid "Failed|F"
 msgstr ""
 
+msgid "Fetch pxe files"
+msgstr ""
+
 msgid "File Upload"
 msgstr ""
 
 msgid "Filename"
+msgstr ""
+
+msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
@@ -335,7 +407,19 @@ msgstr ""
 msgid "Hosts passing this rule"
 msgstr ""
 
+msgid "Hypervisors"
+msgstr ""
+
+msgid "Hypervisors update"
+msgstr ""
+
 msgid "ID of OpenSCAP Proxy"
+msgstr ""
+
+msgid "Import Puppet classes"
+msgstr ""
+
+msgid "Import facts"
 msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
@@ -361,6 +445,36 @@ msgid "Inconclusive"
 msgstr ""
 
 msgid "Inconclusive results"
+msgstr ""
+
+msgid "Incremental Update"
+msgstr ""
+
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+msgid "Index content"
+msgstr ""
+
+msgid "Index errata"
+msgstr ""
+
+msgid "Index module streams"
+msgstr ""
+
+msgid "Index package groups"
+msgstr ""
+
+msgid "Install Applicable Errata"
+msgstr ""
+
+msgid "Install erratum"
+msgstr ""
+
+msgid "Install package"
+msgstr ""
+
+msgid "Install package group"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
@@ -523,6 +637,9 @@ msgstr ""
 msgid "Othered|O"
 msgstr ""
 
+msgid "Package Profile Update"
+msgstr ""
+
 msgid "Passed"
 msgstr ""
 
@@ -572,10 +689,25 @@ msgstr ""
 msgid "Policy schedule weekday (only if period == \"weekly\")"
 msgstr ""
 
+msgid "Product Create"
+msgstr ""
+
 msgid "Profile"
 msgstr ""
 
+msgid "Promote"
+msgstr ""
+
+msgid "Promotion to Environment"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
+msgstr ""
+
+msgid "Publish"
+msgstr ""
+
+msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
 
 msgid "Puppet class %{class} does not have %{parameter} class parameter."
@@ -588,6 +720,36 @@ msgid "Rationale"
 msgstr ""
 
 msgid "References"
+msgstr ""
+
+msgid "Reindex subscriptions"
+msgstr ""
+
+msgid "Remote action:"
+msgstr ""
+
+msgid "Remove Content"
+msgstr ""
+
+msgid "Remove Version"
+msgstr ""
+
+msgid "Remove Versions and Associations"
+msgstr ""
+
+msgid "Remove from Environment"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove package group"
+msgstr ""
+
+msgid "Remove subscriptions"
+msgstr ""
+
+msgid "Report"
 msgstr ""
 
 msgid "Report Metrics"
@@ -605,6 +767,9 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
+msgid "Republish Version Repositories"
+msgstr ""
+
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr ""
 
@@ -618,6 +783,9 @@ msgid "Result"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
+msgstr ""
+
+msgid "Run Sync Plan"
 msgstr ""
 
 msgid "SCAP Content"
@@ -719,6 +887,12 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr ""
 
+msgid "Synchronize"
+msgstr ""
+
+msgid "Synchronize smart proxy"
+msgstr ""
+
 msgid "Tailoring File"
 msgstr ""
 
@@ -774,6 +948,12 @@ msgstr ""
 msgid "Unknown Compliance status"
 msgstr ""
 
+msgid "Update"
+msgstr ""
+
+msgid "Update Content Overrides"
+msgstr ""
+
 msgid "Update a Policy"
 msgstr ""
 
@@ -781,6 +961,21 @@ msgid "Update a Tailoring file"
 msgstr ""
 
 msgid "Update an SCAP content"
+msgstr ""
+
+msgid "Update for host"
+msgstr ""
+
+msgid "Update host"
+msgstr ""
+
+msgid "Update node"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -799,6 +994,12 @@ msgid "Upload New Tailoring file"
 msgstr ""
 
 msgid "Upload an ARF report"
+msgstr ""
+
+msgid "Upload errata into"
+msgstr ""
+
+msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
