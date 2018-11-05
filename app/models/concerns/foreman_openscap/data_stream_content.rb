@@ -10,7 +10,7 @@ module ForemanOpenscap
 
       validates_with ForemanOpenscap::DataStreamValidator
 
-      after_save :create_profiles, :if => lambda { |ds_content| ds_content.scap_file_changed? }
+      after_save :create_profiles, :if => lambda { |ds_content| ds_content.scap_file_previously_changed? }
 
       before_validation :redigest, :if => lambda { |ds_content| ds_content.persisted? && ds_content.scap_file_changed? }
       before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:policies)

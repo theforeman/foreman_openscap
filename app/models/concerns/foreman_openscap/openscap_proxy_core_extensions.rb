@@ -9,7 +9,7 @@ module ForemanOpenscap
     end
 
     def update_scap_client
-      update_scap_client_params if changed.include?('openscap_proxy_id')
+      update_scap_client_params if openscap_proxy_id_previously_changed?
     end
 
     def update_scap_client_params
