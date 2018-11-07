@@ -7,6 +7,9 @@ AllCops:
   TargetRailsVersion: 5.1
   Include:
     - 'app/views/api/**/*.rabl'
+    - 'app/**/*.rb'
+    - 'lib/**/*.rb'
+    - 'test/**/*.rb'
   Exclude:
     - 'db/schema.rb'
     - 'node_modules/**/*'
