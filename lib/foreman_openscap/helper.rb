@@ -1,6 +1,7 @@
 module ForemanOpenscap::Helper
   def self.get_asset(cname, policy_id)
-    asset = find_host_by_name_or_uuid(cname).get_asset
+    asset = find_host_by_name_or_uuid(cname)&.get_asset
+    return unless asset
     asset.policy_ids += [policy_id]
     asset
   end
@@ -16,11 +17,5 @@ module ForemanOpenscap::Helper
     else
       host = Host.find_by(name: cname)
     end
-
-    unless host
-      Rails.logger.error "Could not find Host with name: #{cname}"
-      raise ActiveRecord::RecordNotFound
-    end
-    host
   end
 end

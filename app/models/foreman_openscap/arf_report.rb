@@ -105,16 +105,17 @@ module ForemanOpenscap
     end
 
     def self.create_arf(asset, proxy, params)
-      # fail if policy does not exist.
       arf_report = nil
-      policy = Policy.find(params[:policy_id])
+      policy = Policy.find_by :id => params[:policy_id]
+      return unless policy
+
       ArfReport.transaction do
-        # TODO:RAILS-4.0: This should become arf_report = ArfReport.find_or_create_by! ...
-        arf_report = ArfReport.create!(:host => asset.host,
-                                       :reported_at => Time.at(params[:date].to_i),
-                                       :status => params[:metrics],
-                                       :metrics => params[:metrics],
-                                       :openscap_proxy => proxy)
+        arf_report = ArfReport.create(:host => asset.host,
+                                      :reported_at => Time.at(params[:date].to_i),
+                                      :status => params[:metrics],
+                                      :metrics => params[:metrics],
+                                      :openscap_proxy => proxy)
+        return arf_report unless arf_report.persisted?
         PolicyArfReport.where(:arf_report_id => arf_report.id, :policy_id => policy.id, :digest => params[:digest]).first_or_create!
         if params[:logs]
           params[:logs].each do |log|
