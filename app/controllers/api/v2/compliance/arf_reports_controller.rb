@@ -50,7 +50,7 @@ module Api
         def create
           arf_report = ForemanOpenscap::ArfReport.create_arf(@asset, @smart_proxy, params.to_unsafe_h)
           @asset.host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
-          render :json => { :result => :OK, :id => arf_report.id.to_s }
+          respond_for_report arf_report
         end
 
         api :GET, "/compliance/arf_reports/:id/download/", N_("Download bzipped ARF report")
@@ -75,6 +75,16 @@ module Api
 
         private
 
+        def respond_for_report(arf_report)
+          if arf_report.nil?
+            upload_fail(_("Policy with id %s not found.") % params[:policy_id])
+          elsif arf_report.new_record?
+            upload_fail arf_report.errors.full_messages.to_sentence
+          else
+            render :json => { :result => :ok, :id => arf_report.id.to_s }
+          end
+        end
+
         def find_resource
           not_found && return if params[:id].blank?
           instance_variable_set("@arf_report", resource_scope.find(params[:id]))
@@ -83,9 +93,14 @@ module Api
         def find_resources_before_create
           @asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
 
+          unless @asset
+            upload_fail(_('Could not find host identified by: %s') % params[:cname])
+            return
+          end
+
           if !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && !@asset.host.openscap_proxy
             msg = _('Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy') % @asset.host.name
-            no_proxy_for_host(msg)
+            upload_fail(msg)
             return
           elsif !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && @asset.host.openscap_proxy
             logger.debug 'No proxy params found when uploading arf report, falling back to asset.host.openscap_proxy'
@@ -97,7 +112,7 @@ module Api
 
           unless @smart_proxy
             msg = _('No proxy found for %{name} or %{url}') % { :name => params[:openscap_proxy_name], :url => params[:openscap_proxy_url] }
-            no_proxy_for_host(msg)
+            upload_fail(msg)
             return
           end
         end
@@ -106,9 +121,9 @@ module Api
           render_error 'standard_error', :status => :internal_error, :locals => { :exception => error }
         end
 
-        def no_proxy_for_host(msg)
+        def upload_fail(msg)
           logger.error msg
-          render :json => { :result => msg }, :status => :unprocessable_entity
+          render :json => { :result => :fail, :errors => msg }, :status => :unprocessable_entity
         end
 
         def action_permission

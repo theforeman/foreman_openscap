@@ -90,7 +90,41 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     assert_response :unprocessable_entity
     res = JSON.parse(@response.body)
     msg = "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for #{asset.host.name} and host is missing openscap_proxy"
-    assert_equal msg, res["result"]
+    assert_equal msg, res["errors"]
+  end
+
+  test "should not create report when host is missing" do
+    reports_cleanup
+    date = Time.new(1984, 9, 16)
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(nil)
+    cname = '9521a5c5-8f44-495f-b087-20e86b30bffg'
+    post :create,
+         :params => @from_json.merge(:cname => cname,
+                                     :policy_id => @policy.id,
+                                     :date => date.to_i,
+                                     :openscap_proxy_name => @proxy.name),
+         :session => set_session_user
+    assert_response :unprocessable_entity
+    res = JSON.parse(@response.body)
+    msg = "Could not find host identified by: #{cname}"
+    assert_equal msg, res["errors"]
+  end
+
+  test "should not create report when policy is missing" do
+    reports_cleanup
+    date = Time.new(1984, 9, 17)
+    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    policy_id = 0
+    post :create,
+         :params => @from_json.merge(:cname => @cname,
+                                     :policy_id => policy_id,
+                                     :date => date.to_i,
+                                     :openscap_proxy_name => @proxy.name),
+         :session => set_session_user
+    assert_response :unprocessable_entity
+    res = JSON.parse(@response.body)
+    msg = "Policy with id #{policy_id} not found."
+    assert_equal msg, res["errors"]
   end
 
   test "should not duplicate messages" do
