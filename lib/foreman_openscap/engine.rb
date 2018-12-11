@@ -219,6 +219,8 @@ module ForemanOpenscap
       Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
       HostsController.send(:prepend, ForemanOpenscap::HostsControllerExtensions)
+      HostsController.send(:include, ForemanOpenscap::HostsAndHostgroupsExtensions)
+      HostgroupsController.send(:include, ForemanOpenscap::HostsAndHostgroupsExtensions)
       Log.send(:include, ForemanOpenscap::LogExtensions)
       BookmarkControllerValidator.send(:prepend, ForemanOpenscap::BookmarkControllerValidatorExtensions)
       ProxyStatus.status_registry.add(ProxyStatus::OpenscapSpool)
