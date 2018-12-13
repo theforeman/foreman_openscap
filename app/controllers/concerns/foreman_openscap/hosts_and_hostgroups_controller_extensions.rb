@@ -1,5 +1,5 @@
 module ForemanOpenscap
-  module HostsAndHostgroupsExtensions
+  module HostsAndHostgroupsControllerExtensions
     extend ActiveSupport::Concern
     included do
       before_action :detect_proxy_without_scap, :only => :edit
