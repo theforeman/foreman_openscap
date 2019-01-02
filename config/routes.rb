@@ -64,6 +64,9 @@ Rails.application.routes.draw do
           member do
             get 'xml'
           end
+          collection do
+            post 'bulk_upload'
+          end
         end
         resources :scap_content_profiles, :only => %i[index]
 
