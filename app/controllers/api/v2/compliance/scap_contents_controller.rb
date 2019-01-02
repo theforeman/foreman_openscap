@@ -5,7 +5,11 @@ module Api::V2
       include ForemanOpenscap::BodyLogExtensions
       include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
 
-      before_action :find_resource, :except => %w[index create]
+      def self.bulk_upload_types
+        ['files', 'directory', 'default']
+      end
+
+      before_action :find_resource, :except => %w[index create bulk_upload]
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
@@ -61,6 +65,29 @@ module Api::V2
         process_response @scap_content.destroy
       end
 
+      api :POST, '/compliance/scap_contents/bulk_upload', N_('Upload scap contents in bulk')
+      param :type, bulk_upload_types, :required => true, :desc => N_('Type of the upload')
+      param :files, Array, :desc => N_('File paths to upload when using "files" upload type')
+      param :directory, String, :desc => N_('Directory to upload when using "directory" upload type')
+
+      def bulk_upload
+        case params[:type]
+        when 'files'
+          @result = ForemanOpenscap::BulkUpload.new.upload_from_files(params[:files])
+        when 'directory'
+          @result = ForemanOpenscap::BulkUpload.new.upload_from_directory(params[:directory])
+        when 'default'
+          @result = ForemanOpenscap::BulkUpload.new.upload_from_scap_guide
+        else
+          return render :json => {
+            :errors => [
+              _("Please specify import type, received: %{received}, expected one of: %{expected}") %
+                { :expected => self.class.bulk_upload_types.join(', '), :received => params[:type] }
+            ]
+          }, :status => :unprocessable_entity
+        end
+      end
+
       private
 
       def find_resource
@@ -70,6 +97,8 @@ module Api::V2
 
       def action_permission
         case params[:action]
+        when 'bulk_upload'
+          :create
         when 'xml'
           :view
         else

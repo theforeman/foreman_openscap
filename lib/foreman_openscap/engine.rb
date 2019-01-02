@@ -92,7 +92,7 @@ module ForemanOpenscap
                                             'api/v2/compliance/scap_contents' => [:update] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :create_scap_contents, { :scap_contents => %i[new create],
-                                              'api/v2/compliance/scap_contents' => [:create] },
+                                              'api/v2/compliance/scap_contents' => %i[create bulk_upload] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :destroy_scap_contents, { :scap_contents => [:destroy],
                                                'api/v2/compliance/scap_contents' => [:destroy] },

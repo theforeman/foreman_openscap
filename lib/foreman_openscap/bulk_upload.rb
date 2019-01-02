@@ -1,48 +1,74 @@
 require 'digest/sha2'
+require 'ostruct'
+
 module ForemanOpenscap
   class BulkUpload
-    attr_accessor :from_scap_security_guide
-    def initialize(from_scap_security_guide = false)
-      @from_scap_security_guide = from_scap_security_guide
+    def initialize
+      @result = OpenStruct.new(:errors => [], :results => [])
     end
 
-    def generate_scap_default_content
-      return unless @from_scap_security_guide
+    def files_from_guide
+      `rpm -ql scap-security-guide | grep ds.xml`.split
+    end
 
-      if `rpm -qa | grep scap-security-guide`.empty?
-        Rails.logger.debug "Can't find scap-security-guide RPM"
-        return
+    def scap_guide_installed?
+      `rpm -qa | grep scap-security-guide`.present?
+    end
+
+    def upload_from_scap_guide
+      unless scap_guide_installed?
+        @result.errors.push("Can't find scap-security-guide RPM, are you sure it is installed on your server?")
+        return @result
       end
 
-      files_array = `rpm -ql scap-security-guide | grep ds.xml`.split
-      upload_from_files(files_array) unless files_array.empty?
+      upload_from_files(files_from_guide, true)
     end
 
-    def upload_from_files(files_array)
+    def upload_from_files(files_array, from_scap_guide = false)
+      unless files_array.is_a? Array
+        @result.errors.push("Expected an array of files to upload, got: #{files_array}.")
+        return @result
+      end
+
       files_array.each do |datastream|
+        if File.directory?(datastream)
+          @result.errors.push("#{datastream} is a directory, expecting file.")
+          next
+        end
+
+        unless File.file?(datastream)
+          @result.errors.push("#{datastream} does not exist, skipping.")
+          next
+        end
+
         file = File.open(datastream, 'rb').read
         digest = Digest::SHA2.hexdigest(datastream)
-        title = content_name(datastream)
+        title = content_name(datastream, from_scap_guide)
         filename = original_filename(datastream)
         scap_content = ScapContent.where(:title => title, :digest => digest).first_or_initialize
         next if scap_content.persisted?
         scap_content.scap_file = file
         scap_content.original_filename = filename
-        scap_content.location_ids = Location.all.map(&:id) if SETTINGS[:locations_enabled]
-        scap_content.organization_ids = Organization.all.map(&:id) if SETTINGS[:organizations_enabled]
+        scap_content.location_ids = Location.all.map(&:id)
+        scap_content.organization_ids = Organization.all.map(&:id)
 
-        next puts "## SCAP content is invalid: #{scap_content.errors.full_messages.uniq.join(',')} ##" unless scap_content.valid?
         if scap_content.save
-          puts "Saved #{datastream} as #{scap_content.title}"
+          @result.results.push(scap_content)
         else
-          puts "Failed saving #{datastream}"
+          @result.errors.push("Failed saving #{datastream}: #{scap_content.errors.full_messages.uniq.join(',')}")
         end
       end
+      @result
     end
 
     def upload_from_directory(directory_path)
+      unless directory_path && Dir.exist?(directory_path)
+        @result[:errors].push("No such directory: #{directory_path}. Please check the path you have provided.")
+        return @result
+      end
+
       files_array = Dir["#{directory_path}/*-ds.xml"]
-      upload_from_files(files_array) unless files_array.empty?
+      upload_from_files(files_array)
     end
 
     private
@@ -57,9 +83,9 @@ module ForemanOpenscap
       file.split('/').last
     end
 
-    def content_name(datastream)
+    def content_name(datastream, from_scap_guide)
       os_name = extract_name_from_file(datastream)
-      @from_scap_security_guide ? "Red Hat #{os_name} default content" : "#{os_name} content"
+      from_scap_guide ? "Red Hat #{os_name} default content" : "#{os_name} content"
     end
   end
 end

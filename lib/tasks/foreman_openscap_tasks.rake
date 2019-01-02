@@ -6,23 +6,26 @@ namespace :foreman_openscap do
   namespace :bulk_upload do
     desc 'Bulk upload SCAP content from directory'
     task :directory, [:directory] => [:environment] do |task, args|
+      deprecate_upload_from_rake
       abort("# No such directory, please check the path you have provided. #") unless args[:directory].blank? || Dir.exist?(args[:directory])
       User.current = User.anonymous_admin
-      ForemanOpenscap::BulkUpload.new.upload_from_directory(args[:directory])
+      print_upload_result ForemanOpenscap::BulkUpload.new.upload_from_directory(args[:directory])
     end
 
     task :files, [:files] => [:environment] do |task, args|
+      deprecate_upload_from_rake
       files_array = args[:files].split(' ')
       files_array.each do |file|
         abort("# #{file} is a directory, expecting file. Try using 'rake foreman_openscap:bulk_upload:directory' with this directory. #") if File.directory?(file)
       end
       User.current = User.anonymous_admin
-      ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
+      print_upload_result ForemanOpenscap::BulkUpload.new.upload_from_files(files_array)
     end
 
     task :default => [:environment] do
+      deprecate_upload_from_rake
       User.current = User.anonymous_admin
-      ForemanOpenscap::BulkUpload.new(true).generate_scap_default_content
+      print_upload_result ForemanOpenscap::BulkUpload.new.upload_from_scap_guide
     end
   end
 
@@ -65,6 +68,15 @@ namespace :foreman_openscap do
       puts "Done cleaning #{total} reports"
     end
   end
+end
+
+def deprecate_upload_from_rake
+  puts 'DEPRECATION WARNING: Uploading scap contents using rake task is deprecated and will be removed in a future version. Please use API or CLI.'
+end
+
+def print_upload_result(result)
+  puts result.errors.join(' ') if result.errors.present?
+  puts result.results.map { |sc| "Saved #{sc.original_filename} as #{sc.title}" }.join("\n") if result.results.present?
 end
 
 # Tests
