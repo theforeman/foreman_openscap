@@ -142,7 +142,7 @@ module ForemanOpenscap
 
       scoped_search :relation => :openscap_proxy, :on => :name, :complete_value => true, :only_explicit => true, :rename => :openscap_proxy
 
-      scoped_search :relation => :sources, :on => :value, :complete_value => true, :rename => :xccdf_rule_name,
+      scoped_search :relation => :sources, :on => :value, :rename => :xccdf_rule_name,
                     :only_explicit => true, :operators => ['= ']
 
       scoped_search :relation => :sources, :on => :value, :rename => :xccdf_rule_failed,
