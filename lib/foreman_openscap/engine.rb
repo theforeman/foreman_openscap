@@ -50,7 +50,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.20'
+        requires_foreman '>= 1.21'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -192,11 +192,11 @@ module ForemanOpenscap
           RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
         end
 
-        add_controller_action_scope(::Api::V2::HostsController, :index) do |base_scope|
+        add_controller_action_scope('Api::V2::HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
         end
 
-        add_controller_action_scope(::HostsController, :index) do |base_scope|
+        add_controller_action_scope('HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
         end
       end
