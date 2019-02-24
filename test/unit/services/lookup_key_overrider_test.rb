@@ -39,4 +39,14 @@ class LookupKeyOverriderTest < ActiveSupport::TestCase
     assert_equal "Ansible was selected to deploy policy to clients, but Ansible is not available. Are you missing a plugin?",
                  policy.errors[:deploy_by].first
   end
+
+  test 'should add error when lookup keys not present' do
+    server_param, port_param, policies_param = setup_puppet_class.values_at :server_param, :port_param, :policies_param
+    server_param.destroy
+    port_param.destroy
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_content_profile, :deploy_by => :puppet)
+    ForemanOpenscap::LookupKeyOverrider.new(policy).override
+    err = "The following Smart Class Parameters were missing for foreman_scap_client: port, server. Make sure they are imported before proceeding."
+    assert_equal err, policy.errors[:base].first
+  end
 end

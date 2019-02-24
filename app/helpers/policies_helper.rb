@@ -20,7 +20,7 @@ module PoliciesHelper
       end
 
       help_block = content_tag(:span, :class => 'help-block help-inline') do |variable|
-        tool.help_text unless tool.available?
+        config_inline_help tool.inline_help unless tool.available?
       end
 
       content_tag(:div, :class => "clearfix") do
@@ -29,6 +29,15 @@ module PoliciesHelper
         end
       end
     end.join('').html_safe
+  end
+
+  def config_inline_help(help_hash)
+    link = if help_hash[:route_helper_method]
+             link_to_if_authorized help_hash[:replace_text], public_send(help_hash[:route_helper_method])
+           else
+             help_hash[:replace_text]
+           end
+    help_hash[:text].split(help_hash[:replace_text], 2).join(link).html_safe
   end
 
   def deploy_by_radio_checked(policy, tool)

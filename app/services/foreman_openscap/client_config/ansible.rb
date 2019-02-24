@@ -13,8 +13,12 @@ module ForemanOpenscap
         defined?(ForemanAnsible)
       end
 
-      def help_text
-        "Make sure you have Ansible plugin installed and #{ansible_role_name} Ansible role imported."
+      def inline_help
+        {
+          :text => "Make sure you have Ansible plugin installed and #{ansible_role_name} Ansible role imported.",
+          :replace_text => 'Ansible role',
+          :route_helper_method => :hash_for_ansible_roles_path
+        }
       end
 
       def constants
@@ -25,7 +29,8 @@ module ForemanOpenscap
           :ansible_role_name => 'theforeman.foreman_scap_client',
           :config_item_class_name => 'AnsibleRole',
           :override_method_name => 'ansible_variables',
-          :msg_name => 'Ansible role'
+          :msg_name => _('Ansible role'),
+          :lookup_key_plural_name => _('Ansible variables')
         )
       end
     end

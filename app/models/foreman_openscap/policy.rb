@@ -23,11 +23,11 @@ module ForemanOpenscap
     end
 
     validates :name, :presence => true, :uniqueness => true, :length => { :maximum => 255 },
-                     :if => Proc.new { |policy| policy.should_validate?('Create policy') }
+                     :if => Proc.new { |policy| policy.should_validate?('Policy Attributes') }
     validates :period, :inclusion => { :in => %w[weekly monthly custom], :message => _('is not a valid value') },
                        :if => Proc.new { |policy| policy.should_validate?('Schedule') }
     validates :deploy_by, :inclusion => { :in => Policy.deploy_by_variants },
-                          :if => Proc.new { |policy| policy.should_validate?('Client Deployment') }
+                          :if => Proc.new { |policy| policy.should_validate?('Deployment Options') }
 
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
@@ -97,7 +97,7 @@ module ForemanOpenscap
     end
 
     def steps
-      base_steps = [N_('Client Deployment'), N_('Create policy'), N_('SCAP Content'), N_('Schedule')]
+      base_steps = [N_('Deployment Options'), N_('Policy Attributes'), N_('SCAP Content'), N_('Schedule')]
       base_steps << N_('Locations') if SETTINGS[:locations_enabled]
       base_steps << N_('Organizations') if SETTINGS[:organizations_enabled]
       base_steps << N_('Hostgroups') # always be last.

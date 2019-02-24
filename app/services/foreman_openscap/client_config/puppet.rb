@@ -21,7 +21,8 @@ module ForemanOpenscap
           :puppetclass_name => 'foreman_scap_client',
           :config_item_class_name => 'Puppetclass',
           :override_method_name => 'class_params',
-          :msg_name => 'Puppet class'
+          :msg_name => _('Puppet class'),
+          :lookup_key_plural_name => _('Smart Class Parameters')
         )
       end
     end
