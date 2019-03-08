@@ -11,21 +11,23 @@ module PoliciesHelper
 
   def deploy_by_radios(f, policy)
     ForemanOpenscap::ConfigNameService.new.configs.map do |tool|
+      if tool.available?
+        help_block = popover("", config_inline_help(tool.inline_help))
+      else
+        help_block = ''
+      end
+
       label = label_tag('', :class => 'col-md-2 control-label') do
-        tool.type.to_s.capitalize
+        tool.type.to_s.capitalize.html_safe + ' ' + help_block.html_safe
       end
 
       radio = content_tag(:div, :class => "col-md-2") do
         f.radio_button(:deploy_by, tool.type, :disabled => !tool.available?, :checked => deploy_by_radio_checked(policy, tool))
       end
 
-      help_block = content_tag(:span, :class => 'help-block help-inline') do |variable|
-        config_inline_help tool.inline_help unless tool.available?
-      end
-
       content_tag(:div, :class => "clearfix") do
         content_tag(:div, :class => "form-group") do
-          label + radio + help_block
+          label.html_safe + radio.html_safe
         end
       end
     end.join('').html_safe
@@ -37,7 +39,9 @@ module PoliciesHelper
            else
              help_hash[:replace_text]
            end
-    help_hash[:text].split(help_hash[:replace_text], 2).join(link).html_safe
+    text = help_hash[:text]
+    text = text.split(help_hash[:replace_text], 2).join(link) if help_hash.key?(:replace_text)
+    text.html_safe
   end
 
   def deploy_by_radio_checked(policy, tool)

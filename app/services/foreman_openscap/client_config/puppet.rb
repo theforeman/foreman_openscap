@@ -13,6 +13,14 @@ module ForemanOpenscap
         defined?(Puppetclass)
       end
 
+      def inline_help
+        {
+          :text => "Requires #{puppetclass_name} Puppet class. This will assign the class to the hosts or selected hostgroups.<br>Every puppet run ensures the foreman_scap_client is configured according to the policy.",
+          :replace_text => 'Puppet class',
+          :route_helper_method => :hash_for_puppetclasses_path
+        }
+      end
+
       def constants
         OpenStruct.new(
           :server_param => 'server',
