@@ -6,10 +6,30 @@ FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories
 FactoryBot.reload
 
 module ScapClientPuppetclass
-  def skip_scap_callback
-    Host::Managed.any_instance.stubs(:update_scap_client).returns(nil)
-    Host::Managed.any_instance.stubs(:scap_client_class_present).returns(nil)
-    Hostgroup.any_instance.stubs(:update_scap_client).returns(nil)
+  def setup_puppet_class
+    puppet_config = ::ForemanOpenscap::ClientConfig::Puppet.new
+    Puppetclass.find_by(:name => puppet_config.puppetclass_name)&.destroy
+
+    puppet_class = FactoryBot.create(:puppetclass, :name => puppet_config.puppetclass_name)
+    server_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.server_param, :puppetclass_id => puppet_class.id)
+    port_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.port_param, :puppetclass_id => puppet_class.id)
+    policies_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.policies_param, :puppetclass_id => puppet_class.id)
+
+    env = FactoryBot.create :environment
+
+    FactoryBot.create(:environment_class,
+                      :puppetclass_id => puppet_class.id,
+                      :environment_id => env.id,
+                      :puppetclass_lookup_key_id => server_param.id)
+    FactoryBot.create(:environment_class,
+                      :puppetclass_id => puppet_class.id,
+                      :environment_id => env.id,
+                      :puppetclass_lookup_key_id => port_param.id)
+    FactoryBot.create(:environment_class,
+                      :puppetclass_id => puppet_class.id,
+                      :environment_id => env.id,
+                      :puppetclass_lookup_key_id => policies_param.id)
+    { :puppet_class => puppet_class, :env => env, :server_param => server_param, :port_param => port_param, :policies_param => policies_param }
   end
 end
 
@@ -45,7 +65,6 @@ end
 
 class ActionMailer::TestCase
   include ScapClientPuppetclass
-  setup :skip_scap_callback
 end
 
 class ActionController::TestCase
@@ -53,7 +72,7 @@ class ActionController::TestCase
   include ScapTestProxy
   include ScapTestCommon
 
-  setup :add_smart_proxy, :skip_scap_callback
+  setup :add_smart_proxy
 end
 
 class ActiveSupport::TestCase
@@ -61,5 +80,5 @@ class ActiveSupport::TestCase
   include ScapTestProxy
   include ScapTestCommon
 
-  setup :add_smart_proxy, :skip_scap_callback
+  setup :add_smart_proxy
 end

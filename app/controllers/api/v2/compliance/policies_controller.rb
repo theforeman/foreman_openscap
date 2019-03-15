@@ -49,6 +49,7 @@ module Api::V2
           param :host_ids, Array, :desc => N_('Apply policy to hosts')
           param :tailoring_file_id, Integer, :desc => N_('Tailoring file ID')
           param :tailoring_file_profile_id, Integer, :desc => N_('Tailoring file profile ID')
+          param :deploy_by, ForemanOpenscap::Policy.deploy_by_variants, :desc => N_('How the policy should be deployed')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
@@ -58,7 +59,8 @@ module Api::V2
 
       def create
         @policy = ForemanOpenscap::Policy.new(policy_params)
-        process_response @policy.save
+        ForemanOpenscap::LookupKeyOverrider.new(@policy).override
+        process_response(@policy.errors.none? && @policy.save)
       end
 
       api :PUT, '/compliance/policies/:id', N_('Update a Policy')

@@ -2,7 +2,6 @@ require 'test_plugin_helper'
 
 class PolicyTest < ActiveSupport::TestCase
   setup do
-    ForemanOpenscap::Policy.any_instance.stubs(:ensure_needed_puppetclasses).returns(true)
     ForemanOpenscap::DataStreamValidator.any_instance.stubs(:validate)
     ForemanOpenscap::ScapContent.any_instance.stubs(:fetch_profiles).returns({ 'test_profile_key' => 'test_profile_title' })
     @scap_content = FactoryBot.create(:scap_content)
@@ -11,8 +10,6 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should assign hostgroups by their ids" do
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
-    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hg1 = FactoryBot.create(:hostgroup)
     hg2 = FactoryBot.create(:hostgroup)
     host = FactoryBot.create(:compliance_host)
@@ -27,8 +24,6 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should assign hosts by their ids" do
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
-    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     host1 = FactoryBot.create(:compliance_host)
     host2 = FactoryBot.create(:compliance_host)
     hostgroup = FactoryBot.create(:hostgroup)
@@ -43,8 +38,6 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should remove associated hostgroup" do
-    ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
-    ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hg = FactoryBot.create(:hostgroup)
     asset = FactoryBot.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
     policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
@@ -59,7 +52,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'custom',
-                                    :cron_line => '6 * 15 12 0')
+                                    :cron_line => '6 * 15 12 0',
+                                    :deploy_by => 'manual')
     assert p.save
   end
 
@@ -68,7 +62,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'custom',
-                                    :cron_line => 'aaa')
+                                    :cron_line => 'aaa',
+                                    :deploy_by => 'manual')
     refute p.save
     assert p.errors[:cron_line].include?("does not consist of 5 parts separated by space")
   end
@@ -78,7 +73,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'weekly',
-                                    :weekday => 'monday')
+                                    :weekday => 'monday',
+                                    :deploy_by => 'manual')
     assert p.save
   end
 
@@ -87,7 +83,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'weekly',
-                                    :weekday => 'someday')
+                                    :weekday => 'someday',
+                                    :deploy_by => 'manual')
     refute p.save
     assert p.errors[:weekday].include?("is not a valid value")
   end
@@ -97,7 +94,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
-                                    :day_of_month => '1')
+                                    :day_of_month => '1',
+                                    :deploy_by => 'manual')
     assert p.save
   end
 
@@ -106,7 +104,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
-                                    :day_of_month => '0')
+                                    :day_of_month => '0',
+                                    :deploy_by => 'manual')
     refute p.save
     assert p.errors[:day_of_month].include?("must be between 1 and 31")
   end
@@ -117,13 +116,15 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
                                     :weekday => 'tuesday',
-                                    :cron_line => "0 0 0 0 0")
+                                    :cron_line => "0 0 0 0 0",
+                                    :deploy_by => 'manual')
     policy = ForemanOpenscap::Policy.new(:name => "test policy",
                                          :scap_content_id => @scap_content.id,
                                          :scap_content_profile_id => @scap_profile.id,
                                          :period => 'custom',
                                          :weekday => 'tuesday',
-                                         :day_of_month => "15")
+                                         :day_of_month => "15",
+                                         :deploy_by => 'manual')
     refute p.save
     refute policy.save
     assert p.weekday.empty?
@@ -137,7 +138,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
-                                    :day_of_month => '5')
+                                    :day_of_month => '5',
+                                    :deploy_by => 'manual')
     assert p.save
     p.period = 'weekly'
     p.weekday = 'monday'
@@ -149,7 +151,8 @@ class PolicyTest < ActiveSupport::TestCase
     p = ForemanOpenscap::Policy.new(:name => "custom_policy",
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
-                                    :day_of_month => '5')
+                                    :day_of_month => '5',
+                                    :deploy_by => 'manual')
     refute p.save
     assert p.errors[:scap_content_id].include?("can't be blank")
   end
@@ -158,7 +161,8 @@ class PolicyTest < ActiveSupport::TestCase
     p = ForemanOpenscap::Policy.new(:name => "custom_policy",
                                     :scap_content_id => @scap_content.id,
                                     :period => 'monthly',
-                                    :day_of_month => '5')
+                                    :day_of_month => '5',
+                                    :deploy_by => 'manual')
     assert p.save
   end
 
@@ -180,7 +184,8 @@ class PolicyTest < ActiveSupport::TestCase
                                        :scap_content => @scap_content,
                                        :scap_content_profile => @scap_profile,
                                        :tailoring_file => tailoring_file,
-                                       :tailoring_file_profile => @scap_profile)
+                                       :tailoring_file_profile => @scap_profile,
+                                       :deploy_by => 'manual')
     refute p.valid?
     p.tailoring_file_profile = tailoring_profile
     assert p.save
@@ -191,7 +196,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :scap_content_id => @scap_content.id,
                                     :scap_content_profile_id => @scap_profile.id,
                                     :period => 'monthly',
-                                    :day_of_month => '5')
+                                    :day_of_month => '5',
+                                    :deploy_by => 'manual')
     assert_equal 6, p.to_enc['download_path'].split('/').length
     assert_equal @scap_content.digest, p.to_enc['download_path'].split('/').last
   end
@@ -204,7 +210,8 @@ class PolicyTest < ActiveSupport::TestCase
                                     :tailoring_file => tailoring_file,
                                     :tailoring_file_profile => @tailoring_profile,
                                     :period => 'monthly',
-                                    :day_of_month => '5')
+                                    :day_of_month => '5',
+                                    :deploy_by => 'manual')
     assert_equal 6, p.to_enc['tailoring_download_path'].split('/').length
     assert_equal tailoring_file.digest, p.to_enc['tailoring_download_path'].split('/').last
   end
@@ -215,13 +222,15 @@ class PolicyTest < ActiveSupport::TestCase
                                        :scap_content_id => @scap_content.id,
                                        :scap_content_profile_id => @scap_profile.id,
                                        :period => 'monthly',
-                                       :day_of_month => '5')
+                                       :day_of_month => '5',
+                                       :deploy_by => 'manual')
     assert p.valid?
     q = ForemanOpenscap::Policy.create(:name => "invalid_profile_policy",
                                        :scap_content_id => scap_content_2.id,
                                        :scap_content_profile_id => @scap_profile.id,
                                        :period => 'monthly',
-                                       :day_of_month => '5')
+                                       :day_of_month => '5',
+                                       :deploy_by => 'manual')
     refute q.valid?
     assert_equal "does not have the selected SCAP content profile", q.errors.messages[:scap_content_id].first
   end
