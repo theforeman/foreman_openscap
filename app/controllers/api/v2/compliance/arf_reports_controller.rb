@@ -76,9 +76,7 @@ module Api
         private
 
         def respond_for_report(arf_report)
-          if arf_report.nil?
-            upload_fail(_("Policy with id %s not found.") % params[:policy_id])
-          elsif arf_report.new_record?
+          if arf_report.new_record?
             upload_fail arf_report.errors.full_messages.to_sentence
           else
             render :json => { :result => :ok, :id => arf_report.id.to_s }
@@ -91,6 +89,11 @@ module Api
         end
 
         def find_resources_before_create
+          unless ForemanOpenscap::Policy.where(:id => params[:policy_id]).any?
+            upload_fail(_("Policy with id %s not found.") % params[:policy_id])
+            return
+          end
+
           @asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
 
           unless @asset

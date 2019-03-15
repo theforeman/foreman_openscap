@@ -38,16 +38,12 @@ Style/StringLiterals:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
-Metrics/ClassLength:
-  Exclude:
-    - 'test/**/*'
+Metrics:
+  Enabled: false
 
 Performance/FixedSize:
   Exclude:
     - 'test/**/*'
-
-Metrics/LineLength:
-  Enabled: false
 
 Style/CollectionMethods:
   Enabled: false
@@ -57,12 +53,6 @@ Style/EmptyMethod:
 
 Rails/Date:
   Enabled: false
-
-Metrics/MethodLength:
-  Max: 50
-
-Metrics/AbcSize:
-  Max: 60
 
 Style/TrailingCommaInArrayLiteral:
   Enabled: false
@@ -78,11 +68,6 @@ Naming/AccessorMethodName:
 
 Style/RedundantSelf:
   Enabled: false
-
-Metrics/ClassLength:
-  Max: 500
-  Exclude:
-       - 'test/**/*'
 
 Style/WordArray:
   Enabled: false
@@ -113,9 +98,6 @@ Style/NumericPredicate:
   Enabled: false
 
 Style/FormatString:
-  Enabled: false
-
-Metrics/BlockLength:
   Enabled: false
 
 # update_attribute makes sense in some cases
