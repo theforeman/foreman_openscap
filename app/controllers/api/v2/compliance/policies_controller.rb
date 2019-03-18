@@ -49,7 +49,7 @@ module Api::V2
           param :host_ids, Array, :desc => N_('Apply policy to hosts')
           param :tailoring_file_id, Integer, :desc => N_('Tailoring file ID')
           param :tailoring_file_profile_id, Integer, :desc => N_('Tailoring file profile ID')
-          param :deploy_by, ForemanOpenscap::Policy.deploy_by_variants, :desc => N_('How the policy should be deployed')
+          param :deploy_by, ForemanOpenscap::Policy.deploy_by_variants, :required => true, :desc => N_('How the policy should be deployed')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end
