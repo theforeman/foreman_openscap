@@ -96,7 +96,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   test "should not create report when host is missing" do
     reports_cleanup
     date = Time.new(1984, 9, 16)
-    ForemanOpenscap::Helper.stubs(:get_asset).returns(nil)
+    ForemanOpenscap::Helper.stubs(:find_host_by_name_or_uuid).returns(nil)
+
     cname = '9521a5c5-8f44-495f-b087-20e86b30bffg'
     post :create,
          :params => @from_json.merge(:cname => cname,
@@ -113,7 +114,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   test "should not create report when policy is missing" do
     reports_cleanup
     date = Time.new(1984, 9, 17)
-    ForemanOpenscap::Helper.stubs(:get_asset).returns(@asset)
+    ForemanOpenscap::Helper.stubs(:find_host_by_name_or_uuid).returns(@host)
     policy_id = 0
     post :create,
          :params => @from_json.merge(:cname => @cname,
