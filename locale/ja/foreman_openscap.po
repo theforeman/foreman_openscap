@@ -43,16 +43,13 @@ msgstr ""
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr ""
 
-msgid "%{parameter} class parameter for class %{class} could not be configured."
+msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr ""
 
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr ""
 
 msgid "A summary of reports for OpenSCAP policies"
-msgstr ""
-
-msgid "Abstract async task"
 msgstr ""
 
 msgid "Action with sub plans"
@@ -64,6 +61,12 @@ msgstr ""
 msgid "All messages"
 msgstr ""
 
+msgid "Ansible role"
+msgstr ""
+
+msgid "Ansible variables"
+msgstr ""
+
 msgid "Apply policy to host groups"
 msgstr ""
 
@@ -71,15 +74,6 @@ msgid "Apply policy to hosts"
 msgstr ""
 
 msgid "Assign Compliance Policy"
-msgstr ""
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
@@ -157,22 +151,16 @@ msgstr ""
 msgid "Compliant with the policy"
 msgstr ""
 
-msgid "Configure capsule"
+msgid "Content"
 msgstr ""
 
-msgid "Content"
+msgid "Could not find host identified by: %s"
 msgstr ""
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr ""
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr ""
-
-msgid "Create"
-msgstr ""
-
-msgid "Create Package Group"
 msgstr ""
 
 msgid "Create SCAP content"
@@ -185,12 +173,6 @@ msgid "Create a Tailoring file"
 msgstr ""
 
 msgid "Create client"
-msgstr ""
-
-msgid "Create policy"
-msgstr ""
-
-msgid "Create repos"
 msgstr ""
 
 msgid "Created"
@@ -206,18 +188,6 @@ msgid "Default XCCDF profile"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
-
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
 msgstr ""
 
 msgid "Delete a Policy"
@@ -256,16 +226,10 @@ msgstr ""
 msgid "Deletes an SCAP content"
 msgstr ""
 
+msgid "Deployment Options"
+msgstr ""
+
 msgid "Description"
-msgstr ""
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
 msgstr ""
 
 msgid "Documentation"
@@ -307,15 +271,6 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
 msgid "Failed"
 msgstr ""
 
@@ -340,6 +295,9 @@ msgstr ""
 msgid "Failed to fetch spool status from proxy"
 msgstr ""
 
+msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
+msgstr ""
+
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr ""
 
@@ -347,16 +305,10 @@ msgstr ""
 msgid "Failed|F"
 msgstr ""
 
-msgid "Fetch pxe files"
-msgstr ""
-
 msgid "File Upload"
 msgstr ""
 
 msgid "Filename"
-msgstr ""
-
-msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
@@ -407,10 +359,7 @@ msgstr ""
 msgid "Hosts passing this rule"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
+msgid "How the policy should be deployed"
 msgstr ""
 
 msgid "ID of OpenSCAP Proxy"
@@ -445,36 +394,6 @@ msgid "Inconclusive"
 msgstr ""
 
 msgid "Inconclusive results"
-msgstr ""
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
@@ -637,9 +556,6 @@ msgstr ""
 msgid "Othered|O"
 msgstr ""
 
-msgid "Package Profile Update"
-msgstr ""
-
 msgid "Passed"
 msgstr ""
 
@@ -660,6 +576,9 @@ msgid "Policy"
 msgstr ""
 
 msgid "Policy %s"
+msgstr ""
+
+msgid "Policy Attributes"
 msgstr ""
 
 msgid "Policy SCAP content ID"
@@ -689,31 +608,16 @@ msgstr ""
 msgid "Policy schedule weekday (only if period == \"weekly\")"
 msgstr ""
 
-msgid "Product Create"
+msgid "Policy with id %s not found."
 msgstr ""
 
 msgid "Profile"
 msgstr ""
 
-msgid "Promote"
-msgstr ""
-
-msgid "Promotion to Environment"
-msgstr ""
-
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
 
-msgid "Publish"
-msgstr ""
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
-
-msgid "Puppet class %{class} does not have %{parameter} class parameter."
-msgstr ""
-
-msgid "Puppet class 'foreman_scap_client' not found, make sure it is imported from Puppet master"
+msgid "Puppet class"
 msgstr ""
 
 msgid "Rationale"
@@ -722,34 +626,7 @@ msgstr ""
 msgid "References"
 msgstr ""
 
-msgid "Reindex subscriptions"
-msgstr ""
-
 msgid "Remote action:"
-msgstr ""
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
-
-msgid "Report"
 msgstr ""
 
 msgid "Report Metrics"
@@ -767,13 +644,10 @@ msgstr ""
 msgid "Reports"
 msgstr ""
 
-msgid "Republish Version Repositories"
-msgstr ""
-
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr ""
 
-msgid "Required Puppet class %{class} is not found, please ensure it imported first."
+msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
 msgstr ""
 
 msgid "Resource"
@@ -783,9 +657,6 @@ msgid "Result"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
-msgstr ""
-
-msgid "Run Sync Plan"
 msgstr ""
 
 msgid "SCAP Content"
@@ -854,6 +725,9 @@ msgstr ""
 msgid "Show log messages:"
 msgstr ""
 
+msgid "Smart Class Parameters"
+msgstr ""
+
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
@@ -887,12 +761,6 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr ""
 
-msgid "Synchronize"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr ""
 
@@ -911,6 +779,9 @@ msgstr ""
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
 "        configuration issues related to security. "
+msgstr ""
+
+msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
@@ -948,12 +819,6 @@ msgstr ""
 msgid "Unknown Compliance status"
 msgstr ""
 
-msgid "Update"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr ""
 
@@ -963,19 +828,10 @@ msgstr ""
 msgid "Update an SCAP content"
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
 msgid "Update host"
 msgstr ""
 
 msgid "Update node"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -994,12 +850,6 @@ msgid "Upload New Tailoring file"
 msgstr ""
 
 msgid "Upload an ARF report"
-msgstr ""
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
@@ -1033,6 +883,9 @@ msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each o
 msgstr ""
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
+msgstr ""
+
+msgid "documentation"
 msgstr ""
 
 msgid "does not come from selected tailoring file"
