@@ -141,6 +141,7 @@ module PoliciesHelper
   def policy_breadcrumbs
     if @policy
       breadcrumbs(:resource_url => api_compliance_policies_path,
+                  :name_field => 'name',
                   :items => [
                     { :caption => _('Policies'),
                       :url => url_for(policies_path) },
