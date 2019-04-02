@@ -7,7 +7,7 @@ module ForemanOpenscap
 
       @policies = ::ForemanOpenscap::Policy.all.reject { |policy| policy.assets.map(&:host).compact.empty? }
       @compliant_hosts = @policies.map { |policy| Host.comply_with policy }.flatten
-      @incompliant_hosts = @policies.map { |policy| Host.incomply_with policy }.flatten
+      @incompliant_hosts = @policies.map { |policy| Host.not_comply_with policy }.flatten
       changed_hosts_of_policies(@policies)
 
       if user.nil? || user.mail.nil?

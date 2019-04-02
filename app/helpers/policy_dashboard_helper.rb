@@ -34,4 +34,27 @@ module PolicyDashboardHelper
     widget.template = template
     widget
   end
+
+  def assigned_icon(policy, arf_report)
+    if arf_report.host.combined_policies.include? policy
+      icon = 'check'
+      tooltip_text = _('Host is assigned to policy')
+    else
+      icon = 'close'
+      tooltip_text = _('Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again.')
+    end
+    trunc_with_tooltip icon_text(icon, '', :kind => 'fa'), 32, tooltip_text, false
+  end
+
+  def unassigned_hosts_link
+    trunc_with_tooltip(
+      link_to(
+        _("Hosts no longer assigned: %s") % @report[:unassigned_hosts],
+        hosts_path(:search => "removed_from_policy = \"#{@policy.name}\"")
+      ),
+      32,
+      _("Total hosts with reports where policy is no longer assigned."),
+      false
+    )
+  end
 end

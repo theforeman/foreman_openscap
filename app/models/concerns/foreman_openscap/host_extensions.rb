@@ -36,6 +36,18 @@ module ForemanOpenscap
       base.scoped_search :on => :id, :rename => :others_xccdf_rule,
               :only_explicit => true, :operators => ['= '], :ext_method => :search_by_rule_othered
 
+      base.scoped_search :on => :id, :rename => :comply_with,
+                         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_comply_with
+
+      base.scoped_search :on => :id, :rename => :not_comply_with,
+                         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_not_comply_with
+
+      base.scoped_search :on => :id, :rename => :inconclusive_with,
+                         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_inconclusive_with
+
+      base.scoped_search :on => :id, :rename => :removed_from_policy,
+                         :only_explicit => true, :operators => ['= '], :ext_method => :search_by_removed_from_policy
+
       base.after_update :puppetrun!, :if => ->(host) do
         Setting[:puppetrun] &&
         host.changed.include?('openscap_proxy_id') &&
@@ -46,7 +58,7 @@ module ForemanOpenscap
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.passed)
       }
 
-      base.scope :incomply_with, lambda { |policy|
+      base.scope :not_comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.failed)
       }
 
@@ -60,6 +72,10 @@ module ForemanOpenscap
 
       base.scope :assigned_to_policy, lambda { |policy|
         search_for("compliance_policy = \"#{policy.name}\"")
+      }
+
+      base.scope :removed_from_policy, lambda { |policy|
+        joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).where.not(:id => assigned_to_policy(policy).pluck(:id))
       }
 
       base.send :extend, ClassMethods
@@ -118,6 +134,30 @@ module ForemanOpenscap
     end
 
     module ClassMethods
+      def search_by_removed_from_policy(key, operator, policy_name)
+        policy = ForemanOpenscap::Policy.find_by :name => policy_name
+        host_ids = policy ? removed_from_policy(policy).pluck(:id) : []
+        { :conditions => Host::Managed.arel_table[:id].in(host_ids).to_sql }
+      end
+
+      def search_by_compliance(key, operator, policy_name, method)
+        policy = ForemanOpenscap::Policy.find_by :name => policy_name
+        host_ids = policy ? public_send(method, policy).pluck(:id) : []
+        { :conditions => Host::Managed.arel_table[:id].in(host_ids).to_sql }
+      end
+
+      def search_by_comply_with(key, operator, policy_name)
+        search_by_compliance key, operator, policy_name, :comply_with
+      end
+
+      def search_by_not_comply_with(key, operator, policy_name)
+        search_by_compliance key, operator, policy_name, :not_comply_with
+      end
+
+      def search_by_inconclusive_with(key, operator, policy_name)
+        search_by_compliance key, operator, policy_name, :inconclusive_with
+      end
+
       def search_by_rule_passed(key, operator, rule_name)
         search_by_rule rule_name, 'pass'
       end

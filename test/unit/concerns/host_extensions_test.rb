@@ -117,6 +117,45 @@ class HostExtensionsTest < ActiveSupport::TestCase
     end
   end
 
+  test 'should find hosts by compliance with policy using scoped search' do
+    rule_names = ['xccdf_org.something', 'xccdf_org.nothing']
+    rule_results_1 = ['pass', 'pass']
+    rule_results_2 = ['fail', 'pass']
+    rule_results_3 = ['notchecked', 'pass']
+    host_1 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_2, rule_results_1], @policy)
+    host_2 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_1, rule_results_2], @policy)
+    host_3 = setup_host_with_reports_and_rules([rule_names, rule_names], [rule_results_1, rule_results_3], @policy)
+
+    compliant = Host.search_for "comply_with = #{@policy.name}"
+    assert_equal [host_1], compliant
+
+    incompliant = Host.search_for "not_comply_with = #{@policy.name}"
+    assert_equal [host_2], incompliant
+
+    inconclusive = Host.search_for "inconclusive_with = #{@policy.name}"
+    assert_equal [host_3], inconclusive
+  end
+
+  test "should find hosts removed from policy" do
+    rule_names = ['xccdf_org.something', 'xccdf_org.nothing']
+    rule_results = ['pass', 'pass']
+    host_1 = setup_host_with_reports_and_rules([rule_names], [rule_results], @policy)
+    host_2 = setup_host_with_reports_and_rules([rule_names], [rule_results], @policy)
+
+    scap_content = FactoryBot.create(:scap_content)
+    scap_content_profile = FactoryBot.create(:scap_content_profile, :scap_content => scap_content)
+    different_policy = FactoryBot.create(:policy, :scap_content => scap_content, :scap_content_profile => scap_content_profile)
+
+    report = FactoryBot.create(:arf_report, :host_id => host_2.id)
+    FactoryBot.create(:policy_arf_report, :policy_id => different_policy.id, :arf_report_id => report.id)
+
+    removed = Host.removed_from_policy different_policy
+    not_removed = Host.removed_from_policy @policy
+
+    assert_equal [host_2], removed
+    assert_empty not_removed
+  end
+
   private
 
   def setup_hosts_with_policy
@@ -144,6 +183,8 @@ class HostExtensionsTest < ActiveSupport::TestCase
   def setup_host_with_reports_and_rules(rule_names_ary, rule_results_ary, policy)
     raise "rule_names_ary must have the same length as rule_results_ary" if rule_names_ary.size != rule_results_ary.size
     host = FactoryBot.create(:host)
+    asset = FactoryBot.create(:asset, :assetable_id => host.id)
+    FactoryBot.create(:asset_policy, :asset_id => asset.id, :policy_id => policy.id)
     rule_names_ary.each_with_index do |item, index|
       report = create_report_with_rules host, rule_names_ary[index], rule_results_ary[index]
       FactoryBot.create(:policy_arf_report, :policy_id => policy.id, :arf_report_id => report.id)
