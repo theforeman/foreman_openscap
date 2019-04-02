@@ -1,3 +1,5 @@
+require 'foreman_openscap/version'
+
 module ForemanOpenscapHelper
   def scap_doc_link(section = '', text = _('documentation'))
     link_to(
