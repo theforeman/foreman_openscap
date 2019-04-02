@@ -30,7 +30,7 @@ module PoliciesHelper
   end
 
   def config_inline_help(help_hash)
-    link = if help_hash[:route_helper_method]
+    link = if help_hash[:route_helper_method] && respond_to?(help_hash[:route_helper_method])
              link_to_if_authorized help_hash[:replace_text], public_send(help_hash[:route_helper_method])
            else
              help_hash[:replace_text]
