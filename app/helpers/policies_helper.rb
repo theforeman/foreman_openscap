@@ -108,7 +108,6 @@ module PoliciesHelper
       content_tag(:div, :class => "form-actions") do
         text    = overwrite ? overwrite : _("Submit")
         options = { :class => "btn btn-primary" }
-        options[:'data-id'] = form_to_submit_id(form) unless options.key?(:'data-id')
         previous = form.object.first_step? ? ' ' : previous_link(form)
         cancel_and_submit = content_tag(:div, :class => "pull-right") do
           link_to(_("Cancel"), args[:cancel_path], :class => "btn btn-default") + ' ' +
