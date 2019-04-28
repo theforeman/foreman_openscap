@@ -1,22 +1,22 @@
 <table id='report_log' class="<%= table_css_classes %>">
   <thead>
     <tr>
-      <th><%= _("Severity") %></th>
+      <th><%= _("Result") %></th>
       <th><%= _("Message") %></th>
       <th class="col-md-4"><%= _("Resource") %></th>
-      <th class="col-md-1"><%= _("Result") %></th>
+      <th class="col-md-1"><%= _("Severity") %></th>
       <th class="col-md-1"><%= _("Actions") %></th>
     </tr>
   </thead>
   <tbody>
     <% logs.each do |log| %>
       <tr>
-        <td><span <%= severity_tag log.message.severity %>><%= h log.message.severity %></span></td>
+        <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
         <td>
           <%= render :partial => 'detailed_message', :locals => { :message => log.message } %>
         </td>
         <td><%= log.source %></td>
-        <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
+        <td><span <%= severity_tag log.message.severity %>><%= h log.message.severity %></span></td>
         <td><%= host_search_by_rule_result_buttons(log.source) %></td>
       </tr>
     <% end %>
