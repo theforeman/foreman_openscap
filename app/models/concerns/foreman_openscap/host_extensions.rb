@@ -85,7 +85,8 @@ module ForemanOpenscap
     end
 
     def combined_policies
-      combined = self.hostgroup ? self.policies + self.hostgroup.policies + self.hostgroup.inherited_policies : self.policies
+      inc = %i[scap_content scap_content_profile tailoring_file tailoring_file_profile]
+      combined = self.hostgroup ? self.policies.includes(inc) + self.hostgroup.policies.includes(inc) + self.hostgroup.inherited_policies : self.policies.includes(inc)
       combined.uniq
     end
 
