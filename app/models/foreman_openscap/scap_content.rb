@@ -13,6 +13,7 @@ module ForemanOpenscap
 
     scoped_search :on => :title,             :complete_value => true
     scoped_search :on => :original_filename, :complete_value => true, :rename => :filename
+    scoped_search :on => :created_at
 
     default_scope do
       with_taxonomy_scope do

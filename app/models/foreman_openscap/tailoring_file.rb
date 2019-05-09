@@ -11,6 +11,7 @@ module ForemanOpenscap
 
     scoped_search :on => :name,              :complete_value => true
     scoped_search :on => :original_filename, :complete_value => true, :rename => :filename
+    scoped_search :on => :created_at
 
     def fetch_profiles
       api = ProxyAPI::Openscap.new(:url => proxy_url)

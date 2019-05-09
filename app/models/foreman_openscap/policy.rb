@@ -16,6 +16,10 @@ module ForemanOpenscap
     has_many :assets, :through => :asset_policies, :as => :assetable, :dependent => :destroy
 
     scoped_search :on => :name, :complete_value => true
+    scoped_search :in => :scap_content, :on => :title, :rename => 'content', :complete_value => true
+    scoped_search :in => :scap_content_profile, :on => :title, :rename => 'profile', :complete_value => true
+    scoped_search :in => :tailoring_file, :on => :name, :rename => 'tailoring_file', :complete_value => true
+    scoped_search :in => :tailoring_file_profile, :on => :title, :rename => 'tailoring_file_profile', :complete_value => true
     before_validation :update_period_attrs
 
     def self.deploy_by_variants

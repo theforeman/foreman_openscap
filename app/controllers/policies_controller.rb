@@ -11,9 +11,8 @@ class PoliciesController < ApplicationController
   end
 
   def index
-    @policies = resource_base.search_for(params[:search], :order => params[:order])
-                             .paginate(:page => params[:page], :per_page => params[:per_page])
-                             .includes(:scap_content, :scap_content_profile, :tailoring_file, :tailoring_file_profile)
+    @policies = resource_base_search_and_page.search_for(params[:search])
+                                             .includes(:scap_content, :scap_content_profile, :tailoring_file, :tailoring_file_profile)
     if @policies.empty? && ForemanOpenscap::ScapContent.unconfigured?
       redirect_to scap_contents_path
     end
