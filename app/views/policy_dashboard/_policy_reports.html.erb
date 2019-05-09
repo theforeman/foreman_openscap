@@ -1,24 +1,29 @@
-<table class="<%= table_css_classes('ellipsis') %>">
-  <tr>
-    <th><%= _('Host') %></th>
-    <th><%= _("Date") %></th>
-    <th><%= _("Passed") %></th>
-    <th><%= _("Failed") %></th>
-    <th><%= _("Other") %></th>
-    <th><%= _('Actions') %></th>
-  </tr>
-  <% for arf_report in @policy.arf_reports.latest %>
+<% stylesheet 'foreman_openscap/policy_dashboard'%>
+
+<div id="latest-arf-reports-table">
+  <table class="<%= table_css_classes('ellipsis') %>">
     <tr>
-      <td><%= name_column(arf_report.host) %></td>
-      <td><%= date_time_relative_value(arf_report.reported_at) %></td>
-      <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
-      <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
-      <td><%= report_arf_column(arf_report.othered, "label-warning") %></th>
-      <td>
-        <%= action_buttons(
-                link_to(_("View Report"), hash_for_arf_report_path(:id => arf_report.id))
-            ) %>
-      </td>
+      <th><%= _('Host') %></th>
+      <th><%= _("Date") %></th>
+      <th><%= _("Passed") %></th>
+      <th><%= _("Failed") %></th>
+      <th><%= _("Other") %></th>
+      <th><%= _('Actions') %></th>
     </tr>
-  <% end %>
-</table>
+    <% @latest_reports.each do |arf_report| %>
+      <tr>
+        <td><%= name_column(arf_report.host) %></td>
+        <td><%= date_time_relative_value(arf_report.reported_at) %></td>
+        <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
+        <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>
+        <td><%= report_arf_column(arf_report.othered, "label-warning") %></th>
+        <td>
+          <%= action_buttons(
+                  link_to(_("View Report"), hash_for_arf_report_path(:id => arf_report.id))
+              ) %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= will_paginate_with_info @latest_reports %>
+</div>
