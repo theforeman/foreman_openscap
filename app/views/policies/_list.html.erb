@@ -10,7 +10,7 @@
   <% for policy in @policies %>
     <tr>
       <td class="ellipsis">
-        <%= link_to_if_authorized(policy.name.to_s, hash_for_policy_dashboard_policy_path(:id => policy.id)) %>
+        <%= link_to_if_authorized(policy.name.to_s, hash_for_edit_policy_path(:id => policy.id)) %>
       </td>
       <td>
         <% if !policy.scap_content.nil? %>
@@ -33,8 +33,8 @@
       </td>
       <td>
         <%= action_buttons(
+                display_link_if_authorized(_("Dashboard"), hash_for_policy_dashboard_policy_path(:id => policy.id)),
                 display_link_if_authorized(_("Show Guide"), hash_for_policy_path(:id => policy.id)),
-                display_link_if_authorized(_("Edit"), hash_for_edit_policy_path(:id => policy.id)),
                 display_delete_if_authorized(hash_for_policy_path(:id => policy.id),
                                              :confirm => _("Delete compliance policy %s with all of its reports?") % policy.name)
             ) %>
