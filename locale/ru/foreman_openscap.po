@@ -152,9 +152,6 @@ msgstr ""
 msgid "Compliant with the policy"
 msgstr ""
 
-msgid "Content"
-msgstr ""
-
 msgid "Could not find host identified by: %s"
 msgstr ""
 
@@ -176,7 +173,7 @@ msgstr ""
 msgid "Create client"
 msgstr ""
 
-msgid "Created"
+msgid "Dashboard"
 msgstr ""
 
 msgid "DataStream Tailoring file"
@@ -203,9 +200,6 @@ msgstr ""
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr ""
 
-msgid "Delete compliance policy %s with all the reports?"
-msgstr ""
-
 msgid "Delete compliance report for %s?"
 msgstr ""
 
@@ -213,6 +207,9 @@ msgid "Delete host"
 msgstr ""
 
 msgid "Delete reports"
+msgstr ""
+
+msgid "Delete scap content %s?"
 msgstr ""
 
 msgid "Delete tailoring file %s?"
@@ -255,9 +252,6 @@ msgid "Download an SCAP content as XML"
 msgstr ""
 
 msgid "Download bzipped ARF report"
-msgstr ""
-
-msgid "Edit"
 msgstr ""
 
 msgid "Edit Compliance Policy"
@@ -309,16 +303,10 @@ msgstr ""
 msgid "File Upload"
 msgstr ""
 
-msgid "Filename"
-msgstr ""
-
 msgid "Full Report"
 msgstr ""
 
 msgid "General"
-msgstr ""
-
-msgid "Help"
 msgstr ""
 
 msgid "Host"
@@ -339,7 +327,13 @@ msgstr ""
 msgid "Host does not exist anymore"
 msgstr ""
 
+msgid "Host is assigned to policy"
+msgstr ""
+
 msgid "Host is deleted"
+msgstr ""
+
+msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
@@ -352,6 +346,9 @@ msgid "Hosts Breakdown"
 msgstr ""
 
 msgid "Hosts failing this rule"
+msgstr ""
+
+msgid "Hosts no longer assigned: %s"
 msgstr ""
 
 msgid "Hosts othering this rule"
@@ -428,9 +425,6 @@ msgid "Message"
 msgstr ""
 
 msgid "More details"
-msgstr ""
-
-msgid "Name"
 msgstr ""
 
 msgid "Never audited"
@@ -588,6 +582,9 @@ msgstr ""
 msgid "Policy SCAP content profile ID"
 msgstr ""
 
+msgid "Policy assigned"
+msgstr ""
+
 msgid "Policy description"
 msgstr ""
 
@@ -610,9 +607,6 @@ msgid "Policy schedule weekday (only if period == \"weekly\")"
 msgstr ""
 
 msgid "Policy with id %s not found."
-msgstr ""
-
-msgid "Profile"
 msgstr ""
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
@@ -723,6 +717,9 @@ msgstr ""
 msgid "Show an SCAP content"
 msgstr ""
 
+msgid "Show config information for foreman_scap_client"
+msgstr ""
+
 msgid "Show log messages:"
 msgstr ""
 
@@ -791,6 +788,9 @@ msgstr ""
 msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
 msgstr ""
 
+msgid "The identifier of the host"
+msgstr ""
+
 msgid "This feature is temporarily disabled. "
 msgstr ""
 
@@ -800,7 +800,10 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
-msgid "Total hosts: %s"
+msgid "Total hosts with policy: %s"
+msgstr ""
+
+msgid "Total hosts with reports where policy is no longer assigned."
 msgstr ""
 
 msgid "Total of one host"
