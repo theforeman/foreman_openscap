@@ -1,6 +1,6 @@
 <% title _("SCAP Contents") %>
 
-<% title_actions(display_link_if_authorized(_("Upload New SCAP Content"), hash_for_new_scap_content_path, :class => 'btn btn-default'),
-                 link_to(_("Help"), { :action => "welcome" }, { :class => 'btn btn-info' })) %>
+<% title_actions(display_link_if_authorized(_("Upload New SCAP Content"), hash_for_new_scap_content_path, :class => 'btn btn-primary'),
+                 documentation_button('#4.1CreatingSCAPcontent', :root_url => scap_doc_url)) %>
 
 <%= render :partial => 'list' %>

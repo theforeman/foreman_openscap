@@ -1,20 +1,19 @@
 <table class="<%= table_css_classes('table-two-pane table-fixed') %>">
   <tr>
-    <th class="col-md-4">Title</th>
-    <th class="col-md-4">Filename</th>
-    <th class="col-md-3">Created</th>
+    <th class="col-md-4"><%= sort :title %></th>
+    <th class="col-md-5"><%= sort :filename %></th>
+    <th class="col-md-2"><%= sort :created_at %></th>
     <th class="col-md-1"><%= _('Actions') %></th>
   </tr>
   <% for content in @contents %>
     <tr>
-      <td class="ellipsis"><%= content.title %></td>
+      <td class="ellipsis"><%= link_to_if_authorized content.title, hash_for_edit_scap_content_path(:id => content.id) %></td>
       <td class="ellipsis"><%= content.original_filename %></td>
       <td>
         <%= date_time_relative_value(content.created_at.getlocal) %>
       </td>
       <td>
         <%= action_buttons(
-                display_link_if_authorized(_("Edit"), hash_for_edit_scap_content_path(:id => content.id)),
 		display_link_if_authorized(_("Download"), hash_for_scap_content_path(:id => content.id), :data => { :no_turbolink => true }),
                 display_delete_if_authorized(hash_for_scap_content_path(:id => content.id),
                                              :confirm => _("Delete scap content %s?") % content.title)
@@ -23,3 +22,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate_with_info @contents %>

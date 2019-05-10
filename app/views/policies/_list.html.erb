@@ -1,10 +1,10 @@
 <table class="<%= table_css_classes('table-fixed') %>">
   <tr>
-    <th><%= _('Name') %></th>
-    <th><%= _('Content') %></th>
-    <th><%= _('Profile') %></th>
-    <th><%= _('Tailoring File') %></th>
-    <th><%= _('Effective Profile') %></th>
+    <th><%= sort :name %></th>
+    <th><%= sort :content %></th>
+    <th><%= sort :profile %></th>
+    <th><%= sort :tailoring_file, :as => _('Tailoring File') %></th>
+    <th><%= sort :tailoring_file_profile, :as => _('Effective Profile') %></th>
     <th><%= _('Actions') %></th>
   </tr>
   <% for policy in @policies %>
@@ -42,3 +42,5 @@
     </tr>
   <% end %>
 </table>
+
+<%= will_paginate_with_info @policies %>

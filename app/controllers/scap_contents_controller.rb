@@ -10,7 +10,7 @@ class ScapContentsController < ApplicationController
   end
 
   def index
-    @contents = resource_base.search_for(params[:search])
+    @contents = resource_base_search_and_page.search_for(params[:search])
   end
 
   def show
