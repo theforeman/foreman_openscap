@@ -4,15 +4,17 @@
   <table class="<%= table_css_classes('ellipsis') %>">
     <tr>
       <th><%= _('Host') %></th>
+      <th><%= _('Policy assigned') %></th>
       <th><%= _("Date") %></th>
       <th><%= _("Passed") %></th>
       <th><%= _("Failed") %></th>
       <th><%= _("Other") %></th>
       <th><%= _('Actions') %></th>
     </tr>
-    <% @latest_reports.each do |arf_report| %>
+    <% @policy.arf_reports.latest.each do |arf_report| %>
       <tr>
         <td><%= name_column(arf_report.host) %></td>
+        <td><%= assigned_icon(@policy, arf_report) %></td>
         <td><%= date_time_relative_value(arf_report.reported_at) %></td>
         <td><%= report_arf_column(arf_report.passed, "label-info") %></th>
         <td><%= report_arf_column(arf_report.failed, "label-danger") %></th>

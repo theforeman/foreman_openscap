@@ -55,7 +55,7 @@ Lint/NonLocalExitFromIterator:
 Lint/UnusedBlockArgument:
   Enabled: false
 
-# Offense count: 30
+# Offense count: 34
 # Cop supports --auto-correct.
 # Configuration parameters: AllowUnusedKeywordArguments, IgnoreEmptyMethods.
 Lint/UnusedMethodArgument:
@@ -186,7 +186,7 @@ Style/Lambda:
 Style/MixinUsage:
   Enabled: false
 
-# Offense count: 1
+# Offense count: 2
 Style/MultipleComparison:
   Enabled: false
 
