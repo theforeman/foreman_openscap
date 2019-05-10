@@ -5,13 +5,7 @@ module ForemanOpenscap
     module ClassMethods
       def policy_search(search_alias)
         scoped_search :relation => :policy, :on => :name, :complete_value => true, :rename => search_alias,
-              :only_explicit => true, :ext_method => :search_by_policy_name
-      end
-
-      def search_by_policy_name(_key, _operator, policy_name)
-        scope = PolicyArfReport.of_policy(Policy.find_by(:name => policy_name))
-                               .select(PolicyArfReport.arel_table[:arf_report_id]).to_sql
-        query_conditions scope
+              :only_explicit => true
       end
 
       def search_by_comply_with(_key, _operator, policy_name)
