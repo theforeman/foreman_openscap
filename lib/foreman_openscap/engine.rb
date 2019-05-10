@@ -104,6 +104,7 @@ module ForemanOpenscap
                                                  select_multiple_openscap_proxy
                                                  update_multiple_openscap_proxy] },
                      :resource_type => "Host"
+          permission :view_hosts, { 'api/v2/hosts' => [:policies_enc] }, :resource_type => 'Host'
           permission :edit_hostgroups, { :hostgroups => [:openscap_proxy_changed] }, :resource_type => "Hostgroup"
           permission :create_tailoring_files, { :tailoring_files => %i[create new],
                                                 'api/v2/compliance/tailoring_files' => [:create] },
@@ -210,6 +211,7 @@ module ForemanOpenscap
 
     # Include concerns in this config.to_prepare block
     config.to_prepare do
+      ::Api::V2::HostsController.send(:include, ForemanOpenscap::Api::V2::HostsControllerExtensions)
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
       Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
       Host::Managed.send(:prepend, ForemanOpenscap::HostExtensions)
