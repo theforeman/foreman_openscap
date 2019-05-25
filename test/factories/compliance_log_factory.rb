@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :compliance_log, :class => :log do
-    result "fail"
+    result { "fail" }
     association :report
-    level_id 1
+    level_id { 1 }
     association :source
     association :message
   end
