@@ -36,7 +36,7 @@
                 display_link_if_authorized(_("Dashboard"), hash_for_policy_dashboard_policy_path(:id => policy.id)),
                 display_link_if_authorized(_("Show Guide"), hash_for_policy_path(:id => policy.id)),
                 display_delete_if_authorized(hash_for_policy_path(:id => policy.id),
-                                             :confirm => _("Delete compliance policy %s with all of its reports?") % policy.name)
+                                             :data => {:confirm => _("Delete compliance policy %s with all of its reports?") % policy.name})
             ) %>
       </td>
     </tr>
