@@ -1,8 +1,8 @@
-<%= javascript "host_checkbox", "foreman_openscap/arf_reports" %>
+<%= javascript "foreman_openscap/arf_reports" %>
 
 <table class="<%= table_css_classes %>">
   <tr>
-  <th class="ca" width="40px"><%= check_box_tag "check_all", "", false, { :onclick => "toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
+  <th class="ca" width="40px"><%= check_box_tag "check_all", "", false, { :onclick => "tfm.hosts.table.toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
     <th><%= sort :host %></th>
     <th><%= sort :reported, :as => _("Reported At") %></th>
     <th><%= sort :policy, :as => _("Policy") %></th>
@@ -21,7 +21,7 @@
                              :id => "host_ids_#{arf_report.id}",
                              :disabled => !authorized_for(:controller => :arf_reports, :action => :destroy),
                              :class => 'host_select_boxes',
-                             :onclick => 'hostChecked(this)' %>
+                             :onclick => 'tfm.hosts.table.hostChecked(this)' %>
         </td>
       <td class="elipsis"><%= name_column(arf_report.host) %></td>
       <td><%= display_link_if_authorized(date_time_relative_value(arf_report.reported_at), hash_for_arf_report_path(:id => arf_report.id)) %></td>
