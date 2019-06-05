@@ -50,7 +50,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.22'
+        requires_foreman '>= 1.23'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -199,6 +199,19 @@ module ForemanOpenscap
 
         add_controller_action_scope('HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
+        end
+
+        extend_graphql_type type: Types::Host do
+          belongs_to :openscap_proxy, Types::SmartProxy
+        end
+
+        extend_graphql_type type: Types::Hostgroup do
+          belongs_to :openscap_proxy, Types::SmartProxy
+        end
+
+        extend_graphql_type type: Types::SmartProxy do
+          has_many :openscap_hosts, Types::Host
+          has_many :openscap_hostgroups, Types::Hostgroup
         end
       end
     end
