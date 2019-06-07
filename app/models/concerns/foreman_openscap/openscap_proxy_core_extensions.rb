@@ -65,7 +65,7 @@ module ForemanOpenscap
     end
 
     def openscap_proxy_has_feature
-      errors.add(:openscap_proxy_id, _("must have Openscap feature")) if openscap_proxy_id && !openscap_proxy.has_feature?("Openscap")
+      errors.add(:openscap_proxy_id, _("must have Openscap feature")) if openscap_proxy && !openscap_proxy.has_feature?("Openscap")
     end
   end
 end
