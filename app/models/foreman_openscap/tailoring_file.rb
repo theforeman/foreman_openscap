@@ -1,5 +1,7 @@
 module ForemanOpenscap
   class TailoringFile < ApplicationRecord
+    graphql_type '::Types::TailoringFile'
+
     audited :except => [:scap_file]
     include Authorizable
     include Taxonomix

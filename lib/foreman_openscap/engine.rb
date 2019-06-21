@@ -14,6 +14,7 @@ module ForemanOpenscap
     config.autoload_paths += Dir["#{config.root}/app/overrides"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
+    config.autoload_paths += Dir["#{config.root}/app/graphql"]
     config.autoload_paths += Dir["#{config.root}/lib"]
     config.autoload_paths += Dir["#{config.root}/test/"]
 
@@ -50,7 +51,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.22'
+        requires_foreman '>= 1.24'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -179,6 +180,9 @@ module ForemanOpenscap
                         :label => N_('OpenSCAP Proxy'),
                         :description => proxy_description,
                         :api_description => N_('ID of OpenSCAP Proxy')
+
+        register_graphql_query_field :tailoring_file, '::Types::TailoringFile', :record_field
+        register_graphql_query_field :tailoring_files, '::Types::TailoringFile', :collection_field
 
         if ForemanOpenscap.with_remote_execution?
           options = {
