@@ -24,6 +24,7 @@ module Api
 
         api :GET, '/compliance/arf_reports', N_('List ARF reports')
         param_group :search_and_pagination, ::Api::V2::BaseController
+        add_scoped_search_description_for(::ForemanOpenscap::ArfReport)
 
         def index
           @arf_reports = resource_scope_for_index(:permission => :view_arf_reports).includes(:openscap_proxy, :policy, :host)
