@@ -1,5 +1,7 @@
 module ForemanOpenscap
   class ScapContent < ApplicationRecord
+    graphql_type '::Types::ScapContent'
+
     audited :except => [:scap_file]
     include Authorizable
     include Taxonomix
