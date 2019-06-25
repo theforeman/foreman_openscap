@@ -18,7 +18,7 @@ module ForemanOpenscap
     end
 
     def update_client_params(model_match, config)
-      client_item = config.find_config_item self.public_send(config.collection_method)
+      client_item = config.find_config_item self.public_send(config.all_collection_method)
       return unless client_item
       lookup_keys = client_item.public_send(config.override_method_name)
       server_key = lookup_keys.find { |param| param.key == config.server_param }
