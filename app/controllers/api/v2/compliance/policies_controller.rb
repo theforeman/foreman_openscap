@@ -24,6 +24,7 @@ module Api::V2
 
       api :GET, '/compliance/policies', N_('List Policies')
       param_group :search_and_pagination, ::Api::V2::BaseController
+      add_scoped_search_description_for(::ForemanOpenscap::Policy)
 
       def index
         @policies = resource_scope_for_index(:permission => :view_policies)

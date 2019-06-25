@@ -16,6 +16,7 @@ module Api::V2
 
       api :GET, '/compliance/tailoring_files', N_('List Tailoring files')
       param_group :search_and_pagination, ::Api::V2::BaseController
+      add_scoped_search_description_for(::ForemanOpenscap::TailoringFile)
 
       def index
         @tailoring_files = resource_scope_for_index(:permission => :view_tailoring_files)

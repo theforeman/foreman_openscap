@@ -15,6 +15,7 @@ module Api::V2
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
+      add_scoped_search_description_for(::ForemanOpenscap::ScapContent)
 
       def index
         @scap_contents = resource_scope_for_index(:permission => :view_scap_contents)
