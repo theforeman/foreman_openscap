@@ -15,10 +15,7 @@ function removeCookie() {
   $.removeCookie(cookieName);
 }
 
-var cookieName = `_ForemanSelected${window.location.pathname.replace(
-  /\//,
-  ''
-)}`;
+var cookieName = '_ForemanSelected' + window.location.pathname.replace(/\//, '');
 
 function buildArfModal(element, url) {
   var url = url + "?" + $.param({arf_report_ids: readFromCookie()});
