@@ -23,6 +23,7 @@ module ForemanOpenscap
       lookup_keys = client_item.public_send(config.override_method_name)
       server_key = lookup_keys.find { |param| param.key == config.server_param }
       port_key = lookup_keys.find { |param| param.key == config.port_param }
+      return if server_key.nil? || port_key.nil?
       pairs = scap_client_lookup_values_for([server_key, port_key], model_match)
       if openscap_proxy_id
         mapping = { config.server_param => openscap_proxy.hostname, config.port_param => openscap_proxy.port }
