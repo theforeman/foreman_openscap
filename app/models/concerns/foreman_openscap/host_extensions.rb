@@ -121,13 +121,11 @@ module ForemanOpenscap
     end
 
     def reports_for_policy(policy, limit = nil)
-      if limit
-        ForemanOpenscap::ArfReport.joins(:policy_arf_report)
-                                  .merge(ForemanOpenscap::PolicyArfReport.of_policy(policy.id)).where(:host_id => id).limit limit
-      else
-        ForemanOpenscap::ArfReport.joins(:policy_arf_report)
-                                  .merge(ForemanOpenscap::PolicyArfReport.of_policy(policy.id)).where(:host_id => id)
-      end
+      report_scope = ForemanOpenscap::ArfReport.unscoped.joins(:policy_arf_report)
+                                               .merge(ForemanOpenscap::PolicyArfReport.of_policy(policy.id)).where(:host_id => id)
+                                               .order("#{ForemanOpenscap::ArfReport.table_name}.created_at DESC")
+      report_scope = report_scope.limit(limit) if limit
+      report_scope
     end
 
     def compliance_status(options = {})
