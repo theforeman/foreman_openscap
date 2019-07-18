@@ -11,7 +11,7 @@
       <th><%= _("Other") %></th>
       <th><%= _('Actions') %></th>
     </tr>
-    <% @policy.arf_reports.latest.each do |arf_report| %>
+    <% @latest_reports.each do |arf_report| %>
       <tr>
         <td><%= name_column(arf_report.host) %></td>
         <td><%= assigned_icon(@policy, arf_report) %></td>
