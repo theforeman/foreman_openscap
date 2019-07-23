@@ -178,6 +178,27 @@ module ForemanOpenscap
       assert_equal res, report_1
     end
 
+    test 'should return same latest reports by scope and by association' do
+      reports = []
+      host = FactoryBot.create(:compliance_host)
+      policy = FactoryBot.create(:policy)
+      3.times do
+        reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
+
+        reports << FactoryBot.create(:arf_report, :host_id => host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => @policy.id)
+
+        reports << FactoryBot.create(:arf_report, :host_id => @host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
+
+        reports << FactoryBot.create(:arf_report, :host_id => host.id, :status => @status)
+        FactoryBot.create(:policy_arf_report, :arf_report_id => reports.last.id, :policy_id => policy.id)
+      end
+
+      assert_equal ForemanOpenscap::ArfReport.of_policy(policy).latest, policy.arf_reports.latest
+    end
+
     private
 
     def create_logs_for_report(report, log_params)
