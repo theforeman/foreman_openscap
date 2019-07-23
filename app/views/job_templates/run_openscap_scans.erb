@@ -15,6 +15,7 @@ template_inputs:
 provider_type: SSH
 kind: job_template
 %>
+<% raise "Create and assign a policy to this host before proceeding" unless input('policies').respond_to? :map %>
 
 <% input('policies').map { |policy_config| policy_config['id'] }.each do |id| -%>
 /usr/bin/foreman_scap_client <%= id %>
