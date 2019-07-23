@@ -41,10 +41,6 @@ Style/FrozenStringLiteralComment:
 Metrics:
   Enabled: false
 
-Performance/FixedSize:
-  Exclude:
-    - 'test/**/*'
-
 Style/CollectionMethods:
   Enabled: false
 
@@ -120,4 +116,10 @@ Layout/DotPosition:
   Enabled: false
 
 Lint/UnderscorePrefixedVariableName:
+  Enabled: false
+
+Performance/InefficientHashSearch:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
   Enabled: false
