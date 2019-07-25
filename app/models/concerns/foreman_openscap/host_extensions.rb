@@ -9,6 +9,8 @@ module ForemanOpenscap
       base.has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
       base.has_one :compliance_status_object, :class_name => '::ForemanOpenscap::ComplianceStatus', :foreign_key => 'host_id'
 
+      base.validate :openscap_proxy_in_taxonomy, :if => Proc.new { |host| host.openscap_proxy_id.present? }
+
       base.scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
                     :only_explicit => true, :operators => ['= '], :ext_method => :search_by_policy_name
 
@@ -134,6 +136,10 @@ module ForemanOpenscap
 
     def compliance_status_label(options = {})
       @compliance_status_label ||= get_status(ForemanOpenscap::ComplianceStatus).to_label(options)
+    end
+
+    def openscap_proxy_in_taxonomy
+      validate_association_taxonomy(:openscap_proxy)
     end
 
     module ClassMethods
