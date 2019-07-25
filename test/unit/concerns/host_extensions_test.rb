@@ -156,6 +156,14 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_empty not_removed
   end
 
+  test "should not assign mismatched openscap proxy" do
+    host = FactoryBot.create(:compliance_host, :organization => taxonomies(:organization1), :location => taxonomies(:location1))
+    proxy = FactoryBot.create(:openscap_proxy, :organizations => [taxonomies(:organization2)])
+    host.openscap_proxy = proxy
+    refute host.valid?
+    assert_equal host.errors.full_messages.first, "Openscap proxy with id #{proxy.id} doesn't exist or is not assigned to proper organization and/or location"
+  end
+
   private
 
   def setup_hosts_with_policy
