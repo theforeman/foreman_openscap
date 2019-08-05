@@ -79,10 +79,14 @@ class PoliciesController < ApplicationController
   def update_multiple_hosts
     if (id = params['policy']['id'])
       policy = ::ForemanOpenscap::Policy.find(id)
-      policy.assign_hosts(@hosts)
-      success _("Updated hosts: Assigned with compliance policy: %s") % policy.name
-      # We prefer to go back as this does not lose the current search
-      redirect_to hosts_path
+      policy.host_ids = policy.host_ids + @hosts.pluck(:id)
+      if policy.save
+        success _("Updated hosts: Assigned with compliance policy: %s") % policy.name
+        # We prefer to go back as this does not lose the current search
+        return redirect_to hosts_path
+      else
+        return process_error :object => policy, :redirect => hosts_path
+      end
     else
       error _('No compliance policy selected.')
       redirect_to(select_multiple_hosts_policies_path)

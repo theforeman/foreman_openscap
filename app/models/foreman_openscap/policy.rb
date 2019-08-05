@@ -36,7 +36,7 @@ module ForemanOpenscap
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
 
-    validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :valid_tailoring, :valid_tailoring_profile
+    validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :valid_tailoring, :valid_tailoring_profile, :no_mixed_deployments
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
 
@@ -44,10 +44,6 @@ module ForemanOpenscap
       with_taxonomy_scope do
         order("foreman_openscap_policies.name")
       end
-    end
-
-    def assign_assets(a)
-      self.asset_ids = (self.asset_ids + a.collect(&:id)).uniq
     end
 
     def to_html
@@ -112,6 +108,7 @@ module ForemanOpenscap
     end
 
     def previous_step
+      return steps.last if current_step.empty?
       steps[steps.index(current_step) - 1]
     end
 
@@ -163,10 +160,6 @@ module ForemanOpenscap
 
     def used_hostgroup_ids
       []
-    end
-
-    def assign_hosts(hosts)
-      assign_assets hosts.map &:get_asset
     end
 
     def unassign_hosts(hosts)
@@ -314,6 +307,15 @@ module ForemanOpenscap
       complimentary_class_name = class_name == 'Host::Base' ? 'Hostgroup' : 'Host::Base'
       existing_assets = self.assets.where(:assetable_type => complimentary_class_name)
       self.assets = existing_assets + new_assets
+    end
+
+    def no_mixed_deployments
+      assets.each do |asset|
+        assetable = asset.assetable
+        unless assetable.policies.pluck(:deploy_by).all? { |deployed_by| deployed_by == deploy_by }
+          errors.add(:base, _("cannot assign to %s, all assigned policies must be deployed in the same way") % assetable.name)
+        end
+      end
     end
   end
 end
