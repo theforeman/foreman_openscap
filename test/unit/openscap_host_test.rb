@@ -10,8 +10,8 @@ class OpenscapHostTest < ActiveSupport::TestCase
   test 'Host has policy' do
     host = FactoryBot.create(:host)
     assert_empty(host.policies)
-
-    assert(@policy.assign_hosts([host]), 'Host policies should be assigned')
+    @policy.host_ids = [host.id]
+    @policy.save
     assert_includes(host.policies, @policy)
   end
 

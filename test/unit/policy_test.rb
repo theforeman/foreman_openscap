@@ -244,4 +244,12 @@ class PolicyTest < ActiveSupport::TestCase
     assert_empty ForemanOpenscap::PolicyArfReport.where(:id => policy_arf_report.id)
     assert_empty ForemanOpenscap::ArfReport.where(:id => arf_report.id)
   end
+
+  test "should not assign policies with diffrent deploy_by options to asset" do
+    host = FactoryBot.create(:compliance_host, :policies => [FactoryBot.create(:policy)])
+    puppet_policy = FactoryBot.create(:policy, :deploy_by => 'puppet')
+    puppet_policy.host_ids = [host.id]
+    refute puppet_policy.save
+    assert_equal "cannot assign to #{host.name}, all assigned policies must be deployed in the same way", puppet_policy.errors[:base].first
+  end
 end
