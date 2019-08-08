@@ -888,6 +888,9 @@ msgstr ""
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""
 
+msgid "cannot assign to %s, all assigned policies must be deployed in the same way"
+msgstr ""
+
 msgid "documentation"
 msgstr ""
 
