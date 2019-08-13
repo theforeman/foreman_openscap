@@ -1,14 +1,4 @@
 module ComplianceHostsHelper
-  def host_policy_breakdown_chart(report, options = {})
-    data = []
-    [[:passed, _('Passed')],
-     [:failed, _('Failed')],
-     [:othered, _('Other')],].each do |i|
-      data << { :label => i[1], :data => report[i[0]], :color => ArfReportDashboardHelper::COLORS[i[0]] }
-    end
-    flot_pie_chart 'overview', _('Compliance reports breakdown'), data, options
-  end
-
   def host_arf_reports_chart(policy_id)
     passed = []
     failed = []

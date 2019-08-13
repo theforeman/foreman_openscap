@@ -6,15 +6,15 @@ module PolicyDashboardHelper
     :report_missing => '#92A8CD',
   }.freeze
 
-  def host_breakdown_chart(report, options = {})
-    data = []
-    [[:compliant_hosts, _('Compliant hosts')],
-     [:incompliant_hosts, _('Incompliant hosts')],
-     [:inconclusive_hosts, _('Inconclusive')],
-     [:report_missing, _('Not audited')],].each do |i|
-      data << { :label => i[1], :data => report[i[0]], :color => COLORS[i[0]] }
-    end
-    flot_pie_chart 'overview', _('Compliance Status'), data, options
+  def policy_breakdown_chart_data(report)
+    categories = {
+      :compliant_hosts =>  _('Compliant hosts'),
+      :incompliant_hosts =>  _('Incompliant hosts'),
+      :inconclusive_hosts => _('Inconclusive'),
+      :report_missing =>  _('Not audited'),
+    }
+
+    breakdown_chart_data categories, report, COLORS
   end
 
   def status_link(name, label, path)

@@ -5,13 +5,28 @@ module ArfReportDashboardHelper
     :othered => '#DB843D',
   }.freeze
 
-  def reports_breakdown_chart(report, options = {})
-    data = []
-    [[:failed, _('Failed')],
-     [:passed, _('Passed')],
-     [:othered, _('Othered')],].each do |i|
-      data << { :label => i[1], :data => report[i[0]], :color => COLORS[i[0]] }
+  def breakdown_chart_data(categories, report, colors = COLORS)
+    data = categories.reduce([]) do |memo, (key, value)|
+      memo << [value, report[key], colors[key]]
     end
-    flot_pie_chart 'overview', _('Compliance reports breakdown'), data, options
+
+    data.to_json
+  end
+
+  def donut_breakdown_chart_data(report)
+    categories = {
+      :failed => _('Failed'),
+      :passed => _('Passed'),
+      :othered => _('Other')
+    }
+    breakdown_chart_data categories, report
+  end
+
+  def arf_report_status_chart_data(status)
+    {
+      :data => status.to_a,
+      :yAxisLabel => _("Number of Events"),
+      :xAxisLabel => _("Rule Results"),
+    }.to_json
   end
 end
