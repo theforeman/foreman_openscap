@@ -5,20 +5,12 @@ description_format: Run scan for all OpenSCAP policies on host
 feature: foreman_openscap_run_scans
 provider_type: SSH
 snippet: false
-template_inputs:
-- name: policies
-  required: false
-  input_type: puppet_parameter
-  puppet_class_name: foreman_scap_client
-  puppet_parameter_name: policies
-  advanced: false
 provider_type: SSH
 kind: job_template
 %>
-<% raise 'Cannot detect values for policies input, please make sure your host is properly configured for openscap' unless input('policies').respond_to?(:map) %>
 
-<% raise "Create and assign a policy to this host before proceeding" if input('policies').respond_to?(:empty?) && input('policies').empty? %>
+<% raise "Create and assign a policy to this host before proceeding" if @host.policies_enc_raw.empty? %>
 
-<% input('policies').map { |policy_config| policy_config['id'] }.each do |id| -%>
-/usr/bin/foreman_scap_client <%= id %>
+<% @host.policies_enc_raw.map do |policy| -%>
+/usr/bin/foreman_scap_client <%= policy['id'] %>
 <% end -%>

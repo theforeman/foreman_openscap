@@ -1,6 +1,6 @@
 module ForemanOpenscap
   module HostExtensions
-    ::Host::Managed::Jail.allow :policies_enc
+    ::Host::Managed::Jail.allow :policies_enc, :policies_enc_raw
 
     def self.prepended(base)
       base.has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset"
