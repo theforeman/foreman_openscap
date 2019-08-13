@@ -1,16 +1,18 @@
+<% stylesheet 'foreman_openscap/scap_breakdown_chart' %>
+
 <div class="row">
   <div class="col-md-4">
     <div class="stats-well">
       <h4 class="ca" ><%= _('Report Metrics') %></h4>
-      <div style="margin-top:50px;padding-bottom: 40px;">
-        <%= reports_breakdown_chart(metrics, :class => 'statistics-pie small') %>
-      </div>
+      <div id="arf-report-breakdown-chart" class="scap-breakdown-chart"></div>
+      <%= mount_react_component('DonutChart', "#arf-report-breakdown-chart", donut_breakdown_chart_data(metrics)) %>
     </div>
   </div>
   <div class="col-md-4">
     <div class="stats-well">
       <h4 class="ca" ><%= _('Report Status') %></h4>
-      <%= flot_bar_chart("status" ,"", _("Number of Events"), status, :class => "statistics-bar")%>
+      <div id="arf-report-rule-chart"></div>
+      <%= mount_react_component('BarChart', "#arf-report-rule-chart", arf_report_status_chart_data(status), :flatten_data => true) %>
     </div>
   </div>
   <div class="col-md-4">

@@ -1,4 +1,5 @@
-<% javascript 'charts', 'dashboard', 'foreman_openscap/scap_hosts_show' %>
+<% javascript 'charts', 'foreman_openscap/scap_hosts_show' %>
+<% stylesheet 'foreman_openscap/scap_breakdown_chart' %>
 
 <%= breadcrumbs(:resource_url => api_hosts_path,
                 :resource_filter => "is_compliance_host = true",
@@ -23,7 +24,9 @@
                                                         hash_for_arf_report_path(:id => data.latest_report.id)
                                                           .merge(:auth_object => data.latest_report)) %></h4>
         <% report = data.report %>
-        <%= host_policy_breakdown_chart(report, :class => 'statistics-pie small') %>
+        <% id = "host-policy-breakdown-chart-#{policy.id}" %>
+        <div id="<%= id %>" class="scap-breakdown-chart"></div>
+        <%= mount_react_component('DonutChart', "##{id}", donut_breakdown_chart_data(report)) %>
       </div>
     </div>
 
