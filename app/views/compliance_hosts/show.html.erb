@@ -33,7 +33,9 @@
     <div class="col-md-8">
       <div class="stats-well">
         <h4 class="ca"><%= _("%s reports over time") % policy %></h4>
-        <%= flot_chart('resource_graph', '', '', host_arf_reports_chart(policy.id)) %>
+        <% reports_graph_id = "arf-reports-over-time-#{policy.id}" %>
+        <div id="<%= reports_graph_id %>"></div>
+        <%= mount_react_component('LineChart', "##{reports_graph_id}", host_arf_reports_chart_data(policy.id), :flatten_data => true) %>
       </div>
     </div>
     <% else %>
