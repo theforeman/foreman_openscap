@@ -312,8 +312,8 @@ module ForemanOpenscap
     def no_mixed_deployments
       assets.each do |asset|
         assetable = asset.assetable
-        unless assetable.policies.pluck(:deploy_by).all? { |deployed_by| deployed_by == deploy_by }
-          errors.add(:base, _("cannot assign to %s, all assigned policies must be deployed in the same way") % assetable.name)
+        unless assetable.policies.where.not(:id => id).pluck(:deploy_by).all? { |deployed_by| deployed_by == deploy_by }
+          errors.add(:base, _("cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy") % assetable.name)
         end
       end
     end
