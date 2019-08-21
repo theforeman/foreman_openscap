@@ -1,15 +1,21 @@
 module ComplianceHostsHelper
-  def host_arf_reports_chart(policy_id)
+  def host_arf_reports_chart_data(policy_id)
     passed = []
     failed = []
     othered = []
+    date = []
     @host.arf_reports.of_policy(policy_id).each do |report|
-      passed  << [report.created_at.to_i * 1000, report.passed]
-      failed  << [report.created_at.to_i * 1000, report.failed]
-      othered << [report.created_at.to_i * 1000, report.othered]
+      passed  << report.passed
+      failed  << report.failed
+      othered << report.othered
+      date << report.created_at.to_i * 1000
     end
-    [{ :label => _("Passed"), :data => passed, :color => ArfReportDashboardHelper::COLORS[:passed] },
-     { :label => _("Failed"), :data => failed, :color => ArfReportDashboardHelper::COLORS[:failed] },
-     { :label => _("Othered"), :data => othered, :color => ArfReportDashboardHelper::COLORS[:othered] }]
+    data = [
+      [_("Passed"), passed, ArfReportDashboardHelper::COLORS[:passed]],
+      [_("Failed"), failed, ArfReportDashboardHelper::COLORS[:failed]],
+      [_("Othered"), othered, ArfReportDashboardHelper::COLORS[:othered]],
+      ['dates', date, nil]
+    ]
+    { :data => data, :xAxisDataLabel => 'dates', :config => 'timeseries' }.to_json
   end
 end
