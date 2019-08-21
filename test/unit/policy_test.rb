@@ -250,7 +250,16 @@ class PolicyTest < ActiveSupport::TestCase
     puppet_policy = FactoryBot.create(:policy, :deploy_by => 'puppet')
     puppet_policy.host_ids = [host.id]
     refute puppet_policy.save
-    assert_equal "cannot assign to #{host.name}, all assigned policies must be deployed in the same way", puppet_policy.errors[:base].first
+    assert_equal "cannot assign to #{host.name}, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy", puppet_policy.errors[:base].first
+  end
+
+  test "should change deployment option when there is 1 policy assigned to hostgroup" do
+    hg = FactoryBot.create(:hostgroup)
+    asset = FactoryBot.create(:asset, :assetable_type => 'Hostgroup', :assetable_id => hg.id)
+    policy = FactoryBot.create(:policy, :assets => [asset], :deploy_by => 'manual')
+    policy.stubs(:assign_policy_to_hostgroups).returns(:true)
+    policy.deploy_by = 'puppet'
+    assert policy.save
   end
 
   test "should assign host and hostgroup at the same time" do
