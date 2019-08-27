@@ -1,5 +1,3 @@
-require 'deface'
-
 module ForemanOpenscap
   def self.with_katello?
     defined?(::Katello)
@@ -11,7 +9,6 @@ module ForemanOpenscap
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models"]
-    config.autoload_paths += Dir["#{config.root}/app/overrides"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/lib"]
@@ -50,7 +47,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 1.22'
+        requires_foreman '>= 1.24'
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -199,6 +196,11 @@ module ForemanOpenscap
 
         add_controller_action_scope('HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
+        end
+
+        describe_host do
+          multiple_actions_provider :compliance_host_multiple_actions
+          overview_buttons_provider :compliance_host_overview_button
         end
       end
     end
