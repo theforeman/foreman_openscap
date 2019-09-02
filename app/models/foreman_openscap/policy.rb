@@ -305,7 +305,7 @@ module ForemanOpenscap
         memo << assets.where(:assetable_type => class_name, :assetable_id => id).first_or_initialize
       end
       complimentary_class_name = class_name == 'Host::Base' ? 'Hostgroup' : 'Host::Base'
-      existing_assets = self.assets.where(:assetable_type => complimentary_class_name)
+      existing_assets = self.assets.select { |assigned_asset| assigned_asset.assetable_type == complimentary_class_name }
       self.assets = existing_assets + new_assets
     end
 
