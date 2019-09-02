@@ -15,7 +15,9 @@ template_inputs:
 provider_type: SSH
 kind: job_template
 %>
-<% raise "Create and assign a policy to this host before proceeding" unless input('policies').respond_to? :map %>
+<% raise 'Cannot detect values for policies input, please make sure your host is properly configured for openscap' unless input('policies').respond_to?(:map) %>
+
+<% raise "Create and assign a policy to this host before proceeding" if input('policies').respond_to?(:empty?) && input('policies').empty? %>
 
 <% input('policies').map { |policy_config| policy_config['id'] }.each do |id| -%>
 /usr/bin/foreman_scap_client <%= id %>
