@@ -252,4 +252,22 @@ class PolicyTest < ActiveSupport::TestCase
     refute puppet_policy.save
     assert_equal "cannot assign to #{host.name}, all assigned policies must be deployed in the same way", puppet_policy.errors[:base].first
   end
+
+  test "should assign host and hostgroup at the same time" do
+    hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:host)
+    policy = ForemanOpenscap::Policy.create(
+      :name => 'random',
+      :scap_content_id => @scap_content.id,
+      :scap_content_profile_id => @scap_profile.id,
+      :period => 'custom',
+      :cron_line => '10 * * * *',
+      :deploy_by => 'manual',
+      :hostgroup_ids => [hostgroup.id],
+      :host_ids => [host.id]
+    )
+    assert policy.save
+    refute policy.hostgroups.empty?
+    refute policy.hosts.empty?
+  end
 end
