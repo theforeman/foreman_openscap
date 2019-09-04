@@ -6,7 +6,7 @@ FactoryBot.define do
   factory :openscap_proxy, :class => SmartProxy do
     sequence(:name) { |n| "openscap_proxy#{n}" }
     sequence(:url) { |n| "https://anywhere#{n}.net:8443" }
-    features { |sp| [sp.association(:openscap_feature)] }
+    features { [Feature.find_by(:name => 'Openscap') || FactoryBot.create(:openscap_feature)] }
   end
 
   factory :compliance_host, :class => Host::Managed do
