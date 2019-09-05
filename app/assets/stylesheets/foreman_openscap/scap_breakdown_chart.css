@@ -7,3 +7,20 @@
   margin-top: 58px;
   padding-bottom: 50px;
 }
+
+.scap-breakdown-chart-col {
+  min-width: 340px;
+}
+
+.arf-report-rule-chart-col {
+  min-width: 440px;
+}
+
+.metrics-stats-row {
+  padding-top: 20px;
+}
+
+#arf-report-rule-chart .bar-chart-pf {
+  max-width: fit-content;
+  margin: auto;
+}
