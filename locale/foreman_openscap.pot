@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-08-08 16:14+0200\n"
-"PO-Revision-Date: 2019-08-08 16:14+0200\n"
+"POT-Creation-Date: 2019-09-05 16:51+0200\n"
+"PO-Revision-Date: 2019-09-05 16:51+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -649,7 +649,9 @@ msgid "does not have the selected SCAP content profile"
 msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:316
-msgid "cannot assign to %s, all assigned policies must be deployed in the same way"
+msgid ""
+"cannot assign to %s, all assigned policies must be deployed in the same way, c"
+"heck 'deploy by' for each assigned policy"
 msgstr ""
 
 #: ../app/services/foreman_openscap/arf_report_status_calculator.rb:30

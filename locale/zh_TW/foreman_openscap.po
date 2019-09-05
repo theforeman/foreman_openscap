@@ -5,7 +5,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 0.11.0\n"
+"Project-Id-Version: foreman_openscap 1.0.4\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-02-09 16:41-0500\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -888,7 +888,7 @@ msgstr ""
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""
 
-msgid "cannot assign to %s, all assigned policies must be deployed in the same way"
+msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
 msgstr ""
 
 msgid "documentation"
