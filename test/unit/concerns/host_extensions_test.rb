@@ -164,6 +164,13 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_equal host.errors.full_messages.first, "Openscap proxy with id #{proxy.id} doesn't exist or is not assigned to proper organization and/or location"
   end
 
+  test 'should delete asset together with host' do
+    host = FactoryBot.create(:compliance_host)
+    FactoryBot.create(:asset_policy, :asset => host.asset, :policy => @policy)
+    assert host.destroy
+    assert_empty ForemanOpenscap::Asset.where(:assetable_id => host.id, :assetable_type => 'Host::Base')
+  end
+
   private
 
   def setup_hosts_with_policy

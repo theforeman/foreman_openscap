@@ -3,7 +3,7 @@ module ForemanOpenscap
     ::Host::Managed::Jail.allow :policies_enc
 
     def self.prepended(base)
-      base.has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset"
+      base.has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset", :dependent => :destroy
       base.has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
       base.has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
       base.has_many :arf_reports, :class_name => '::ForemanOpenscap::ArfReport', :foreign_key => :host_id
