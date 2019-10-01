@@ -46,7 +46,7 @@ class PoliciesController < ApplicationController
   end
 
   def update
-    if @policy.update_attributes(policy_params)
+    if @policy.change_deploy_type(policy_params)
       process_success :success_redirect => policies_path
     else
       process_error :object => @policy

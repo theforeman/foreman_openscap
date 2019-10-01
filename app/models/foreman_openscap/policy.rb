@@ -60,6 +60,17 @@ module ForemanOpenscap
       api.policy_html_guide(scap_content.scap_file, scap_content_profile.try(:profile_id))
     end
 
+    def change_deploy_type(params)
+      self.class.transaction do
+        if deploy_by != params[:deploy_by]
+          assign_attributes params
+          ForemanOpenscap::LookupKeyOverrider.new(self).override
+        end
+
+        errors.none? && update_attributes(params)
+      end
+    end
+
     def hostgroup_ids
       assets.where(:assetable_type => 'Hostgroup').pluck(:assetable_id)
     end

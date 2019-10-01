@@ -279,4 +279,23 @@ class PolicyTest < ActiveSupport::TestCase
     refute policy.hostgroups.empty?
     refute policy.hosts.empty?
   end
+
+  test "should change deploy type" do
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    setup_puppet_class
+    policy.change_deploy_type({ :deploy_by => 'puppet' })
+    refute policy.errors.any?
+    policy.reload
+    assert 'puppet', policy.deploy_by
+  end
+
+  test 'should not change any attributes when cannot change deploy_by' do
+    name = 'my-policy'
+    policy = FactoryBot.create(:policy, :name => name, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    policy.change_deploy_type({ :name => 'salty policy', :deploy_by => 'salt' })
+    assert policy.errors.any?
+    policy.reload
+    assert_equal policy.deploy_by, 'manual'
+    assert_equal policy.name, name
+  end
 end

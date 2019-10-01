@@ -69,7 +69,7 @@ module Api::V2
       param_group :policy
 
       def update
-        process_response @policy.update_attributes(policy_params)
+        process_response(@policy.change_deploy_type(policy_params))
       end
 
       api :DELETE, '/compliance/policies/:id', N_('Delete a Policy')
