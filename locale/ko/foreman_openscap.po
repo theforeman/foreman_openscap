@@ -1,21 +1,21 @@
-# Korean translations for foreman_openscap package.
-# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_openscap package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.4\n"
+"Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-02-09 16:41-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Korean\n"
-"Language: ko\n"
+"PO-Revision-Date: 2019-09-05 20:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
+"Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ko\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"\n"
 
 msgid " for policy %s"
 msgstr ""
@@ -24,7 +24,7 @@ msgid " through %s"
 msgstr ""
 
 msgid "%s - The following compliance reports are about to be changed"
-msgstr ""
+msgstr "%s - 다음 컴플라이언스 보고서는 즉시 변경됩니다."
 
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
@@ -35,10 +35,10 @@ msgid "%s compliance reports by policy"
 msgstr ""
 
 msgid "%s latest report"
-msgstr ""
+msgstr "%s 최신 보고서"
 
 msgid "%s reports over time"
-msgstr ""
+msgstr "기간별 %s 보고서"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr ""
@@ -52,14 +52,17 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-msgid "Action with sub plans"
+msgid "Abstract async task"
 msgstr ""
+
+msgid "Action with sub plans"
+msgstr "하위 계획이 있는 작업"
 
 msgid "Actions"
-msgstr ""
+msgstr "동작 "
 
 msgid "All messages"
-msgstr ""
+msgstr "전체 메세지 "
 
 msgid "Ansible role"
 msgstr ""
@@ -74,13 +77,22 @@ msgid "Apply policy to hosts"
 msgstr ""
 
 msgid "Assign Compliance Policy"
+msgstr "컴플라이언스 정책 할당"
+
+msgid "Attach subscriptions"
+msgstr ""
+
+msgid "Auto attach subscriptions"
+msgstr ""
+
+msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "뒤로(_B)"
 
 msgid "Cancel"
-msgstr ""
+msgstr "취소"
 
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
@@ -92,13 +104,13 @@ msgid "Change OpenSCAP Proxy"
 msgstr ""
 
 msgid "Changed"
-msgstr ""
+msgstr "변경됨"
 
 msgid "Changed file does not include existing SCAP content profiles"
 msgstr ""
 
 msgid "Changed?"
-msgstr ""
+msgstr "변경 여부"
 
 msgid "Choose Tailoring File"
 msgstr ""
@@ -107,49 +119,46 @@ msgid "Choose day in month"
 msgstr ""
 
 msgid "Choose existing SCAP Content"
-msgstr ""
+msgstr "기존 SCAP 컨텐츠 선택"
 
 msgid "Choose period"
-msgstr ""
+msgstr "기간 선택"
 
 msgid "Choose weekday"
+msgstr "요일 선택"
+
+msgid "Combined Profile Update"
 msgstr ""
 
 msgid "Compliance"
-msgstr ""
+msgstr "컴플라이언스 "
 
 msgid "Compliance Hosts"
 msgstr ""
 
 msgid "Compliance Policies"
-msgstr ""
+msgstr "컴플라이언스 정책"
 
 msgid "Compliance Reports"
-msgstr ""
+msgstr "컴플라이언스 보고서"
 
 msgid "Compliance Reports Breakdown"
-msgstr ""
-
-msgid "Compliance Status"
 msgstr ""
 
 msgid "Compliance policy summary"
 msgstr ""
 
 msgid "Compliance policy: %s"
-msgstr ""
-
-msgid "Compliance reports breakdown"
-msgstr ""
+msgstr "컴플라이언스 정책: %s"
 
 msgid "Compliant"
-msgstr ""
+msgstr "부합"
 
 msgid "Compliant hosts"
-msgstr ""
+msgstr "부합하는 호스트"
 
 msgid "Compliant with the policy"
-msgstr ""
+msgstr "정책에 부합"
 
 msgid "Could not find host identified by: %s"
 msgstr ""
@@ -160,8 +169,14 @@ msgstr ""
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr ""
 
-msgid "Create SCAP content"
+msgid "Create"
 msgstr ""
+
+msgid "Create Package Group"
+msgstr ""
+
+msgid "Create SCAP content"
+msgstr "SCAP 컨텐츠 생성"
 
 msgid "Create a Policy"
 msgstr ""
@@ -169,22 +184,31 @@ msgstr ""
 msgid "Create a Tailoring file"
 msgstr ""
 
-msgid "Create client"
-msgstr ""
-
 msgid "Dashboard"
-msgstr ""
+msgstr "대시보드 "
 
 msgid "DataStream Tailoring file"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "날짜"
 
 msgid "Default XCCDF profile"
-msgstr ""
+msgstr "기본 XCCDF 프로파일"
 
 msgid "Delete"
+msgstr "삭제"
+
+msgid "Delete Activation Key"
+msgstr ""
+
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+msgid "Delete Package Group"
+msgstr ""
+
+msgid "Delete Product"
 msgstr ""
 
 msgid "Delete a Policy"
@@ -193,20 +217,14 @@ msgstr ""
 msgid "Delete an ARF Report"
 msgstr ""
 
-msgid "Delete client"
-msgstr ""
-
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr ""
 
 msgid "Delete compliance report for %s?"
-msgstr ""
-
-msgid "Delete host"
-msgstr ""
+msgstr "%s에 대한 컴플라이언스 보고서를 삭제하시겠습니까?"
 
 msgid "Delete reports"
-msgstr ""
+msgstr "보고서 삭제"
 
 msgid "Delete scap content %s?"
 msgstr ""
@@ -221,19 +239,31 @@ msgid "Deletes a Tailoring file"
 msgstr ""
 
 msgid "Deletes an SCAP content"
-msgstr ""
+msgstr "SCAP 컨텐츠 삭제"
 
 msgid "Deployment Options"
 msgstr ""
 
 msgid "Description"
+msgstr "설명"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Content Host"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Discover"
 msgstr ""
 
 msgid "Documentation"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "다운로드 "
 
 msgid "Download ARF report in HTML"
 msgstr ""
@@ -242,7 +272,7 @@ msgid "Download HTML"
 msgstr ""
 
 msgid "Download XML in bzip"
-msgstr ""
+msgstr "XML을 bzip으로 다운로드"
 
 msgid "Download a Tailoring file as XML"
 msgstr ""
@@ -254,10 +284,10 @@ msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit Compliance Policy"
-msgstr ""
+msgstr "컴플라이언스 정책 편집"
 
 msgid "Edit SCAP Content"
-msgstr ""
+msgstr "SCAP 컨텐츠 편집"
 
 msgid "Edit Tailoring File"
 msgstr ""
@@ -265,17 +295,26 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
-msgid "Failed"
+msgid "Enable"
 msgstr ""
+
+msgid "Errata mail"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Failed"
+msgstr "실패"
 
 msgid "Failed and Othered"
-msgstr ""
+msgstr "실패함 및 제외됨"
 
 msgid "Failed only"
-msgstr ""
+msgstr "실패함만"
 
 msgid "Failed to delete %s compliance reports"
-msgstr ""
+msgstr "%s 컴플라이언스 보고서를 삭제하지 못했습니다."
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
 msgstr ""
@@ -297,52 +336,58 @@ msgstr ""
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
+msgstr "F"
+
+msgid "Fetch pxe files"
 msgstr ""
 
 msgid "File Upload"
+msgstr "파일 업로드"
+
+msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
 msgstr ""
 
 msgid "General"
-msgstr ""
+msgstr "일반"
 
 msgid "Host"
-msgstr ""
+msgstr "호스트"
 
 msgid "Host Breakdown Chart"
-msgstr ""
+msgstr "호스트 분류 차트"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Host compliance details"
-msgstr ""
+msgstr "호스트 컴플라이언스 정보"
 
 msgid "Host details"
-msgstr ""
+msgstr "호스트 상세 정보 "
 
 msgid "Host does not exist anymore"
-msgstr ""
+msgstr "호스트가 더 이상 존재하지 않음"
 
 msgid "Host is assigned to policy"
 msgstr ""
 
 msgid "Host is deleted"
-msgstr ""
+msgstr "호스트가 삭제되었습니다."
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
-msgstr ""
+msgstr "호스트 그룹 "
 
 msgid "Hostname"
-msgstr ""
+msgstr "호스트 이름 "
 
 msgid "Hosts Breakdown"
-msgstr ""
+msgstr "호스트 분류"
 
 msgid "Hosts failing this rule"
 msgstr ""
@@ -359,14 +404,20 @@ msgstr ""
 msgid "How the policy should be deployed"
 msgstr ""
 
+msgid "Hypervisors"
+msgstr ""
+
+msgid "Hypervisors update"
+msgstr ""
+
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet 클래스 가져오기"
 
 msgid "Import facts"
-msgstr ""
+msgstr "팩트 불러오기"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr ""
@@ -382,15 +433,48 @@ msgid ""
 msgstr ""
 
 msgid "Incompliant"
-msgstr ""
+msgstr "부합하지 않음"
 
 msgid "Incompliant hosts"
-msgstr ""
+msgstr "부합하지 않는 호스트"
 
 msgid "Inconclusive"
-msgstr ""
+msgstr "판단할 수 없음"
 
 msgid "Inconclusive results"
+msgstr "판단할 수 없는 결과"
+
+msgid "Incremental Update"
+msgstr ""
+
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+msgid "Index content"
+msgstr ""
+
+msgid "Index errata"
+msgstr ""
+
+msgid "Index module streams"
+msgstr ""
+
+msgid "Index package groups"
+msgstr ""
+
+msgid "Install Applicable Errata"
+msgstr ""
+
+msgid "Install erratum"
+msgstr ""
+
+msgid "Install package"
+msgstr ""
+
+msgid "Install package group"
+msgstr ""
+
+msgid "Instance update"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
@@ -400,7 +484,7 @@ msgid "Latest Compliance Reports"
 msgstr ""
 
 msgid "Latest reports for policy: %s"
-msgstr ""
+msgstr "정책에 대한 최신 보고서: %s"
 
 msgid "List ARF reports"
 msgstr ""
@@ -409,28 +493,28 @@ msgid "List Policies"
 msgstr ""
 
 msgid "List SCAP contents"
-msgstr ""
+msgstr "SCAP 컨텐츠 나열"
 
 msgid "List Tailoring files"
 msgstr ""
 
 msgid "Loading..."
-msgstr ""
+msgstr "읽어들이는 중..."
 
 msgid "Locations"
-msgstr ""
+msgstr "위치"
 
 msgid "Message"
-msgstr ""
+msgstr "메시지"
 
 msgid "More details"
-msgstr ""
+msgstr "더 자세히"
 
 msgid "Never audited"
-msgstr ""
+msgstr "감사되지 않음"
 
 msgid "New Compliance Policy"
-msgstr ""
+msgstr "새 컴플라이언스 정책"
 
 msgid "New Policy"
 msgstr ""
@@ -442,13 +526,13 @@ msgid "New Tailoring File"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "다음"
 
 msgid "No"
-msgstr ""
+msgstr "제공되지 않음"
 
 msgid "No ARF reports for this policy"
-msgstr ""
+msgstr "이 정책에 대한 ARF 보고서가 없습니다."
 
 msgid "No OpenSCAP Proxy selected."
 msgstr ""
@@ -460,10 +544,10 @@ msgid "No Tailoring file assigned for policy with id %s"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
-msgstr ""
+msgstr "검증하는 데 사용할 수 있는 프록시가 없습니다. 오류가 반환되었습니다: %s"
 
 msgid "No compliance policy selected."
-msgstr ""
+msgstr "컴플라이언스 정책을 선택하지 않았습니다."
 
 msgid "No compliance reports selected"
 msgstr ""
@@ -472,10 +556,10 @@ msgid "No compliance reports were found."
 msgstr ""
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "선택된 호스트가 없음 "
 
 msgid "No hosts were found."
-msgstr ""
+msgstr "호스트를 찾을 수 없습니다."
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""
@@ -490,37 +574,37 @@ msgid "No proxy with OpenSCAP feature was found."
 msgstr ""
 
 msgid "No report for this policy"
-msgstr ""
+msgstr "이 정책에 대한 보고서가 없습니다."
 
 msgid "No reports available"
-msgstr ""
+msgstr "사용 가능한 보고서가 없습니다."
 
 msgid "No valid policy ID provided"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "없음"
 
 msgid "None found"
-msgstr ""
+msgstr "찾을 수 없습니다."
 
 msgid "None!"
-msgstr ""
+msgstr "없음!"
 
 msgid "Not audited"
-msgstr ""
+msgstr "감사되지 않음"
 
 msgid "Not compliant with the policy"
-msgstr ""
+msgstr "정책에 부합하지 않음"
 
 msgid "Nothing to show"
-msgstr ""
+msgstr "표시할 것이 없습니다 "
 
 msgid "Number of Events"
-msgstr ""
+msgstr "이벤트 수 "
 
 msgid "Number of a day in month, note that not all months have same count of days"
-msgstr ""
+msgstr "달의 일수입니다. 모든 달의 일수가 동일하지는 않습니다."
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
@@ -535,42 +619,45 @@ msgid "Openscap Proxy"
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "조직 "
 
 msgid "Original file name of the XML file"
 msgstr ""
 
 msgid "Other"
-msgstr ""
+msgstr "기타"
 
 msgid "Othered"
-msgstr ""
+msgstr "제외됨"
 
 #. TRANSLATORS: initial character of Othered which is an SCAP term
 msgid "Othered|O"
+msgstr "제외됨|O"
+
+msgid "Package Profile Update"
 msgstr ""
 
 msgid "Passed"
-msgstr ""
+msgstr "통과됨"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
-msgstr ""
+msgstr "통과됨|P"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "확인해 주십시오 "
 
 msgid "Policies"
-msgstr ""
+msgstr "정책"
 
 msgid "Policies with hosts:"
-msgstr ""
+msgstr "호스트의 정책:"
 
 msgid "Policy"
-msgstr ""
+msgstr "정책"
 
 msgid "Policy %s"
-msgstr ""
+msgstr "정책 %s"
 
 msgid "Policy Attributes"
 msgstr ""
@@ -585,13 +672,13 @@ msgid "Policy assigned"
 msgstr ""
 
 msgid "Policy description"
-msgstr ""
+msgstr "정책 설명"
 
 msgid "Policy is missing"
 msgstr ""
 
 msgid "Policy name"
-msgstr ""
+msgstr "정책 이름"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
 msgstr ""
@@ -608,34 +695,76 @@ msgstr ""
 msgid "Policy with id %s not found."
 msgstr ""
 
+msgid "Product Create"
+msgstr ""
+
+msgid "Promote"
+msgstr ""
+
+msgid "Promotion to Environment"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
 
-msgid "Puppet class"
+msgid "Publish"
 msgstr ""
+
+msgid "Publish Lifecycle Environment Repositories"
+msgstr ""
+
+msgid "Puppet class"
+msgstr "Puppet 클래스 "
 
 msgid "Rationale"
-msgstr ""
+msgstr "근거"
 
 msgid "References"
+msgstr "참조"
+
+msgid "Reindex subscriptions"
 msgstr ""
 
 msgid "Remote action:"
+msgstr "원격 작업:"
+
+msgid "Remove Content"
+msgstr ""
+
+msgid "Remove Version"
+msgstr ""
+
+msgid "Remove Versions and Associations"
+msgstr ""
+
+msgid "Remove from Environment"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove package group"
+msgstr ""
+
+msgid "Remove subscriptions"
 msgstr ""
 
 msgid "Report Metrics"
-msgstr ""
+msgstr "보고서 메트릭스 "
 
 msgid "Report Status"
-msgstr ""
+msgstr "보고서 상태 "
 
 msgid "Reported At"
-msgstr ""
+msgstr "보고 일시"
 
 msgid "Reported at %s"
 msgstr ""
 
 msgid "Reports"
+msgstr "보고서 "
+
+msgid "Republish Version Repositories"
 msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
@@ -645,31 +774,37 @@ msgid "Required %{msg_name} %{class} was not found, please ensure it is imported
 msgstr ""
 
 msgid "Resource"
-msgstr ""
+msgstr "자원"
 
 msgid "Result"
+msgstr "결과"
+
+msgid "Rule Results"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-msgid "SCAP Content"
+msgid "Run Sync Plan:"
 msgstr ""
 
+msgid "SCAP Content"
+msgstr "SCAP 컨텐츠"
+
 msgid "SCAP Contents"
-msgstr ""
+msgstr "SCAP 컨텐츠"
 
 msgid "SCAP DataStream file"
 msgstr ""
 
 msgid "SCAP content"
-msgstr ""
+msgstr "SCAP 컨텐츠 "
 
 msgid "SCAP content name"
 msgstr ""
 
 msgid "SCAP contents"
-msgstr ""
+msgstr "SCAP 컨텐츠"
 
 msgid "SCAP policies summary"
 msgstr ""
@@ -678,25 +813,25 @@ msgid "Scap Contents"
 msgstr ""
 
 msgid "Schedule"
-msgstr ""
+msgstr "스케줄 "
 
 msgid "Select Action"
-msgstr ""
+msgstr "작업 선택 "
 
 msgid "Select Compliance Policy"
-msgstr ""
+msgstr "컴플라이언스 정책 선택"
 
 msgid "Select OpenSCAP Proxy"
 msgstr ""
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "이 페이지에 있는 모든 항목을 선택 "
 
 msgid "Severity"
-msgstr ""
+msgstr "심각도"
 
 msgid "Show Guide"
-msgstr ""
+msgstr "가이드 표시"
 
 msgid "Show a Policy"
 msgstr ""
@@ -705,7 +840,7 @@ msgid "Show a Tailoring file"
 msgstr ""
 
 msgid "Show a policy's SCAP content"
-msgstr ""
+msgstr "정책의 SCAP 컨텐츠 표시"
 
 msgid "Show a policy's Tailoring file"
 msgstr ""
@@ -714,48 +849,57 @@ msgid "Show an ARF report"
 msgstr ""
 
 msgid "Show an SCAP content"
-msgstr ""
+msgstr "SCAP 컨텐츠 표시"
 
 msgid "Show config information for foreman_scap_client"
 msgstr ""
 
 msgid "Show log messages:"
-msgstr ""
+msgstr "로그 메세지 표시: "
 
 msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Something went wrong while selecting compliance reports - %s"
-msgstr ""
+msgstr "컴플라이언스 보고서를 선택하는 도중 문제가 발생했습니다 -  %s"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "호스트를 선택하는 도중 문제가 발생했습니다 - %s"
 
 msgid "Spool errors"
 msgstr ""
 
 msgid "Status chart"
-msgstr ""
+msgstr "상태 차트 "
 
 msgid "Status table"
-msgstr ""
+msgstr "상태 표 "
 
 msgid "Submit"
-msgstr ""
+msgstr "보내기"
 
 msgid "Successfully deleted %s compliance reports"
-msgstr ""
+msgstr "%s 컴플라이언스 보고서를 삭제했습니다."
 
 msgid "Successfully deleted ARF report."
 msgstr ""
 
 msgid "Summary from %{time} ago to now"
-msgstr ""
+msgstr "%{time} 전에서 현재까지의 요약"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr ""
 
 msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr "%{foreman_url}의 Foreman 서버에서 가져온 요약"
+
+msgid "Sync capsule"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Synchronize smart proxy"
 msgstr ""
 
 msgid "Tailoring File"
@@ -797,7 +941,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "전체"
 
 msgid "Total hosts with policy: %s"
 msgstr ""
@@ -817,9 +961,15 @@ msgid "Unable to get XML version of requested report from Smart Proxy"
 msgstr ""
 
 msgid "Unassign Compliance Policy"
-msgstr ""
+msgstr "컴플라이언스 정책 할당 취소"
 
 msgid "Unknown Compliance status"
+msgstr "알 수 없는 컴플라이언스 상태"
+
+msgid "Update"
+msgstr ""
+
+msgid "Update Content Overrides"
 msgstr ""
 
 msgid "Update a Policy"
@@ -829,12 +979,27 @@ msgid "Update a Tailoring file"
 msgstr ""
 
 msgid "Update an SCAP content"
+msgstr "SCAP 컨텐츠 업데이트"
+
+msgid "Update content urls"
 msgstr ""
 
-msgid "Update host"
+msgid "Update for host"
 msgstr ""
 
-msgid "Update node"
+msgid "Update http proxy"
+msgstr ""
+
+msgid "Update http proxy details"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Update redhat repository"
+msgstr ""
+
+msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -844,31 +1009,37 @@ msgid "Updated hosts: Assigned with compliance policy: %s"
 msgstr ""
 
 msgid "Updated hosts: Unassigned from compliance policy '%s'"
-msgstr ""
+msgstr "업데이트된 호스트: 컴플라이언스 정책 '%s'에서 할당 취소됨"
 
 msgid "Upload New SCAP Content"
-msgstr ""
+msgstr "새 SCAP 컨텐츠 업로드"
 
 msgid "Upload New Tailoring file"
 msgstr ""
 
 msgid "Upload an ARF report"
+msgstr "ARF 보고서 업로드"
+
+msgid "Upload errata into"
+msgstr ""
+
+msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
-msgstr ""
+msgstr "새 SCAP 컨텐츠 파일 업로드"
 
 msgid "Upload new Tailoring File"
 msgstr ""
 
 msgid "View Report"
-msgstr ""
+msgstr "보고서 보기"
 
 msgid "View full report"
-msgstr ""
+msgstr "전체 보고서 보기"
 
 msgid "XCCDF Profile"
-msgstr ""
+msgstr "XCCDF 프로파일 "
 
 msgid "XCCDF Profile in Tailoring File"
 msgstr ""
@@ -880,10 +1051,10 @@ msgid "XML containing tailoring file"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "제공됨"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr ""
+msgstr "각각의 5자리 값을 공백으로 구분하여 사용자 정의 cron 줄을 지정할 수 있습니다(예: \"0  3  *  *  *\")."
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""
@@ -904,7 +1075,7 @@ msgid "does not have the selected SCAP content profile"
 msgstr ""
 
 msgid "invalid type %s"
-msgstr ""
+msgstr "잘못된 유형 %s"
 
 msgid "is not a valid value"
 msgstr ""
@@ -913,7 +1084,7 @@ msgid "is not included in SCAP_RESULT"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "
 
 msgid "must be between 1 and 31"
 msgstr ""

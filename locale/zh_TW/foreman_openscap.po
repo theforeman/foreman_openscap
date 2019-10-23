@@ -1,21 +1,22 @@
-# Chinese translations for foreman_openscap package.
-# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_openscap package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.4\n"
+"Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-02-09 16:41-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Chinese\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2019-09-05 20:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
+"Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
+"uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: zh_TW\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"\n"
 
 msgid " for policy %s"
 msgstr ""
@@ -24,7 +25,7 @@ msgid " through %s"
 msgstr ""
 
 msgid "%s - The following compliance reports are about to be changed"
-msgstr ""
+msgstr "%s - 以下合規報告即將變更"
 
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
@@ -35,10 +36,10 @@ msgid "%s compliance reports by policy"
 msgstr ""
 
 msgid "%s latest report"
-msgstr ""
+msgstr "%s 最新報告"
 
 msgid "%s reports over time"
-msgstr ""
+msgstr "%s 一直以來的報告"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr ""
@@ -52,6 +53,9 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
+msgid "Abstract async task"
+msgstr ""
+
 msgid "Action with sub plans"
 msgstr ""
 
@@ -59,7 +63,7 @@ msgid "Actions"
 msgstr ""
 
 msgid "All messages"
-msgstr ""
+msgstr "所有訊息"
 
 msgid "Ansible role"
 msgstr ""
@@ -74,13 +78,22 @@ msgid "Apply policy to hosts"
 msgstr ""
 
 msgid "Assign Compliance Policy"
+msgstr "指定合規政策"
+
+msgid "Attach subscriptions"
+msgstr ""
+
+msgid "Auto attach subscriptions"
+msgstr ""
+
+msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "上一頁"
 
 msgid "Cancel"
-msgstr ""
+msgstr "取消"
 
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
@@ -92,13 +105,13 @@ msgid "Change OpenSCAP Proxy"
 msgstr ""
 
 msgid "Changed"
-msgstr ""
+msgstr "已改變"
 
 msgid "Changed file does not include existing SCAP content profiles"
 msgstr ""
 
 msgid "Changed?"
-msgstr ""
+msgstr "已改變？"
 
 msgid "Choose Tailoring File"
 msgstr ""
@@ -107,49 +120,46 @@ msgid "Choose day in month"
 msgstr ""
 
 msgid "Choose existing SCAP Content"
-msgstr ""
+msgstr "選擇現有的 SCAP 內容"
 
 msgid "Choose period"
-msgstr ""
+msgstr "選擇期間"
 
 msgid "Choose weekday"
+msgstr "選擇星期幾"
+
+msgid "Combined Profile Update"
 msgstr ""
 
 msgid "Compliance"
-msgstr ""
+msgstr "合規"
 
 msgid "Compliance Hosts"
 msgstr ""
 
 msgid "Compliance Policies"
-msgstr ""
+msgstr "合規政策"
 
 msgid "Compliance Reports"
-msgstr ""
+msgstr "合規報告"
 
 msgid "Compliance Reports Breakdown"
-msgstr ""
-
-msgid "Compliance Status"
 msgstr ""
 
 msgid "Compliance policy summary"
 msgstr ""
 
 msgid "Compliance policy: %s"
-msgstr ""
-
-msgid "Compliance reports breakdown"
-msgstr ""
+msgstr "合規政策：%s"
 
 msgid "Compliant"
-msgstr ""
+msgstr "合規"
 
 msgid "Compliant hosts"
-msgstr ""
+msgstr "合規主機"
 
 msgid "Compliant with the policy"
-msgstr ""
+msgstr "合於政策"
 
 msgid "Could not find host identified by: %s"
 msgstr ""
@@ -160,8 +170,14 @@ msgstr ""
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr ""
 
-msgid "Create SCAP content"
+msgid "Create"
 msgstr ""
+
+msgid "Create Package Group"
+msgstr ""
+
+msgid "Create SCAP content"
+msgstr "建立 SCAP 內容"
 
 msgid "Create a Policy"
 msgstr ""
@@ -169,22 +185,31 @@ msgstr ""
 msgid "Create a Tailoring file"
 msgstr ""
 
-msgid "Create client"
-msgstr ""
-
 msgid "Dashboard"
-msgstr ""
+msgstr "控制面板"
 
 msgid "DataStream Tailoring file"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 msgid "Default XCCDF profile"
-msgstr ""
+msgstr "預設 XCCDF 設定檔"
 
 msgid "Delete"
+msgstr "刪除"
+
+msgid "Delete Activation Key"
+msgstr ""
+
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+msgid "Delete Package Group"
+msgstr ""
+
+msgid "Delete Product"
 msgstr ""
 
 msgid "Delete a Policy"
@@ -193,20 +218,14 @@ msgstr ""
 msgid "Delete an ARF Report"
 msgstr ""
 
-msgid "Delete client"
-msgstr ""
-
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr ""
 
 msgid "Delete compliance report for %s?"
-msgstr ""
-
-msgid "Delete host"
-msgstr ""
+msgstr "刪除 %s 的合規報告？"
 
 msgid "Delete reports"
-msgstr ""
+msgstr "刪除報告"
 
 msgid "Delete scap content %s?"
 msgstr ""
@@ -221,19 +240,31 @@ msgid "Deletes a Tailoring file"
 msgstr ""
 
 msgid "Deletes an SCAP content"
-msgstr ""
+msgstr "刪除 SCAP 內容"
 
 msgid "Deployment Options"
 msgstr ""
 
 msgid "Description"
+msgstr "說明"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Content Host"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Discover"
 msgstr ""
 
 msgid "Documentation"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "下載"
 
 msgid "Download ARF report in HTML"
 msgstr ""
@@ -242,7 +273,7 @@ msgid "Download HTML"
 msgstr ""
 
 msgid "Download XML in bzip"
-msgstr ""
+msgstr "下載 XML，格式為 bzip"
 
 msgid "Download a Tailoring file as XML"
 msgstr ""
@@ -254,10 +285,10 @@ msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit Compliance Policy"
-msgstr ""
+msgstr "編輯合規政策"
 
 msgid "Edit SCAP Content"
-msgstr ""
+msgstr "編輯 SCAP 內容"
 
 msgid "Edit Tailoring File"
 msgstr ""
@@ -265,17 +296,26 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
-msgid "Failed"
+msgid "Enable"
 msgstr ""
+
+msgid "Errata mail"
+msgstr ""
+
+msgid "Export"
+msgstr ""
+
+msgid "Failed"
+msgstr "已失敗"
 
 msgid "Failed and Othered"
-msgstr ""
+msgstr "失敗與其它"
 
 msgid "Failed only"
-msgstr ""
+msgstr "只有失敗"
 
 msgid "Failed to delete %s compliance reports"
-msgstr ""
+msgstr "刪除 %s 合規報告失敗"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
 msgstr ""
@@ -297,52 +337,58 @@ msgstr ""
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
+msgstr "F"
+
+msgid "Fetch pxe files"
 msgstr ""
 
 msgid "File Upload"
+msgstr "檔案上傳"
+
+msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
 msgstr ""
 
 msgid "General"
-msgstr ""
+msgstr "一般"
 
 msgid "Host"
-msgstr ""
+msgstr "主機"
 
 msgid "Host Breakdown Chart"
-msgstr ""
+msgstr "主機錯誤圖表"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "主機群組"
 
 msgid "Host compliance details"
-msgstr ""
+msgstr "主機合規的詳情"
 
 msgid "Host details"
-msgstr ""
+msgstr "主機詳細資訊"
 
 msgid "Host does not exist anymore"
-msgstr ""
+msgstr "主機不復存在"
 
 msgid "Host is assigned to policy"
 msgstr ""
 
 msgid "Host is deleted"
-msgstr ""
+msgstr "已刪除主機"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
-msgstr ""
+msgstr "主機群組"
 
 msgid "Hostname"
-msgstr ""
+msgstr "主機名稱"
 
 msgid "Hosts Breakdown"
-msgstr ""
+msgstr "主機錯誤"
 
 msgid "Hosts failing this rule"
 msgstr ""
@@ -357,6 +403,12 @@ msgid "Hosts passing this rule"
 msgstr ""
 
 msgid "How the policy should be deployed"
+msgstr ""
+
+msgid "Hypervisors"
+msgstr ""
+
+msgid "Hypervisors update"
 msgstr ""
 
 msgid "ID of OpenSCAP Proxy"
@@ -382,15 +434,48 @@ msgid ""
 msgstr ""
 
 msgid "Incompliant"
-msgstr ""
+msgstr "不合規"
 
 msgid "Incompliant hosts"
-msgstr ""
+msgstr "不合規主機"
 
 msgid "Inconclusive"
-msgstr ""
+msgstr "非決定性"
 
 msgid "Inconclusive results"
+msgstr "非決定性結果"
+
+msgid "Incremental Update"
+msgstr ""
+
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+msgid "Index content"
+msgstr ""
+
+msgid "Index errata"
+msgstr ""
+
+msgid "Index module streams"
+msgstr ""
+
+msgid "Index package groups"
+msgstr ""
+
+msgid "Install Applicable Errata"
+msgstr ""
+
+msgid "Install erratum"
+msgstr ""
+
+msgid "Install package"
+msgstr ""
+
+msgid "Install package group"
+msgstr ""
+
+msgid "Instance update"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
@@ -400,7 +485,7 @@ msgid "Latest Compliance Reports"
 msgstr ""
 
 msgid "Latest reports for policy: %s"
-msgstr ""
+msgstr "最新的政策報告：%s"
 
 msgid "List ARF reports"
 msgstr ""
@@ -409,28 +494,28 @@ msgid "List Policies"
 msgstr ""
 
 msgid "List SCAP contents"
-msgstr ""
+msgstr "列出 SCAP 內容"
 
 msgid "List Tailoring files"
 msgstr ""
 
 msgid "Loading..."
-msgstr ""
+msgstr "載入中…"
 
 msgid "Locations"
-msgstr ""
+msgstr "位置"
 
 msgid "Message"
-msgstr ""
+msgstr "訊息"
 
 msgid "More details"
-msgstr ""
+msgstr "更多詳細資訊"
 
 msgid "Never audited"
-msgstr ""
+msgstr "未曾稽核"
 
 msgid "New Compliance Policy"
-msgstr ""
+msgstr "新合規政策"
 
 msgid "New Policy"
 msgstr ""
@@ -442,13 +527,13 @@ msgid "New Tailoring File"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "下一個"
 
 msgid "No"
-msgstr ""
+msgstr "否"
 
 msgid "No ARF reports for this policy"
-msgstr ""
+msgstr "此政策沒有 ARF 報告"
 
 msgid "No OpenSCAP Proxy selected."
 msgstr ""
@@ -460,10 +545,10 @@ msgid "No Tailoring file assigned for policy with id %s"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
-msgstr ""
+msgstr "沒有可用的代理供驗證。傳回錯誤：%s"
 
 msgid "No compliance policy selected."
-msgstr ""
+msgstr "未選取合規政策。"
 
 msgid "No compliance reports selected"
 msgstr ""
@@ -472,10 +557,10 @@ msgid "No compliance reports were found."
 msgstr ""
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "未選擇主機"
 
 msgid "No hosts were found."
-msgstr ""
+msgstr "找不到主機。"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""
@@ -490,37 +575,37 @@ msgid "No proxy with OpenSCAP feature was found."
 msgstr ""
 
 msgid "No report for this policy"
-msgstr ""
+msgstr "此政策沒有報告"
 
 msgid "No reports available"
-msgstr ""
+msgstr "無報告可用"
 
 msgid "No valid policy ID provided"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "無"
 
 msgid "None found"
-msgstr ""
+msgstr "未找到"
 
 msgid "None!"
-msgstr ""
+msgstr "無！"
 
 msgid "Not audited"
-msgstr ""
+msgstr "尚未稽核"
 
 msgid "Not compliant with the policy"
-msgstr ""
+msgstr "不合於政策"
 
 msgid "Nothing to show"
-msgstr ""
+msgstr "沒有可顯示的項目"
 
 msgid "Number of Events"
-msgstr ""
+msgstr "事件數量"
 
 msgid "Number of a day in month, note that not all months have same count of days"
-msgstr ""
+msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
@@ -535,42 +620,45 @@ msgid "Openscap Proxy"
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "組織"
 
 msgid "Original file name of the XML file"
 msgstr ""
 
 msgid "Other"
-msgstr ""
+msgstr "其他"
 
 msgid "Othered"
-msgstr ""
+msgstr "其它"
 
 #. TRANSLATORS: initial character of Othered which is an SCAP term
 msgid "Othered|O"
+msgstr "Othered|O"
+
+msgid "Package Profile Update"
 msgstr ""
 
 msgid "Passed"
-msgstr ""
+msgstr "已通過"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
-msgstr ""
+msgstr "Passed|P"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "請確認"
 
 msgid "Policies"
-msgstr ""
+msgstr "方針"
 
 msgid "Policies with hosts:"
-msgstr ""
+msgstr "政策與主機："
 
 msgid "Policy"
-msgstr ""
+msgstr "政策"
 
 msgid "Policy %s"
-msgstr ""
+msgstr "政策 %s"
 
 msgid "Policy Attributes"
 msgstr ""
@@ -585,13 +673,13 @@ msgid "Policy assigned"
 msgstr ""
 
 msgid "Policy description"
-msgstr ""
+msgstr "政策描述"
 
 msgid "Policy is missing"
 msgstr ""
 
 msgid "Policy name"
-msgstr ""
+msgstr "政策名稱"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
 msgstr ""
@@ -608,34 +696,76 @@ msgstr ""
 msgid "Policy with id %s not found."
 msgstr ""
 
+msgid "Product Create"
+msgstr ""
+
+msgid "Promote"
+msgstr ""
+
+msgid "Promotion to Environment"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
 
-msgid "Puppet class"
+msgid "Publish"
 msgstr ""
+
+msgid "Publish Lifecycle Environment Repositories"
+msgstr ""
+
+msgid "Puppet class"
+msgstr "Puppet 類別"
 
 msgid "Rationale"
-msgstr ""
+msgstr "理由"
 
 msgid "References"
+msgstr "參照"
+
+msgid "Reindex subscriptions"
 msgstr ""
 
 msgid "Remote action:"
 msgstr ""
 
-msgid "Report Metrics"
+msgid "Remove Content"
 msgstr ""
+
+msgid "Remove Version"
+msgstr ""
+
+msgid "Remove Versions and Associations"
+msgstr ""
+
+msgid "Remove from Environment"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove package group"
+msgstr ""
+
+msgid "Remove subscriptions"
+msgstr ""
+
+msgid "Report Metrics"
+msgstr "報告計量"
 
 msgid "Report Status"
-msgstr ""
+msgstr "報告狀態"
 
 msgid "Reported At"
-msgstr ""
+msgstr "回報於"
 
 msgid "Reported at %s"
 msgstr ""
 
 msgid "Reports"
+msgstr "報告"
+
+msgid "Republish Version Repositories"
 msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
@@ -645,31 +775,37 @@ msgid "Required %{msg_name} %{class} was not found, please ensure it is imported
 msgstr ""
 
 msgid "Resource"
-msgstr ""
+msgstr "資源"
 
 msgid "Result"
+msgstr "結果"
+
+msgid "Rule Results"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-msgid "SCAP Content"
+msgid "Run Sync Plan:"
 msgstr ""
 
+msgid "SCAP Content"
+msgstr "SCAP 內容"
+
 msgid "SCAP Contents"
-msgstr ""
+msgstr "SCAP 內容"
 
 msgid "SCAP DataStream file"
 msgstr ""
 
 msgid "SCAP content"
-msgstr ""
+msgstr "SCAP 內容"
 
 msgid "SCAP content name"
 msgstr ""
 
 msgid "SCAP contents"
-msgstr ""
+msgstr "SCAP 內容"
 
 msgid "SCAP policies summary"
 msgstr ""
@@ -678,25 +814,25 @@ msgid "Scap Contents"
 msgstr ""
 
 msgid "Schedule"
-msgstr ""
+msgstr "排程"
 
 msgid "Select Action"
-msgstr ""
+msgstr "選擇動作"
 
 msgid "Select Compliance Policy"
-msgstr ""
+msgstr "選擇合規政策"
 
 msgid "Select OpenSCAP Proxy"
 msgstr ""
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "選擇這頁中的所有項目"
 
 msgid "Severity"
-msgstr ""
+msgstr "嚴重性"
 
 msgid "Show Guide"
-msgstr ""
+msgstr "顯示指引"
 
 msgid "Show a Policy"
 msgstr ""
@@ -705,7 +841,7 @@ msgid "Show a Tailoring file"
 msgstr ""
 
 msgid "Show a policy's SCAP content"
-msgstr ""
+msgstr "顯示政策的 SCAP 內容"
 
 msgid "Show a policy's Tailoring file"
 msgstr ""
@@ -714,48 +850,57 @@ msgid "Show an ARF report"
 msgstr ""
 
 msgid "Show an SCAP content"
-msgstr ""
+msgstr "顯示 SCAP 內容"
 
 msgid "Show config information for foreman_scap_client"
 msgstr ""
 
 msgid "Show log messages:"
-msgstr ""
+msgstr "顯示日誌訊息："
 
 msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Something went wrong while selecting compliance reports - %s"
-msgstr ""
+msgstr "選擇合規報告時發生了錯誤 - %s"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "選擇主機時發生了錯誤 - %s"
 
 msgid "Spool errors"
 msgstr ""
 
 msgid "Status chart"
-msgstr ""
+msgstr "狀態圖表"
 
 msgid "Status table"
-msgstr ""
+msgstr "狀態表"
 
 msgid "Submit"
-msgstr ""
+msgstr "提交"
 
 msgid "Successfully deleted %s compliance reports"
-msgstr ""
+msgstr "刪除 %s 合規報告成功"
 
 msgid "Successfully deleted ARF report."
 msgstr ""
 
 msgid "Summary from %{time} ago to now"
-msgstr ""
+msgstr "%{time} 之前到現在的摘要"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr ""
 
 msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr "來自 Foreman 伺服器的摘要報告，於 %{foreman_url}"
+
+msgid "Sync capsule"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Synchronize smart proxy"
 msgstr ""
 
 msgid "Tailoring File"
@@ -797,7 +942,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "總數"
 
 msgid "Total hosts with policy: %s"
 msgstr ""
@@ -817,9 +962,15 @@ msgid "Unable to get XML version of requested report from Smart Proxy"
 msgstr ""
 
 msgid "Unassign Compliance Policy"
-msgstr ""
+msgstr "取消指定合規政策"
 
 msgid "Unknown Compliance status"
+msgstr "未知的合規狀態"
+
+msgid "Update"
+msgstr ""
+
+msgid "Update Content Overrides"
 msgstr ""
 
 msgid "Update a Policy"
@@ -829,12 +980,27 @@ msgid "Update a Tailoring file"
 msgstr ""
 
 msgid "Update an SCAP content"
+msgstr "更新 SCAP 內容"
+
+msgid "Update content urls"
 msgstr ""
 
-msgid "Update host"
+msgid "Update for host"
 msgstr ""
 
-msgid "Update node"
+msgid "Update http proxy"
+msgstr ""
+
+msgid "Update http proxy details"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Update redhat repository"
+msgstr ""
+
+msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -844,31 +1010,37 @@ msgid "Updated hosts: Assigned with compliance policy: %s"
 msgstr ""
 
 msgid "Updated hosts: Unassigned from compliance policy '%s'"
-msgstr ""
+msgstr "已更新主機：未從合規政策指定 '%s'"
 
 msgid "Upload New SCAP Content"
-msgstr ""
+msgstr "上傳新的 SCAP 內容"
 
 msgid "Upload New Tailoring file"
 msgstr ""
 
 msgid "Upload an ARF report"
+msgstr "上傳 ARF 報告"
+
+msgid "Upload errata into"
+msgstr ""
+
+msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
-msgstr ""
+msgstr "上傳新的 SCAP 內容檔案"
 
 msgid "Upload new Tailoring File"
 msgstr ""
 
 msgid "View Report"
-msgstr ""
+msgstr "檢視報告"
 
 msgid "View full report"
-msgstr ""
+msgstr "檢視完整報告"
 
 msgid "XCCDF Profile"
-msgstr ""
+msgstr "XCCDF 設定檔"
 
 msgid "XCCDF Profile in Tailoring File"
 msgstr ""
@@ -880,10 +1052,10 @@ msgid "XML containing tailoring file"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr ""
+msgstr "您可指定自訂的 cron 行，例如\"0  3  *  *  *\"，五個數值均由空格隔開"
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""
@@ -904,7 +1076,7 @@ msgid "does not have the selected SCAP content profile"
 msgstr ""
 
 msgid "invalid type %s"
-msgstr ""
+msgstr "無效的類型 %s"
 
 msgid "is not a valid value"
 msgstr ""
@@ -913,7 +1085,7 @@ msgid "is not included in SCAP_RESULT"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "已選取項目。反選以清除"
 
 msgid "must be between 1 and 31"
 msgstr ""

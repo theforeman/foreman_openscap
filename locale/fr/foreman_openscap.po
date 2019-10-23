@@ -1,30 +1,32 @@
-# French translations for foreman_openscap package.
-# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_openscap package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
+# Translators:
+# Baptiste Agasse <baptiste.agasse@gmail.com>, 2018-2019
+# Claer <transiblu@claer.hammock.fr>, 2016
+# Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.4\n"
+"Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-02-09 16:41-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: French\n"
-"Language: fr\n"
+"PO-Revision-Date: 2019-09-05 20:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
+"Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n>1;\n"
-"\n"
+"Language: fr\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 msgid " for policy %s"
-msgstr ""
+msgstr "pour la stratégie %s"
 
 msgid " through %s"
-msgstr ""
+msgstr "via %s"
 
 msgid "%s - The following compliance reports are about to be changed"
-msgstr ""
+msgstr "%s - Les rapports de conformité suivants sont sur le point d'être modifiés"
 
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
@@ -32,772 +34,922 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "%s compliance reports by policy"
-msgstr ""
+msgstr "Rapports de conformité %s par stratégie"
 
 msgid "%s latest report"
-msgstr ""
+msgstr "%s derniers rapports"
 
 msgid "%s reports over time"
-msgstr ""
+msgstr "%s rapports sur la durée "
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
-msgstr ""
+msgstr "%s erreurs de spool détectées, inspectez le fichier approprié directement sur le proxy"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr ""
 
 msgid "<b>Foreman</b> OpenSCAP summary"
-msgstr ""
+msgstr "<b>Foreman</b> récapitulatif OpenSCAP"
 
 msgid "A summary of reports for OpenSCAP policies"
+msgstr "Récapitulatif des rapports de stratégies OpenSCAP"
+
+msgid "Abstract async task"
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "Action avec sous-plans"
 
 msgid "Actions"
-msgstr ""
+msgstr "Actions"
 
 msgid "All messages"
-msgstr ""
+msgstr "Tous les messages"
 
 msgid "Ansible role"
-msgstr ""
+msgstr "Rôle Ansible"
 
 msgid "Ansible variables"
-msgstr ""
+msgstr "Variables Ansible"
 
 msgid "Apply policy to host groups"
-msgstr ""
+msgstr "Appliquer Groupes hôtes de la stratégie"
 
 msgid "Apply policy to hosts"
-msgstr ""
+msgstr "Appliquer la politique aux hôtes"
 
 msgid "Assign Compliance Policy"
+msgstr "Attribuer un stratégie de conformité"
+
+msgid "Attach subscriptions"
+msgstr ""
+
+msgid "Auto attach subscriptions"
+msgstr ""
+
+msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Précédent"
 
 msgid "Cancel"
-msgstr ""
+msgstr "Annuler"
 
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
-msgstr ""
+msgstr "Impossible de générer le guide HTML, aucun serveur proxy OpenSCAP valide trouvé."
 
 msgid "Cannot generate HTML guide, scap content is missing."
-msgstr ""
+msgstr "Impossible de générer le guide HTML, le contenu scap est manquant."
 
 msgid "Change OpenSCAP Proxy"
-msgstr ""
+msgstr "Modifier le proxy OpenSCAP"
 
 msgid "Changed"
-msgstr ""
+msgstr "Modifié"
 
 msgid "Changed file does not include existing SCAP content profiles"
-msgstr ""
+msgstr "Le fichier modifié n'inclut pas les profils de contenu SCAP existants"
 
 msgid "Changed?"
-msgstr ""
+msgstr "Modifié ?"
 
 msgid "Choose Tailoring File"
-msgstr ""
+msgstr "Choisir un fichier de personnalisation"
 
 msgid "Choose day in month"
-msgstr ""
+msgstr "Choisir un jour du mois"
 
 msgid "Choose existing SCAP Content"
-msgstr ""
+msgstr "Sélectionner un contenu SCAP existant"
 
 msgid "Choose period"
-msgstr ""
+msgstr "Sélectionner une période"
 
 msgid "Choose weekday"
+msgstr "Sélectionner un jour de la semaine"
+
+msgid "Combined Profile Update"
 msgstr ""
 
 msgid "Compliance"
-msgstr ""
+msgstr "Conformité"
 
 msgid "Compliance Hosts"
-msgstr ""
+msgstr "Hôtes de conformité"
 
 msgid "Compliance Policies"
-msgstr ""
+msgstr "Stratégies de conformité"
 
 msgid "Compliance Reports"
-msgstr ""
+msgstr "Rapports de conformité"
 
 msgid "Compliance Reports Breakdown"
-msgstr ""
-
-msgid "Compliance Status"
-msgstr ""
+msgstr "Détails des rapports de conformité"
 
 msgid "Compliance policy summary"
-msgstr ""
+msgstr "Synthèse de la stratégie de conformité"
 
 msgid "Compliance policy: %s"
-msgstr ""
-
-msgid "Compliance reports breakdown"
-msgstr ""
+msgstr "Stratégie de conformité : %s"
 
 msgid "Compliant"
-msgstr ""
+msgstr "Conforme"
 
 msgid "Compliant hosts"
-msgstr ""
+msgstr "Hôtes conformes"
 
 msgid "Compliant with the policy"
-msgstr ""
+msgstr "Conforme à la stratégie"
 
 msgid "Could not find host identified by: %s"
 msgstr ""
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
-msgstr ""
+msgstr "Impossible de valider %s. Veuillez vérifier que vous disposez de la bonne version du proxy pour utiliser cette fonctionnalité"
 
 msgid "Could not validate %{file_type}. Error %{error}"
+msgstr "Impossible de valider %{file_type}. Erreur %{error}"
+
+msgid "Create"
+msgstr ""
+
+msgid "Create Package Group"
 msgstr ""
 
 msgid "Create SCAP content"
-msgstr ""
+msgstr "Créer un contenu SCAP"
 
 msgid "Create a Policy"
-msgstr ""
+msgstr "Créer une stratégie"
 
 msgid "Create a Tailoring file"
-msgstr ""
-
-msgid "Create client"
-msgstr ""
+msgstr "Créer un fichier de personnalisation"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Tableau de bord"
 
 msgid "DataStream Tailoring file"
-msgstr ""
+msgstr "Fichier de personnalisation DataStream"
 
 msgid "Date"
-msgstr ""
+msgstr "Date"
 
 msgid "Default XCCDF profile"
-msgstr ""
+msgstr "Profil XCCDF par défaut"
 
 msgid "Delete"
+msgstr "Supprimer"
+
+msgid "Delete Activation Key"
+msgstr ""
+
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+msgid "Delete Package Group"
+msgstr ""
+
+msgid "Delete Product"
 msgstr ""
 
 msgid "Delete a Policy"
-msgstr ""
+msgstr "Supprimer une Stratégie"
 
 msgid "Delete an ARF Report"
-msgstr ""
-
-msgid "Delete client"
-msgstr ""
+msgstr "Supprimer un rapport ARF"
 
 msgid "Delete compliance policy %s with all of its reports?"
-msgstr ""
+msgstr "Souhaitez-vous  supprimer la stratégie de conformité %s avec tous ses rapports ?"
 
 msgid "Delete compliance report for %s?"
-msgstr ""
-
-msgid "Delete host"
-msgstr ""
+msgstr "Supprimer les rapports de conformité pour %s ?"
 
 msgid "Delete reports"
-msgstr ""
+msgstr "Supprimer les rapports"
 
 msgid "Delete scap content %s?"
 msgstr ""
 
 msgid "Delete tailoring file %s?"
-msgstr ""
+msgstr "Souhaitez-vous supprimer le fichier de personnalisation %s ?"
 
 msgid "Deleted policy"
-msgstr ""
+msgstr "Stratégie supprimée"
 
 msgid "Deletes a Tailoring file"
-msgstr ""
+msgstr "Supprime un fichier de personnalisation"
 
 msgid "Deletes an SCAP content"
-msgstr ""
+msgstr "Supprime un contenu SCAP"
 
 msgid "Deployment Options"
 msgstr ""
 
 msgid "Description"
+msgstr "Description"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Content Host"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Discover"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Documentation"
 
 msgid "Download"
-msgstr ""
+msgstr "Télécharger"
 
 msgid "Download ARF report in HTML"
-msgstr ""
+msgstr "Télécharger un rapport ARF dans HTML"
 
 msgid "Download HTML"
-msgstr ""
+msgstr "Télécharger HTML"
 
 msgid "Download XML in bzip"
-msgstr ""
+msgstr "Télécharger le XML en bzip"
 
 msgid "Download a Tailoring file as XML"
-msgstr ""
+msgstr "Télécharger un fichier de personnalisation au format XML"
 
 msgid "Download an SCAP content as XML"
-msgstr ""
+msgstr "Télécharger un contenu SCAP au format XML"
 
 msgid "Download bzipped ARF report"
-msgstr ""
+msgstr "Télécharger un rapport ARF au format bzip"
 
 msgid "Edit Compliance Policy"
-msgstr ""
+msgstr "Modifier stratégie de conformité"
 
 msgid "Edit SCAP Content"
-msgstr ""
+msgstr "Modifier le contenu SCAP"
 
 msgid "Edit Tailoring File"
-msgstr ""
+msgstr "Modifier un fichier de personnalisation"
 
 msgid "Effective Profile"
+msgstr "Profil effectif"
+
+msgid "Enable"
+msgstr ""
+
+msgid "Errata mail"
+msgstr ""
+
+msgid "Export"
 msgstr ""
 
 msgid "Failed"
-msgstr ""
+msgstr "Échec"
 
 msgid "Failed and Othered"
-msgstr ""
+msgstr "Échec ou Autre"
 
 msgid "Failed only"
-msgstr ""
+msgstr "Échec uniquement"
 
 msgid "Failed to delete %s compliance reports"
-msgstr ""
+msgstr "Impossible de supprimer les rapports de conformité %s"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr ""
+msgstr "N'a pas pu supprimer le rapport ARF pour l'hôte  %{host_name} signalé à %{reported_at}"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
-msgstr ""
+msgstr "N'a pas pu télécharger le rapport ARF sous format bzip : %s"
 
 msgid "Failed to downloaded ARF report in HTML: %s"
-msgstr ""
+msgstr "Échec du téléchargement du rapport ARF dans HTML : %s"
 
 msgid "Failed to fetch spool status from proxy"
-msgstr ""
+msgstr "Impossible d'extraire le statut du spool du proxy"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
 msgstr ""
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
-msgstr ""
+msgstr "Échec de chargement du rapport ARF, l'URL ou le nom de proxy OpenSCAP n'a pas été trouvé dans les paramètres lors du téléchargement pour %s et openscap_proxy manque sur l'hôte"
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
+msgstr "Echec|E"
+
+msgid "Fetch pxe files"
 msgstr ""
 
 msgid "File Upload"
+msgstr "Téléchargement du ficher"
+
+msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
-msgstr ""
+msgstr "Rapport complet"
 
 msgid "General"
-msgstr ""
+msgstr "Général"
 
 msgid "Host"
-msgstr ""
+msgstr "Hôte"
 
 msgid "Host Breakdown Chart"
-msgstr ""
+msgstr "Diagramme des divers hôtes"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "Groupe d'Hôtes"
 
 msgid "Host compliance details"
-msgstr ""
+msgstr "Détails de conformité de l'hôte"
 
 msgid "Host details"
-msgstr ""
+msgstr "Détails de l'Hôte"
 
 msgid "Host does not exist anymore"
-msgstr ""
+msgstr "L'hôte n'existe plus"
 
 msgid "Host is assigned to policy"
 msgstr ""
 
 msgid "Host is deleted"
-msgstr ""
+msgstr "L'hôte est supprimé"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
-msgstr ""
+msgstr "Groupes d'hôtes"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Nom d'hôte"
 
 msgid "Hosts Breakdown"
-msgstr ""
+msgstr "Détails des hôtes"
 
 msgid "Hosts failing this rule"
-msgstr ""
+msgstr "Hôtes échouant à cette règle"
 
 msgid "Hosts no longer assigned: %s"
 msgstr ""
 
 msgid "Hosts othering this rule"
-msgstr ""
+msgstr "Hôtes modifiant cette règle"
 
 msgid "Hosts passing this rule"
-msgstr ""
+msgstr "Hôtes passant cette règle"
 
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "ID of OpenSCAP Proxy"
+msgid "Hypervisors"
 msgstr ""
+
+msgid "Hypervisors update"
+msgstr ""
+
+msgid "ID of OpenSCAP Proxy"
+msgstr "ID du proxy OpenSCAP"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Importer des classes Puppet"
 
 msgid "Import facts"
-msgstr ""
+msgstr "Importer des faits"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
-msgstr ""
+msgstr "Dans Foreman, une liste de stratégies de conformité est définie via %s."
 
 msgid ""
 "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\n"
 "    via %s"
 msgstr ""
+"Dans Foreman, scap_contents représente les guides de sécurité SCAP sur vos hôtes, et crée des profils SCAP que vous pouvez assigner aux hôtes / groupes d'hôtes\n"
+"          via %s"
 
 msgid ""
 "In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\n"
 "    via %s"
 msgstr ""
+"Dans Foreman, tailoring_files représente les modifications personnalisées apportées aux profils XCCDF par défaut et elles peuvent s'appliquer aux hôtes\n"
+"    via %s"
 
 msgid "Incompliant"
-msgstr ""
+msgstr "Non conforme"
 
 msgid "Incompliant hosts"
-msgstr ""
+msgstr "Hôtes non conformes"
 
 msgid "Inconclusive"
-msgstr ""
+msgstr "Non conclusif"
 
 msgid "Inconclusive results"
+msgstr "Résultats peu probants"
+
+msgid "Incremental Update"
+msgstr ""
+
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+msgid "Index content"
+msgstr ""
+
+msgid "Index errata"
+msgstr ""
+
+msgid "Index module streams"
+msgstr ""
+
+msgid "Index package groups"
+msgstr ""
+
+msgid "Install Applicable Errata"
+msgstr ""
+
+msgid "Install erratum"
+msgstr ""
+
+msgid "Install package"
+msgstr ""
+
+msgid "Install package group"
+msgstr ""
+
+msgid "Instance update"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
-msgstr ""
+msgstr "Il est parfois nécessaire d'ajuster la stratégie de sécurité en fonction de vos besoins spécifiques."
 
 msgid "Latest Compliance Reports"
-msgstr ""
+msgstr "Derniers rapports de conformité"
 
 msgid "Latest reports for policy: %s"
-msgstr ""
+msgstr "Derniers rapports pour stratégie : %s"
 
 msgid "List ARF reports"
-msgstr ""
+msgstr "Afficher tous les rapports ARF"
 
 msgid "List Policies"
-msgstr ""
+msgstr "Répertorier les stratégies"
 
 msgid "List SCAP contents"
-msgstr ""
+msgstr "Lister le contenu SCAP"
 
 msgid "List Tailoring files"
-msgstr ""
+msgstr "Répertorier les fichiers de personnalisation"
 
 msgid "Loading..."
-msgstr ""
+msgstr "Chargement..."
 
 msgid "Locations"
-msgstr ""
+msgstr "Emplacements"
 
 msgid "Message"
-msgstr ""
+msgstr "Message"
 
 msgid "More details"
-msgstr ""
+msgstr "Plus de détails"
 
 msgid "Never audited"
-msgstr ""
+msgstr "Jamais audité"
 
 msgid "New Compliance Policy"
-msgstr ""
+msgstr "Nouvelle stratégie de conformité"
 
 msgid "New Policy"
-msgstr ""
+msgstr "Nouvelle stratégie"
 
 msgid "New SCAP Content"
-msgstr ""
+msgstr "Nouveau contenu SCAP"
 
 msgid "New Tailoring File"
-msgstr ""
+msgstr "Nouveau fichier de personnalisation"
 
 msgid "Next"
-msgstr ""
+msgstr "Suivant"
 
 msgid "No"
-msgstr ""
+msgstr "Non"
 
 msgid "No ARF reports for this policy"
-msgstr ""
+msgstr "Aucun rapport ARF pour cette stratégie"
 
 msgid "No OpenSCAP Proxy selected."
-msgstr ""
+msgstr "Aucun proxy OpenSCAP n'a été sélectionné."
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr ""
+msgstr "Aucun proxy OpenSCAP trouvé pour %{class} avec l'ID %{id}"
 
 msgid "No Tailoring file assigned for policy with id %s"
-msgstr ""
+msgstr "Aucun fichier de personnalisation attribué pour la stratégie avec l'ID %s"
 
 msgid "No available proxy to validate. Returned with error: %s"
-msgstr ""
+msgstr "Aucun proxy disponible pour valider. Erreur retournée : %s"
 
 msgid "No compliance policy selected."
-msgstr ""
+msgstr "Aucune stratégie de conformité sélectionnée."
 
 msgid "No compliance reports selected"
-msgstr ""
+msgstr "Aucun rapport de conformité sélectionné"
 
 msgid "No compliance reports were found."
-msgstr ""
+msgstr "Aucun rapport de conformité trouvé"
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "Aucun hôte sélectionné"
 
 msgid "No hosts were found."
-msgstr ""
+msgstr "Aucun hôte trouvé"
 
 msgid "No proxy found for %{name} or %{url}"
-msgstr ""
+msgstr "Aucun proxy trouvé pour %{name} ou %{url}"
 
 msgid "No proxy found!"
-msgstr ""
+msgstr "Aucun proxy trouvé !"
 
 msgid "No proxy with OpenSCAP feature is running."
-msgstr ""
+msgstr "Aucun proxy avec la fonction SCAP n'est exécuté."
 
 msgid "No proxy with OpenSCAP feature was found."
-msgstr ""
+msgstr "Aucun proxy avec la fonction SCAP trouvé."
 
 msgid "No report for this policy"
-msgstr ""
+msgstr "Aucun rapport pour cette stratégie"
 
 msgid "No reports available"
-msgstr ""
+msgstr "Aucuns rapports disponibles"
 
 msgid "No valid policy ID provided"
-msgstr ""
+msgstr "Aucun ID de stratégie fourni"
 
 msgid "None"
-msgstr ""
+msgstr "Aucun(e)"
 
 msgid "None found"
-msgstr ""
+msgstr "Rien trouvé"
 
 msgid "None!"
-msgstr ""
+msgstr "Aucun"
 
 msgid "Not audited"
-msgstr ""
+msgstr "Non audité"
 
 msgid "Not compliant with the policy"
-msgstr ""
+msgstr "Non conforme à la stratégie"
 
 msgid "Nothing to show"
-msgstr ""
+msgstr "Rien à afficher"
 
 msgid "Number of Events"
-msgstr ""
+msgstr "Nombre d'évenements"
 
 msgid "Number of a day in month, note that not all months have same count of days"
-msgstr ""
+msgstr "Nombre de jours dans un mois, notez que chaque mois n'a pas le même nombre de jours"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
-msgstr ""
+msgstr "Une fois que le contenu SCAP est présent, vous pouvez créer une stratégie, affecter des groupes d'hôtes sélectionnés et programmer une exécution."
 
 msgid "OpenSCAP Proxy"
-msgstr ""
+msgstr "Proxy OpenSCAP"
 
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
-msgstr ""
+msgstr "Proxy OpenSCAP à utiliser pour récupérer le contenu SCAP et télécharger les rapports ARF. Laissez ce champ vide et remplacez les paramètres appropriés lors de l'utilisation de l'équilibreur de charge proxy."
 
 msgid "Openscap Proxy"
-msgstr ""
+msgstr "Proxy Openscap"
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organisations"
 
 msgid "Original file name of the XML file"
-msgstr ""
+msgstr "Nom de fichier original du fichier XML"
 
 msgid "Other"
-msgstr ""
+msgstr "Autre"
 
 msgid "Othered"
-msgstr ""
+msgstr "Autre"
 
 #. TRANSLATORS: initial character of Othered which is an SCAP term
 msgid "Othered|O"
+msgstr "Autre|A"
+
+msgid "Package Profile Update"
 msgstr ""
 
 msgid "Passed"
-msgstr ""
+msgstr "Succés"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
-msgstr ""
+msgstr "Succés|S"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "Merci de confirmer"
 
 msgid "Policies"
-msgstr ""
+msgstr "Comportements"
 
 msgid "Policies with hosts:"
-msgstr ""
+msgstr "Stratégies avec hôtes :"
 
 msgid "Policy"
-msgstr ""
+msgstr "Stratégie"
 
 msgid "Policy %s"
-msgstr ""
+msgstr "Stratégie %s"
 
 msgid "Policy Attributes"
 msgstr ""
 
 msgid "Policy SCAP content ID"
-msgstr ""
+msgstr "ID du contenu SCAP de la stratégie"
 
 msgid "Policy SCAP content profile ID"
-msgstr ""
+msgstr "ID du profil de contenu SCAP de la stratégie"
 
 msgid "Policy assigned"
 msgstr ""
 
 msgid "Policy description"
-msgstr ""
+msgstr "Description de la stratégie"
 
 msgid "Policy is missing"
-msgstr ""
+msgstr "La stratégie est  manquante"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Nom de la stratégie"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
-msgstr ""
+msgstr "Ligne cron de programmation de la stratégie (uniquement si période = personnalisée)"
 
 msgid "Policy schedule day of month (only if period == \"monthly\")"
-msgstr ""
+msgstr "Jour de programmation mensuelle de la stratégie (uniquement si période = mensuelle)"
 
 msgid "Policy schedule period (weekly, monthly, custom)"
-msgstr ""
+msgstr "Période de programmation de la stratégie (hebdomadaire, mensuelle, personnalisée)"
 
 msgid "Policy schedule weekday (only if period == \"weekly\")"
-msgstr ""
+msgstr "Programmation hebdomadaire de la stratégie (uniquement si période = hebdomadaire)"
 
 msgid "Policy with id %s not found."
 msgstr ""
 
+msgid "Product Create"
+msgstr ""
+
+msgid "Promote"
+msgstr ""
+
+msgid "Promotion to Environment"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
+msgstr "Le proxy n'a pas réussi à envoyer un rapport du spool à Foreman. Cela indique que le format du rapport est endommagé. Le rapport a été déplacé dans le répertoire pour stocker les fichiers endommagés sur le proxy en vue d'une inspection ultérieure."
+
+msgid "Publish"
+msgstr ""
+
+msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
 
 msgid "Puppet class"
-msgstr ""
+msgstr "Classe Puppet"
 
 msgid "Rationale"
-msgstr ""
+msgstr "Rationale"
 
 msgid "References"
+msgstr "Références"
+
+msgid "Reindex subscriptions"
 msgstr ""
 
 msgid "Remote action:"
+msgstr "Action distante :"
+
+msgid "Remove Content"
+msgstr ""
+
+msgid "Remove Version"
+msgstr ""
+
+msgid "Remove Versions and Associations"
+msgstr ""
+
+msgid "Remove from Environment"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove package group"
+msgstr ""
+
+msgid "Remove subscriptions"
 msgstr ""
 
 msgid "Report Metrics"
-msgstr ""
+msgstr "Métriques du rapport"
 
 msgid "Report Status"
-msgstr ""
+msgstr "Statut du rapport"
 
 msgid "Reported At"
-msgstr ""
+msgstr "Rapporté à"
 
 msgid "Reported at %s"
-msgstr ""
+msgstr "Rapporté à %s"
 
 msgid "Reports"
+msgstr "Rapports"
+
+msgid "Republish Version Repositories"
 msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
-msgstr ""
+msgstr "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
 msgstr ""
 
 msgid "Resource"
-msgstr ""
+msgstr "Ressource"
 
 msgid "Result"
+msgstr "Résultat"
+
+msgid "Rule Results"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
+msgstr "Exécuter une analyse OpenSCAP"
+
+msgid "Run Sync Plan:"
 msgstr ""
 
 msgid "SCAP Content"
-msgstr ""
+msgstr "Contenu SCAP"
 
 msgid "SCAP Contents"
-msgstr ""
+msgstr "Contenus SCAP"
 
 msgid "SCAP DataStream file"
-msgstr ""
+msgstr "Fichier SCAP DataStream"
 
 msgid "SCAP content"
-msgstr ""
+msgstr "Contenu SCAP"
 
 msgid "SCAP content name"
-msgstr ""
+msgstr "Nom du contenu SCAP"
 
 msgid "SCAP contents"
-msgstr ""
+msgstr "Contenus SCAP"
 
 msgid "SCAP policies summary"
-msgstr ""
+msgstr "Récapitulatif des stratégies SCAP"
 
 msgid "Scap Contents"
-msgstr ""
+msgstr "Contenu Scap"
 
 msgid "Schedule"
-msgstr ""
+msgstr "Programmer"
 
 msgid "Select Action"
-msgstr ""
+msgstr "Choisir l'action"
 
 msgid "Select Compliance Policy"
-msgstr ""
+msgstr "Sélectionner une stratégie de conformité"
 
 msgid "Select OpenSCAP Proxy"
-msgstr ""
+msgstr "Sélectionner le proxy OpenSCAP"
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "Sélectionner tous les éléments de cette page"
 
 msgid "Severity"
-msgstr ""
+msgstr "Sévérité"
 
 msgid "Show Guide"
-msgstr ""
+msgstr "Afficher le guide"
 
 msgid "Show a Policy"
-msgstr ""
+msgstr "Afficher une stratégie"
 
 msgid "Show a Tailoring file"
-msgstr ""
+msgstr "Afficher un fichier de personnalisation"
 
 msgid "Show a policy's SCAP content"
-msgstr ""
+msgstr "Afficher le contenu SCAP d'une stratégie"
 
 msgid "Show a policy's Tailoring file"
-msgstr ""
+msgstr "Afficher le fichier de personnalisation d'une stratégie"
 
 msgid "Show an ARF report"
-msgstr ""
+msgstr "Afficher un rapport ARF"
 
 msgid "Show an SCAP content"
-msgstr ""
+msgstr "Afficher un élément de contenu SCAP"
 
 msgid "Show config information for foreman_scap_client"
 msgstr ""
 
 msgid "Show log messages:"
-msgstr ""
+msgstr "Afficher les messages de log:"
 
 msgid "Smart Class Parameters"
-msgstr ""
+msgstr "Paramètres smart class"
 
 msgid "Something went wrong while selecting compliance reports - %s"
-msgstr ""
+msgstr "Quelque chose s'est mal passé lors de la sélection des rapports de conformité - %s"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "Une erreur s'est produite lors de la sélection des hôtes - %s"
 
 msgid "Spool errors"
-msgstr ""
+msgstr "Erreurs du spool"
 
 msgid "Status chart"
-msgstr ""
+msgstr "Statut du diagramme"
 
 msgid "Status table"
-msgstr ""
+msgstr "Statut de la table"
 
 msgid "Submit"
-msgstr ""
+msgstr "Envoyer"
 
 msgid "Successfully deleted %s compliance reports"
-msgstr ""
+msgstr "Rapports de conformité %s supprimés"
 
 msgid "Successfully deleted ARF report."
-msgstr ""
+msgstr "Rapport ARF supprimé."
 
 msgid "Summary from %{time} ago to now"
-msgstr ""
+msgstr "Résumé de %{time} à maintenant"
 
 msgid "Summary report for OpenScap from Foreman"
-msgstr ""
+msgstr "Rapport de synthèse pour OpenScap depuis Foreman"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr "Rapport récapitulatif de Foreman à %{foreman_url}"
+
+msgid "Sync capsule"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Synchronize smart proxy"
 msgstr ""
 
 msgid "Tailoring File"
-msgstr ""
+msgstr "Fichier de personnalisation"
 
 msgid "Tailoring Files"
-msgstr ""
+msgstr "Fichiers de personnalisation"
 
 msgid "Tailoring file ID"
-msgstr ""
+msgstr "ID du fichier de personnalisation"
 
 msgid "Tailoring file name"
-msgstr ""
+msgstr "Nom du fichier de personnalisation"
 
 msgid "Tailoring file profile ID"
-msgstr ""
+msgstr "ID du profil de fichier de personnalisation"
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
 "        configuration issues related to security. "
 msgstr ""
+"Le protocole SACP (Security Content Automation Protocol) combine un certain nombre de normes ouvertes permettant d'énumérer les défauts logiciels et les problèmes de\n"
+"        configuration liés à la sécurité. "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr ""
+msgstr "Les smart proxies suivants doivent être mis à jour pour déverrouiller la fonction : %s"
 
 msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr ""
+msgstr "Impossible d'atteindre les proxies suivants : %s. Veillez à ce qu'ils soient disponibles de sorte que Foreman puisse vérifier leur version."
 
 msgid "The identifier of the host"
 msgstr ""
 
 msgid "This feature is temporarily disabled. "
-msgstr ""
+msgstr "Cette fonction est temporairement désactivée."
 
 msgid "This profile will be used to override the one from scap content"
-msgstr ""
+msgstr "Ce profil sera utilisé pour remplacer celui du contenu scap"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Total hosts with policy: %s"
 msgstr ""
@@ -807,86 +959,113 @@ msgstr ""
 
 msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "Total de un hôte"
+msgstr[1] "Total de %{hosts} hôtes"
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
-msgstr ""
+msgstr "N'a as pu trouver la version HTML du rapport demandé au proxy Smart"
 
 msgid "Unable to get XML version of requested report from Smart Proxy"
-msgstr ""
+msgstr "N'a pas pu trouver la version XML du rapport demandé au proxy Smart"
 
 msgid "Unassign Compliance Policy"
-msgstr ""
+msgstr "Dés-attribuer une stratégie de conformité"
 
 msgid "Unknown Compliance status"
+msgstr "Statut de conformité inconnu"
+
+msgid "Update"
+msgstr ""
+
+msgid "Update Content Overrides"
 msgstr ""
 
 msgid "Update a Policy"
-msgstr ""
+msgstr "Mettre à jour une stratégie"
 
 msgid "Update a Tailoring file"
-msgstr ""
+msgstr "Mettre à jour un fichier de personnalisation"
 
 msgid "Update an SCAP content"
+msgstr "Mettre à jour un contenu SCAP"
+
+msgid "Update content urls"
 msgstr ""
 
-msgid "Update host"
+msgid "Update for host"
 msgstr ""
 
-msgid "Update node"
+msgid "Update http proxy"
+msgstr ""
+
+msgid "Update http proxy details"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Update redhat repository"
+msgstr ""
+
+msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
-msgstr ""
+msgstr "Hôtes mis à jour : attribué avec le proxy OpenSCAP : %s"
 
 msgid "Updated hosts: Assigned with compliance policy: %s"
-msgstr ""
+msgstr "Hôtes mis à jour : stratégie de conformité %s attribuée"
 
 msgid "Updated hosts: Unassigned from compliance policy '%s'"
-msgstr ""
+msgstr "Hôtes mis à jour : stratégie de conformité '%s' dés-attribuée"
 
 msgid "Upload New SCAP Content"
-msgstr ""
+msgstr "Télécharger Nouveau contenu SCAP"
 
 msgid "Upload New Tailoring file"
-msgstr ""
+msgstr "Télécharger un nouveau fichier de personnalisation"
 
 msgid "Upload an ARF report"
+msgstr "Télécharger un rapport Arf"
+
+msgid "Upload errata into"
+msgstr ""
+
+msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
-msgstr ""
+msgstr "Télécharger Nouveau fichier de contenu SCAP"
 
 msgid "Upload new Tailoring File"
-msgstr ""
+msgstr "Télécharger un nouveau fichier de personnalisation"
 
 msgid "View Report"
-msgstr ""
+msgstr "Afficher le rapport"
 
 msgid "View full report"
-msgstr ""
+msgstr "Voir le rapport complet"
 
 msgid "XCCDF Profile"
-msgstr ""
+msgstr "Profil XCCDF"
 
 msgid "XCCDF Profile in Tailoring File"
-msgstr ""
+msgstr "Profil XCCDF dans le fichier de personnalisation"
 
 msgid "XML containing SCAP content"
-msgstr ""
+msgstr "XML avec contenu SCAP "
 
 msgid "XML containing tailoring file"
-msgstr ""
+msgstr "XML contenant le fichier de personnalisation"
 
 msgid "Yes"
-msgstr ""
+msgstr "Oui"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr ""
+msgstr "Vous pouvez personnaliser votre ligne cron. \"0  3  *  *  *\", séparer chacune des 5 valeurs par un espace"
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
-msgstr ""
+msgstr "Vous ne semblez avoir aucun rapport ARF. Le rapport ARF est le résumé d'une occurrence d'analyse unique sur un hôte particulier pour une politique de conformité donnée."
 
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
 msgstr ""
@@ -895,37 +1074,37 @@ msgid "documentation"
 msgstr ""
 
 msgid "does not come from selected tailoring file"
-msgstr ""
+msgstr "ne vient pas du fichier de personnalisation sélectionné"
 
 msgid "does not consist of 5 parts separated by space"
-msgstr ""
+msgstr "ne comprend pas 5 parties séparées par un espace"
 
 msgid "does not have the selected SCAP content profile"
-msgstr ""
+msgstr "ne contient pas le profil de contenu SCAP sélectionné"
 
 msgid "invalid type %s"
-msgstr ""
+msgstr "type %s invalide"
 
 msgid "is not a valid value"
-msgstr ""
+msgstr "n'est pas une valeur valide"
 
 msgid "is not included in SCAP_RESULT"
-msgstr ""
+msgstr "n'est pas inclus dans SCAP_RESULT"
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "items sélectionnés. Décocher pour Effacer"
 
 msgid "must be between 1 and 31"
-msgstr ""
+msgstr "doit être compris entre 1 et 31"
 
 msgid "must be present when tailoring file present"
-msgstr ""
+msgstr "doit être présent lorsque le fichier de personnalisation est présent"
 
 msgid "must be present when tailoring file profile present"
-msgstr ""
+msgstr "doit être présent lorsque le profil du fichier de personnalisation est présent"
 
 msgid "must have Openscap feature"
-msgstr ""
+msgstr "doit comporter la fonction Openscap"
 
 msgid "these Compliance reports"
-msgstr ""
+msgstr "ces rapports de conformité"

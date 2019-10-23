@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-09-05 16:51+0200\n"
-"PO-Revision-Date: 2019-09-05 16:51+0200\n"
+"POT-Creation-Date: 2019-10-23 08:52+0000\n"
+"PO-Revision-Date: 2019-10-23 08:52+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -297,35 +297,37 @@ msgstr ""
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:10
+#: ../app/helpers/arf_report_dashboard_helper.rb:18
 #: ../app/helpers/compliance_dashboard_helper.rb:8
-#: ../app/helpers/compliance_hosts_helper.rb:5
-#: ../app/helpers/compliance_hosts_helper.rb:22
+#: ../app/helpers/compliance_hosts_helper.rb:15
 #: ../app/views/arf_reports/_list.html.erb:11
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:11
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:10
 msgid "Failed"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:11
+#: ../app/helpers/arf_report_dashboard_helper.rb:19
 #: ../app/helpers/compliance_dashboard_helper.rb:6
-#: ../app/helpers/compliance_hosts_helper.rb:4
-#: ../app/helpers/compliance_hosts_helper.rb:21
+#: ../app/helpers/compliance_hosts_helper.rb:14
 #: ../app/views/arf_reports/_list.html.erb:10
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:8
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:9
 msgid "Passed"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:12
-#: ../app/helpers/compliance_dashboard_helper.rb:10
-#: ../app/helpers/compliance_hosts_helper.rb:23
-msgid "Othered"
+#: ../app/helpers/arf_report_dashboard_helper.rb:20
+#: ../app/views/arf_reports/_list.html.erb:12
+#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:14
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:11
+msgid "Other"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:15
-#: ../app/helpers/compliance_hosts_helper.rb:9
-msgid "Compliance reports breakdown"
+#: ../app/helpers/arf_report_dashboard_helper.rb:28
+msgid "Number of Events"
+msgstr ""
+
+#: ../app/helpers/arf_report_dashboard_helper.rb:29
+msgid "Rule Results"
 msgstr ""
 
 #: ../app/helpers/arf_reports_helper.rb:10
@@ -405,11 +407,9 @@ msgstr ""
 msgid "Othered|O"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:6
-#: ../app/views/arf_reports/_list.html.erb:12
-#: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:14
-#: ../app/views/policy_dashboard/_policy_reports.html.erb:11
-msgid "Other"
+#: ../app/helpers/compliance_dashboard_helper.rb:10
+#: ../app/helpers/compliance_hosts_helper.rb:16
+msgid "Othered"
 msgstr ""
 
 #: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:4
@@ -497,10 +497,6 @@ msgstr ""
 
 #: ../app/helpers/policy_dashboard_helper.rb:14
 msgid "Not audited"
-msgstr ""
-
-#: ../app/helpers/policy_dashboard_helper.rb:17
-msgid "Compliance Status"
 msgstr ""
 
 #: ../app/helpers/policy_dashboard_helper.rb:41
@@ -648,7 +644,7 @@ msgstr ""
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:316
+#: ../app/models/foreman_openscap/policy.rb:317
 msgid ""
 "cannot assign to %s, all assigned policies must be deployed in the same way, c"
 "heck 'deploy by' for each assigned policy"
@@ -788,19 +784,15 @@ msgstr ""
 msgid "Please Confirm"
 msgstr ""
 
-#: ../app/views/arf_reports/_metrics.html.erb:4
+#: ../app/views/arf_reports/_metrics.html.erb:6
 msgid "Report Metrics"
 msgstr ""
 
-#: ../app/views/arf_reports/_metrics.html.erb:12
+#: ../app/views/arf_reports/_metrics.html.erb:13
 msgid "Report Status"
 msgstr ""
 
-#: ../app/views/arf_reports/_metrics.html.erb:13
-msgid "Number of Events"
-msgstr ""
-
-#: ../app/views/arf_reports/_metrics.html.erb:32
+#: ../app/views/arf_reports/_metrics.html.erb:34
 msgid "Total"
 msgstr ""
 
@@ -829,7 +821,7 @@ msgstr ""
 msgid "Host"
 msgstr ""
 
-#: ../app/views/arf_reports/delete_multiple.html.erb:27
+#: ../app/views/arf_reports/delete_multiple.html.erb:27 action_names.rb:10
 msgid "Delete"
 msgstr ""
 
@@ -875,33 +867,33 @@ msgstr ""
 msgid "Host compliance details"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:8
+#: ../app/views/compliance_hosts/show.html.erb:9
 msgid "Compliance Hosts"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:10
+#: ../app/views/compliance_hosts/show.html.erb:11
 msgid "%s compliance reports by policy"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:14
+#: ../app/views/compliance_hosts/show.html.erb:15
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/views/compliance_hosts/show.html.erb:16
+#: ../app/views/compliance_hosts/show.html.erb:17
 msgid "Policy %s"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:22
+#: ../app/views/compliance_hosts/show.html.erb:23
 msgid "%s latest report"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:32
+#: ../app/views/compliance_hosts/show.html.erb:35
 msgid "%s reports over time"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:38
+#: ../app/views/compliance_hosts/show.html.erb:43
 msgid "No report for this policy"
 msgstr ""
 
@@ -1081,7 +1073,7 @@ msgstr ""
 msgid "New Policy"
 msgstr ""
 
-#: ../app/views/policy_dashboard/_policy_chart_widget.html.erb:2
+#: ../app/views/policy_dashboard/_policy_chart_widget.html.erb:4
 msgid "Host Breakdown Chart"
 msgstr ""
 
@@ -1296,37 +1288,269 @@ msgid "Run OpenSCAP scan"
 msgstr ""
 
 #: action_names.rb:2
-msgid "Import Puppet classes"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Remote action:"
-msgstr ""
-
-#: action_names.rb:4
 msgid "Action with sub plans"
 msgstr ""
 
-#: action_names.rb:5
+#: action_names.rb:3
 msgid "Import facts"
 msgstr ""
 
+#: action_names.rb:4
+msgid "Import Puppet classes"
+msgstr ""
+
+#: action_names.rb:5
+msgid "Create"
+msgstr ""
+
 #: action_names.rb:6
-msgid "Delete host"
+msgid "Delete Activation Key"
 msgstr ""
 
 #: action_names.rb:7
-msgid "Update host"
+msgid "Update"
 msgstr ""
 
 #: action_names.rb:8
-msgid "Update node"
+msgid "Synchronize smart proxy"
 msgstr ""
 
 #: action_names.rb:9
-msgid "Create client"
+msgid "Sync capsule"
 msgstr ""
 
-#: action_names.rb:10
-msgid "Delete client"
+#: action_names.rb:11
+msgid "Errata mail"
+msgstr ""
+
+#: action_names.rb:12
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+#: action_names.rb:13
+msgid "Promote"
+msgstr ""
+
+#: action_names.rb:14
+msgid "Promotion to Environment"
+msgstr ""
+
+#: action_names.rb:15
+msgid "Abstract async task"
+msgstr ""
+
+#: action_names.rb:16
+msgid "Hypervisors"
+msgstr ""
+
+#: action_names.rb:17
+msgid "Hypervisors update"
+msgstr ""
+
+#: action_names.rb:18
+msgid "Install package"
+msgstr ""
+
+#: action_names.rb:19
+msgid "Remove package"
+msgstr ""
+
+#: action_names.rb:20
+msgid "Remove package group"
+msgstr ""
+
+#: action_names.rb:21
+msgid "Update package"
+msgstr ""
+
+#: action_names.rb:22
+msgid "Install package group"
+msgstr ""
+
+#: action_names.rb:23
+msgid "Remove subscriptions"
+msgstr ""
+
+#: action_names.rb:24
+msgid "Update for host"
+msgstr ""
+
+#: action_names.rb:25
+msgid "Update Content Overrides"
+msgstr ""
+
+#: action_names.rb:26
+msgid "Update release version for host"
+msgstr ""
+
+#: action_names.rb:27
+msgid "Package Profile Update"
+msgstr ""
+
+#: action_names.rb:28
+msgid "Export"
+msgstr ""
+
+#: action_names.rb:29
+msgid "Incremental Update"
+msgstr ""
+
+#: action_names.rb:30
+msgid "Republish Version Repositories"
+msgstr ""
+
+#: action_names.rb:31
+msgid "Destroy"
+msgstr ""
+
+#: action_names.rb:32
+msgid "Publish"
+msgstr ""
+
+#: action_names.rb:33
+msgid "Remove Versions and Associations"
+msgstr ""
+
+#: action_names.rb:34
+msgid "Remove from Environment"
+msgstr ""
+
+#: action_names.rb:35
+msgid "Remove Version"
+msgstr ""
+
+#: action_names.rb:36
+msgid "Auto-attach subscriptions"
+msgstr ""
+
+#: action_names.rb:37
+msgid "Attach subscriptions"
+msgstr ""
+
+#: action_names.rb:38
+msgid "Auto attach subscriptions"
+msgstr ""
+
+#: action_names.rb:39
+msgid "Install Applicable Errata"
+msgstr ""
+
+#: action_names.rb:40
+msgid "Install erratum"
+msgstr ""
+
+#: action_names.rb:41
+msgid "Destroy Content Host"
+msgstr ""
+
+#: action_names.rb:42
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+#: action_names.rb:43
+msgid "Publish Lifecycle Environment Repositories"
+msgstr ""
+
+#: action_names.rb:44
+msgid "Product Create"
+msgstr ""
+
+#: action_names.rb:45
+msgid "Delete Product"
+msgstr ""
+
+#: action_names.rb:46
+msgid "Reindex subscriptions"
+msgstr ""
+
+#: action_names.rb:47
+msgid "Update http proxy"
+msgstr ""
+
+#: action_names.rb:48
+msgid "Combined Profile Update"
+msgstr ""
+
+#: action_names.rb:49
+msgid "Delete Package Group"
+msgstr ""
+
+#: action_names.rb:50
+msgid "Discover"
+msgstr ""
+
+#: action_names.rb:51
+msgid "Fetch pxe files"
+msgstr ""
+
+#: action_names.rb:52
+msgid "Filtered index content"
+msgstr ""
+
+#: action_names.rb:53
+msgid "Upload into"
+msgstr ""
+
+#: action_names.rb:54
+msgid "Index errata"
+msgstr ""
+
+#: action_names.rb:55
+msgid "Index module streams"
+msgstr ""
+
+#: action_names.rb:56
+msgid "Index content"
+msgstr ""
+
+#: action_names.rb:57
+msgid "Instance update"
+msgstr ""
+
+#: action_names.rb:58
+msgid "Index package groups"
+msgstr ""
+
+#: action_names.rb:59
+msgid "Remove Content"
+msgstr ""
+
+#: action_names.rb:60
+msgid "Synchronize"
+msgstr ""
+
+#: action_names.rb:61
+msgid "Update content urls"
+msgstr ""
+
+#: action_names.rb:62
+msgid "Update http proxy details"
+msgstr ""
+
+#: action_names.rb:63
+msgid "Upload errata into"
+msgstr ""
+
+#: action_names.rb:64
+msgid "Create Package Group"
+msgstr ""
+
+#: action_names.rb:65
+msgid "Disable"
+msgstr ""
+
+#: action_names.rb:66
+msgid "Enable"
+msgstr ""
+
+#: action_names.rb:67
+msgid "Run Sync Plan:"
+msgstr ""
+
+#: action_names.rb:68
+msgid "Update redhat repository"
+msgstr ""
+
+#: action_names.rb:69
+msgid "Remote action:"
 msgstr ""

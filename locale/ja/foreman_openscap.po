@@ -1,30 +1,32 @@
-# Japanese translations for foreman_openscap package.
-# Copyright (C) 2016 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_openscap package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
 #
+# Translators:
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016
+# Kazuki Omo <kazuki.omo@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.4\n"
+"Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2016-02-09 16:41-0500\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Japanese\n"
-"Language: ja\n"
+"PO-Revision-Date: 2019-09-05 20:17+0000\n"
+"Last-Translator: Lukáš Zapletal\n"
+"Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
+")\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Language: ja\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"\n"
 
 msgid " for policy %s"
-msgstr ""
+msgstr "ポリシー %s"
 
 msgid " through %s"
-msgstr ""
+msgstr "%s まで更新を受信できます。"
 
 msgid "%s - The following compliance reports are about to be changed"
-msgstr ""
+msgstr "%s - 次のコンプライアンスレポートが変更されます"
 
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
@@ -32,34 +34,37 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "%s compliance reports by policy"
-msgstr ""
+msgstr "ポリシー別 %s コンプライアンスレポート"
 
 msgid "%s latest report"
-msgstr ""
+msgstr "%s 最新レポート"
 
 msgid "%s reports over time"
-msgstr ""
+msgstr "%s 経過レポート"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
-msgstr ""
+msgstr "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr ""
 
 msgid "<b>Foreman</b> OpenSCAP summary"
-msgstr ""
+msgstr "<b>Foreman</b> OpenSCAP の概要"
 
 msgid "A summary of reports for OpenSCAP policies"
+msgstr "OpenSCAP ポリシーのレポートの概要"
+
+msgid "Abstract async task"
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "サブプランによるアクション"
 
 msgid "Actions"
-msgstr ""
+msgstr "アクション"
 
 msgid "All messages"
-msgstr ""
+msgstr "すべてのメッセージ"
 
 msgid "Ansible role"
 msgstr ""
@@ -68,736 +73,877 @@ msgid "Ansible variables"
 msgstr ""
 
 msgid "Apply policy to host groups"
-msgstr ""
+msgstr "ホストグループ にポリシーを適用"
 
 msgid "Apply policy to hosts"
-msgstr ""
+msgstr "ホストにポリシーを適用"
 
 msgid "Assign Compliance Policy"
+msgstr "コンプライアンスポリシーの割り当て"
+
+msgid "Attach subscriptions"
+msgstr ""
+
+msgid "Auto attach subscriptions"
+msgstr ""
+
+msgid "Auto-attach subscriptions"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "戻る"
 
 msgid "Cancel"
-msgstr ""
+msgstr "取り消し"
 
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
-msgstr ""
+msgstr "HTML ガイドを生成できません。有効な OpenSCAP プロキシーサーバーが見つかりません。"
 
 msgid "Cannot generate HTML guide, scap content is missing."
-msgstr ""
+msgstr " HTML ガイドを生成できません。scap のコンテンツがありません。"
 
 msgid "Change OpenSCAP Proxy"
-msgstr ""
+msgstr "OpenSCAP プロキシーの変更"
 
 msgid "Changed"
-msgstr ""
+msgstr "変更済み"
 
 msgid "Changed file does not include existing SCAP content profiles"
-msgstr ""
+msgstr "変更されたファイルには既存の SCAP コンテンツプロファイルが含まれません"
 
 msgid "Changed?"
-msgstr ""
+msgstr "変更されましたか?"
 
 msgid "Choose Tailoring File"
-msgstr ""
+msgstr "テーラリングファイルの選択"
 
 msgid "Choose day in month"
-msgstr ""
+msgstr "月の日付を選択"
 
 msgid "Choose existing SCAP Content"
-msgstr ""
+msgstr "既存の SCAP コンテンツを選択"
 
 msgid "Choose period"
-msgstr ""
+msgstr "期間を選択"
 
 msgid "Choose weekday"
+msgstr "平日を選択"
+
+msgid "Combined Profile Update"
 msgstr ""
 
 msgid "Compliance"
-msgstr ""
+msgstr "コンプライアンス"
 
 msgid "Compliance Hosts"
-msgstr ""
+msgstr "コンプライアンスホスト"
 
 msgid "Compliance Policies"
-msgstr ""
+msgstr "コンプライアンスポリシー"
 
 msgid "Compliance Reports"
-msgstr ""
+msgstr "コンプライアンスレポート"
 
 msgid "Compliance Reports Breakdown"
-msgstr ""
-
-msgid "Compliance Status"
-msgstr ""
+msgstr "コンプライアンスレポートの内訳"
 
 msgid "Compliance policy summary"
-msgstr ""
+msgstr "コンプライアンスポリシーの概要"
 
 msgid "Compliance policy: %s"
-msgstr ""
-
-msgid "Compliance reports breakdown"
-msgstr ""
+msgstr "コンプライアンスポリシー: %s"
 
 msgid "Compliant"
-msgstr ""
+msgstr "準拠"
 
 msgid "Compliant hosts"
-msgstr ""
+msgstr "準拠したホスト"
 
 msgid "Compliant with the policy"
-msgstr ""
+msgstr "ポリシーに準拠"
 
 msgid "Could not find host identified by: %s"
 msgstr ""
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
-msgstr ""
+msgstr "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
 
 msgid "Could not validate %{file_type}. Error %{error}"
+msgstr "%{file_type} を検証できませんでした。エラー %{error}"
+
+msgid "Create"
+msgstr ""
+
+msgid "Create Package Group"
 msgstr ""
 
 msgid "Create SCAP content"
-msgstr ""
+msgstr "SCAP コンテンツの作成"
 
 msgid "Create a Policy"
-msgstr ""
+msgstr "ポリシーの作成"
 
 msgid "Create a Tailoring file"
-msgstr ""
-
-msgid "Create client"
-msgstr ""
+msgstr "テーラリングファイルの作成"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "ダッシュボード"
 
 msgid "DataStream Tailoring file"
-msgstr ""
+msgstr "DataStream テーラリングファイル"
 
 msgid "Date"
-msgstr ""
+msgstr "日付"
 
 msgid "Default XCCDF profile"
-msgstr ""
+msgstr "デフォルトの XCCDF プロファイル"
 
 msgid "Delete"
+msgstr "削除"
+
+msgid "Delete Activation Key"
+msgstr ""
+
+msgid "Delete Lifecycle Environment"
+msgstr ""
+
+msgid "Delete Package Group"
+msgstr ""
+
+msgid "Delete Product"
 msgstr ""
 
 msgid "Delete a Policy"
-msgstr ""
+msgstr "ポリシーの削除"
 
 msgid "Delete an ARF Report"
-msgstr ""
-
-msgid "Delete client"
-msgstr ""
+msgstr "ARF レポートの定義"
 
 msgid "Delete compliance policy %s with all of its reports?"
-msgstr ""
+msgstr "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
 
 msgid "Delete compliance report for %s?"
-msgstr ""
-
-msgid "Delete host"
-msgstr ""
+msgstr "%s のコンプライアンスレポートを削除しますか?"
 
 msgid "Delete reports"
-msgstr ""
+msgstr "レポートを削除"
 
 msgid "Delete scap content %s?"
 msgstr ""
 
 msgid "Delete tailoring file %s?"
-msgstr ""
+msgstr "テーラリングファイル %s を削除しますか?"
 
 msgid "Deleted policy"
-msgstr ""
+msgstr "削除済みのポリシー"
 
 msgid "Deletes a Tailoring file"
-msgstr ""
+msgstr "テーラリングファイルの削除"
 
 msgid "Deletes an SCAP content"
-msgstr ""
+msgstr "SCAP コンテンツの削除"
 
 msgid "Deployment Options"
 msgstr ""
 
 msgid "Description"
+msgstr "説明"
+
+msgid "Destroy"
+msgstr ""
+
+msgid "Destroy Content Host"
+msgstr ""
+
+msgid "Disable"
+msgstr ""
+
+msgid "Discover"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "ドキュメント"
 
 msgid "Download"
-msgstr ""
+msgstr "ダウンロード"
 
 msgid "Download ARF report in HTML"
-msgstr ""
+msgstr "HTML の ARF レポートのダウンロード"
 
 msgid "Download HTML"
-msgstr ""
+msgstr "HTML のダウンロード"
 
 msgid "Download XML in bzip"
-msgstr ""
+msgstr "XML を bzip でダウンロード"
 
 msgid "Download a Tailoring file as XML"
-msgstr ""
+msgstr "XML としてテーラリングファイルをダウンロード"
 
 msgid "Download an SCAP content as XML"
-msgstr ""
+msgstr "XML として SCAP コンテンツをダウンロード"
 
 msgid "Download bzipped ARF report"
-msgstr ""
+msgstr "zip 形式の ARF レポートのダウンロード"
 
 msgid "Edit Compliance Policy"
-msgstr ""
+msgstr "コンプライアンスポリシーを編集"
 
 msgid "Edit SCAP Content"
-msgstr ""
+msgstr "SCAP コンテンツを編集"
 
 msgid "Edit Tailoring File"
-msgstr ""
+msgstr "テーラリングファイルの編集"
 
 msgid "Effective Profile"
+msgstr "有効なプロファイル"
+
+msgid "Enable"
+msgstr ""
+
+msgid "Errata mail"
+msgstr ""
+
+msgid "Export"
 msgstr ""
 
 msgid "Failed"
-msgstr ""
+msgstr "失敗しました"
 
 msgid "Failed and Othered"
-msgstr ""
+msgstr "Failed および Othered"
 
 msgid "Failed only"
-msgstr ""
+msgstr "失敗のみ"
 
 msgid "Failed to delete %s compliance reports"
-msgstr ""
+msgstr "%s コンプライアンスレポートの削除に失敗しました"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr ""
+msgstr "%{reported_at} で報告されたホスト %{host_name} の ARF レポートの削除に失敗しました"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
-msgstr ""
+msgstr "ARFレポートを bzip でダウンロードするのに失敗しました: %s"
 
 msgid "Failed to downloaded ARF report in HTML: %s"
-msgstr ""
+msgstr "ARF レポートを HTML でダウンロードするのに失敗しました: %s"
 
 msgid "Failed to fetch spool status from proxy"
-msgstr ""
+msgstr "プロキシーからスプールステータスを取得できませんでした"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
 msgstr ""
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
-msgstr ""
+msgstr "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
+msgstr "F"
+
+msgid "Fetch pxe files"
 msgstr ""
 
 msgid "File Upload"
+msgstr "ファイルアップロード"
+
+msgid "Filtered index content"
 msgstr ""
 
 msgid "Full Report"
-msgstr ""
+msgstr "完全レポート"
 
 msgid "General"
-msgstr ""
+msgstr "全般"
 
 msgid "Host"
-msgstr ""
+msgstr "ホスト"
 
 msgid "Host Breakdown Chart"
-msgstr ""
+msgstr "ホストブレークダウンチャート"
 
 msgid "Host Groups"
-msgstr ""
+msgstr "ホストグループ"
 
 msgid "Host compliance details"
-msgstr ""
+msgstr "ホストコンプライアンス詳細"
 
 msgid "Host details"
-msgstr ""
+msgstr "ホストの詳細"
 
 msgid "Host does not exist anymore"
-msgstr ""
+msgstr "ホストは存在しません"
 
 msgid "Host is assigned to policy"
 msgstr ""
 
 msgid "Host is deleted"
-msgstr ""
+msgstr "ホストが削除されました"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
-msgstr ""
+msgstr "ホストグループ "
 
 msgid "Hostname"
-msgstr ""
+msgstr "ホスト名"
 
 msgid "Hosts Breakdown"
-msgstr ""
+msgstr "ホストブレークダウン"
 
 msgid "Hosts failing this rule"
-msgstr ""
+msgstr "このルールに不合格のホスト"
 
 msgid "Hosts no longer assigned: %s"
 msgstr ""
 
 msgid "Hosts othering this rule"
-msgstr ""
+msgstr "このルールに該当しないホスト"
 
 msgid "Hosts passing this rule"
-msgstr ""
+msgstr "このルールに合格のホスト"
 
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "ID of OpenSCAP Proxy"
+msgid "Hypervisors"
 msgstr ""
+
+msgid "Hypervisors update"
+msgstr ""
+
+msgid "ID of OpenSCAP Proxy"
+msgstr "OpenSCAP プロキシーの ID"
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "Puppet クラスのインポート"
 
 msgid "Import facts"
-msgstr ""
+msgstr "ファクトのインポート"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
-msgstr ""
+msgstr "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
 
 msgid ""
 "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\n"
 "    via %s"
-msgstr ""
+msgstr "Foreman では、scap_contents はホストの SCAP セキュリティーガイドを表し、 %s でホスト/ホストグループに割り当てるための SCAP プロファルを作成します。"
 
 msgid ""
 "In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\n"
 "    via %s"
-msgstr ""
+msgstr "Foreman では、tailoring_files はデフォルトの XCCDF プロファイルへのカスタム修正を表し、それらは %s でホストに適用できます"
 
 msgid "Incompliant"
-msgstr ""
+msgstr "非準拠"
 
 msgid "Incompliant hosts"
-msgstr ""
+msgstr "準拠しないホスト"
 
 msgid "Inconclusive"
-msgstr ""
+msgstr "不確定"
 
 msgid "Inconclusive results"
+msgstr "不確定な結果"
+
+msgid "Incremental Update"
+msgstr ""
+
+msgid "Incremental Update of  Content View Version(s) "
+msgstr ""
+
+msgid "Index content"
+msgstr ""
+
+msgid "Index errata"
+msgstr ""
+
+msgid "Index module streams"
+msgstr ""
+
+msgid "Index package groups"
+msgstr ""
+
+msgid "Install Applicable Errata"
+msgstr ""
+
+msgid "Install erratum"
+msgstr ""
+
+msgid "Install package"
+msgstr ""
+
+msgid "Install package group"
+msgstr ""
+
+msgid "Instance update"
 msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
-msgstr ""
+msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。"
 
 msgid "Latest Compliance Reports"
-msgstr ""
+msgstr "最新コンプライアンスレポート"
 
 msgid "Latest reports for policy: %s"
-msgstr ""
+msgstr "ポリシーの最新レポート: %s"
 
 msgid "List ARF reports"
-msgstr ""
+msgstr "ARF レポートの一覧表示"
 
 msgid "List Policies"
-msgstr ""
+msgstr "ポリシーの一覧表示"
 
 msgid "List SCAP contents"
-msgstr ""
+msgstr "SCAP コンテンツの一覧表示"
 
 msgid "List Tailoring files"
-msgstr ""
+msgstr "テーラリングファイルの一覧表示"
 
 msgid "Loading..."
-msgstr ""
+msgstr "読み込み中..."
 
 msgid "Locations"
-msgstr ""
+msgstr "公開する場所"
 
 msgid "Message"
-msgstr ""
+msgstr "メッセージ"
 
 msgid "More details"
-msgstr ""
+msgstr "詳細"
 
 msgid "Never audited"
-msgstr ""
+msgstr "未監査"
 
 msgid "New Compliance Policy"
-msgstr ""
+msgstr "新規コンプライアンスポリシー"
 
 msgid "New Policy"
-msgstr ""
+msgstr "新規ポリシー"
 
 msgid "New SCAP Content"
-msgstr ""
+msgstr "新規 SCAP コンテンツ"
 
 msgid "New Tailoring File"
-msgstr ""
+msgstr "新規テーラリングファイル"
 
 msgid "Next"
-msgstr ""
+msgstr "次へ"
 
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 msgid "No ARF reports for this policy"
-msgstr ""
+msgstr "このポリシーの ARF レポートがありません"
 
 msgid "No OpenSCAP Proxy selected."
-msgstr ""
+msgstr "OpenSCAP プロキシーが選択されていません。"
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr ""
+msgstr "ID %{id} の %{class} の OpenSCAP プロキシーが見つかりません"
 
 msgid "No Tailoring file assigned for policy with id %s"
-msgstr ""
+msgstr "id %s のポリシーに割り当てられているテーラリングファイルはありません"
 
 msgid "No available proxy to validate. Returned with error: %s"
-msgstr ""
+msgstr "検証するプロキシーがありません。エラーとともに返されました: %s"
 
 msgid "No compliance policy selected."
-msgstr ""
+msgstr "コンプライアンスポリシーが選択されていません。"
 
 msgid "No compliance reports selected"
-msgstr ""
+msgstr "コンプライアンスレポートが選択されていません"
 
 msgid "No compliance reports were found."
-msgstr ""
+msgstr "コンプライアンスレポートが見つかりませんでした。"
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "ホストが選択されていません"
 
 msgid "No hosts were found."
-msgstr ""
+msgstr "ホストが見つかりませんでした。"
 
 msgid "No proxy found for %{name} or %{url}"
-msgstr ""
+msgstr "%{name} または %{url} のプロキシーが見つかりません"
 
 msgid "No proxy found!"
-msgstr ""
+msgstr "プロキシーが見つかりません!"
 
 msgid "No proxy with OpenSCAP feature is running."
-msgstr ""
+msgstr "OpenSCAP 機能のあるプロキシーが実行されています。"
 
 msgid "No proxy with OpenSCAP feature was found."
-msgstr ""
+msgstr "OpenSCAP 機能のあるプロキシーが見つかりませんでした。"
 
 msgid "No report for this policy"
-msgstr ""
+msgstr "このポリシーのレポートはありません"
 
 msgid "No reports available"
-msgstr ""
+msgstr "レポートがありません"
 
 msgid "No valid policy ID provided"
-msgstr ""
+msgstr "有効なポリシー ID が提供されていません"
 
 msgid "None"
-msgstr ""
+msgstr "なし"
 
 msgid "None found"
-msgstr ""
+msgstr "何も見つかりません"
 
 msgid "None!"
-msgstr ""
+msgstr "なし"
 
 msgid "Not audited"
-msgstr ""
+msgstr "未監査"
 
 msgid "Not compliant with the policy"
-msgstr ""
+msgstr "ポリシーに準拠しない"
 
 msgid "Nothing to show"
-msgstr ""
+msgstr "表示するものがありません"
 
 msgid "Number of Events"
-msgstr ""
+msgstr "イベント数"
 
 msgid "Number of a day in month, note that not all months have same count of days"
-msgstr ""
+msgstr "月の日の数。すべての月の日数が同じであるとは限らないことに注意してください"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
-msgstr ""
+msgstr "Once SCAP コンテンツがあります。ポリシーを作成し、選択したホストグループを割り当て、実行をスケジュールすることができます。"
 
 msgid "OpenSCAP Proxy"
-msgstr ""
+msgstr "OpenSCAP プロキシー"
 
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
-msgstr ""
+msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP Proxy。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
 
 msgid "Openscap Proxy"
-msgstr ""
+msgstr "OpenSCAP プロキシー"
 
 msgid "Organizations"
-msgstr ""
+msgstr "組織"
 
 msgid "Original file name of the XML file"
-msgstr ""
+msgstr "XML ファイルの元のファイル名"
 
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 msgid "Othered"
-msgstr ""
+msgstr "Othered"
 
 #. TRANSLATORS: initial character of Othered which is an SCAP term
 msgid "Othered|O"
+msgstr "O"
+
+msgid "Package Profile Update"
 msgstr ""
 
 msgid "Passed"
-msgstr ""
+msgstr "合格"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
-msgstr ""
+msgstr "P"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "確認してください"
 
 msgid "Policies"
-msgstr ""
+msgstr "ポリシー"
 
 msgid "Policies with hosts:"
-msgstr ""
+msgstr "ホスト付きポリシー:"
 
 msgid "Policy"
-msgstr ""
+msgstr "ポリシー"
 
 msgid "Policy %s"
-msgstr ""
+msgstr "ポリシー %s"
 
 msgid "Policy Attributes"
 msgstr ""
 
 msgid "Policy SCAP content ID"
-msgstr ""
+msgstr "ポリシー SCAP コンテンツ ID"
 
 msgid "Policy SCAP content profile ID"
-msgstr ""
+msgstr "ポリシー SCAP コンテンツプロファイル ID"
 
 msgid "Policy assigned"
 msgstr ""
 
 msgid "Policy description"
-msgstr ""
+msgstr "ポリシーの説明"
 
 msgid "Policy is missing"
-msgstr ""
+msgstr "ポリシーがありません"
 
 msgid "Policy name"
-msgstr ""
+msgstr "ポリシー名"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
-msgstr ""
+msgstr "ポリシースケジュール: cron 行 (period == \"custom\" の場合のみ)"
 
 msgid "Policy schedule day of month (only if period == \"monthly\")"
-msgstr ""
+msgstr "ポリシースケジュール: 月の日付 (period == \"monthly\" の場合のみ)"
 
 msgid "Policy schedule period (weekly, monthly, custom)"
-msgstr ""
+msgstr "ポリシーのスケジュール期間 (週次、月次、カスタム)"
 
 msgid "Policy schedule weekday (only if period == \"weekly\")"
-msgstr ""
+msgstr "ポリシースケジュール: 平日 (period == \"weekly\" の場合のみ)"
 
 msgid "Policy with id %s not found."
 msgstr ""
 
+msgid "Product Create"
+msgstr ""
+
+msgid "Promote"
+msgstr ""
+
+msgid "Promotion to Environment"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
+msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクターに移動しました。"
+
+msgid "Publish"
+msgstr ""
+
+msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
 
 msgid "Puppet class"
-msgstr ""
+msgstr "Puppet クラス"
 
 msgid "Rationale"
-msgstr ""
+msgstr "理由"
 
 msgid "References"
+msgstr "リファレンス"
+
+msgid "Reindex subscriptions"
 msgstr ""
 
 msgid "Remote action:"
+msgstr "リモートアクション:"
+
+msgid "Remove Content"
+msgstr ""
+
+msgid "Remove Version"
+msgstr ""
+
+msgid "Remove Versions and Associations"
+msgstr ""
+
+msgid "Remove from Environment"
+msgstr ""
+
+msgid "Remove package"
+msgstr ""
+
+msgid "Remove package group"
+msgstr ""
+
+msgid "Remove subscriptions"
 msgstr ""
 
 msgid "Report Metrics"
-msgstr ""
+msgstr "レポートメトリックス"
 
 msgid "Report Status"
-msgstr ""
+msgstr "レポートの状態"
 
 msgid "Reported At"
-msgstr ""
+msgstr "報告済み"
 
 msgid "Reported at %s"
-msgstr ""
+msgstr "%s で報告済み"
 
 msgid "Reports"
+msgstr "レポート"
+
+msgid "Republish Version Repositories"
 msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
-msgstr ""
+msgstr "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
 msgstr ""
 
 msgid "Resource"
-msgstr ""
+msgstr "リソース"
 
 msgid "Result"
+msgstr "結果"
+
+msgid "Rule Results"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
+msgstr "OpenSCAP スキャンの実行"
+
+msgid "Run Sync Plan:"
 msgstr ""
 
 msgid "SCAP Content"
-msgstr ""
+msgstr "SCAP コンテンツ"
 
 msgid "SCAP Contents"
-msgstr ""
+msgstr "SCAP コンテンツ"
 
 msgid "SCAP DataStream file"
-msgstr ""
+msgstr "SCAP データストリームファイル"
 
 msgid "SCAP content"
-msgstr ""
+msgstr "SCAP のコンテンツ"
 
 msgid "SCAP content name"
-msgstr ""
+msgstr "SCAP コンテンツ名"
 
 msgid "SCAP contents"
-msgstr ""
+msgstr "SCAP コンテンツ"
 
 msgid "SCAP policies summary"
-msgstr ""
+msgstr "SCAP ポリシーの概要"
 
 msgid "Scap Contents"
-msgstr ""
+msgstr "SCAP コンテンツ"
 
 msgid "Schedule"
-msgstr ""
+msgstr "スケジュール"
 
 msgid "Select Action"
-msgstr ""
+msgstr "アクションの選択"
 
 msgid "Select Compliance Policy"
-msgstr ""
+msgstr "コンプライアンスポリシーを選択"
 
 msgid "Select OpenSCAP Proxy"
-msgstr ""
+msgstr "OpenSCAP プロキシーの選択"
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "このページのすべての項目を選択"
 
 msgid "Severity"
-msgstr ""
+msgstr "重大度"
 
 msgid "Show Guide"
-msgstr ""
+msgstr "ガイドの表示"
 
 msgid "Show a Policy"
-msgstr ""
+msgstr "ポリシーの表示"
 
 msgid "Show a Tailoring file"
-msgstr ""
+msgstr "テーラリングファイルの表示"
 
 msgid "Show a policy's SCAP content"
-msgstr ""
+msgstr "ポリシーの SCAP コンテンツを表示"
 
 msgid "Show a policy's Tailoring file"
-msgstr ""
+msgstr "ポリシーのテーラリングファイルを表示"
 
 msgid "Show an ARF report"
-msgstr ""
+msgstr "ARF レポートの表示"
 
 msgid "Show an SCAP content"
-msgstr ""
+msgstr "SCAP コンテンツの表示"
 
 msgid "Show config information for foreman_scap_client"
 msgstr ""
 
 msgid "Show log messages:"
-msgstr ""
+msgstr "ログメッセージの表示:"
 
 msgid "Smart Class Parameters"
-msgstr ""
+msgstr "スマートクラスパラメーター"
 
 msgid "Something went wrong while selecting compliance reports - %s"
-msgstr ""
+msgstr "コンプライアンスレポートの選択中に問題が発生しました - %s"
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "ホストの選択中に問題が発生しました - %s"
 
 msgid "Spool errors"
-msgstr ""
+msgstr "スプールエラー"
 
 msgid "Status chart"
-msgstr ""
+msgstr "状態チャート"
 
 msgid "Status table"
-msgstr ""
+msgstr "状態テーブル"
 
 msgid "Submit"
-msgstr ""
+msgstr "送信"
 
 msgid "Successfully deleted %s compliance reports"
-msgstr ""
+msgstr "%s コンプライアンスレポートが正常に削除されました"
 
 msgid "Successfully deleted ARF report."
-msgstr ""
+msgstr "ARF レポートが正常に削除されました。"
 
 msgid "Summary from %{time} ago to now"
-msgstr ""
+msgstr "過去 %{time} から今までの概要"
 
 msgid "Summary report for OpenScap from Foreman"
-msgstr ""
+msgstr "Foreman からの OpenScap の概要レポート"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr "%{foreman_url} にある Foreman サーバーからの概要レポート"
+
+msgid "Sync capsule"
+msgstr ""
+
+msgid "Synchronize"
+msgstr ""
+
+msgid "Synchronize smart proxy"
 msgstr ""
 
 msgid "Tailoring File"
-msgstr ""
+msgstr "テーラリングファイル"
 
 msgid "Tailoring Files"
-msgstr ""
+msgstr "テーラリングファイル"
 
 msgid "Tailoring file ID"
-msgstr ""
+msgstr "テーラリングファイル ID"
 
 msgid "Tailoring file name"
-msgstr ""
+msgstr "テーラリングファイル名"
 
 msgid "Tailoring file profile ID"
-msgstr ""
+msgstr "テーラリングファイルのプロファイル ID"
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
 "        configuration issues related to security. "
-msgstr ""
+msgstr "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される数多くのオープンスタンダードの組み合わせです。"
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr ""
+msgstr "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s "
 
 msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr ""
+msgstr "以下のプロキシーに到達できませんでした: %s それらが利用可能な状態にあり Foreman がそれらのバージョンをチェックできることを確認してください。"
 
 msgid "The identifier of the host"
 msgstr ""
 
 msgid "This feature is temporarily disabled. "
-msgstr ""
+msgstr "この機能は一時的に無効にされています。"
 
 msgid "This profile will be used to override the one from scap content"
-msgstr ""
+msgstr "このプロファイルは scrap コンテンツからのものを上書きするために使用されます。"
 
 msgid "Total"
-msgstr ""
+msgstr "合計"
 
 msgid "Total hosts with policy: %s"
 msgstr ""
@@ -811,82 +957,109 @@ msgstr[0] ""
 msgstr[1] ""
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
-msgstr ""
+msgstr "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
 
 msgid "Unable to get XML version of requested report from Smart Proxy"
-msgstr ""
+msgstr "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
 
 msgid "Unassign Compliance Policy"
-msgstr ""
+msgstr "コンプライアンスポリシーの割り当て解除                    "
 
 msgid "Unknown Compliance status"
+msgstr "不明なコンプライアンスステータス"
+
+msgid "Update"
+msgstr ""
+
+msgid "Update Content Overrides"
 msgstr ""
 
 msgid "Update a Policy"
-msgstr ""
+msgstr "ポリシーの更新"
 
 msgid "Update a Tailoring file"
-msgstr ""
+msgstr "テーラリングファイルの更新"
 
 msgid "Update an SCAP content"
+msgstr "SCAP コンテンツの更新"
+
+msgid "Update content urls"
 msgstr ""
 
-msgid "Update host"
+msgid "Update for host"
 msgstr ""
 
-msgid "Update node"
+msgid "Update http proxy"
+msgstr ""
+
+msgid "Update http proxy details"
+msgstr ""
+
+msgid "Update package"
+msgstr ""
+
+msgid "Update redhat repository"
+msgstr ""
+
+msgid "Update release version for host"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
-msgstr ""
+msgstr "更新済みホスト: OpenSCAP プロキシーで割り当て済み: %s"
 
 msgid "Updated hosts: Assigned with compliance policy: %s"
-msgstr ""
+msgstr "更新済みホスト: コンプライアンスポリシーで割り当て済み: %s"
 
 msgid "Updated hosts: Unassigned from compliance policy '%s'"
-msgstr ""
+msgstr "更新済みホスト: コンプライアンスポリシー '%s' から割り当てられていない"
 
 msgid "Upload New SCAP Content"
-msgstr ""
+msgstr "新規 SCAP コンテンツをアップロード"
 
 msgid "Upload New Tailoring file"
-msgstr ""
+msgstr "新規テーラリングファイルのアップロード"
 
 msgid "Upload an ARF report"
+msgstr "ARF レポートのアップロード"
+
+msgid "Upload errata into"
+msgstr ""
+
+msgid "Upload into"
 msgstr ""
 
 msgid "Upload new SCAP content file"
-msgstr ""
+msgstr "新規 SCAP コンテンツファイルをアップロード"
 
 msgid "Upload new Tailoring File"
-msgstr ""
+msgstr "新規テーラリングファイルのアップロード"
 
 msgid "View Report"
-msgstr ""
+msgstr "レポートを表示"
 
 msgid "View full report"
-msgstr ""
+msgstr "フルレポートを表示"
 
 msgid "XCCDF Profile"
-msgstr ""
+msgstr "XCCDF プロファイル"
 
 msgid "XCCDF Profile in Tailoring File"
-msgstr ""
+msgstr "テーラリングファイルでの XCCDF プロファイル"
 
 msgid "XML containing SCAP content"
-msgstr ""
+msgstr "SCAP コンテンツを含む XML"
 
 msgid "XML containing tailoring file"
-msgstr ""
+msgstr "テーラリングファイルを含む XML"
 
 msgid "Yes"
-msgstr ""
+msgstr "はい"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr ""
+msgstr "カスタム cron 行を指定できます (たとえば、\"0  3  *  *  *\" のように 5 つの値をスペースで区切ります)"
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
-msgstr ""
+msgstr "ARF レポートがないようです。ARF レポートは、指定されたコンプライアンスポリシーの特定ホスト上で発生した単一のスキャンに関するサマリーです。"
 
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
 msgstr ""
@@ -895,37 +1068,37 @@ msgid "documentation"
 msgstr ""
 
 msgid "does not come from selected tailoring file"
-msgstr ""
+msgstr "選択したテーラリングファイルからのものではありません"
 
 msgid "does not consist of 5 parts separated by space"
-msgstr ""
+msgstr "スペースで区切られた 5 つの部分で構成されていません"
 
 msgid "does not have the selected SCAP content profile"
-msgstr ""
+msgstr "選択した SCAP コンテンツプロファイルがありません"
 
 msgid "invalid type %s"
-msgstr ""
+msgstr "無効なタイプ %s"
 
 msgid "is not a valid value"
-msgstr ""
+msgstr "有効な値ではありません"
 
 msgid "is not included in SCAP_RESULT"
-msgstr ""
+msgstr "SCAP_RESULT に含まれていません"
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "項目が選択されています。クリアするにはチェックを解除してください"
 
 msgid "must be between 1 and 31"
-msgstr ""
+msgstr "1 から 31 の間でなければなりません"
 
 msgid "must be present when tailoring file present"
-msgstr ""
+msgstr "テーラリングファイルがある場合になければなりません"
 
 msgid "must be present when tailoring file profile present"
-msgstr ""
+msgstr "テーラリングファイルのプロファイルがある場合になければなりません"
 
 msgid "must have Openscap feature"
-msgstr ""
+msgstr "Openscap 機能がなければなりません"
 
 msgid "these Compliance reports"
-msgstr ""
+msgstr "コンプライアンスレポート"
