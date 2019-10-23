@@ -1,7 +1,7 @@
 [main]
 host = https://www.transifex.com
 
-[foreman.openscap]
+[foreman.foreman_openscap]
 file_filter = locale/<lang>/foreman_openscap.po
 source_file = locale/foreman_openscap.pot
 source_lang = en
