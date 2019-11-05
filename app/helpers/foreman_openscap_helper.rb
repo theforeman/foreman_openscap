@@ -10,7 +10,15 @@ module ForemanOpenscapHelper
   end
 
   def scap_doc_url(section = '')
-    version = ForemanOpenscap::VERSION.split('.')[0..-2].join('.')
-    "https://theforeman.org/plugins/foreman_openscap/#{version}/index.html#{section}"
+    return scap_root_url if section.empty?
+
+    documentation_url(section, root_url: scap_root_url)
+  end
+
+  def scap_root_url
+    @scap_root_url ||= begin
+      version = ForemanOpenscap::VERSION.split('.')[0..-2].join('.')
+      "https://theforeman.org/plugins/foreman_openscap/#{version}/index.html"
+    end
   end
 end
