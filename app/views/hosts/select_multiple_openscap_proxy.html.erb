@@ -4,5 +4,5 @@
              :url => update_multiple_openscap_proxy_hosts_path(:host_ids => params[:host_ids]) do |f| %>
     <%= selectable_f f, :id, [[_("Select OpenSCAP Proxy"), "None"],
                              ] + SmartProxy.with_features(['Openscap']).map{|e| [e.name, e.id]},{},
-                        :onchange => "toggle_multiple_ok_button(this)" %>
+                        :onchange => "tfm.hosts.table.toggleMultipleOkButton(this)" %>
 <% end %>

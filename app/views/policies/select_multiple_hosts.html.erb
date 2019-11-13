@@ -4,5 +4,5 @@
              :url => update_multiple_hosts_policies_path(:host_ids => params[:host_ids]) do |f| %>
     <%= selectable_f f, :id, [[_("Select Compliance Policy"), "disabled"],
                              ] + ForemanOpenscap::Policy.all.map{|e| [e.name, e.id]},{},
-                        :onchange => "toggle_multiple_ok_button(this)" %>
+                        :onchange => "tfm.hosts.table.toggleMultipleOkButton(this)" %>
 <% end %>
