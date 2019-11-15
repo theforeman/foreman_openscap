@@ -3,15 +3,9 @@ module Api::V2
     class ScapContentsController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::ScapContent
       include ForemanOpenscap::BodyLogExtensions
+      include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
+
       before_action :find_resource, :except => %w[index create]
-
-      def resource_name(resource = '::ForemanOpenscap::ScapContent')
-        super resource
-      end
-
-      def get_resource(message = 'no resource loaded')
-        instance_variable_get(:"@scap_content") || raise(message)
-      end
 
       api :GET, '/compliance/scap_contents', N_('List SCAP contents')
       param_group :search_and_pagination, ::Api::V2::BaseController

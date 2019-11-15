@@ -3,20 +3,13 @@ module Api::V2
     class PoliciesController < ::Api::V2::BaseController
       include Foreman::Controller::SmartProxyAuth
       include Foreman::Controller::Parameters::PolicyApi
+      include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
 
       add_smart_proxy_filters %i[content tailoring], :features => 'Openscap'
 
       before_action :find_resource, :except => %w[index create]
 
       skip_after_action :log_response_body, :only => [:content]
-
-      def resource_name(resource = '::ForemanOpenscap::Policy')
-        super resource
-      end
-
-      def get_resource(message = 'no resource loaded')
-        instance_variable_get(:"@policy") || raise(message)
-      end
 
       def policy_url(policy = nil)
         api_compliance_policy_url(@policy)
