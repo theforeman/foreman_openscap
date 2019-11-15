@@ -3,16 +3,10 @@ module Api::V2
     class TailoringFilesController < ::Api::V2::BaseController
       include Foreman::Controller::Parameters::TailoringFile
       include ForemanOpenscap::BodyLogExtensions
+      include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
+
       before_action :find_resource, :except => %w[index create]
       before_action :openscap_proxy_check, :only => %w[create]
-
-      def resource_name(resource = '::ForemanOpenscap::TailoringFile')
-        super resource
-      end
-
-      def get_resource(message = 'no resource loaded')
-        instance_variable_get(:"@tailoring_file") || raise(message)
-      end
 
       api :GET, '/compliance/tailoring_files', N_('List Tailoring files')
       param_group :search_and_pagination, ::Api::V2::BaseController
