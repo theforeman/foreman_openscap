@@ -3,9 +3,6 @@ require 'tmpdir'
 
 class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   setup do
-    # required for mysql where database cleaner does not cleanup things properly
-    # because of arf_create does explicit transaction commit
-    Message.delete_all
     # override validation of policy (puppetclass, lookup_key overrides)
     ForemanOpenscap::Policy.any_instance.stubs(:valid?).returns(true)
     @host = FactoryBot.create(:compliance_host)
