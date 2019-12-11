@@ -71,16 +71,17 @@ module ForemanOpenscap
     end
 
     def override_port_param(param, config)
-      override_param config.port_param, param, config
+      override_param config.port_param, param, config, 'integer'
     end
 
     def override_server_param(param, config)
       override_param config.server_param, param, config
     end
 
-    def override_param(param_name, param, config)
+    def override_param(param_name, param, config, key_type = nil)
       param.override = true
       param.hidden_value = false
+      param.key_type = key_type if key_type
 
       yield param if block_given?
 
