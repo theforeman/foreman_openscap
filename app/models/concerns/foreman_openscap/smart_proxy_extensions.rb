@@ -11,7 +11,7 @@ module ForemanOpenscap
     end
 
     def port
-      url.match(PORT_MATCH)[1]
+      url.match(PORT_MATCH)[1].to_i
     end
 
     private
