@@ -1,4 +1,7 @@
-# TODO: remove this file by either moving cops here or fixing code
+require:
+  - rubocop-performance
+  - rubocop-rails
+
 inherit_from:
   - .rubocop_todo.yml
 
@@ -83,9 +86,6 @@ Style/EachWithObject:
 Style/GuardClause:
   Enabled: false
 
-Metrics/ParameterLists:
-  Enabled: false
-
 Naming/VariableNumber:
   Enabled: false
 
@@ -122,4 +122,7 @@ Performance/InefficientHashSearch:
   Enabled: false
 
 Rails/HelperInstanceVariable:
+  Enabled: false
+
+Style/ConditionalAssignment:
   Enabled: false
