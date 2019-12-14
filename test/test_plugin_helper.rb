@@ -55,8 +55,8 @@ module ScapTestCommon
   def create_report_with_rules(host, rule_names, rule_results)
     raise "rule_names and rule_results should have the same length!" if rule_names.size != rule_results.size
     metrics = {
-      'passed' => rule_results.select { |result| result == 'pass' }.count,
-      'failed' => rule_results.select { |result| result == 'fail' }.count,
+      'passed' => rule_results.count { |result| result == 'pass' },
+      'failed' => rule_results.count { |result| result == 'fail' },
       'othered' => rule_results.reject { |result| result == 'fail' || result == 'pass' }.count
     }
     report = FactoryBot.create(:arf_report, :host_id => host.id, :metrics => metrics, :status => metrics)

@@ -1,8 +1,9 @@
 scss:
   enabled: false
 
-ruby:
+rubocop:
   config_file: .rubocop.yml
+  version: 0.75.0
 
 # TODO: enable jshint & eslint 
 jshint:
