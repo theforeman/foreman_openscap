@@ -86,7 +86,8 @@ module ForemanOpenscap
                                                          remove_policy_from_multiple_hosts] },
                      :resource_type => 'ForemanOpenscap::Policy'
           permission :view_scap_contents, { :scap_contents => %i[index show auto_complete_search],
-                                            'api/v2/compliance/scap_contents' => %i[index show xml] },
+                                            'api/v2/compliance/scap_contents' => %i[index show xml],
+                                            'api/v2/compliance/scap_content_profiles' => %i[index] },
                      :resource_type => 'ForemanOpenscap::ScapContent'
           permission :edit_scap_contents, { :scap_contents => %i[edit update],
                                             'api/v2/compliance/scap_contents' => [:update] },
@@ -109,7 +110,8 @@ module ForemanOpenscap
           permission :view_tailoring_files, { :tailoring_files => %i[index auto_complete_search xml],
                                               :policies => [:tailoring_file_selected],
                                               'api/v2/compliance/tailoring_files' => %i[show xml index],
-                                              'api/v2/compliance/policies' => [:tailoring] },
+                                              'api/v2/compliance/policies' => [:tailoring],
+                                              'api/v2/compliance/scap_content_profiles' => %i[index] },
                      :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :edit_tailoring_files, { :tailoring_files => %i[edit update],
                                               'api/v2/compliance/tailoring_files' => [:update] },
