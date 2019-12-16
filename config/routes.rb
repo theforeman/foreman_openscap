@@ -65,6 +65,8 @@ Rails.application.routes.draw do
             get 'xml'
           end
         end
+        resources :scap_content_profiles, :only => %i[index]
+
         resources :tailoring_files, :except => %i[new edit] do
           member do
             get 'xml'
