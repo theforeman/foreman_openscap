@@ -122,12 +122,14 @@ module ForemanOpenscap
                      :resource_type => 'SmartProxy'
         end
 
-        role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies]
+        role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies],
+             "Role granting read permissions to policy configuration, scan results and downloading reports."
         role "Compliance manager", %i[view_arf_reports view_policies view_scap_contents
                                       destroy_arf_reports edit_policies edit_scap_contents assign_policies
                                       create_policies create_scap_contents destroy_policies destroy_scap_contents
                                       create_tailoring_files view_tailoring_files edit_tailoring_files destroy_tailoring_files
-                                      view_openscap_proxies]
+                                      view_openscap_proxies],
+             "Role granting all permissions to compliance features to non-admin users."
         role "Create ARF report", [:create_arf_reports] # special as only Proxy can create
 
         add_all_permissions_to_default_roles
