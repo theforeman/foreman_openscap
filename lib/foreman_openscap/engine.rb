@@ -51,8 +51,7 @@ module ForemanOpenscap
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
-        version = SETTINGS[:version]
-        register_custom_status ForemanOpenscap::ComplianceStatus if version.major.to_i >= 1 && version.minor.to_i >= 10
+        register_custom_status ForemanOpenscap::ComplianceStatus
 
         # Add permissions
         security_block :foreman_openscap do
