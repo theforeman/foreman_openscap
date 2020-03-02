@@ -408,6 +408,9 @@ msgstr "Afficher tous les rapports ARF"
 msgid "List Policies"
 msgstr "Répertorier les stratégies"
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr "Lister le contenu SCAP"
 

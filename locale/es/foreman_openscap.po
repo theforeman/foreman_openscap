@@ -404,6 +404,9 @@ msgstr "Enumerar los informes ARF"
 msgid "List Policies"
 msgstr "Enumerar políticas"
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr "Listar contenidos de SCAP"
 

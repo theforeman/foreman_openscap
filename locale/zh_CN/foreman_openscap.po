@@ -403,6 +403,9 @@ msgstr "列出 ARF 报告"
 msgid "List Policies"
 msgstr "列出策略"
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr "列出 SCAP 内容"
 

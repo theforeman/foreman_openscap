@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-03-02 13:22+0000\n"
-"PO-Revision-Date: 2020-03-02 13:22+0000\n"
+"POT-Creation-Date: 2020-03-02 13:32+0000\n"
+"PO-Revision-Date: 2020-03-02 13:32+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -142,6 +142,10 @@ msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:95
 msgid "No Tailoring file assigned for policy with id %s"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_content_profiles_controller.rb:6
+msgid "List SCAP content profiles"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:10
@@ -348,7 +352,8 @@ msgstr ""
 
 #: ../app/helpers/arf_reports_helper.rb:21
 #: ../app/views/arf_reports/index.html.erb:1
-#: ../app/views/arf_reports/welcome.html.erb:5
+#: ../app/views/arf_reports/welcome.html.erb:1
+#: ../app/views/arf_reports/welcome.html.erb:7
 msgid "Compliance Reports"
 msgstr ""
 
@@ -437,7 +442,7 @@ msgstr ""
 
 #: ../app/helpers/compliance_hosts_helper.rb:35
 #: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../lib/foreman_openscap/engine.rb:135
+#: ../lib/foreman_openscap/engine.rb:138
 msgid "Compliance"
 msgstr ""
 
@@ -499,7 +504,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:145 ../lib/foreman_openscap/engine.rb:136
+#: ../app/helpers/policies_helper.rb:145 ../lib/foreman_openscap/engine.rb:139
 msgid "Policies"
 msgstr ""
 
@@ -703,7 +708,7 @@ msgid ""
 "re they are imported before proceeding."
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:89
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:90
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
 msgstr ""
 
@@ -859,13 +864,13 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: ../app/views/arf_reports/welcome.html.erb:7
+#: ../app/views/arf_reports/welcome.html.erb:9
 msgid ""
 "You don't seem to have any ARF report. ARF report is a summary of a single sca"
 "n occurrence on a particular host for a given Compliance Policy."
 msgstr ""
 
-#: ../app/views/arf_reports/welcome.html.erb:10
+#: ../app/views/arf_reports/welcome.html.erb:12
 msgid "Documentation"
 msgstr ""
 
@@ -900,7 +905,7 @@ msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:151
+#: ../lib/foreman_openscap/engine.rb:154
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -917,7 +922,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:153
+#: ../lib/foreman_openscap/engine.rb:156
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -1226,7 +1231,7 @@ msgstr ""
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:145
+#: ../lib/foreman_openscap/engine.rb:148
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1263,29 +1268,29 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:139
+#: ../lib/foreman_openscap/engine.rb:142
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:142
+#: ../lib/foreman_openscap/engine.rb:145
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:167
+#: ../lib/foreman_openscap/engine.rb:170
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:171 ../lib/foreman_openscap/engine.rb:176
+#: ../lib/foreman_openscap/engine.rb:174 ../lib/foreman_openscap/engine.rb:179
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:173 ../lib/foreman_openscap/engine.rb:178
+#: ../lib/foreman_openscap/engine.rb:176 ../lib/foreman_openscap/engine.rb:181
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:182 ../lib/foreman_openscap/engine.rb:190
+#: ../lib/foreman_openscap/engine.rb:185 ../lib/foreman_openscap/engine.rb:193
 msgid "Run OpenSCAP scan"
 msgstr ""
 

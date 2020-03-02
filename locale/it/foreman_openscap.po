@@ -403,6 +403,9 @@ msgstr ""
 msgid "List Policies"
 msgstr ""
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr ""
 

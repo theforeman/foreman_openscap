@@ -404,6 +404,9 @@ msgstr "ARF レポートの一覧表示"
 msgid "List Policies"
 msgstr "ポリシーの一覧表示"
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr "SCAP コンテンツの一覧表示"
 

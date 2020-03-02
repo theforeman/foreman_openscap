@@ -405,6 +405,9 @@ msgstr "ARF-Berichte auflisten"
 msgid "List Policies"
 msgstr "Richtlinien auflisten"
 
+msgid "List SCAP content profiles"
+msgstr ""
+
 msgid "List SCAP contents"
 msgstr "SCAP-Inhalte auflisten"
 
