@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-05 20:17+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2019-10-23 20:36+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Korean (http://www.transifex.com/foreman/foreman/language/ko/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -52,9 +52,6 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-msgid "Abstract async task"
-msgstr ""
-
 msgid "Action with sub plans"
 msgstr "하위 계획이 있는 작업"
 
@@ -78,15 +75,6 @@ msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "컴플라이언스 정책 할당"
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
 
 msgid "Back"
 msgstr "뒤로(_B)"
@@ -127,9 +115,6 @@ msgstr "기간 선택"
 msgid "Choose weekday"
 msgstr "요일 선택"
 
-msgid "Combined Profile Update"
-msgstr ""
-
 msgid "Compliance"
 msgstr "컴플라이언스 "
 
@@ -169,12 +154,6 @@ msgstr ""
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr ""
 
-msgid "Create"
-msgstr ""
-
-msgid "Create Package Group"
-msgstr ""
-
 msgid "Create SCAP content"
 msgstr "SCAP 컨텐츠 생성"
 
@@ -182,6 +161,9 @@ msgid "Create a Policy"
 msgstr ""
 
 msgid "Create a Tailoring file"
+msgstr ""
+
+msgid "Create client"
 msgstr ""
 
 msgid "Dashboard"
@@ -199,22 +181,13 @@ msgstr "기본 XCCDF 프로파일"
 msgid "Delete"
 msgstr "삭제"
 
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr ""
 
 msgid "Delete an ARF Report"
+msgstr ""
+
+msgid "Delete client"
 msgstr ""
 
 msgid "Delete compliance policy %s with all of its reports?"
@@ -222,6 +195,9 @@ msgstr ""
 
 msgid "Delete compliance report for %s?"
 msgstr "%s에 대한 컴플라이언스 보고서를 삭제하시겠습니까?"
+
+msgid "Delete host"
+msgstr ""
 
 msgid "Delete reports"
 msgstr "보고서 삭제"
@@ -246,18 +222,6 @@ msgstr ""
 
 msgid "Description"
 msgstr "설명"
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Discover"
-msgstr ""
 
 msgid "Documentation"
 msgstr ""
@@ -295,15 +259,6 @@ msgstr ""
 msgid "Effective Profile"
 msgstr ""
 
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
 msgid "Failed"
 msgstr "실패"
 
@@ -338,14 +293,8 @@ msgstr ""
 msgid "Failed|F"
 msgstr "F"
 
-msgid "Fetch pxe files"
-msgstr ""
-
 msgid "File Upload"
 msgstr "파일 업로드"
-
-msgid "Filtered index content"
-msgstr ""
 
 msgid "Full Report"
 msgstr ""
@@ -404,12 +353,6 @@ msgstr ""
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
-msgstr ""
-
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
@@ -443,39 +386,6 @@ msgstr "판단할 수 없음"
 
 msgid "Inconclusive results"
 msgstr "판단할 수 없는 결과"
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
-msgstr ""
-
-msgid "Instance update"
-msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr ""
@@ -634,9 +544,6 @@ msgstr "제외됨"
 msgid "Othered|O"
 msgstr "제외됨|O"
 
-msgid "Package Profile Update"
-msgstr ""
-
 msgid "Passed"
 msgstr "통과됨"
 
@@ -695,22 +602,7 @@ msgstr ""
 msgid "Policy with id %s not found."
 msgstr ""
 
-msgid "Product Create"
-msgstr ""
-
-msgid "Promote"
-msgstr ""
-
-msgid "Promotion to Environment"
-msgstr ""
-
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
-msgstr ""
-
-msgid "Publish"
-msgstr ""
-
-msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
 
 msgid "Puppet class"
@@ -722,32 +614,8 @@ msgstr "근거"
 msgid "References"
 msgstr "참조"
 
-msgid "Reindex subscriptions"
-msgstr ""
-
 msgid "Remote action:"
 msgstr "원격 작업:"
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
 
 msgid "Report Metrics"
 msgstr "보고서 메트릭스 "
@@ -763,9 +631,6 @@ msgstr ""
 
 msgid "Reports"
 msgstr "보고서 "
-
-msgid "Republish Version Repositories"
-msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr ""
@@ -783,9 +648,6 @@ msgid "Rule Results"
 msgstr ""
 
 msgid "Run OpenSCAP scan"
-msgstr ""
-
-msgid "Run Sync Plan:"
 msgstr ""
 
 msgid "SCAP Content"
@@ -893,15 +755,6 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "%{foreman_url}의 Foreman 서버에서 가져온 요약"
 
-msgid "Sync capsule"
-msgstr ""
-
-msgid "Synchronize"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr ""
 
@@ -966,12 +819,6 @@ msgstr "컴플라이언스 정책 할당 취소"
 msgid "Unknown Compliance status"
 msgstr "알 수 없는 컴플라이언스 상태"
 
-msgid "Update"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr ""
 
@@ -981,25 +828,10 @@ msgstr ""
 msgid "Update an SCAP content"
 msgstr "SCAP 컨텐츠 업데이트"
 
-msgid "Update content urls"
+msgid "Update host"
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update http proxy"
-msgstr ""
-
-msgid "Update http proxy details"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Update redhat repository"
-msgstr ""
-
-msgid "Update release version for host"
+msgid "Update node"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -1019,12 +851,6 @@ msgstr ""
 
 msgid "Upload an ARF report"
 msgstr "ARF 보고서 업로드"
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
-msgstr ""
 
 msgid "Upload new SCAP content file"
 msgstr "새 SCAP 컨텐츠 파일 업로드"

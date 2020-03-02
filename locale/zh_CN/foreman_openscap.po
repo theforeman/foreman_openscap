@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-05 20:17+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2019-10-23 20:36+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
@@ -53,9 +53,6 @@ msgstr "<b>Foreman</b> OpenSCAP 摘要"
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 策略报告摘要"
 
-msgid "Abstract async task"
-msgstr ""
-
 msgid "Action with sub plans"
 msgstr "带有子计划的操作"
 
@@ -79,15 +76,6 @@ msgstr "对主机应用策略"
 
 msgid "Assign Compliance Policy"
 msgstr "分配合规策略"
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
 
 msgid "Back"
 msgstr "后退"
@@ -128,9 +116,6 @@ msgstr "选择时段"
 msgid "Choose weekday"
 msgstr "选择工作日"
 
-msgid "Combined Profile Update"
-msgstr ""
-
 msgid "Compliance"
 msgstr "合规"
 
@@ -170,12 +155,6 @@ msgstr "无法验证 %s。请确保您具备合适的代理服务器版本，以
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "无法验证 %{file_type}。错误 %{error}"
 
-msgid "Create"
-msgstr ""
-
-msgid "Create Package Group"
-msgstr ""
-
 msgid "Create SCAP content"
 msgstr "创建 SCAP 内容"
 
@@ -184,6 +163,9 @@ msgstr "创建策略"
 
 msgid "Create a Tailoring file"
 msgstr "创建定制文件"
+
+msgid "Create client"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "仪表板"
@@ -200,29 +182,23 @@ msgstr "删除 XCCDF 配置文件"
 msgid "Delete"
 msgstr "删除"
 
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr "删除一个策略"
 
 msgid "Delete an ARF Report"
 msgstr "删除 ARF 报告"
 
+msgid "Delete client"
+msgstr ""
+
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "是否删除所有报告中的合规策略 %s？"
 
 msgid "Delete compliance report for %s?"
 msgstr "是否删除 %s 的合规报告？"
+
+msgid "Delete host"
+msgstr ""
 
 msgid "Delete reports"
 msgstr "删除报告"
@@ -247,18 +223,6 @@ msgstr ""
 
 msgid "Description"
 msgstr "描述"
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Discover"
-msgstr ""
 
 msgid "Documentation"
 msgstr "文档"
@@ -296,15 +260,6 @@ msgstr "编辑定制文件"
 msgid "Effective Profile"
 msgstr "有效配置文件"
 
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
 msgid "Failed"
 msgstr "失败"
 
@@ -339,14 +294,8 @@ msgstr "上传 Arf Report 失败，在为 %s 上传时没有在参数中找到 O
 msgid "Failed|F"
 msgstr "F"
 
-msgid "Fetch pxe files"
-msgstr ""
-
 msgid "File Upload"
 msgstr "文件上传"
-
-msgid "Filtered index content"
-msgstr ""
 
 msgid "Full Report"
 msgstr "完整报告"
@@ -405,12 +354,6 @@ msgstr "主机通过这个规则"
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
-msgstr ""
-
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP 代理服务器的 ID"
 
@@ -444,39 +387,6 @@ msgstr "无结论"
 
 msgid "Inconclusive results"
 msgstr "无结论结果"
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
-msgstr ""
-
-msgid "Instance update"
-msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "有些可能需要根据您的具体需求调整安全策略。"
@@ -635,9 +545,6 @@ msgstr "其他"
 msgid "Othered|O"
 msgstr "O"
 
-msgid "Package Profile Update"
-msgstr ""
-
 msgid "Passed"
 msgstr "通过"
 
@@ -696,23 +603,8 @@ msgstr "策略调度工作日（只在时段 = “每周”时适用）"
 msgid "Policy with id %s not found."
 msgstr ""
 
-msgid "Product Create"
-msgstr ""
-
-msgid "Promote"
-msgstr ""
-
-msgid "Promotion to Environment"
-msgstr ""
-
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "代理服务器未能从 spool 发送报告至 Foreman。这表示报告格式损坏。报告已被移动至目录，以便将破坏文件存储到代理服务器上供以后检查。"
-
-msgid "Publish"
-msgstr ""
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
 
 msgid "Puppet class"
 msgstr "Puppet 类"
@@ -723,32 +615,8 @@ msgstr "基本原理"
 msgid "References"
 msgstr "参考"
 
-msgid "Reindex subscriptions"
-msgstr ""
-
 msgid "Remote action:"
 msgstr "远程操作："
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
 
 msgid "Report Metrics"
 msgstr "报告指标"
@@ -764,9 +632,6 @@ msgstr "报告于 %s"
 
 msgid "Reports"
 msgstr "报告"
-
-msgid "Republish Version Repositories"
-msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "请求超时。请尝试增加设置 -> 代理服务器_请求_超时"
@@ -785,9 +650,6 @@ msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "运行 OpenSCAP 扫描"
-
-msgid "Run Sync Plan:"
-msgstr ""
 
 msgid "SCAP Content"
 msgstr "SCAP 内容"
@@ -894,15 +756,6 @@ msgstr "来自于 Foreman 的 OpenScap 概述报告"
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "Foreman 服务器 %{foreman_url} 概述报告"
 
-msgid "Sync capsule"
-msgstr ""
-
-msgid "Synchronize"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr "定制文件"
 
@@ -969,12 +822,6 @@ msgstr "取消分配合规策略"
 msgid "Unknown Compliance status"
 msgstr "未知合规状态"
 
-msgid "Update"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr "更新策略"
 
@@ -984,25 +831,10 @@ msgstr "更新定制文件"
 msgid "Update an SCAP content"
 msgstr "更新 SCAP 内容"
 
-msgid "Update content urls"
+msgid "Update host"
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update http proxy"
-msgstr ""
-
-msgid "Update http proxy details"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Update redhat repository"
-msgstr ""
-
-msgid "Update release version for host"
+msgid "Update node"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -1022,12 +854,6 @@ msgstr "上传新定制文件"
 
 msgid "Upload an ARF report"
 msgstr "上传  Arf 报告"
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
-msgstr ""
 
 msgid "Upload new SCAP content file"
 msgstr "上传新 SCAP 内容文件"

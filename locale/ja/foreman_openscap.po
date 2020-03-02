@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-05 20:17+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2019-10-23 20:36+0000\n"
+"Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -54,9 +54,6 @@ msgstr "<b>Foreman</b> OpenSCAP の概要"
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP ポリシーのレポートの概要"
 
-msgid "Abstract async task"
-msgstr ""
-
 msgid "Action with sub plans"
 msgstr "サブプランによるアクション"
 
@@ -80,15 +77,6 @@ msgstr "ホストにポリシーを適用"
 
 msgid "Assign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て"
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
 
 msgid "Back"
 msgstr "戻る"
@@ -129,9 +117,6 @@ msgstr "期間を選択"
 msgid "Choose weekday"
 msgstr "平日を選択"
 
-msgid "Combined Profile Update"
-msgstr ""
-
 msgid "Compliance"
 msgstr "コンプライアンス"
 
@@ -171,12 +156,6 @@ msgstr "%s を検証できませんでした。この機能を使用するため
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "%{file_type} を検証できませんでした。エラー %{error}"
 
-msgid "Create"
-msgstr ""
-
-msgid "Create Package Group"
-msgstr ""
-
 msgid "Create SCAP content"
 msgstr "SCAP コンテンツの作成"
 
@@ -185,6 +164,9 @@ msgstr "ポリシーの作成"
 
 msgid "Create a Tailoring file"
 msgstr "テーラリングファイルの作成"
+
+msgid "Create client"
+msgstr ""
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -201,29 +183,23 @@ msgstr "デフォルトの XCCDF プロファイル"
 msgid "Delete"
 msgstr "削除"
 
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr "ポリシーの削除"
 
 msgid "Delete an ARF Report"
 msgstr "ARF レポートの定義"
 
+msgid "Delete client"
+msgstr ""
+
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
 
 msgid "Delete compliance report for %s?"
 msgstr "%s のコンプライアンスレポートを削除しますか?"
+
+msgid "Delete host"
+msgstr ""
 
 msgid "Delete reports"
 msgstr "レポートを削除"
@@ -248,18 +224,6 @@ msgstr ""
 
 msgid "Description"
 msgstr "説明"
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Discover"
-msgstr ""
 
 msgid "Documentation"
 msgstr "ドキュメント"
@@ -297,15 +261,6 @@ msgstr "テーラリングファイルの編集"
 msgid "Effective Profile"
 msgstr "有効なプロファイル"
 
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
 msgid "Failed"
 msgstr "失敗しました"
 
@@ -340,14 +295,8 @@ msgstr "Arf レポートのアップロードに失敗しました。%s のア�
 msgid "Failed|F"
 msgstr "F"
 
-msgid "Fetch pxe files"
-msgstr ""
-
 msgid "File Upload"
 msgstr "ファイルアップロード"
-
-msgid "Filtered index content"
-msgstr ""
 
 msgid "Full Report"
 msgstr "完全レポート"
@@ -406,12 +355,6 @@ msgstr "このルールに合格のホスト"
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
-msgstr ""
-
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシーの ID"
 
@@ -445,39 +388,6 @@ msgstr "不確定"
 
 msgid "Inconclusive results"
 msgstr "不確定な結果"
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
-msgstr ""
-
-msgid "Instance update"
-msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。"
@@ -636,9 +546,6 @@ msgstr "Othered"
 msgid "Othered|O"
 msgstr "O"
 
-msgid "Package Profile Update"
-msgstr ""
-
 msgid "Passed"
 msgstr "合格"
 
@@ -697,23 +604,8 @@ msgstr "ポリシースケジュール: 平日 (period == \"weekly\" の場合�
 msgid "Policy with id %s not found."
 msgstr ""
 
-msgid "Product Create"
-msgstr ""
-
-msgid "Promote"
-msgstr ""
-
-msgid "Promotion to Environment"
-msgstr ""
-
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクターに移動しました。"
-
-msgid "Publish"
-msgstr ""
-
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
 
 msgid "Puppet class"
 msgstr "Puppet クラス"
@@ -724,32 +616,8 @@ msgstr "理由"
 msgid "References"
 msgstr "リファレンス"
 
-msgid "Reindex subscriptions"
-msgstr ""
-
 msgid "Remote action:"
 msgstr "リモートアクション:"
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
 
 msgid "Report Metrics"
 msgstr "レポートメトリックス"
@@ -765,9 +633,6 @@ msgstr "%s で報告済み"
 
 msgid "Reports"
 msgstr "レポート"
-
-msgid "Republish Version Repositories"
-msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
@@ -786,9 +651,6 @@ msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "OpenSCAP スキャンの実行"
-
-msgid "Run Sync Plan:"
-msgstr ""
 
 msgid "SCAP Content"
 msgstr "SCAP コンテンツ"
@@ -895,15 +757,6 @@ msgstr "Foreman からの OpenScap の概要レポート"
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "%{foreman_url} にある Foreman サーバーからの概要レポート"
 
-msgid "Sync capsule"
-msgstr ""
-
-msgid "Synchronize"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr "テーラリングファイル"
 
@@ -968,12 +821,6 @@ msgstr "コンプライアンスポリシーの割り当て解除               
 msgid "Unknown Compliance status"
 msgstr "不明なコンプライアンスステータス"
 
-msgid "Update"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr "ポリシーの更新"
 
@@ -983,25 +830,10 @@ msgstr "テーラリングファイルの更新"
 msgid "Update an SCAP content"
 msgstr "SCAP コンテンツの更新"
 
-msgid "Update content urls"
+msgid "Update host"
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update http proxy"
-msgstr ""
-
-msgid "Update http proxy details"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Update redhat repository"
-msgstr ""
-
-msgid "Update release version for host"
+msgid "Update node"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -1021,12 +853,6 @@ msgstr "新規テーラリングファイルのアップロード"
 
 msgid "Upload an ARF report"
 msgstr "ARF レポートのアップロード"
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
-msgstr ""
 
 msgid "Upload new SCAP content file"
 msgstr "新規 SCAP コンテンツファイルをアップロード"

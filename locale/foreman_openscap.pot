@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-23 08:52+0000\n"
-"PO-Revision-Date: 2019-10-23 08:52+0000\n"
+"POT-Creation-Date: 2020-03-02 13:22+0000\n"
+"PO-Revision-Date: 2020-03-02 13:22+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -60,156 +60,156 @@ msgstr ""
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:25
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:18
 msgid "List Policies"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:33
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:26
 msgid "Show a Policy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:41
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:34
 msgid "Policy name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:42
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:35
 msgid "Policy description"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:43
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:36
 msgid "Policy SCAP content ID"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:44
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:37
 msgid "Policy SCAP content profile ID"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:45
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:38
 msgid "Policy schedule period (weekly, monthly, custom)"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:46
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:39
 msgid "Policy schedule weekday (only if period == \"weekly\")"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:47
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:40
 msgid "Policy schedule day of month (only if period == \"monthly\")"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:48
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:41
 msgid "Policy schedule cron line (only if period == \"custom\")"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:49
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:42
 msgid "Apply policy to host groups"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:50
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:43
 msgid "Apply policy to hosts"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:51
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:44
 msgid "Tailoring file ID"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:52
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:45
 msgid "Tailoring file profile ID"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:53
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:46
 msgid "How the policy should be deployed"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:58
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:51
 msgid "Create a Policy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:67
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:60
 msgid "Update a Policy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:68
 msgid "Delete a Policy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:82
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
 msgid "Show a policy's SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:92
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:85
 msgid "Show a policy's Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:102
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:95
 msgid "No Tailoring file assigned for policy with id %s"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:16
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:10
 msgid "List SCAP contents"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:24
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:18
 msgid "Download an SCAP content as XML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:33
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:27
 msgid "Show an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:40
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:34
 msgid "SCAP content name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:41
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:35
 msgid "XML containing SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:42
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:43
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:36
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:37
 msgid "Original file name of the XML file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:47
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:41
 msgid "Create SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:55
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:49
 msgid "Update an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:63
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:57
 msgid "Deletes an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:17
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:11
 msgid "List Tailoring files"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:25
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:19
 msgid "Download a Tailoring file as XML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:34
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:28
 msgid "Show a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:41
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:35
 msgid "Tailoring file name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:42
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:36
 msgid "XML containing tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:48
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:42
 msgid "Create a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:56
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:50
 msgid "Update a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:64
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:58
 msgid "Deletes a Tailoring file"
 msgstr ""
 
@@ -392,6 +392,17 @@ msgstr ""
 msgid "Hosts othering this rule"
 msgstr ""
 
+#: ../app/helpers/compliance_dashboard_helper.rb:3
+#: ../app/views/arf_reports/delete_multiple.html.erb:7
+#: ../app/views/policy_dashboard/_policy_reports.html.erb:6
+msgid "Host"
+msgstr ""
+
+#: ../app/helpers/compliance_dashboard_helper.rb:4
+#: ../app/views/arf_reports/_list.html.erb:8
+msgid "Policy"
+msgstr ""
+
 #. TRANSLATORS: initial character of Passed
 #: ../app/helpers/compliance_dashboard_helper.rb:6
 msgid "Passed|P"
@@ -412,19 +423,29 @@ msgstr ""
 msgid "Othered"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:4
+#: ../app/helpers/compliance_hosts_helper.rb:24
 msgid "Assign Compliance Policy"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:5
+#: ../app/helpers/compliance_hosts_helper.rb:25
 msgid "Unassign Compliance Policy"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:6
+#: ../app/helpers/compliance_hosts_helper.rb:26
 msgid "Change OpenSCAP Proxy"
 msgstr ""
 
-#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:10
+#: ../app/helpers/compliance_hosts_helper.rb:35
+#: ../app/models/foreman_openscap/compliance_status.rb:8
+#: ../lib/foreman_openscap/engine.rb:135
+msgid "Compliance"
+msgstr ""
+
+#: ../app/helpers/compliance_hosts_helper.rb:37
+msgid "Host compliance details"
+msgstr ""
+
+#: ../app/helpers/concerns/foreman_openscap/hosts_helper_extensions.rb:4
 msgid "Host is deleted"
 msgstr ""
 
@@ -437,7 +458,7 @@ msgid "Choose existing SCAP Content"
 msgstr ""
 
 #: ../app/helpers/policies_helper.rb:57 ../app/helpers/policies_helper.rb:62
-#: ../app/models/foreman_openscap/policy.rb:100
+#: ../app/models/foreman_openscap/policy.rb:111
 #: ../app/views/policies/_form.html.erb:10
 #: ../app/views/scap_contents/welcome.html.erb:1
 #: ../app/views/scap_contents/welcome.html.erb:6
@@ -478,7 +499,7 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:145 ../lib/foreman_openscap/engine.rb:139
+#: ../app/helpers/policies_helper.rb:145 ../lib/foreman_openscap/engine.rb:136
 msgid "Policies"
 msgstr ""
 
@@ -555,12 +576,6 @@ msgstr ""
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
 msgstr ""
 
-#: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../app/views/compliance_hosts/_compliance_status.erb:2
-#: ../lib/foreman_openscap/engine.rb:138
-msgid "Compliance"
-msgstr ""
-
 #: ../app/models/foreman_openscap/compliance_status.rb:18
 #: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:13
 msgid "Compliant"
@@ -576,7 +591,7 @@ msgid "Unknown Compliance status"
 msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:31
-#: ../app/models/foreman_openscap/policy.rb:262
+#: ../app/models/foreman_openscap/policy.rb:273
 msgid "is not a valid value"
 msgstr ""
 
@@ -588,63 +603,63 @@ msgstr ""
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:100
+#: ../app/models/foreman_openscap/policy.rb:111
 #: ../app/views/policies/_form.html.erb:8
 msgid "Deployment Options"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:100
+#: ../app/models/foreman_openscap/policy.rb:111
 msgid "Policy Attributes"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:100
+#: ../app/models/foreman_openscap/policy.rb:111
 #: ../app/views/policies/_form.html.erb:11
 msgid "Schedule"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:101
+#: ../app/models/foreman_openscap/policy.rb:112
 #: ../app/views/policies/_form.html.erb:13
 #: ../app/views/scap_contents/_form.html.erb:11
 #: ../app/views/tailoring_files/_form.html.erb:11
 msgid "Locations"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:102
+#: ../app/models/foreman_openscap/policy.rb:113
 #: ../app/views/policies/_form.html.erb:16
 #: ../app/views/scap_contents/_form.html.erb:14
 #: ../app/views/tailoring_files/_form.html.erb:14
 msgid "Organizations"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:103
+#: ../app/models/foreman_openscap/policy.rb:114
 msgid "Hostgroups"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:256
+#: ../app/models/foreman_openscap/policy.rb:267
 msgid "does not consist of 5 parts separated by space"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:268
+#: ../app/models/foreman_openscap/policy.rb:279
 msgid "must be between 1 and 31"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:273
+#: ../app/models/foreman_openscap/policy.rb:284
 msgid "must be present when tailoring file profile present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:274
+#: ../app/models/foreman_openscap/policy.rb:285
 msgid "must be present when tailoring file present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:279
+#: ../app/models/foreman_openscap/policy.rb:290
 msgid "does not come from selected tailoring file"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:285
+#: ../app/models/foreman_openscap/policy.rb:296
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:317
+#: ../app/models/foreman_openscap/policy.rb:328
 msgid ""
 "cannot assign to %s, all assigned policies must be deployed in the same way, c"
 "heck 'deploy by' for each assigned policy"
@@ -751,10 +766,6 @@ msgstr ""
 msgid "Reported At"
 msgstr ""
 
-#: ../app/views/arf_reports/_list.html.erb:8
-msgid "Policy"
-msgstr ""
-
 #: ../app/views/arf_reports/_list.html.erb:9
 msgid "Openscap Proxy"
 msgstr ""
@@ -816,12 +827,7 @@ msgstr ""
 msgid "Nothing to show"
 msgstr ""
 
-#: ../app/views/arf_reports/delete_multiple.html.erb:7
-#: ../app/views/policy_dashboard/_policy_reports.html.erb:6
-msgid "Host"
-msgstr ""
-
-#: ../app/views/arf_reports/delete_multiple.html.erb:27 action_names.rb:10
+#: ../app/views/arf_reports/delete_multiple.html.erb:27
 msgid "Delete"
 msgstr ""
 
@@ -863,10 +869,6 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: ../app/views/compliance_hosts/_compliance_status.erb:4
-msgid "Host compliance details"
-msgstr ""
-
 #: ../app/views/compliance_hosts/show.html.erb:9
 msgid "Compliance Hosts"
 msgstr ""
@@ -898,7 +900,7 @@ msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:154
+#: ../lib/foreman_openscap/engine.rb:151
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -915,7 +917,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:156
+#: ../lib/foreman_openscap/engine.rb:153
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -1224,7 +1226,7 @@ msgstr ""
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:148
+#: ../lib/foreman_openscap/engine.rb:145
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1261,296 +1263,64 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:142
+#: ../lib/foreman_openscap/engine.rb:139
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:145
+#: ../lib/foreman_openscap/engine.rb:142
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:170
+#: ../lib/foreman_openscap/engine.rb:167
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:174 ../lib/foreman_openscap/engine.rb:179
+#: ../lib/foreman_openscap/engine.rb:171 ../lib/foreman_openscap/engine.rb:176
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:176 ../lib/foreman_openscap/engine.rb:181
+#: ../lib/foreman_openscap/engine.rb:173 ../lib/foreman_openscap/engine.rb:178
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:185 ../lib/foreman_openscap/engine.rb:193
+#: ../lib/foreman_openscap/engine.rb:182 ../lib/foreman_openscap/engine.rb:190
 msgid "Run OpenSCAP scan"
 msgstr ""
 
 #: action_names.rb:2
-msgid "Action with sub plans"
-msgstr ""
-
-#: action_names.rb:3
-msgid "Import facts"
-msgstr ""
-
-#: action_names.rb:4
 msgid "Import Puppet classes"
 msgstr ""
 
+#: action_names.rb:3
+msgid "Remote action:"
+msgstr ""
+
+#: action_names.rb:4
+msgid "Action with sub plans"
+msgstr ""
+
 #: action_names.rb:5
-msgid "Create"
+msgid "Import facts"
 msgstr ""
 
 #: action_names.rb:6
-msgid "Delete Activation Key"
+msgid "Delete host"
 msgstr ""
 
 #: action_names.rb:7
-msgid "Update"
+msgid "Update host"
 msgstr ""
 
 #: action_names.rb:8
-msgid "Synchronize smart proxy"
+msgid "Update node"
 msgstr ""
 
 #: action_names.rb:9
-msgid "Sync capsule"
+msgid "Create client"
 msgstr ""
 
-#: action_names.rb:11
-msgid "Errata mail"
-msgstr ""
-
-#: action_names.rb:12
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-#: action_names.rb:13
-msgid "Promote"
-msgstr ""
-
-#: action_names.rb:14
-msgid "Promotion to Environment"
-msgstr ""
-
-#: action_names.rb:15
-msgid "Abstract async task"
-msgstr ""
-
-#: action_names.rb:16
-msgid "Hypervisors"
-msgstr ""
-
-#: action_names.rb:17
-msgid "Hypervisors update"
-msgstr ""
-
-#: action_names.rb:18
-msgid "Install package"
-msgstr ""
-
-#: action_names.rb:19
-msgid "Remove package"
-msgstr ""
-
-#: action_names.rb:20
-msgid "Remove package group"
-msgstr ""
-
-#: action_names.rb:21
-msgid "Update package"
-msgstr ""
-
-#: action_names.rb:22
-msgid "Install package group"
-msgstr ""
-
-#: action_names.rb:23
-msgid "Remove subscriptions"
-msgstr ""
-
-#: action_names.rb:24
-msgid "Update for host"
-msgstr ""
-
-#: action_names.rb:25
-msgid "Update Content Overrides"
-msgstr ""
-
-#: action_names.rb:26
-msgid "Update release version for host"
-msgstr ""
-
-#: action_names.rb:27
-msgid "Package Profile Update"
-msgstr ""
-
-#: action_names.rb:28
-msgid "Export"
-msgstr ""
-
-#: action_names.rb:29
-msgid "Incremental Update"
-msgstr ""
-
-#: action_names.rb:30
-msgid "Republish Version Repositories"
-msgstr ""
-
-#: action_names.rb:31
-msgid "Destroy"
-msgstr ""
-
-#: action_names.rb:32
-msgid "Publish"
-msgstr ""
-
-#: action_names.rb:33
-msgid "Remove Versions and Associations"
-msgstr ""
-
-#: action_names.rb:34
-msgid "Remove from Environment"
-msgstr ""
-
-#: action_names.rb:35
-msgid "Remove Version"
-msgstr ""
-
-#: action_names.rb:36
-msgid "Auto-attach subscriptions"
-msgstr ""
-
-#: action_names.rb:37
-msgid "Attach subscriptions"
-msgstr ""
-
-#: action_names.rb:38
-msgid "Auto attach subscriptions"
-msgstr ""
-
-#: action_names.rb:39
-msgid "Install Applicable Errata"
-msgstr ""
-
-#: action_names.rb:40
-msgid "Install erratum"
-msgstr ""
-
-#: action_names.rb:41
-msgid "Destroy Content Host"
-msgstr ""
-
-#: action_names.rb:42
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-#: action_names.rb:43
-msgid "Publish Lifecycle Environment Repositories"
-msgstr ""
-
-#: action_names.rb:44
-msgid "Product Create"
-msgstr ""
-
-#: action_names.rb:45
-msgid "Delete Product"
-msgstr ""
-
-#: action_names.rb:46
-msgid "Reindex subscriptions"
-msgstr ""
-
-#: action_names.rb:47
-msgid "Update http proxy"
-msgstr ""
-
-#: action_names.rb:48
-msgid "Combined Profile Update"
-msgstr ""
-
-#: action_names.rb:49
-msgid "Delete Package Group"
-msgstr ""
-
-#: action_names.rb:50
-msgid "Discover"
-msgstr ""
-
-#: action_names.rb:51
-msgid "Fetch pxe files"
-msgstr ""
-
-#: action_names.rb:52
-msgid "Filtered index content"
-msgstr ""
-
-#: action_names.rb:53
-msgid "Upload into"
-msgstr ""
-
-#: action_names.rb:54
-msgid "Index errata"
-msgstr ""
-
-#: action_names.rb:55
-msgid "Index module streams"
-msgstr ""
-
-#: action_names.rb:56
-msgid "Index content"
-msgstr ""
-
-#: action_names.rb:57
-msgid "Instance update"
-msgstr ""
-
-#: action_names.rb:58
-msgid "Index package groups"
-msgstr ""
-
-#: action_names.rb:59
-msgid "Remove Content"
-msgstr ""
-
-#: action_names.rb:60
-msgid "Synchronize"
-msgstr ""
-
-#: action_names.rb:61
-msgid "Update content urls"
-msgstr ""
-
-#: action_names.rb:62
-msgid "Update http proxy details"
-msgstr ""
-
-#: action_names.rb:63
-msgid "Upload errata into"
-msgstr ""
-
-#: action_names.rb:64
-msgid "Create Package Group"
-msgstr ""
-
-#: action_names.rb:65
-msgid "Disable"
-msgstr ""
-
-#: action_names.rb:66
-msgid "Enable"
-msgstr ""
-
-#: action_names.rb:67
-msgid "Run Sync Plan:"
-msgstr ""
-
-#: action_names.rb:68
-msgid "Update redhat repository"
-msgstr ""
-
-#: action_names.rb:69
-msgid "Remote action:"
+#: action_names.rb:10
+msgid "Delete client"
 msgstr ""

@@ -6,12 +6,13 @@
 # Crited <Alexander.Stoll@netways.de>, 2019
 # Ettore Atalan <atalanttore@googlemail.com>, 2016-2017
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
+# Ludwig B <lbayerlein@lbayerlein.de>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-09-05 20:17+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2020-02-11 07:20+0000\n"
+"Last-Translator: Ludwig B <lbayerlein@lbayerlein.de>\n"
 "Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -54,9 +55,6 @@ msgstr "<b>Foreman</b> OpenSCAP Zusammenfassung"
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "Eine Zusammenfassung der Berichte für OpenSCAP-Richtlinien"
 
-msgid "Abstract async task"
-msgstr ""
-
 msgid "Action with sub plans"
 msgstr "Aktion mit Unterplänen"
 
@@ -80,15 +78,6 @@ msgstr "Richtlinie auf Hosts anwenden"
 
 msgid "Assign Compliance Policy"
 msgstr "Compliance-Richtlinie zuweisen"
-
-msgid "Attach subscriptions"
-msgstr ""
-
-msgid "Auto attach subscriptions"
-msgstr ""
-
-msgid "Auto-attach subscriptions"
-msgstr ""
 
 msgid "Back"
 msgstr "Zurück"
@@ -129,9 +118,6 @@ msgstr "Zeitraum auswählen"
 msgid "Choose weekday"
 msgstr "Wochentag auswählen"
 
-msgid "Combined Profile Update"
-msgstr ""
-
 msgid "Compliance"
 msgstr "Konformität"
 
@@ -171,12 +157,6 @@ msgstr ""
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "Konnte nicht %{file_type} validieren. Fehler: %{error}"
 
-msgid "Create"
-msgstr ""
-
-msgid "Create Package Group"
-msgstr ""
-
 msgid "Create SCAP content"
 msgstr "SCAP-Inhalt erstellen"
 
@@ -184,6 +164,9 @@ msgid "Create a Policy"
 msgstr "Richtlinie erstellen"
 
 msgid "Create a Tailoring file"
+msgstr ""
+
+msgid "Create client"
 msgstr ""
 
 msgid "Dashboard"
@@ -201,29 +184,23 @@ msgstr "Standardmäßiges XCCDF-Profil"
 msgid "Delete"
 msgstr "Löschen"
 
-msgid "Delete Activation Key"
-msgstr ""
-
-msgid "Delete Lifecycle Environment"
-msgstr ""
-
-msgid "Delete Package Group"
-msgstr ""
-
-msgid "Delete Product"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr "Richtlinie löschen"
 
 msgid "Delete an ARF Report"
 msgstr "ARF-Bericht löschen"
 
+msgid "Delete client"
+msgstr ""
+
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "Compliance-Richtline %s löschen mit allen Berichten?"
 
 msgid "Delete compliance report for %s?"
 msgstr "Compliance-Bericht von %s löschen?"
+
+msgid "Delete host"
+msgstr ""
 
 msgid "Delete reports"
 msgstr "Berichte löschen"
@@ -248,18 +225,6 @@ msgstr ""
 
 msgid "Description"
 msgstr "Beschreibung"
-
-msgid "Destroy"
-msgstr ""
-
-msgid "Destroy Content Host"
-msgstr ""
-
-msgid "Disable"
-msgstr ""
-
-msgid "Discover"
-msgstr ""
 
 msgid "Documentation"
 msgstr "Dokumentation"
@@ -297,15 +262,6 @@ msgstr ""
 msgid "Effective Profile"
 msgstr "Effektives Profil"
 
-msgid "Enable"
-msgstr ""
-
-msgid "Errata mail"
-msgstr ""
-
-msgid "Export"
-msgstr ""
-
 msgid "Failed"
 msgstr "Fehlgeschlagen"
 
@@ -319,13 +275,13 @@ msgid "Failed to delete %s compliance reports"
 msgstr "Compliance-Berichte %s konnten nicht gelöscht werden"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr ""
+msgstr "ARF Bericht für den Host %{host_name} vom %{reported_at} konnte nicht gelöscht werden."
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "ARF als bzip report wurde nicht heruntergeladen: %s"
 
 msgid "Failed to downloaded ARF report in HTML: %s"
-msgstr ""
+msgstr "ARF Bericht im HTML Format konnte nicht heruntergeladen werden: %s"
 
 msgid "Failed to fetch spool status from proxy"
 msgstr ""
@@ -334,20 +290,14 @@ msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{er
 msgstr ""
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
-msgstr ""
+msgstr "Der Upload des Arf Reports ist fehlgeschlagen, der OpenSCAP Proxyname oder die URL konnte beim Upload in den Parametern für %s nicht gefunden werden. Es fehlt der openscap_proxy für den Host."
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
 msgstr "Fehlgeschlagen|F "
 
-msgid "Fetch pxe files"
-msgstr ""
-
 msgid "File Upload"
 msgstr "Datei hochladen"
-
-msgid "Filtered index content"
-msgstr ""
 
 msgid "Full Report"
 msgstr "Ganzer Bericht"
@@ -406,12 +356,6 @@ msgstr "Regel angewandt auf Hosts."
 msgid "How the policy should be deployed"
 msgstr ""
 
-msgid "Hypervisors"
-msgstr ""
-
-msgid "Hypervisors update"
-msgstr ""
-
 msgid "ID of OpenSCAP Proxy"
 msgstr "Kennung des OpenSCAP-Proxys"
 
@@ -445,39 +389,6 @@ msgstr "Nicht eindeutig "
 
 msgid "Inconclusive results"
 msgstr "Ergebnisse sind nicht eindeutig"
-
-msgid "Incremental Update"
-msgstr ""
-
-msgid "Incremental Update of  Content View Version(s) "
-msgstr ""
-
-msgid "Index content"
-msgstr ""
-
-msgid "Index errata"
-msgstr ""
-
-msgid "Index module streams"
-msgstr ""
-
-msgid "Index package groups"
-msgstr ""
-
-msgid "Install Applicable Errata"
-msgstr ""
-
-msgid "Install erratum"
-msgstr ""
-
-msgid "Install package"
-msgstr ""
-
-msgid "Install package group"
-msgstr ""
-
-msgid "Instance update"
-msgstr ""
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "Es könnte angebracht sein die Sicherheits-Richtlinien den eigenen Anforderungen anzupassen."
@@ -636,9 +547,6 @@ msgstr "Anderweitiges Ergebnis"
 msgid "Othered|O"
 msgstr "Anderweitig|A"
 
-msgid "Package Profile Update"
-msgstr ""
-
 msgid "Passed"
 msgstr "Erfolgreich"
 
@@ -697,22 +605,7 @@ msgstr ""
 msgid "Policy with id %s not found."
 msgstr "Richtlinie mit Kennung %s nicht gefunden."
 
-msgid "Product Create"
-msgstr ""
-
-msgid "Promote"
-msgstr ""
-
-msgid "Promotion to Environment"
-msgstr ""
-
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
-msgstr ""
-
-msgid "Publish"
-msgstr ""
-
-msgid "Publish Lifecycle Environment Repositories"
 msgstr ""
 
 msgid "Puppet class"
@@ -724,32 +617,8 @@ msgstr "Begründung"
 msgid "References"
 msgstr "Verweise"
 
-msgid "Reindex subscriptions"
-msgstr ""
-
 msgid "Remote action:"
 msgstr "Entfernte Aktion"
-
-msgid "Remove Content"
-msgstr ""
-
-msgid "Remove Version"
-msgstr ""
-
-msgid "Remove Versions and Associations"
-msgstr ""
-
-msgid "Remove from Environment"
-msgstr ""
-
-msgid "Remove package"
-msgstr ""
-
-msgid "Remove package group"
-msgstr ""
-
-msgid "Remove subscriptions"
-msgstr ""
 
 msgid "Report Metrics"
 msgstr "Berichtsmetrik"
@@ -765,9 +634,6 @@ msgstr "Berichtet um %s"
 
 msgid "Reports"
 msgstr "Berichte"
-
-msgid "Republish Version Repositories"
-msgstr ""
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr ""
@@ -786,9 +652,6 @@ msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "Führe OpenSCAP Scan aus"
-
-msgid "Run Sync Plan:"
-msgstr ""
 
 msgid "SCAP Content"
 msgstr "SCAP-Inhalt"
@@ -895,15 +758,6 @@ msgstr "Zusammenfassungsbericht des OpenSCAP vom Foreman"
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "Zusammenfassungbericht vom Foreman-Server unter %{foreman_url}"
 
-msgid "Sync capsule"
-msgstr ""
-
-msgid "Synchronize"
-msgstr ""
-
-msgid "Synchronize smart proxy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr ""
 
@@ -968,12 +822,6 @@ msgstr "Zuweisung der Compliance-Richtline aufheben"
 msgid "Unknown Compliance status"
 msgstr "Compliance-Status unbekannt"
 
-msgid "Update"
-msgstr ""
-
-msgid "Update Content Overrides"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr "Richtlinie aktualisieren "
 
@@ -983,25 +831,10 @@ msgstr ""
 msgid "Update an SCAP content"
 msgstr "Einen SCAP-Inhalt aktualisieren "
 
-msgid "Update content urls"
+msgid "Update host"
 msgstr ""
 
-msgid "Update for host"
-msgstr ""
-
-msgid "Update http proxy"
-msgstr ""
-
-msgid "Update http proxy details"
-msgstr ""
-
-msgid "Update package"
-msgstr ""
-
-msgid "Update redhat repository"
-msgstr ""
-
-msgid "Update release version for host"
+msgid "Update node"
 msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
@@ -1021,12 +854,6 @@ msgstr ""
 
 msgid "Upload an ARF report"
 msgstr "Einen Arf-Bericht hochladen"
-
-msgid "Upload errata into"
-msgstr ""
-
-msgid "Upload into"
-msgstr ""
 
 msgid "Upload new SCAP content file"
 msgstr "Neue Datei für SCAP-Inhalt hochladen"
