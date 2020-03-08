@@ -6,8 +6,8 @@ inherit_from:
   - .rubocop_todo.yml
 
 AllCops:
-  TargetRubyVersion: 2.3
-  TargetRailsVersion: 5.1
+  TargetRubyVersion: 2.5
+  TargetRailsVersion: 5.2
   Include:
     - 'app/views/api/**/*.rabl'
     - 'app/**/*.rb'
@@ -44,6 +44,9 @@ Style/FrozenStringLiteralComment:
 Metrics:
   Enabled: false
 
+Layout/LineLength:
+  Enabled: false
+
 Style/CollectionMethods:
   Enabled: false
 
@@ -71,8 +74,6 @@ Style/RedundantSelf:
 Style/WordArray:
   Enabled: false
 
-Style/BracesAroundHashParameters:
-  Enabled: false
 
 Style/RescueModifier:
   Enabled: false
