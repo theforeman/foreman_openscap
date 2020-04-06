@@ -52,7 +52,7 @@ module Api::V2
       param_group :tailoring_file
 
       def update
-        process_response @tailoring_file.update_attributes(tailoring_file_params)
+        process_response @tailoring_file.update(tailoring_file_params)
       end
 
       api :DELETE, '/compliance/tailoring_files/:id', N_('Deletes a Tailoring file')

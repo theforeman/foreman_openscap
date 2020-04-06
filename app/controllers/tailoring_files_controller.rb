@@ -30,7 +30,7 @@ class TailoringFilesController < ApplicationController
   end
 
   def update
-    if @tailoring_file.update_attributes(tailoring_file_params)
+    if @tailoring_file.update(tailoring_file_params)
       process_success
     else
       process_error

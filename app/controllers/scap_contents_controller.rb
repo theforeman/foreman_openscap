@@ -33,7 +33,7 @@ class ScapContentsController < ApplicationController
   end
 
   def update
-    if @scap_content.update_attributes(scap_content_params)
+    if @scap_content.update(scap_content_params)
       process_success
     else
       process_error
