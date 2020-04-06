@@ -104,11 +104,6 @@ Performance/Count:
 Performance/RegexpMatch:
   Enabled: false
 
-# Offense count: 5
-# Cop supports --auto-correct.
-Rails/ActiveRecordAliases:
-  Enabled: false
-
 # Offense count: 7
 # Cop supports --auto-correct.
 # Configuration parameters: Include.

@@ -51,7 +51,7 @@ module Api::V2
       param_group :scap_content
 
       def update
-        process_response @scap_content.update_attributes(scap_content_params)
+        process_response @scap_content.update(scap_content_params)
       end
 
       api :DELETE, '/compliance/scap_contents/:id', N_('Deletes an SCAP content')

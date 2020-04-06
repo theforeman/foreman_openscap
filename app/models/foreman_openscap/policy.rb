@@ -67,7 +67,7 @@ module ForemanOpenscap
           ForemanOpenscap::LookupKeyOverrider.new(self).override
         end
 
-        errors.none? && update_attributes(params)
+        errors.none? && update(params)
       end
     end
 
