@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-23 20:36+0000\n"
+"PO-Revision-Date: 2020-03-02 20:59+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
@@ -165,9 +165,6 @@ msgstr "ポリシーの作成"
 msgid "Create a Tailoring file"
 msgstr "テーラリングファイルの作成"
 
-msgid "Create client"
-msgstr ""
-
 msgid "Dashboard"
 msgstr "ダッシュボード"
 
@@ -189,17 +186,11 @@ msgstr "ポリシーの削除"
 msgid "Delete an ARF Report"
 msgstr "ARF レポートの定義"
 
-msgid "Delete client"
-msgstr ""
-
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
 
 msgid "Delete compliance report for %s?"
 msgstr "%s のコンプライアンスレポートを削除しますか?"
-
-msgid "Delete host"
-msgstr ""
 
 msgid "Delete reports"
 msgstr "レポートを削除"
@@ -832,12 +823,6 @@ msgstr "テーラリングファイルの更新"
 
 msgid "Update an SCAP content"
 msgstr "SCAP コンテンツの更新"
-
-msgid "Update host"
-msgstr ""
-
-msgid "Update node"
-msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
 msgstr "更新済みホスト: OpenSCAP プロキシーで割り当て済み: %s"

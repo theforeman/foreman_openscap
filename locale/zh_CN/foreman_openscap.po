@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2019-10-23 20:36+0000\n"
+"PO-Revision-Date: 2020-03-02 20:59+0000\n"
 "Last-Translator: Bryan Kearney <bryan.kearney@gmail.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
@@ -164,9 +164,6 @@ msgstr "创建策略"
 msgid "Create a Tailoring file"
 msgstr "创建定制文件"
 
-msgid "Create client"
-msgstr ""
-
 msgid "Dashboard"
 msgstr "仪表板"
 
@@ -188,17 +185,11 @@ msgstr "删除一个策略"
 msgid "Delete an ARF Report"
 msgstr "删除 ARF 报告"
 
-msgid "Delete client"
-msgstr ""
-
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "是否删除所有报告中的合规策略 %s？"
 
 msgid "Delete compliance report for %s?"
 msgstr "是否删除 %s 的合规报告？"
-
-msgid "Delete host"
-msgstr ""
 
 msgid "Delete reports"
 msgstr "删除报告"
@@ -833,12 +824,6 @@ msgstr "更新定制文件"
 
 msgid "Update an SCAP content"
 msgstr "更新 SCAP 内容"
-
-msgid "Update host"
-msgstr ""
-
-msgid "Update node"
-msgstr ""
 
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
 msgstr "更新的主机：分配了 OpenSCAP 代理: %s"
