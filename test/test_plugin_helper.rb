@@ -11,9 +11,9 @@ module ScapClientPuppetclass
     Puppetclass.find_by(:name => puppet_config.puppetclass_name)&.destroy
 
     puppet_class = FactoryBot.create(:puppetclass, :name => puppet_config.puppetclass_name)
-    server_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.server_param, :puppetclass_id => puppet_class.id)
-    port_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.port_param, :puppetclass_id => puppet_class.id)
-    policies_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.policies_param, :puppetclass_id => puppet_class.id)
+    server_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.server_param, :default_value => nil)
+    port_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.port_param, :default_value => nil)
+    policies_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.policies_param, :default_value => nil)
 
     env = FactoryBot.create :environment
 
