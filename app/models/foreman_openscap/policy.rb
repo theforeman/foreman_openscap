@@ -174,8 +174,9 @@ module ForemanOpenscap
     end
 
     def unassign_hosts(hosts)
-      host_asset_ids = ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id)).pluck(:id)
-      self.asset_ids = self.asset_ids - host_asset_ids
+      host_assets = ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id))
+      self.asset_ids = self.asset_ids - host_assets.pluck(:id)
+      host_assets.map(&:destroy)
     end
 
     def to_enc
