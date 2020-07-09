@@ -2,7 +2,7 @@ module ForemanOpenscap::Helper
   def self.get_asset(cname, policy_id)
     asset = find_host_by_name_or_uuid(cname)&.get_asset
     return unless asset
-    asset.policy_ids += [policy_id]
+    asset.policy_ids += [policy_id] unless asset.policy_ids.include?(policy_id)
     asset
   end
 
