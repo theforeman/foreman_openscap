@@ -90,12 +90,14 @@ module Api
         end
 
         def find_resources_before_create
-          unless ForemanOpenscap::Policy.where(:id => params[:policy_id]).any?
-            upload_fail(_("Policy with id %s not found.") % params[:policy_id])
+          policy_id = params[:policy_id].to_i
+
+          unless ForemanOpenscap::Policy.where(:id => policy_id).any?
+            upload_fail(_("Policy with id %s not found.") % policy_id)
             return
           end
 
-          @asset = ForemanOpenscap::Helper::get_asset(params[:cname], params[:policy_id])
+          @asset = ForemanOpenscap::Helper::get_asset(params[:cname], policy_id)
 
           unless @asset
             upload_fail(_('Could not find host identified by: %s') % params[:cname])
