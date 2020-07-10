@@ -11,6 +11,7 @@ module ForemanOpenscap
     config.autoload_paths += Dir["#{config.root}/app/models"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
+    config.autoload_paths += Dir["#{config.root}/app/graphql"]
     config.autoload_paths += Dir["#{config.root}/lib"]
     config.autoload_paths += Dir["#{config.root}/test/"]
 
@@ -179,6 +180,19 @@ module ForemanOpenscap
                         :label => N_('OpenSCAP Proxy'),
                         :description => proxy_description,
                         :api_description => N_('ID of OpenSCAP Proxy')
+
+        register_graphql_query_field :arf_report, '::Types::ArfReport', :record_field
+        register_graphql_query_field :arf_reports, '::Types::ArfReport', :collection_field
+
+        extend_graphql_type type: Types::Log do
+          field :result, ::Types::LogResultEnum
+        end
+
+        extend_graphql_type type: Types::Message do
+          field :description, String
+          field :rationale, String
+          field :scap_references, String
+        end
 
         if ForemanOpenscap.with_remote_execution?
           options = {
