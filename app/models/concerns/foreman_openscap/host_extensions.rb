@@ -81,6 +81,11 @@ module ForemanOpenscap
       }
 
       base.send :extend, ClassMethods
+
+      base.apipie :class do
+        property :policies_enc, String, desc: 'Returns JSON string containing policies for the host'
+        property :policies_enc_raw, array_of: Hash, desc: 'Returns a list with key:value objects containing policies for the host'
+      end
     end
 
     def inherited_attributes
