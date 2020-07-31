@@ -37,6 +37,15 @@ class PolicyTest < ActiveSupport::TestCase
     assert_equal hostgroup, policy.hostgroups.first
   end
 
+  test "should not raise when assiging same host by id" do
+    host1 = FactoryBot.create(:compliance_host)
+    asset = FactoryBot.create(:asset, :assetable_id => host1.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    policy.host_ids = [host1, host1].map(&:id)
+    policy.save!
+    assert_equal 1, policy.hosts.count
+  end
+
   test "should remove associated hostgroup" do
     hg = FactoryBot.create(:hostgroup)
     asset = FactoryBot.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')

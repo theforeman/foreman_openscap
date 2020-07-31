@@ -312,7 +312,7 @@ module ForemanOpenscap
     end
 
     def assign_ids(ids, class_name)
-      new_assets = ids.reject { |id| id.respond_to?(:empty?) && id.empty? }.reduce([]) do |memo, id|
+      new_assets = ids.uniq.reject { |id| id.respond_to?(:empty?) && id.empty? }.reduce([]) do |memo, id|
         memo << assets.where(:assetable_type => class_name, :assetable_id => id).first_or_initialize
       end
       complimentary_class_name = class_name == 'Host::Base' ? 'Hostgroup' : 'Host::Base'
