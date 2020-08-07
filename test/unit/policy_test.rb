@@ -58,6 +58,18 @@ class PolicyTest < ActiveSupport::TestCase
     assert_nil ForemanOpenscap::Asset.find_by(:id => asset2.id)
   end
 
+  test "should delete assets only for selected policy when unassigning host" do
+    host1 = FactoryBot.create(:compliance_host)
+    asset1 = FactoryBot.create(:asset, :assetable_id => host1.id, :assetable_type => 'Host::Base')
+    asset2 = FactoryBot.create(:asset, :assetable_id => host1.id, :assetable_type => 'Host::Base')
+    policy1 = FactoryBot.create(:policy, :assets => [asset1], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    policy2 = FactoryBot.create(:policy, :assets => [asset2], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    policy1.unassign_hosts([host1])
+
+    assert_nil ForemanOpenscap::Asset.find_by(:id => asset1.id)
+    assert_not_nil ForemanOpenscap::Asset.find_by(:id => asset2.id)
+  end
+
   test "should remove associated hostgroup" do
     hg = FactoryBot.create(:hostgroup)
     asset = FactoryBot.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')

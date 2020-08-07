@@ -174,9 +174,14 @@ module ForemanOpenscap
     end
 
     def unassign_hosts(hosts)
-      host_assets = ForemanOpenscap::Asset.where(:assetable_type => 'Host::Base', :assetable_id => hosts.map(&:id))
-      self.asset_ids = self.asset_ids - host_assets.pluck(:id)
-      host_assets.map(&:destroy)
+      policy_host_assets = ForemanOpenscap::Asset.joins(:asset_policies).where(
+        :assetable_type => 'Host::Base',
+        :assetable_id => hosts.map(&:id),
+        :foreman_openscap_asset_policies => { :policy_id => id }
+      ).pluck(:id)
+
+      self.asset_ids = self.asset_ids - policy_host_assets
+      ForemanOpenscap::Asset.where(:id => policy_host_assets).destroy_all
     end
 
     def to_enc
