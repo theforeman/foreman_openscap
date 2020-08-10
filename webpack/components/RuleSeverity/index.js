@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import SeverityCritical from './i_severity-critical.svg';
 import SeverityHigh from './i_severity-high.svg';
@@ -9,18 +10,24 @@ import SeverityUnknown from './i_unknown.svg';
 import './RuleSeverity.scss';
 
 const RuleSeverity = props => {
-  const imgStyles = { className: 'severity-img-scale' };
-
   const propsMapping = {
-    'Low': { alt: 'Low Serverity', src: SeverityLow, ...imgStyles },
-    'Medium': { alt: 'Medium Serverity', src: SeverityMedium, ...imgStyles },
-    'High': { alt: 'High Serverity', src: SeverityHigh, ...imgStyles },
-    'Critical': { alt: 'Critical Serverity', src: SeverityCritical, ...imgStyles },
-    'Unknown': { alt: 'Unknown Serverity', src: SeverityUnknown, ...imgStyles },
+    low: { alt: 'Low Serverity', src: SeverityLow },
+    medium: { alt: 'Medium Serverity', src: SeverityMedium },
+    high: { alt: 'High Serverity', src: SeverityHigh },
+    critical: {
+      alt: 'Critical Serverity',
+      src: SeverityCritical,
+    },
+    unknown: { alt: 'Unknown Serverity', src: SeverityUnknown },
   };
 
-  let imgProps = propsMapping[props.severity] || propsMapping['Unknown'];
-  return <img {...imgProps} />;
-}
+  const imgProps = propsMapping[props.severity] || propsMapping.unknown;
+  // eslint-disable-next-line jsx-a11y/alt-text
+  return <img {...imgProps} className="severity-img" />;
+};
+
+RuleSeverity.propTypes = {
+  severity: PropTypes.string.isRequired,
+};
 
 export default RuleSeverity;
