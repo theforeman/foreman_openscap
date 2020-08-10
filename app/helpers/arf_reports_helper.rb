@@ -35,20 +35,6 @@ module ArfReportsHelper
     "class='label label-#{tag} result-filter-tag'".html_safe
   end
 
-  def severity_tag(level)
-    tag = case level.downcase.to_sym
-          when :low
-            "info"
-          when :medium
-            "warning"
-          when :high
-            "danger"
-          else
-            "default"
-          end
-    "class='label label-#{tag}'".html_safe
-  end
-
   def multiple_actions_arf_report
     actions = [
       [_('Delete reports'), delete_multiple_arf_reports_path]
