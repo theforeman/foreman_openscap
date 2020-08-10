@@ -1,3 +1,11 @@
+<% content_for(:javascripts) do %>
+  <%= webpacked_plugins_js_for :foreman_openscap %>
+<% end %>
+<% content_for(:stylesheets) do %>
+  <%= webpacked_plugins_css_for :foreman_openscap %>
+<% end %>
+
+
 <table id='report_log' class="<%= table_css_classes %>">
   <thead>
     <tr>
@@ -16,7 +24,7 @@
           <%= render :partial => 'detailed_message', :locals => { :message => log.message } %>
         </td>
         <td><%= log.source %></td>
-        <td><span <%= severity_tag log.message.severity %>><%= h log.message.severity %></span></td>
+        <td><%= react_component 'RuleSeverity', { :severity => log.message.severity } %></td>
         <td><%= host_search_by_rule_result_buttons(log.source) %></td>
       </tr>
     <% end %>

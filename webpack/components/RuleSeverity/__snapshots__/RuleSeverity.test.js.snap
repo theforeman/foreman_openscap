@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RuleSeverity should render for Critical severity 1`] = `
+<img
+  alt="Critical Serverity"
+  className="severity-img-scale"
+  src={[Function]}
+/>
+`;
+
+exports[`RuleSeverity should render for High severity 1`] = `
+<img
+  alt="High Serverity"
+  className="severity-img-scale"
+  src={[Function]}
+/>
+`;
+
+exports[`RuleSeverity should render for Low severity 1`] = `
+<img
+  alt="Low Serverity"
+  className="severity-img-scale"
+  src={[Function]}
+/>
+`;
+
+exports[`RuleSeverity should render for Medium severity 1`] = `
+<img
+  alt="Medium Serverity"
+  className="severity-img-scale"
+  src={[Function]}
+/>
+`;
+
+exports[`RuleSeverity should render for foo severity 1`] = `
+<img
+  alt="Unknown Serverity"
+  className="severity-img-scale"
+  src={[Function]}
+/>
+`;

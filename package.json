@@ -1,0 +1,40 @@
+{
+  "name": "foreman_openscap",
+  "version": "0.1.0",
+  "description": "Foreman plug-in for managing security compliance reports",
+  "main": "index.js",
+  "scripts": {
+    "lint": "tfm-lint --plugin -d /webpack",
+    "test": "tfm-test --plugin --config jest.config.js",
+    "test:watch": "tfm-test --plugin --watchAll --config jest.config.js",
+    "test:current": "tfm-test --plugin --watch --config jest.config.js",
+    "publish-coverage": "tfm-publish-coverage",
+    "stories": "tfm-stories --plugin",
+    "stories:build": "tfm-build-stories --plugin",
+    "create-react-component": "yo react-domain"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theforeman/foreman_openscap.git"
+  },
+  "bugs": {
+    "url": "https://projects.theforeman.org/projects/foreman_openscap/issues"
+  },
+  "peerDependencies": {
+    "@theforeman/vendor": ">= 4.13.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.0",
+    "@theforeman/builder": "^4.13.2",
+    "@theforeman/eslint-plugin-foreman": "4.13.2",
+    "@theforeman/stories": "^4.13.2",
+    "@theforeman/test": "^4.13.2",
+    "@theforeman/vendor-dev": "^4.13.2",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^6.7.2",
+    "prettier": "^1.13.5",
+    "stylelint-config-standard": "^18.0.0",
+    "jest-svg-transformer": "^1.0.0",
+    "stylelint": "^9.3.0"
+  }
+}
