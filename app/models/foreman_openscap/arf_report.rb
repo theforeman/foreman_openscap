@@ -4,6 +4,7 @@ module ForemanOpenscap
   class ArfReport < ::Report
     include Taxonomix
     include OpenscapProxyExtensions
+    graphql_type '::Types::ArfReport'
 
     # attr_accessible :host_id, :reported_at, :status, :metrics
     METRIC = %w[passed othered failed].freeze
