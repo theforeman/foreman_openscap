@@ -8,6 +8,10 @@ module ForemanOpenscap
       N_('Compliance')
     end
 
+    def status_link
+      host.arf_reports_path(:search => "host = #{host.name}")
+    end
+
     def self.bit_mask(status)
       "#{ArfReport::BIT_NUM * ArfReport::METRIC.index(status)} & #{ArfReport::MAX}"
     end
