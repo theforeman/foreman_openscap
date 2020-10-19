@@ -122,12 +122,20 @@ module ForemanOpenscap
                      :resource_type => 'SmartProxy'
           permission :view_oval_contents, { 'api/v2/compliance/oval_contents' => %i[index show] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :edit_oval_contents, { 'api/v2/compliance/oval_contents' => [:update] },
+          permission :edit_oval_contents, { 'api/v2/compliance/oval_contents' => %i[update] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
           permission :create_oval_contents, { 'api/v2/compliance/oval_contents' => %i[create] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :destroy_oval_contents, { 'api/v2/compliance/oval_contents' => [:destroy] },
+          permission :destroy_oval_contents, { 'api/v2/compliance/oval_contents' => %i[destroy] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
+          permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => %i[update] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :create_oval_policies, { 'api/v2/compliance/oval_policies' => %i[create] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :destroy_oval_policies, { 'api/v2/compliance/oval_policies' => %i[destroy] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
         end
 
         role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies],

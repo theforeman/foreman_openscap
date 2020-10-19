@@ -4,6 +4,8 @@ module ForemanOpenscap
     audited
     include Authorizable
     include Taxonomix
+    include PolicyCommon
+
     attr_writer :current_step, :wizard_initiated
 
     belongs_to :scap_content
@@ -36,7 +38,8 @@ module ForemanOpenscap
     validates :scap_content_id, presence: true, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
     validate :matching_content_profile, if: Proc.new { |policy| policy.should_validate?('SCAP Content') }
 
-    validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :valid_tailoring, :valid_tailoring_profile, :no_mixed_deployments
+    validate :valid_tailoring, :valid_tailoring_profile, :no_mixed_deployments
+    validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :if => Proc.new { |policy| policy.should_validate?('Schedule') }
     after_save :assign_policy_to_hostgroups
     # before_destroy - ensure that the policy has no hostgroups, or classes
 
@@ -262,28 +265,6 @@ module ForemanOpenscap
     def weekday_number
       # 0 is sunday, 1 is monday in cron, while DAYS_INTO_WEEK has 0 as monday, 6 as sunday
       (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday] + 1) % 7
-    end
-
-    def cron_line_split
-      cron_line.to_s.split(' ')
-    end
-
-    def valid_cron_line
-      if period == 'custom' && should_validate?('Schedule')
-        errors.add(:cron_line, _("does not consist of 5 parts separated by space")) unless cron_line_split.size == 5
-      end
-    end
-
-    def valid_weekday
-      if period == 'weekly' && should_validate?('Schedule')
-        errors.add(:weekday, _("is not a valid value")) unless Date::DAYNAMES.map(&:downcase).include? weekday
-      end
-    end
-
-    def valid_day_of_month
-      if period == 'monthly' && should_validate?('Schedule')
-        errors.add(:day_of_month, _("must be between 1 and 31")) if !day_of_month || (day_of_month < 1 || day_of_month > 31)
-      end
     end
 
     def valid_tailoring
