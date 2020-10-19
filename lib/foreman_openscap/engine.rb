@@ -120,6 +120,15 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :view_openscap_proxies, { :openscap_proxies => [:openscap_spool] },
                      :resource_type => 'SmartProxy'
+
+          permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => [:update] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :create_oval_policies, { 'api/v2/compliance/oval_policies' => [:create] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
+          permission :destroy_oval_policies, { 'api/v2/compliance/oval_policies' => [:destroy] },
+                     :resource_type => 'ForemanOpenscap::OvalPolicy'
         end
 
         role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies],
