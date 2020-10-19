@@ -91,6 +91,7 @@ Rails.application.routes.draw do
              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
 
         resources :oval_contents, :except => %i[new edit]
+        resources :oval_policies, :except => %i[new edit]
       end
     end
   end
