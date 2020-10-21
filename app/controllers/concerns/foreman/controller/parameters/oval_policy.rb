@@ -6,6 +6,8 @@ module Foreman::Controller::Parameters::OvalPolicy
       [:description, :name, :period,
        :weekday, :day_of_month, :cron_line,
        :oval_content_id,
+       :host_ids => [],
+       :hostgroup_ids => [],
        :location_ids => [], :organization_ids => []]
     end
 

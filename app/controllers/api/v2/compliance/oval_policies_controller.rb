@@ -28,6 +28,8 @@ module Api::V2
           param :weekday, String, :desc => N_('OVAL Policy schedule weekday (only if period == "weekly")')
           param :day_of_month, Integer, :desc => N_('OVAL Policy schedule day of month (only if period == "monthly")')
           param :cron_line, String, :desc => N_('OVAL Policy schedule cron line (only if period == "custom")')
+          param :host_ids, Array, :desc => N_('Array of host IDs')
+          param :hostgroup_ids, Array, :desc => N_('Array of hostgroup IDs')
           param_group :taxonomies, ::Api::V2::BaseController
         end
       end

@@ -204,6 +204,16 @@ module ForemanOpenscap
           base_scope.preload(:policies)
         end
 
+        register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
+          configure_host do
+            extend_model ForemanOpenscap::OvalFacetHostExtensions
+          end
+
+          configure_hostgroup(ForemanOpenscap::Hostgroup::OvalFacet) do
+            extend_model ForemanOpenscap::OvalFacetHostgroupExtensions
+          end
+        end
+
         describe_host do
           multiple_actions_provider :compliance_host_multiple_actions
           overview_buttons_provider :compliance_host_overview_button
@@ -220,13 +230,13 @@ module ForemanOpenscap
     # Include concerns in this config.to_prepare block
     config.to_prepare do
       ::Api::V2::HostsController.send(:include, ForemanOpenscap::Api::V2::HostsControllerExtensions)
-      Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
-      Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
-      Host::Managed.send(:prepend, ForemanOpenscap::HostExtensions)
+      ::Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
+      ::Host::Managed.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
+      ::Host::Managed.send(:prepend, ForemanOpenscap::HostExtensions)
       HostsHelper.send(:prepend, ForemanOpenscap::HostsHelperExtensions)
-      Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
-      Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
-      Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
+      ::Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyExtensions)
+      ::Hostgroup.send(:include, ForemanOpenscap::OpenscapProxyCoreExtensions)
+      ::Hostgroup.send(:include, ForemanOpenscap::HostgroupExtensions)
       SmartProxy.send(:include, ForemanOpenscap::SmartProxyExtensions)
       HostsController.send(:prepend, ForemanOpenscap::HostsControllerExtensions)
       HostsController.send(:include, ForemanOpenscap::HostsAndHostgroupsControllerExtensions)

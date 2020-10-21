@@ -2,6 +2,8 @@ module ForemanOpenscap
   module HostgroupExtensions
     extend ActiveSupport::Concern
 
+    include InheritedPolicies
+
     included do
       has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset", dependent: :destroy
       has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
@@ -9,11 +11,7 @@ module ForemanOpenscap
     end
 
     def inherited_policies
-      return [] unless parent
-
-      ancestors.inject([]) do |policies, hostgroup|
-        policies += hostgroup.policies
-      end.uniq
+      find_inherited_policies :policies
     end
 
     def openscap_proxy
