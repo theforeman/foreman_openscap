@@ -16,4 +16,10 @@ FactoryBot.define do
     openscap_proxy { SmartProxy.unscoped.with_features('Openscap').first || FactoryBot.create(:openscap_proxy) }
     policies { [] }
   end
+
+  factory :oval_facet, :class => ForemanOpenscap::Host::OvalFacet
+
+  factory :oval_host, :class => Host::Managed do
+    sequence(:name) { |n| "host#{n}" }
+  end
 end
