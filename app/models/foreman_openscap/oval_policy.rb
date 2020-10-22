@@ -28,6 +28,14 @@ module ForemanOpenscap
       self.hostgroup_oval_facets = facets_to_assign(hostgroup_ids, :hostgroup_id, ForemanOpenscap::Hostgroup::OvalFacet)
     end
 
+    def to_enc
+      {
+        :id => id,
+        :oval_content_path => "/var/lib/openscap/oval_content/#{oval_content.digest}.oval.xml.bz2",
+        :download_path => "/compliance/oval_policies/#{id}/oval_content/#{oval_content.digest}"
+      }.merge(period_enc).with_indifferent_access
+    end
+
     private
 
     def facets_to_assign(ids, key, facet_class)

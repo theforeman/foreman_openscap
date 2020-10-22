@@ -22,7 +22,6 @@ module ForemanOpenscap
     scoped_search :relation => :scap_content_profile, :on => :title, :rename => 'profile', :complete_value => true
     scoped_search :relation => :tailoring_file, :on => :name, :rename => 'tailoring_file', :complete_value => true
     scoped_search :relation => :tailoring_file_profile, :on => :title, :rename => 'tailoring_file_profile', :complete_value => true
-    before_validation :update_period_attrs
 
     def self.deploy_by_variants
       %w[puppet ansible manual]
@@ -99,7 +98,7 @@ module ForemanOpenscap
     end
 
     def hosts
-      Host.where(:id => host_ids)
+      ::Host.where(:id => host_ids)
     end
 
     def hosts=(hosts)
@@ -216,17 +215,6 @@ module ForemanOpenscap
       @wizard_initiated
     end
 
-    def update_period_attrs
-      case period
-      when 'monthly'
-        erase_period_attrs(%w[cron_line weekday])
-      when 'weekly'
-        erase_period_attrs(%w[cron_line day_of_month])
-      when 'custom'
-        erase_period_attrs(%w[weekday day_of_month])
-      end
-    end
-
     private
 
     def html_error_message(message)
@@ -234,37 +222,6 @@ module ForemanOpenscap
         message <<
         '</strong></div>'
       error_message.html_safe
-    end
-
-    def erase_period_attrs(attrs)
-      attrs.each { |attr| self.public_send("#{attr}=", nil) }
-    end
-
-    def period_enc
-      # get crontab expression as an array (minute hour day_of_month month day_of_week)
-      cron_parts = case period
-                   when 'weekly'
-                     ['0', '1', '*', '*', weekday_number.to_s]
-                   when 'monthly'
-                     ['0', '1', day_of_month.to_s, '*', '*']
-                   when 'custom'
-                     cron_line_split
-                   else
-                     raise 'invalid period specification'
-                   end
-
-      {
-        'minute'   => cron_parts[0],
-        'hour'     => cron_parts[1],
-        'monthday' => cron_parts[2],
-        'month'    => cron_parts[3],
-        'weekday'  => cron_parts[4],
-      }
-    end
-
-    def weekday_number
-      # 0 is sunday, 1 is monday in cron, while DAYS_INTO_WEEK has 0 as monday, 6 as sunday
-      (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday] + 1) % 7
     end
 
     def valid_tailoring

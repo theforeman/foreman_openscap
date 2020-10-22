@@ -128,7 +128,7 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::OvalContent'
           permission :destroy_oval_contents, { 'api/v2/compliance/oval_contents' => %i[destroy] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show] },
+          permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show oval_content] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
           permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => %i[update assign_hosts assign_hostgroups] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'

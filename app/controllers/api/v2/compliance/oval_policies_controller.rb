@@ -1,10 +1,16 @@
+require 'base64'
+
 module Api::V2
   module Compliance
     class OvalPoliciesController < ::Api::V2::BaseController
+      include Foreman::Controller::SmartProxyAuth
       include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
       include Foreman::Controller::Parameters::OvalPolicy
 
+      add_smart_proxy_filters %i[oval_content], :features => 'Openscap'
+
       before_action :find_resource, :except => %w[index create]
+      skip_after_action :log_response_body, :only => %i[oval_content]
 
       api :GET, '/compliance/oval_policies', N_('List OVAL Policies')
       param_group :search_and_pagination, ::Api::V2::BaseController
@@ -71,10 +77,22 @@ module Api::V2
         assign _('hosts'), params["host_ids"], Host
       end
 
+      api :GET, '/compliance/oval_policies/:id/oval_content', N_("Show a policy's SCAP content")
+      param :id, :identifier, :required => true
+
+      def oval_content
+        @oval_content = @oval_policy.oval_content
+        send_data Base64.decode64(@oval_content.scap_file),
+                  :type     => 'application/x-bzip2',
+                  :filename => @oval_content.original_filename
+      end
+
       def action_permission
         case params[:action]
         when 'assign_hostgroups', 'assign_hosts'
           :edit
+        when 'oval_content'
+          :show
         else
           super
         end

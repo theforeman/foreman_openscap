@@ -1,4 +1,5 @@
 require 'test_plugin_helper'
+require 'base64'
 
 class Api::V2::Compliance::OvalPoliciesControllerTest < ActionController::TestCase
   setup do
@@ -129,10 +130,23 @@ class Api::V2::Compliance::OvalPoliciesControllerTest < ActionController::TestCa
     assert_empty hg.oval_policies
   end
 
+  test "should show oval content" do
+    file = Base64.encode64(read_oval_content('ansible-2.9.oval.xml.bz2'))
+    oval_content = FactoryBot.create(:oval_content, :scap_file => file)
+    policy = FactoryBot.create(:oval_policy, :oval_content => oval_content)
+
+    get :oval_content, :params => { :id => policy.id }
+    assert response.body, file
+  end
+
   def setup_ansible
     @ansible_role = FactoryBot.create(:ansible_role, :name => @config.ansible_role_name)
     @port_key = FactoryBot.create(:ansible_variable, :key => @config.port_param, :ansible_role => @ansible_role)
     @server_key = FactoryBot.create(:ansible_variable, :key => @config.server_param, :ansible_role => @ansible_role)
     FactoryBot.create(:ansible_variable, :key => @config.policies_param, :ansible_role => @ansible_role)
+  end
+
+  def read_oval_content(file_name)
+    File.read "#{ForemanOpenscap::Engine.root}/test/files/oval_contents/#{file_name}"
   end
 end

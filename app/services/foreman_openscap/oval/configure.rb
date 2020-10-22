@@ -63,12 +63,12 @@ module ForemanOpenscap
       end
 
       def model_to_s(model)
-        model == Hostgroup ? 'hostgroup' : 'host'
+        model.is_a?(Hostgroup) ? 'hostgroup' : 'host'
       end
 
       def model_to_check(model)
         check = SetupCheck.new(
-          :title => (_("Was #{model_name} #{model.name} configured successfully?") % { :model_name => model_to_s(model), :name => model.name }),
+          :title => (_("Was %{model_name} %{name} configured successfully?") % { :model_name => model_to_s(model), :name => model.name }),
           :errors => model.errors.to_h
         )
         model.errors.any? ? check.fail! : check.pass!
