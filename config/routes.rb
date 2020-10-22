@@ -95,6 +95,7 @@ Rails.application.routes.draw do
           member do
             post 'assign_hostgroups'
             post 'assign_hosts'
+            get 'oval_content'
           end
         end
       end
