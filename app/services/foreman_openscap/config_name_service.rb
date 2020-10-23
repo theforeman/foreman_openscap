@@ -4,7 +4,7 @@ module ForemanOpenscap
 
     def initialize
       @configs = [
-        ForemanOpenscap::ClientConfig::Ansible.new,
+        ForemanOpenscap::ClientConfig::Ansible.new(Policy),
         ForemanOpenscap::ClientConfig::Puppet.new,
         ForemanOpenscap::ClientConfig::Manual.new
       ]

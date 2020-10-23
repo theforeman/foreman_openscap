@@ -130,7 +130,7 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::OvalContent'
           permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => %i[update] },
+          permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => %i[update assign_hosts assign_hostgroups] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
           permission :create_oval_policies, { 'api/v2/compliance/oval_policies' => %i[create] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
@@ -185,7 +185,7 @@ module ForemanOpenscap
 
         proxy_description = N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.')
 
-        smart_proxy_for Hostgroup, :openscap_proxy,
+        smart_proxy_for ::Hostgroup, :openscap_proxy,
                         :feature => 'Openscap',
                         :label => N_('OpenSCAP Proxy'),
                         :description => proxy_description,

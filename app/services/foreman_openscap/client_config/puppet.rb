@@ -30,7 +30,8 @@ module ForemanOpenscap
           :config_item_class_name => 'Puppetclass',
           :override_method_name => 'class_params',
           :msg_name => _('Puppet class'),
-          :lookup_key_plural_name => _('Smart Class Parameters')
+          :lookup_key_plural_name => _('Smart Class Parameters'),
+          :policies_param_default_value => ds_policies_param_default_value
         )
       end
     end
