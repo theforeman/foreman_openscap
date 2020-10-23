@@ -2,8 +2,14 @@ module ForemanOpenscap
   module ClientConfig
     class Ansible < Base
       delegate :ansible_role_name, :to => :constants
+      attr_reader :constants
 
       alias config_item_name ansible_role_name
+
+      def initialize(policy_class)
+        raise "Unknown policy class, expected one of: #{policy_types.map(&to_s).join(', ')}" unless policy_types.include?(policy_class)
+        initialize_constants(policy_class)
+      end
 
       def type
         :ansible
@@ -21,17 +27,41 @@ module ForemanOpenscap
         }
       end
 
-      def constants
-        OpenStruct.new(
+      def ansible_role_missing_msg
+        _("theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again.")
+      end
+
+      private
+
+      def policy_types
+        [ForemanOpenscap::Policy, ForemanOpenscap::OvalPolicy]
+      end
+
+      def initialize_constants(policy_class)
+        base_constants = {
           :server_param => 'foreman_scap_client_server',
           :port_param => 'foreman_scap_client_port',
-          :policies_param => 'foreman_scap_client_policies',
           :ansible_role_name => 'theforeman.foreman_scap_client',
           :config_item_class_name => 'AnsibleRole',
           :override_method_name => 'ansible_variables',
-          :msg_name => _('Ansible role'),
-          :lookup_key_plural_name => _('Ansible variables')
-        )
+        }
+
+
+        if policy_class == ::ForemanOpenscap::Policy
+          @constants = OpenStruct.new(base_constants.merge(
+            :policies_param => 'foreman_scap_client_policies',
+            :policies_param_default_value => ds_policies_param_default_value,
+            :msg_name => _('Ansible role'),
+            :lookup_key_plural_name => _('Ansible variables')
+          ))
+        end
+
+        if policy_class == ::ForemanOpenscap::OvalPolicy
+          @constants = OpenStruct.new(base_constants.merge(
+            :policies_param => 'foreman_scap_client_oval_policies',
+            :policies_param_default_value => '<%= @host.oval_policies_enc %>'
+          ))
+        end
       end
     end
   end

@@ -3,7 +3,7 @@ module ForemanOpenscap
     class Base
       delegate :server_param, :port_param, :policies_param, :config_item_name,
                :config_item_class_name, :override_method_name, :msg_name,
-               :lookup_key_plural_name, :to => :constants
+               :lookup_key_plural_name, :policies_param_default_value, :to => :constants
 
       def type
         raise NotImplementedError
@@ -41,6 +41,10 @@ module ForemanOpenscap
         return scope.find_by :name => config_item_name if scope.respond_to?(:find_by)
         # all_puppetclasses, all_ansible_roles methods return Array, not ActiveRecord::Relation
         scope.find { |item| item.name == config_item_name }
+      end
+
+      def ds_policies_param_default_value
+        '<%= @host.policies_enc %>'
       end
     end
   end
