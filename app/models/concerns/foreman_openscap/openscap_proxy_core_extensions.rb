@@ -33,10 +33,6 @@ module ForemanOpenscap
       end
     end
 
-    def inherited_openscap_proxy_id
-      inherited_ancestry_attribute(:openscap_proxy_id)
-    end
-
     private
 
     def scap_client_lookup_values_for(lookup_keys, model_match)
