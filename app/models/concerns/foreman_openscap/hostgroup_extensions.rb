@@ -22,18 +22,10 @@ module ForemanOpenscap
     end
 
     def inherited_openscap_proxy_id
-      inherited_ancestry_attribute(:openscap_proxy_id)
-    end
-
-    unless defined?(Katello::System)
-      private
-
-      def inherited_ancestry_attribute(attribute)
-        if ancestry.present?
-          self[attribute] || self.class.sort_by_ancestry(ancestors.where("#{attribute} is not NULL")).last.try(attribute)
-        else
-          self.send(attribute)
-        end
+      if ancestry.present?
+        self[:openscap_proxy_id] || self.class.sort_by_ancestry(ancestors.where.not(openscap_proxy_id: nil)).last.try(:openscap_proxy_id)
+      else
+        self.send(:openscap_proxy_id)
       end
     end
   end
