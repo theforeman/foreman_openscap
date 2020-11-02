@@ -125,11 +125,9 @@ module ForemanOpenscap
               msg = Log.where(:source_id => src.id).order(:id => :desc).first.message
               update_msg_with_changes(msg, log)
             else
-              digest = Digest::SHA1.hexdigest(log[:title])
-              if (msg = Message.find_by(:digest => digest))
+              if (msg = Message.find_by(:value => log[:title]))
                 msg.attributes = {
                   :value => N_(log[:title]),
-                  :digest => digest,
                   :severity => log[:severity],
                   :description => newline_to_space(log[:description]),
                   :rationale => newline_to_space(log[:rationale]),
@@ -137,7 +135,6 @@ module ForemanOpenscap
                 }
               else
                 msg = Message.new(:value => N_(log[:title]),
-                                  :digest => digest,
                                   :severity => log[:severity],
                                   :description => newline_to_space(log[:description]),
                                   :rationale => newline_to_space(log[:rationale]),
@@ -233,7 +230,6 @@ module ForemanOpenscap
       msg.value = incoming_data['title']
 
       return unless msg.changed?
-      msg.digest = Digest::SHA1.hexdigest(msg.value) if msg.value_changed?
       msg.save
     end
   end
