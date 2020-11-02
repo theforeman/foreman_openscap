@@ -139,7 +139,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
                                      :date => dates[1].to_i,
                                      :openscap_proxy_name => @proxy.name),
          :session => set_session_user
-    assert_equal Message.where(:digest => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.digest).count, 1
+    assert_equal Message.where(:value => ForemanOpenscap::ArfReport.unscoped.last.logs.first.message.value).count, 1
   end
 
   test "should recognize changes in messages" do
@@ -187,12 +187,12 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
 
     reports = ForemanOpenscap::ArfReport.unscoped.all
     assert_equal reports.count, 2
-
-    new_msgs = Message.where(:value => "Disable Firefox Configuration File ROT-13 Encoding Changed For Test")
+    msg_value = "Disable Firefox Configuration File ROT-13 Encoding Changed For Test"
+    new_msgs = Message.where(:value => msg_value)
     old_msgs = Message.where(:value => "Disable Firefox Configuration File ROT-13 Encoding")
     assert_equal new_msgs.count, 1
     assert_equal old_msgs.count, 0
-    assert_equal new_msgs.first.digest, Digest::SHA1.hexdigest("Disable Firefox Configuration File ROT-13 Encoding Changed For Test")
+    assert_equal new_msgs.first.value, msg_value
   end
 
   test "should find reports by policy name" do
