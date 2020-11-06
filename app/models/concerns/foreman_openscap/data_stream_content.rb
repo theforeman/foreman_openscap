@@ -1,18 +1,11 @@
 module ForemanOpenscap
   module DataStreamContent
-    require 'digest/sha2'
-
     extend ActiveSupport::Concern
 
     included do
-      validates :digest, :presence => true
-      validates :scap_file, :presence => true
-
       validates_with ForemanOpenscap::DataStreamValidator
 
       after_save :create_profiles, :if => lambda { |ds_content| ds_content.scap_file_previously_changed? }
-
-      before_validation :redigest, :if => lambda { |ds_content| ds_content.persisted? && ds_content.scap_file_changed? }
       before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:policies)
     end
 
@@ -22,10 +15,6 @@ module ForemanOpenscap
         available.available?
       end.try(:url)
       @proxy_url
-    end
-
-    def digest
-      self[:digest] ||= Digest::SHA256.hexdigest(scap_file.to_s)
     end
 
     def create_profiles
@@ -39,12 +28,6 @@ module ForemanOpenscap
       return ScapContentProfile.create(:profile_id => profile_id, :title => title, "#{self.class.to_s.demodulize.underscore}_id".to_sym => id) unless profile
       profile.update(:title => title) unless profile.title == title
       profile
-    end
-
-    private
-
-    def redigest
-      self[:digest] = Digest::SHA256.hexdigest(scap_file.to_s)
     end
   end
 end

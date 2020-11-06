@@ -4,6 +4,7 @@ module ForemanOpenscap
     include Authorizable
     include Taxonomix
     include DataStreamContent
+    include ScapFileContent
 
     has_many :policies
     has_many :scap_content_profiles, :dependent => :destroy
