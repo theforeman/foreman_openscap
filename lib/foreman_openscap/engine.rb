@@ -41,8 +41,8 @@ module ForemanOpenscap
       Apipie.configuration.checksum_path += ['/compliance/']
     end
 
-    initializer 'foreman_openscap.filter_report_body' do |app|
-      app.config.filter_parameters << :logs if app.config.filter_parameters
+    initializer 'foreman_openscap.filter_large_params' do |app|
+      app.config.filter_parameters += [:logs, :scap_file] if app.config.filter_parameters
     end
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|

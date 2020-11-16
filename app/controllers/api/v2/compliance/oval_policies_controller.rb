@@ -22,6 +22,7 @@ module Api::V2
       def_param_group :oval_policy do
         param :oval_policy, Hash, :required => true, :action_aware => true do
           param :name, String, :required => true, :desc => N_('OVAL Policy name')
+          param :oval_content_id, Integer, :required => true, :desc => N_('Policy OVAL content ID')
           param :description, String, :desc => N_('OVAL Policy description')
           param :period, String, :desc => N_('OVAL Policy schedule period (weekly, monthly, custom)')
           param :weekday, String, :desc => N_('OVAL Policy schedule weekday (only if period == "weekly")')

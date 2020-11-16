@@ -5,6 +5,7 @@ module Foreman::Controller::Parameters::OvalPolicy
     def filter_params_list
       [:description, :name, :period,
        :weekday, :day_of_month, :cron_line,
+       :oval_content_id,
        :location_ids => [], :organization_ids => []]
     end
 
