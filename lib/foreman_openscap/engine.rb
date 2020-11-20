@@ -42,7 +42,7 @@ module ForemanOpenscap
     end
 
     initializer 'foreman_openscap.filter_large_params' do |app|
-      app.config.filter_parameters += [:logs, :scap_file] if app.config.filter_parameters
+      app.config.filter_parameters += [:logs, :scap_file, :oval_results] if app.config.filter_parameters
     end
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
