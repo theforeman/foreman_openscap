@@ -98,6 +98,7 @@ Rails.application.routes.draw do
             get 'oval_content'
           end
         end
+        post 'oval_reports/:cname/:oval_policy_id/:date', :constraints => { :cname => /[^\/]+/ }, :to => 'oval_reports#create'
       end
     end
   end
