@@ -18,7 +18,7 @@ module Api
           if @host.errors.any?
             upload_fail host.errors.to_sentence
           else
-            # @host.refresh_statuses([HostStatus.find_status_by_humanized_name("oval")])
+            @host.refresh_statuses([HostStatus.find_status_by_humanized_name("oval")])
             render :json => { :result => :ok }
           end
         end
