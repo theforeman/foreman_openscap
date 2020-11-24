@@ -22,4 +22,9 @@ FactoryBot.define do
   factory :oval_host, :class => Host::Managed do
     sequence(:name) { |n| "host#{n}" }
   end
+
+  factory :cve, :class => ForemanOpenscap::Cve do
+    sequence(:ref_id) { |n| "CVE-#{n}" }
+    sequence(:ref_url) { |n| "https://access.redhat.com/security/cve/CVE-#{n}" }
+  end
 end

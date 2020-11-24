@@ -52,6 +52,7 @@ module ForemanOpenscap
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
         register_custom_status ForemanOpenscap::ComplianceStatus
+        register_custom_status ForemanOpenscap::OvalStatus
 
         # Add permissions
         security_block :foreman_openscap do
