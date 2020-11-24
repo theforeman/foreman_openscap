@@ -180,19 +180,6 @@ module ForemanOpenscap
                         :description => proxy_description,
                         :api_description => N_('ID of OpenSCAP Proxy')
 
-        if ForemanOpenscap.with_remote_execution?
-          options = {
-            :description => N_("Run OpenSCAP scan"),
-            :provided_inputs => "policies"
-          }
-
-          if Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
-            options[:host_action_button] = true
-          end
-
-          RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
-        end
-
         add_controller_action_scope('Api::V2::HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
         end
@@ -231,6 +218,19 @@ module ForemanOpenscap
       Log.send(:include, ForemanOpenscap::LogExtensions)
       BookmarkControllerValidator.send(:prepend, ForemanOpenscap::BookmarkControllerValidatorExtensions)
       ProxyStatus.status_registry.add(ProxyStatus::OpenscapSpool)
+
+      if ForemanOpenscap.with_remote_execution?
+        options = {
+          :description => N_("Run OpenSCAP scan"),
+          :provided_inputs => "policies"
+        }
+
+        if Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
+          options[:host_action_button] = true
+        end
+
+        RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
+      end
     end
 
     rake_tasks do
