@@ -11,7 +11,7 @@ module ForemanOpenscap
       return unless @policy.deploy_by && Policy.deploy_by_variants.include?(@policy.deploy_by)
       config = @name_service.config_for @policy.deploy_by.to_sym
 
-      override config
+      super config
     end
 
     def handle_config_not_available(config)
@@ -39,19 +39,19 @@ module ForemanOpenscap
       false
     end
 
-    def handle_server_param_override_error(config, param)
-      handle_param_override_error config, param
+    def handle_server_param_override(config, param)
+      handle_param_override config, param
     end
 
-    def handle_port_param_override_error(config, param)
-      handle_param_override_error config, param
+    def handle_port_param_override(config, param)
+      handle_param_override config, param
     end
 
-    def handle_policies_param_override_error(config, param)
-      handle_param_override_error config, param
+    def handle_policies_param_override(config, param)
+      handle_param_override config, param
     end
 
-    def handle_param_override_error(config, param)
+    def handle_param_override(config, param)
       if param.changed? && !param.save
         @policy.errors[:base] <<
           _('Failed to save when overriding parameters for %{config_tool}, cause: %{errors}') %
