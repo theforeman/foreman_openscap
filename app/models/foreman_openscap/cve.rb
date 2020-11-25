@@ -4,5 +4,9 @@ module ForemanOpenscap
     has_many :hosts, :through => :host_cves
 
     validates :ref_id, :ref_url, :presence => true, :uniqueness => true
+
+    class Jail < ::Safemode::Jail
+      allow :ref_id, :ref_url
+    end
   end
 end

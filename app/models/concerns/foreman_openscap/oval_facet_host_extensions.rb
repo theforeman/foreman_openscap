@@ -2,7 +2,7 @@ module ForemanOpenscap
   module OvalFacetHostExtensions
     extend ActiveSupport::Concern
 
-    ::Host::Managed::Jail.allow :oval_policies_enc, :oval_policies_enc_raw
+    ::Host::Managed::Jail.allow :oval_policies_enc, :oval_policies_enc_raw, :cves
 
     included do
       has_many :oval_policies, :through => :oval_facet, :class_name => 'ForemanOpenscap::OvalPolicy'
