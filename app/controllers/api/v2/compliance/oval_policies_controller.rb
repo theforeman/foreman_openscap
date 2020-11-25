@@ -1,5 +1,3 @@
-require 'base64'
-
 module Api::V2
   module Compliance
     class OvalPoliciesController < ::Api::V2::BaseController
@@ -82,7 +80,7 @@ module Api::V2
 
       def oval_content
         @oval_content = @oval_policy.oval_content
-        send_data Base64.decode64(@oval_content.scap_file),
+        send_data @oval_content.scap_file,
                   :type     => 'application/x-bzip2',
                   :filename => @oval_content.original_filename
       end

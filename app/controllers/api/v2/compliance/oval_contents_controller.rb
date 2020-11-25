@@ -5,6 +5,7 @@ module Api::V2
       include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
 
       before_action :find_resource, :except => %w[index create]
+      skip_before_action :check_media_type, :only => [:create, :update]
 
       api :GET, '/compliance/oval_contents', N_('List OVAL contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
@@ -22,7 +23,7 @@ module Api::V2
       def_param_group :oval_content do
         param :oval_content, Hash, :required => true, :action_aware => true do
           param :title, String, :required => true, :desc => N_('OVAL content name')
-          param :scap_file, String, :required => true, :desc => N_('XML containing OVAL content')
+          param :scap_file, File, :required => true, :desc => N_('XML containing OVAL content')
           param :original_filename, String, :desc => N_('Original file name of the XML file')
           param_group :taxonomies, ::Api::V2::BaseController
         end

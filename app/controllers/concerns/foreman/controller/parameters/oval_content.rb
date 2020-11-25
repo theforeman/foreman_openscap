@@ -10,6 +10,13 @@ module Foreman::Controller::Parameters::OvalContent
   end
 
   def oval_content_params
-    self.class.oval_content_params_filter.filter_params(params, parameter_filter_context)
+    read_file_content self.class.oval_content_params_filter.filter_params(params, parameter_filter_context)
+  end
+
+  def read_file_content(params)
+    return params unless file = params[:scap_file]
+    content = file.read
+    filename = file.original_filename
+    params.merge(:scap_file => content, :original_filename => params[:original_filename] || filename)
   end
 end
