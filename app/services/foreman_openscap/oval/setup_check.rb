@@ -3,13 +3,6 @@ module ForemanOpenscap
     class SetupCheck
       attr_reader :result, :id
 
-      def initialize(id, title, fail_msg)
-        @id = id
-        @title = title
-        @fail_msg = fail_msg
-        @result = :skip
-      end
-
       def initialize(hash)
         @id = hash[:id]
         @title = hash[:title]

@@ -59,11 +59,11 @@ module ForemanOpenscap
                    end
 
       {
-        'minute'   => cron_parts[0],
-        'hour'     => cron_parts[1],
+        'minute' => cron_parts[0],
+        'hour' => cron_parts[1],
         'monthday' => cron_parts[2],
-        'month'    => cron_parts[3],
-        'weekday'  => cron_parts[4],
+        'month' => cron_parts[3],
+        'weekday' => cron_parts[4],
       }
     end
 

@@ -5,7 +5,7 @@ module Api::V2
       include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
 
       before_action :find_resource, :except => %w[index create]
-      skip_before_action :check_media_type, :only => [:create, :update]
+      skip_before_action :check_media_type, :only => %w[create update]
 
       api :GET, '/compliance/oval_contents', N_('List OVAL contents')
       param_group :search_and_pagination, ::Api::V2::BaseController

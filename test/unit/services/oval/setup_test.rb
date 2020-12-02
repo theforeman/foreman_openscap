@@ -1,7 +1,6 @@
 require 'test_plugin_helper'
 
 class ForemanOpenscap::Oval::SetupTest < ActiveSupport::TestCase
-
   setup do
     @config = ForemanOpenscap::ClientConfig::Ansible.new(::ForemanOpenscap::OvalPolicy)
   end
@@ -11,7 +10,7 @@ class ForemanOpenscap::Oval::SetupTest < ActiveSupport::TestCase
 
     check_collection = ForemanOpenscap::Oval::Setup.new.run
     assert check_collection.find_check(:foreman_ansible_present).failed?
-    assert check_collection.checks.select { |res| res.id != :foreman_ansible_present }.all?(&:skipped?)
+    assert check_collection.checks.reject { |res| res.id == :foreman_ansible_present }.all?(&:skipped?)
   end
 
   test "should fail check when Ansible role for client not imported" do
@@ -21,8 +20,9 @@ class ForemanOpenscap::Oval::SetupTest < ActiveSupport::TestCase
     assert check_collection.find_check(:foreman_ansible_present).passed?
     assert check_collection.find_check(:foreman_scap_client_role_present).failed?
 
-    assert check_collection.checks.select { |res| res.id != :foreman_ansible_present && res.id != :foreman_scap_client_role_present }
-      .all?(&:skipped?)
+    assert check_collection.checks
+                           .select { |res| res.id != :foreman_ansible_present && res.id != :foreman_scap_client_role_present }
+                           .all?(&:skipped?)
   end
 
   test "should fail check when required Ansible variables are not imported" do

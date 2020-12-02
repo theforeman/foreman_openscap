@@ -28,10 +28,10 @@ module ForemanOpenscap
         check_collection = without_proxy_to_check items_without_proxy
 
         unless oval_policy.save
-          return check_collection.add_check(model_to_check oval_policy)
+          return check_collection.add_check model_to_check(oval_policy)
         end
 
-        check_collection.merge(modify_items items_with_proxy, oval_policy, ansible_role, roles_method)
+        check_collection.merge modify_items(items_with_proxy, oval_policy, ansible_role, roles_method)
       end
 
       private
@@ -45,7 +45,7 @@ module ForemanOpenscap
           role_ids = item.ansible_role_ids + [ansible_role.id]
           item.ansible_role_ids = role_ids unless item.send(roles_method).include? ansible_role
           item.save if item.changed?
-          memo.add_check(model_to_check item)
+          memo.add_check model_to_check(item)
           add_overrides ansible_role.ansible_variables, item, @config
           memo
         end
