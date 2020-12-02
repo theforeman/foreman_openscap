@@ -22,17 +22,20 @@ class OvalHostTest < ActiveSupport::TestCase
   def setup_ansible
     @config = ForemanOpenscap::ClientConfig::Ansible.new(::ForemanOpenscap::OvalPolicy)
     @ansible_role = FactoryBot.create(:ansible_role, :name => @config.ansible_role_name)
-    @port_key = FactoryBot.create(:ansible_variable,
+    @port_key = FactoryBot.create(
+      :ansible_variable,
       :key => @config.port_param,
       :ansible_role => @ansible_role,
-      :override => true,
+      :override => true
     )
-    @server_key = FactoryBot.create(:ansible_variable,
+    @server_key = FactoryBot.create(
+      :ansible_variable,
       :key => @config.server_param,
       :ansible_role => @ansible_role,
       :override => true
     )
-    @policies_param = FactoryBot.create(:ansible_variable,
+    @policies_param = FactoryBot.create(
+      :ansible_variable,
       :key => @config.policies_param,
       :ansible_role => @ansible_role,
       :override => true,

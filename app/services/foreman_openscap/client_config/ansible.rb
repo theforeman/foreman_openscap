@@ -46,21 +46,24 @@ module ForemanOpenscap
           :override_method_name => 'ansible_variables',
         }
 
-
         if policy_class == ::ForemanOpenscap::Policy
-          @constants = OpenStruct.new(base_constants.merge(
-            :policies_param => 'foreman_scap_client_policies',
-            :policies_param_default_value => ds_policies_param_default_value,
-            :msg_name => _('Ansible role'),
-            :lookup_key_plural_name => _('Ansible variables')
-          ))
+          @constants = OpenStruct.new(
+            base_constants.merge(
+              :policies_param => 'foreman_scap_client_policies',
+              :policies_param_default_value => ds_policies_param_default_value,
+              :msg_name => _('Ansible role'),
+              :lookup_key_plural_name => _('Ansible variables')
+            )
+          )
         end
 
         if policy_class == ::ForemanOpenscap::OvalPolicy
-          @constants = OpenStruct.new(base_constants.merge(
-            :policies_param => 'foreman_scap_client_oval_policies',
-            :policies_param_default_value => '<%= @host.oval_policies_enc %>'
-          ))
+          @constants = OpenStruct.new(
+            base_constants.merge(
+              :policies_param => 'foreman_scap_client_oval_policies',
+              :policies_param_default_value => '<%= @host.oval_policies_enc %>'
+            )
+          )
         end
       end
     end
