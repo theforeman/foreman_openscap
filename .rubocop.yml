@@ -74,7 +74,6 @@ Style/RedundantSelf:
 Style/WordArray:
   Enabled: false
 
-
 Style/RescueModifier:
   Enabled: false
 
@@ -126,4 +125,25 @@ Rails/HelperInstanceVariable:
   Enabled: false
 
 Style/ConditionalAssignment:
+  Enabled: false
+
+Minitest/AssertEmpty:
+  Enabled: false
+
+Minitest/AssertIncludes:
+  Enabled: false
+
+Minitest/AssertMatch:
+  Enabled: false
+
+Minitest/RefuteEmpty:
+  Enabled: false
+
+Minitest/RefuteFalse:
+  Enabled: false
+
+Minitest/RefuteIncludes:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
   Enabled: false
