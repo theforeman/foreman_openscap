@@ -1,4 +1,5 @@
-<% title _("Edit Compliance Policy") %>
-<%= policy_breadcrumbs %>
+<% title _("Edit %s") % @policy.name %>
+<%= breadcrumbs(:resource_url => api_compliance_policies_path,
+                :name_field => 'name') %>
 
 <%= render :partial => "form" %>
