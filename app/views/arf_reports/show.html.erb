@@ -2,7 +2,7 @@
 <% javascript 'foreman_openscap/reports' %>
 <% stylesheet 'foreman_openscap/reports' %>
 
-<% title "#{@arf_report.host}" %>
+<% title @arf_report.host.to_s %>
 <%= arf_report_breadcrumbs %>
 
 <p class='ra'><%= reported_info @arf_report %></p>

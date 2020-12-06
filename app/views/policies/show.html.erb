@@ -1,4 +1,6 @@
-<%= policy_breadcrumbs %>
+<% title _("Details for Compliance Policy %s") % @policy.name %>
+<%= breadcrumbs(:resource_url => api_compliance_policies_path,
+                  :name_field => 'name') %>
 
 <div class="row">
   <iframe style="min-height: 800px" height="100%" width="100%" frameborder="0" src="<%= parse_policy_path(@policy) %>"></iframe>

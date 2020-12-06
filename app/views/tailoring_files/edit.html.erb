@@ -1,13 +1,5 @@
-<% title _("Edit Tailoring File") %>
+<% title _("Edit %s") % @tailoring_file.name %>
 <%= breadcrumbs(:resource_url => api_compliance_tailoring_files_path,
-                :items => [
-                  { :caption => _('Tailoring Files'),
-                    :url => url_for(tailoring_files_path)
-                  },
-                  { :caption => @tailoring_file.name,
-                    :url => (edit_tailoring_file_path(@tailoring_file) if authorized_for(hash_for_edit_tailoring_file_path(@tailoring_file)))
-                  }
-                ]
-              ) if @tailoring_file %>
+                :name_field => 'name') %>
 
 <%= render :partial => 'form' %>

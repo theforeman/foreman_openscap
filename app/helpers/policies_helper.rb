@@ -136,17 +136,4 @@ module PoliciesHelper
   def translate_steps(policy)
     policy.steps.map { |step| _(step) }
   end
-
-  def policy_breadcrumbs
-    if @policy
-      breadcrumbs(:resource_url => api_compliance_policies_path,
-                  :name_field => 'name',
-                  :items => [
-                    { :caption => _('Policies'),
-                      :url => url_for(policies_path) },
-                    { :caption => @policy.name,
-                      :url => (edit_policy_path(@policy) if authorized_for(hash_for_edit_policy_path(@policy))) }
-                  ])
-    end
-  end
 end
