@@ -11,8 +11,9 @@ if ForemanOpenscap.with_remote_execution?
         else
           template = JobTemplate.import!(File.read(template), :default => true, :lock => true, :update => sync)
         end
-        template.organizations = organizations if SETTINGS[:organizations_enabled] && template.present?
-        template.locations = locations if SETTINGS[:locations_enabled] && template.present?
+        next unless template.present?
+        template.organizations = organizations
+        template.locations = locations
       end
     end
   end
