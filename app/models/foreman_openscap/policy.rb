@@ -6,6 +6,8 @@ module ForemanOpenscap
     include Taxonomix
     attr_writer :current_step, :wizard_initiated
 
+    STEPS_LIST = [N_('Deployment Options'), N_('Policy Attributes'), N_('SCAP Content'), N_('Schedule'), N_('Locations'), N_('Organizations'), N_('Hostgroups')]
+
     belongs_to :scap_content
     belongs_to :scap_content_profile
     belongs_to :tailoring_file
@@ -108,10 +110,7 @@ module ForemanOpenscap
     end
 
     def steps
-      base_steps = [N_('Deployment Options'), N_('Policy Attributes'), N_('SCAP Content'), N_('Schedule')]
-      base_steps << N_('Locations') if SETTINGS[:locations_enabled]
-      base_steps << N_('Organizations') if SETTINGS[:organizations_enabled]
-      base_steps << N_('Hostgroups') # always be last.
+      STEPS_LIST
     end
 
     def current_step

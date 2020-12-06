@@ -49,8 +49,8 @@ module ForemanOpenscap
         next if scap_content.persisted?
         scap_content.scap_file = file
         scap_content.original_filename = filename
-        scap_content.location_ids = Location.all.map(&:id)
-        scap_content.organization_ids = Organization.all.map(&:id)
+        scap_content.location_ids = Location.all.pluck(:id)
+        scap_content.organization_ids = Organization.all.pluck(:id)
 
         if scap_content.save
           @result.results.push(scap_content)
