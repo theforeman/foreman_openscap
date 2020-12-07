@@ -151,13 +151,13 @@ module ForemanOpenscap
       def search_by_removed_from_policy(key, operator, policy_name)
         policy = ForemanOpenscap::Policy.find_by :name => policy_name
         host_ids = policy ? removed_from_policy(policy).pluck(:id) : []
-        { :conditions => Host::Managed.arel_table[:id].in(host_ids).to_sql }
+        { :conditions => ::Host::Managed.arel_table[:id].in(host_ids).to_sql }
       end
 
       def search_by_compliance(key, operator, policy_name, method)
         policy = ForemanOpenscap::Policy.find_by :name => policy_name
         host_ids = policy ? public_send(method, policy).pluck(:id) : []
-        { :conditions => Host::Managed.arel_table[:id].in(host_ids).to_sql }
+        { :conditions => ::Host::Managed.arel_table[:id].in(host_ids).to_sql }
       end
 
       def search_by_comply_with(key, operator, policy_name)
@@ -185,7 +185,7 @@ module ForemanOpenscap
       end
 
       def search_by_rule(rule_name, rule_result)
-        query = Host.joins(:arf_reports)
+        query = ::Host.joins(:arf_reports)
                     .merge(ArfReport.latest
                                     .by_rule_result(rule_name, rule_result)
                                     .unscope(:order))
@@ -208,7 +208,7 @@ module ForemanOpenscap
                           else
                             ''
                           end
-        { :conditions => Host::Managed.arel_table[:id].in(Host::Managed.select(Host::Managed.arel_table[:id]).joins(:policies).where(cond).pluck(:id)).to_sql + host_group_cond }
+        { :conditions => ::Host::Managed.arel_table[:id].in(::Host::Managed.select(::Host::Managed.arel_table[:id]).joins(:policies).where(cond).pluck(:id)).to_sql + host_group_cond }
       end
 
       def search_by_policy_id(key, operator, policy_id)
@@ -249,8 +249,8 @@ module ForemanOpenscap
                                                           .joins(:policies)
                                                           .where(condition)
                                                           .pluck(:assetable_id)
-        subtree_ids = Hostgroup.where(:id => hostgroup_with_policy_ids).flat_map(&:subtree_ids).uniq
-        Host.where(:hostgroup_id => subtree_ids).where.not(:id => host_ids_from_arf).pluck(:id)
+        subtree_ids = ::Hostgroup.where(:id => hostgroup_with_policy_ids).flat_map(&:subtree_ids).uniq
+        ::Host.where(:hostgroup_id => subtree_ids).where.not(:id => host_ids_from_arf).pluck(:id)
       end
     end
   end
