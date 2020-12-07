@@ -84,7 +84,7 @@ module ForemanOpenscap
     end
 
     def hostgroups
-      Hostgroup.find(hostgroup_ids)
+      ::Hostgroup.find(hostgroup_ids)
     end
 
     def hostgroups=(hostgroups)
