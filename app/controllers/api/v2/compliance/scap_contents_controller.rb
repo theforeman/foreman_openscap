@@ -1,3 +1,5 @@
+require 'foreman_openscap/bulk_upload'
+
 module Api::V2
   module Compliance
     class ScapContentsController < ::Api::V2::BaseController
