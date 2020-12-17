@@ -32,7 +32,7 @@ module ForemanOpenscap
     end
 
     def to_status(options = {})
-      host.cves.any? ? VULNERABLE : PATCHED
+      host.cves.where(:has_errata => false).any? ? VULNERABLE : PATCHED
     end
   end
 end

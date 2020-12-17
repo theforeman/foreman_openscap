@@ -2,9 +2,20 @@ module ForemanOpenscap
   module Oval
     class Cves
       def create(host, cve_data)
-        unique_cves = cve_data['oval_results'].filter { |data| data['result'] == 'true' }.flat_map { |data| data['references'] }.uniq
+        cves_to_add = cve_data['oval_results'].reduce([]) do |memo, data|
+          next memo unless data['result'] == 'true'
+          cves, errata = data['references'].partition { |ref| ref['ref_id'].start_with?('CVE') }
 
-        cves_to_add = unique_cves.map { |ref| ::ForemanOpenscap::Cve.find_or_create_by(:ref_id => ref['ref_id'], :ref_url => ref['ref_url']) }
+          cves.map do |cve|
+            memo << ::ForemanOpenscap::Cve.find_or_create_by(
+              :ref_id => cve['ref_id'],
+              :ref_url => cve['ref_url'],
+              :has_errata => !errata.empty?,
+              :definition_id => data['definition_id']
+            )
+          end
+          memo
+        end
 
         cve_ids_to_check = host.cve_ids - cves_to_add.pluck(:id).compact
         host.cves = cves_to_add
