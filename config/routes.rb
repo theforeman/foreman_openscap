@@ -87,10 +87,16 @@ Rails.application.routes.draw do
             get 'download_html'
           end
         end
+
         post 'arf_reports/:cname/:policy_id/:date', \
              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
 
-        resources :oval_contents, :except => %i[new edit]
+        resources :oval_contents, :except => %i[new edit] do
+          collection do
+            post 'sync'
+          end
+        end
+
         resources :oval_policies, :except => %i[new edit] do
           member do
             post 'assign_hostgroups'
