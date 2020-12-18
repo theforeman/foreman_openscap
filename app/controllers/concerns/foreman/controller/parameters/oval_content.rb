@@ -4,7 +4,7 @@ module Foreman::Controller::Parameters::OvalContent
   class_methods do
     def oval_content_params_filter
       Foreman::ParameterFilter.new(::ForemanOpenscap::OvalContent).tap do |filter|
-        filter.permit :original_filename, :scap_file, :name, :location_ids => [], :organization_ids => []
+        filter.permit :original_filename, :scap_file, :name, :url, :location_ids => [], :organization_ids => []
       end
     end
   end

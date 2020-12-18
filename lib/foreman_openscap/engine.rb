@@ -123,7 +123,7 @@ module ForemanOpenscap
                      :resource_type => 'SmartProxy'
           permission :view_oval_contents, { 'api/v2/compliance/oval_contents' => %i[index show] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :edit_oval_contents, { 'api/v2/compliance/oval_contents' => %i[update] },
+          permission :edit_oval_contents, { 'api/v2/compliance/oval_contents' => %i[update sync] },
                      :resource_type => 'ForemanOpenscap::OvalContent'
           permission :create_oval_contents, { 'api/v2/compliance/oval_contents' => %i[create] },
                      :resource_type => 'ForemanOpenscap::OvalContent'

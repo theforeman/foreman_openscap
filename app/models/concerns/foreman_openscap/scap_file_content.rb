@@ -5,20 +5,17 @@ module ForemanOpenscap
     extend ActiveSupport::Concern
 
     included do
-      validates :digest, :presence => true
-      validates :scap_file, :presence => true
-
       before_validation :redigest, :if => lambda { |file_content| file_content.persisted? && file_content.scap_file_changed? }
     end
 
     def digest
-      self[:digest] ||= Digest::SHA256.hexdigest(scap_file.to_s)
+      self[:digest] ||= Digest::SHA256.hexdigest(scap_file.to_s) if scap_file
     end
 
     private
 
     def redigest
-      self[:digest] = Digest::SHA256.hexdigest(scap_file.to_s)
+      self[:digest] = Digest::SHA256.hexdigest(scap_file.to_s) if scap_file
     end
   end
 end
