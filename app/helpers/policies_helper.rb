@@ -11,10 +11,10 @@ module PoliciesHelper
 
   def deploy_by_radios(f, policy)
     ForemanOpenscap::ConfigNameService.new.configs.map do |tool|
-      popover_block = popover("", config_inline_help(tool.inline_help))
+      popover_block = tag.span(popover("", config_inline_help(tool.inline_help)), class: 'scap_policy_popover')
 
-      label = label_tag('', :class => 'col-md-2 control-label') do
-        tool.type.to_s.capitalize.html_safe + ' ' + popover_block.html_safe
+      label = label_tag('', :class => 'col-md-2 control-label', :for => "policy_deploy_by_#{tool.type}") do
+        tool.type.to_s.capitalize.html_safe
       end
 
       radio = content_tag(:div, :class => "col-md-2") do
@@ -23,7 +23,7 @@ module PoliciesHelper
 
       content_tag(:div, :class => "clearfix") do
         content_tag(:div, :class => "form-group") do
-          label.html_safe + radio.html_safe
+          label.html_safe + popover_block.html_safe + radio.html_safe
         end
       end
     end.join('').html_safe
