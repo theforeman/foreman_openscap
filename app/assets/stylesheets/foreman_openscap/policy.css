@@ -6,3 +6,8 @@
   display: none;
 }
 
+span.scap_policy_popover {
+  float: left;
+  margin-top: 2px;
+}
+
