@@ -74,7 +74,7 @@ module ForemanOpenscap
       end
 
       def search_by_host_collection_name(key, operator, value)
-        scope = apply_condition(Host.joins(:host_collections),
+        scope = apply_condition(::Host.joins(:host_collections),
                                 operator == '<>',
                                 :katello_host_collections => { :name => value })
         query_conditions_from_scope ForemanOpenscap::ArfReport.where(:host_id => scope)
