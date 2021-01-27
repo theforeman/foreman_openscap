@@ -1,0 +1,12 @@
+query($first: Int, $last: Int) {
+  ovalPolicies(first: $first, last: $last) {
+    totalCount
+    nodes {
+      id
+      name
+      ovalContent {
+        name
+      }
+    }
+  }
+}

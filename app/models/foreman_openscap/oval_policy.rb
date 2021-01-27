@@ -1,5 +1,7 @@
 module ForemanOpenscap
   class OvalPolicy < ApplicationRecord
+    graphql_type '::Types::OvalPolicy'
+
     audited
     include Authorizable
     include Taxonomix
