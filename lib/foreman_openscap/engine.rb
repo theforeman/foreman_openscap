@@ -9,6 +9,7 @@ module ForemanOpenscap
     config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
     config.autoload_paths += Dir["#{config.root}/app/models"]
+    config.autoload_paths += Dir["#{config.root}/app/graphql"]
     config.autoload_paths += Dir["#{config.root}/app/lib"]
     config.autoload_paths += Dir["#{config.root}/app/services"]
     config.autoload_paths += Dir["#{config.root}/lib"]
@@ -172,6 +173,10 @@ module ForemanOpenscap
                                          :url => '/experimental/compliance/oval_contents',
                                          :parent => :lab_features_menu
 
+        menu :labs_menu, :oval_policies, :caption => N_('OVAL Policies'),
+                                         :url_hash => { :controller => 'react', :action => 'index' },
+                                         :url => '/experimental/compliance/oval_policies',
+                                         :parent => :lab_features_menu
         # add dashboard widget
         widget 'compliance_host_reports_widget',
                :name => N_('Latest Compliance Reports'), :sizex => 6, :sizey => 1
@@ -214,6 +219,7 @@ module ForemanOpenscap
         register_global_js_file 'global'
 
         register_graphql_query_field :oval_contents, '::Types::OvalContent', :collection_field
+        register_graphql_query_field :oval_policies, '::Types::OvalPolicy', :collection_field
 
         register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
           configure_host do
