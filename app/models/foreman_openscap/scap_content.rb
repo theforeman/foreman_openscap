@@ -11,8 +11,6 @@ module ForemanOpenscap
 
     validates :title, :presence => true, :length => { :maximum => 255 }, uniqueness: true
     validates :original_filename, :length => { :maximum => 255 }
-    validates :scap_file, :presence => true
-    validates :digest, :presence => true
 
     scoped_search :on => :title,             :complete_value => true
     scoped_search :on => :original_filename, :complete_value => true, :rename => :filename
