@@ -53,14 +53,15 @@ module Api::V2
         process_response @oval_content.destroy
       end
 
+      api :POST, '/compliance/oval_contents/sync', N_('Sync contents that have remote source URL')
       def sync
-         @oval_contents = ForemanOpenscap::Oval::SyncOvalContents.new.sync
+        @oval_contents = ForemanOpenscap::Oval::SyncOvalContents.new.sync_all
       end
 
       def action_permission
         case params[:action]
         when 'sync'
-          :udpate
+          :update
         else
           super
         end
