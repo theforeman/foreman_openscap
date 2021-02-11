@@ -6,11 +6,9 @@ module ArfReportDashboardHelper
   }.freeze
 
   def breakdown_chart_data(categories, report, colors = COLORS)
-    data = categories.reduce([]) do |memo, (key, value)|
+    categories.reduce([]) do |memo, (key, value)|
       memo << [value, report[key], colors[key]]
     end
-
-    data.to_json
   end
 
   def donut_breakdown_chart_data(report)
@@ -27,6 +25,6 @@ module ArfReportDashboardHelper
       :data => status.to_a,
       :yAxisLabel => _("Number of Events"),
       :xAxisLabel => _("Rule Results"),
-    }.to_json
+    }
   end
 end

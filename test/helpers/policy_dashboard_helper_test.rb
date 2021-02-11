@@ -11,7 +11,7 @@ class PolicyDashboardHelperTest < ActionView::TestCase
       :inconclusive_hosts => 7,
       :report_missing => 8
     }
-    res = JSON.parse(policy_breakdown_chart_data(report))
+    res = policy_breakdown_chart_data(report)
     assert_equal 4, res.size
     assert_include res, ['Compliant hosts', 5, PolicyDashboardHelper::COLORS[:compliant_hosts]]
     assert_include res, ['Incompliant hosts', 6, PolicyDashboardHelper::COLORS[:incompliant_hosts]]
