@@ -2,6 +2,7 @@
 
 <div id='status-chart'>
   <h4 class="header ca"><%= _('Host Breakdown Chart') %></h4>
-  <div id="policy-breakdown-chart" class="scap-breakdown-chart"></div>
-  <%= mount_react_component('DonutChart', "#policy-breakdown-chart", policy_breakdown_chart_data(@report)) %>
+  <div class="scap-breakdown-chart">
+    <%= react_component('DonutChart', :data => policy_breakdown_chart_data(@report)) %>
+  </div>
 </div>
