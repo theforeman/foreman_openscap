@@ -14,15 +14,11 @@ class UpdatePuppetPortParamType < ActiveRecord::Migration[6.0]
     return unless puppet_class
     port_key = puppet_class.class_params.find_by :key => 'port'
     return unless port_key
-    def_value = port_key.default_value
 
     if method == :to_i
-      port_key.key_type =  "integer"
-      port_key.default_value = def_value.to_i
+      port_key.update_columns(:key_type => "integer", :default_value => port_key.default_value.to_i)
     else
-      port_key.key_type == "string"
-      port_key.default_value = port_key.default_value.to_s
+      port_key.update_columns(:key_type => "string", :default_value => port_key.default_value.to_s)
     end
-    port_key.save!
   end
 end
