@@ -4,6 +4,7 @@ import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 
 import OvalPoliciesIndex from '../OvalPoliciesIndex';
+
 import {
   withRouter,
   withRedux,
@@ -49,6 +50,7 @@ describe('OvalPoliciesIndex', () => {
   });
   it('should delete OVAL policy', async () => {
     const showToast = jest.fn();
+
     render(
       <TestComponent
         history={pageParamsHistoryMock}
@@ -108,6 +110,7 @@ describe('OvalPoliciesIndex', () => {
         showToast={jest.fn()}
       />
     );
+
     await waitFor(tick);
     expect(screen.getByText('first policy')).toBeInTheDocument();
     expect(
