@@ -20,7 +20,7 @@ module ForemanOpenscap
     end
 
     module ClassMethods
-      def find_by_oval_policy_id(key, operator, value)
+      def find_by_oval_policy_id(_key, operator, value)
         conditions = sanitize_sql_for_conditions(["#{::ForemanOpenscap::HostgroupOvalFacetOvalPolicy.table_name}.oval_policy_id #{operator} ?", value])
         hg_ids = ::ForemanOpenscap::Hostgroup::OvalFacet.joins(:hostgroup_oval_facet_oval_policies).where(conditions).pluck(:hostgroup_id)
         { :conditions => ::Hostgroup.arel_table[:id].in(hg_ids).to_sql }

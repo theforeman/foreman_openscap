@@ -19,13 +19,24 @@ const OvalPoliciesTable = props => {
     policy,
   }));
 
-  const actions = [];
+  const actionResolver = (rowData, rest) => {
+    const actions = [];
+    if (rowData.policy.meta.canDestroy) {
+      actions.push({
+        title: __('Delete OVAL Policy'),
+        onClick: (event, rowId, rData, extra) => {
+          props.toggleModal(rData.policy);
+        },
+      });
+    }
+    return actions;
+  };
 
   return (
     <IndexTable
       columns={columns}
       rows={rows}
-      actions={actions}
+      actionResolver={actionResolver}
       pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
@@ -39,6 +50,7 @@ OvalPoliciesTable.propTypes = {
   pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
+  toggleModal: PropTypes.func.isRequired,
 };
 
 export default withLoading(OvalPoliciesTable);

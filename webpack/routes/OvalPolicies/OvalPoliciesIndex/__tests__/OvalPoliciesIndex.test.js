@@ -7,6 +7,7 @@ import '@testing-library/jest-dom';
 import {
   withMockedProvider,
   withRouter,
+  withRedux,
   tick,
   historyMock,
 } from '../../../../testHelper';
@@ -22,10 +23,12 @@ import {
   unauthorizedMocks,
 } from './OvalPoliciesIndex.fixtures';
 
-import OvalPoliciesIndex from '../OvalPoliciesIndex';
+import OvalPoliciesIndex from '../index';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
 
-const TestComponent = withRouter(withMockedProvider(OvalPoliciesIndex));
+const TestComponent = withRouter(
+  withRedux(withMockedProvider(OvalPoliciesIndex))
+);
 
 describe('OvalPoliciesIndex', () => {
   it('should load page', async () => {
@@ -42,6 +45,15 @@ describe('OvalPoliciesIndex', () => {
     expect(within(pageItems).getByText(/1 - 2/)).toBeInTheDocument();
     expect(within(pageItems).getByText('of')).toBeInTheDocument();
     expect(within(pageItems).getByText('2')).toBeInTheDocument();
+
+    expect(screen.getByText('first policy').closest('a')).toHaveAttribute(
+      'href',
+      '/experimental/compliance/oval_policies/1'
+    );
+    expect(screen.getByText('second policy').closest('a')).toHaveAttribute(
+      'href',
+      '/experimental/compliance/oval_policies/40'
+    );
   });
   it('should load page with page params', async () => {
     const { container } = render(

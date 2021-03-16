@@ -29,7 +29,7 @@ const IndexLayout = ({ pageTitle, children }) => (
 
 IndexLayout.propTypes = {
   pageTitle: PropTypes.string.isRequired,
-  children: PropTypes.object.isRequired,
+  children: PropTypes.node.isRequired,
 };
 
 export default IndexLayout;

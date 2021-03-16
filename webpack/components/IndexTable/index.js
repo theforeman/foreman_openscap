@@ -6,13 +6,21 @@ import { usePaginationOptions } from 'foremanReact/components/Pagination/Paginat
 
 import { preparePerPageOptions, refreshPage } from './IndexTableHelper';
 
-const IndexTable = props => {
+const IndexTable = ({
+  history,
+  pagination,
+  totalCount,
+  toolbarBtns,
+  ariaTableLabel,
+  columns,
+  ...rest
+}) => {
   const handlePerPageSelected = (event, perPage) => {
-    refreshPage(props.history, { page: 1, perPage });
+    refreshPage(history, { page: 1, perPage });
   };
 
   const handlePageSelected = (event, page) => {
-    refreshPage(props.history, { ...props.pagination, page });
+    refreshPage(history, { ...pagination, page });
   };
 
   const perPageOptions = preparePerPageOptions(usePaginationOptions());
@@ -20,12 +28,12 @@ const IndexTable = props => {
   return (
     <React.Fragment>
       <Flex className="pf-u-pt-md">
-        <FlexItem>{props.toolbarBtns}</FlexItem>
+        <FlexItem>{toolbarBtns}</FlexItem>
         <FlexItem align={{ default: 'alignRight' }}>
           <Pagination
-            itemCount={props.totalCount}
-            page={props.pagination.page}
-            perPage={props.pagination.perPage}
+            itemCount={totalCount}
+            page={pagination.page}
+            perPage={pagination.perPage}
             onSetPage={handlePageSelected}
             onPerPageSelect={handlePerPageSelected}
             perPageOptions={perPageOptions}
@@ -33,12 +41,7 @@ const IndexTable = props => {
           />
         </FlexItem>
       </Flex>
-      <Table
-        aria-label={props.ariaTableLabel}
-        cells={props.columns}
-        rows={props.rows}
-        actions={props.actions}
-      >
+      <Table aria-label={ariaTableLabel} cells={columns} {...rest}>
         <TableHeader />
         <TableBody />
       </Table>
@@ -53,13 +56,10 @@ IndexTable.propTypes = {
   totalCount: PropTypes.number.isRequired,
   ariaTableLabel: PropTypes.string.isRequired,
   columns: PropTypes.array.isRequired,
-  rows: PropTypes.array.isRequired,
-  actions: PropTypes.array,
 };
 
 IndexTable.defaultProps = {
   toolbarBtns: [],
-  actions: [],
 };
 
 export default IndexTable;
