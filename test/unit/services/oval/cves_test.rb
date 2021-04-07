@@ -34,10 +34,10 @@ class ForemanOpenscap::Oval::CvesTest < ActiveSupport::TestCase
     refute_empty host.cves
 
     cve_ids_before = host.reload.cve_ids
-    oval_data = create_cve_data @fxs.two
-    @instance.create host, oval_data
+    new_oval_data = create_cve_data @fxs.two
+    @instance.create host, new_oval_data
 
-    refute_equal host.cve_ids, cve_ids_before
+    refute_equal host.reload.cve_ids, cve_ids_before
     assert_equal host.cves, ForemanOpenscap::Cve.where(:ref_id => @fxs.ids_from(@fxs.res_two))
 
     @fxs.ids_from(@fxs.res_three).map do |ref_id|
@@ -60,7 +60,22 @@ class ForemanOpenscap::Oval::CvesTest < ActiveSupport::TestCase
     assert_equal host.reload.cves, cves_before
   end
 
-  def create_cve_data(fixture)
-    { 'oval_results' => fixture }
+  test "should not delete CVEs associated to another policy" do
+    oval_data = create_cve_data [@fxs.res_three]
+    host = FactoryBot.create(:host)
+    assert_empty host.cves
+    @instance.create host, oval_data
+    refute_empty host.cves
+
+    cve_ids_before = host.reload.cve_ids
+    new_oval_data = create_cve_data [@fxs.res_four], 2
+    @instance.create host, new_oval_data
+
+    refute_equal host.reload.cve_ids, cve_ids_before
+    assert_equal host.cves, ForemanOpenscap::Cve.where(:ref_id => @fxs.ids_from(@fxs.res_three).concat(@fxs.ids_from(@fxs.res_four)))
+  end
+
+  def create_cve_data(fixture, policy_id = 1)
+    { 'oval_results' => fixture, 'oval_policy_id' => policy_id }
   end
 end

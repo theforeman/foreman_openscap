@@ -1,0 +1,11 @@
+query($id: String!) {
+  ovalPolicy(id: $id) {
+    id
+    name
+    period
+    cronLine
+    weekday
+    dayOfMonth
+    description
+  }
+}

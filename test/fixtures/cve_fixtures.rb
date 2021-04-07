@@ -3,6 +3,7 @@ module ForemanOpenscap
     def res_one(result_state = 'true')
       init_result(
         { "references" => [
+          { "ref_id" => "RHSA-2020:0215", "ref_url" => "https://access.redhat.com/errata/RHSA-2020:0215" },
           { "ref_id" => "CVE-2019-16541", "ref_url" => "https://access.redhat.com/security/cve/CVE-2019-16541" },
           { "ref_id" => "CVE-2020-14040", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-14040" },
           { "ref_id" => "CVE-2020-14370", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-14370" },
@@ -21,6 +22,7 @@ module ForemanOpenscap
     def res_two(result_state = 'true')
       init_result(
         { "references" => [
+          { "ref_id" => "RHSA-2020:3601", "ref_url" => "https://access.redhat.com/errata/RHSA-2020:3601" },
           { "ref_id" => "CVE-2020-2181", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2181" },
           { "ref_id" => "CVE-2020-2182", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2182" },
           { "ref_id" => "CVE-2020-2224", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2224" },
@@ -48,6 +50,7 @@ module ForemanOpenscap
     def res_four(result_state = 'true')
       init_result(
         { "references" => [
+          { "ref_id" => "RHSA-2020:3601", "ref_url" => "https://access.redhat.com/errata/RHSA-2020:3601" },
           { "ref_id" => "CVE-2019-17638", "ref_url" => "https://access.redhat.com/security/cve/CVE-2019-17638" },
           { "ref_id" => "CVE-2020-2220", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2220" },
           { "ref_id" => "CVE-2020-2221", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2221" },

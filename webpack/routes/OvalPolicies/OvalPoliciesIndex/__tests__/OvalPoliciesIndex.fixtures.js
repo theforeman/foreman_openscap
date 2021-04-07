@@ -1,29 +1,6 @@
 import policiesQuery from '../../../../graphql/queries/ovalPolicies.gql';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
-
-const mockFactory = (resultName, query) => (
-  variables,
-  modelResults,
-  errors = []
-) => {
-  const mock = {
-    request: {
-      query,
-      variables,
-    },
-    result: {
-      data: {
-        [resultName]: modelResults,
-      },
-    },
-  };
-
-  if (errors.length !== 0) {
-    mock.result.errors = errors;
-  }
-
-  return [mock];
-};
+import { mockFactory } from '../../../../testHelper';
 
 const policiesMockFactory = mockFactory('ovalPolicies', policiesQuery);
 

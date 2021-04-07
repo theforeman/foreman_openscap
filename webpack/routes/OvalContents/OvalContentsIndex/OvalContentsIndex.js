@@ -30,7 +30,7 @@ const OvalContentsIndex = props => {
         {...props}
         fetchFn={useFetchFn}
         renameData={renameData}
-        queryName="ovalContents"
+        resultPath="ovalContents.nodes"
         pagination={pagination}
         emptyStateTitle={__('No OVAL Contents found.')}
       />

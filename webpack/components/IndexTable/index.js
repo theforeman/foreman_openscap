@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
 import { Pagination, Flex, FlexItem } from '@patternfly/react-core';
-
+import '@patternfly/patternfly/patternfly-addons.scss';
 import { usePaginationOptions } from 'foremanReact/components/Pagination/PaginationHooks';
 
 import { preparePerPageOptions, refreshPage } from './IndexTableHelper';
@@ -20,7 +20,7 @@ const IndexTable = props => {
 
   return (
     <React.Fragment>
-      <Flex>
+      <Flex className="pf-u-pt-md">
         <FlexItem>{props.toolbarBtns}</FlexItem>
         <FlexItem align={{ default: 'alignRight' }}>
           <Pagination

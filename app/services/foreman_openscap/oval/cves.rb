@@ -2,7 +2,9 @@ module ForemanOpenscap
   module Oval
     class Cves
       def create(host, cve_data)
-        cves_to_add = cve_data['oval_results'].reduce([]) do |memo, data|
+        policy_id = cve_data['oval_policy_id']
+
+        incoming_cves = cve_data['oval_results'].reduce([]) do |memo, data|
           next memo unless data['result'] == 'true'
           cves, errata = data['references'].partition { |ref| ref['ref_id'].start_with?('CVE') }
 
@@ -17,9 +19,14 @@ module ForemanOpenscap
           memo
         end
 
-        cve_ids_to_check = host.cve_ids - cves_to_add.pluck(:id).compact
-        host.cves = cves_to_add
-        delete_orphaned_cves cve_ids_to_check if host.save
+        current = ForemanOpenscap::Cve.of_oval_policy(policy_id).of_host(host.id)
+        to_delete = current - incoming_cves
+        to_create = incoming_cves - current
+
+        ::ForemanOpenscap::HostCve.where(:host_id => host.id, :oval_policy_id => policy_id, :cve_id => to_delete.pluck(:id)).destroy_all
+        host.host_cves.build(to_create.map { |cve| { :host_id => host.id, :oval_policy_id => policy_id, :cve_id => cve.id } })
+
+        delete_orphaned_cves to_delete.pluck(:id) if host.save
         host
       end
 
