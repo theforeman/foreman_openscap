@@ -22,6 +22,9 @@ module ForemanOpenscap
     has_many :hostgroup_oval_facets, :through => :hostgroup_oval_facet_oval_policies, :class_name => 'ForemanOpenscap::Hostgroup::OvalFacet', :source => :oval_facet
     has_many :hostgroups, :through => :hostgroup_oval_facets
 
+    has_many :host_cves
+    has_many :cves, :through => :host_cves
+
     def host_ids=(host_ids)
       self.oval_facets = facets_to_assign(host_ids, :host_id, ForemanOpenscap::Host::OvalFacet)
     end

@@ -4,7 +4,12 @@ import userEvent from '@testing-library/user-event';
 import { within } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 
-import { withMockedProvider, tick, historyMock } from '../../../../testHelper';
+import {
+  withMockedProvider,
+  withRouter,
+  tick,
+  historyMock,
+} from '../../../../testHelper';
 
 import {
   mocks,
@@ -18,7 +23,7 @@ import {
 import OvalPoliciesIndex from '../OvalPoliciesIndex';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
 
-const TestComponent = withMockedProvider(OvalPoliciesIndex);
+const TestComponent = withRouter(withMockedProvider(OvalPoliciesIndex));
 
 describe('OvalPoliciesIndex', () => {
   it('should load page', async () => {

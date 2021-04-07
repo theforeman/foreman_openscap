@@ -9,6 +9,8 @@ module ForemanOpenscap
 
       has_many :host_cves, :class_name => 'ForemanOpenscap::HostCve', :foreign_key => :host_id
       has_many :cves, :through => :host_cves, :class_name => 'ForemanOpenscap::Cve', :source => :cve
+
+      scoped_search :relation => :host_cves, :on => :cve_id, :rename => :cve_id, :complete_value => false
     end
 
     def cves_without_errata

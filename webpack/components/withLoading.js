@@ -8,10 +8,20 @@ import EmptyState from './EmptyState';
 const errorStateTitle = __('Error!');
 const emptyStateBody = '';
 
+const pluckData = (data, path) => {
+  const split = path.split('.');
+  return split.reduce((memo, item) => {
+    if (item) {
+      return memo[item];
+    }
+    throw new Error('Unexpected empty segment in response data path');
+  }, data);
+};
+
 const withLoading = Component => {
   const Subcomponent = ({
     fetchFn,
-    queryName,
+    resultPath,
     renameData,
     emptyStateTitle,
     ...rest
@@ -32,7 +42,9 @@ const withLoading = Component => {
       );
     }
 
-    if (data[queryName].nodes.length === 0) {
+    const result = pluckData(data, resultPath);
+
+    if ((Array.isArray(result) && result.length === 0) || !result) {
       return <EmptyState title={emptyStateTitle} body={emptyStateBody} />;
     }
 
@@ -41,7 +53,7 @@ const withLoading = Component => {
 
   Subcomponent.propTypes = {
     fetchFn: PropTypes.func.isRequired,
-    queryName: PropTypes.string.isRequired,
+    resultPath: PropTypes.string.isRequired,
     renameData: PropTypes.func,
     emptyStateTitle: PropTypes.string.isRequired,
   };

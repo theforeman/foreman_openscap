@@ -1,29 +1,6 @@
 import ovalContentsQuery from '../../../../graphql/queries/ovalContents.gql';
 import { ovalContentsPath } from '../../../../helpers/pathsHelper';
-
-const mockFactory = (resultName, query) => (
-  variables,
-  modelResults,
-  errors = []
-) => {
-  const mock = {
-    request: {
-      query,
-      variables,
-    },
-    result: {
-      data: {
-        [resultName]: modelResults,
-      },
-    },
-  };
-
-  if (errors.length !== 0) {
-    mock.result.errors = errors;
-  }
-
-  return [mock];
-};
+import { mockFactory } from '../../../../testHelper';
 
 const ovalContentMockFactory = mockFactory('ovalContents', ovalContentsQuery);
 
