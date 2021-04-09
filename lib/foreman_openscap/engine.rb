@@ -167,6 +167,10 @@ module ForemanOpenscap
         menu :top_menu, :compliance_files, :caption => N_('Tailoring Files'),
                                            :url_hash => { :controller => :tailoring_files, :action => :index },
                                            :parent => :hosts_menu
+        menu :labs_menu, :oval_contents, :caption => N_('OVAL Contents'),
+                                         :url_hash => { :controller => 'react', :action => 'index' },
+                                         :url => '/experimental/compliance/oval_contents',
+                                         :parent => :lab_features_menu
 
         # add dashboard widget
         widget 'compliance_host_reports_widget',
@@ -206,6 +210,10 @@ module ForemanOpenscap
         add_controller_action_scope('HostsController', :index) do |base_scope|
           base_scope.preload(:policies)
         end
+
+        register_global_js_file 'global'
+
+        register_graphql_query_field :oval_contents, '::Types::OvalContent', :collection_field
 
         register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
           configure_host do

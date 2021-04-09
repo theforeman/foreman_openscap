@@ -59,7 +59,7 @@ jobs:
           bundle exec rake db:create
           bundle exec rake db:migrate
       - name: Run rubocop
-        run: bundle exec foreman_openscap:rubocop
+        run: bundle exec rake foreman_openscap:rubocop
       - name: Run plugin tests
         run: |
           bundle exec rake test:foreman_openscap

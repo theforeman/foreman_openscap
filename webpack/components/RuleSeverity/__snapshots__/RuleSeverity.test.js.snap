@@ -3,7 +3,7 @@
 exports[`RuleSeverity should render for Critical severity 1`] = `
 <img
   alt="Unknown Serverity"
-  className="severity-img-scale"
+  className="severity-img"
   src={[Function]}
 />
 `;
@@ -11,7 +11,7 @@ exports[`RuleSeverity should render for Critical severity 1`] = `
 exports[`RuleSeverity should render for High severity 1`] = `
 <img
   alt="Unknown Serverity"
-  className="severity-img-scale"
+  className="severity-img"
   src={[Function]}
 />
 `;
@@ -19,7 +19,7 @@ exports[`RuleSeverity should render for High severity 1`] = `
 exports[`RuleSeverity should render for Low severity 1`] = `
 <img
   alt="Unknown Serverity"
-  className="severity-img-scale"
+  className="severity-img"
   src={[Function]}
 />
 `;
@@ -27,7 +27,7 @@ exports[`RuleSeverity should render for Low severity 1`] = `
 exports[`RuleSeverity should render for Medium severity 1`] = `
 <img
   alt="Unknown Serverity"
-  className="severity-img-scale"
+  className="severity-img"
   src={[Function]}
 />
 `;
@@ -35,7 +35,7 @@ exports[`RuleSeverity should render for Medium severity 1`] = `
 exports[`RuleSeverity should render for foo severity 1`] = `
 <img
   alt="Unknown Serverity"
-  className="severity-img-scale"
+  className="severity-img"
   src={[Function]}
 />
 `;

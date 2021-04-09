@@ -24,17 +24,25 @@
     "@theforeman/vendor": ">= 4.13.2"
   },
   "devDependencies": {
+    "@apollo/react-testing": "^4.0.0",
     "@babel/core": "^7.7.0",
-    "@theforeman/builder": "^4.13.2",
-    "@theforeman/eslint-plugin-foreman": "4.13.2",
-    "@theforeman/stories": "^4.13.2",
-    "@theforeman/test": "^4.13.2",
-    "@theforeman/vendor-dev": "^4.13.2",
+    "@testing-library/dom": "^7.30.4",
+    "@testing-library/jest-dom": "^5.11.9",
+    "@testing-library/react": "^11.2.5",
+    "@testing-library/user-event": "^13.1.2",
+    "@theforeman/builder": "^8.4.1",
+    "@theforeman/eslint-plugin-foreman": "8.4.1",
+    "@theforeman/find-foreman": "^8.4.1",
+    "@theforeman/stories": "^8.4.1",
+    "@theforeman/test": "^8.4.1",
+    "@theforeman/vendor-dev": "^8.4.1",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.2",
-    "prettier": "^1.13.5",
-    "stylelint-config-standard": "^18.0.0",
+    "jed": "^1.1.1",
     "jest-svg-transformer": "^1.0.0",
-    "stylelint": "^9.3.0"
+    "jest-transform-graphql": "^2.1.0",
+    "prettier": "^1.13.5",
+    "stylelint": "^9.3.0",
+    "stylelint-config-standard": "^18.0.0"
   }
 }

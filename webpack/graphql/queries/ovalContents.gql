@@ -1,0 +1,11 @@
+query($first: Int, $last: Int) {
+  ovalContents(first: $first, last: $last) {
+    totalCount
+    nodes {
+      id
+      name
+      url
+      originalFilename
+    }
+  }
+}
