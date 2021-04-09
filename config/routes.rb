@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  match '/experimental/compliance' => 'react#index', :via => [:get]
+  match '/experimental/compliance/*page' => 'react#index', :via => [:get]
+
   scope '/compliance' do
     resources :arf_reports, :only => %i[index show destroy] do
       member do
