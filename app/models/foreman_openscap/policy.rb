@@ -64,7 +64,7 @@ module ForemanOpenscap
 
     def change_deploy_type(params)
       self.class.transaction do
-        if deploy_by != params[:deploy_by]
+        if params[:deploy_by] && deploy_by != params[:deploy_by]
           assign_attributes params
           ForemanOpenscap::LookupKeyOverrider.new(self).override
         end

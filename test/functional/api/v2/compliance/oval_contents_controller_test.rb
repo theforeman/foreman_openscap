@@ -1,4 +1,5 @@
 require 'test_plugin_helper'
+require 'tempfile'
 
 class Api::V2::Compliance::OvalContentsControllerTest < ActionController::TestCase
   test "should get index" do
@@ -10,7 +11,7 @@ class Api::V2::Compliance::OvalContentsControllerTest < ActionController::TestCa
   end
 
   test "should create OVAL content" do
-    post :create, :params => { :oval_content => { :name => 'OVAL test', :scap_file => '<xml>test</xml>' } }, :session => set_session_user
+    post :create, :params => { :oval_content => { :name => 'OVAL test', :scap_file => content_file } }, :session => set_session_user
     assert_response :success
   end
 
@@ -27,5 +28,12 @@ class Api::V2::Compliance::OvalContentsControllerTest < ActionController::TestCa
     delete :destroy, :params => { :id => oval_content.id }, :session => set_session_user
     assert_response :ok
     refute ForemanOpenscap::OvalContent.exists?(oval_content.id)
+  end
+
+  def content_file
+    file = Tempfile.new('test')
+    file.write('<xml>test</xml>')
+    file.rewind
+    Rack::Test::UploadedFile.new(file, '')
   end
 end

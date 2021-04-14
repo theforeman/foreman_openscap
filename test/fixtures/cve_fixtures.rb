@@ -13,7 +13,8 @@ module ForemanOpenscap
           { "ref_id" => "CVE-2020-2255", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2255" },
           { "ref_id" => "CVE-2020-8564", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-8564" }
         ] },
-        result_state
+        result_state,
+        "oval:com.redhat.rhsa:def:20201545"
       )
     end
 
@@ -26,7 +27,8 @@ module ForemanOpenscap
           { "ref_id" => "CVE-2020-2225", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2225" },
           { "ref_id" => "CVE-2020-2226", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2226" }
         ] },
-        result_state
+        result_state,
+        "oval:com.redhat.rhsa:def:20201544"
       )
     end
 
@@ -38,7 +40,8 @@ module ForemanOpenscap
           { "ref_id" => "CVE-2020-2230", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2230" },
           { "ref_id" => "CVE-2020-2231", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2231" }
         ] },
-        result_state
+        result_state,
+        "oval:com.redhat.rhsa:def:20201543"
       )
     end
 
@@ -55,7 +58,8 @@ module ForemanOpenscap
           { "ref_id" => "CVE-2020-2231", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2231" },
           { "ref_id" => "CVE-2020-8557", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-8557" }
         ] },
-        result_state
+        result_state,
+        "oval:com.redhat.rhsa:def:20201542"
       )
     end
 
@@ -69,7 +73,8 @@ module ForemanOpenscap
           { "ref_id" => "CVE-2020-2225", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2225" },
           { "ref_id" => "CVE-2020-2226", "ref_url" => "https://access.redhat.com/security/cve/CVE-2020-2226" }
         ] },
-        result_state
+        result_state,
+        "oval:com.redhat.rhsa:def:20201541"
       )
     end
 
@@ -87,8 +92,9 @@ module ForemanOpenscap
 
     private
 
-    def init_result(data, result_state)
+    def init_result(data, result_state, definition_id)
       data['result'] = result_state
+      data['definition_id'] = definition_id
       data
     end
   end
