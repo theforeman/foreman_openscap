@@ -13,7 +13,7 @@ class OvalStatusTest < ActiveSupport::TestCase
   end
 
   test 'should have vulnerabilities' do
-    host = FactoryBot.create(:oval_host, :cves => [FactoryBot.create(:cve)])
+    host = FactoryBot.create(:oval_host, :cves => [FactoryBot.create(:cve, :has_errata => false), FactoryBot.create(:cve, :has_errata => true)])
     policy = FactoryBot.create(:oval_policy)
     FactoryBot.create(:oval_facet, :host => host, :oval_policies => [policy])
 

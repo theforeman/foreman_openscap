@@ -186,11 +186,11 @@ module ForemanOpenscap
 
       def search_by_rule(rule_name, rule_result)
         query = ::Host.joins(:arf_reports)
-                    .merge(ArfReport.latest
-                                    .by_rule_result(rule_name, rule_result)
-                                    .unscope(:order))
-                    .distinct
-                    .select(Host.arel_table[:id]).to_sql
+                      .merge(ArfReport.latest
+                                      .by_rule_result(rule_name, rule_result)
+                                      .unscope(:order))
+                      .distinct
+                      .select(::Host.arel_table[:id]).to_sql
 
         query_conditions query
       end

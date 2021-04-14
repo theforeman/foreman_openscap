@@ -13,12 +13,14 @@ module ForemanOpenscap
 
         ansible_role = @config.find_config_item
 
-        if model_class == Hostgroup
+        if model_class == ::Hostgroup
           roles_method = :inherited_and_own_ansible_roles
           ids_setter = :hostgroup_ids=
-        else
+        elsif model_class == ::Host::Managed
           roles_method = :all_ansible_roles
           ids_setter = :host_ids=
+        else
+          raise "Unexpected model_class, expected ::Hostgroup or ::Host::Managed, got: #{model_class}"
         end
 
         items_with_proxy, items_without_proxy = openscap_proxy_associated(ids, model_class)
@@ -63,7 +65,7 @@ module ForemanOpenscap
       end
 
       def model_to_s(model)
-        model.is_a?(Hostgroup) ? 'hostgroup' : 'host'
+        model.is_a?(::Hostgroup) ? 'hostgroup' : 'host'
       end
 
       def model_to_check(model)

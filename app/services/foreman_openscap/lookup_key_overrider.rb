@@ -10,7 +10,6 @@ module ForemanOpenscap
     def override
       return unless @policy.deploy_by && Policy.deploy_by_variants.include?(@policy.deploy_by)
       config = @name_service.config_for @policy.deploy_by.to_sym
-
       super config
     end
 

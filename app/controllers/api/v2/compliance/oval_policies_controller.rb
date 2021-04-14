@@ -64,7 +64,7 @@ module Api::V2
       param :hostgroup_ids, Array, :desc => N_('Array of hostgroup IDs')
 
       def assign_hostgroups
-        assign _('hostgroups'), params["hostgroup_ids"], Hostgroup
+        assign _('hostgroups'), params["hostgroup_ids"], ::Hostgroup
       end
 
       api :GET, '/compliance/oval_policies/:id/assign_hosts', N_('Assign hosts to an OVAL Policy')
@@ -72,7 +72,7 @@ module Api::V2
       param :host_ids, Array, :desc => N_('Array of host IDs')
 
       def assign_hosts
-        assign _('hosts'), params["host_ids"], Host
+        assign _('hosts'), params["host_ids"], ::Host::Managed
       end
 
       api :GET, '/compliance/oval_policies/:id/oval_content', N_("Show a policy's SCAP content")
@@ -100,7 +100,6 @@ module Api::V2
 
       def assign(resource_plural, ids, model_class)
         check_collection = ::ForemanOpenscap::Oval::Configure.new.assign(@oval_policy, ids, model_class)
-
         if check_collection.all_passed?
           render :json => { :message => (_("OVAL policy successfully configured with %s.") % resource_plural) }
         else

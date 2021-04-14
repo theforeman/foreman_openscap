@@ -111,9 +111,9 @@ class Api::V2::Compliance::OvalPoliciesControllerTest < ActionController::TestCa
 
     post :assign_hostgroups, :params => { :id => policy.id, :hostgroup_ids => hg.id }, :session => set_session_user
     res = ActiveSupport::JSON.decode(@response.body)['results'].first
-    assert_equal "Was #{hg.name} hostgroup configured successfully?", res['title']
+    assert_equal "Was Hostgroup configured successfully?", res['title']
     assert_equal "fail", res['result']
-    assert_equal "Assign openscap_proxy before proceeding.", res['fail_message']
+    assert_equal "Assign openscap_proxy to #{hg.name} before proceeding.", res['fail_message']
     hg.reload
     assert_empty hg.oval_policies
   end

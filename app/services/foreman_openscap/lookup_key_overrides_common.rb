@@ -8,10 +8,10 @@ module ForemanOpenscap
     end
 
     def override_required_params(config)
+      return unless config.managed_overrides?
       item = config.find_config_item
 
       return unless handle_config_item_not_available(config, item)
-      return unless config.managed_overrides?
       override_params item.public_send(config.override_method_name), config
     end
 
