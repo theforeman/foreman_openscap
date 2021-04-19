@@ -87,17 +87,22 @@ namespace :test do
     t.libs << ["test", test_dir]
     t.pattern = "#{test_dir}/**/*_test.rb"
     t.verbose = true
+    t.warning = false
   end
 end
 
-Rake::Task[:test].enhance do
-  Rake::Task['test:foreman_openscap'].invoke
-end
-
-load 'tasks/jenkins.rake'
-if Rake::Task.task_defined?(:'jenkins:unit')
-  Rake::Task["jenkins:unit"].enhance do
-    Rake::Task['test:foreman_openscap'].invoke
-    Rake::Task['foreman_openscap:rubocop'].invoke
+namespace :test do
+  desc "Test Core parts extended by ForemanOpenscap"
+  Rake::TestTask.new(:foreman_openscap_extensions) do |t|
+    test_dir = Rails.root.join('test')
+    t.libs << ["test", test_dir]
+    t.test_files = FileList[
+      "#{test_dir}/unit/foreman/access_permissions_test.rb",
+      "#{test_dir}/controllers/api/v2/hosts_controller_test.rb",
+      "#{test_dir}/controllers/api/v2/hostgroups_controller_test.rb",
+      "#{test_dir}/models/hosts/*_test.rb",
+      ]
+    t.verbose = true
+    t.warning = false
   end
 end
