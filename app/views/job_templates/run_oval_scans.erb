@@ -1,0 +1,24 @@
+<%#
+name: Run OVAL scans
+job_category: OpenSCAP
+description_format: Run scan for specified OVAL Policies
+feature: foreman_openscap_run_oval_scans
+provider_type: SSH
+snippet: false
+provider_type: SSH
+kind: job_template
+template_inputs:
+- name: oval_policies
+  description: Comma separated OVAL Policy Ids to run
+  input_type: user
+  advanced: true
+-%>
+<% unless input('oval_policies').blank? -%>
+  <% input('oval_policies').split(',').map do |id| -%>
+    /usr/bin/foreman_scap_client oval <%= id %>
+  <% end -%>
+<% else -%>
+  <% @host.oval_policies_enc_raw.map do |policy| -%>
+    /usr/bin/foreman_scap_client oval <%= policy['id'] %>
+  <% end -%>
+<% end -%>

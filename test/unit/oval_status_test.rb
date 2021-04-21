@@ -1,10 +1,13 @@
 require 'test_plugin_helper'
 
 class OvalStatusTest < ActiveSupport::TestCase
+  setup do
+    @policy = FactoryBot.create(:oval_policy, :oval_content => FactoryBot.create(:oval_content))
+  end
+
   test 'should have no vulnerabilities' do
     host = FactoryBot.create(:oval_host)
-    policy = FactoryBot.create(:oval_policy)
-    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [policy])
+    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [@policy])
 
     status = ForemanOpenscap::OvalStatus.new
     status.host = host
@@ -15,8 +18,7 @@ class OvalStatusTest < ActiveSupport::TestCase
 
   test 'should have vulnerabilities with available patch' do
     host = FactoryBot.create(:oval_host, :cves => [FactoryBot.create(:cve, :has_errata => false), FactoryBot.create(:cve, :has_errata => true)])
-    policy = FactoryBot.create(:oval_policy)
-    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [policy])
+    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [@policy])
 
     status = ForemanOpenscap::OvalStatus.new
     status.host = host
@@ -27,8 +29,7 @@ class OvalStatusTest < ActiveSupport::TestCase
 
   test 'should have vulnerabilities without available patch' do
     host = FactoryBot.create(:oval_host, :cves => [FactoryBot.create(:cve, :has_errata => false), FactoryBot.create(:cve, :has_errata => false)])
-    policy = FactoryBot.create(:oval_policy)
-    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [policy])
+    FactoryBot.create(:oval_facet, :host => host, :oval_policies => [@policy])
 
     status = ForemanOpenscap::OvalStatus.new
     status.host = host

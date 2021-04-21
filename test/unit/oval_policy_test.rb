@@ -1,10 +1,15 @@
 require 'test_plugin_helper'
 
 class OvalPolicyTest < ActiveSupport::TestCase
+  setup do
+    @oval_content = FactoryBot.create(:oval_content)
+  end
+
   test "should not create OVAL policy with custom period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'custom',
-                                             :cron_line => 'aaa')
+                                             :cron_line => 'aaa',
+                                             :oval_content => @oval_content)
     refute policy.save
     assert policy.errors[:cron_line].include?("does not consist of 5 parts separated by space")
   end
@@ -12,14 +17,16 @@ class OvalPolicyTest < ActiveSupport::TestCase
   test "should create OVAL policy with weekly period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'weekly',
-                                             :weekday => 'monday')
+                                             :weekday => 'monday',
+                                             :oval_content => @oval_content)
     assert policy.save
   end
 
   test "should not create OVAL policy with weekly period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'weekly',
-                                             :weekday => 'someday')
+                                             :weekday => 'someday',
+                                             :oval_content => @oval_content)
     refute policy.save
     assert policy.errors[:weekday].include?("is not a valid value")
   end
@@ -27,14 +34,16 @@ class OvalPolicyTest < ActiveSupport::TestCase
   test "should create OVAL policy with monthly period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'monthly',
-                                             :day_of_month => '1')
+                                             :day_of_month => '1',
+                                             :oval_content => @oval_content)
     assert policy.save
   end
 
   test "should not create OVAL policy with monthly period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'monthly',
-                                             :day_of_month => '0')
+                                             :day_of_month => '0',
+                                             :oval_content => @oval_content)
     refute policy.save
     assert policy.errors[:day_of_month].include?("must be between 1 and 31")
   end
@@ -43,11 +52,13 @@ class OvalPolicyTest < ActiveSupport::TestCase
     policy_0 = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                                :period => 'monthly',
                                                :weekday => 'tuesday',
-                                               :cron_line => "0 0 0 0 0")
+                                               :cron_line => "0 0 0 0 0",
+                                               :oval_content => @oval_content)
     policy_1 = ForemanOpenscap::OvalPolicy.new(:name => "test policy",
                                                :period => 'custom',
                                                :weekday => 'tuesday',
-                                               :day_of_month => "15")
+                                               :day_of_month => "15",
+                                               :oval_content => @oval_content)
     refute policy_0.save
     refute policy_1.save
   end
@@ -55,7 +66,8 @@ class OvalPolicyTest < ActiveSupport::TestCase
   test "should update OVAL policy period" do
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'monthly',
-                                             :day_of_month => '5')
+                                             :day_of_month => '5',
+                                             :oval_content => @oval_content)
     assert policy.save
     policy.period = 'weekly'
     policy.weekday = 'monday'
@@ -68,7 +80,8 @@ class OvalPolicyTest < ActiveSupport::TestCase
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'monthly',
                                              :day_of_month => '5',
-                                             :host_ids => [host.id])
+                                             :host_ids => [host.id],
+                                             :oval_content => @oval_content)
 
     assert policy.save
     assert policy.reload.hosts.include?(host)
@@ -83,7 +96,8 @@ class OvalPolicyTest < ActiveSupport::TestCase
     policy = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                              :period => 'monthly',
                                              :day_of_month => '5',
-                                             :hostgroup_ids => [hostgroup.id])
+                                             :hostgroup_ids => [hostgroup.id],
+                                             :oval_content => @oval_content)
     assert policy.save
     assert policy.reload.hostgroups.include?(hostgroup)
 
@@ -98,11 +112,13 @@ class OvalPolicyTest < ActiveSupport::TestCase
     policy_1 = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy",
                                                :period => 'monthly',
                                                :day_of_month => '5',
-                                               :hostgroup_ids => [hostgroup.id])
+                                               :hostgroup_ids => [hostgroup.id],
+                                               :oval_content => @oval_content)
     policy_2 = ForemanOpenscap::OvalPolicy.new(:name => "custom_policy_again",
                                                :period => 'monthly',
                                                :day_of_month => '6',
-                                               :host_ids => [host.id])
+                                               :host_ids => [host.id],
+                                               :oval_content => @oval_content)
     assert policy_1.save
     assert policy_2.save
 
