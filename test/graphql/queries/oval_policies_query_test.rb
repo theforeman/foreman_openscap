@@ -19,7 +19,7 @@ module Queries
     let(:data) { result['data']['ovalPolicies'] }
 
     setup do
-      FactoryBot.create_list(:oval_policy, 2)
+      FactoryBot.create_list(:oval_policy, 2, :oval_content => FactoryBot.create(:oval_content))
     end
 
     test 'should fetch oval policies' do
