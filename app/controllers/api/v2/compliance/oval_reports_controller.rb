@@ -16,7 +16,7 @@ module Api
         def create
           ForemanOpenscap::Oval::Cves.new.create(@host, params.to_unsafe_h)
           if @host.errors.any?
-            upload_fail host.errors.to_sentence
+            upload_fail @host.errors.full_messages
           else
             @host.refresh_statuses([HostStatus.find_status_by_humanized_name("oval")])
             render :json => { :result => :ok }
