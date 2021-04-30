@@ -3,8 +3,8 @@
 
   <div class="alert alert-info" id="scap-deployment-options-info-banner">
     <span class="pficon pficon-info"></span>
-    <strong>There are significant differences in deployment options.</strong>
-    Please make sure you understand them by reading our <%= scap_doc_link('#2.3Policydeploymentoptions') %>.
+    <strong><%= _('There are significant differences in deployment options.') %></strong>
+    <%= _('Please make sure you understand them by reading our') %> <%=scap_doc_link('#2.3Policydeploymentoptions') %>.
   </div>
 
   <%= deploy_by_radios f, @policy %>
