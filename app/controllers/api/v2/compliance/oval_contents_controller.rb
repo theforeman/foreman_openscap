@@ -9,6 +9,7 @@ module Api::V2
 
       api :GET, '/compliance/oval_contents', N_('List OVAL contents')
       param_group :search_and_pagination, ::Api::V2::BaseController
+      add_scoped_search_description_for(::ForemanOpenscap::OvalContent)
 
       def index
         @oval_contents = resource_scope_for_index(:permission => :view_oval_contents)
@@ -22,7 +23,7 @@ module Api::V2
 
       def_param_group :oval_content do
         param :oval_content, Hash, :required => true, :action_aware => true do
-          param :title, String, :required => true, :desc => N_('OVAL content name')
+          param :name, String, :required => true, :desc => N_('OVAL content name')
           param :scap_file, File, :desc => N_('XML containing OVAL content')
           param :original_filename, String, :desc => N_('Original file name of the OVAL content file')
           param :url, String, :desc => N_('URL of the OVAL content file')

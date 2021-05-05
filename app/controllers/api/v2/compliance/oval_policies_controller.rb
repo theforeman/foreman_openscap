@@ -59,7 +59,7 @@ module Api::V2
         process_response @oval_policy.destroy
       end
 
-      api :GET, '/compliance/oval_policies/:id/assign_hostgroups', N_('Assign hostgroups to an OVAL Policy')
+      api :POST, '/compliance/oval_policies/:id/assign_hostgroups', N_('Assign hostgroups to an OVAL Policy')
       param :id, :identifier, :required => true
       param :hostgroup_ids, Array, :desc => N_('Array of hostgroup IDs')
 
@@ -67,7 +67,7 @@ module Api::V2
         assign _('hostgroups'), params["hostgroup_ids"], ::Hostgroup
       end
 
-      api :GET, '/compliance/oval_policies/:id/assign_hosts', N_('Assign hosts to an OVAL Policy')
+      api :POST, '/compliance/oval_policies/:id/assign_hosts', N_('Assign hosts to an OVAL Policy')
       param :id, :identifier, :required => true
       param :host_ids, Array, :desc => N_('Array of host IDs')
 
