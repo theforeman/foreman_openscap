@@ -13,6 +13,21 @@ const ovalPolicy = {
   weekday: 'tuesday',
   dayOfMonth: null,
   description: 'A very strict policy',
+  hostgroups: {
+    nodes: [
+      {
+        id: 'MDE6SG9zdGdyb3VwLTQ=',
+        name: 'oval hg',
+        descendants: {
+          nodes: [
+            { id: 'MDE6SG9zdGdyb3VwLTEw' },
+            { id: 'MDE6SG9zdGdyb3VwLTEy' },
+            { id: 'MDE6SG9zdGdyb3VwLTEx' },
+          ],
+        },
+      },
+    ],
+  },
 };
 
 const cvesResult = {

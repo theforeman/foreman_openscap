@@ -7,5 +7,15 @@ query($id: String!) {
     weekday
     dayOfMonth
     description
+    hostgroups {
+      nodes {
+        id
+        descendants {
+          nodes {
+            id
+          }
+        }
+      }
+    }
   }
 }

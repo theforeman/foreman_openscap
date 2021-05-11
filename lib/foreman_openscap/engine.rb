@@ -223,6 +223,13 @@ module ForemanOpenscap
         register_graphql_query_field :oval_policy, '::Types::OvalPolicy', :record_field
         register_graphql_query_field :cves, '::Types::Cve', :collection_field
 
+        # move to core
+        extend_graphql_type type: ::Types::Hostgroup do
+          field :descendants, Types::Hostgroup.connection_type, null: true, resolve: (proc do |object|
+            RecordLoader.for(model_class).load_many(object.descendant_ids)
+          end)
+        end
+
         register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
           configure_host do
             extend_model ForemanOpenscap::OvalFacetHostExtensions
