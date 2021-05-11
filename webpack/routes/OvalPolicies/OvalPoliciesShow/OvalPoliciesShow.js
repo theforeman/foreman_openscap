@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet';
+import { translate as __ } from 'foremanReact/common/I18n';
 import {
+  Button,
   Grid,
   GridItem,
   TextContent,
@@ -17,7 +20,7 @@ import withLoading from '../../../components/withLoading';
 
 import CvesTab from './CvesTab';
 
-import { policySchedule } from './OvalPoliciesShowHelper';
+import { policySchedule, newJobFormPath } from './OvalPoliciesShowHelper';
 import { resolvePath } from '../../../helpers/pathsHelper';
 
 const OvalPoliciesShow = props => {
@@ -36,8 +39,13 @@ const OvalPoliciesShow = props => {
         <title>{`${policy.name} | OVAL Policy`}</title>
       </Helmet>
       <Grid className="scap-page-grid">
-        <GridItem span={12}>
+        <GridItem span={10}>
           <Text component={TextVariants.h1}>{policy.name}</Text>
+        </GridItem>
+        <GridItem span={2}>
+          <Link to={newJobFormPath(policy, match.params.id)}>
+            <Button variant="secondary">{__('Scan All Hostgroups')}</Button>
+          </Link>
         </GridItem>
         <GridItem span={12}>
           <Tabs mountOnEnter activeKey={activeTab} onSelect={handleTabSelect}>
