@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-05-11 18:31+0530\n"
-"PO-Revision-Date: 2020-05-11 18:31+0530\n"
+"POT-Creation-Date: 2021-05-18 11:38+0000\n"
+"PO-Revision-Date: 2021-05-18 11:38+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -42,22 +42,148 @@ msgstr ""
 msgid "Download ARF report in HTML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:94
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:96
 msgid "Policy with id %s not found."
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:101
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:103
+#: ../app/controllers/api/v2/compliance/oval_reports_controller.rb:32
 msgid "Could not find host identified by: %s"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:106
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:108
 msgid ""
 "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params wh"
 "en uploading for %s and host is missing openscap_proxy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:118
+#: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:120
 msgid "No proxy found for %{name} or %{url}"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:10
+msgid "List OVAL contents"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:18
+msgid "Show an OVAL content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:26
+msgid "OVAL content name"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:27
+msgid "XML containing OVAL content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:28
+msgid "Original file name of the OVAL content file"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:29
+msgid "URL of the OVAL content file"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:34
+msgid "Create OVAL content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:42
+msgid "Update an OVAL content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:50
+msgid "Deletes an OVAL content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_contents_controller.rb:57
+msgid "Sync contents that have remote source URL"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:13
+msgid "List OVAL Policies"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:20
+msgid "Show an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:28
+msgid "OVAL Policy name"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:29
+msgid "Policy OVAL content ID"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:30
+msgid "OVAL Policy description"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:31
+msgid "OVAL Policy schedule period (weekly, monthly, custom)"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:32
+msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:33
+msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:34
+msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:39
+msgid "Create an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:47
+msgid "Update an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:55
+msgid "Delete an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:62
+msgid "Assign hostgroups to an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:64
+msgid "Array of hostgroup IDs"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:67
+msgid "hostgroups"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:70
+msgid "Assign hosts to an OVAL Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:72
+msgid "Array of host IDs"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:75
+msgid "hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:78
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
+msgid "Show a policy's SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:104
+msgid "OVAL policy successfully configured with %s."
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/oval_reports_controller.rb:11
+msgid "Upload an OVAL report - a list of CVEs for given host"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:18
@@ -132,10 +258,6 @@ msgstr ""
 msgid "Delete a Policy"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
-msgid "Show a policy's SCAP content"
-msgstr ""
-
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:85
 msgid "Show a policy's Tailoring file"
 msgstr ""
@@ -148,41 +270,63 @@ msgstr ""
 msgid "List SCAP content profiles"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:10
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:16
 msgid "List SCAP contents"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:18
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:24
 msgid "Download an SCAP content as XML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:27
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:33
 msgid "Show an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:34
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:40
 msgid "SCAP content name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:35
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:41
 msgid "XML containing SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:36
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:42
 #: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:37
 msgid "Original file name of the XML file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:41
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:47
 msgid "Create SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:49
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:55
 msgid "Update an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:57
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:63
 msgid "Deletes an SCAP content"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:70
+msgid "Upload scap contents in bulk"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:71
+msgid "Type of the upload"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:72
+msgid "File paths to upload when using \"files\" upload type"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:73
+msgid "Directory to upload when using \"directory\" upload type"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:86
+msgid ""
+"Please specify import type, received: %{received}, expected one of: %{expected"
+"}"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:11
@@ -350,50 +494,50 @@ msgstr ""
 msgid "Failed only"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:21
+#: ../app/helpers/arf_reports_helper.rb:20
 #: ../app/views/arf_reports/index.html.erb:1
 #: ../app/views/arf_reports/welcome.html.erb:1
 #: ../app/views/arf_reports/welcome.html.erb:7
 msgid "Compliance Reports"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:57
+#: ../app/helpers/arf_reports_helper.rb:40
 msgid "Delete reports"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:62
+#: ../app/helpers/arf_reports_helper.rb:45
 msgid "Select Action"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:65
+#: ../app/helpers/arf_reports_helper.rb:48
 msgid "%s - The following compliance reports are about to be changed"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:70
+#: ../app/helpers/arf_reports_helper.rb:53
 msgid "No proxy found!"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:75
+#: ../app/helpers/arf_reports_helper.rb:58
 msgid "Reported at %s"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:76
+#: ../app/helpers/arf_reports_helper.rb:59
 msgid " for policy %s"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:78
+#: ../app/helpers/arf_reports_helper.rb:61
 msgid " through %s"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:83
+#: ../app/helpers/arf_reports_helper.rb:66
 msgid "Hosts failing this rule"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:84
+#: ../app/helpers/arf_reports_helper.rb:67
 msgid "Hosts passing this rule"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:85
+#: ../app/helpers/arf_reports_helper.rb:68
 msgid "Hosts othering this rule"
 msgstr ""
 
@@ -442,7 +586,7 @@ msgstr ""
 
 #: ../app/helpers/compliance_hosts_helper.rb:35
 #: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../lib/foreman_openscap/engine.rb:138
+#: ../lib/foreman_openscap/engine.rb:158
 msgid "Compliance"
 msgstr ""
 
@@ -463,7 +607,7 @@ msgid "Choose existing SCAP Content"
 msgstr ""
 
 #: ../app/helpers/policies_helper.rb:57 ../app/helpers/policies_helper.rb:62
-#: ../app/models/foreman_openscap/policy.rb:111
+#: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:10
 #: ../app/views/scap_contents/welcome.html.erb:1
 #: ../app/views/scap_contents/welcome.html.erb:6
@@ -504,10 +648,6 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:145 ../lib/foreman_openscap/engine.rb:139
-msgid "Policies"
-msgstr ""
-
 #: ../app/helpers/policy_dashboard_helper.rb:11
 msgid "Compliant hosts"
 msgstr ""
@@ -517,7 +657,7 @@ msgid "Incompliant hosts"
 msgstr ""
 
 #: ../app/helpers/policy_dashboard_helper.rb:13
-#: ../app/models/foreman_openscap/compliance_status.rb:20
+#: ../app/models/foreman_openscap/compliance_status.rb:24
 msgid "Inconclusive"
 msgstr ""
 
@@ -573,7 +713,7 @@ msgstr ""
 msgid "is not included in SCAP_RESULT"
 msgstr ""
 
-#: ../app/models/concerns/foreman_openscap/openscap_proxy_core_extensions.rb:69
+#: ../app/models/concerns/foreman_openscap/openscap_proxy_core_extensions.rb:65
 msgid "must have Openscap feature"
 msgstr ""
 
@@ -581,90 +721,111 @@ msgstr ""
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
 msgstr ""
 
-#: ../app/models/foreman_openscap/compliance_status.rb:18
+#: ../app/models/concerns/foreman_openscap/policy_common.rb:15
+msgid "does not consist of 5 parts separated by space"
+msgstr ""
+
+#: ../app/models/concerns/foreman_openscap/policy_common.rb:21
+#: ../app/models/foreman_openscap/oval_policy.rb:14
+#: ../app/models/foreman_openscap/policy.rb:34
+msgid "is not a valid value"
+msgstr ""
+
+#: ../app/models/concerns/foreman_openscap/policy_common.rb:27
+msgid "must be between 1 and 31"
+msgstr ""
+
+#: ../app/models/foreman_openscap/compliance_status.rb:22
 #: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:13
 msgid "Compliant"
 msgstr ""
 
-#: ../app/models/foreman_openscap/compliance_status.rb:22
+#: ../app/models/foreman_openscap/compliance_status.rb:26
 #: ../app/views/foreman_openscap/policy_mailer/_dashboard.erb:17
 msgid "Incompliant"
 msgstr ""
 
-#: ../app/models/foreman_openscap/compliance_status.rb:24
+#: ../app/models/foreman_openscap/compliance_status.rb:28
 msgid "Unknown Compliance status"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:31
-#: ../app/models/foreman_openscap/policy.rb:273
-msgid "is not a valid value"
+#: ../app/models/foreman_openscap/oval_status.rb:8
+msgid "OVAL scan"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:51
-msgid "Cannot generate HTML guide, scap content is missing."
+#: ../app/models/foreman_openscap/oval_status.rb:14
+msgid "No Vulnerabilities found"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:57
-msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
+#: ../app/models/foreman_openscap/oval_status.rb:16
+msgid "%s vulnerabilities found"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:111
+#: ../app/models/foreman_openscap/oval_status.rb:18
+msgid "%s vulnerabilities with available patch found"
+msgstr ""
+
+#: ../app/models/foreman_openscap/oval_status.rb:20
+msgid "Unknown OVAL status"
+msgstr ""
+
+#: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:8
 msgid "Deployment Options"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:111
+#: ../app/models/foreman_openscap/policy.rb:11
 msgid "Policy Attributes"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:111
+#: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:11
 msgid "Schedule"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:112
+#: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:13
 #: ../app/views/scap_contents/_form.html.erb:11
 #: ../app/views/tailoring_files/_form.html.erb:11
 msgid "Locations"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:113
+#: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:16
 #: ../app/views/scap_contents/_form.html.erb:14
 #: ../app/views/tailoring_files/_form.html.erb:14
 msgid "Organizations"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:114
+#: ../app/models/foreman_openscap/policy.rb:11
 msgid "Hostgroups"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:267
-msgid "does not consist of 5 parts separated by space"
+#: ../app/models/foreman_openscap/policy.rb:55
+msgid "Cannot generate HTML guide, scap content is missing."
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:279
-msgid "must be between 1 and 31"
+#: ../app/models/foreman_openscap/policy.rb:61
+msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:284
+#: ../app/models/foreman_openscap/policy.rb:227
 msgid "must be present when tailoring file profile present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:285
+#: ../app/models/foreman_openscap/policy.rb:228
 msgid "must be present when tailoring file present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:290
+#: ../app/models/foreman_openscap/policy.rb:233
 msgid "does not come from selected tailoring file"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:296
+#: ../app/models/foreman_openscap/policy.rb:239
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:328
+#: ../app/models/foreman_openscap/policy.rb:271
 msgid ""
 "cannot assign to %s, all assigned policies must be deployed in the same way, c"
 "heck 'deploy by' for each assigned policy"
@@ -674,11 +835,17 @@ msgstr ""
 msgid "invalid type %s"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/ansible.rb:32
+#: ../app/services/foreman_openscap/client_config/ansible.rb:31
+msgid ""
+"theforeman.foreman_scap_client Ansible Role not found, please import it before"
+" running this action again."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/ansible.rb:54
 msgid "Ansible role"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/ansible.rb:33
+#: ../app/services/foreman_openscap/client_config/ansible.rb:55
 msgid "Ansible variables"
 msgstr ""
 
@@ -690,25 +857,25 @@ msgstr ""
 msgid "Smart Class Parameters"
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:13
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:19
 msgid ""
 "%{type} was selected to deploy policy to clients, but %{type} is not available"
 ". Are you missing a plugin?"
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:27
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:26
 msgid ""
 "Required %{msg_name} %{class} was not found, please ensure it is imported firs"
 "t."
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:57
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:34
 msgid ""
 "The following %{key_name} were missing for %{item_name}: %{key_names}. Make su"
 "re they are imported before proceeding."
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:90
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:56
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
 msgstr ""
 
@@ -724,6 +891,52 @@ msgstr ""
 msgid ""
 "The following proxies could not be reached: %s. Please make sure they are avai"
 "lable so Foreman can check their versions."
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/configure.rb:60
+msgid "Was %s configured successfully?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/configure.rb:61
+msgid "Assign openscap_proxy to %s before proceeding."
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/configure.rb:73
+msgid "Was %{model_name} %{name} configured successfully?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:56
+msgid "Could not update Ansible Variables with override: true"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:61
+msgid "Is foreman_ansible present?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:62
+msgid ""
+"foreman_ansible plugin not found, please install it before running this action"
+" again."
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:66
+msgid "Is theforeman.foreman_scap_client present?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:71
+msgid "Are required variables for theforeman.foreman_scap_client present?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:72
+msgid ""
+"The following Ansible Variables were not found: %{missing_vars}, please import"
+" them before running this action again."
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/setup.rb:76
+#: ../app/services/foreman_openscap/oval/setup.rb:81
+#: ../app/services/foreman_openscap/oval/setup.rb:86
+msgid "Is %s param set to be overriden?"
 msgstr ""
 
 #: ../app/validators/foreman_openscap/data_stream_validator.rb:9
@@ -776,7 +989,7 @@ msgid "Openscap Proxy"
 msgstr ""
 
 #: ../app/views/arf_reports/_list.html.erb:13
-#: ../app/views/arf_reports/_output.html.erb:8
+#: ../app/views/arf_reports/_output.html.erb:16
 #: ../app/views/policies/_list.html.erb:8
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:12
 #: ../app/views/scap_contents/_list.html.erb:6
@@ -812,23 +1025,23 @@ msgstr ""
 msgid "Total"
 msgstr ""
 
-#: ../app/views/arf_reports/_output.html.erb:4
+#: ../app/views/arf_reports/_output.html.erb:12
 msgid "Result"
 msgstr ""
 
-#: ../app/views/arf_reports/_output.html.erb:5
+#: ../app/views/arf_reports/_output.html.erb:13
 msgid "Message"
 msgstr ""
 
-#: ../app/views/arf_reports/_output.html.erb:6
+#: ../app/views/arf_reports/_output.html.erb:14
 msgid "Resource"
 msgstr ""
 
-#: ../app/views/arf_reports/_output.html.erb:7
+#: ../app/views/arf_reports/_output.html.erb:15
 msgid "Severity"
 msgstr ""
 
-#: ../app/views/arf_reports/_output.html.erb:25
+#: ../app/views/arf_reports/_output.html.erb:33
 msgid "Nothing to show"
 msgstr ""
 
@@ -860,7 +1073,7 @@ msgstr ""
 msgid "Download HTML"
 msgstr ""
 
-#: ../app/views/arf_reports/show_html.html.erb:9
+#: ../app/views/arf_reports/show_html.html.erb:10
 msgid "Loading..."
 msgstr ""
 
@@ -874,38 +1087,30 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:9
-msgid "Compliance Hosts"
-msgstr ""
-
-#: ../app/views/compliance_hosts/show.html.erb:11
-msgid "%s compliance reports by policy"
-msgstr ""
-
-#: ../app/views/compliance_hosts/show.html.erb:15
+#: ../app/views/compliance_hosts/show.html.erb:8
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/views/compliance_hosts/show.html.erb:17
+#: ../app/views/compliance_hosts/show.html.erb:10
 msgid "Policy %s"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:23
+#: ../app/views/compliance_hosts/show.html.erb:16
 msgid "%s latest report"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:35
+#: ../app/views/compliance_hosts/show.html.erb:28
 msgid "%s reports over time"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:43
+#: ../app/views/compliance_hosts/show.html.erb:36
 msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:154
+#: ../lib/foreman_openscap/engine.rb:182
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -922,7 +1127,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:156
+#: ../lib/foreman_openscap/engine.rb:184
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -939,10 +1144,12 @@ msgid "Changed?"
 msgstr ""
 
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:36
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:35
 msgid "Yes"
 msgstr ""
 
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:36
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:35
 msgid "No"
 msgstr ""
 
@@ -1045,13 +1252,27 @@ msgid "Select Compliance Policy"
 msgstr ""
 
 #: ../app/views/policies/edit.html.erb:1
-msgid "Edit Compliance Policy"
+#: ../app/views/scap_contents/edit.html.erb:1
+#: ../app/views/tailoring_files/edit.html.erb:1
+msgid "Edit %s"
 msgstr ""
 
 #: ../app/views/policies/index.html.erb:2
 #: ../app/views/policies/welcome.html.erb:1
 #: ../app/views/policies/welcome.html.erb:6
 msgid "Compliance Policies"
+msgstr ""
+
+#: ../app/views/policies/show.html.erb:1
+msgid "Details for Compliance Policy %s"
+msgstr ""
+
+#: ../app/views/policies/steps/_deployment_options_form.html.erb:6
+msgid "There are significant differences in deployment options."
+msgstr ""
+
+#: ../app/views/policies/steps/_deployment_options_form.html.erb:7
+msgid "Please make sure you understand them by reading our"
 msgstr ""
 
 #: ../app/views/policies/steps/_schedule_form.html.erb:9
@@ -1154,14 +1375,6 @@ msgstr ""
 msgid "Delete scap content %s?"
 msgstr ""
 
-#: ../app/views/scap_contents/edit.html.erb:1
-msgid "Edit SCAP Content"
-msgstr ""
-
-#: ../app/views/scap_contents/edit.html.erb:5
-msgid "Scap Contents"
-msgstr ""
-
 #: ../app/views/scap_contents/index.html.erb:1
 msgid "SCAP Contents"
 msgstr ""
@@ -1223,15 +1436,10 @@ msgstr ""
 msgid "Delete tailoring file %s?"
 msgstr ""
 
-#: ../app/views/tailoring_files/edit.html.erb:1
-msgid "Edit Tailoring File"
-msgstr ""
-
-#: ../app/views/tailoring_files/edit.html.erb:4
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:148
+#: ../lib/foreman_openscap/engine.rb:168
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1268,30 +1476,105 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:142
+#: ../lib/foreman_openscap/engine.rb:159
+msgid "Policies"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:162
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:145
+#: ../lib/foreman_openscap/engine.rb:165
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:170
+#: ../lib/foreman_openscap/engine.rb:171
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:28
+msgid "OVAL Contents"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:176
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:29
+msgid "OVAL Policies"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:198
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:174 ../lib/foreman_openscap/engine.rb:179
+#: ../lib/foreman_openscap/engine.rb:202 ../lib/foreman_openscap/engine.rb:207
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:176 ../lib/foreman_openscap/engine.rb:181
+#: ../lib/foreman_openscap/engine.rb:204 ../lib/foreman_openscap/engine.rb:209
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:185 ../lib/foreman_openscap/engine.rb:193
+#: ../lib/foreman_openscap/engine.rb:276 ../lib/foreman_openscap/engine.rb:289
 msgid "Run OpenSCAP scan"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:281 ../lib/foreman_openscap/engine.rb:290
+msgid "Run OVAL scan"
+msgstr ""
+
+#: ../webpack/components/withLoading.js:8
+msgid "Error!"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:35
+msgid "No OVAL Contents found."
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:9
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:12
+msgid "Name"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:26
+msgid "OVAL Contents table"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:36
+msgid "No OVAL Policies found"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:12
+msgid "OVAL Content"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:32
+msgid "OVAL Policies Table"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTab.js:38
+msgid "No CVEs found."
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:15
+msgid "Ref Id"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:16
+msgid "Has Errata?"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:17
+msgid "Hosts Count"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTable.js:51
+msgid "Table of CVEs for OVAL policy"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:47
+msgid "Scan All Hostgroups"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/index.js:26
+msgid "No OVAL Policy found"
 msgstr ""
 
 #: action_names.rb:2

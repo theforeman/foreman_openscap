@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-03-02 20:59+0000\n"
-"Last-Translator: Lukáš Zapletal\n"
+"PO-Revision-Date: 2020-05-12 09:50+0000\n"
+"Last-Translator: Transifex Bot <>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -32,9 +32,6 @@ msgid_plural "%s compliance reports by policy"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "%s compliance reports by policy"
-msgstr ""
-
 msgid "%s latest report"
 msgstr "%s 最新報告"
 
@@ -42,6 +39,12 @@ msgid "%s reports over time"
 msgstr "%s 一直以來的報告"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
+msgstr ""
+
+msgid "%s vulnerabilities found"
+msgstr ""
+
+msgid "%s vulnerabilities with available patch found"
 msgstr ""
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
@@ -74,8 +77,26 @@ msgstr ""
 msgid "Apply policy to hosts"
 msgstr ""
 
+msgid "Are required variables for theforeman.foreman_scap_client present?"
+msgstr ""
+
+msgid "Array of host IDs"
+msgstr ""
+
+msgid "Array of hostgroup IDs"
+msgstr ""
+
 msgid "Assign Compliance Policy"
 msgstr "指定合規政策"
+
+msgid "Assign hostgroups to an OVAL Policy"
+msgstr ""
+
+msgid "Assign hosts to an OVAL Policy"
+msgstr ""
+
+msgid "Assign openscap_proxy to %s before proceeding."
+msgstr ""
 
 msgid "Back"
 msgstr "上一頁"
@@ -119,9 +140,6 @@ msgstr "選擇星期幾"
 msgid "Compliance"
 msgstr "合規"
 
-msgid "Compliance Hosts"
-msgstr ""
-
 msgid "Compliance Policies"
 msgstr "合規政策"
 
@@ -149,10 +167,16 @@ msgstr "合於政策"
 msgid "Could not find host identified by: %s"
 msgstr ""
 
+msgid "Could not update Ansible Variables with override: true"
+msgstr ""
+
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr ""
 
 msgid "Could not validate %{file_type}. Error %{error}"
+msgstr ""
+
+msgid "Create OVAL content"
 msgstr ""
 
 msgid "Create SCAP content"
@@ -162,6 +186,9 @@ msgid "Create a Policy"
 msgstr ""
 
 msgid "Create a Tailoring file"
+msgstr ""
+
+msgid "Create an OVAL Policy"
 msgstr ""
 
 msgid "Dashboard"
@@ -185,6 +212,9 @@ msgstr ""
 msgid "Delete an ARF Report"
 msgstr ""
 
+msgid "Delete an OVAL Policy"
+msgstr ""
+
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr ""
 
@@ -206,6 +236,9 @@ msgstr ""
 msgid "Deletes a Tailoring file"
 msgstr ""
 
+msgid "Deletes an OVAL content"
+msgstr ""
+
 msgid "Deletes an SCAP content"
 msgstr "刪除 SCAP 內容"
 
@@ -214,6 +247,12 @@ msgstr ""
 
 msgid "Description"
 msgstr "說明"
+
+msgid "Details for Compliance Policy %s"
+msgstr ""
+
+msgid "Directory to upload when using \"directory\" upload type"
+msgstr ""
 
 msgid "Documentation"
 msgstr ""
@@ -239,16 +278,13 @@ msgstr ""
 msgid "Download bzipped ARF report"
 msgstr ""
 
-msgid "Edit Compliance Policy"
-msgstr "編輯合規政策"
-
-msgid "Edit SCAP Content"
-msgstr "編輯 SCAP 內容"
-
-msgid "Edit Tailoring File"
+msgid "Edit %s"
 msgstr ""
 
 msgid "Effective Profile"
+msgstr ""
+
+msgid "Error!"
 msgstr ""
 
 msgid "Failed"
@@ -288,11 +324,17 @@ msgstr "F"
 msgid "File Upload"
 msgstr "檔案上傳"
 
+msgid "File paths to upload when using \"files\" upload type"
+msgstr ""
+
 msgid "Full Report"
 msgstr ""
 
 msgid "General"
 msgstr "一般"
+
+msgid "Has Errata?"
+msgstr ""
 
 msgid "Host"
 msgstr "主機"
@@ -329,6 +371,9 @@ msgstr "主機名稱"
 
 msgid "Hosts Breakdown"
 msgstr "主機錯誤"
+
+msgid "Hosts Count"
+msgstr ""
 
 msgid "Hosts failing this rule"
 msgstr ""
@@ -379,6 +424,15 @@ msgstr "非決定性"
 msgid "Inconclusive results"
 msgstr "非決定性結果"
 
+msgid "Is %s param set to be overriden?"
+msgstr ""
+
+msgid "Is foreman_ansible present?"
+msgstr ""
+
+msgid "Is theforeman.foreman_scap_client present?"
+msgstr ""
+
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr ""
 
@@ -389,6 +443,12 @@ msgid "Latest reports for policy: %s"
 msgstr "最新的政策報告：%s"
 
 msgid "List ARF reports"
+msgstr ""
+
+msgid "List OVAL Policies"
+msgstr ""
+
+msgid "List OVAL contents"
 msgstr ""
 
 msgid "List Policies"
@@ -415,6 +475,9 @@ msgstr "訊息"
 msgid "More details"
 msgstr "更多詳細資訊"
 
+msgid "Name"
+msgstr ""
+
 msgid "Never audited"
 msgstr "未曾稽核"
 
@@ -439,6 +502,18 @@ msgstr "否"
 msgid "No ARF reports for this policy"
 msgstr "此政策沒有 ARF 報告"
 
+msgid "No CVEs found."
+msgstr ""
+
+msgid "No OVAL Contents found."
+msgstr ""
+
+msgid "No OVAL Policies found"
+msgstr ""
+
+msgid "No OVAL Policy found"
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr ""
 
@@ -446,6 +521,9 @@ msgid "No OpenSCAP proxy found for %{class} with id %{id}"
 msgstr ""
 
 msgid "No Tailoring file assigned for policy with id %s"
+msgstr ""
+
+msgid "No Vulnerabilities found"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
@@ -511,6 +589,48 @@ msgstr "事件數量"
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數"
 
+msgid "OVAL Content"
+msgstr ""
+
+msgid "OVAL Contents"
+msgstr ""
+
+msgid "OVAL Contents table"
+msgstr ""
+
+msgid "OVAL Policies"
+msgstr ""
+
+msgid "OVAL Policies Table"
+msgstr ""
+
+msgid "OVAL Policy description"
+msgstr ""
+
+msgid "OVAL Policy name"
+msgstr ""
+
+msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
+msgstr ""
+
+msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
+msgstr ""
+
+msgid "OVAL Policy schedule period (weekly, monthly, custom)"
+msgstr ""
+
+msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
+msgstr ""
+
+msgid "OVAL content name"
+msgstr ""
+
+msgid "OVAL policy successfully configured with %s."
+msgstr ""
+
+msgid "OVAL scan"
+msgstr ""
+
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
 
@@ -525,6 +645,9 @@ msgstr ""
 
 msgid "Organizations"
 msgstr "組織"
+
+msgid "Original file name of the OVAL content file"
+msgstr ""
 
 msgid "Original file name of the XML file"
 msgstr ""
@@ -549,6 +672,12 @@ msgstr "Passed|P"
 msgid "Please Confirm"
 msgstr "請確認"
 
+msgid "Please make sure you understand them by reading our"
+msgstr ""
+
+msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
+msgstr ""
+
 msgid "Policies"
 msgstr "方針"
 
@@ -562,6 +691,9 @@ msgid "Policy %s"
 msgstr "政策 %s"
 
 msgid "Policy Attributes"
+msgstr ""
+
+msgid "Policy OVAL content ID"
 msgstr ""
 
 msgid "Policy SCAP content ID"
@@ -606,6 +738,9 @@ msgstr "Puppet 類別"
 msgid "Rationale"
 msgstr "理由"
 
+msgid "Ref Id"
+msgstr ""
+
 msgid "References"
 msgstr "參照"
 
@@ -642,6 +777,9 @@ msgstr "結果"
 msgid "Rule Results"
 msgstr ""
 
+msgid "Run OVAL scan"
+msgstr ""
+
 msgid "Run OpenSCAP scan"
 msgstr ""
 
@@ -666,7 +804,7 @@ msgstr "SCAP 內容"
 msgid "SCAP policies summary"
 msgstr ""
 
-msgid "Scap Contents"
+msgid "Scan All Hostgroups"
 msgstr ""
 
 msgid "Schedule"
@@ -703,6 +841,12 @@ msgid "Show a policy's Tailoring file"
 msgstr ""
 
 msgid "Show an ARF report"
+msgstr ""
+
+msgid "Show an OVAL Policy"
+msgstr ""
+
+msgid "Show an OVAL content"
 msgstr ""
 
 msgid "Show an SCAP content"
@@ -750,6 +894,12 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "來自 Foreman 伺服器的摘要報告，於 %{foreman_url}"
 
+msgid "Sync contents that have remote source URL"
+msgstr ""
+
+msgid "Table of CVEs for OVAL policy"
+msgstr ""
+
 msgid "Tailoring File"
 msgstr ""
 
@@ -773,6 +923,9 @@ msgstr ""
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
+msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
+msgstr ""
+
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
 msgstr ""
 
@@ -780,6 +933,9 @@ msgid "The following proxies could not be reached: %s. Please make sure they are
 msgstr ""
 
 msgid "The identifier of the host"
+msgstr ""
+
+msgid "There are significant differences in deployment options."
 msgstr ""
 
 msgid "This feature is temporarily disabled. "
@@ -802,6 +958,12 @@ msgid_plural "Total of %{hosts} hosts"
 msgstr[0] ""
 msgstr[1] ""
 
+msgid "Type of the upload"
+msgstr ""
+
+msgid "URL of the OVAL content file"
+msgstr ""
+
 msgid "Unable to get HTML version of requested report from Smart Proxy"
 msgstr ""
 
@@ -814,10 +976,19 @@ msgstr "取消指定合規政策"
 msgid "Unknown Compliance status"
 msgstr "未知的合規狀態"
 
+msgid "Unknown OVAL status"
+msgstr ""
+
 msgid "Update a Policy"
 msgstr ""
 
 msgid "Update a Tailoring file"
+msgstr ""
+
+msgid "Update an OVAL Policy"
+msgstr ""
+
+msgid "Update an OVAL content"
 msgstr ""
 
 msgid "Update an SCAP content"
@@ -841,10 +1012,16 @@ msgstr ""
 msgid "Upload an ARF report"
 msgstr "上傳 ARF 報告"
 
+msgid "Upload an OVAL report - a list of CVEs for given host"
+msgstr ""
+
 msgid "Upload new SCAP content file"
 msgstr "上傳新的 SCAP 內容檔案"
 
 msgid "Upload new Tailoring File"
+msgstr ""
+
+msgid "Upload scap contents in bulk"
 msgstr ""
 
 msgid "View Report"
@@ -853,10 +1030,19 @@ msgstr "檢視報告"
 msgid "View full report"
 msgstr "檢視完整報告"
 
+msgid "Was %s configured successfully?"
+msgstr ""
+
+msgid "Was %{model_name} %{name} configured successfully?"
+msgstr ""
+
 msgid "XCCDF Profile"
 msgstr "XCCDF 設定檔"
 
 msgid "XCCDF Profile in Tailoring File"
+msgstr ""
+
+msgid "XML containing OVAL content"
 msgstr ""
 
 msgid "XML containing SCAP content"
@@ -889,6 +1075,15 @@ msgstr ""
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
+msgid "foreman_ansible plugin not found, please install it before running this action again."
+msgstr ""
+
+msgid "hostgroups"
+msgstr ""
+
+msgid "hosts"
+msgstr ""
+
 msgid "invalid type %s"
 msgstr "無效的類型 %s"
 
@@ -911,6 +1106,9 @@ msgid "must be present when tailoring file profile present"
 msgstr ""
 
 msgid "must have Openscap feature"
+msgstr ""
+
+msgid "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again."
 msgstr ""
 
 msgid "these Compliance reports"
