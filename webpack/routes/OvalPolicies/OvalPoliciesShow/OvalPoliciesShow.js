@@ -14,7 +14,6 @@ import {
   Tab,
   TabTitleText,
 } from '@patternfly/react-core';
-import '@patternfly/patternfly/patternfly-addons.scss';
 
 import withLoading from '../../../components/withLoading';
 
