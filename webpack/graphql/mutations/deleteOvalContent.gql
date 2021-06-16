@@ -1,0 +1,9 @@
+mutation DeleteOvalContent($id: ID!) {
+  deleteOvalContent(input: { id: $id }) {
+    id
+    errors {
+      path
+      message
+    }
+  }
+}

@@ -8,6 +8,9 @@ query($first: Int, $last: Int) {
       name
       url
       originalFilename
+      meta {
+        canDestroy
+      }
     }
   }
   currentUser {

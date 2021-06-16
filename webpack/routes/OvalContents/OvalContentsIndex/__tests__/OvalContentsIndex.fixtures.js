@@ -9,63 +9,6 @@ import {
 
 const ovalContentMockFactory = mockFactory('ovalContents', ovalContentsQuery);
 
-const ovalContents = {
-  totalCount: 4,
-  nodes: [
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'abc',
-      name: 'ansible OVAL content',
-      url:
-        'http://oval-content-source/security/data/oval/ansible-2-including-unpatched.oval.xml.bz2',
-      originalFilename: '',
-    },
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'bcd',
-      name: 'dotnet OVAL content',
-      url:
-        'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
-      originalFilename: '',
-    },
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'cde',
-      name: 'jboss OVAL content',
-      url: '',
-      originalFilename: 'jboss.oval.xml.bz2',
-    },
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'def',
-      name: 'openshift OVAL content',
-      url: '',
-      originalFilename: 'openshift.oval.xml.bz2',
-    },
-  ],
-};
-
-const paginatedOvalContents = {
-  totalCount: 7,
-  nodes: [
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'bcd',
-      name: 'dotnet OVAL content',
-      url:
-        'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
-      originalFilename: '',
-    },
-    {
-      __typename: 'ForemanOpenscap::OvalContent',
-      id: 'def',
-      name: 'openshift OVAL content',
-      url: '',
-      originalFilename: 'openshift.oval.xml.bz2',
-    },
-  ],
-};
-
 const viewer = userFactory('viewer', [
   {
     __typename: 'Permission',
@@ -74,15 +17,62 @@ const viewer = userFactory('viewer', [
   },
 ]);
 
+const firstContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC0z',
+  name: 'ansible OVAL content',
+  url:
+    'http://oval-content-source/security/data/oval/ansible-2-including-unpatched.oval.xml.bz2',
+  originalFilename: '',
+  meta,
+});
+
+const secondContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC00',
+  name: 'dotnet OVAL content',
+  url: 'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
+  originalFilename: '',
+  meta,
+});
+
+const thirdContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC03',
+  name: 'jboss OVAL content',
+  url: '',
+  originalFilename: 'jboss.oval.xml.bz2',
+  meta,
+});
+
+const fourthContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC0zMw==',
+  name: 'openshift OVAL content',
+  url: '',
+  originalFilename: 'openshift.oval.xml.bz2',
+  meta,
+});
+
+const ovalContentNodes = [
+  firstContent(),
+  secondContent(),
+  thirdContent(),
+  fourthContent(),
+];
+const ovalContents = {
+  totalCount: ovalContentNodes.length,
+  nodes: ovalContentNodes,
+};
+
 export const mocks = ovalContentMockFactory(
   { first: 20, last: 20 },
-  ovalContents,
+  {
+    totalCount: 4,
+    nodes: [firstContent(), secondContent(), thirdContent(), fourthContent()],
+  },
   { currentUser: admin }
 );
 
 export const paginatedMocks = ovalContentMockFactory(
   { first: 10, last: 5 },
-  paginatedOvalContents,
+  { totalCount: 7, nodes: [secondContent(), fourthContent()] },
   { currentUser: admin }
 );
 
@@ -107,6 +97,18 @@ export const unauthorizedMocks = ovalContentMockFactory(
   { first: 20, last: 20 },
   ovalContents,
   { currentUser: intruder }
+);
+
+export const noDeleteMocks = ovalContentMockFactory(
+  { first: 20, last: 20 },
+  {
+    totalCount: 2,
+    nodes: [
+      firstContent({ canDestroy: false }),
+      secondContent({ canDestroy: false }),
+    ],
+  },
+  { currentUser: admin }
 );
 
 export const pushMock = jest.fn();

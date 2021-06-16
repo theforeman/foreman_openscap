@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import { useQuery } from '@apollo/client';
-import { translate as __, sprintf } from 'foremanReact/common/I18n';
+import { translate as __ } from 'foremanReact/common/I18n';
 
-import ConfirmModal from '../../../components/ConfirmModal';
 import OvalPoliciesTable from './OvalPoliciesTable';
-import { submitDelete, prepareMutation } from './OvalPoliciesIndexHelper';
+import { submitDelete, prepareMutation } from '../../../helpers/mutationHelper';
+
 import IndexLayout from '../../../components/IndexLayout';
 
 import {
@@ -13,16 +13,9 @@ import {
   useCurrentPagination,
 } from '../../../helpers/pageParamsHelper';
 import policiesQuery from '../../../graphql/queries/ovalPolicies.gql';
+import deleteOvalPolicyMutation from '../../../graphql/mutations/deleteOvalPolicy.gql';
 
 const OvalPoliciesIndex = props => {
-  const pagination = useCurrentPagination(props.history);
-
-  const [policy, setPolicy] = useState(null);
-
-  const toggleModal = (policyToDelete = null) => {
-    setPolicy(policyToDelete);
-  };
-
   const useFetchFn = componentProps =>
     useQuery(policiesQuery, {
       variables: useParamsToVars(componentProps.history),
@@ -32,6 +25,8 @@ const OvalPoliciesIndex = props => {
     policies: data.ovalPolicies.nodes,
     totalCount: data.ovalPolicies.totalCount,
   });
+
+  const pagination = useCurrentPagination(props.history);
 
   return (
     <IndexLayout pageTitle={__('OVAL Policies')}>
@@ -43,24 +38,17 @@ const OvalPoliciesIndex = props => {
         pagination={pagination}
         emptyStateTitle={__('No OVAL Policies found')}
         permissions={['view_oval_policies']}
-        toggleModal={toggleModal}
-      />
-      <ConfirmModal
-        title={__('Delete OVAL Policy')}
-        text={
-          policy
-            ? sprintf(__('Are you sure you want to delete %s?'), policy.name)
-            : ''
-        }
-        onClose={toggleModal}
-        isOpen={!!policy}
-        onConfirm={submitDelete}
+        confirmDeleteTitle={__('Delete OVAL Policy')}
+        submitDelete={submitDelete}
         prepareMutation={prepareMutation(
           props.history,
-          toggleModal,
-          props.showToast
+          props.showToast,
+          policiesQuery,
+          'deleteOvalPolicy',
+          __('OVAL policy was successfully deleted.'),
+          deleteOvalPolicyMutation,
+          __('OVAL policy')
         )}
-        record={policy}
       />
     </IndexLayout>
   );

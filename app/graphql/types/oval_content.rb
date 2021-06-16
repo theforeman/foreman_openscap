@@ -3,6 +3,8 @@ module Types
     description 'An OVAL Content'
     model_class ::ForemanOpenscap::OvalContent
 
+    include ::Types::Concerns::MetaField
+
     global_id_field :id
     timestamps
     field :name, String

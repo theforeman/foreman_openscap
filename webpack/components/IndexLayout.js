@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
-import ToastsList from 'foremanReact/components/ToastsList';
 import {
   Grid,
   GridItem,
@@ -17,7 +16,6 @@ const IndexLayout = ({ pageTitle, children }) => (
     <Helmet>
       <title>{pageTitle}</title>
     </Helmet>
-    <ToastsList />
     <Grid className="scap-page-grid">
       <GridItem span={12}>
         <TextContent>

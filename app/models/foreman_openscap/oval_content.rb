@@ -5,6 +5,8 @@ module ForemanOpenscap
     include Taxonomix
     include ScapFileContent
 
+    before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:oval_policies)
+
     scoped_search :on => :name, :complete_value => true
 
     has_many :oval_policies

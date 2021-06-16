@@ -4,6 +4,7 @@ import { translate as __ } from 'foremanReact/common/I18n';
 
 import IndexTable from '../../../components/IndexTable';
 import withLoading from '../../../components/withLoading';
+import withDeleteModal from '../../../components/withDeleteModal';
 
 import { linkCell } from '../../../helpers/tableHelper';
 import { ovalPoliciesPath, modelPath } from '../../../helpers/pathsHelper';
@@ -53,4 +54,4 @@ OvalPoliciesTable.propTypes = {
   toggleModal: PropTypes.func.isRequired,
 };
 
-export default withLoading(OvalPoliciesTable);
+export default withLoading(withDeleteModal(OvalPoliciesTable));

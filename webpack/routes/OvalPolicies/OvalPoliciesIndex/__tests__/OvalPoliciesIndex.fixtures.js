@@ -109,13 +109,3 @@ export const noDeleteMocks = policiesMockFactory(
   },
   { currentUser: admin }
 );
-export const noDeleteMocks = policiesMockFactory(
-  { first: 20, last: 20 },
-  {
-    totalCount: 2,
-    nodes: [
-      firstPolicy({ canDestroy: false }),
-      secondPolicy({ canDestroy: false }),
-    ],
-  }
-);
