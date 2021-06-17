@@ -1,0 +1,20 @@
+mutation CreateOvalPolicy($name: String!, $period: String!, $cronLine: String, $ovalContentId: ID!, $hostgroupIds: [ID!]) {
+  createOvalPolicy(input: {name: $name, period: $period, cronLine: $cronLine, ovalContentId: $ovalContentId, hostgroupIds: $hostgroupIds}) {
+    ovalPolicy {
+      name
+      id
+      period
+      cronLine
+      hostgroups {
+        nodes {
+          name
+          id
+        }
+      }
+    }
+    errors {
+      path
+      message
+    }
+  }
+}

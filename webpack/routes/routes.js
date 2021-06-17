@@ -1,12 +1,14 @@
 import React from 'react';
 import OvalContentsIndex from './OvalContents/OvalContentsIndex';
 import OvalPoliciesIndex from './OvalPolicies/OvalPoliciesIndex';
+import OvalPoliciesNew from './OvalPolicies/OvalPoliciesNew';
 import OvalPoliciesShow from './OvalPolicies/OvalPoliciesShow';
 
 import {
   ovalContentsPath,
   ovalPoliciesPath,
   ovalPoliciesShowPath,
+  ovalPoliciesNewPath,
 } from '../helpers/pathsHelper';
 
 export default [
@@ -21,8 +23,13 @@ export default [
     exact: true,
   },
   {
+    path: ovalPoliciesNewPath,
+    render: props => <OvalPoliciesNew {...props} />,
+    exact: true
+  },
+  {
     path: ovalPoliciesShowPath,
     render: props => <OvalPoliciesShow {...props} />,
     exact: true,
-  },
+  }
 ];

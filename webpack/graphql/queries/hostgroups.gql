@@ -1,0 +1,9 @@
+query {
+  hostgroups {
+    totalCount
+    nodes {
+      id
+      name
+    }
+  }
+}
