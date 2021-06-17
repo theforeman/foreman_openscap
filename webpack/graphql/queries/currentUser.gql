@@ -1,0 +1,7 @@
+#import "./currentUserAttributes.gql"
+
+query {
+  currentUser {
+    ...CurrentUserAttributes
+  }
+}

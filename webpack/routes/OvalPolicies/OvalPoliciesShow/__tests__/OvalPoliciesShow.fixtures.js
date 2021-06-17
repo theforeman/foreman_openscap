@@ -42,6 +42,7 @@ const cvesResult = {
   totalCount: 1,
   nodes: [
     {
+      __typename: 'ForemanOpenscap::Cve',
       id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpDdmUtMjY3',
       refId: 'CVE-2020-14365',
       refUrl: 'https://access.redhat.com/security/cve/CVE-2020-14365',
@@ -50,6 +51,7 @@ const cvesResult = {
       hosts: {
         nodes: [
           {
+            __typename: 'Host',
             id: 'MDE6SG9zdC0z',
             name: 'centos-random.example.com',
           },

@@ -100,6 +100,7 @@ describe('OvalContentsIndex', () => {
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('ansible OVAL content')).toBeInTheDocument();
+    expect(screen.queryByText('Create OVAL Content')).not.toBeInTheDocument();
   });
   it('should not load page for user without permissions', async () => {
     render(

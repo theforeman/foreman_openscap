@@ -1,14 +1,15 @@
 import { translate as __, sprintf } from 'foremanReact/common/I18n';
 
+export const can = (user, permissionsRequired) =>
+  permissionCheck(user, permissionsRequired).allowed;
+
 export const permissionCheck = (user, permissionsRequired) => {
   if (permissionsRequired.length === 0) {
     return { allowed: true };
   }
 
   if (!user) {
-    throw new Error(
-      'No user data when loading the page - cannot determine if current user is allowed to view the page.'
-    );
+    return { allowed: false };
   }
 
   if (user.admin) {
@@ -35,7 +36,7 @@ export const permissionDeniedMsg = permissions => {
   if (permissions?.length > 0) {
     msg += sprintf(
       __('Request the following permissions from administrator: %s.'),
-      permissions.join(', ')
+      permissions.map(item => item.name).join(', ')
     );
   }
   return msg;

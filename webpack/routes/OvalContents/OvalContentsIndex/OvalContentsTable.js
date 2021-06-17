@@ -13,6 +13,7 @@ import {
 } from '../../../helpers/pathsHelper';
 
 import { linkCell } from '../../../helpers/tableHelper';
+import { can } from '../../../helpers/permissionsHelper';
 
 const OvalContentsTable = props => {
   const columns = [
@@ -48,7 +49,7 @@ const OvalContentsTable = props => {
     return actions;
   };
 
-  const createBtn = (
+  const createBtn = can(props.currentUser, ['create_oval_contents']) ? (
     <Button
       onClick={() => props.history.push(ovalContentsNewPath)}
       variant="primary"
@@ -56,7 +57,7 @@ const OvalContentsTable = props => {
     >
       {__('Create OVAL Content')}
     </Button>
-  );
+  ) : null;
 
   return (
     <IndexTable
@@ -78,6 +79,7 @@ OvalContentsTable.propTypes = {
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
   toggleModal: PropTypes.func.isRequired,
+  currentUser: PropTypes.object.isRequired,
 };
 
 export default withLoading(withDeleteModal(OvalContentsTable));

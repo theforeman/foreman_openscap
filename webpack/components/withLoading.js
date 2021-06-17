@@ -2,12 +2,11 @@ import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
 import Loading from 'foremanReact/components/Loading';
+import EmptyState from './EmptyState';
 import {
   permissionCheck,
   permissionDeniedMsg,
 } from '../helpers/permissionsHelper';
-
-import EmptyState from './EmptyState';
 
 const errorStateTitle = __('Error!');
 
@@ -62,7 +61,7 @@ const withLoading = Component => {
         <EmptyState
           lock
           title={__('Permission denied')}
-          body={permissionDeniedMsg(check.permissions.map(item => item.name))}
+          body={permissionDeniedMsg(check.permissions)}
         />
       );
     }
@@ -74,7 +73,7 @@ const withLoading = Component => {
         <EmptyState
           title={emptyStateTitle}
           body={emptyStateBody}
-          primaryButton={primaryButton}
+          primaryButton={primaryButton(data.currentUser)}
         />
       );
     }
@@ -89,14 +88,14 @@ const withLoading = Component => {
     emptyStateTitle: PropTypes.string.isRequired,
     emptyStateBody: PropTypes.string,
     permissions: PropTypes.array,
-    primaryButton: PropTypes.node,
+    primaryButton: PropTypes.func,
     shouldRefetch: PropTypes.bool,
   };
 
   Subcomponent.defaultProps = {
     renameData: data => data,
     permissions: [],
-    primaryButton: null,
+    primaryButton: () => {},
     shouldRefetch: false,
     emptyStateBody: '',
   };

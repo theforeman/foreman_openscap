@@ -6,12 +6,20 @@ import '@testing-library/jest-dom';
 import api from 'foremanReact/redux/API/API';
 
 import OvalContentsNew from '../OvalContentsNew';
-import { withRouter, withRedux, tick } from '../../../../testHelper';
+import {
+  withRedux,
+  withMockedProvider,
+  tick,
+  currentUserMockFactory,
+  admin,
+} from '../../../../testHelper';
 import { ovalContentsPath } from '../../../../helpers/pathsHelper';
 
 jest.mock('foremanReact/redux/API/API', () => ({ post: jest.fn() }));
 
-const TestComponent = withRouter(withRedux(OvalContentsNew));
+const TestComponent = withRedux(withMockedProvider(OvalContentsNew));
+
+const currentUserMock = currentUserMockFactory(admin);
 
 describe('OvalContentsNew', () => {
   it('should create with content from URL', async () => {
@@ -21,8 +29,13 @@ describe('OvalContentsNew', () => {
     api.post.mockImplementation(() => Promise.resolve());
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={{ push: pushMock }}
+        showToast={toastMock}
+        mocks={currentUserMock}
+      />
     );
+    await waitFor(tick);
     expect(screen.getByText('Name')).toBeInTheDocument();
     expect(screen.getByText('OVAL Content Source')).toBeInTheDocument();
     expect(screen.getByText('URL')).toBeInTheDocument();
@@ -61,8 +74,13 @@ describe('OvalContentsNew', () => {
     });
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={{ push: pushMock }}
+        showToast={toastMock}
+        mocks={currentUserMock}
+      />
     );
+    await waitFor(tick);
     userEvent.type(screen.getByLabelText('name'), 'test content');
     userEvent.type(
       screen.getByLabelText(/url/),
@@ -84,8 +102,13 @@ describe('OvalContentsNew', () => {
     });
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={{ push: pushMock }}
+        showToast={toastMock}
+        mocks={currentUserMock}
+      />
     );
+    await waitFor(tick);
     userEvent.type(screen.getByLabelText('name'), 'test content');
     userEvent.type(
       screen.getByLabelText(/url/),

@@ -5,6 +5,7 @@ import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router-dom';
 import { getForemanContext } from 'foremanReact/Root/Context/ForemanContext';
 import { waitFor } from '@testing-library/react';
+import currentUserQuery from './graphql/queries/currentUser.gql';
 
 export const withRedux = Component => props => (
   <Provider store={store}>
@@ -97,6 +98,9 @@ export const viewer = userFactory('viewer', [
     name: 'view_oval_policies',
   },
 ]);
+
+export const currentUserMockFactory = user =>
+  mockFactory('currentUser', currentUserQuery)(null, user, {});
 
 export const mockFactory = (resultName, query) => (
   variables,

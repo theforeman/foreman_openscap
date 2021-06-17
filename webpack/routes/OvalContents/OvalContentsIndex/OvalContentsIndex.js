@@ -15,6 +15,7 @@ import {
 import { submitDelete, prepareMutation } from '../../../helpers/mutationHelper';
 import ovalContentsQuery from '../../../graphql/queries/ovalContents.gql';
 import deleteOvalContentMutation from '../../../graphql/mutations/deleteOvalContent.gql';
+import { can } from '../../../helpers/permissionsHelper';
 
 const OvalContentsIndex = props => {
   const useFetchFn = componentProps =>
@@ -25,9 +26,22 @@ const OvalContentsIndex = props => {
   const renameData = data => ({
     ovalContents: data.ovalContents.nodes,
     totalCount: data.ovalContents.totalCount,
+    currentUser: data.currentUser,
   });
 
   const pagination = useCurrentPagination(props.history);
+
+  const primaryButton = ({ currentUser }) => {
+    if (can(currentUser, ['create_oval_contents'])) {
+      return (
+        <LinkButton
+          path={ovalContentsNewPath}
+          btnText={__('Create OVAL Content')}
+        />
+      );
+    }
+    return null;
+  };
 
   return (
     <IndexLayout pageTitle={__('OVAL Contents')}>
@@ -50,12 +64,7 @@ const OvalContentsIndex = props => {
           deleteOvalContentMutation,
           __('OVAL Content')
         )}
-        primaryButton={
-          <LinkButton
-            path={ovalContentsNewPath}
-            btnText={__('Create OVAL Content')}
-          />
-        }
+        primaryButton={primaryButton}
         shouldRefetch={props.location?.state?.refreshOvalContents}
       />
     </IndexLayout>
