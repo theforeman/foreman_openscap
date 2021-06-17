@@ -4,7 +4,9 @@ import { useQuery } from '@apollo/client';
 import { translate as __ } from 'foremanReact/common/I18n';
 
 import IndexLayout from '../../../components/IndexLayout';
+import LinkButton from '../../../components/LinkButton';
 import OvalContentsTable from './OvalContentsTable';
+import { ovalContentsNewPath } from '../../../helpers/pathsHelper';
 import {
   useParamsToVars,
   useCurrentPagination,
@@ -48,6 +50,13 @@ const OvalContentsIndex = props => {
           deleteOvalContentMutation,
           __('OVAL Content')
         )}
+        primaryButton={
+          <LinkButton
+            path={ovalContentsNewPath}
+            btnText={__('Create OVAL Content')}
+          />
+        }
+        shouldRefetch={props.location?.state?.refreshOvalContents}
       />
     </IndexLayout>
   );
@@ -56,6 +65,7 @@ const OvalContentsIndex = props => {
 OvalContentsIndex.propTypes = {
   history: PropTypes.object.isRequired,
   showToast: PropTypes.func.isRequired,
+  location: PropTypes.object.isRequired,
 };
 
 export default OvalContentsIndex;

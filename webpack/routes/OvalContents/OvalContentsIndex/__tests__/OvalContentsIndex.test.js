@@ -33,7 +33,7 @@ const TestComponent = withRedux(
 describe('OvalContentsIndex', () => {
   it('should load page', async () => {
     const { container } = render(
-      <TestComponent history={historyMock} mocks={mocks} />
+      <TestComponent history={historyMock} mocks={mocks} location={{}} />
     );
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
@@ -55,6 +55,7 @@ describe('OvalContentsIndex', () => {
     const { container } = render(
       <TestComponent
         history={pagePaginationHistoryMock}
+        location={{}}
         mocks={paginatedMocks}
       />
     );
@@ -72,14 +73,18 @@ describe('OvalContentsIndex', () => {
     );
   });
   it('should show empty state', async () => {
-    render(<TestComponent history={historyMock} mocks={emptyMocks} />);
+    render(
+      <TestComponent history={historyMock} mocks={emptyMocks} location={{}} />
+    );
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('No OVAL Contents found.')).toBeInTheDocument();
   });
   it('should show errors', async () => {
-    render(<TestComponent history={historyMock} mocks={errorMocks} />);
+    render(
+      <TestComponent history={historyMock} mocks={errorMocks} location={{}} />
+    );
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
@@ -89,13 +94,21 @@ describe('OvalContentsIndex', () => {
     expect(screen.getByText('Error!')).toBeInTheDocument();
   });
   it('should load page for user with permissions', async () => {
-    render(<TestComponent history={historyMock} mocks={viewerMocks} />);
+    render(
+      <TestComponent history={historyMock} mocks={viewerMocks} location={{}} />
+    );
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('ansible OVAL content')).toBeInTheDocument();
   });
   it('should not load page for user without permissions', async () => {
-    render(<TestComponent history={historyMock} mocks={unauthorizedMocks} />);
+    render(
+      <TestComponent
+        history={historyMock}
+        mocks={unauthorizedMocks}
+        location={{}}
+      />
+    );
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.queryByText('ansible OVAL content')).not.toBeInTheDocument();

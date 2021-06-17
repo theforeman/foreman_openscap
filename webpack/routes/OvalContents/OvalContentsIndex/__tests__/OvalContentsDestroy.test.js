@@ -28,6 +28,7 @@ describe('OvalContentsIndex', () => {
     render(
       <TestComponent
         history={historyMock}
+        location={{}}
         mocks={mocks}
         showToast={jest.fn()}
       />
@@ -55,6 +56,7 @@ describe('OvalContentsIndex', () => {
     render(
       <TestComponent
         history={pageParamsHistoryMock}
+        location={{}}
         mocks={mocked}
         showToast={showToast}
       />
@@ -80,6 +82,7 @@ describe('OvalContentsIndex', () => {
     render(
       <TestComponent
         history={pageParamsHistoryMock}
+        location={{}}
         mocks={deleteMockFactory(firstCall, secondCall, [
           { message: 'is used by first policy', path: ['base'] },
           { message: 'is used by second policy', path: ['base'] },
@@ -107,6 +110,7 @@ describe('OvalContentsIndex', () => {
     render(
       <TestComponent
         history={historyMock}
+        location={{}}
         mocks={noDeleteMocks}
         showToast={jest.fn()}
       />
