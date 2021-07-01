@@ -16,7 +16,7 @@ module ComplianceHostsHelper
       [_("Othered"), othered, ArfReportDashboardHelper::COLORS[:othered]],
       ['dates', date, nil]
     ]
-    { :data => data, :xAxisDataLabel => 'dates', :config => 'timeseries' }.to_json
+    { :data => data, :xAxisDataLabel => 'dates', :config => 'timeseries' }
   end
 
   def compliance_host_multiple_actions

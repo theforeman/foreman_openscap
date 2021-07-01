@@ -4,15 +4,15 @@
   <div class="col-md-5 scap-breakdown-chart-col">
     <div class="stats-well">
       <h4 class="ca" ><%= _('Report Metrics') %></h4>
-      <div id="arf-report-breakdown-chart" class="scap-breakdown-chart"></div>
-      <%= mount_react_component('DonutChart', "#arf-report-breakdown-chart", donut_breakdown_chart_data(metrics)) %>
+      <div class="scap-breakdown-chart">
+        <%= react_component('DonutChart', :data => donut_breakdown_chart_data(metrics)) %>
+      </div>
     </div>
   </div>
   <div class="col-md-5 arf-report-rule-chart-col">
     <div class="stats-well">
       <h4 class="ca" ><%= _('Report Status') %></h4>
-      <div id="arf-report-rule-chart"></div>
-      <%= mount_react_component('BarChart', "#arf-report-rule-chart", arf_report_status_chart_data(status), :flatten_data => true) %>
+      <%= react_component('BarChart', arf_report_status_chart_data(status)) %>
     </div>
   </div>
   <div class="col-md-2">

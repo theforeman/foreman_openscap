@@ -17,18 +17,16 @@
                                                         hash_for_arf_report_path(:id => data.latest_report.id)
                                                           .merge(:auth_object => data.latest_report)) %></h4>
         <% report = data.report %>
-        <% id = "host-policy-breakdown-chart-#{policy.id}" %>
-        <div id="<%= id %>" class="scap-breakdown-chart"></div>
-        <%= mount_react_component('DonutChart', "##{id}", donut_breakdown_chart_data(report)) %>
+        <div class="scap-breakdown-chart">
+          <%= react_component('DonutChart', :data => donut_breakdown_chart_data(report)) %>
+        </div>
       </div>
     </div>
 
     <div class="col-md-8">
       <div class="stats-well">
         <h4 class="ca"><%= _("%s reports over time") % policy %></h4>
-        <% reports_graph_id = "arf-reports-over-time-#{policy.id}" %>
-        <div id="<%= reports_graph_id %>"></div>
-        <%= mount_react_component('LineChart', "##{reports_graph_id}", host_arf_reports_chart_data(policy.id), :flatten_data => true) %>
+        <%= react_component('LineChart', host_arf_reports_chart_data(policy.id)) %>
       </div>
     </div>
     <% else %>

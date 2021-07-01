@@ -1,4 +1,5 @@
 <h4 class="header ca"><%= _('Compliance Reports Breakdown') %></h4>
-<div id="compliance-reports-breakdown" class="host-configuration-chart"/>
-<% report = ForemanOpenscap::ReportDashboard::Data.new().report %>
-<%= mount_react_component('DonutChart', "#compliance-reports-breakdown", donut_breakdown_chart_data(report)) %>
+<div class="host-configuration-chart">
+  <% report = ForemanOpenscap::ReportDashboard::Data.new().report %>
+  <%= react_component('DonutChart', :data => donut_breakdown_chart_data(report)) %>
+</div>
