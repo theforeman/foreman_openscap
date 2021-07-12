@@ -4,86 +4,51 @@ import { mockFactory } from '../../../../testHelper';
 
 const ovalContentMockFactory = mockFactory('ovalContents', ovalContentsQuery);
 
-export const mocks = [
-  {
-    request: {
-      query: ovalContentsQuery,
-      variables: {
-        first: 20,
-        last: 20,
-      },
-    },
-    result: {
-      data: {
-        ovalContents: {
-          totalCount: 4,
-          nodes: [
-            {
-              id: 'abc',
-              name: 'ansible OVAL content',
-              url:
-                'http://oval-content-source/security/data/oval/ansible-2-including-unpatched.oval.xml.bz2',
-              originalFilename: '',
-            },
-            {
-              id: 'bcd',
-              name: 'dotnet OVAL content',
-              url:
-                'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
-              originalFilename: '',
-            },
-            {
-              id: 'cde',
-              name: 'jboss OVAL content',
-              url: '',
-              originalFilename: 'jboss.oval.xml.bz2',
-            },
-            {
-              id: 'def',
-              name: 'openshift OVAL content',
-              url: '',
-              originalFilename: 'openshift.oval.xml.bz2',
-            },
-          ],
-        },
-      },
-    },
-  },
-];
+const firstContent = (meta = { canDestroy: true }) => ({
+  id: '"MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC0z"',
+  name: 'ansible OVAL content',
+  url:
+    'http://oval-content-source/security/data/oval/ansible-2-including-unpatched.oval.xml.bz2',
+  originalFilename: '',
+  meta,
+});
 
-export const paginatedMocks = [
+const secondContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC00',
+  name: 'dotnet OVAL content',
+  url: 'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
+  originalFilename: '',
+  meta,
+});
+
+const thirdContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC03',
+  name: 'jboss OVAL content',
+  url: '',
+  originalFilename: 'jboss.oval.xml.bz2',
+  meta,
+});
+
+const fourthContent = (meta = { canDestroy: true }) => ({
+  id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsQ29udGVudC0zMw==',
+  name: 'openshift OVAL content',
+  url: '',
+  originalFilename: 'openshift.oval.xml.bz2',
+  meta,
+});
+
+export const mocks = ovalContentMockFactory(
+  { first: 20, last: 20 },
   {
-    request: {
-      query: ovalContentsQuery,
-      variables: {
-        first: 10,
-        last: 5,
-      },
-    },
-    result: {
-      data: {
-        ovalContents: {
-          totalCount: 7,
-          nodes: [
-            {
-              id: 'bcd',
-              name: 'dotnet OVAL content',
-              url:
-                'http://oval-content-source/security/data/oval/dotnet-2.2.oval.xml.bz2',
-              originalFilename: '',
-            },
-            {
-              id: 'def',
-              name: 'openshift OVAL content',
-              url: '',
-              originalFilename: 'openshift.oval.xml.bz2',
-            },
-          ],
-        },
-      },
-    },
-  },
-];
+    totalCount: 4,
+    nodes: [firstContent(), secondContent(), thirdContent(), fourthContent()],
+  }
+);
+
+export const paginatedMocks = ovalContentMockFactory(
+  { first: 10, last: 5 },
+  { totalCount: 7, nodes: [secondContent(), fourthContent()] }
+);
 
 export const emptyMocks = ovalContentMockFactory(
   { first: 20, last: 20 },
@@ -93,6 +58,17 @@ export const errorMocks = ovalContentMockFactory(
   { first: 20, last: 20 },
   { totalCount: 0, nodes: [] },
   [{ message: 'Something very bad happened.' }]
+);
+
+export const noDeleteMocks = ovalContentMockFactory(
+  { first: 20, last: 20 },
+  {
+    totalCount: 2,
+    nodes: [
+      firstContent({ canDestroy: false }),
+      secondContent({ canDestroy: false }),
+    ],
+  }
 );
 
 export const pushMock = jest.fn();

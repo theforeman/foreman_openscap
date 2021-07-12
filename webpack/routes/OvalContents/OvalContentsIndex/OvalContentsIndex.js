@@ -9,7 +9,10 @@ import {
   useParamsToVars,
   useCurrentPagination,
 } from '../../../helpers/pageParamsHelper';
+
+import { submitDelete, prepareMutation } from '../../../helpers/mutationHelper';
 import ovalContentsQuery from '../../../graphql/queries/ovalContents.gql';
+import deleteOvalContentMutation from '../../../graphql/mutations/deleteOvalContent.gql';
 
 const OvalContentsIndex = props => {
   const useFetchFn = componentProps =>
@@ -33,6 +36,17 @@ const OvalContentsIndex = props => {
         resultPath="ovalContents.nodes"
         pagination={pagination}
         emptyStateTitle={__('No OVAL Contents found.')}
+        confirmDeleteTitle={__('Delete OVAL Content')}
+        submitDelete={submitDelete}
+        prepareMutation={prepareMutation(
+          props.history,
+          props.showToast,
+          ovalContentsQuery,
+          'deleteOvalContent',
+          __('OVAL Content successfully deleted.'),
+          deleteOvalContentMutation,
+          __('OVAL Content')
+        )}
       />
     </IndexLayout>
   );
@@ -40,6 +54,7 @@ const OvalContentsIndex = props => {
 
 OvalContentsIndex.propTypes = {
   history: PropTypes.object.isRequired,
+  showToast: PropTypes.func.isRequired,
 };
 
 export default OvalContentsIndex;

@@ -3,6 +3,8 @@ module Types
     description 'An OVAL Policy'
     model_class ::ForemanOpenscap::OvalPolicy
 
+    include ::Types::Concerns::MetaField
+
     global_id_field :id
     timestamps
     field :name, String
@@ -12,6 +14,7 @@ module Types
     field :day_of_month, String
     field :cron_line, String
     belongs_to :oval_content, ::Types::OvalContent
+
     has_many :hostgroups, ::Types::Hostgroup
 
     def self.graphql_definition
