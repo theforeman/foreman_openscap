@@ -75,7 +75,7 @@ module Api::V2
         assign _('hosts'), params["host_ids"], ::Host::Managed
       end
 
-      api :GET, '/compliance/oval_policies/:id/oval_content', N_("Show a policy's SCAP content")
+      api :GET, '/compliance/oval_policies/:id/oval_content', N_("Show a policy's OVAL content")
       param :id, :identifier, :required => true
 
       def oval_content
