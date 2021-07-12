@@ -7,6 +7,7 @@ import '@testing-library/jest-dom';
 import {
   withMockedProvider,
   withRouter,
+  withRedux,
   tick,
   historyMock,
 } from '../../../../testHelper';
@@ -23,7 +24,9 @@ import {
 import OvalPoliciesIndex from '../OvalPoliciesIndex';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
 
-const TestComponent = withRouter(withMockedProvider(OvalPoliciesIndex));
+const TestComponent = withRedux(
+  withRouter(withMockedProvider(OvalPoliciesIndex))
+);
 
 describe('OvalPoliciesIndex', () => {
   it('should load page', async () => {

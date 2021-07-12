@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
+import { Button } from '@patternfly/react-core';
 
 import withLoading from '../../../components/withLoading';
 import IndexTable from '../../../components/IndexTable';
+import { ovalContentsNewPath } from '../../../helpers/pathsHelper';
 
 const OvalContentsTable = props => {
   const columns = [{ title: __('Name') }];
@@ -12,6 +14,16 @@ const OvalContentsTable = props => {
     cells: [{ title: ovalContent.name }],
     ovalContent,
   }));
+
+  const createBtn = (
+    <Button
+      onClick={() => props.history.push(ovalContentsNewPath)}
+      variant="primary"
+      aria-label="create_oval_content"
+    >
+      {__('Create OVAL Content')}
+    </Button>
+  );
 
   const actions = [];
 
@@ -24,6 +36,7 @@ const OvalContentsTable = props => {
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('OVAL Contents table')}
+      toolbarBtns={createBtn}
     />
   );
 };
