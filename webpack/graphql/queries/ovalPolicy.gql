@@ -9,6 +9,9 @@ query($id: String!) {
     weekday
     dayOfMonth
     description
+    meta {
+      canEdit
+    }
     hostgroups {
       nodes {
         id

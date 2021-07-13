@@ -58,20 +58,24 @@ const EditableInput = props => {
     setInputValue(value);
   };
 
+  const editBtn = (
+    <SplitItem>
+      <Button
+        className="inline-edit-icon"
+        aria-label={`edit ${props.attrName}`}
+        variant="plain"
+        onClick={() => setEditing(true)}
+      >
+        <PencilAltIcon />
+      </Button>
+    </SplitItem>
+  );
+
   if (!editing) {
     return (
       <Split>
         <SplitItem>{props.value || <i>{__('None provided')}</i>}</SplitItem>
-        <SplitItem>
-          <Button
-            className="inline-edit-icon"
-            aria-label={`edit ${props.attrName}`}
-            variant="plain"
-            onClick={() => setEditing(true)}
-          >
-            <PencilAltIcon />
-          </Button>
-        </SplitItem>
+        {props.allowed && editBtn}
       </Split>
     );
   }
@@ -142,6 +146,7 @@ const EditableInput = props => {
 };
 
 EditableInput.propTypes = {
+  allowed: PropTypes.bool.isRequired,
   value: PropTypes.string,
   onConfirm: PropTypes.func.isRequired,
   attrName: PropTypes.string.isRequired,

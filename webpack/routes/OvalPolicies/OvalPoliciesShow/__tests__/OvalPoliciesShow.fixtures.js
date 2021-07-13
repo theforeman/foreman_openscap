@@ -1,4 +1,4 @@
-import { mockFactory, admin, intruder } from '../../../../testHelper';
+import { mockFactory, admin, intruder, viewer } from '../../../../testHelper';
 import ovalPolicyQuery from '../../../../graphql/queries/ovalPolicy.gql';
 import cvesQuery from '../../../../graphql/queries/cves.gql';
 import hostgroupsQuery from '../../../../graphql/queries/hostgroups.gql';
@@ -16,6 +16,9 @@ export const ovalPolicy = {
   weekday: 'tuesday',
   dayOfMonth: null,
   description: 'A very strict policy',
+  meta: {
+    canEdit: true,
+  },
   hostgroups: {
     nodes: [
       {
@@ -32,6 +35,8 @@ export const ovalPolicy = {
     ],
   },
 };
+
+const noEditPolicy = { ...ovalPolicy, meta: { canEdit: false } };
 
 const cvesResult = {
   totalCount: 1,
@@ -111,4 +116,9 @@ export const policyHostgroupsDeniedMock = hostgroupsMockFactory(
   { search: `oval_policy_id = ${ovalPolicyId}`, first: 5, last: 5 },
   { totalCount: 0, nodes: [] },
   { currentUser: intruder }
+);
+export const policyEditPermissionsMock = policyDetailMockFactory(
+  { id: ovalPolicy.id },
+  noEditPolicy,
+  { currentUser: viewer }
 );

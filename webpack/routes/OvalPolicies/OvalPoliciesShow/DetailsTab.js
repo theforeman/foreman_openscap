@@ -40,6 +40,7 @@ const DetailsTab = props => {
             onConfirm={onAttrUpdate('name', policy, callMutation, showToast)}
             component={TextInput}
             attrName="name"
+            allowed={policy.meta.canEdit}
           />
         </TextListItem>
         <TextListItem component={TextListItemVariants.dt}>
@@ -70,6 +71,7 @@ const DetailsTab = props => {
             )}
             component={TextArea}
             attrName="description"
+            allowed={policy.meta.canEdit}
           />
         </TextListItem>
       </TextList>
