@@ -1,24 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers } from 'redux';
+import store from 'foremanReact/redux';
 import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router-dom';
 import { getForemanContext } from 'foremanReact/Root/Context/ForemanContext';
 
-import toasts from 'foremanReact/redux/reducers/toasts';
-
-export const withRedux = Component => props => {
-  const combinedReducers = combineReducers({
-    toasts,
-  });
-
-  const store = createStore(combinedReducers);
-  return (
-    <Provider store={store}>
-      <Component {...props} />
-    </Provider>
-  );
-};
+export const withRedux = Component => props => (
+  <Provider store={store}>
+    <Component {...props} />
+  </Provider>
+);
 
 export const withRouter = Component => props => (
   <MemoryRouter>
@@ -88,7 +79,7 @@ export const intruder = userFactory('intruder', [
 export const mockFactory = (resultName, query) => (
   variables,
   modelResults,
-  { errors = [], currentUser = null }
+  { errors = [], currentUser = null } = {}
 ) => {
   const mock = {
     request: {

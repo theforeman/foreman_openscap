@@ -7,7 +7,6 @@ import {
   Button,
   Grid,
   GridItem,
-  TextContent,
   Text,
   TextVariants,
   Tabs,
@@ -16,11 +15,11 @@ import {
 } from '@patternfly/react-core';
 
 import withLoading from '../../../components/withLoading';
-
 import CvesTab from './CvesTab';
 import HostgroupsTab from './HostgroupsTab';
+import DetailsTab from './DetailsTab';
 
-import { policySchedule, newJobFormPath } from './OvalPoliciesShowHelper';
+import { newJobFormPath } from './OvalPoliciesShowHelper';
 import { resolvePath } from '../../../helpers/pathsHelper';
 
 const OvalPoliciesShow = props => {
@@ -51,16 +50,14 @@ const OvalPoliciesShow = props => {
           <Tabs mountOnEnter activeKey={activeTab} onSelect={handleTabSelect}>
             <Tab
               eventKey="details"
-              title={<TabTitleText>Details</TabTitleText>}
+              title={<TabTitleText>{__('Details')}</TabTitleText>}
             >
-              <TextContent className="pf-u-pt-md">
-                <Text component={TextVariants.h3}>Period</Text>
-                <Text component={TextVariants.p}>{policySchedule(policy)}</Text>
-                <Text component={TextVariants.h3}>Description</Text>
-                <Text component={TextVariants.p}>{policy.description}</Text>
-              </TextContent>
+              <DetailsTab {...props} />
             </Tab>
-            <Tab eventKey="cves" title={<TabTitleText>CVEs</TabTitleText>}>
+            <Tab
+              eventKey="cves"
+              title={<TabTitleText>{__('CVEs')}</TabTitleText>}
+            >
               <CvesTab {...props} />
             </Tab>
             <Tab
