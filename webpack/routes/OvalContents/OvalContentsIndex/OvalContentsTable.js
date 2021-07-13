@@ -6,10 +6,18 @@ import withLoading from '../../../components/withLoading';
 import IndexTable from '../../../components/IndexTable';
 
 const OvalContentsTable = props => {
-  const columns = [{ title: __('Name') }];
+  const columns = [
+    { title: __('Name') },
+    { title: __('URL') },
+    { title: __('Original File Name') },
+  ];
 
   const rows = props.ovalContents.map(ovalContent => ({
-    cells: [{ title: ovalContent.name }],
+    cells: [
+      { title: ovalContent.name },
+      { title: ovalContent.url || '' },
+      { title: ovalContent.originalFilename || '' },
+    ],
     ovalContent,
   }));
 

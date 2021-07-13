@@ -29,7 +29,13 @@ describe('OvalContentsIndex', () => {
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('ansible OVAL content')).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'http://oval-content-source/security/data/oval/ansible-2-including-unpatched.oval.xml.bz2'
+      )
+    ).toBeInTheDocument();
     expect(screen.getByText('openshift OVAL content')).toBeInTheDocument();
+    expect(screen.getByText('openshift.oval.xml.bz2')).toBeInTheDocument();
     const pageItems = container.querySelector('.pf-c-pagination__total-items');
     expect(within(pageItems).getByText(/1 - 4/)).toBeInTheDocument();
     expect(within(pageItems).getByText('of')).toBeInTheDocument();
