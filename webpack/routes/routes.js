@@ -1,10 +1,12 @@
 import React from 'react';
 import OvalContentsIndex from './OvalContents/OvalContentsIndex';
+import OvalContentsShow from './OvalContents/OvalContentsShow';
 import OvalPoliciesIndex from './OvalPolicies/OvalPoliciesIndex';
 import OvalPoliciesShow from './OvalPolicies/OvalPoliciesShow';
 
 import {
   ovalContentsPath,
+  ovalContentsShowPath,
   ovalPoliciesPath,
   ovalPoliciesShowPath,
 } from '../helpers/pathsHelper';
@@ -13,6 +15,11 @@ export default [
   {
     path: ovalContentsPath,
     render: props => <OvalContentsIndex {...props} />,
+    exact: true,
+  },
+  {
+    path: ovalContentsShowPath,
+    render: props => <OvalContentsShow {...props} />,
     exact: true,
   },
   {

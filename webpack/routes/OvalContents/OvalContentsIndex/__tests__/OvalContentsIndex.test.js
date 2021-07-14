@@ -6,7 +6,12 @@ import '@testing-library/jest-dom';
 
 import OvalContentsIndex from '../OvalContentsIndex';
 
-import { withMockedProvider, tick, historyMock } from '../../../../testHelper';
+import {
+  withRouter,
+  withMockedProvider,
+  tick,
+  historyMock,
+} from '../../../../testHelper';
 import { ovalContentsPath } from '../../../../helpers/pathsHelper';
 
 import {
@@ -20,7 +25,7 @@ import {
   unauthorizedMocks,
 } from './OvalContentsIndex.fixtures';
 
-const TestComponent = withMockedProvider(OvalContentsIndex);
+const TestComponent = withRouter(withMockedProvider(OvalContentsIndex));
 
 describe('OvalContentsIndex', () => {
   it('should load page', async () => {
