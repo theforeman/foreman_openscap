@@ -1,4 +1,5 @@
 import { decodeId } from './globalIdHelper';
+import { foremanUrl } from 'foremanReact/common/helpers';
 
 const experimental = path => `/experimental${path}`;
 
@@ -14,9 +15,9 @@ export const resolvePath = (path, params) =>
     path
   );
 
-export const ovalContentsPath = experimental('/compliance/oval_contents');
-export const ovalPoliciesPath = experimental('/compliance/oval_policies');
+export const ovalContentsPath = foremanUrl(experimental('/compliance/oval_contents'));
+export const ovalPoliciesPath = foremanUrl(experimental('/compliance/oval_policies'));
 export const ovalPoliciesShowPath = `${showPath(ovalPoliciesPath)}/:tab?`;
-export const hostsPath = '/hosts';
-export const newJobPath = '/job_invocations/new';
+export const hostsPath = foremanUrl('/hosts');
+export const newJobPath = foremanUrl('/job_invocations/new');
 export const hostsShowPath = showPath(hostsPath);
