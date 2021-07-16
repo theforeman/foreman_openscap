@@ -13,6 +13,7 @@ import {
   wait,
   withRouter,
   withRedux,
+  createHistoryWithPush,
 } from '../../../../testHelper';
 
 import {
@@ -45,9 +46,7 @@ describe('OvalPoliciesNew', () => {
     render(
       <TestComponent
         mocks={ovalContentMocks.concat(policySuccessMock)}
-        history={{
-          push: pushMock,
-        }}
+        history={createHistoryWithPush(pushMock)}
       />
     );
     expect(screen.getByText('Loading')).toBeInTheDocument();
@@ -89,9 +88,7 @@ describe('OvalPoliciesNew', () => {
     render(
       <TestComponent
         mocks={ovalContentMocks.concat(policyValidationMock)}
-        history={{
-          push: pushMock,
-        }}
+        history={createHistoryWithPush(pushMock)}
       />
     );
     await wait();
@@ -116,9 +113,7 @@ describe('OvalPoliciesNew', () => {
     render(
       <TestComponent
         mocks={ovalContentMocks.concat(policyPreconditionMock)}
-        history={{
-          push: pushMock,
-        }}
+        history={createHistoryWithPush(pushMock)}
       />
     );
     await wait();
@@ -148,9 +143,7 @@ describe('OvalPoliciesNew', () => {
         mocks={ovalContentMocks
           .concat(policyInvalidHgMock)
           .concat(hostgroupsMock)}
-        history={{
-          push: pushMock,
-        }}
+        history={createHistoryWithPush(pushMock)}
       />
     );
     await wait();

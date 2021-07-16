@@ -6,7 +6,12 @@ import '@testing-library/jest-dom';
 import api from 'foremanReact/redux/API/API';
 
 import OvalContentsNew from '../OvalContentsNew';
-import { withRouter, withRedux, tick } from '../../../../testHelper';
+import {
+  withRouter,
+  withRedux,
+  tick,
+  createHistoryWithPush,
+} from '../../../../testHelper';
 import { ovalContentsPath } from '../../../../helpers/pathsHelper';
 
 jest.mock('foremanReact/redux/API/API', () => ({ post: jest.fn() }));
@@ -21,7 +26,10 @@ describe('OvalContentsNew', () => {
     api.post.mockImplementation(() => Promise.resolve());
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={createHistoryWithPush(pushMock)}
+        showToast={toastMock}
+      />
     );
     expect(screen.getByText('Name')).toBeInTheDocument();
     expect(screen.getByText('OVAL Content Source')).toBeInTheDocument();
@@ -61,7 +69,10 @@ describe('OvalContentsNew', () => {
     });
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={createHistoryWithPush(pushMock)}
+        showToast={toastMock}
+      />
     );
     userEvent.type(screen.getByLabelText('name'), 'test content');
     userEvent.type(
@@ -84,7 +95,10 @@ describe('OvalContentsNew', () => {
     });
 
     render(
-      <TestComponent history={{ push: pushMock }} showToast={toastMock} />
+      <TestComponent
+        history={createHistoryWithPush(pushMock)}
+        showToast={toastMock}
+      />
     );
     userEvent.type(screen.getByLabelText('name'), 'test content');
     userEvent.type(

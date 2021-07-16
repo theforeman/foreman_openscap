@@ -1,3 +1,5 @@
+import { createMemoryHistory } from 'history';
+
 import ovalContentsQuery from '../../../../graphql/queries/ovalContents.gql';
 import { ovalContentsPath } from '../../../../helpers/pathsHelper';
 import {
@@ -118,10 +120,10 @@ export const noDeleteMocks = ovalContentMockFactory(
 
 export const pushMock = jest.fn();
 
-export const pagePaginationHistoryMock = {
-  location: {
-    search: '?page=2&perPage=5',
-    pathname: ovalContentsPath,
-  },
-  push: pushMock,
+const pagePaginationHistoryMock = createMemoryHistory();
+pagePaginationHistoryMock.location = {
+  search: '?page=2&perPage=5',
+  pathname: ovalContentsPath,
 };
+pagePaginationHistoryMock.push = pushMock;
+export { pagePaginationHistoryMock };

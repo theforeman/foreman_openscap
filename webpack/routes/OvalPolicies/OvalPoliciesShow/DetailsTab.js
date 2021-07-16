@@ -12,6 +12,7 @@ import {
   TextInput,
 } from '@patternfly/react-core';
 
+import ShortDateTime from 'foremanReact/components/common/dates/ShortDateTime';
 import { translate as __ } from 'foremanReact/common/I18n';
 
 import EditableInput from '../../../components/EditableInput';
@@ -23,6 +24,38 @@ const DetailsTab = props => {
   const { policy, showToast } = props;
 
   const [callMutation] = useMutation(updateOvalPolicyMutation);
+
+  let contentUpdatedAt;
+
+  if (policy.ovalContent) {
+    contentUpdatedAt = (
+      <React.Fragment>
+        <TextListItem component={TextListItemVariants.dt}>
+          {__('OVAL Content')}
+        </TextListItem>
+        <TextListItem
+          aria-label="OVAL Content name"
+          component={TextListItemVariants.dd}
+          className="foreman-spaced-list"
+        >
+          {policy.ovalContent.name}
+        </TextListItem>
+        <TextListItem component={TextListItemVariants.dt}>
+          {__('OVAL Content Last Sync')}
+        </TextListItem>
+        <TextListItem
+          aria-label="OVAL Content last sync"
+          component={TextListItemVariants.dd}
+          className="foreman-spaced-list"
+        >
+          <ShortDateTime
+            date={policy.ovalContent.changedAt}
+            defaultvalue={__('Unknown')}
+          />
+        </TextListItem>
+      </React.Fragment>
+    );
+  }
 
   return (
     <TextContent className="pf-u-pt-md">
@@ -74,6 +107,7 @@ const DetailsTab = props => {
             allowed={policy.meta.canEdit}
           />
         </TextListItem>
+        {contentUpdatedAt}
       </TextList>
     </TextContent>
   );

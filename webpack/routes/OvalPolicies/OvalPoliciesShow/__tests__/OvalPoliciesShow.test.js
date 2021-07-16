@@ -1,12 +1,13 @@
 import React from 'react';
-import { Router } from 'react-router-dom';
 import { render, screen, waitFor } from '@testing-library/react';
 import { within } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
 import { createMemoryHistory } from 'history';
 
-import OvalPoliciesShow from '../index';
+import { i18nProviderWrapperFactory } from 'foremanReact/common/i18nProviderWrapperFactory';
+
+import OvalPoliciesShow from '../';
 import {
   ovalPoliciesShowPath,
   resolvePath,
@@ -20,33 +21,38 @@ import {
 } from '../../../../testHelper';
 import {
   policyDetailMock,
-  historyMock,
-  historyWithSearch,
-  pushMock,
   policyCvesMock,
   policyHostgroupsMock,
   policyHostgroupsDeniedMock,
   ovalPolicyId,
   policyUnauthorizedMock,
+  contentSyncMock,
+  contentSyncErrorMock,
 } from './OvalPoliciesShow.fixtures';
 
-const TestComponent = withRedux(
-  withRouter(withMockedProvider(OvalPoliciesShow))
-);
+import * as toasts from '../../../../helpers/toastHelper';
+
+const TestComponent = i18nProviderWrapperFactory(
+  new Date('2021-08-28 00:00:00 -1100'),
+  'UTC'
+)(withRedux(withMockedProvider(withRouter(OvalPoliciesShow))));
 
 describe('OvalPoliciesShow', () => {
   it('should load details by default and handle tab change', async () => {
+    const history = createMemoryHistory();
+    history.push = jest.fn();
+
     const { container } = render(
       <TestComponent
-        history={historyMock}
+        history={history}
         match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
         mocks={policyDetailMock}
       />
     );
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
-    expect(screen.getAllByText('Third policy').pop()).toBeInTheDocument();
+    expect(screen.getByText('Third policy | OVAL Policy')).toBeInTheDocument();
     expect(screen.getByText('Weekly, on tuesday')).toBeInTheDocument();
     expect(screen.getByText('A very strict policy')).toBeInTheDocument();
     const activeTabHeader = container.querySelector(
@@ -54,7 +60,7 @@ describe('OvalPoliciesShow', () => {
     );
     expect(within(activeTabHeader).getByText('Details')).toBeInTheDocument();
     userEvent.click(screen.getByRole('button', { name: 'CVEs' }));
-    expect(pushMock).toHaveBeenCalledWith(
+    expect(history.push).toHaveBeenCalledWith(
       resolvePath(ovalPoliciesShowPath, {
         ':id': ovalPolicyId,
         ':tab?': 'cves',
@@ -64,7 +70,6 @@ describe('OvalPoliciesShow', () => {
   it('should load details tab when specified in URL', async () => {
     render(
       <TestComponent
-        history={historyMock}
         match={{
           params: { id: ovalPolicyId, tab: 'details' },
           path: ovalPoliciesShowPath,
@@ -72,7 +77,7 @@ describe('OvalPoliciesShow', () => {
         mocks={policyDetailMock}
       />
     );
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('Weekly, on tuesday')).toBeInTheDocument();
@@ -80,11 +85,11 @@ describe('OvalPoliciesShow', () => {
   it('should not load the page when user does not have permissions', async () => {
     render(
       <TestComponent
-        history={historyMock}
         match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
         mocks={policyUnauthorizedMock}
       />
     );
+    await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(
@@ -94,18 +99,20 @@ describe('OvalPoliciesShow', () => {
     ).toBeInTheDocument();
   });
   it('should load CVEs tab when specified in URL', async () => {
-    const mocks = policyDetailMock.concat(policyCvesMock);
+    const history = createMemoryHistory();
+    history.location.search = '?page=1&perPage=5';
+
     render(
       <TestComponent
-        history={historyWithSearch}
+        history={history}
         match={{
           params: { id: ovalPolicyId, tab: 'cves' },
           path: ovalPoliciesShowPath,
         }}
-        mocks={mocks}
+        mocks={policyDetailMock.concat(policyCvesMock)}
       />
     );
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(tick);
     await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
@@ -113,20 +120,17 @@ describe('OvalPoliciesShow', () => {
   });
   it('should have button for scanning all hostgroups', async () => {
     const btnText = 'Scan All Hostgroups';
-
-    const WithProvider = withRedux(withMockedProvider(OvalPoliciesShow));
     const history = createMemoryHistory();
     history.push = jest.fn();
 
     render(
-      <Router history={history}>
-        <WithProvider
-          history={history}
-          match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
-          mocks={policyDetailMock}
-        />
-      </Router>
+      <TestComponent
+        history={history}
+        match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
+        mocks={policyDetailMock}
+      />
     );
+    await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText(btnText)).toBeInTheDocument();
@@ -139,7 +143,6 @@ describe('OvalPoliciesShow', () => {
     const mocks = policyDetailMock.concat(policyHostgroupsMock);
     render(
       <TestComponent
-        history={historyWithSearch}
         match={{
           params: { id: ovalPolicyId, tab: 'hostgroups' },
           path: ovalPoliciesShowPath,
@@ -147,7 +150,7 @@ describe('OvalPoliciesShow', () => {
         mocks={mocks}
       />
     );
-    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(tick);
     await waitFor(tick);
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
@@ -157,7 +160,6 @@ describe('OvalPoliciesShow', () => {
     const mocks = policyDetailMock.concat(policyHostgroupsDeniedMock);
     render(
       <TestComponent
-        history={historyWithSearch}
         match={{
           params: { id: ovalPolicyId, tab: 'hostgroups' },
           path: ovalPoliciesShowPath,
@@ -167,6 +169,55 @@ describe('OvalPoliciesShow', () => {
     );
     await waitFor(tick);
     await waitFor(tick);
+    await waitFor(tick);
     expect(screen.getByText('Permission denied')).toBeInTheDocument();
+  });
+  it('should sync content', async () => {
+    const showToast = jest.fn();
+    jest.spyOn(toasts, 'showToast').mockImplementation(() => showToast);
+
+    const modalText =
+      'The following action will update OVAL Content from url. Are you sure you want to proceed?';
+    render(
+      <TestComponent
+        match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
+        mocks={policyDetailMock.concat(contentSyncMock)}
+      />
+    );
+    await waitFor(tick);
+    await waitFor(tick);
+    userEvent.click(screen.getByRole('button', { name: 'Sync OVAL Content' }));
+    await waitFor(tick);
+    expect(screen.getByText(modalText)).toBeInTheDocument();
+    const confirmBtn = screen.getByRole('button', { name: 'Confirm' });
+    userEvent.click(confirmBtn);
+    expect(confirmBtn).toBeDisabled();
+    await waitFor(tick);
+    expect(showToast).toHaveBeenCalledWith({
+      type: 'success',
+      message: 'OVAL content was successfully synced.',
+    });
+  });
+  it('should show errors on content sync', async () => {
+    const showToast = jest.fn();
+    jest.spyOn(toasts, 'showToast').mockImplementation(() => showToast);
+    render(
+      <TestComponent
+        match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
+        mocks={policyDetailMock.concat(contentSyncErrorMock)}
+      />
+    );
+    await waitFor(tick);
+    await waitFor(tick);
+    userEvent.click(screen.getByRole('button', { name: 'Sync OVAL Content' }));
+    await waitFor(tick);
+    const confirmBtn = screen.getByRole('button', { name: 'Confirm' });
+    userEvent.click(confirmBtn);
+    await waitFor(tick);
+    expect(showToast).toHaveBeenCalledWith({
+      type: 'error',
+      message:
+        'There was a following error when syncing OVAL content: Could not fetch OVAL content from URL',
+    });
   });
 });

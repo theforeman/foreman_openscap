@@ -32,9 +32,7 @@ const TestComponent = withRouter(
 
 describe('OvalPoliciesIndex', () => {
   it('should load page', async () => {
-    const { container } = render(
-      <TestComponent history={historyMock} mocks={mocks} />
-    );
+    const { container } = render(<TestComponent mocks={mocks} />);
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
     expect(screen.getByText('first policy')).toBeInTheDocument();

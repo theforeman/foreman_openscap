@@ -12,6 +12,13 @@ query($id: String!) {
     meta {
       canEdit
     }
+    ovalContent {
+      id
+      name
+      url
+      originalFilename
+      changedAt
+    }
     hostgroups {
       nodes {
         id

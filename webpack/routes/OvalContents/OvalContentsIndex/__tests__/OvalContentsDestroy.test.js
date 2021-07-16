@@ -10,13 +10,13 @@ import {
   withMockedProvider,
   tick,
   historyMock,
+  pageParamsHistoryMock,
 } from '../../../../testHelper';
 import { mocks, noDeleteMocks } from './OvalContentsIndex.fixtures';
 import {
   firstCall,
   secondCall,
   deleteMockFactory,
-  pageParamsHistoryMock,
 } from './OvalContentsDestroy.fixtures';
 
 const TestComponent = withRouter(

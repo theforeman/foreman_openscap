@@ -97,9 +97,3 @@ export const deleteMockFactory = (first, second, errors = null) => {
   ];
   return deleteMocks;
 };
-
-export const pageParamsHistoryMock = {
-  location: {
-    search: '?page=1&perPage=2',
-  },
-};

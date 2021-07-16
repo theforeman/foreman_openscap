@@ -13,16 +13,16 @@ module ForemanOpenscap
     validates :name, :presence => true, :length => { :maximum => 255 }, uniqueness: true
     validates :url, :format => { :with => %r{\Ahttps?://} }, :allow_blank => true
 
-    before_validation :fetch_remote_content, :if => lambda { |oval_content| oval_content.url.present? }
+    before_validation :fetch_remote_content, :if => lambda { |oval_content| oval_content.url.present? && oval_content.url_changed? }
 
     def to_h
       { :id => id, :name => name, :original_filename => original_filename, :changed_at => changed_at }
     end
 
-    private
-
     def fetch_remote_content
       ForemanOpenscap::Oval::SyncOvalContents.new.sync self
+      self.changed_at = DateTime.now unless errors.any?
+      self
     end
   end
 end

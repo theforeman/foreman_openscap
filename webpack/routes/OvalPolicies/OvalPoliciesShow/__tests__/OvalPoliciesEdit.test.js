@@ -3,6 +3,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import userEvent from '@testing-library/user-event';
+import { i18nProviderWrapperFactory } from 'foremanReact/common/i18nProviderWrapperFactory';
 
 import OvalPoliciesShow from '../';
 import {
@@ -29,9 +30,10 @@ import {
 
 import * as toasts from '../../../../helpers/toastHelper';
 
-const TestComponent = withRouter(
-  withRedux(withMockedProvider(OvalPoliciesShow))
-);
+const TestComponent = i18nProviderWrapperFactory(
+  new Date('2021-08-28 00:00:00 -1100'),
+  'UTC'
+)(withRouter(withRedux(withMockedProvider(OvalPoliciesShow))));
 
 describe('OvalPoliciesShow', () => {
   it('should open and close inline edit for name', async () => {
@@ -45,6 +47,7 @@ describe('OvalPoliciesShow', () => {
         mocks={policyDetailMock}
       />
     );
+    await waitFor(tick);
     await waitFor(tick);
     userEvent.click(screen.getByRole('button', { name: 'edit name' }));
     userEvent.clear(screen.getByLabelText(/name text input/));
@@ -72,6 +75,7 @@ describe('OvalPoliciesShow', () => {
         mocks={policyDetailMock.concat(policyUpdateMock)}
       />
     );
+    await waitFor(tick);
     await waitFor(tick);
     const editBtn = screen.getByRole('button', { name: 'edit name' });
     expect(editBtn).toBeInTheDocument();
@@ -127,6 +131,7 @@ describe('OvalPoliciesShow', () => {
       />
     );
     await waitFor(tick);
+    await waitFor(tick);
     const editBtn = screen.getByRole('button', { name: 'edit name' });
     userEvent.click(editBtn);
     const inputField = screen.getByLabelText(/name text input/);
@@ -141,7 +146,9 @@ describe('OvalPoliciesShow', () => {
     });
     expect(inputField).toBeInTheDocument();
     expect(inputField).not.toBeDisabled();
-    expect(screen.getByText(ovalPolicy.name)).toBeInTheDocument();
+    expect(
+      screen.getByText(`${ovalPolicy.name} | OVAL Policy`)
+    ).toBeInTheDocument();
   });
   it('should show validation errors', async () => {
     const showToast = jest.fn();
@@ -158,6 +165,7 @@ describe('OvalPoliciesShow', () => {
       />
     );
     await waitFor(tick);
+    await waitFor(tick);
     const editBtn = screen.getByRole('button', { name: 'edit name' });
     userEvent.click(editBtn);
     const inputField = screen.getByLabelText(/name text input/);
@@ -170,7 +178,9 @@ describe('OvalPoliciesShow', () => {
     expect(
       container.querySelector('#edit-name-spinner')
     ).not.toBeInTheDocument();
-    expect(screen.getByText(ovalPolicy.name)).toBeInTheDocument();
+    expect(
+      screen.getByText(`${ovalPolicy.name} | OVAL Policy`)
+    ).toBeInTheDocument();
     expect(screen.getByText('has already been taken')).toBeInTheDocument();
   });
   it('should not show edit btns when user is not allowed to edit', async () => {

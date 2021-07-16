@@ -1,0 +1,13 @@
+mutation SyncOvalContent($id: ID!) {
+  syncOvalContent(input: { id: $id }) {
+    ovalContent {
+      id
+      name
+      changedAt
+    }
+    errors {
+      path
+      message
+    }
+  }
+}

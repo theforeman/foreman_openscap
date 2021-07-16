@@ -2,6 +2,10 @@ module ForemanOpenscap
   module Oval
     class SyncOvalContents
       def sync(oval_content)
+        unless oval_content.url
+          oval_content.errors.add(:base, 'Cannot sync OVAL Content without URL')
+          return oval_content
+        end
         begin
           content_blob = fetch_content_blob(oval_content.url)
         rescue StandardError => e

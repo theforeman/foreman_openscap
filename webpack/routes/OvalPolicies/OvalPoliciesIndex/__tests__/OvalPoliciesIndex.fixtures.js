@@ -1,3 +1,4 @@
+import { createMemoryHistory } from 'history';
 import policiesQuery from '../../../../graphql/queries/ovalPolicies.gql';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
 import {
@@ -11,13 +12,14 @@ const policiesMockFactory = mockFactory('ovalPolicies', policiesQuery);
 
 export const pushMock = jest.fn();
 
-export const pageParamsHistoryMock = {
-  location: {
-    search: '?page=2&perPage=5',
-    pathname: ovalPoliciesPath,
-  },
-  push: pushMock,
+const pageParamsHistoryMock = createMemoryHistory();
+pageParamsHistoryMock.location = {
+  search: '?page=2&perPage=5',
+  pathname: ovalPoliciesPath,
 };
+pageParamsHistoryMock.push = pushMock;
+
+export { pageParamsHistoryMock };
 
 const viewer = userFactory('viewer', [
   {

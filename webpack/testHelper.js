@@ -2,7 +2,8 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import store from 'foremanReact/redux';
 import { MockedProvider } from '@apollo/react-testing';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Router } from 'react-router-dom';
+import { createMemoryHistory } from 'history';
 import { getForemanContext } from 'foremanReact/Root/Context/ForemanContext';
 import { waitFor } from '@testing-library/react';
 
@@ -12,7 +13,23 @@ export const withRedux = Component => props => (
   </Provider>
 );
 
-export const withRouter = Component => props => (
+export const createHistoryWithPush = pushMock => {
+  const history = createMemoryHistory();
+  history.push = pushMock;
+  return history;
+};
+
+export const withRouter = Component => props => {
+  // eslint-disable-next-line react/prop-types
+  const { history = createMemoryHistory() } = props;
+  return (
+    <Router history={history}>
+      <Component {...props} history={history} />
+    </Router>
+  );
+};
+
+export const withMemoryRouter = Component => props => (
   <MemoryRouter>
     <Component {...props} />
   </MemoryRouter>
@@ -51,11 +68,11 @@ export const wait = async (tickCount = 1) => {
   return waitFor(tick);
 };
 
-export const historyMock = {
-  location: {
-    search: '',
-  },
-};
+export const historyMock = createMemoryHistory();
+
+const pageParamsHistoryMock = createMemoryHistory();
+pageParamsHistoryMock.location.search = '?page=1&perPage=2';
+export { pageParamsHistoryMock };
 
 export const admin = {
   __typename: 'User',
