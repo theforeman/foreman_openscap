@@ -1,3 +1,5 @@
+#import "./currentUserAttributes.gql"
+
 query($first: Int, $last: Int) {
   ovalPolicies(first: $first, last: $last) {
     totalCount
@@ -8,5 +10,8 @@ query($first: Int, $last: Int) {
         name
       }
     }
+  }
+  currentUser {
+    ...CurrentUserAttributes
   }
 }

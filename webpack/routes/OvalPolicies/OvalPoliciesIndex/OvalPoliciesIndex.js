@@ -34,6 +34,7 @@ const OvalPoliciesIndex = props => {
         resultPath="ovalPolicies.nodes"
         pagination={pagination}
         emptyStateTitle={__('No OVAL Policies found')}
+        permissions={['view_oval_policies']}
       />
     </IndexLayout>
   );

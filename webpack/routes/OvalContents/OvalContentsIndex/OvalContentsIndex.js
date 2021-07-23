@@ -33,6 +33,7 @@ const OvalContentsIndex = props => {
         resultPath="ovalContents.nodes"
         pagination={pagination}
         emptyStateTitle={__('No OVAL Contents found.')}
+        permissions={['view_oval_contents']}
       />
     </IndexLayout>
   );

@@ -18,6 +18,8 @@ import {
   pageParamsHistoryMock,
   emptyMocks,
   errorMocks,
+  viewerMocks,
+  unauthorizedMocks,
 } from './OvalPoliciesIndex.fixtures';
 
 import OvalPoliciesIndex from '../OvalPoliciesIndex';
@@ -74,5 +76,23 @@ describe('OvalPoliciesIndex', () => {
       screen.getByText('Something very bad happened.')
     ).toBeInTheDocument();
     expect(screen.getByText('Error!')).toBeInTheDocument();
+  });
+  it('should load page for user with permissions', async () => {
+    render(<TestComponent history={historyMock} mocks={viewerMocks} />);
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(screen.getByText('first policy')).toBeInTheDocument();
+  });
+  it('should not load page for user without permissions', async () => {
+    render(<TestComponent history={historyMock} mocks={unauthorizedMocks} />);
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(screen.queryByText('first policy')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'You are not authorized to view the page. Request the following permissions from administrator: view_oval_policies.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('Permission denied')).toBeInTheDocument();
   });
 });

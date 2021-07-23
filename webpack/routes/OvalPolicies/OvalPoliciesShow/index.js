@@ -24,6 +24,7 @@ const WrappedOvalPoliciesShow = props => {
       renameData={renameData}
       resultPath="ovalPolicy"
       emptyStateTitle={__('No OVAL Policy found')}
+      permissions={['view_oval_policies']}
     />
   );
 };

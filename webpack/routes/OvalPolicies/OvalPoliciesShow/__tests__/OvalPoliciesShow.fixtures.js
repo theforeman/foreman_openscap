@@ -1,4 +1,4 @@
-import { mockFactory } from '../../../../testHelper';
+import { mockFactory, admin, intruder } from '../../../../testHelper';
 import ovalPolicyQuery from '../../../../graphql/queries/ovalPolicy.gql';
 import cvesQuery from '../../../../graphql/queries/cves.gql';
 
@@ -70,9 +70,18 @@ export const historyWithSearch = {
 
 export const policyDetailMock = policyDetailMockFactory(
   { id: ovalPolicy.id },
-  ovalPolicy
+  ovalPolicy,
+  { currentUser: admin }
 );
+
+export const policyUnauthorizedMock = policyDetailMockFactory(
+  { id: ovalPolicy.id },
+  ovalPolicy,
+  { currentUser: intruder }
+);
+
 export const policyCvesMock = cvesMockFactory(
   { search: `oval_policy_id = ${ovalPolicyId}`, first: 5, last: 5 },
-  cvesResult
+  cvesResult,
+  { currentUser: admin }
 );

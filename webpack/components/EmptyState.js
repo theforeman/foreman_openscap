@@ -12,10 +12,11 @@ import {
   CubeIcon,
   ExclamationCircleIcon,
   SearchIcon,
+  LockIcon,
 } from '@patternfly/react-icons';
 import { global_danger_color_200 as dangerColor } from '@patternfly/react-tokens';
 
-const EmptyStateIcon = ({ error, search }) => {
+const EmptyStateIcon = ({ error, search, lock }) => {
   if (error)
     return (
       <PfEmptyStateIcon
@@ -23,14 +24,15 @@ const EmptyStateIcon = ({ error, search }) => {
         color={dangerColor.value}
       />
     );
+  if (lock) return <PfEmptyStateIcon icon={LockIcon} />;
   if (search) return <PfEmptyStateIcon icon={SearchIcon} />;
   return <PfEmptyStateIcon icon={CubeIcon} />;
 };
 
-const EmptyState = ({ title, body, error, search }) => (
+const EmptyState = ({ title, body, error, search, lock }) => (
   <Bullseye>
     <PfEmptyState variant={EmptyStateVariant.small}>
-      <EmptyStateIcon error={!!error} search={search} />
+      <EmptyStateIcon error={!!error} search={search} lock={lock} />
       <Title headingLevel="h2" size="lg">
         {title}
       </Title>
@@ -42,11 +44,13 @@ const EmptyState = ({ title, body, error, search }) => (
 EmptyStateIcon.propTypes = {
   error: PropTypes.bool,
   search: PropTypes.bool,
+  lock: PropTypes.bool,
 };
 
 EmptyStateIcon.defaultProps = {
   error: false,
   search: false,
+  lock: false,
 };
 
 EmptyState.propTypes = {
@@ -54,6 +58,7 @@ EmptyState.propTypes = {
   body: PropTypes.string,
   error: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
   search: PropTypes.bool,
+  lock: PropTypes.bool,
 };
 
 EmptyState.defaultProps = {
@@ -62,6 +67,7 @@ EmptyState.defaultProps = {
     'There was an error retrieving data from the server. Check your connection and try again.',
   error: undefined,
   search: false,
+  lock: false,
 };
 
 export default EmptyState;
