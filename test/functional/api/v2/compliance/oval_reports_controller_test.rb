@@ -20,7 +20,7 @@ class Api::V2::Compliance::OvalReportsControllerTest < ActionController::TestCas
 
   test 'should show host errors on CVEs upload' do
     proxy = FactoryBot.create(:smart_proxy)
-    host = FactoryBot.create(:host, :puppet_proxy => proxy, :environment => FactoryBot.create(:environment))
+    host = FactoryBot.create(:host, :puppet_proxy => proxy)
     SmartProxy.any_instance.stubs(:smart_proxy_features).returns([])
     post :create, :params => @params.merge(:cname => host.name), :session => set_session_user
 

@@ -21,7 +21,7 @@ class LookupKeyOverriderTest < ActiveSupport::TestCase
   end
 
   test 'should add error when no puppet class found' do
-    puppet_class = Puppetclass.find_by :name => ForemanOpenscap::ClientConfig::Puppet.new.puppetclass_name
+    puppet_class = ::ForemanPuppet::Puppetclass.find_by :name => ForemanOpenscap::ClientConfig::Puppet.new.puppetclass_name
     puppet_class.destroy if puppet_class
     policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_content_profile, :deploy_by => :puppet)
     ForemanOpenscap::LookupKeyOverrider.new(policy).override

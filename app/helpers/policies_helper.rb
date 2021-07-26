@@ -41,7 +41,7 @@ module PoliciesHelper
   end
 
   def deploy_by_radio_checked(policy, tool)
-    type = policy.deploy_by ? policy.deploy_by.to_sym : :puppet
+    type = policy.deploy_by ? policy.deploy_by.to_sym : :manual
     tool.type == type
   end
 

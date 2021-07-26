@@ -38,6 +38,7 @@ module ForemanOpenscap
       end
 
       def find_config_item(scope = config_item_class_name.constantize)
+        return unless scope
         return scope.find_by :name => config_item_name if scope.respond_to?(:find_by)
         # all_puppetclasses, all_ansible_roles methods return Array, not ActiveRecord::Relation
         scope.find { |item| item.name == config_item_name }

@@ -13,7 +13,7 @@ class HostgroupOverriderTest < ActiveSupport::TestCase
 
     proxy = FactoryBot.create(:openscap_proxy, :url => 'https://override-keys.example.com:8998')
 
-    hostgroup = FactoryBot.create(:hostgroup, :environment_id => env.id, :openscap_proxy_id => proxy.id)
+    hostgroup = FactoryBot.create(:hostgroup, :environment_id => env.id, :openscap_proxy_id => proxy.id, :puppet => FactoryBot.create(:hostgroup_puppet_facet))
     refute hostgroup.puppetclasses.include? puppet_class
     assert LookupValue.where(:match => "hostgroup=#{hostgroup.to_label}",
                              :lookup_key_id => port_param.id,

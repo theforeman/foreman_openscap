@@ -10,7 +10,7 @@ module ForemanOpenscap
       end
 
       def available?
-        defined?(Puppetclass)
+        defined?(ForemanPuppet)
       end
 
       def inline_help
@@ -21,13 +21,17 @@ module ForemanOpenscap
         }
       end
 
+      def collection_method
+        :puppetclasses
+      end
+
       def constants
         OpenStruct.new(
           :server_param => 'server',
           :port_param => 'port',
           :policies_param => 'policies',
           :puppetclass_name => 'foreman_scap_client',
-          :config_item_class_name => 'Puppetclass',
+          :config_item_class_name => 'ForemanPuppet::Puppetclass',
           :override_method_name => 'class_params',
           :msg_name => _('Puppet class'),
           :lookup_key_plural_name => _('Smart Class Parameters'),

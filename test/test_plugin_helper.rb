@@ -5,6 +5,7 @@ require 'test_helper'
 FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
 # Add factories from foreman_ansible
 FactoryBot.definition_file_paths << File.join(ForemanAnsible::Engine.root, '/test/factories')
+FactoryBot.definition_file_paths << File.join(ForemanPuppet::Engine.root, '/test/factories')
 FactoryBot.reload
 
 require "#{ForemanOpenscap::Engine.root}/test/fixtures/cve_fixtures"
@@ -12,12 +13,12 @@ require "#{ForemanOpenscap::Engine.root}/test/fixtures/cve_fixtures"
 module ScapClientPuppetclass
   def setup_puppet_class
     puppet_config = ::ForemanOpenscap::ClientConfig::Puppet.new
-    Puppetclass.find_by(:name => puppet_config.puppetclass_name)&.destroy
+    ForemanPuppet::Puppetclass.find_by(:name => puppet_config.puppetclass_name)&.destroy
 
     puppet_class = FactoryBot.create(:puppetclass, :name => puppet_config.puppetclass_name)
-    server_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.server_param, :default_value => nil)
-    port_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.port_param, :default_value => nil)
-    policies_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.policies_param, :default_value => nil)
+    server_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.server_param, :default_value => nil, :override => false)
+    port_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.port_param, :default_value => nil, :override => false)
+    policies_param = FactoryBot.create(:puppetclass_lookup_key, :key => puppet_config.policies_param, :default_value => nil, :override => false)
 
     env = FactoryBot.create :environment
 
