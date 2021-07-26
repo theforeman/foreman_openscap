@@ -10,7 +10,8 @@ class UpdatePuppetPortParamType < ActiveRecord::Migration[6.0]
   private
 
   def update_port_type(method)
-    puppet_class = Puppetclass.find_by :name => 'foreman_scap_client'
+    return unless defined?(ForemanPuppet)
+    puppet_class = ::ForemanPuppet::Puppetclass.find_by :name => 'foreman_scap_client'
     return unless puppet_class
     port_key = puppet_class.class_params.find_by :key => 'port'
     return unless port_key

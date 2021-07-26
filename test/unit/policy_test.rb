@@ -75,7 +75,6 @@ class PolicyTest < ActiveSupport::TestCase
     asset = FactoryBot.create(:asset, :assetable_id => hg.id, :assetable_type => 'Hostgroup')
     policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     policy.save!
-    hg.hostgroup_classes.destroy_all
     hg.destroy
     assert_equal 0, policy.hostgroups.count
   end
