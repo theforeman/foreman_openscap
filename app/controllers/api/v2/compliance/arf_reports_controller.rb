@@ -140,12 +140,6 @@ module Api
             super
           end
         end
-
-        protected
-
-        def assign_lone_taxonomies
-          # do not assign lone taxonomies to arf report
-        end
       end
     end
   end
