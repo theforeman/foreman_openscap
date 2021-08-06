@@ -1,3 +1,5 @@
+#import "./currentUserAttributes.gql"
+
 query($id: String!) {
   ovalPolicy(id: $id) {
     id
@@ -17,5 +19,8 @@ query($id: String!) {
         }
       }
     }
+  }
+  currentUser {
+    ...CurrentUserAttributes
   }
 }

@@ -1,6 +1,11 @@
 import policiesQuery from '../../../../graphql/queries/ovalPolicies.gql';
 import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
-import { mockFactory } from '../../../../testHelper';
+import {
+  mockFactory,
+  admin,
+  intruder,
+  userFactory,
+} from '../../../../testHelper';
 
 const policiesMockFactory = mockFactory('ovalPolicies', policiesQuery);
 
@@ -14,48 +19,77 @@ export const pageParamsHistoryMock = {
   push: pushMock,
 };
 
+const policiesMocks = {
+  totalCount: 2,
+  nodes: [
+    {
+      __typename: 'ForemanOpenscap::OvalPolicy',
+      id: 'abc',
+      name: 'first policy',
+      ovalContent: { name: 'first content' },
+    },
+    {
+      __typename: 'ForemanOpenscap::OvalPolicy',
+      id: 'xyz',
+      name: 'second policy',
+      ovalContent: { name: 'second content' },
+    },
+  ],
+};
+
+const pagedPoliciesMocks = {
+  totalCount: 7,
+  nodes: [
+    {
+      __typename: 'ForemanOpenscap::OvalPolicy',
+      id: 'xyz',
+      name: 'sixth policy',
+      ovalContent: { name: 'sixth content' },
+    },
+    {
+      __typename: 'ForemanOpenscap::OvalPolicy',
+      id: 'abc',
+      name: 'seventh policy',
+      ovalContent: { name: 'seventh content' },
+    },
+  ],
+};
+
+const viewer = userFactory('viewer', [
+  {
+    __typename: 'Permission',
+    id: 'MDE6UGVybWlzc2lvbi0yOTY=',
+    name: 'view_oval_policies',
+  },
+]);
+
 export const mocks = policiesMockFactory(
   { first: 20, last: 20 },
-  {
-    totalCount: 2,
-    nodes: [
-      {
-        id: 'abc',
-        name: 'first policy',
-        ovalContent: { name: 'first content' },
-      },
-      {
-        id: 'xyz',
-        name: 'second policy',
-        ovalContent: { name: 'second content' },
-      },
-    ],
-  }
+  policiesMocks,
+  { currentUser: admin }
 );
 export const pageParamsMocks = policiesMockFactory(
   { first: 10, last: 5 },
-  {
-    totalCount: 7,
-    nodes: [
-      {
-        id: 'xyz',
-        name: 'sixth policy',
-        ovalContent: { name: 'sixth content' },
-      },
-      {
-        id: 'abc',
-        name: 'seventh policy',
-        ovalContent: { name: 'seventh content' },
-      },
-    ],
-  }
+  pagedPoliciesMocks,
+  { currentUser: admin }
 );
 export const emptyMocks = policiesMockFactory(
   { first: 20, last: 20 },
-  { totalCount: 0, nodes: [] }
+  { totalCount: 0, nodes: [] },
+  { currentUser: admin }
 );
 export const errorMocks = policiesMockFactory(
   { first: 20, last: 20 },
   { totalCount: 0, nodes: [] },
-  [{ message: 'Something very bad happened.' }]
+  { errors: [{ message: 'Something very bad happened.' }], currentUser: admin }
+);
+export const viewerMocks = policiesMockFactory(
+  { first: 20, last: 20 },
+  policiesMocks,
+  { currentUser: viewer }
+);
+export const unauthorizedMocks = policiesMockFactory(
+  { first: 20, last: 20 },
+  policiesMocks,
+  { currentUser: intruder }
 );

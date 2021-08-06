@@ -16,6 +16,8 @@ import {
   pagePaginationHistoryMock,
   emptyMocks,
   errorMocks,
+  viewerMocks,
+  unauthorizedMocks,
 } from './OvalContentsIndex.fixtures';
 
 const TestComponent = withMockedProvider(OvalContentsIndex);
@@ -71,5 +73,23 @@ describe('OvalContentsIndex', () => {
       screen.getByText('Something very bad happened.')
     ).toBeInTheDocument();
     expect(screen.getByText('Error!')).toBeInTheDocument();
+  });
+  it('should load page for user with permissions', async () => {
+    render(<TestComponent history={historyMock} mocks={viewerMocks} />);
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(screen.getByText('ansible OVAL content')).toBeInTheDocument();
+  });
+  it('should not load page for user without permissions', async () => {
+    render(<TestComponent history={historyMock} mocks={unauthorizedMocks} />);
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(screen.queryByText('ansible OVAL content')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'You are not authorized to view the page. Request the following permissions from administrator: view_oval_contents.'
+      )
+    ).toBeInTheDocument();
+    expect(screen.getByText('Permission denied')).toBeInTheDocument();
   });
 });

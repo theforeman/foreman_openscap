@@ -20,6 +20,7 @@ import {
   pushMock,
   policyCvesMock,
   ovalPolicyId,
+  policyUnauthorizedMock,
 } from './OvalPoliciesShow.fixtures';
 
 const TestComponent = withRouter(withMockedProvider(OvalPoliciesShow));
@@ -66,6 +67,22 @@ describe('OvalPoliciesShow', () => {
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
     expect(screen.getByText('Weekly, on tuesday')).toBeInTheDocument();
+  });
+  it('should not load the page when user does not have permissions', async () => {
+    render(
+      <TestComponent
+        history={historyMock}
+        match={{ params: { id: ovalPolicyId }, path: ovalPoliciesShowPath }}
+        mocks={policyUnauthorizedMock}
+      />
+    );
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(
+      screen.getByText(
+        'You are not authorized to view the page. Request the following permissions from administrator: view_oval_policies.'
+      )
+    ).toBeInTheDocument();
   });
   it('should load CVEs tab when specified in URL', async () => {
     const mocks = policyDetailMock.concat(policyCvesMock);

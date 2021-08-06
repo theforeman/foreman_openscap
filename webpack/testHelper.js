@@ -24,7 +24,7 @@ export const withMockedProvider = Component => props => {
 
   return (
     <ForemanContext.Provider value={ctx}>
-      <MockedProvider mocks={mocks} addTypename={false}>
+      <MockedProvider mocks={mocks}>
         <Component {...rest} />
       </MockedProvider>
     </ForemanContext.Provider>
@@ -40,10 +40,38 @@ export const historyMock = {
   },
 };
 
+export const admin = {
+  __typename: 'User',
+  id: 'MDE6VXNlci00',
+  login: 'admin',
+  admin: true,
+  permissions: {
+    nodes: [],
+  },
+};
+
+export const userFactory = (login, permissions = []) => ({
+  __typename: 'User',
+  id: 'MDE6VXNlci01',
+  login,
+  admin: false,
+  permissions: {
+    nodes: permissions,
+  },
+});
+
+export const intruder = userFactory('intruder', [
+  {
+    __typename: 'Permission',
+    id: 'MDE6UGVybWlzc2lvbi0x',
+    name: 'view_architectures',
+  },
+]);
+
 export const mockFactory = (resultName, query) => (
   variables,
   modelResults,
-  errors = []
+  { errors = [], currentUser = null }
 ) => {
   const mock = {
     request: {
@@ -59,6 +87,10 @@ export const mockFactory = (resultName, query) => (
 
   if (errors.length !== 0) {
     mock.result.errors = errors;
+  }
+
+  if (currentUser) {
+    mock.result.data.currentUser = currentUser;
   }
   return [mock];
 };

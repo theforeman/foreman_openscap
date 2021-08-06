@@ -36,6 +36,7 @@ const CvesTab = props => {
       resultPath="cves.nodes"
       pagination={pagination}
       emptyStateTitle={__('No CVEs found.')}
+      permissions={['view_oval_policies']}
     />
   );
 };

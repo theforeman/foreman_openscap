@@ -1,3 +1,5 @@
+#import "./currentUserAttributes.gql"
+
 query($first: Int, $last: Int) {
   ovalContents(first: $first, last: $last) {
     totalCount
@@ -7,5 +9,8 @@ query($first: Int, $last: Int) {
       url
       originalFilename
     }
+  }
+  currentUser {
+    ...CurrentUserAttributes
   }
 }
