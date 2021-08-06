@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { Button } from '@patternfly/react-core';
+import { Link } from 'react-router-dom';
 
 import withLoading from '../../../components/withLoading';
 import withDeleteModal from '../../../components/withDeleteModal';
@@ -48,15 +49,13 @@ const OvalContentsTable = props => {
     return actions;
   };
 
-  const createBtn = (
-    <Button
-      onClick={() => props.history.push(ovalContentsNewPath)}
-      variant="primary"
-      aria-label="create_oval_content"
-    >
-      {__('Create OVAL Content')}
-    </Button>
-  );
+  const toolbarBtns = [
+    <Link to={ovalContentsNewPath}>
+      <Button variant="primary" aria-label="create_oval_content">
+        {__('Create OVAL Content')}
+      </Button>
+    </Link>,
+  ];
 
   return (
     <IndexTable
@@ -67,7 +66,7 @@ const OvalContentsTable = props => {
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('OVAL Contents table')}
-      toolbarBtns={createBtn}
+      toolbarBtns={toolbarBtns}
     />
   );
 };

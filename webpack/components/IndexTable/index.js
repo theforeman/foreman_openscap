@@ -25,10 +25,13 @@ const IndexTable = ({
 
   const perPageOptions = preparePerPageOptions(usePaginationOptions());
 
+  const renderToolbarBtns = () =>
+    toolbarBtns.map((btn, idx) => <FlexItem key={idx}>{btn}</FlexItem>);
+
   return (
     <React.Fragment>
-      <Flex className="pf-u-pt-md">
-        <FlexItem>{toolbarBtns}</FlexItem>
+      <Flex>
+        {renderToolbarBtns()}
         <FlexItem align={{ default: 'alignRight' }}>
           <Pagination
             itemCount={totalCount}
@@ -57,14 +60,14 @@ const IndexTable = ({
 IndexTable.propTypes = {
   history: PropTypes.object.isRequired,
   pagination: PropTypes.object.isRequired,
-  toolbarBtns: PropTypes.node,
+  toolbarBtns: PropTypes.array,
   totalCount: PropTypes.number.isRequired,
   ariaTableLabel: PropTypes.string.isRequired,
   columns: PropTypes.array.isRequired,
 };
 
 IndexTable.defaultProps = {
-  toolbarBtns: null,
+  toolbarBtns: [],
 };
 
 export default IndexTable;

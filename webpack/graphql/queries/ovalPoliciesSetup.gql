@@ -1,0 +1,9 @@
+query {
+  ovalPoliciesSetup {
+    id
+    title
+    result
+    failMsg
+    errors
+  }
+}

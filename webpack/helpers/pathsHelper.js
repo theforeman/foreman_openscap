@@ -24,6 +24,7 @@ export const ovalContentsNewPath = newPath(ovalContentsPath);
 export const ovalPoliciesPath = experimental('/compliance/oval_policies');
 export const ovalPoliciesShowPath = `${showPath(ovalPoliciesPath)}/:tab?`;
 export const ovalPoliciesNewPath = newPath(ovalPoliciesPath);
+export const ovalPoliciesSetupPath = `${ovalPoliciesPath}/setup`;
 export const hostsPath = '/hosts';
 export const newJobPath = newPath('/job_invocations');
 export const hostsShowPath = showPath(hostsPath);

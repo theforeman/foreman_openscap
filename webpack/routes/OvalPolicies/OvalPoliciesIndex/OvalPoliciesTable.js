@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { Button } from '@patternfly/react-core';
 
 import { translate as __ } from 'foremanReact/common/I18n';
@@ -10,9 +11,10 @@ import withDeleteModal from '../../../components/withDeleteModal';
 
 import { linkCell } from '../../../helpers/tableHelper';
 import {
-  ovalPoliciesPath,
   modelPath,
+  ovalPoliciesPath,
   ovalPoliciesNewPath,
+  ovalPoliciesSetupPath,
 } from '../../../helpers/pathsHelper';
 
 const OvalPoliciesTable = props => {
@@ -39,15 +41,18 @@ const OvalPoliciesTable = props => {
     return actions;
   };
 
-  const createBtn = (
-    <Button
-      onClick={() => props.history.push(ovalPoliciesNewPath)}
-      variant="primary"
-      aria-label="create_oval_policy"
-    >
-      {__('Create OVAL Policy')}
-    </Button>
-  );
+  const toolbarBtns = [
+    <Link to={ovalPoliciesNewPath} key="new-btn">
+      <Button variant="primary" aria-label="create_oval_policy">
+        {__('Create OVAL Policy')}
+      </Button>
+    </Link>,
+    <Link to={ovalPoliciesSetupPath} key="check-btn">
+      <Button variant="secondary" aria-label="check_oval_setup">
+        {__('Check OVAL Setup')}
+      </Button>
+    </Link>,
+  ];
 
   return (
     <IndexTable
@@ -57,8 +62,8 @@ const OvalPoliciesTable = props => {
       pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
+      toolbarBtns={toolbarBtns}
       ariaTableLabel={__('OVAL Policies Table')}
-      toolbarBtns={createBtn}
     />
   );
 };

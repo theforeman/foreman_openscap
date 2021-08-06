@@ -8,7 +8,8 @@ module ForemanOpenscap
         @check_collection = CheckCollection.new initial_check_attrs
       end
 
-      def run
+      def run(dryrun = false)
+        @dryrun = dryrun
         override @config
         @check_collection
       end
@@ -41,7 +42,9 @@ module ForemanOpenscap
       end
 
       def handle_param_override(check_id, config, param)
-        return fail_check check_id if param.changed? && !param.save
+        changed = param.changed?
+        return fail_check check_id if @dryrun && changed
+        return fail_check check_id if !@dryrun && changed && !param.save
         @check_collection.pass_check check_id
       end
 
@@ -53,7 +56,7 @@ module ForemanOpenscap
       private
 
       def initial_check_attrs
-        override_msg = _("Could not update Ansible Variables with override: true")
+        override_msg = _("Ansible Variable was not set up correctly.")
 
         [
           {

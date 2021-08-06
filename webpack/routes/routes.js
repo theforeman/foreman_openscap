@@ -5,6 +5,7 @@ import OvalContentsNew from './OvalContents/OvalContentsNew';
 import OvalPoliciesIndex from './OvalPolicies/OvalPoliciesIndex';
 import OvalPoliciesNew from './OvalPolicies/OvalPoliciesNew';
 import OvalPoliciesShow from './OvalPolicies/OvalPoliciesShow';
+import OvalPoliciesSetup from './OvalPolicies/OvalPoliciesSetup';
 
 import {
   ovalContentsPath,
@@ -13,6 +14,7 @@ import {
   ovalPoliciesPath,
   ovalPoliciesShowPath,
   ovalPoliciesNewPath,
+  ovalPoliciesSetupPath,
 } from '../helpers/pathsHelper';
 
 export default [
@@ -39,6 +41,11 @@ export default [
   {
     path: ovalPoliciesNewPath,
     render: props => <OvalPoliciesNew {...props} />,
+    exact: true,
+  },
+  {
+    path: ovalPoliciesSetupPath,
+    render: props => <OvalPoliciesSetup {...props} />,
     exact: true,
   },
   {

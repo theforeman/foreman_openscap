@@ -223,6 +223,7 @@ module ForemanOpenscap
         register_graphql_query_field :oval_policies, '::Types::OvalPolicy', :collection_field
         register_graphql_query_field :oval_policy, '::Types::OvalPolicy', :record_field
         register_graphql_query_field :cves, '::Types::Cve', :collection_field
+        register_graphql_query_field :oval_policies_setup, -> () { [::Types::OvalPolicyCheck] }, :field, { :resolver => ::Resolvers::OvalSetupResolver }
 
         register_graphql_mutation_field :delete_oval_policy, ::Mutations::OvalPolicies::Delete
         register_graphql_mutation_field :delete_oval_content, ::Mutations::OvalContents::Delete
