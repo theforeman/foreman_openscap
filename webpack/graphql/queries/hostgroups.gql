@@ -1,0 +1,14 @@
+#import "./currentUserAttributes.gql"
+
+query($search: String, $first: Int, $last: Int) {
+  hostgroups(search: $search, first: $first, last: $last) {
+    totalCount
+    nodes {
+      id
+      name
+    }
+  }
+  currentUser {
+    ...CurrentUserAttributes
+  }
+}
