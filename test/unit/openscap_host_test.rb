@@ -44,7 +44,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
     end
 
     test "reports for policy should return expected reports" do
-      @report_2.created_at += 10.minutes
+      @report_2.reported_at += 10.minutes
       @report_2.save!
       reports = @host.reports_for_policy(@policy)
       assert_equal 2, reports.count
@@ -55,7 +55,7 @@ class OpenscapHostTest < ActiveSupport::TestCase
     end
 
     test "last report for policy should return the latest report only" do
-      @report_2.created_at += 10.minutes
+      @report_2.reported_at += 10.minutes
       @report_2.save!
       reports = @host.last_report_for_policy(@policy)
       assert_equal 1, reports.count

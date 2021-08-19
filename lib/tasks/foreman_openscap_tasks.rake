@@ -1,8 +1,7 @@
 # Tasks
 namespace :foreman_openscap do
   require 'foreman_openscap/bulk_upload'
-  require 'foreman_openscap/message_cleaner'
-
+  
   namespace :bulk_upload do
     desc 'Bulk upload SCAP content from directory'
     task :directory, [:directory] => [:environment] do |task, args|
@@ -55,9 +54,7 @@ namespace :foreman_openscap do
 
   desc "Clean duplicate messages for ArfReport"
   task :clean_messages => :environment do
-    puts 'Searching for duplicated messages and merging them... this can take a long time'
-    ForemanOpenscap::MessageCleaner.new.clean
-    puts 'Done'
+    puts 'DEPRECATED: This rake task does nothing, no messages need to be cleaned'
   end
 
   desc "Delete ArfReports without OpenSCAP proxy"

@@ -1,3 +1,4 @@
+# TODO: remove me
 FactoryBot.define do
   factory :compliance_log, :class => :log do
     result { "fail" }

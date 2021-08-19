@@ -15,7 +15,7 @@
         <% @arf_reports.each do |report| %>
           <tr>
             <td><%= report.host %></td>
-            <td><%=h report.created_at %></td>
+            <td><%=h report.reported_at %></td>
           </tr>
         <% end %>
       </tbody>

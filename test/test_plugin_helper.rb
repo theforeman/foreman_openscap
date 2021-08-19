@@ -65,10 +65,13 @@ module ScapTestCommon
       'othered' => rule_results.reject { |result| result == 'fail' || result == 'pass' }.count
     }
     report = FactoryBot.create(:arf_report, :host_id => host.id, :metrics => metrics, :status => metrics)
+    body = []
     rule_names.each_with_index do |item, index|
-      source = FactoryBot.create(:compliance_source, :value => rule_names[index])
-      log = FactoryBot.create(:compliance_log, :source => source, :report => report, :result => rule_results[index])
+      body << [rule_names[index], rule_results[index], 1]
     end
+    report.body = body.to_json
+    report.digest = ForemanOpenscap::ArfReport.calculate_digest(body)
+    report.save
     report
   end
 end

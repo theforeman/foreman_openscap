@@ -5,7 +5,7 @@ module ArfReportsHelper
   end
 
   def show_logs
-    return if @arf_report.logs.empty?
+    return if @arf_report.body.empty?
     form_tag arf_report_path(@arf_report), :id => 'level_filter', :method => :get, :class => "form form-horizontal" do
       content_tag(:span, _("Show log messages:") + ' ') +
       select(nil, 'level', [[_('All messages'), 'info'], [_('Failed and Othered'), 'warning'], [_('Failed only'), 'error']],
@@ -63,6 +63,7 @@ module ArfReportsHelper
   end
 
   def host_search_by_rule_result_buttons(source)
+    # TODO fix links
     action_buttons(display_link_if_authorized(_('Hosts failing this rule'), hash_for_hosts_path(:search => "fails_xccdf_rule = #{source}")),
                    display_link_if_authorized(_('Hosts passing this rule'), hash_for_hosts_path(:search => "passes_xccdf_rule = #{source}")),
                    display_link_if_authorized(_('Hosts othering this rule'), hash_for_hosts_path(:search => "others_xccdf_rule = #{source}")))

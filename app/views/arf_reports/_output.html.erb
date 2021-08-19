@@ -17,18 +17,21 @@
     </tr>
   </thead>
   <tbody>
-    <% logs.each do |log| %>
+    <%
+      body.each_with_index do |record, index|
+        result, title, ident, severity, description, rationale, references, fixes = record
+    %>
       <tr>
-        <td><span <%= result_tag log.result %>><%= h log.result %></span></td>
+        <td><span <%= result_tag result %>><%= h result %></span></td>
         <td>
-          <%= render :partial => 'detailed_message', :locals => { :message => log.message } %>
+          <%= render :partial => 'detailed_message', :locals => { ix: index, message: title, description: description, rationale: rationale, references: references, fixes: fixes } %>
         </td>
-        <td><%= log.source %></td>
-        <td><%= react_component 'RuleSeverity', { :severity => log.message.severity.downcase } %></td>
-        <td><%= host_search_by_rule_result_buttons(log.source) %></td>
+        <td><%= ident %></td>
+        <td><%= react_component 'RuleSeverity', { :severity => severity&.downcase } %></td>
+        <td><%= host_search_by_rule_result_buttons(ident) %></td>
       </tr>
     <% end %>
-    <tr id='ntsh' <%= "style='display: none;'".html_safe if logs.size > 0%>>
+    <tr id='ntsh' <%= "style='display: none;'".html_safe if body.size > 0%>>
       <td colspan="4">
         <div class="alert alert-warning" role="alert"><%= _("Nothing to show") %></div>
       </td>

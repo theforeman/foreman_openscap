@@ -75,7 +75,7 @@ class ArfReportsController < ApplicationController
   private
 
   def find_arf_report
-    @arf_report = resource_base.includes(:logs => %i[message source]).find(params[:id])
+    @arf_report = resource_base.find(params[:id])
   end
 
   def find_multiple

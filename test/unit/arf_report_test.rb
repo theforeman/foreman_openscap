@@ -9,11 +9,8 @@ module ForemanOpenscap
       @policy = FactoryBot.create(:policy)
       @asset = FactoryBot.create(:asset)
       @host = FactoryBot.create(:compliance_host)
-      @failed_source = FactoryBot.create(:source)
-      @passed_source = FactoryBot.create(:source)
-
-      @passed_log_params = { :result => "pass", :source => @passed_source }
-      @failed_log_params = { :result => "fail", :source => @failed_source }
+      @passed_log_params = ["xccdf_org.ssgproject.content_rule_account_unique_name", "pass"]
+      @failed_log_params = ["xccdf_org.ssgproject.content_rule_account_unique_name", "fail"]
       @status = { :passed => 5, :failed => 1, :othered => 7 }.with_indifferent_access
     end
 
@@ -175,7 +172,7 @@ module ForemanOpenscap
       report_1 = create_report_with_rules(host, rule_names_1, rule_results_1)
       report_2 = create_report_with_rules(host, rule_names_2, rule_results_2)
       res = ForemanOpenscap::ArfReport.by_rule_result(rule_name, 'pass').first
-      assert_equal res, report_1
+      assert_equal report_1, res
     end
 
     test 'should return same latest reports by scope and by association' do
@@ -201,10 +198,11 @@ module ForemanOpenscap
 
     private
 
-    def create_logs_for_report(report, log_params)
-      log_params.each do |param_group|
-        FactoryBot.create(:compliance_log, param_group.merge(:report_id => report.id))
-      end
+    def create_logs_for_report(report, body)
+      report.body = body.to_json
+      report.digest = ForemanOpenscap::ArfReport.calculate_digest(body)
+      report.save
+      report
     end
   end
 end

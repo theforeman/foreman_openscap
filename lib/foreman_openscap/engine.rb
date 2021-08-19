@@ -279,8 +279,9 @@ module ForemanOpenscap
           oval_options[:host_action_button] = Setting[:lab_features]
         end
 
-        RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
-        RemoteExecutionFeature.register(:foreman_openscap_run_oval_scans, N_("Run OVAL scan"), oval_options)
+        # TODO: does not work
+        #RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
+        #RemoteExecutionFeature.register(:foreman_openscap_run_oval_scans, N_("Run OVAL scan"), oval_options)
       end
     end
 
