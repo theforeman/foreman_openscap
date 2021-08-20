@@ -11,6 +11,7 @@ module ForemanOpenscap
                     :on => :id,
                     :rename => :oval_policy_id,
                     :complete_value => false,
+                    :only_explicit => true,
                     :ext_method => :find_by_oval_policy_id,
                     :operators => ['= ']
     end

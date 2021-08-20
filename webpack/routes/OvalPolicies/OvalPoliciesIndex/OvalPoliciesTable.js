@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Button } from '@patternfly/react-core';
+
 import { translate as __ } from 'foremanReact/common/I18n';
 
 import IndexTable from '../../../components/IndexTable';
@@ -7,7 +9,11 @@ import withLoading from '../../../components/withLoading';
 import withDeleteModal from '../../../components/withDeleteModal';
 
 import { linkCell } from '../../../helpers/tableHelper';
-import { ovalPoliciesPath, modelPath } from '../../../helpers/pathsHelper';
+import {
+  ovalPoliciesPath,
+  modelPath,
+  ovalPoliciesNewPath,
+} from '../../../helpers/pathsHelper';
 
 const OvalPoliciesTable = props => {
   const columns = [{ title: __('Name') }, { title: __('OVAL Content') }];
@@ -33,6 +39,16 @@ const OvalPoliciesTable = props => {
     return actions;
   };
 
+  const createBtn = (
+    <Button
+      onClick={() => props.history.push(ovalPoliciesNewPath)}
+      variant="primary"
+      aria-label="create_oval_policy"
+    >
+      {__('Create OVAL Policy')}
+    </Button>
+  );
+
   return (
     <IndexTable
       columns={columns}
@@ -42,6 +58,7 @@ const OvalPoliciesTable = props => {
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('OVAL Policies Table')}
+      toolbarBtns={createBtn}
     />
   );
 };

@@ -10,7 +10,6 @@ import {
 import EmptyState from './EmptyState';
 
 const errorStateTitle = __('Error!');
-const emptyStateBody = '';
 
 const pluckData = (data, path) => {
   const split = path.split('.');
@@ -28,6 +27,7 @@ const withLoading = Component => {
     resultPath,
     renameData,
     emptyStateTitle,
+    emptyStateBody,
     permissions,
     primaryButton,
     shouldRefetch,
@@ -87,6 +87,7 @@ const withLoading = Component => {
     resultPath: PropTypes.string.isRequired,
     renameData: PropTypes.func,
     emptyStateTitle: PropTypes.string.isRequired,
+    emptyStateBody: PropTypes.string,
     permissions: PropTypes.array,
     primaryButton: PropTypes.node,
     shouldRefetch: PropTypes.bool,
@@ -97,6 +98,7 @@ const withLoading = Component => {
     permissions: [],
     primaryButton: null,
     shouldRefetch: false,
+    emptyStateBody: '',
   };
 
   return Subcomponent;

@@ -1,6 +1,5 @@
 import { translate as __, sprintf } from 'foremanReact/common/I18n';
-
-import { decodeId } from '../../../helpers/globalIdHelper';
+import { decodeModelId } from '../../../helpers/globalIdHelper';
 import { addSearch } from '../../../helpers/pageParamsHelper';
 import { newJobPath } from '../../../helpers/pathsHelper';
 
@@ -19,7 +18,9 @@ export const policySchedule = policy => {
 
 const targetingScopedSearchQuery = policy => {
   const hgIds = policy.hostgroups.nodes.reduce((memo, hg) => {
-    const ids = [decodeId(hg)].concat(hg.descendants.nodes.map(decodeId));
+    const ids = [decodeModelId(hg)].concat(
+      hg.descendants.nodes.map(decodeModelId)
+    );
     return ids.reduce(
       (acc, id) => (acc.includes(id) ? acc : [...acc, id]),
       memo

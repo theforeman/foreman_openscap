@@ -1,7 +1,7 @@
 module ForemanOpenscap
   module Oval
     class SetupCheck
-      attr_reader :result, :id, :errors
+      attr_reader :result, :id, :title, :errors
 
       def initialize(hash)
         @id = hash[:id]
