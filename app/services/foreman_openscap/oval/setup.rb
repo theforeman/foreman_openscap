@@ -59,12 +59,12 @@ module ForemanOpenscap
           {
             :id => :foreman_ansible_present,
             :title => _("Is foreman_ansible present?"),
-            :fail_msg => ->(hash) { _("foreman_ansible plugin not found, please install it before running this action again.") }
+            :fail_msg => _("foreman_ansible plugin not found, please install it before running this action again.")
           },
           {
             :id => :foreman_scap_client_role_present,
             :title => _("Is theforeman.foreman_scap_client present?"),
-            :fail_msg => ->(hash) { @config.ansible_role_missing_msg }
+            :fail_msg => @config.ansible_role_missing_msg
           },
           {
             :id => :foreman_scap_client_vars_present,
@@ -74,17 +74,17 @@ module ForemanOpenscap
           {
             :id => :foreman_scap_client_server_overriden,
             :title => _("Is %s param set to be overriden?") % @config.server_param,
-            :fail_msg => ->(hash) { override_msg }
+            :fail_msg => override_msg
           },
           {
             :id => :foreman_scap_client_port_overriden,
             :title => _("Is %s param set to be overriden?") % @config.port_param,
-            :fail_msg => ->(hash) { override_msg }
+            :fail_msg => override_msg
           },
           {
             :id => :foreman_scap_client_policies_overriden,
             :title => _("Is %s param set to be overriden?") % @config.policies_param,
-            :fail_msg => ->(hash) { override_msg }
+            :fail_msg => override_msg
           }
         ]
       end
