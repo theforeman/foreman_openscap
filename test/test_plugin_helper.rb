@@ -5,12 +5,16 @@ require 'test_helper'
 FactoryBot.definition_file_paths << File.join(File.dirname(__FILE__), 'factories')
 # Add factories from foreman_ansible
 FactoryBot.definition_file_paths << File.join(ForemanAnsible::Engine.root, '/test/factories')
-FactoryBot.definition_file_paths << File.join(ForemanPuppet::Engine.root, '/test/factories')
+FactoryBot.definition_file_paths << File.join(ForemanPuppet::Engine.root, '/test/factories') if defined?(ForemanPuppet)
 FactoryBot.reload
 
 require "#{ForemanOpenscap::Engine.root}/test/fixtures/cve_fixtures"
 
 module ScapClientPuppetclass
+  def puppet_available?
+    defined?(ForemanPuppet)
+  end
+
   def setup_puppet_class
     puppet_config = ::ForemanOpenscap::ClientConfig::Puppet.new
     ForemanPuppet::Puppetclass.find_by(:name => puppet_config.puppetclass_name)&.destroy

@@ -24,6 +24,7 @@ class ConfigNameServiceTest < ActiveSupport::TestCase
   end
 
   test 'should find all available except Manual' do
+    skip unless puppet_available?
     ForemanOpenscap::ClientConfig::Ansible.any_instance.stubs(:available?).returns(false)
     configs = @name_service.all_available_except(:manual)
     assert_equal 1, configs.size

@@ -8,6 +8,7 @@ class LookupKeyOverriderTest < ActiveSupport::TestCase
   end
 
   test 'should override puppet class parameters' do
+    skip unless puppet_available?
     server_param, port_param, policies_param = setup_puppet_class.values_at :server_param, :port_param, :policies_param
     refute server_param.override
     refute port_param.override
@@ -21,6 +22,7 @@ class LookupKeyOverriderTest < ActiveSupport::TestCase
   end
 
   test 'should add error when no puppet class found' do
+    skip unless puppet_available?
     puppet_class = ::ForemanPuppet::Puppetclass.find_by :name => ForemanOpenscap::ClientConfig::Puppet.new.puppetclass_name
     puppet_class.destroy if puppet_class
     policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_content_profile, :deploy_by => :puppet)
@@ -41,6 +43,7 @@ class LookupKeyOverriderTest < ActiveSupport::TestCase
   end
 
   test 'should add error when lookup keys not present' do
+    skip unless puppet_available?
     server_param, port_param, policies_param = setup_puppet_class.values_at :server_param, :port_param, :policies_param
     server_param.destroy
     port_param.destroy

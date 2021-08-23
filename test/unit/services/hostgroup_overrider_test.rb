@@ -9,6 +9,7 @@ class HostgroupOverriderTest < ActiveSupport::TestCase
   end
 
   test 'should populate puppet overrides' do
+    skip unless puppet_available?
     puppet_class, env, port_param, server_param = setup_puppet_class.values_at :puppet_class, :env, :port_param, :server_param
 
     proxy = FactoryBot.create(:openscap_proxy, :url => 'https://override-keys.example.com:8998')
