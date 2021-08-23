@@ -313,6 +313,7 @@ class PolicyTest < ActiveSupport::TestCase
   end
 
   test "should change deploy type" do
+    skip unless puppet_available?
     policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
     setup_puppet_class
     policy.change_deploy_type({ :deploy_by => 'puppet' })

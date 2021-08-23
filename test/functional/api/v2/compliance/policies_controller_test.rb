@@ -40,6 +40,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   end
 
   test "should get index and show hostgroups" do
+    skip unless puppet_available?
     ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hostgroup = FactoryBot.create(:hostgroup)
@@ -61,6 +62,7 @@ class Api::V2::Compliance::PoliciesControllerTest < ActionController::TestCase
   end
 
   test "should show a policy hosts and hostgroups" do
+    skip unless puppet_available?
     ForemanOpenscap::Policy.any_instance.stubs(:find_scap_puppetclass).returns(FactoryBot.create(:puppetclass, :name => 'foreman_scap_client'))
     ForemanOpenscap::Policy.any_instance.stubs(:populate_overrides)
     hostgroup = FactoryBot.create(:hostgroup)
