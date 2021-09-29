@@ -50,12 +50,6 @@ module ForemanOpenscap
       base.scoped_search :on => :id, :rename => :removed_from_policy,
                          :only_explicit => true, :operators => ['= '], :ext_method => :search_by_removed_from_policy
 
-      base.after_update :puppetrun!, :if => ->(host) do
-        Setting[:puppetrun] &&
-        host.changed.include?('openscap_proxy_id') &&
-        (host.individual_puppetclasses + host.parent_classes).pluck(:name).include?(ClientConfig::Puppet.new.puppetclass_name)
-      end
-
       base.scope :comply_with, lambda { |policy|
         joins(:arf_reports).merge(ArfReport.latest_of_policy(policy)).merge(ArfReport.passed)
       }
