@@ -7,3 +7,11 @@ export const linkCell = (path, text) => (
     <Link to={path}>{text}</Link>
   </TableText>
 );
+
+export const hostPageLinkCell = (path, text, history) => (
+  <TableText>
+    <a href="#" onClick={() => history.push(path)}>
+      {text}
+    </a>
+  </TableText>
+);

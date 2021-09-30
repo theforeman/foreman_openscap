@@ -30,7 +30,7 @@ const ovalPolicy = {
   },
 };
 
-const cvesResult = {
+export const cvesResult = {
   totalCount: 1,
   nodes: [
     {

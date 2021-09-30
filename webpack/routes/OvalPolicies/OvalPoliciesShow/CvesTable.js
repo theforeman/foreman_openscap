@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
 
-import { linkCell } from '../../../helpers/tableHelper';
 import { hostsPath } from '../../../helpers/pathsHelper';
 import { decodeId } from '../../../helpers/globalIdHelper';
 import { addSearch } from '../../../helpers/pageParamsHelper';
@@ -24,9 +23,10 @@ const CvesTable = props => {
   );
 
   const hostCount = cve =>
-    linkCell(
+    props.linkCell(
       addSearch(hostsPath, { search: `cve_id = ${decodeId(cve)}` }),
-      cve.hosts.nodes.length
+      cve.hosts.nodes.length,
+      props.router
     );
 
   const rows = props.cves.map(cve => ({
@@ -48,7 +48,7 @@ const CvesTable = props => {
       pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
-      ariaTableLabel={__('Table of CVEs for OVAL policy')}
+      ariaTableLabel={__('Table of CVEs')}
     />
   );
 };
@@ -58,6 +58,12 @@ CvesTable.propTypes = {
   pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
+  router: PropTypes.object,
+  linkCell: PropTypes.func.isRequired,
+};
+
+CvesTable.defaultProps = {
+  router: null,
 };
 
 export default withLoading(CvesTable);

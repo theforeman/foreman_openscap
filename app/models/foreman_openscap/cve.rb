@@ -4,7 +4,8 @@ module ForemanOpenscap
     has_many :hosts, :through => :host_cves
     has_many :oval_policies, :through => :host_cves
 
-    scoped_search :relation => :host_cves, :on => :oval_policy_id, :rename => :oval_policy_id, :complete_value => false
+    scoped_search :relation => :host_cves, :on => :oval_policy_id, :rename => :oval_policy_id, :complete_value => false, :only_explicit => true
+    scoped_search :relation => :host_cves, :on => :host_id, :rename => :host_id, :complete_value => false, :only_explicit => true
 
     scope :of_oval_policy, ->(policy_id) {
       joins(:host_cves).where(:foreman_openscap_host_cves => { :oval_policy_id => policy_id })

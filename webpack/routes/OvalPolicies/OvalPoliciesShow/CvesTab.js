@@ -16,7 +16,7 @@ const CvesTab = props => {
   const useFetchFn = componentProps =>
     useQuery(cves, {
       variables: {
-        search: `oval_policy_id = ${componentProps.match.params.id}`,
+        search: `${props.searchKey} = ${props.id}`,
         ...useParamsToVars(componentProps.history),
       },
     });
@@ -42,8 +42,10 @@ const CvesTab = props => {
 };
 
 CvesTab.propTypes = {
+  id: PropTypes.number.isRequired,
   match: PropTypes.object.isRequired,
   history: PropTypes.object.isRequired,
+  searchKey: PropTypes.string.isRequired,
 };
 
 export default CvesTab;

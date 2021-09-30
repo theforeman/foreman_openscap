@@ -21,6 +21,7 @@ import CvesTab from './CvesTab';
 
 import { policySchedule, newJobFormPath } from './OvalPoliciesShowHelper';
 import { resolvePath } from '../../../helpers/pathsHelper';
+import { linkCell } from '../../../helpers/tableHelper';
 
 const OvalPoliciesShow = props => {
   const { policy, match, history } = props;
@@ -60,7 +61,12 @@ const OvalPoliciesShow = props => {
               </TextContent>
             </Tab>
             <Tab eventKey="cves" title={<TabTitleText>CVEs</TabTitleText>}>
-              <CvesTab {...props} />
+              <CvesTab
+                {...props}
+                id={parseInt(match.params.id, 10)}
+                searchKey="oval_policy_id"
+                linkCell={linkCell}
+              />
             </Tab>
           </Tabs>
         </GridItem>

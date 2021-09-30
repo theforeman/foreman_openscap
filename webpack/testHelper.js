@@ -1,6 +1,6 @@
 import React from 'react';
 import { MockedProvider } from '@apollo/react-testing';
-import { MemoryRouter } from 'react-router-dom';
+import { MemoryRouter, Router } from 'react-router-dom';
 import { getForemanContext } from 'foremanReact/Root/Context/ForemanContext';
 
 export const withRouter = Component => props => (
@@ -8,6 +8,16 @@ export const withRouter = Component => props => (
     <Component {...props} />
   </MemoryRouter>
 );
+
+export const withReactRouter = Component => props => {
+  // eslint-disable-next-line react/prop-types
+  const { history } = props;
+  return (
+    <Router history={history}>
+      <Component {...props} />
+    </Router>
+  );
+};
 
 export const withMockedProvider = Component => props => {
   const ForemanContext = getForemanContext(ctx);
