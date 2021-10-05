@@ -58,7 +58,7 @@ module ForemanOpenscap
           memo.add_check(
             SetupCheck.new(
               :title => (_("Was %s configured successfully?") % item.class.name),
-              :fail_msg => ->(_) { _("Assign openscap_proxy to %s before proceeding.") % item.name }
+              :fail_msg => (_("Assign openscap_proxy to %s before proceeding.") % item.name)
             ).fail!
           )
         end

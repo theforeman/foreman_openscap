@@ -1,7 +1,7 @@
 module ForemanOpenscap
   module Oval
     class SetupCheck
-      attr_reader :result, :id
+      attr_reader :result, :id, :errors
 
       def initialize(hash)
         @id = hash[:id]
@@ -17,6 +17,7 @@ module ForemanOpenscap
       end
 
       def fail!
+        raise 'Cannot fail a check that expects fail message data, use fail_with! method instead' if @fail_msg.respond_to?(:call) && @fail_msg_data.empty?
         @result = :fail
         self
       end
@@ -39,7 +40,9 @@ module ForemanOpenscap
       end
 
       def fail_msg
-        @fail_msg.call @fail_msg_data if @fail_msg
+        return unless failed?
+        return @fail_msg.call(@fail_msg_data) if @fail_msg.respond_to?(:call) && @fail_msg_data
+        @fail_msg
       end
 
       def to_h
