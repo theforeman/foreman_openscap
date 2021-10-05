@@ -5,6 +5,9 @@ import { translate as __ } from 'foremanReact/common/I18n';
 import withLoading from '../../../components/withLoading';
 import IndexTable from '../../../components/IndexTable';
 
+import { linkCell } from '../../../helpers/tableHelper';
+import { ovalContentsPath, modelPath } from '../../../helpers/pathsHelper';
+
 const OvalContentsTable = props => {
   const columns = [
     { title: __('Name') },
@@ -14,7 +17,12 @@ const OvalContentsTable = props => {
 
   const rows = props.ovalContents.map(ovalContent => ({
     cells: [
-      { title: ovalContent.name },
+      {
+        title: linkCell(
+          modelPath(ovalContentsPath, ovalContent),
+          ovalContent.name
+        ),
+      },
       { title: ovalContent.url || '' },
       { title: ovalContent.originalFilename || '' },
     ],
