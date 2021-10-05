@@ -18,6 +18,7 @@ import {
 import withLoading from '../../../components/withLoading';
 
 import CvesTab from './CvesTab';
+import HostgroupsTab from './HostgroupsTab';
 
 import { policySchedule, newJobFormPath } from './OvalPoliciesShowHelper';
 import { resolvePath } from '../../../helpers/pathsHelper';
@@ -61,6 +62,12 @@ const OvalPoliciesShow = props => {
             </Tab>
             <Tab eventKey="cves" title={<TabTitleText>CVEs</TabTitleText>}>
               <CvesTab {...props} />
+            </Tab>
+            <Tab
+              eventKey="hostgroups"
+              title={<TabTitleText>{__('Hostgroups')}</TabTitleText>}
+            >
+              <HostgroupsTab {...props} />
             </Tab>
           </Tabs>
         </GridItem>

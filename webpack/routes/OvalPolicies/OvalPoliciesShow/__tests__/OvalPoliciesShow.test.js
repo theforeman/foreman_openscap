@@ -19,6 +19,8 @@ import {
   historyWithSearch,
   pushMock,
   policyCvesMock,
+  policyHostgroupsMock,
+  policyHostgroupsDeniedMock,
   ovalPolicyId,
   policyUnauthorizedMock,
 } from './OvalPoliciesShow.fixtures';
@@ -125,5 +127,39 @@ describe('OvalPoliciesShow', () => {
     expect(history.push).toHaveBeenCalledWith(
       '/job_invocations/new?feature=foreman_openscap_run_oval_scans&host_ids=hostgroup_id+%5E+%284+10+12+11%29&inputs%5Boval_policies%5D=3'
     );
+  });
+  it('should load hostgroups tab when specified in URL', async () => {
+    const mocks = policyDetailMock.concat(policyHostgroupsMock);
+    render(
+      <TestComponent
+        history={historyWithSearch}
+        match={{
+          params: { id: ovalPolicyId, tab: 'hostgroups' },
+          path: ovalPoliciesShowPath,
+        }}
+        mocks={mocks}
+      />
+    );
+    expect(screen.getByText('Loading')).toBeInTheDocument();
+    await waitFor(tick);
+    await waitFor(tick);
+    expect(screen.queryByText('Loading')).not.toBeInTheDocument();
+    expect(screen.getByText('first hostgroup')).toBeInTheDocument();
+  });
+  it('should not show hostgroups for a user without permissions', async () => {
+    const mocks = policyDetailMock.concat(policyHostgroupsDeniedMock);
+    render(
+      <TestComponent
+        history={historyWithSearch}
+        match={{
+          params: { id: ovalPolicyId, tab: 'hostgroups' },
+          path: ovalPoliciesShowPath,
+        }}
+        mocks={mocks}
+      />
+    );
+    await waitFor(tick);
+    await waitFor(tick);
+    expect(screen.getByText('Permission denied')).toBeInTheDocument();
   });
 });
