@@ -9,7 +9,6 @@ export const hostId = 3;
 export const response = { id: hostId };
 export const status = 'RESOLVED';
 export const location = { pathname: '/Compliance/cves', search: '', hash: '' };
-export const router = { push: jest.fn() };
 export const match = {};
 const history = createMemoryHistory();
 history.location = location;

@@ -4,7 +4,6 @@ import { translate as __ } from 'foremanReact/common/I18n';
 
 import { hostsPath } from '../../../helpers/pathsHelper';
 import { decodeId } from '../../../helpers/globalIdHelper';
-import { addSearch } from '../../../helpers/pageParamsHelper';
 
 import withLoading from '../../../components/withLoading';
 import IndexTable from '../../../components/IndexTable';
@@ -23,11 +22,9 @@ const CvesTable = props => {
   );
 
   const hostCount = cve =>
-    props.linkCell(
-      addSearch(hostsPath, { search: `cve_id = ${decodeId(cve)}` }),
-      cve.hosts.nodes.length,
-      props.router
-    );
+    props.linkCell(hostsPath, cve.hosts.nodes.length, {
+      search: `cve_id = ${decodeId(cve)}`,
+    });
 
   const rows = props.cves.map(cve => ({
     cells: [
@@ -58,12 +55,7 @@ CvesTable.propTypes = {
   pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
-  router: PropTypes.object,
   linkCell: PropTypes.func.isRequired,
-};
-
-CvesTable.defaultProps = {
-  router: null,
 };
 
 export default withLoading(CvesTable);

@@ -1,4 +1,5 @@
 export const openscapPath = 'Compliance';
+export const cvesPath = 'cves';
 
 export const hashRoute = subpath => `#/${openscapPath}/${subpath}`;
 export const route = subpath => hashRoute(subpath).substring(1);
