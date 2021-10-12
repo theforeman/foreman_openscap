@@ -6,6 +6,9 @@ query($first: Int, $last: Int) {
     nodes {
       id
       name
+      meta {
+        canDestroy
+      }
       ovalContent {
         name
       }

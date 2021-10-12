@@ -224,6 +224,8 @@ module ForemanOpenscap
         register_graphql_query_field :oval_policy, '::Types::OvalPolicy', :record_field
         register_graphql_query_field :cves, '::Types::Cve', :collection_field
 
+        register_graphql_mutation_field :delete_oval_policy, ::Mutations::OvalPolicies::Delete
+
         register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
           configure_host do
             extend_model ForemanOpenscap::OvalFacetHostExtensions

@@ -8,6 +8,7 @@ import OvalContentsIndex from '../OvalContentsIndex';
 
 import {
   withRouter,
+  withRedux,
   withMockedProvider,
   tick,
   historyMock,
@@ -25,7 +26,9 @@ import {
   unauthorizedMocks,
 } from './OvalContentsIndex.fixtures';
 
-const TestComponent = withRouter(withMockedProvider(OvalContentsIndex));
+const TestComponent = withRedux(
+  withRouter(withMockedProvider(OvalContentsIndex))
+);
 
 describe('OvalContentsIndex', () => {
   it('should load page', async () => {
