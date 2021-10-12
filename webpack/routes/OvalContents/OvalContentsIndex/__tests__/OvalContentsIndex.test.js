@@ -4,7 +4,7 @@ import { within } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import '@testing-library/jest-dom';
 
-import OvalContentsIndex from '../OvalContentsIndex';
+import OvalContentsIndex from '../';
 
 import {
   withRouter,
