@@ -1,3 +1,3 @@
-import { addToast } from 'foremanReact/redux/actions/toasts';
+import { addToast } from 'foremanReact/components/ToastsList';
 
 export const showToast = dispatch => toast => dispatch(addToast(toast));

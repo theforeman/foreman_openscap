@@ -12,7 +12,12 @@ import {
   resolvePath,
 } from '../../../../helpers/pathsHelper';
 
-import { withMockedProvider, tick, withRouter } from '../../../../testHelper';
+import {
+  withRedux,
+  withMockedProvider,
+  tick,
+  withRouter,
+} from '../../../../testHelper';
 import {
   policyDetailMock,
   historyMock,
@@ -25,7 +30,9 @@ import {
   policyUnauthorizedMock,
 } from './OvalPoliciesShow.fixtures';
 
-const TestComponent = withRouter(withMockedProvider(OvalPoliciesShow));
+const TestComponent = withRedux(
+  withRouter(withMockedProvider(OvalPoliciesShow))
+);
 
 describe('OvalPoliciesShow', () => {
   it('should load details by default and handle tab change', async () => {
@@ -39,7 +46,7 @@ describe('OvalPoliciesShow', () => {
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
     expect(screen.queryByText('Loading')).not.toBeInTheDocument();
-    expect(screen.getByText('Third policy')).toBeInTheDocument();
+    expect(screen.getAllByText('Third policy').pop()).toBeInTheDocument();
     expect(screen.getByText('Weekly, on tuesday')).toBeInTheDocument();
     expect(screen.getByText('A very strict policy')).toBeInTheDocument();
     const activeTabHeader = container.querySelector(
@@ -107,7 +114,7 @@ describe('OvalPoliciesShow', () => {
   it('should have button for scanning all hostgroups', async () => {
     const btnText = 'Scan All Hostgroups';
 
-    const WithProvider = withMockedProvider(OvalPoliciesShow);
+    const WithProvider = withRedux(withMockedProvider(OvalPoliciesShow));
     const history = createMemoryHistory();
     history.push = jest.fn();
 

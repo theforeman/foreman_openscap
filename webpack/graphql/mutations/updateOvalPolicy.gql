@@ -1,0 +1,14 @@
+mutation UpdateOvalPolicy($id: ID!, $name: String, $description: String, $cronLine: String) {
+  updateOvalPolicy(input:{ id:$id, name:$name, description: $description, cronLine: $cronLine }) {
+    ovalPolicy {
+      id
+      name
+      description
+      cronLine
+    }
+    errors {
+      path
+      message
+    }
+  }
+}

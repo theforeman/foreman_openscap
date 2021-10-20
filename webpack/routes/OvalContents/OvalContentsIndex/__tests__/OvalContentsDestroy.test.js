@@ -71,6 +71,7 @@ describe('OvalContentsIndex', () => {
       type: 'success',
       message: 'OVAL Content successfully deleted.',
     });
+    await waitFor(tick);
     expect(screen.queryByText('ansible OVAL content')).not.toBeInTheDocument();
     expect(screen.getByText('jboss OVAL content')).toBeInTheDocument();
   });
@@ -80,8 +81,8 @@ describe('OvalContentsIndex', () => {
       <TestComponent
         history={pageParamsHistoryMock}
         mocks={deleteMockFactory(firstCall, secondCall, [
-          { message: 'is used by first policy' },
-          { message: 'is used by second policy' },
+          { message: 'is used by first policy', path: ['base'] },
+          { message: 'is used by second policy', path: ['base'] },
         ])}
         showToast={showToast}
       />

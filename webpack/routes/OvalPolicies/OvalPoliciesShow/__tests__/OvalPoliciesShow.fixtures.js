@@ -7,7 +7,8 @@ const policyDetailMockFactory = mockFactory('ovalPolicy', ovalPolicyQuery);
 const cvesMockFactory = mockFactory('cves', cvesQuery);
 const hostgroupsMockFactory = mockFactory('hostgroups', hostgroupsQuery);
 
-const ovalPolicy = {
+export const ovalPolicy = {
+  __typename: 'ForemanOpenscap::OvalPolicy',
   id: 'MDE6Rm9yZW1hbk9wZW5zY2FwOjpPdmFsUG9saWN5LTM=',
   name: 'Third policy',
   period: 'weekly',
