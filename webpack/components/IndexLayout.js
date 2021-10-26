@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
+import ToastsList from 'foremanReact/components/ToastsList';
 import {
   Grid,
   GridItem,
@@ -11,25 +12,31 @@ import {
 
 import './IndexLayout.scss';
 
-const IndexLayout = ({ pageTitle, children }) => (
+const IndexLayout = ({ pageTitle, children, contentWidthSpan }) => (
   <React.Fragment>
     <Helmet>
       <title>{pageTitle}</title>
     </Helmet>
+    <ToastsList />
     <Grid className="scap-page-grid">
-      <GridItem span={12}>
+      <GridItem span={12} className="pf-u-pb-xl">
         <TextContent>
           <Text component={TextVariants.h1}>{pageTitle}</Text>
         </TextContent>
       </GridItem>
-      <GridItem span={12}>{children}</GridItem>
+      <GridItem span={contentWidthSpan}>{children}</GridItem>
     </Grid>
   </React.Fragment>
 );
 
 IndexLayout.propTypes = {
   pageTitle: PropTypes.string.isRequired,
-  children: PropTypes.node.isRequired,
+  children: PropTypes.oneOfType([PropTypes.node, PropTypes.object]).isRequired,
+  contentWidthSpan: PropTypes.number,
+};
+
+IndexLayout.defaultProps = {
+  contentWidthSpan: 12,
 };
 
 export default IndexLayout;

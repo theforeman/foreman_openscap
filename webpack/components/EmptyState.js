@@ -29,7 +29,7 @@ const EmptyStateIcon = ({ error, search, lock }) => {
   return <PfEmptyStateIcon icon={CubeIcon} />;
 };
 
-const EmptyState = ({ title, body, error, search, lock }) => (
+const EmptyState = ({ title, body, error, search, lock, primaryButton }) => (
   <Bullseye>
     <PfEmptyState variant={EmptyStateVariant.small}>
       <EmptyStateIcon error={!!error} search={search} lock={lock} />
@@ -37,6 +37,7 @@ const EmptyState = ({ title, body, error, search, lock }) => (
         {title}
       </Title>
       <EmptyStateBody>{body}</EmptyStateBody>
+      {primaryButton}
     </PfEmptyState>
   </Bullseye>
 );
@@ -59,6 +60,7 @@ EmptyState.propTypes = {
   error: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
   search: PropTypes.bool,
   lock: PropTypes.bool,
+  primaryButton: PropTypes.node,
 };
 
 EmptyState.defaultProps = {
@@ -68,6 +70,7 @@ EmptyState.defaultProps = {
   error: undefined,
   search: false,
   lock: false,
+  primaryButton: null,
 };
 
 export default EmptyState;

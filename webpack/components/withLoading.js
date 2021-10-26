@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
 import Loading from 'foremanReact/components/Loading';
@@ -29,9 +29,17 @@ const withLoading = Component => {
     renameData,
     emptyStateTitle,
     permissions,
+    primaryButton,
+    shouldRefetch,
     ...rest
   }) => {
-    const { loading, error, data } = fetchFn(rest);
+    const { loading, error, data, refetch } = fetchFn(rest);
+
+    useEffect(() => {
+      if (shouldRefetch) {
+        refetch();
+      }
+    }, [shouldRefetch, refetch]);
 
     if (loading) {
       return <Loading />;
@@ -62,7 +70,13 @@ const withLoading = Component => {
     const result = pluckData(data, resultPath);
 
     if ((Array.isArray(result) && result.length === 0) || !result) {
-      return <EmptyState title={emptyStateTitle} body={emptyStateBody} />;
+      return (
+        <EmptyState
+          title={emptyStateTitle}
+          body={emptyStateBody}
+          primaryButton={primaryButton}
+        />
+      );
     }
 
     return <Component {...rest} {...renameData(data)} />;
@@ -74,11 +88,15 @@ const withLoading = Component => {
     renameData: PropTypes.func,
     emptyStateTitle: PropTypes.string.isRequired,
     permissions: PropTypes.array,
+    primaryButton: PropTypes.node,
+    shouldRefetch: PropTypes.bool,
   };
 
   Subcomponent.defaultProps = {
     renameData: data => data,
     permissions: [],
+    primaryButton: null,
+    shouldRefetch: false,
   };
 
   return Subcomponent;

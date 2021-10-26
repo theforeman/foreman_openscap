@@ -1,13 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { translate as __ } from 'foremanReact/common/I18n';
+import { Button } from '@patternfly/react-core';
 
 import withLoading from '../../../components/withLoading';
 import withDeleteModal from '../../../components/withDeleteModal';
 import IndexTable from '../../../components/IndexTable';
+import {
+  ovalContentsNewPath,
+  ovalContentsPath,
+  modelPath,
+} from '../../../helpers/pathsHelper';
 
 import { linkCell } from '../../../helpers/tableHelper';
-import { ovalContentsPath, modelPath } from '../../../helpers/pathsHelper';
 
 const OvalContentsTable = props => {
   const columns = [
@@ -43,6 +48,16 @@ const OvalContentsTable = props => {
     return actions;
   };
 
+  const createBtn = (
+    <Button
+      onClick={() => props.history.push(ovalContentsNewPath)}
+      variant="primary"
+      aria-label="create_oval_content"
+    >
+      {__('Create OVAL Content')}
+    </Button>
+  );
+
   return (
     <IndexTable
       columns={columns}
@@ -52,6 +67,7 @@ const OvalContentsTable = props => {
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('OVAL Contents table')}
+      toolbarBtns={createBtn}
     />
   );
 };
