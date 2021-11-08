@@ -4,7 +4,7 @@ import { useQuery } from '@apollo/client';
 import { useDispatch } from 'react-redux';
 
 import { translate as __ } from 'foremanReact/common/I18n';
-import { showToast } from '../../../helpers/toastHelper';
+import { showToast } from '../../../helpers/toastsHelper';
 
 import OvalPoliciesShow from './OvalPoliciesShow';
 import { encodeId } from '../../../helpers/globalIdHelper';

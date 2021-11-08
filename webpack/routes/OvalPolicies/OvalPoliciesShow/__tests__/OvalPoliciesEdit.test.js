@@ -16,6 +16,7 @@ import {
   policyUpdateMock,
   policyUpdateErrorMock,
   policyUpdateValidationMock,
+  policyUpdateScheduleMock,
   updatedName,
 } from './OvalPoliciesEdit.fixtures';
 import { ovalPoliciesShowPath } from '../../../../helpers/pathsHelper';
@@ -27,7 +28,7 @@ import {
   withRedux,
 } from '../../../../testHelper';
 
-import * as toasts from '../../../../helpers/toastHelper';
+import * as toasts from '../../../../helpers/toastsHelper';
 
 const TestComponent = withRouter(
   withRedux(withMockedProvider(OvalPoliciesShow))
@@ -198,5 +199,44 @@ describe('OvalPoliciesShow', () => {
     expect(
       screen.queryByRole('button', { name: 'edit description' })
     ).not.toBeInTheDocument();
+  });
+  it('should update policy period', async () => {
+    const showToast = jest.fn();
+    jest.spyOn(toasts, 'showToast').mockImplementation(() => showToast);
+
+    render(
+      <TestComponent
+        history={historyMock}
+        match={{
+          params: { id: ovalPolicyId, tab: 'details' },
+          path: ovalPoliciesShowPath,
+        }}
+        mocks={policyDetailMock.concat(policyUpdateScheduleMock)}
+      />
+    );
+    await waitFor(tick);
+    const editBtn = screen.getByRole('button', { name: 'edit schedule' });
+    expect(editBtn).toBeInTheDocument();
+    userEvent.click(editBtn);
+    userEvent.selectOptions(screen.getByLabelText(/period/), 'Monthly');
+    await waitFor(tick);
+    userEvent.selectOptions(screen.getByLabelText(/dayOfMonth/), '14');
+    await waitFor(tick);
+    const submitBtn = screen.getByRole('button', { name: 'submit' });
+    userEvent.click(submitBtn);
+    expect(submitBtn).toBeDisabled();
+    expect(
+      screen.getByRole('button', {
+        name: 'cancel',
+      })
+    ).toBeDisabled();
+    await waitFor(tick);
+    await waitFor(tick);
+    expect(showToast).toHaveBeenCalledWith({
+      type: 'success',
+      message: 'OVAL policy was successfully updated.',
+    });
+    await waitFor(tick);
+    expect(screen.getByText('Monthly, day of month: 14')).toBeInTheDocument();
   });
 });

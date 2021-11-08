@@ -1,10 +1,13 @@
-mutation UpdateOvalPolicy($id: ID!, $name: String, $description: String, $cronLine: String) {
-  updateOvalPolicy(input:{ id:$id, name:$name, description: $description, cronLine: $cronLine }) {
+mutation UpdateOvalPolicy($id: ID!, $name: String, $description: String, $cronLine: String, $period: String, $dayOfMonth: String, $weekday: String) {
+  updateOvalPolicy(input:{ id: $id, name: $name, description: $description, cronLine: $cronLine, period: $period, dayOfMonth: $dayOfMonth, weekday: $weekday }) {
     ovalPolicy {
       id
       name
       description
       cronLine
+      period
+      dayOfMonth
+      weekday
     }
     errors {
       path

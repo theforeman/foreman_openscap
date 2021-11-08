@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { showToast } from '../../../helpers/toastHelper';
+import { showToast } from '../../../helpers/toastsHelper';
 
 import OvalContentsIndex from './OvalContentsIndex';
 

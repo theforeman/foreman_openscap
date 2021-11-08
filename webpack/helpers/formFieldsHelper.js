@@ -10,6 +10,24 @@ import {
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
 
+const wrapFieldProps = fieldProps => {
+  const { onChange } = fieldProps;
+  // modify onChange args to correctly wire formik with pf4 input handlers
+  const wrappedOnChange = (value, event) => {
+    onChange(event);
+  };
+
+  return { ...fieldProps, onChange: wrappedOnChange };
+};
+
+const shouldValidate = (form, fieldName) => {
+  if (form.touched[fieldName]) {
+    return form.errors[fieldName] ? 'error' : 'success';
+  }
+
+  return 'noval';
+};
+
 export const SelectField = props => {
   const { selectItems, field, form } = props;
   const fieldProps = wrapFieldProps(field);
@@ -31,7 +49,9 @@ export const SelectField = props => {
         validated={valid}
         isDisabled={form.isSubmitting}
       >
-        <FormSelectOption key={0} value="" label={props.blankLabel} />
+        {props.blankLabel !== null && (
+          <FormSelectOption key={0} value="" label={props.blankLabel} />
+        )}
         {selectItems.map((item, idx) => (
           <FormSelectOption key={idx + 1} value={item.id} label={item.name} />
         ))}
@@ -46,29 +66,12 @@ SelectField.propTypes = {
   isRequired: PropTypes.bool,
   field: PropTypes.object.isRequired,
   form: PropTypes.object.isRequired,
-  blankLabel: PropTypes.string.isRequired,
+  blankLabel: PropTypes.string,
 };
 SelectField.defaultProps = {
   selectItems: [],
   isRequired: false,
-};
-
-const wrapFieldProps = fieldProps => {
-  const { onChange } = fieldProps;
-  // modify onChange args to correctly wire formik with pf4 input handlers
-  const wrappedOnChange = (value, event) => {
-    onChange(event);
-  };
-
-  return { ...fieldProps, onChange: wrappedOnChange };
-};
-
-const shouldValidate = (form, fieldName) => {
-  if (form.touched[fieldName]) {
-    return form.errors[fieldName] ? 'error' : 'success';
-  }
-
-  return 'noval';
+  blankLabel: '',
 };
 
 const fieldWithHandlers = Component => {

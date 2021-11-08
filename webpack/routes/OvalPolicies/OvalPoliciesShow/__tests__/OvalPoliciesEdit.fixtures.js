@@ -22,9 +22,26 @@ const responsePolicy = {
     name: updatedName,
     description: ovalPolicy.description,
     cronLine: ovalPolicy.cronLine,
+    period: ovalPolicy.period,
+    dayOfMonth: ovalPolicy.dayOfMonth,
+    weekday: ovalPolicy.weekday,
   },
   errors: [],
 };
+const scheduleUpdatedPolicy = {
+  ovalPolicy: {
+    ...ovalPolicy,
+    period: 'monthly',
+    dayOfMonth: 14,
+    weekday: null,
+  },
+  errors: [],
+};
+
+export const policyUpdateScheduleMock = updateOvalPolicyMockFactory(
+  { id: ovalPolicy.id, period: 'monthly', dayOfMonth: '14' },
+  scheduleUpdatedPolicy
+);
 
 export const policyUpdateMock = updateOvalPolicyMockFactory(
   variables,

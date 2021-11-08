@@ -41,7 +41,7 @@ export const newJobFormPath = (policy, policyId) =>
     'inputs[oval_policies]': policyId,
   });
 
-const policyToAttrs = (policy, attrs) =>
+export const policyToAttrs = (policy, attrs) =>
   Object.entries(policy).reduce((memo, [key, value]) => {
     if (attrs.includes(key)) {
       memo[key] = value;
@@ -87,7 +87,7 @@ const formatError = error =>
 
 const joinErrors = errors => errors.map(err => err.message).join(', ');
 
-const onUpdateError = (showToast, stopSubmitting) => error => {
+export const onUpdateError = (showToast, stopSubmitting) => error => {
   stopSubmitting();
   showToast({ type: 'error', message: formatError(error.message) });
 };

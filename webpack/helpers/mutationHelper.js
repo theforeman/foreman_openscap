@@ -9,7 +9,7 @@ const formatError = (error, name) =>
     error,
   });
 
-const joinErrors = errors => errors.map(err => err.message).join(', ');
+export const joinErrors = errors => errors.map(err => err.message).join(', ');
 
 const onError = (showToast, resourceName) => error => {
   showToast({ type: 'error', message: formatError(error, resourceName) });
