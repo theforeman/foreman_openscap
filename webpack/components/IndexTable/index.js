@@ -41,7 +41,12 @@ const IndexTable = ({
           />
         </FlexItem>
       </Flex>
-      <Table aria-label={ariaTableLabel} cells={columns} {...rest}>
+      <Table
+        aria-label={ariaTableLabel}
+        cells={columns}
+        {...rest}
+        variant="compact"
+      >
         <TableHeader />
         <TableBody />
       </Table>
