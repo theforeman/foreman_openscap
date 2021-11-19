@@ -4,6 +4,7 @@ import store from 'foremanReact/redux';
 import { MockedProvider } from '@apollo/react-testing';
 import { MemoryRouter } from 'react-router-dom';
 import { getForemanContext } from 'foremanReact/Root/Context/ForemanContext';
+import { waitFor } from '@testing-library/react';
 
 export const withRedux = Component => props => (
   <Provider store={store}>
@@ -41,6 +42,14 @@ export const withMockedProvider = Component => props => {
 
 // use to resolve async mock requests for apollo MockedProvider
 export const tick = () => new Promise(resolve => setTimeout(resolve, 0));
+
+export const wait = async (tickCount = 1) => {
+  for (let i = 1; i < tickCount; i++) {
+    // eslint-disable-next-line no-await-in-loop
+    await waitFor(tick);
+  }
+  return waitFor(tick);
+};
 
 export const historyMock = {
   location: {

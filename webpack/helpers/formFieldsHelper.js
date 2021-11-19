@@ -1,8 +1,57 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { FormGroup, TextInput } from '@patternfly/react-core';
+import {
+  FormGroup,
+  TextInput,
+  TextArea,
+  FormSelect,
+  FormSelectOption,
+} from '@patternfly/react-core';
 import { ExclamationCircleIcon } from '@patternfly/react-icons';
+
+export const SelectField = props => {
+  const { selectItems, field, form } = props;
+  const fieldProps = wrapFieldProps(field);
+
+  const valid = shouldValidate(form, field.name);
+
+  return (
+    <FormGroup
+      label={props.label}
+      isRequired={props.isRequired}
+      helperTextInvalid={form.errors[field.name]}
+      helperTextInvalidIcon={<ExclamationCircleIcon />}
+      validated={valid}
+    >
+      <FormSelect
+        {...fieldProps}
+        className="without_select2"
+        aria-label={fieldProps.name}
+        validated={valid}
+        isDisabled={form.isSubmitting}
+      >
+        <FormSelectOption key={0} value="" label={props.blankLabel} />
+        {selectItems.map((item, idx) => (
+          <FormSelectOption key={idx + 1} value={item.id} label={item.name} />
+        ))}
+      </FormSelect>
+    </FormGroup>
+  );
+};
+
+SelectField.propTypes = {
+  selectItems: PropTypes.array,
+  label: PropTypes.string.isRequired,
+  isRequired: PropTypes.bool,
+  field: PropTypes.object.isRequired,
+  form: PropTypes.object.isRequired,
+  blankLabel: PropTypes.string.isRequired,
+};
+SelectField.defaultProps = {
+  selectItems: [],
+  isRequired: false,
+};
 
 const wrapFieldProps = fieldProps => {
   const { onChange } = fieldProps;
@@ -61,3 +110,4 @@ const fieldWithHandlers = Component => {
 };
 
 export const TextField = fieldWithHandlers(TextInput);
+export const TextAreaField = fieldWithHandlers(TextArea);

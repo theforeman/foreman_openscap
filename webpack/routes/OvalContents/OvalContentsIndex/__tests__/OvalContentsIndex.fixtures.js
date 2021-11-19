@@ -56,7 +56,8 @@ const ovalContentNodes = [
   thirdContent(),
   fourthContent(),
 ];
-const ovalContents = {
+
+export const ovalContents = {
   totalCount: ovalContentNodes.length,
   nodes: ovalContentNodes,
 };
@@ -69,6 +70,10 @@ export const mocks = ovalContentMockFactory(
   },
   { currentUser: admin }
 );
+
+export const unpagedMocks = ovalContentMockFactory({}, ovalContents, {
+  currentUser: admin,
+});
 
 export const paginatedMocks = ovalContentMockFactory(
   { first: 10, last: 5 },

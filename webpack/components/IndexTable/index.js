@@ -59,7 +59,7 @@ IndexTable.propTypes = {
 };
 
 IndexTable.defaultProps = {
-  toolbarBtns: [],
+  toolbarBtns: null,
 };
 
 export default IndexTable;

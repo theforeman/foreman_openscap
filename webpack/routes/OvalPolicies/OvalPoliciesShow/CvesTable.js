@@ -4,7 +4,7 @@ import { translate as __ } from 'foremanReact/common/I18n';
 
 import { linkCell } from '../../../helpers/tableHelper';
 import { hostsPath } from '../../../helpers/pathsHelper';
-import { decodeId } from '../../../helpers/globalIdHelper';
+import { decodeModelId } from '../../../helpers/globalIdHelper';
 import { addSearch } from '../../../helpers/pageParamsHelper';
 
 import withLoading from '../../../components/withLoading';
@@ -25,7 +25,7 @@ const CvesTable = props => {
 
   const hostCount = cve =>
     linkCell(
-      addSearch(hostsPath, { search: `cve_id = ${decodeId(cve)}` }),
+      addSearch(hostsPath, { search: `cve_id = ${decodeModelId(cve)}` }),
       cve.hosts.nodes.length
     );
 
