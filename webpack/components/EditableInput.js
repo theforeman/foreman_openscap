@@ -49,6 +49,7 @@ const EditableInput = props => {
   const onCancel = () => {
     setInputValue(props.value);
     setEditing(false);
+    setError('');
   };
 
   const onChange = value => {

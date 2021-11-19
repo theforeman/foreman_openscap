@@ -172,6 +172,13 @@ describe('OvalPoliciesShow', () => {
     ).not.toBeInTheDocument();
     expect(screen.getByText(ovalPolicy.name)).toBeInTheDocument();
     expect(screen.getByText('has already been taken')).toBeInTheDocument();
+    userEvent.click(
+      screen.getByRole('button', { name: 'cancel editing name' })
+    );
+    userEvent.click(editBtn);
+    expect(
+      screen.queryByText('has already been taken')
+    ).not.toBeInTheDocument();
   });
   it('should not show edit btns when user is not allowed to edit', async () => {
     render(
