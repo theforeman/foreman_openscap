@@ -9,6 +9,7 @@ import {
   historyMock,
   ovalPolicyId,
   policyDetailMock,
+  policyEditPermissionsMock,
   ovalPolicy,
 } from './OvalPoliciesShow.fixtures';
 import {
@@ -171,5 +172,24 @@ describe('OvalPoliciesShow', () => {
     ).not.toBeInTheDocument();
     expect(screen.getByText(ovalPolicy.name)).toBeInTheDocument();
     expect(screen.getByText('has already been taken')).toBeInTheDocument();
+  });
+  it('should not show edit btns when user is not allowed to edit', async () => {
+    render(
+      <TestComponent
+        history={historyMock}
+        match={{
+          params: { id: ovalPolicyId, tab: 'details' },
+          path: ovalPoliciesShowPath,
+        }}
+        mocks={policyEditPermissionsMock}
+      />
+    );
+    await waitFor(tick);
+    expect(
+      screen.queryByRole('button', { name: 'edit name' })
+    ).not.toBeInTheDocument();
+    expect(
+      screen.queryByRole('button', { name: 'edit description' })
+    ).not.toBeInTheDocument();
   });
 });

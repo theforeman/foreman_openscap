@@ -76,6 +76,19 @@ export const intruder = userFactory('intruder', [
   },
 ]);
 
+export const viewer = userFactory('viewer', [
+  {
+    __typename: 'Permission',
+    id: 'MDE6UGVybWlzc2lvbi0yOTY=',
+    name: 'view_oval_contents',
+  },
+  {
+    __typename: 'Permission',
+    id: 'MDE6UGVybWlzc2lvbi0yNzU=',
+    name: 'view_oval_policies',
+  },
+]);
+
 export const mockFactory = (resultName, query) => (
   variables,
   modelResults,
