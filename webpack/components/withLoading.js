@@ -85,7 +85,7 @@ const withLoading = Component => {
     fetchFn: PropTypes.func.isRequired,
     resultPath: PropTypes.string.isRequired,
     renameData: PropTypes.func,
-    emptyStateTitle: PropTypes.string.isRequired,
+    emptyStateTitle: PropTypes.string,
     emptyStateBody: PropTypes.string,
     permissions: PropTypes.array,
     primaryButton: PropTypes.func,
@@ -98,6 +98,7 @@ const withLoading = Component => {
     primaryButton: () => {},
     shouldRefetch: false,
     emptyStateBody: '',
+    emptyStateTitle: '',
   };
 
   return Subcomponent;

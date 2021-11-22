@@ -14,7 +14,7 @@ const OvalContentsNew = props => {
       fetchFn={useFetchFn}
       renameData={renameData}
       resultPath="currentUser"
-      permissions={['create_oval_content']}
+      permissions={['create_oval_contents']}
     />
   );
 };

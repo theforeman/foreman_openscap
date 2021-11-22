@@ -138,7 +138,7 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
           permission :destroy_oval_policies, { 'api/v2/compliance/oval_policies' => %i[destroy] },
                      :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :create_oval_policies, { 'api/v2/compliance/oval_reports' => %i[create] },
+          permission :create_oval_reports, { 'api/v2/compliance/oval_reports' => %i[create] },
                      :resource_type => 'ForemanOpenscap::Cve'
         end
 
@@ -169,12 +169,12 @@ module ForemanOpenscap
                                            :url_hash => { :controller => :tailoring_files, :action => :index },
                                            :parent => :hosts_menu
         menu :labs_menu, :oval_contents, :caption => N_('OVAL Contents'),
-                                         :url_hash => { :controller => 'react', :action => 'index' },
+                                         :url_hash => { :controller => 'api/v2/compliance/oval_contents', :action => 'index' },
                                          :url => '/experimental/compliance/oval_contents',
                                          :parent => :lab_features_menu
 
         menu :labs_menu, :oval_policies, :caption => N_('OVAL Policies'),
-                                         :url_hash => { :controller => 'react', :action => 'index' },
+                                         :url_hash => { :controller => 'api/v2/compliance/oval_policies', :action => 'index' },
                                          :url => '/experimental/compliance/oval_policies',
                                          :parent => :lab_features_menu
         # add dashboard widget
