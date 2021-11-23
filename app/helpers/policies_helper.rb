@@ -93,7 +93,7 @@ module PoliciesHelper
   def tailoring_file_profile_selector(form, tailoring_file)
     if tailoring_file
       select_f form, :tailoring_file_profile_id, tailoring_file.scap_content_profiles, :id, :title,
-               { :selected => tailoring_file.scap_content_profiles.first.id },
+               { :selected => @policy.tailoring_file_profile_id },
                { :label => _("XCCDF Profile in Tailoring File"),
                  :help_inline => _("This profile will be used to override the one from scap content") }
     else
