@@ -191,8 +191,8 @@ module ForemanOpenscap
                                                        "dashboard link hosts with no reports", "dashboard link hosts with alerts disabled",
                                                        "widgets not in dashboard show up in list"] })
         # strong params
-        parameter_filter Host::Managed, :openscap_proxy_id, :openscap_proxy
-        parameter_filter Hostgroup, :openscap_proxy_id, :openscap_proxy
+        parameter_filter ::Host::Managed, :openscap_proxy_id, :openscap_proxy
+        parameter_filter ::Hostgroup, :openscap_proxy_id, :openscap_proxy
         parameter_filter Log, :result
 
         proxy_description = N_('OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.')
