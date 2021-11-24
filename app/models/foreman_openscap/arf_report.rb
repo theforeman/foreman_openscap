@@ -119,7 +119,7 @@ module ForemanOpenscap
         PolicyArfReport.where(:arf_report_id => arf_report.id, :policy_id => policy.id, :digest => params[:digest]).first_or_create!
         if params[:logs]
           params[:logs].each do |log|
-            src = Source.find_or_create(log[:source])
+            src = Source.find_or_create_by(value: log[:source])
             msg = nil
             if src.logs.count > 0
               msg = Log.where(:source_id => src.id).order(:id => :desc).first.message
