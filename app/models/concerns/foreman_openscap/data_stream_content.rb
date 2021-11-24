@@ -6,7 +6,7 @@ module ForemanOpenscap
       validates_with ForemanOpenscap::DataStreamValidator
 
       after_save :create_profiles, :if => lambda { |ds_content| ds_content.scap_file_previously_changed? }
-      before_destroy ActiveRecord::Base::EnsureNotUsedBy.new(:policies)
+      before_destroy EnsureNotUsedBy.new(:policies)
     end
 
     def proxy_url
