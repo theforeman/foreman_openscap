@@ -30,7 +30,7 @@ import {
   hgWithoutProxy as withoutProxyCheck,
 } from './OvalPoliciesNew.fixtures';
 
-import * as toasts from '../../../../helpers/toastsHelper';
+import * as toasts from '../../../../helpers/toastHelper';
 
 const TestComponent = withRouter(
   withRedux(withMockedProvider(OvalPoliciesNew))
