@@ -178,3 +178,6 @@ Rails/ReadWriteAttribute:
 Rails/TimeZone:
   Exclude:
     - 'app/models/foreman_openscap/arf_report.rb'
+
+Rails/HasManyOrHasOneDependent:
+  Enabled: false
