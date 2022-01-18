@@ -7,10 +7,7 @@ import { useQuery } from '@apollo/client';
 import HostgroupsTable from './HostgroupsTable';
 
 import hostgroups from '../../../graphql/queries/hostgroups.gql';
-import {
-  useParamsToVars,
-  useCurrentPagination,
-} from '../../../helpers/pageParamsHelper';
+import { useParamsToVars } from '../../../helpers/pageParamsHelper';
 
 const HostgroupsTab = props => {
   const useFetchFn = componentProps =>
@@ -26,15 +23,12 @@ const HostgroupsTab = props => {
     totalCount: data.hostgroups.totalCount,
   });
 
-  const pagination = useCurrentPagination(props.history);
-
   return (
     <HostgroupsTable
       {...props}
       fetchFn={useFetchFn}
       renameData={renameData}
       resultPath="hostgroups.nodes"
-      pagination={pagination}
       emptyStateTitle={__('No Hostgroups found.')}
       permissions={['view_hostgroups']}
     />

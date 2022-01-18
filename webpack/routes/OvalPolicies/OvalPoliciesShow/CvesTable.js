@@ -45,7 +45,6 @@ const CvesTable = props => {
       columns={columns}
       rows={rows}
       actions={actions}
-      pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('Table of CVEs for OVAL policy')}
@@ -55,7 +54,6 @@ const CvesTable = props => {
 
 CvesTable.propTypes = {
   cves: PropTypes.array.isRequired,
-  pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
 };

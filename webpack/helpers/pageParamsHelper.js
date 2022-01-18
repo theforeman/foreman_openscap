@@ -18,13 +18,13 @@ export const useCurrentPagination = history => {
 
   return {
     page: parseInt(pageParams.page, 10) || 1,
-    perPage: parseInt(pageParams.perPage, 10) || uiSettings.perPage,
+    per_page: parseInt(pageParams.per_page, 10) || uiSettings.perPage,
   };
 };
 
 export const pageToVars = pagination => ({
-  first: pagination.page * pagination.perPage,
-  last: pagination.perPage,
+  first: pagination.page * pagination.per_page,
+  last: pagination.per_page,
 });
 
 export const useParamsToVars = history =>

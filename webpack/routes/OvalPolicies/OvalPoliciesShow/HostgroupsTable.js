@@ -20,7 +20,6 @@ const CvesTable = props => {
       columns={columns}
       rows={rows}
       actions={actions}
-      pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('Table of hostgroups for OVAL policy')}
@@ -30,7 +29,6 @@ const CvesTable = props => {
 
 CvesTable.propTypes = {
   hostgroups: PropTypes.array.isRequired,
-  pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
 };

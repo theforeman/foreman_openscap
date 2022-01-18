@@ -54,7 +54,6 @@ const OvalPoliciesTable = props => {
       columns={columns}
       rows={rows}
       actionResolver={actionResolver}
-      pagination={props.pagination}
       totalCount={props.totalCount}
       history={props.history}
       ariaTableLabel={__('OVAL Policies Table')}
@@ -65,7 +64,6 @@ const OvalPoliciesTable = props => {
 
 OvalPoliciesTable.propTypes = {
   policies: PropTypes.array.isRequired,
-  pagination: PropTypes.object.isRequired,
   totalCount: PropTypes.number.isRequired,
   history: PropTypes.object.isRequired,
   toggleModal: PropTypes.func.isRequired,

@@ -7,10 +7,7 @@ import { useQuery } from '@apollo/client';
 import CvesTable from './CvesTable';
 
 import cves from '../../../graphql/queries/cves.gql';
-import {
-  useParamsToVars,
-  useCurrentPagination,
-} from '../../../helpers/pageParamsHelper';
+import { useParamsToVars } from '../../../helpers/pageParamsHelper';
 
 const CvesTab = props => {
   const useFetchFn = componentProps =>
@@ -26,15 +23,12 @@ const CvesTab = props => {
     totalCount: data.cves.totalCount,
   });
 
-  const pagination = useCurrentPagination(props.history);
-
   return (
     <CvesTable
       {...props}
       fetchFn={useFetchFn}
       renameData={renameData}
       resultPath="cves.nodes"
-      pagination={pagination}
       emptyStateTitle={__('No CVEs found.')}
       permissions={['view_oval_policies']}
     />

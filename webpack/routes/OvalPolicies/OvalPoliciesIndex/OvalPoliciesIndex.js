@@ -8,10 +8,7 @@ import { submitDelete, prepareMutation } from '../../../helpers/mutationHelper';
 
 import IndexLayout from '../../../components/IndexLayout';
 
-import {
-  useParamsToVars,
-  useCurrentPagination,
-} from '../../../helpers/pageParamsHelper';
+import { useParamsToVars } from '../../../helpers/pageParamsHelper';
 import policiesQuery from '../../../graphql/queries/ovalPolicies.gql';
 import deleteOvalPolicyMutation from '../../../graphql/mutations/deleteOvalPolicy.gql';
 
@@ -26,8 +23,6 @@ const OvalPoliciesIndex = props => {
     totalCount: data.ovalPolicies.totalCount,
   });
 
-  const pagination = useCurrentPagination(props.history);
-
   return (
     <IndexLayout pageTitle={__('OVAL Policies')}>
       <OvalPoliciesTable
@@ -35,7 +30,6 @@ const OvalPoliciesIndex = props => {
         fetchFn={useFetchFn}
         renameData={renameData}
         resultPath="ovalPolicies.nodes"
-        pagination={pagination}
         emptyStateTitle={__('No OVAL Policies found')}
         permissions={['view_oval_policies']}
         confirmDeleteTitle={__('Delete OVAL Policy')}

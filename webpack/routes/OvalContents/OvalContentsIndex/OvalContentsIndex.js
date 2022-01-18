@@ -7,10 +7,7 @@ import IndexLayout from '../../../components/IndexLayout';
 import LinkButton from '../../../components/LinkButton';
 import OvalContentsTable from './OvalContentsTable';
 import { ovalContentsNewPath } from '../../../helpers/pathsHelper';
-import {
-  useParamsToVars,
-  useCurrentPagination,
-} from '../../../helpers/pageParamsHelper';
+import { useParamsToVars } from '../../../helpers/pageParamsHelper';
 
 import { submitDelete, prepareMutation } from '../../../helpers/mutationHelper';
 import ovalContentsQuery from '../../../graphql/queries/ovalContents.gql';
@@ -27,8 +24,6 @@ const OvalContentsIndex = props => {
     totalCount: data.ovalContents.totalCount,
   });
 
-  const pagination = useCurrentPagination(props.history);
-
   return (
     <IndexLayout pageTitle={__('OVAL Contents')}>
       <OvalContentsTable
@@ -36,7 +31,6 @@ const OvalContentsIndex = props => {
         fetchFn={useFetchFn}
         renameData={renameData}
         resultPath="ovalContents.nodes"
-        pagination={pagination}
         emptyStateTitle={__('No OVAL Contents found.')}
         permissions={['view_oval_contents']}
         confirmDeleteTitle={__('Delete OVAL Content')}
