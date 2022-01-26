@@ -69,7 +69,7 @@ module ForemanOpenscap
 
     def weekday_number
       # 0 is sunday, 1 is monday in cron, while DAYS_INTO_WEEK has 0 as monday, 6 as sunday
-      (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday] + 1) % 7
+      (Date::DAYS_INTO_WEEK.with_indifferent_access[weekday]) % 7
     end
   end
 end
