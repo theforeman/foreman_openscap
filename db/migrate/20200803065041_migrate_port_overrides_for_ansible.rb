@@ -10,7 +10,7 @@ class MigratePortOverridesForAnsible < ActiveRecord::Migration[6.0]
   private
 
   def transform_lookup_values(method)
-    return unless defined?(ForemanAnsible)
+    return unless Foreman::Plugin.installed?("foreman_ansible")
     role = AnsibleRole.find_by :name => 'theforeman.foreman_scap_client'
     return unless role
     port_key = role.ansible_variables.find_by :key => 'foreman_scap_client_port'
