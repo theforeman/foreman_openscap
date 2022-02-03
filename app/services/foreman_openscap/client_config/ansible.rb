@@ -16,7 +16,7 @@ module ForemanOpenscap
       end
 
       def available?
-        defined?(ForemanAnsible)
+        Foreman::Plugin.installed?("foreman_ansible")
       end
 
       def inline_help
