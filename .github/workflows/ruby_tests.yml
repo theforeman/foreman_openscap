@@ -21,7 +21,7 @@ jobs:
         foreman-ansible-branch: [master]
         foreman-rex-branch: [master]
         foreman-puppet-branch: [master]
-        ruby-version: [2.5, 2.6]
+        ruby-version: [2.5, 2.7]
     steps:
       - name: Install build packages
         run: |
