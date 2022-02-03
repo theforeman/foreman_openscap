@@ -1,6 +1,6 @@
 module ForemanOpenscap
   def self.with_katello?
-    defined?(::Katello)
+    Foreman::Plugin.installed?("katello")
   end
 
   class Engine < ::Rails::Engine
