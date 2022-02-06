@@ -1,7 +1,5 @@
 import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
-import { within } from '@testing-library/dom';
 import '@testing-library/jest-dom';
 
 import {
@@ -14,9 +12,6 @@ import {
 
 import {
   mocks,
-  pushMock,
-  pageParamsMocks,
-  pageParamsHistoryMock,
   emptyMocks,
   errorMocks,
   viewerMocks,
@@ -24,7 +19,6 @@ import {
 } from './OvalPoliciesIndex.fixtures';
 
 import OvalPoliciesIndex from '../index';
-import { ovalPoliciesPath } from '../../../../helpers/pathsHelper';
 
 const TestComponent = withRouter(
   withRedux(withMockedProvider(OvalPoliciesIndex))
@@ -32,19 +26,13 @@ const TestComponent = withRouter(
 
 describe('OvalPoliciesIndex', () => {
   it('should load page', async () => {
-    const { container } = render(
-      <TestComponent history={historyMock} mocks={mocks} />
-    );
+    render(<TestComponent history={historyMock} mocks={mocks} />);
     expect(screen.getByText('Loading')).toBeInTheDocument();
     await waitFor(tick);
     expect(screen.getByText('first policy')).toBeInTheDocument();
     expect(screen.getByText('second policy')).toBeInTheDocument();
     expect(screen.getByText('first content')).toBeInTheDocument();
     expect(screen.getByText('second content')).toBeInTheDocument();
-    const pageItems = container.querySelector('.pf-c-pagination__total-items');
-    expect(within(pageItems).getByText(/1 - 2/)).toBeInTheDocument();
-    expect(within(pageItems).getByText('of')).toBeInTheDocument();
-    expect(within(pageItems).getByText('2')).toBeInTheDocument();
 
     expect(screen.getByText('first policy').closest('a')).toHaveAttribute(
       'href',
@@ -53,23 +41,6 @@ describe('OvalPoliciesIndex', () => {
     expect(screen.getByText('second policy').closest('a')).toHaveAttribute(
       'href',
       '/experimental/compliance/oval_policies/40'
-    );
-  });
-  it('should load page with page params', async () => {
-    const { container } = render(
-      <TestComponent history={pageParamsHistoryMock} mocks={pageParamsMocks} />
-    );
-    await waitFor(tick);
-    const pageItems = container.querySelector('.pf-c-pagination__total-items');
-    expect(within(pageItems).getByText(/6 - 7/)).toBeInTheDocument();
-    expect(within(pageItems).getByText('of')).toBeInTheDocument();
-    expect(within(pageItems).getByText('7')).toBeInTheDocument();
-    userEvent.click(
-      screen.getByRole('button', { name: 'Go to previous page' })
-    );
-
-    expect(pushMock).toHaveBeenCalledWith(
-      `${ovalPoliciesPath}?page=1&perPage=5`
     );
   });
   it('should show empty state', async () => {
