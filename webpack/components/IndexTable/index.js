@@ -1,10 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Table, TableHeader, TableBody } from '@patternfly/react-table';
-import { Pagination, Flex, FlexItem } from '@patternfly/react-core';
-import { usePaginationOptions } from 'foremanReact/components/Pagination/PaginationHooks';
-
-import { preparePerPageOptions, refreshPage } from './IndexTableHelper';
+import { Flex, FlexItem } from '@patternfly/react-core';
+import Pagination from 'foremanReact/components/Pagination';
+import { refreshPage } from './IndexTableHelper';
 
 const IndexTable = ({
   history,
@@ -15,15 +14,13 @@ const IndexTable = ({
   columns,
   ...rest
 }) => {
-  const handlePerPageSelected = (event, perPage) => {
+  const handlePerPageSelected = perPage => {
     refreshPage(history, { page: 1, perPage });
   };
 
-  const handlePageSelected = (event, page) => {
+  const handlePageSelected = page => {
     refreshPage(history, { ...pagination, page });
   };
-
-  const perPageOptions = preparePerPageOptions(usePaginationOptions());
 
   return (
     <React.Fragment>
@@ -36,7 +33,6 @@ const IndexTable = ({
             perPage={pagination.perPage}
             onSetPage={handlePageSelected}
             onPerPageSelect={handlePerPageSelected}
-            perPageOptions={perPageOptions}
             variant="top"
           />
         </FlexItem>
