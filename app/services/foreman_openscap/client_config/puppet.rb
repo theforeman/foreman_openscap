@@ -10,7 +10,7 @@ module ForemanOpenscap
       end
 
       def available?
-        defined?(ForemanPuppet)
+        Foreman::Plugin.installed?("foreman_puppet")
       end
 
       def inline_help
