@@ -9,21 +9,22 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-09-03 07:45+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
+"PO-Revision-Date: 2016-04-14 07:48+0000\n"
+"Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
 "Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: es\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? 1 :"
+" 2;\n"
 
 msgid " for policy %s"
-msgstr "de la política %s"
+msgstr " de la política %s"
 
 msgid " through %s"
-msgstr "a través de %s"
+msgstr " a través de %s"
 
 msgid "%s - The following compliance reports are about to be changed"
 msgstr "%s: Los siguientes informes de cumplimiento están por modificarse."
@@ -32,6 +33,7 @@ msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
 msgstr[0] "%s informe de cumplimiento por política"
 msgstr[1] "Informes de cumplimiento %s por política"
+msgstr[2] "Informes de cumplimiento %s por política"
 
 msgid "%s latest report"
 msgstr "%s último informe"
@@ -43,16 +45,16 @@ msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "Se detectaron errores de cola de espera %s. Inspeccione el archivo adecuado directamente en el proxy"
 
 msgid "%s vulnerabilities found"
-msgstr ""
+msgstr "%s vulnerabilidades encontradas"
 
 msgid "%s vulnerabilities with available patch found"
-msgstr ""
+msgstr "%s vulnerabilidades con parche disponible encontradas"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr "Se seleccionó %{type} para implementar la política para los clientes, pero %{type} no está disponible. ¿Le falta un complemento?"
 
 msgid "<b>Foreman</b> OpenSCAP summary"
-msgstr "Resumen de OpenSCAP de <b>Foreman</b>"
+msgstr "<b>Capataz</b> Resumen de OpenSCAP"
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "Un resumen de los informes para las políticas de OpenSCAP"
@@ -79,25 +81,25 @@ msgid "Apply policy to hosts"
 msgstr "Aplicar política a los hosts"
 
 msgid "Are required variables for theforeman.foreman_scap_client present?"
-msgstr ""
+msgstr "¿Están presentes las variables necesarias para theforeman.foreman_scap_client?"
 
 msgid "Array of host IDs"
-msgstr ""
+msgstr "Selección de ID de host"
 
 msgid "Array of hostgroup IDs"
-msgstr ""
+msgstr "Matriz de IDs de grupos de hosts"
 
 msgid "Assign Compliance Policy"
 msgstr "Asignar política de cumplimiento"
 
 msgid "Assign hostgroups to an OVAL Policy"
-msgstr ""
+msgstr "Asignar grupos de hosts a una política de OVAL"
 
 msgid "Assign hosts to an OVAL Policy"
-msgstr ""
+msgstr "Asignar hosts a una política de OVAL"
 
 msgid "Assign openscap_proxy to %s before proceeding."
-msgstr ""
+msgstr "Asigne openscap_proxy a %s antes de continuar."
 
 msgid "Back"
 msgstr "Atrás"
@@ -169,16 +171,16 @@ msgid "Could not find host identified by: %s"
 msgstr "No se pudo encontrar el host identificado por: %s"
 
 msgid "Could not update Ansible Variables with override: true"
-msgstr ""
+msgstr "No se han podido actualizar las variables de Ansible con override: true"
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr "No pudo validarse %s. Asegúrese de contar con la versión de proxy correspondiente para usar esta funcionalidad"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "No se pudo validar %{file_type}. Error %{error}"
+msgstr "No se ha podido validar %{file_type}. Error %{error}"
 
 msgid "Create OVAL content"
-msgstr ""
+msgstr "Crear contenido OVAL"
 
 msgid "Create SCAP content"
 msgstr "Crear contenido de SCAP"
@@ -190,7 +192,7 @@ msgid "Create a Tailoring file"
 msgstr "Crear un archivo de personalización"
 
 msgid "Create an OVAL Policy"
-msgstr ""
+msgstr "Crear una política de OVAL"
 
 msgid "Dashboard"
 msgstr "Tablero de mandos"
@@ -214,7 +216,7 @@ msgid "Delete an ARF Report"
 msgstr "Eliminar un informe ARF"
 
 msgid "Delete an OVAL Policy"
-msgstr ""
+msgstr "Eliminar una política de OVAL"
 
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "¿Eliminar política de cumplimiento %s junto con todos sus informes?"
@@ -226,7 +228,7 @@ msgid "Delete reports"
 msgstr "Eliminar informes"
 
 msgid "Delete scap content %s?"
-msgstr "¿Crear contenido de scap %s?"
+msgstr "¿Eliminar contenido de scap %s?"
 
 msgid "Delete tailoring file %s?"
 msgstr "¿Eliminar archivo de personalización %s?"
@@ -238,7 +240,7 @@ msgid "Deletes a Tailoring file"
 msgstr "Elimina un archivo de personalización"
 
 msgid "Deletes an OVAL content"
-msgstr ""
+msgstr "Borra un contenido de OVAL"
 
 msgid "Deletes an SCAP content"
 msgstr "Elimina el contenido de SCAP"
@@ -250,10 +252,10 @@ msgid "Description"
 msgstr "Descripción"
 
 msgid "Details for Compliance Policy %s"
-msgstr ""
+msgstr "Detalles de la política de cumplimiento %s"
 
 msgid "Directory to upload when using \"directory\" upload type"
-msgstr ""
+msgstr "Directorio a cargar cuando se utiliza el tipo de carga \"directorio\""
 
 msgid "Documentation"
 msgstr "Documentación"
@@ -280,13 +282,13 @@ msgid "Download bzipped ARF report"
 msgstr "Descargar un informe ARF bzipped"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Editar"
 
 msgid "Effective Profile"
 msgstr "Perfil efectivo"
 
 msgid "Error!"
-msgstr ""
+msgstr "Error"
 
 msgid "Failed"
 msgstr "Errores"
@@ -313,7 +315,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "Error al buscar el estado de cola de espera del proxy"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "Ocurrió un error al guardar mientras se anulaban los parámetros de %{config_tool}, causa: %{errors}"
+msgstr "Fallo al guardar al anular los parámetros para %{config_tool}, causa: %{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Ocurrió un error al cargar el informe Arf. No se encontró el nombre del proxy OpenSCAP o la URL en los parámetros cuando se cargó para %s, y el host no tiene openscap_proxy"
@@ -326,7 +328,7 @@ msgid "File Upload"
 msgstr "Carga del archivo"
 
 msgid "File paths to upload when using \"files\" upload type"
-msgstr ""
+msgstr "Rutas de archivos a subir cuando se utiliza el tipo de subida \"archivos\""
 
 msgid "Full Report"
 msgstr "Informe completo"
@@ -335,7 +337,7 @@ msgid "General"
 msgstr "General"
 
 msgid "Has Errata?"
-msgstr ""
+msgstr "%s Erratas"
 
 msgid "Host"
 msgstr "host"
@@ -362,7 +364,7 @@ msgid "Host is deleted"
 msgstr "Se eliminó el host."
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
-msgstr "El host no está asignado a la política, pero se encontraron informes. Es posible que desee eliminar los informes o volver a asignar la política."
+msgstr "El host no está asignado a la política, pero se encontraron informes. Puede eliminar los informes o volver a asignar la política."
 
 msgid "Hostgroups"
 msgstr "Grupos de hosts"
@@ -374,13 +376,13 @@ msgid "Hosts Breakdown"
 msgstr "Descomposición de hosts"
 
 msgid "Hosts Count"
-msgstr ""
+msgstr "Conteo de hosts"
 
 msgid "Hosts failing this rule"
 msgstr "Hosts que fallan en esta regla"
 
 msgid "Hosts no longer assigned: %s"
-msgstr "Huéspedes ya no asignados: %s"
+msgstr "Hosts que ya no están asignados: %s"
 
 msgid "Hosts othering this rule"
 msgstr "Hosts que consideran esta regla"
@@ -426,13 +428,13 @@ msgid "Inconclusive results"
 msgstr "Resultados inconclusos"
 
 msgid "Is %s param set to be overriden?"
-msgstr ""
+msgstr "¿Está configurado el parámetro %s para ser anulado?"
 
 msgid "Is foreman_ansible present?"
-msgstr ""
+msgstr "¿Está presente foreman_ansible?"
 
 msgid "Is theforeman.foreman_scap_client present?"
-msgstr ""
+msgstr "¿Está presente theforeman.foreman_scap_client?"
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "A veces, puede ser necesario ajustar la política de seguridad en función de sus necesidades específicas."
@@ -447,10 +449,10 @@ msgid "List ARF reports"
 msgstr "Enumerar los informes ARF"
 
 msgid "List OVAL Policies"
-msgstr ""
+msgstr "Lista de políticas de OVAL"
 
 msgid "List OVAL contents"
-msgstr ""
+msgstr "Lista de contenidos de OVAL"
 
 msgid "List Policies"
 msgstr "Enumerar políticas"
@@ -477,7 +479,7 @@ msgid "More details"
 msgstr "Más información"
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 msgid "Never audited"
 msgstr "No auditados"
@@ -504,28 +506,28 @@ msgid "No ARF reports for this policy"
 msgstr "No hay informes ARF para esta política."
 
 msgid "No CVEs found."
-msgstr ""
+msgstr "No se han encontrado CVEs."
 
 msgid "No OVAL Contents found."
-msgstr ""
+msgstr "No se ha encontrado ningún contenido de OVAL."
 
 msgid "No OVAL Policies found"
-msgstr ""
+msgstr "No se han encontrado políticas de OVAL"
 
 msgid "No OVAL Policy found"
-msgstr ""
+msgstr "No se ha encontrado ninguna política de OVAL"
 
 msgid "No OpenSCAP Proxy selected."
 msgstr "No se seleccionó un proxy OpenSCAP."
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr "No se halló el proxy OpenSCAP para %{class} con el id %{id}"
+msgstr "No se halló el proxy OpenSCAP para {class} con el id {id}"
 
 msgid "No Tailoring file assigned for policy with id %s"
 msgstr "No hay archivo de personalización asignado para la política con el id %s"
 
 msgid "No Vulnerabilities found"
-msgstr ""
+msgstr "No se han encontrado vulnerabilidades"
 
 msgid "No available proxy to validate. Returned with error: %s"
 msgstr "No hay un proxy disponible para validar. Devolvió el error: %s."
@@ -546,7 +548,7 @@ msgid "No hosts were found."
 msgstr "No se encontraron hosts."
 
 msgid "No proxy found for %{name} or %{url}"
-msgstr "No se encontró el proxy para %{name} o %{url}"
+msgstr "No se ha encontrado ningún proxy para %{name} o %{url}"
 
 msgid "No proxy found!"
 msgstr "No se halló el proxy"
@@ -591,46 +593,46 @@ msgid "Number of a day in month, note that not all months have same count of day
 msgstr "Cantidad de días en el mes, tenga en cuenta que no todos los meses tienen la misma cantidad de días"
 
 msgid "OVAL Content"
-msgstr ""
+msgstr "Contenido de OVAL"
 
 msgid "OVAL Contents"
-msgstr ""
+msgstr "Contenido de OVAL"
 
 msgid "OVAL Contents table"
-msgstr ""
+msgstr "OVAL Tabla de contenidos"
 
 msgid "OVAL Policies"
-msgstr ""
+msgstr "Políticas de OVAL"
 
 msgid "OVAL Policies Table"
-msgstr ""
+msgstr "Tabla de políticas de OVAL"
 
 msgid "OVAL Policy description"
-msgstr ""
+msgstr "Descripción de la política de OVAL"
 
 msgid "OVAL Policy name"
-msgstr ""
+msgstr "Nombre de la política OVAL"
 
 msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
-msgstr ""
+msgstr "Programación de la política, línea de tiempo (solo si el periodo es == \"personalizado\")"
 
 msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
-msgstr ""
+msgstr "Programación de la política, día del mes (solo si el periodo es == \"mensual\")"
 
 msgid "OVAL Policy schedule period (weekly, monthly, custom)"
-msgstr ""
+msgstr "Periodo de programación de la política (semanal, mensual, personalizado)"
 
 msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
-msgstr ""
+msgstr "Programación de la política, día de la semana (solo si el periodo es == \"semanal\")"
 
 msgid "OVAL content name"
-msgstr ""
+msgstr "Nombre del contenido OVAL"
 
 msgid "OVAL policy successfully configured with %s."
-msgstr ""
+msgstr "Política de OVAL configurada con éxito con %s."
 
 msgid "OVAL scan"
-msgstr ""
+msgstr "Escaneo OVAL"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr "Una vez que el contenido SCAP esté presente, puede crear una política, asignar grupos de host seleccionados y programar su ejecución."
@@ -648,7 +650,7 @@ msgid "Organizations"
 msgstr "Organizaciones"
 
 msgid "Original file name of the OVAL content file"
-msgstr ""
+msgstr "Nombre original del archivo de contenido de OVAL"
 
 msgid "Original file name of the XML file"
 msgstr "Nombre de archivo original del archivo XML"
@@ -674,10 +676,10 @@ msgid "Please Confirm"
 msgstr "Confirmar"
 
 msgid "Please make sure you understand them by reading our"
-msgstr ""
+msgstr "Asegúrese de entenderlas leyendo nuestro"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr ""
+msgstr "Por favor, especifique el tipo de importación, recibido: %{received}, se espera uno de: %{expected}"
 
 msgid "Policies"
 msgstr "Políticas"
@@ -689,13 +691,13 @@ msgid "Policy"
 msgstr "Política"
 
 msgid "Policy %s"
-msgstr "Política %s"
+msgstr "Política"
 
 msgid "Policy Attributes"
-msgstr "Atributos de política"
+msgstr "Atributos de la política"
 
 msgid "Policy OVAL content ID"
-msgstr ""
+msgstr "ID de contenido de la política OVAL"
 
 msgid "Policy SCAP content ID"
 msgstr "ID de contenido de política de SCAP"
@@ -740,7 +742,7 @@ msgid "Rationale"
 msgstr "Fundamento"
 
 msgid "Ref Id"
-msgstr ""
+msgstr "Ref. Id."
 
 msgid "References"
 msgstr "Referencias"
@@ -758,7 +760,7 @@ msgid "Reported At"
 msgstr "Reportado en"
 
 msgid "Reported at %s"
-msgstr "Informado a las %s"
+msgstr "Reportado en"
 
 msgid "Reports"
 msgstr "Informes"
@@ -767,7 +769,7 @@ msgid "Request timed out. Please try increasing Settings -> proxy_request_timeou
 msgstr "Expiró el tiempo de conexión. Pruebe incrementarlo en Configuración->proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "No se encontró el %{msg_name} %{class} requerido, asegúrese de que se importe primero."
+msgstr "Requerido %{msg_name} %{class} no fue encontrado, por favor asegúrese de importarlo primero."
 
 msgid "Resource"
 msgstr "Recurso"
@@ -779,7 +781,7 @@ msgid "Rule Results"
 msgstr "Resultados de regla"
 
 msgid "Run OVAL scan"
-msgstr ""
+msgstr "Ejecute el escaneo de OVAL"
 
 msgid "Run OpenSCAP scan"
 msgstr "Ejecutar escaneo OpenSCAP"
@@ -806,7 +808,7 @@ msgid "SCAP policies summary"
 msgstr "Resumen de políticas de SCAP"
 
 msgid "Scan All Hostgroups"
-msgstr ""
+msgstr "Escanear todos los grupos de hosts"
 
 msgid "Schedule"
 msgstr "Programa"
@@ -845,10 +847,10 @@ msgid "Show an ARF report"
 msgstr "Mostrar un informe ARF"
 
 msgid "Show an OVAL Policy"
-msgstr ""
+msgstr "Mostrar una política de OVAL"
 
 msgid "Show an OVAL content"
-msgstr ""
+msgstr "Mostrar un contenido OVAL"
 
 msgid "Show an SCAP content"
 msgstr "Mostrar un contenido de SCAP"
@@ -887,19 +889,19 @@ msgid "Successfully deleted ARF report."
 msgstr "Se eliminó correctamente el informe ARF."
 
 msgid "Summary from %{time} ago to now"
-msgstr "Resumen de hace %{time} hasta el presente"
+msgstr "Resumen desde %{time} hasta ahora"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr "Informe de resumen para OpenScap de Foreman"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "Informe resumen del servidor Foreman en %{foreman_url}"
+msgstr "Informe resumido del servidor Foreman en el %{foreman_url}"
 
 msgid "Sync contents that have remote source URL"
-msgstr ""
+msgstr "Sincronizar los contenidos que tienen URL de origen remoto"
 
 msgid "Table of CVEs for OVAL policy"
-msgstr ""
+msgstr "Tabla de CVEs para la política de OVAL"
 
 msgid "Tailoring File"
 msgstr "Personalizando archivo"
@@ -922,13 +924,13 @@ msgid ""
 msgstr "En el Protocolo de Automatización del Contenido de Seguridad (SCAP, por sus siglas en inglés) se combinan una serie de estándares abiertos que se utilizan para enumerar las fallas en el software y problemas de configuración relacionados con la seguridad."
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "Faltaba el siguiente %{key_name} para %{item_name}: %{key_names}. Asegúrese de que se importen antes de proceder."
+msgstr "Faltan los siguientes %{key_name} para %{item_name}: %{key_names}. Asegúrese de que se importan antes de continuar."
 
 msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
-msgstr ""
+msgstr "No se han encontrado las siguientes variables de Ansible: %{missing_vars}, por favor, impórtelas antes de volver a ejecutar esta acción."
 
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr "Deben actualizarse los siguientes proxies inteligentes al desbloquear la funcionalidad: %s."
+msgstr "Deben actualizarse los siguientes proxies inteligentes al desbloquear la funcionalidad: %s. "
 
 msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
 msgstr "No se pudieron alcanzar los siguientes proxies: %s. Asegúrese de que estén disponibles para que Foreman pueda verificar sus versiones."
@@ -937,7 +939,7 @@ msgid "The identifier of the host"
 msgstr "El identificador del host"
 
 msgid "There are significant differences in deployment options."
-msgstr ""
+msgstr "Hay diferencias significativas en las opciones de despliegue."
 
 msgid "This feature is temporarily disabled. "
 msgstr "Esta función se encuentra temporalmente deshabilitada."
@@ -958,12 +960,13 @@ msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
 msgstr[0] "Total de un host"
 msgstr[1] "Total de %{hosts} hosts"
+msgstr[2] "Total de %{hosts} hosts"
 
 msgid "Type of the upload"
-msgstr ""
+msgstr "Tipo de carga"
 
 msgid "URL of the OVAL content file"
-msgstr ""
+msgstr "URL del archivo de contenido de OVAL"
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
 msgstr "No se pudo obtener la versión HTML del informe solicitado del proxy inteligente"
@@ -978,7 +981,7 @@ msgid "Unknown Compliance status"
 msgstr "Estado de cumplimiento desconocido"
 
 msgid "Unknown OVAL status"
-msgstr ""
+msgstr "Estado de OVAL desconocido"
 
 msgid "Update a Policy"
 msgstr "Actualizar una política"
@@ -987,10 +990,10 @@ msgid "Update a Tailoring file"
 msgstr "Actualizar un archivo de personalización"
 
 msgid "Update an OVAL Policy"
-msgstr ""
+msgstr "Actualizar una política de OVAL"
 
 msgid "Update an OVAL content"
-msgstr ""
+msgstr "Actualizar un contenido de OVAL"
 
 msgid "Update an SCAP content"
 msgstr "Actualizar el contenido de SCAP"
@@ -1014,7 +1017,7 @@ msgid "Upload an ARF report"
 msgstr "Cargar un informe ARF"
 
 msgid "Upload an OVAL report - a list of CVEs for given host"
-msgstr ""
+msgstr "Cargar un informe de OVAL - una lista de CVEs para un host determinado"
 
 msgid "Upload new SCAP content file"
 msgstr "Cargar nuevo archivo de contenido de SCAP"
@@ -1023,7 +1026,7 @@ msgid "Upload new Tailoring File"
 msgstr "Subir nuevo archivo de personalización"
 
 msgid "Upload scap contents in bulk"
-msgstr ""
+msgstr "Cargar los contenidos del scap en bloque"
 
 msgid "View Report"
 msgstr "Ver informe"
@@ -1032,10 +1035,10 @@ msgid "View full report"
 msgstr "Ver el informe completo"
 
 msgid "Was %s configured successfully?"
-msgstr ""
+msgstr "¿Se ha configurado correctamente %s?"
 
 msgid "Was %{model_name} %{name} configured successfully?"
-msgstr ""
+msgstr "¿Se ha configurado correctamente %{model_name} %{name}?"
 
 msgid "XCCDF Profile"
 msgstr "Perfil XCCDF"
@@ -1044,7 +1047,7 @@ msgid "XCCDF Profile in Tailoring File"
 msgstr "Perfil XCCDF en el archivo de personalización"
 
 msgid "XML containing OVAL content"
-msgstr ""
+msgstr "XML con contenido OVAL"
 
 msgid "XML containing SCAP content"
 msgstr "XML que contiene contenido SCAP"
@@ -1077,13 +1080,13 @@ msgid "does not have the selected SCAP content profile"
 msgstr "no posee el perfil del contenido SCAP seleccionado"
 
 msgid "foreman_ansible plugin not found, please install it before running this action again."
-msgstr ""
+msgstr "El plugin foreman_ansible no se encuentra, por favor instálelo antes de ejecutar esta acción de nuevo."
 
 msgid "hostgroups"
-msgstr ""
+msgstr "Grupos de hosts"
 
 msgid "hosts"
-msgstr ""
+msgstr "Hosts"
 
 msgid "invalid type %s"
 msgstr "Tipo %s no válido"
@@ -1110,7 +1113,7 @@ msgid "must have Openscap feature"
 msgstr "debe contar con la funcionalidad Openscap"
 
 msgid "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again."
-msgstr ""
+msgstr "theforeman.foreman_scap_client No se ha encontrado el rol de Ansible, por favor, impórtelo antes de ejecutar esta acción de nuevo."
 
 msgid "these Compliance reports"
 msgstr "estos informes de cumplimiento"

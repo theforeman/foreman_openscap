@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-12 09:50+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2016-04-14 07:48+0000\n"
+"Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/lang"
 "uage/zh_TW/)\n"
 "MIME-Version: 1.0\n"
@@ -57,10 +57,10 @@ msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
 msgid "Action with sub plans"
-msgstr ""
+msgstr "有子計畫的動作"
 
 msgid "Actions"
-msgstr ""
+msgstr "動作"
 
 msgid "All messages"
 msgstr "所有訊息"
@@ -255,7 +255,7 @@ msgid "Directory to upload when using \"directory\" upload type"
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "文件"
 
 msgid "Download"
 msgstr "下載"
@@ -279,7 +279,7 @@ msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "編輯 %s"
 
 msgid "Effective Profile"
 msgstr ""
@@ -394,10 +394,10 @@ msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
 msgid "Import Puppet classes"
-msgstr ""
+msgstr "匯入 Puppet 類別"
 
 msgid "Import facts"
-msgstr ""
+msgstr "匯入詳情"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr ""
@@ -476,7 +476,7 @@ msgid "More details"
 msgstr "更多詳細資訊"
 
 msgid "Name"
-msgstr ""
+msgstr "名稱"
 
 msgid "Never audited"
 msgstr "未曾稽核"
@@ -745,7 +745,7 @@ msgid "References"
 msgstr "參照"
 
 msgid "Remote action:"
-msgstr ""
+msgstr "遠端動作："
 
 msgid "Report Metrics"
 msgstr "報告計量"
@@ -1082,7 +1082,7 @@ msgid "hostgroups"
 msgstr ""
 
 msgid "hosts"
-msgstr ""
+msgstr "主機"
 
 msgid "invalid type %s"
 msgstr "無效的類型 %s"

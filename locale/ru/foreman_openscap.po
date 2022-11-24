@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-05-12 09:50+0000\n"
-"Last-Translator: Transifex Bot <>\n"
+"PO-Revision-Date: 2016-04-14 07:48+0000\n"
+"Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
 "Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
@@ -282,7 +282,7 @@ msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Изменить %s"
 
 msgid "Effective Profile"
 msgstr ""
@@ -479,7 +479,7 @@ msgid "More details"
 msgstr "Подробности"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Never audited"
 msgstr "Никогда не проверялись"
@@ -862,7 +862,7 @@ msgid "Show log messages:"
 msgstr "Показать сообщения журнала:"
 
 msgid "Smart Class Parameters"
-msgstr ""
+msgstr "Параметры Смарт-класса"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Произошли ошибки при выборе отчетов: %s"
@@ -1067,7 +1067,7 @@ msgid "cannot assign to %s, all assigned policies must be deployed in the same w
 msgstr ""
 
 msgid "documentation"
-msgstr ""
+msgstr "документация"
 
 msgid "does not come from selected tailoring file"
 msgstr ""
@@ -1085,7 +1085,7 @@ msgid "hostgroups"
 msgstr ""
 
 msgid "hosts"
-msgstr ""
+msgstr "узлу(ам)"
 
 msgid "invalid type %s"
 msgstr "недопустимый тип %s"

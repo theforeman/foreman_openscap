@@ -9,8 +9,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Foreman\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2020-12-01 08:26+0000\n"
-"Last-Translator: Amit Upadhye <aupadhye@redhat.com>\n"
+"PO-Revision-Date: 2016-04-14 07:48+0000\n"
+"Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>, 2016\n"
 "Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
@@ -23,7 +23,7 @@ msgid " for policy %s"
 msgstr " ポリシー %s"
 
 msgid " through %s"
-msgstr "%s まで更新を受信できます。"
+msgstr " %s まで更新を受信できます。"
 
 msgid "%s - The following compliance reports are about to be changed"
 msgstr "%s: 次のコンプライアンスレポートが変更されます"
@@ -42,10 +42,10 @@ msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
 
 msgid "%s vulnerabilities found"
-msgstr ""
+msgstr "%s 脆弱性が見つかりました"
 
 msgid "%s vulnerabilities with available patch found"
-msgstr ""
+msgstr "%s 利用可能なパッチがある脆弱性が見つかりました"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr "クライアントへのポリシーのデプロイに %{type} が選択されましたが、%{type} は利用できません。プラグインがありませんか?"
@@ -78,25 +78,25 @@ msgid "Apply policy to hosts"
 msgstr "ホストにポリシーを適用"
 
 msgid "Are required variables for theforeman.foreman_scap_client present?"
-msgstr ""
+msgstr "theforeman.foreman_scap_client に必要な変数ですか?"
 
 msgid "Array of host IDs"
-msgstr ""
+msgstr "ホスト ID の配列"
 
 msgid "Array of hostgroup IDs"
-msgstr ""
+msgstr "ホストグループ ID の配列"
 
 msgid "Assign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て"
 
 msgid "Assign hostgroups to an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーへのホストグループの割り当て"
 
 msgid "Assign hosts to an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーへのホストの割り当て"
 
 msgid "Assign openscap_proxy to %s before proceeding."
-msgstr ""
+msgstr "続行する前に、openscap_proxy を %s に割り当てます。"
 
 msgid "Back"
 msgstr "戻る"
@@ -108,7 +108,7 @@ msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr "HTML ガイドを生成できません。有効な OpenSCAP プロキシーサーバーが見つかりません。"
 
 msgid "Cannot generate HTML guide, scap content is missing."
-msgstr " HTML ガイドを生成できません。scap のコンテンツがありません。"
+msgstr "HTML ガイドを生成できません。SCAP のコンテンツがありません。"
 
 msgid "Change OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシーの変更"
@@ -168,7 +168,7 @@ msgid "Could not find host identified by: %s"
 msgstr "%s が識別したホストが見つかりませんでした"
 
 msgid "Could not update Ansible Variables with override: true"
-msgstr ""
+msgstr "オーバーライドで Ansible 変数を更新できませんでした: true"
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
@@ -177,7 +177,7 @@ msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "％{file_type} を検証できませんでした。エラー: %{error}"
 
 msgid "Create OVAL content"
-msgstr ""
+msgstr "OVAL コンテンツの作成"
 
 msgid "Create SCAP content"
 msgstr "SCAP コンテンツの作成"
@@ -189,7 +189,7 @@ msgid "Create a Tailoring file"
 msgstr "テーラリングファイルの作成"
 
 msgid "Create an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーの作成"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -210,10 +210,10 @@ msgid "Delete a Policy"
 msgstr "ポリシーの削除"
 
 msgid "Delete an ARF Report"
-msgstr "ARF レポートの定義"
+msgstr "ARF レポートの削除"
 
 msgid "Delete an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーの削除"
 
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
@@ -237,7 +237,7 @@ msgid "Deletes a Tailoring file"
 msgstr "テーラリングファイルの削除"
 
 msgid "Deletes an OVAL content"
-msgstr ""
+msgstr "OVAL コンテンツの削除"
 
 msgid "Deletes an SCAP content"
 msgstr "SCAP コンテンツの削除"
@@ -249,10 +249,10 @@ msgid "Description"
 msgstr "説明"
 
 msgid "Details for Compliance Policy %s"
-msgstr ""
+msgstr "コンプライアンスポリシー %s の詳細"
 
 msgid "Directory to upload when using \"directory\" upload type"
-msgstr ""
+msgstr "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
 
 msgid "Documentation"
 msgstr "ドキュメント"
@@ -276,16 +276,16 @@ msgid "Download an SCAP content as XML"
 msgstr "XML として SCAP コンテンツをダウンロード"
 
 msgid "Download bzipped ARF report"
-msgstr "zip 形式の ARF レポートのダウンロード"
+msgstr "bzip 形式の ARF レポートのダウンロード"
 
 msgid "Edit %s"
-msgstr ""
+msgstr "%s の編集"
 
 msgid "Effective Profile"
 msgstr "有効なプロファイル"
 
 msgid "Error!"
-msgstr ""
+msgstr "エラー!"
 
 msgid "Failed"
 msgstr "失敗"
@@ -325,7 +325,7 @@ msgid "File Upload"
 msgstr "ファイルアップロード"
 
 msgid "File paths to upload when using \"files\" upload type"
-msgstr ""
+msgstr "「ファイル」アップロードタイプを使用する場合のアップロードするファイルパス"
 
 msgid "Full Report"
 msgstr "完全レポート"
@@ -334,7 +334,7 @@ msgid "General"
 msgstr "全般"
 
 msgid "Has Errata?"
-msgstr ""
+msgstr "エラータはありますか?"
 
 msgid "Host"
 msgstr "ホスト"
@@ -361,7 +361,7 @@ msgid "Host is deleted"
 msgstr "ホストが削除されました"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
-msgstr "ホストはポリシーに割り当てられていませんが、レポートが見つかりました。レポートを削除するか、ポリシーを再度割り当てることができます。"
+msgstr "ホストはポリシーに割り当てられていませんが、レポートが見つかりました。レポートを削除するか、ポリシーを再度割り当てることをお勧めします。"
 
 msgid "Hostgroups"
 msgstr "ホストグループ"
@@ -373,7 +373,7 @@ msgid "Hosts Breakdown"
 msgstr "ホストブレークダウン"
 
 msgid "Hosts Count"
-msgstr ""
+msgstr "ホスト数"
 
 msgid "Hosts failing this rule"
 msgstr "このルールに不合格のホスト"
@@ -405,12 +405,16 @@ msgstr "Foreman では、コンプライアンスポリシーのチェックリ�
 msgid ""
 "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\n"
 "    via %s"
-msgstr "Foreman では、scap_contents はホストの SCAP セキュリティーガイドを表し、 %s でホスト/ホストグループに割り当てるための SCAP プロファルを作成します。"
+msgstr ""
+"Foreman では、scap_contents はホストの SCAP セキュリティーガイドを表し、%s でホスト/ホストグループに割り当てるための SCAP プロファルを\n"
+"    作成します。"
 
 msgid ""
 "In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\n"
 "    via %s"
-msgstr "Foreman では、tailoring_files はデフォルトの XCCDF プロファイルへのカスタム修正を表し、%s でホストに適用できます"
+msgstr ""
+"Foreman では、tailoring_files はデフォルトの XCCDF プロファイルへのカスタム修正を表し、%s で\n"
+"    ホストに適用できます"
 
 msgid "Incompliant"
 msgstr "非準拠"
@@ -425,16 +429,16 @@ msgid "Inconclusive results"
 msgstr "不確定な結果"
 
 msgid "Is %s param set to be overriden?"
-msgstr ""
+msgstr "%s param はオーバーライドされるように設定されていますか?"
 
 msgid "Is foreman_ansible present?"
-msgstr ""
+msgstr "foreman_ansible は存在しますか?"
 
 msgid "Is theforeman.foreman_scap_client present?"
-msgstr ""
+msgstr "theforeman.foreman_scap_client は存在しますか?"
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
-msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。"
+msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
 
 msgid "Latest Compliance Reports"
 msgstr "最新コンプライアンスレポート"
@@ -446,10 +450,10 @@ msgid "List ARF reports"
 msgstr "ARF レポートの一覧表示"
 
 msgid "List OVAL Policies"
-msgstr ""
+msgstr "OVAL ポリシーの一覧表示"
 
 msgid "List OVAL contents"
-msgstr ""
+msgstr "OVAL コンテンツの一覧表示"
 
 msgid "List Policies"
 msgstr "ポリシーの一覧表示"
@@ -476,7 +480,7 @@ msgid "More details"
 msgstr "詳細"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 msgid "Never audited"
 msgstr "未監査"
@@ -503,16 +507,16 @@ msgid "No ARF reports for this policy"
 msgstr "このポリシーの ARF レポートがありません"
 
 msgid "No CVEs found."
-msgstr ""
+msgstr "CVE が見つかりません。"
 
 msgid "No OVAL Contents found."
-msgstr ""
+msgstr "OVAL コンテンツが見つかりません。"
 
 msgid "No OVAL Policies found"
-msgstr ""
+msgstr "OVAL ポリシーが見つかりません"
 
 msgid "No OVAL Policy found"
-msgstr ""
+msgstr "OVAL ポリシーが見つかりません"
 
 msgid "No OpenSCAP Proxy selected."
 msgstr "OpenSCAP プロキシーが選択されていません。"
@@ -524,7 +528,7 @@ msgid "No Tailoring file assigned for policy with id %s"
 msgstr "id が %s のポリシーに割り当てられているテーラリングファイルはありません"
 
 msgid "No Vulnerabilities found"
-msgstr ""
+msgstr "脆弱性は見つかりませんでした"
 
 msgid "No available proxy to validate. Returned with error: %s"
 msgstr "検証するプロキシーがありません。返されたエラー: %s"
@@ -551,7 +555,7 @@ msgid "No proxy found!"
 msgstr "プロキシーが見つかりません!"
 
 msgid "No proxy with OpenSCAP feature is running."
-msgstr "OpenSCAP 機能のあるプロキシーが実行されています。"
+msgstr "OpenSCAP 機能のあるプロキシーが実行されていません。"
 
 msgid "No proxy with OpenSCAP feature was found."
 msgstr "OpenSCAP 機能のあるプロキシーが見つかりませんでした。"
@@ -560,7 +564,7 @@ msgid "No report for this policy"
 msgstr "このポリシーのレポートはありません"
 
 msgid "No reports available"
-msgstr "レポートがありません"
+msgstr "利用可能なレポートがありません"
 
 msgid "No valid policy ID provided"
 msgstr "有効なポリシー ID が提供されていません"
@@ -572,7 +576,7 @@ msgid "None found"
 msgstr "何も見つかりません"
 
 msgid "None!"
-msgstr "なし"
+msgstr "なし!"
 
 msgid "Not audited"
 msgstr "未監査"
@@ -587,58 +591,58 @@ msgid "Number of Events"
 msgstr "イベント数"
 
 msgid "Number of a day in month, note that not all months have same count of days"
-msgstr "月の日の数。すべての月の日数が同じであるとは限らないことに注意してください"
+msgstr "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
 
 msgid "OVAL Content"
-msgstr ""
+msgstr "OVAL コンテンツ"
 
 msgid "OVAL Contents"
-msgstr ""
+msgstr "OVAL コンテンツ"
 
 msgid "OVAL Contents table"
-msgstr ""
+msgstr "OVAL コンテンツテーブル"
 
 msgid "OVAL Policies"
-msgstr ""
+msgstr "OVAL ポリシー"
 
 msgid "OVAL Policies Table"
-msgstr ""
+msgstr "OVAL ポリシーテーブル"
 
 msgid "OVAL Policy description"
-msgstr ""
+msgstr "OVAL ポリシーの説明"
 
 msgid "OVAL Policy name"
-msgstr ""
+msgstr "OVAL ポリシー名"
 
 msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
-msgstr ""
+msgstr "OVAL ポリシーのスケジュール: cron 行 (period == \"custom\" の場合のみ)"
 
 msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
-msgstr ""
+msgstr "OVAL ポリシーのスケジュール: 月の日付 (period == \"monthly\" の場合のみ)"
 
 msgid "OVAL Policy schedule period (weekly, monthly, custom)"
-msgstr ""
+msgstr "OVAL ポリシーのスケジュール期間 (週次、月次、カスタム)"
 
 msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
-msgstr ""
+msgstr "OVAL ポリシーのスケジュール: 平日 (period == \"weekly\" の場合のみ)"
 
 msgid "OVAL content name"
-msgstr ""
+msgstr "OVAL コンテンツ名"
 
 msgid "OVAL policy successfully configured with %s."
-msgstr ""
+msgstr "%s で正常に設定された OVAL ポリシー。"
 
 msgid "OVAL scan"
-msgstr ""
+msgstr "OVAL スキャン"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
-msgstr "Once SCAP コンテンツが存在する場合には、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
+msgstr "SCAP コンテンツが表示されたら、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
 
 msgid "OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシー"
 
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
-msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP Proxy。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
 
 msgid "Openscap Proxy"
 msgstr "OpenSCAP プロキシー"
@@ -647,7 +651,7 @@ msgid "Organizations"
 msgstr "組織"
 
 msgid "Original file name of the OVAL content file"
-msgstr ""
+msgstr "OVAL コンテンツファイルの元のファイル名"
 
 msgid "Original file name of the XML file"
 msgstr "XML ファイルの元のファイル名"
@@ -673,10 +677,10 @@ msgid "Please Confirm"
 msgstr "確認してください"
 
 msgid "Please make sure you understand them by reading our"
-msgstr ""
+msgstr "理解するために読んでください。"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr ""
+msgstr "インポートタイプを指定してください。受信: %%{received}、次のうち 1 つを想定: %%{expected}"
 
 msgid "Policies"
 msgstr "ポリシー"
@@ -694,7 +698,7 @@ msgid "Policy Attributes"
 msgstr "ポリシー属性"
 
 msgid "Policy OVAL content ID"
-msgstr ""
+msgstr "ポリシー OVAL コンテンツ ID"
 
 msgid "Policy SCAP content ID"
 msgstr "ポリシー SCAP コンテンツ ID"
@@ -730,7 +734,7 @@ msgid "Policy with id %s not found."
 msgstr "id が %s のポリシーが見つかりません"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
-msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクターに移動しました。"
+msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
 
 msgid "Puppet class"
 msgstr "Puppet クラス"
@@ -739,7 +743,7 @@ msgid "Rationale"
 msgstr "理由"
 
 msgid "Ref Id"
-msgstr ""
+msgstr "参照 ID"
 
 msgid "References"
 msgstr "リファレンス"
@@ -751,7 +755,7 @@ msgid "Report Metrics"
 msgstr "レポートメトリックス"
 
 msgid "Report Status"
-msgstr "レポートの状態"
+msgstr "レポートのステータス"
 
 msgid "Reported At"
 msgstr "報告済み"
@@ -778,7 +782,7 @@ msgid "Rule Results"
 msgstr "ルールの結果"
 
 msgid "Run OVAL scan"
-msgstr ""
+msgstr "OVAL スキャンの実行"
 
 msgid "Run OpenSCAP scan"
 msgstr "OpenSCAP スキャンの実行"
@@ -805,7 +809,7 @@ msgid "SCAP policies summary"
 msgstr "SCAP ポリシーの概要"
 
 msgid "Scan All Hostgroups"
-msgstr ""
+msgstr "すべてのホストグループのスキャン"
 
 msgid "Schedule"
 msgstr "スケジュール"
@@ -814,7 +818,7 @@ msgid "Select Action"
 msgstr "アクションの選択"
 
 msgid "Select Compliance Policy"
-msgstr "コンプライアンスポリシーを選択"
+msgstr "コンプライアンスポリシーの選択"
 
 msgid "Select OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシーの選択"
@@ -835,19 +839,19 @@ msgid "Show a Tailoring file"
 msgstr "テーラリングファイルの表示"
 
 msgid "Show a policy's SCAP content"
-msgstr "ポリシーの SCAP コンテンツを表示"
+msgstr "ポリシーの SCAP コンテンツの表示"
 
 msgid "Show a policy's Tailoring file"
-msgstr "ポリシーのテーラリングファイルを表示"
+msgstr "ポリシーのテーラリングファイルの表示"
 
 msgid "Show an ARF report"
 msgstr "ARF レポートの表示"
 
 msgid "Show an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーの表示"
 
 msgid "Show an OVAL content"
-msgstr ""
+msgstr "OVAL コンテンツの表示"
 
 msgid "Show an SCAP content"
 msgstr "SCAP コンテンツの表示"
@@ -886,19 +890,19 @@ msgid "Successfully deleted ARF report."
 msgstr "ARF レポートが正常に削除されました。"
 
 msgid "Summary from %{time} ago to now"
-msgstr "%{time} 前から現在までの概要"
+msgstr "過去 %{time} から今までの概要"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr "Foreman からの OpenScap の概要レポート"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "{foreman_url} にある Foreman サーバーからの概要レポート"
+msgstr "%{foreman_url} にある Foreman サーバーからの概要レポート"
 
 msgid "Sync contents that have remote source URL"
-msgstr ""
+msgstr "リモートソース URL を持つコンテンツの同期"
 
 msgid "Table of CVEs for OVAL policy"
-msgstr ""
+msgstr "OVAL ポリシーの CVE テーブル"
 
 msgid "Tailoring File"
 msgstr "テーラリングファイル"
@@ -918,31 +922,33 @@ msgstr "テーラリングファイルのプロファイル ID"
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
 "        configuration issues related to security. "
-msgstr "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される数多くのオープンスタンダードの組み合わせです。"
+msgstr ""
+"Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される\n"
+"        数多くのオープンスタンダードの組み合わせです。 "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "%{key_name} に以下の %{item_name} がありません: %{key_names}。続行前にインポートするようにしてください。"
+msgstr "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
 
 msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
-msgstr ""
+msgstr "次の Ansible 変数が見つかりませんでした: %{missing_vars}。このアクションを再度実行する前に、Ansible 変数をインポートしてください。"
 
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s"
+msgstr "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s "
 
 msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr "以下のプロキシーに到達できませんでした: %s。Foreman がバージョンを確認できるように、プロキシーが利用できりうことを確認してください。"
+msgstr "以下のプロキシーに到達できませんでした: %s。Foreman がバージョンを確認できるように、プロキシーが利用可能であることを確認してください。"
 
 msgid "The identifier of the host"
 msgstr "ホストの ID"
 
 msgid "There are significant differences in deployment options."
-msgstr ""
+msgstr "デプロイメントオプションには大きな違いがあります。"
 
 msgid "This feature is temporarily disabled. "
-msgstr "この機能は一時的に無効にされています。"
+msgstr "この機能は一時的に無効にされています。 "
 
 msgid "This profile will be used to override the one from scap content"
-msgstr "このプロファイルは scrap コンテンツからのものを上書きするために使用されます。"
+msgstr "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
 
 msgid "Total"
 msgstr "合計"
@@ -951,17 +957,17 @@ msgid "Total hosts with policy: %s"
 msgstr "ポリシーが割り当てられたホスト総数: %s"
 
 msgid "Total hosts with reports where policy is no longer assigned."
-msgstr "ポリシーの割り当てが解除されおり、レポートが含まれるホスト総数。"
+msgstr "ポリシーの割り当てが解除されたレポートが含まれるホストの総数。"
 
 msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
 msgstr[0] "合計ホスト 1 台"
 
 msgid "Type of the upload"
-msgstr ""
+msgstr "アップロードの種類"
 
 msgid "URL of the OVAL content file"
-msgstr ""
+msgstr "OVAL コンテンツファイルの URL"
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
 msgstr "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
@@ -970,13 +976,13 @@ msgid "Unable to get XML version of requested report from Smart Proxy"
 msgstr "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
 
 msgid "Unassign Compliance Policy"
-msgstr "コンプライアンスポリシーの割り当て解除                    "
+msgstr "コンプライアンスポリシーの割り当て解除"
 
 msgid "Unknown Compliance status"
 msgstr "不明なコンプライアンスステータス"
 
 msgid "Unknown OVAL status"
-msgstr ""
+msgstr "OVAL の不明なステータス"
 
 msgid "Update a Policy"
 msgstr "ポリシーの更新"
@@ -985,10 +991,10 @@ msgid "Update a Tailoring file"
 msgstr "テーラリングファイルの更新"
 
 msgid "Update an OVAL Policy"
-msgstr ""
+msgstr "OVAL ポリシーの更新"
 
 msgid "Update an OVAL content"
-msgstr ""
+msgstr "OVAL コンテンツの更新"
 
 msgid "Update an SCAP content"
 msgstr "SCAP コンテンツの更新"
@@ -1012,7 +1018,7 @@ msgid "Upload an ARF report"
 msgstr "ARF レポートのアップロード"
 
 msgid "Upload an OVAL report - a list of CVEs for given host"
-msgstr ""
+msgstr "OVAL レポートのアップロード: 特定のホストの CVE の一覧"
 
 msgid "Upload new SCAP content file"
 msgstr "新規 SCAP コンテンツファイルをアップロード"
@@ -1021,7 +1027,7 @@ msgid "Upload new Tailoring File"
 msgstr "新規テーラリングファイルのアップロード"
 
 msgid "Upload scap contents in bulk"
-msgstr ""
+msgstr "SCAP コンテンツをまとめてアップロード"
 
 msgid "View Report"
 msgstr "レポートを表示"
@@ -1030,10 +1036,10 @@ msgid "View full report"
 msgstr "フルレポートを表示"
 
 msgid "Was %s configured successfully?"
-msgstr ""
+msgstr "%s は正常に設定されましたか?"
 
 msgid "Was %{model_name} %{name} configured successfully?"
-msgstr ""
+msgstr "%{model_name} %%{name} は正常に設定されましたか?"
 
 msgid "XCCDF Profile"
 msgstr "XCCDF プロファイル"
@@ -1042,7 +1048,7 @@ msgid "XCCDF Profile in Tailoring File"
 msgstr "テーラリングファイルでの XCCDF プロファイル"
 
 msgid "XML containing OVAL content"
-msgstr ""
+msgstr "OVAL コンテンツを含む XML"
 
 msgid "XML containing SCAP content"
 msgstr "SCAP コンテンツを含む XML"
@@ -1075,13 +1081,13 @@ msgid "does not have the selected SCAP content profile"
 msgstr "選択した SCAP コンテンツプロファイルがありません"
 
 msgid "foreman_ansible plugin not found, please install it before running this action again."
-msgstr ""
+msgstr "foreman_ansible プラグインが見つかりません。このアクションを再度実行する前に、プラグインをインストールしてください。"
 
 msgid "hostgroups"
-msgstr ""
+msgstr "ホストグループ"
 
 msgid "hosts"
-msgstr ""
+msgstr "ホスト"
 
 msgid "invalid type %s"
 msgstr "無効なタイプ %s"
@@ -1102,13 +1108,13 @@ msgid "must be present when tailoring file present"
 msgstr "テーラリングファイルがある場合になければなりません"
 
 msgid "must be present when tailoring file profile present"
-msgstr "テーラリングファイルのプロファイルがある場合になければなりません"
+msgstr "テーラリングファイルのプロファイルがある場合に存在する必要があります"
 
 msgid "must have Openscap feature"
 msgstr "Openscap 機能がなければなりません"
 
 msgid "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again."
-msgstr ""
+msgstr "theforeman.foreman_scap_client Ansible ロールが見つかりません。このアクションを再度実行する前に、インポートしてください。"
 
 msgid "these Compliance reports"
-msgstr "コンプライアンスレポート"
+msgstr "これらのコンプライアンスレポート"
