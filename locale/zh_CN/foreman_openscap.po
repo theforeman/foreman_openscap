@@ -47,7 +47,7 @@ msgid "%s vulnerabilities with available patch found"
 msgstr "找到了 %s 个有可用补丁的漏洞"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
-msgstr "已选择 %{type} 将策略部署到客户端，但是 %{type} 不可用。您是否缺少插件？"
+msgstr "已选择 %{type} 将策略部署到客户端，但是%{type} 不可用。您是否缺少插件？"
 
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP 摘要"
@@ -56,13 +56,13 @@ msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 策略报告摘要"
 
 msgid "Action with sub plans"
-msgstr "由子计划的操作"
+msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
 
 msgid "All messages"
-msgstr "所有訊息"
+msgstr "所有信息"
 
 msgid "Ansible role"
 msgstr "Ansible 角色"
@@ -86,7 +86,7 @@ msgid "Array of hostgroup IDs"
 msgstr "主机组 ID 的数组"
 
 msgid "Assign Compliance Policy"
-msgstr "指定合規政策"
+msgstr "分配合规政策"
 
 msgid "Assign hostgroups to an OVAL Policy"
 msgstr "将主机组分配给一个 OVAL 策略"
@@ -113,28 +113,28 @@ msgid "Change OpenSCAP Proxy"
 msgstr "改变 OpenSCAP 代理"
 
 msgid "Changed"
-msgstr "已改變"
+msgstr "已改变"
 
 msgid "Changed file does not include existing SCAP content profiles"
 msgstr "更改的文件不含现有的 SCAP 内容配置文件"
 
 msgid "Changed?"
-msgstr "已改變？"
+msgstr "已改变？"
 
 msgid "Choose Tailoring File"
-msgstr "选择定制文件"
+msgstr "选择 Tailoring 文件"
 
 msgid "Choose day in month"
-msgstr "选择某月的一天"
+msgstr "选择月中的一天"
 
 msgid "Choose existing SCAP Content"
-msgstr "選擇現有的 SCAP 內容"
+msgstr "选择现有的SCAP内容"
 
 msgid "Choose period"
-msgstr "選擇期間"
+msgstr "选择期间"
 
 msgid "Choose weekday"
-msgstr "選擇星期幾"
+msgstr "选择星期几"
 
 msgid "Compliance"
 msgstr "合规"
@@ -143,7 +143,7 @@ msgid "Compliance Policies"
 msgstr "合规性策略"
 
 msgid "Compliance Reports"
-msgstr "合規報告"
+msgstr "合规报告"
 
 msgid "Compliance Reports Breakdown"
 msgstr "合规报告故障"
@@ -158,10 +158,10 @@ msgid "Compliant"
 msgstr "合规"
 
 msgid "Compliant hosts"
-msgstr "合規主機"
+msgstr "合规主机"
 
 msgid "Compliant with the policy"
-msgstr "合於政策"
+msgstr "与策略合规"
 
 msgid "Could not find host identified by: %s"
 msgstr "无法找到由 %s 标识的主机"
@@ -200,7 +200,7 @@ msgid "Date"
 msgstr "日期"
 
 msgid "Default XCCDF profile"
-msgstr "預設 XCCDF 設定檔"
+msgstr "默认的 XCCDF 配置集"
 
 msgid "Delete"
 msgstr "刪除"
@@ -221,7 +221,7 @@ msgid "Delete compliance report for %s?"
 msgstr "为 %s 刪除合规报告？"
 
 msgid "Delete reports"
-msgstr "刪除報告"
+msgstr "删除报告"
 
 msgid "Delete scap content %s?"
 msgstr "删除 scap 内容 %s?"
@@ -266,7 +266,7 @@ msgid "Download HTML"
 msgstr "下载 HTML"
 
 msgid "Download XML in bzip"
-msgstr "下載 XML，格式為 bzip"
+msgstr "下载 XML，格式为 bzip"
 
 msgid "Download a Tailoring file as XML"
 msgstr "将一个 Tailoring 文件下载为 XML"
@@ -290,7 +290,7 @@ msgid "Failed"
 msgstr "失败"
 
 msgid "Failed and Othered"
-msgstr "失敗與其它"
+msgstr "失败和其他"
 
 msgid "Failed only"
 msgstr "只有失敗"
@@ -318,10 +318,10 @@ msgstr "上传 Arf Report 失败，在为 %s 上传时没有在参数中找到 O
 
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
-msgstr "F"
+msgstr "Failed|F"
 
 msgid "File Upload"
-msgstr "檔案上傳"
+msgstr "上传文件"
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "当使用 “files” 上传类型时要上传的文件路径"
@@ -330,46 +330,46 @@ msgid "Full Report"
 msgstr "完整报告"
 
 msgid "General"
-msgstr "一般"
+msgstr "常规"
 
 msgid "Has Errata?"
 msgstr "有勘误？"
 
 msgid "Host"
-msgstr "主办"
+msgstr "主机"
 
 msgid "Host Breakdown Chart"
-msgstr "主機錯誤圖表"
+msgstr "主机分解图"
 
 msgid "Host Groups"
-msgstr "主機群組"
+msgstr "主机组"
 
 msgid "Host compliance details"
-msgstr "主機合規的詳情"
+msgstr "主机合规性详细信息"
 
 msgid "Host details"
-msgstr "主機詳細資訊"
+msgstr "主机详情"
 
 msgid "Host does not exist anymore"
-msgstr "主機不復存在"
+msgstr "主机已不存在"
 
 msgid "Host is assigned to policy"
 msgstr "主机已分配给策略"
 
 msgid "Host is deleted"
-msgstr "已刪除主機"
+msgstr "主机被删除"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr "主机未分配给策略，但是找到了报告。您可能要删除报告或再次分配策略。"
 
 msgid "Hostgroups"
-msgstr "主機群組"
+msgstr "主机组"
 
 msgid "Hostname"
 msgstr "主机名"
 
 msgid "Hosts Breakdown"
-msgstr "主機錯誤"
+msgstr "主机分解"
 
 msgid "Hosts Count"
 msgstr "主机数"
@@ -384,7 +384,7 @@ msgid "Hosts othering this rule"
 msgstr "主机除了这个规则"
 
 msgid "Hosts passing this rule"
-msgstr "主机通过这个规则"
+msgstr "主机通过了这个规则"
 
 msgid "How the policy should be deployed"
 msgstr "应如何部署策略"
@@ -396,7 +396,7 @@ msgid "Import Puppet classes"
 msgstr "导入 Puppet 类"
 
 msgid "Import facts"
-msgstr "导入 fact"
+msgstr "导入事实"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "在 Foreman 中，合规策略检查清单通过 %s 定义。"
@@ -416,16 +416,16 @@ msgstr ""
 "    %s 应用于主机"
 
 msgid "Incompliant"
-msgstr "不合規"
+msgstr "不合规"
 
 msgid "Incompliant hosts"
-msgstr "不合規主機"
+msgstr "不合规主机"
 
 msgid "Inconclusive"
 msgstr "非決定性"
 
 msgid "Inconclusive results"
-msgstr "非決定性結果"
+msgstr "非決定性的结果"
 
 msgid "Is %s param set to be overriden?"
 msgstr "是否设置了 %s 参数？"
@@ -464,7 +464,7 @@ msgid "List SCAP contents"
 msgstr "列出 SCAP 內容"
 
 msgid "List Tailoring files"
-msgstr "列出定制文件"
+msgstr "列出 Tailoring 文件"
 
 msgid "Loading..."
 msgstr "载入中..."
@@ -482,10 +482,10 @@ msgid "Name"
 msgstr "名称"
 
 msgid "Never audited"
-msgstr "未曾稽核"
+msgstr "从未审核"
 
 msgid "New Compliance Policy"
-msgstr "新合規政策"
+msgstr "新的合规政策"
 
 msgid "New Policy"
 msgstr "新建策略"
@@ -500,7 +500,7 @@ msgid "Next"
 msgstr "下一个"
 
 msgid "No"
-msgstr "没有"
+msgstr "否"
 
 msgid "No ARF reports for this policy"
 msgstr "此政策沒有 ARF 報告"
@@ -521,7 +521,7 @@ msgid "No OpenSCAP Proxy selected."
 msgstr "没有选择 OpenSCAP 代理。"
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr "没有找到 id 为 %{id} 的 %{class} 的 OpenSCAP 代理服务器"
+msgstr "没有找到 id 为 %%{id} 的 %%{class} 的 OpenSCAP 代理服务器"
 
 msgid "No Tailoring file assigned for policy with id %s"
 msgstr "没有为 id %s 的策略分配定制文件"
@@ -533,7 +533,7 @@ msgid "No available proxy to validate. Returned with error: %s"
 msgstr "没有可用的代理进行验证。返回错误： %s"
 
 msgid "No compliance policy selected."
-msgstr "未選取合規政策。"
+msgstr "未选择合规政策。"
 
 msgid "No compliance reports selected"
 msgstr "未选择合规报告"
@@ -542,10 +542,10 @@ msgid "No compliance reports were found."
 msgstr "没有找到合规报告。"
 
 msgid "No hosts selected"
-msgstr "未選擇主機"
+msgstr "未选择主机"
 
 msgid "No hosts were found."
-msgstr "找不到主機。"
+msgstr "找不到主机。"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "找不到 %{name} 或 %{url} 的代理服务器"
@@ -560,10 +560,10 @@ msgid "No proxy with OpenSCAP feature was found."
 msgstr "未找到具备 OpenSCAP 功能的代理服务器。"
 
 msgid "No report for this policy"
-msgstr "此政策沒有報告"
+msgstr "没有此策略的报告"
 
 msgid "No reports available"
-msgstr "無報告可用"
+msgstr "无可用报告"
 
 msgid "No valid policy ID provided"
 msgstr "未提供有效的策略 ID"
@@ -575,19 +575,19 @@ msgid "None found"
 msgstr "未找到"
 
 msgid "None!"
-msgstr "無！"
+msgstr "无！"
 
 msgid "Not audited"
-msgstr "尚未稽核"
+msgstr "未审计"
 
 msgid "Not compliant with the policy"
-msgstr "不合於政策"
+msgstr "与策略不合规"
 
 msgid "Nothing to show"
-msgstr "沒有可顯示的項目"
+msgstr "没有可显示的信息"
 
 msgid "Number of Events"
-msgstr "事件數量"
+msgstr "事件数量"
 
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數"
@@ -644,10 +644,10 @@ msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports
 msgstr "用来获取 SCAP 内容以及上传 ARF 报告的 OpenSCAP 代理。如果为空，则在使用代理负责均衡器时覆盖相应的参数。"
 
 msgid "Openscap Proxy"
-msgstr "Openscap 代理服务器"
+msgstr "Openscap 代理"
 
 msgid "Organizations"
-msgstr "組織"
+msgstr "机构"
 
 msgid "Original file name of the OVAL content file"
 msgstr "OVAL 内容文件的原文件名称"
@@ -673,19 +673,19 @@ msgid "Passed|P"
 msgstr "Passed|P"
 
 msgid "Please Confirm"
-msgstr "請確認"
+msgstr "请确认"
 
 msgid "Please make sure you understand them by reading our"
 msgstr "请通过阅读我们的手册确保您了解它们"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr "请指定导入类型，已收到：％{received}，预期为％{expected} 中的一个"
+msgstr "请指定导入类型，已收到：％%{received}，预期为％%{expected} 中的一个"
 
 msgid "Policies"
 msgstr "策略"
 
 msgid "Policies with hosts:"
-msgstr "政策與主機："
+msgstr "策略带有主机："
 
 msgid "Policy"
 msgstr "策略"
@@ -718,16 +718,16 @@ msgid "Policy name"
 msgstr "政策名称"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
-msgstr "策略调度 cron 行（只在时段 = “自定义”时适用）"
+msgstr "策略调度 cron 行（只在时段为 \"custom\" 时适用）"
 
 msgid "Policy schedule day of month (only if period == \"monthly\")"
-msgstr "每月的策略调度日（只在时段 = “每月”时适用）"
+msgstr "每月的策略调度日（只在时段为 \"monthly\" 时适用）"
 
 msgid "Policy schedule period (weekly, monthly, custom)"
 msgstr "策略调度时段（周、月、自定义）"
 
 msgid "Policy schedule weekday (only if period == \"weekly\")"
-msgstr "策略调度工作日（只在时段 = “每周”时适用）"
+msgstr "策略调度工作日（只在时段为 \"weekly\" 时适用）"
 
 msgid "Policy with id %s not found."
 msgstr "没有找到带有 id %s 的策略。"
@@ -736,7 +736,7 @@ msgid "Proxy failed to send a report from spool to Foreman. This indicates a cor
 msgstr "代理服务器未能从 spool 发送报告至 Foreman。这表示报告格式损坏。报告已被移动至目录，以便将破坏文件存储到代理服务器上供以后检查。"
 
 msgid "Puppet class"
-msgstr "Puppet 類別"
+msgstr "Puppet 类别"
 
 msgid "Rationale"
 msgstr "理由"
@@ -751,13 +751,13 @@ msgid "Remote action:"
 msgstr "远程操作："
 
 msgid "Report Metrics"
-msgstr "報告計量"
+msgstr "报告指标"
 
 msgid "Report Status"
-msgstr "報告狀態"
+msgstr "报告状态"
 
 msgid "Reported At"
-msgstr "回報於"
+msgstr "报告于"
 
 msgid "Reported at %s"
 msgstr "报告于 %s"
@@ -766,7 +766,7 @@ msgid "Reports"
 msgstr "报表"
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
-msgstr "请求超时。请尝试增加设置 -> 代理服务器_请求_超时"
+msgstr "请求超时。请尝试增加 Settings -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
 msgstr "没有找到所需的％{msg_name}%{class}，请确认它已被导入。"
@@ -778,7 +778,7 @@ msgid "Result"
 msgstr "结果"
 
 msgid "Rule Results"
-msgstr "规则結果"
+msgstr "规则结果"
 
 msgid "Run OVAL scan"
 msgstr "运行 OVAL 扫描"
@@ -811,25 +811,25 @@ msgid "Scan All Hostgroups"
 msgstr "扫描所有主机组"
 
 msgid "Schedule"
-msgstr "排程"
+msgstr "调度"
 
 msgid "Select Action"
-msgstr "選擇動作"
+msgstr "选择操作"
 
 msgid "Select Compliance Policy"
-msgstr "選擇合規政策"
+msgstr "选择合规政策"
 
 msgid "Select OpenSCAP Proxy"
 msgstr "选择 OpenSCAP 代理"
 
 msgid "Select all items in this page"
-msgstr "選擇這頁中的所有項目"
+msgstr "选择这个页中的所有项"
 
 msgid "Severity"
-msgstr "嚴重"
+msgstr "严重性"
 
 msgid "Show Guide"
-msgstr "顯示指引"
+msgstr "显示指南"
 
 msgid "Show a Policy"
 msgstr "显示策略"
@@ -838,10 +838,10 @@ msgid "Show a Tailoring file"
 msgstr "显示定制文件"
 
 msgid "Show a policy's SCAP content"
-msgstr "顯示政策的 SCAP 內容"
+msgstr "显示政策的 SCAP 內容"
 
 msgid "Show a policy's Tailoring file"
-msgstr "显示策略定制文件"
+msgstr "显示策略的 Tailoring 文件"
 
 msgid "Show an ARF report"
 msgstr "显示 ARF 报告"
@@ -853,13 +853,13 @@ msgid "Show an OVAL content"
 msgstr "显示 OVAL 内容"
 
 msgid "Show an SCAP content"
-msgstr "顯示 SCAP 內容"
+msgstr "显示 SCAP 內容"
 
 msgid "Show config information for foreman_scap_client"
 msgstr "显示 foreman_scap_client 的配置信息"
 
 msgid "Show log messages:"
-msgstr "顯示日誌訊息："
+msgstr "显示日志信息："
 
 msgid "Smart Class Parameters"
 msgstr "智能类参数"
@@ -874,10 +874,10 @@ msgid "Spool errors"
 msgstr "Spool 错误"
 
 msgid "Status chart"
-msgstr "狀態圖表"
+msgstr "状态图"
 
 msgid "Status table"
-msgstr "狀態表"
+msgstr "状态表"
 
 msgid "Submit"
 msgstr "提交"
@@ -907,7 +907,7 @@ msgid "Tailoring File"
 msgstr "定制文件"
 
 msgid "Tailoring Files"
-msgstr "定制文件"
+msgstr "Tailoring 文件"
 
 msgid "Tailoring file ID"
 msgstr "定制文件 ID"
@@ -950,7 +950,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr "这个配置文件将用于覆盖 scap 内容中的配置文件"
 
 msgid "Total"
-msgstr "總計"
+msgstr "总计"
 
 msgid "Total hosts with policy: %s"
 msgstr "带有策略的主机总数：%s"
@@ -960,7 +960,7 @@ msgstr "具有不再分配策略的报告的主机总数。"
 
 msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
-msgstr[0] "总共 %{hosts} 台主机"
+msgstr[0] "总共一个主机"
 
 msgid "Type of the upload"
 msgstr "上传类型"
@@ -975,10 +975,10 @@ msgid "Unable to get XML version of requested report from Smart Proxy"
 msgstr "无法从智能代理获取所请求报告的 XML 版本"
 
 msgid "Unassign Compliance Policy"
-msgstr "取消指定合規政策"
+msgstr "取消分配合规政策"
 
 msgid "Unknown Compliance status"
-msgstr "未知的合規狀態"
+msgstr "未知的合规状态"
 
 msgid "Unknown OVAL status"
 msgstr "未知的 OVAL 状态"
@@ -1008,19 +1008,19 @@ msgid "Updated hosts: Unassigned from compliance policy '%s'"
 msgstr "更新的主机：从合规策略 '%s' 中取消分配"
 
 msgid "Upload New SCAP Content"
-msgstr "上傳新的 SCAP 內容"
+msgstr "上载新的 SCAP 内容"
 
 msgid "Upload New Tailoring file"
 msgstr "上传新定制文件"
 
 msgid "Upload an ARF report"
-msgstr "上傳 ARF 報告"
+msgstr "上传 ARF 報告"
 
 msgid "Upload an OVAL report - a list of CVEs for given host"
 msgstr "上传一个 OVAL 报告 - 给定主机的 CVE 列表"
 
 msgid "Upload new SCAP content file"
-msgstr "上傳新的 SCAP 內容檔案"
+msgstr "上载新的 SCAP 内容文件"
 
 msgid "Upload new Tailoring File"
 msgstr "上传新定制文件"
@@ -1032,16 +1032,16 @@ msgid "View Report"
 msgstr "查看报表"
 
 msgid "View full report"
-msgstr "檢視完整報告"
+msgstr "查看完整报告"
 
 msgid "Was %s configured successfully?"
 msgstr "%s 配置成功吗？"
 
 msgid "Was %{model_name} %{name} configured successfully?"
-msgstr "％{model_name}％{name}配置成功了吗？"
+msgstr "％{model_name}％%{name}配置成功了吗？"
 
 msgid "XCCDF Profile"
-msgstr "XCCDF 設定檔"
+msgstr "XCCDF 配置集"
 
 msgid "XCCDF Profile in Tailoring File"
 msgstr "定制文件中的 XCCDF 配置文件"
@@ -1059,7 +1059,7 @@ msgid "Yes"
 msgstr "是"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr "您可指定自訂的 cron 行，例如\"0  3  *  *  *\"，五個數值均由空格隔開"
+msgstr "您可以设置定制的 cron 行，如 \"0  3  *  *  *\"，其中的 5 个值由空格分隔"
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr "您似乎没有 ARF 报告。ARF 报告是针对给定的合规策略对特定主机执行单次扫描的摘要。"
@@ -1086,7 +1086,7 @@ msgid "hostgroups"
 msgstr "主机组"
 
 msgid "hosts"
-msgstr "主機"
+msgstr "主机"
 
 msgid "invalid type %s"
 msgstr "无效类型 %s"
@@ -1098,7 +1098,7 @@ msgid "is not included in SCAP_RESULT"
 msgstr "未包含在 SCAP_RESULT 中"
 
 msgid "items selected. Uncheck to Clear"
-msgstr "已選取項目。反選以清除"
+msgstr "选择的项。取消选中以清除"
 
 msgid "must be between 1 and 31"
 msgstr "数字必须在 1 到 31 之间"

@@ -51,7 +51,7 @@ msgid "%s vulnerabilities with available patch found"
 msgstr "%s vulnérabilités avec correctif disponible trouvées"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
-msgstr "%{type} a été sélectionné pour déployer la stratégie auprès des clients, mais %{type} n'est pas disponible. Il vous manque un plugin ?"
+msgstr "%%{type} a été sélectionné pour déployer la stratégie auprès des clients, mais %%{type} n'est pas disponible. Il vous manque un plugin ?"
 
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP Récapitulatif"
@@ -177,7 +177,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "Impossible de valider %s. Veuillez vérifier que vous disposez de la bonne version du proxy pour utiliser cette fonctionnalité"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "Impossible de valider %{file_type}. Erreur %{error}"
+msgstr "Impossible de valider %{file_type}. Erreur %%{error}"
 
 msgid "Create OVAL content"
 msgstr "Créer du contenu OVAL"
@@ -252,7 +252,7 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Details for Compliance Policy %s"
-msgstr "Détails de la stratégie de conformité %s"
+msgstr "Détails de la stratégie de conformité {missing_vars}"
 
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr "Répertoire à télécharger lors de l'utilisation du type de téléchargement \"répertoire\""
@@ -303,7 +303,7 @@ msgid "Failed to delete %s compliance reports"
 msgstr "Impossible de supprimer les rapports de conformité %s"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr "Échec de la suppression du rapport ARF pour l'hôte %{host_name} signalé à %{reported_at}"
+msgstr "Échec de la suppression du rapport ARF pour l'hôte %%s signalé à %{reported_at}"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "N'a pas pu télécharger le rapport ARF sous format bzip : %s"
@@ -315,7 +315,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "Impossible d'extraire le statut du spool du proxy"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %{config_tool}, cause : %{errors}"
+msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %{config_tool}, cause : %%{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Échec de chargement du rapport ARF, l'URL ou le nom de proxy OpenSCAP n'a pas été trouvé dans les paramètres lors du téléchargement pour %s et openscap_proxy manque sur l'hôte"
@@ -432,7 +432,7 @@ msgid "Inconclusive results"
 msgstr "Résultats peu probants"
 
 msgid "Is %s param set to be overriden?"
-msgstr "Le paramètre %s est-il réglé pour être remplacé ?"
+msgstr "Le paramètre {missing_vars} est-il réglé pour être remplacé ?"
 
 msgid "Is foreman_ansible present?"
 msgstr "Est-ce que foreman_ansible est présent ?"
@@ -525,7 +525,7 @@ msgid "No OpenSCAP Proxy selected."
 msgstr "Aucun proxy OpenSCAP n'a été sélectionné."
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr "Aucun proxy OpenSCAP trouvé pour %{class} avec id %{id}"
+msgstr "Aucun proxy OpenSCAP trouvé pour %%{class} avec id %%{id}"
 
 msgid "No Tailoring file assigned for policy with id %s"
 msgstr "Aucun fichier de personnalisation attribué pour la stratégie avec l'Id  %s"
@@ -552,16 +552,16 @@ msgid "No hosts were found."
 msgstr "Aucun hôte trouvé"
 
 msgid "No proxy found for %{name} or %{url}"
-msgstr "Aucun proxy trouvé pour %{name} ou %{url}"
+msgstr "Aucun proxy trouvé pour %%{name} ou %%{url}"
 
 msgid "No proxy found!"
 msgstr "Aucun proxy trouvé !"
 
 msgid "No proxy with OpenSCAP feature is running."
-msgstr "Aucun proxy avec la fonction SCAP n'est exécuté."
+msgstr "Aucun proxy avec la fonction OpenSCAP n'est exécuté."
 
 msgid "No proxy with OpenSCAP feature was found."
-msgstr "Aucun proxy avec la fonction SCAP trouvé."
+msgstr "Aucun proxy avec la fonction OpenSCAP trouvé."
 
 msgid "No report for this policy"
 msgstr "Aucun rapport pour cette stratégie"
@@ -591,7 +591,7 @@ msgid "Nothing to show"
 msgstr "Rien à afficher"
 
 msgid "Number of Events"
-msgstr "Nombre d'évenements"
+msgstr "Nombre d’évènements"
 
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "Nombre de jours dans un mois, notez que chaque mois n'a pas le même nombre de jours"
@@ -670,7 +670,7 @@ msgid "Othered|O"
 msgstr "Autre|A"
 
 msgid "Passed"
-msgstr "Succés"
+msgstr "Succès"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
@@ -683,7 +683,7 @@ msgid "Please make sure you understand them by reading our"
 msgstr "Assurez-vous de les comprendre en lisant notre"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr "Veuillez spécifier le type d'importation, reçu : %{received}, attendu : un %{expected}"
+msgstr "Veuillez spécifier le type d'importation, reçu : %%{received}, attendu : un %%{expected}"
 
 msgid "Policies"
 msgstr "Comportements"
@@ -773,7 +773,7 @@ msgid "Request timed out. Please try increasing Settings -> proxy_request_timeou
 msgstr "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "%{msg_name} % {class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
+msgstr "%{msg_name} % %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
 
 msgid "Resource"
 msgstr "Ressource"
@@ -893,7 +893,7 @@ msgid "Successfully deleted ARF report."
 msgstr "Rapport ARF supprimé."
 
 msgid "Summary from %{time} ago to now"
-msgstr "Résumé de %{time} à maintenant"
+msgstr "Résumé de %%{time} à maintenant"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr "Rapport de synthèse pour OpenScap depuis Foreman"
@@ -930,7 +930,7 @@ msgstr ""
 "        configuration liés à la sécurité. "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
+msgstr "Les %%s suivants étaient manquants pour %{class} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
 
 msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
 msgstr "Les variables Ansible suivantes n'ont pas été trouvées : %{missing_vars}, veuillez les importer avant d'exécuter à nouveau cette action."
@@ -965,8 +965,8 @@ msgstr "Total des hôtes avec des rapports où la stratégie n'est plus assigné
 msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
 msgstr[0] "Total de un hôte"
-msgstr[1] "Total de %{hosts} hôtes"
-msgstr[2] "Total de %{hosts} hôtes"
+msgstr[1] "Total de %%{hosts} hôtes"
+msgstr[2] "Total de %%{hosts} hôtes"
 
 msgid "Type of the upload"
 msgstr "Type de téléchargement"
@@ -1044,7 +1044,7 @@ msgid "Was %s configured successfully?"
 msgstr "%s a-t-il été configuré avec succès ?"
 
 msgid "Was %{model_name} %{name} configured successfully?"
-msgstr "Le %{model_name} %{name} a-t-il été configuré avec succès ?"
+msgstr "Le %{model_name} %%{name} a-t-il été configuré avec succès ?"
 
 msgid "XCCDF Profile"
 msgstr "Profil XCCDF"
