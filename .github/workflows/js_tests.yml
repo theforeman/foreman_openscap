@@ -2,9 +2,9 @@ name: JavaScript Testing
 on:
   pull_request:
     paths:
-      - 'webpack/**'
-      - 'package.json'
-      - '.github/workflows/js_tests.yml'
+      - "webpack/**"
+      - "package.json"
+      - ".github/workflows/js_tests.yml"
 
 jobs:
   test_js:
@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        node-version: [10, 12]
+        node-version: [12, 14]
     steps:
       - uses: actions/checkout@v2
       - uses: actions/checkout@v2
