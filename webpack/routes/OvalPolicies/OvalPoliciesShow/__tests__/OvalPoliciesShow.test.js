@@ -53,7 +53,7 @@ describe('OvalPoliciesShow', () => {
       '.pf-c-tabs__item.pf-m-current'
     );
     expect(within(activeTabHeader).getByText('Details')).toBeInTheDocument();
-    userEvent.click(screen.getByRole('button', { name: 'CVEs' }));
+    userEvent.click(screen.getByRole('tab', { name: 'CVEs' }));
     expect(pushMock).toHaveBeenCalledWith(
       resolvePath(ovalPoliciesShowPath, {
         ':id': ovalPolicyId,
