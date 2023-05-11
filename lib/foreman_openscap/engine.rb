@@ -48,7 +48,8 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 3.3'
+        requires_foreman '>= 3.7'
+        register_gettext
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
@@ -244,12 +245,6 @@ module ForemanOpenscap
           overview_buttons_provider :compliance_host_overview_button
         end
       end
-    end
-
-    initializer 'foreman_openscap.register_gettext', after: :load_config_initializers do |_app|
-      locale_dir = File.join(File.expand_path('../../..', __FILE__), 'locale')
-      locale_domain = 'foreman_openscap'
-      Foreman::Gettext::Support.add_text_domain locale_domain, locale_dir
     end
 
     # Include concerns in this config.to_prepare block
