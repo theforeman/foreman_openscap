@@ -14,8 +14,11 @@ module ForemanOpenscap
       end
 
       def inline_help
+        t1 = _("Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.") % puppetclass_name
+        t2 = _("Every puppet run ensures the foreman_scap_client is configured according to the policy.")
+
         {
-          :text => "Requires #{puppetclass_name} Puppet class. This will assign the class to the hosts or selected hostgroups.<br>Every puppet run ensures the foreman_scap_client is configured according to the policy.",
+          :text => "#{t1}<br>#{t2}",
           :replace_text => 'Puppet class',
           :route_helper_method => :hash_for_puppetclasses_path
         }

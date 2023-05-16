@@ -5,7 +5,7 @@ module ForemanOpenscap
         begin
           content_blob = fetch_content_blob(oval_content.url)
         rescue StandardError => e
-          oval_content.errors.add(:base, "#{fail_msg oval_content}, cause: #{e.message}")
+          oval_content.errors.add(:base, "#{fail_msg oval_content}, " + _("cause: ") + e.message)
           return oval_content
         end
 
@@ -25,7 +25,7 @@ module ForemanOpenscap
       private
 
       def fail_msg(content)
-        "Failed to fetch content file from #{content.url}"
+        _("Failed to fetch content file from %s") % content.url
       end
 
       def fetch_content_blob(url)

@@ -6,13 +6,13 @@ import { newJobPath } from '../../../helpers/pathsHelper';
 export const policySchedule = policy => {
   switch (policy.period) {
     case 'weekly':
-      return `Weekly, on ${policy.weekday}`;
+      return sprintf(__('Weekly, on %s'), policy.weekday);
     case 'monthly':
-      return `Monthly, day of month: ${policy.dayOfMonth}`;
+      return sprintf(__('Monthly, day of month: %s'), policy.dayOfMonth);
     case 'custom':
-      return `Custom cron: ${policy.cronLine}`;
+      return sprintf(__('Custom cron: %s'), policy.cronLine);
     default:
-      return 'Unknown schedule';
+      return __('Unknown schedule');
   }
 };
 

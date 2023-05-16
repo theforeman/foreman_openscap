@@ -17,7 +17,7 @@ module ForemanOpenscap
 
     def upload_from_scap_guide
       unless scap_guide_installed?
-        @result.errors.push("Can't find scap-security-guide RPM, are you sure it is installed on your server?")
+        @result.errors.push(_("Can't find scap-security-guide RPM, are you sure it is installed on your server?"))
         return @result
       end
 
@@ -26,18 +26,18 @@ module ForemanOpenscap
 
     def upload_from_files(files_array, from_scap_guide = false)
       unless files_array.is_a? Array
-        @result.errors.push("Expected an array of files to upload, got: #{files_array}.")
+        @result.errors.push(_("Expected an array of files to upload, got: %s.") % files_array)
         return @result
       end
 
       files_array.each do |datastream|
         if File.directory?(datastream)
-          @result.errors.push("#{datastream} is a directory, expecting file.")
+          @result.errors.push(_("%s is a directory, expecting file.") % datastream)
           next
         end
 
         unless File.file?(datastream)
-          @result.errors.push("#{datastream} does not exist, skipping.")
+          @result.errors.push(_("%s does not exist, skipping.") % datastream)
           next
         end
 
@@ -55,7 +55,7 @@ module ForemanOpenscap
         if scap_content.save
           @result.results.push(scap_content)
         else
-          @result.errors.push("Failed saving #{datastream}: #{scap_content.errors.full_messages.uniq.join(',')}")
+          @result.errors.push(_("Failed saving %s:") % datastream + " #{scap_content.errors.full_messages.uniq.join(',')}")
         end
       end
       @result
@@ -63,7 +63,7 @@ module ForemanOpenscap
 
     def upload_from_directory(directory_path)
       unless directory_path && Dir.exist?(directory_path)
-        @result[:errors].push("No such directory: #{directory_path}. Please check the path you have provided.")
+        @result[:errors].push(_("No such directory: %s. Please check the path you have provided.") % directory_path)
         return @result
       end
 
@@ -85,7 +85,7 @@ module ForemanOpenscap
 
     def content_name(datastream, from_scap_guide)
       os_name = extract_name_from_file(datastream)
-      from_scap_guide ? "Red Hat #{os_name} default content" : "#{os_name} content"
+      from_scap_guide ? (_("Red Hat %s default content") % os_name) : (_("%s content") % os_name)
     end
   end
 end

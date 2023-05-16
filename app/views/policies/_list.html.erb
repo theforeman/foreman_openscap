@@ -1,8 +1,8 @@
 <table class="<%= table_css_classes('table-fixed') %>">
   <tr>
-    <th><%= sort :name %></th>
-    <th><%= sort :content %></th>
-    <th><%= sort :profile %></th>
+    <th><%= sort :name, as: _('Name') %></th>
+    <th><%= sort :content, as: _('Content') %></th>
+    <th><%= sort :profile, as: _('Profile') %></th>
     <th><%= sort :tailoring_file, :as => _('Tailoring File') %></th>
     <th><%= sort :tailoring_file_profile, :as => _('Effective Profile') %></th>
     <th><%= _('Actions') %></th>

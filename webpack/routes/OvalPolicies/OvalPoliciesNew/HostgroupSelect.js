@@ -104,7 +104,7 @@ const HostgroupSelect = ({
       <Select
         variant={SelectVariant.typeaheadMulti}
         typeAheadAriaLabel="Select a hostgroup"
-        placeholderText="Type a hostroup name..."
+        placeholderText={__('Type a hostgroup name...')}
         onToggle={() => setIsOpen(!isOpen)}
         onSelect={onSelect}
         onClear={onClear}

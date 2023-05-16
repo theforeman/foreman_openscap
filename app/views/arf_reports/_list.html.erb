@@ -3,7 +3,7 @@
 <table class="<%= table_css_classes %>">
   <tr>
   <th class="ca" width="40px"><%= check_box_tag "check_all", "", false, { :onclick => "tfm.hosts.table.toggleCheck()", :'check-title' => _("Select all items in this page"), :'uncheck-title'=> _("items selected. Uncheck to Clear") } %></th>
-    <th><%= sort :host %></th>
+    <th><%= sort :host, as: _('Host') %></th>
     <th><%= sort :reported, :as => _("Reported At") %></th>
     <th><%= sort :policy, :as => _("Policy") %></th>
     <th><%= sort :openscap_proxy, :as => _("Openscap Proxy") %></th>

@@ -11,7 +11,7 @@ module ForemanOpenscap
 
       def inline_help
         {
-          :text => "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
+          :text => _("This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.")
         }
       end
 

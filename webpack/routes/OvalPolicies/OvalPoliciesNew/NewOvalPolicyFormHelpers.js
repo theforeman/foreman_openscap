@@ -1,5 +1,5 @@
 import * as Yup from 'yup';
-import { translate as __ } from 'foremanReact/common/I18n';
+import { translate as __, sprintf } from 'foremanReact/common/I18n';
 
 import { ovalPoliciesPath } from '../../../helpers/pathsHelper';
 import { decodeId, decodeModelId } from '../../../helpers/globalIdHelper';
@@ -51,7 +51,7 @@ export const onSubmit = (
       history.push(ovalPoliciesPath);
       showToast({
         type: 'success',
-        message: 'OVAL Policy succesfully created.',
+        message: __('OVAL Policy succesfully created.'),
       });
     } else {
       actions.setSubmitting(false);
@@ -83,7 +83,7 @@ export const onSubmit = (
   const onError = response => {
     showToast({
       type: 'error',
-      message: `Failed to create OVAL Policy: ${response.error}`,
+      message: sprintf(__('Failed to create OVAL Policy: %s'), response.error),
     });
     actions.setSubmitting(false);
   };

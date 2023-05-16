@@ -1,8 +1,8 @@
 <table class="<%= table_css_classes('table-fixed') %>">
   <tr>
-    <th class="col-md-4"><%= sort :name %></th>
-    <th class="col-md-5"><%= sort :filename %></th>
-    <th class="col-md-2"><%= sort :created_at %></th>
+    <th class="col-md-4"><%= sort :name, as: _('Name') %></th>
+    <th class="col-md-5"><%= sort :filename, as: _('File name') %></th>
+    <th class="col-md-2"><%= sort :created_at, as: _('Created at') %></th>
     <th class="col-md-1"><%= _('Actions') %></th>
   </tr>
   <% @tailoring_files.each do |file| %>

@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-05-18 11:38+0000\n"
-"PO-Revision-Date: 2021-05-18 11:38+0000\n"
+"POT-Creation-Date: 2023-06-05 16:48+0200\n"
+"PO-Revision-Date: 2023-06-05 16:48+0200\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -174,8 +174,7 @@ msgid "hosts"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:78
-#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
-msgid "Show a policy's SCAP content"
+msgid "Show a policy's OVAL content"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/oval_policies_controller.rb:104
@@ -256,6 +255,10 @@ msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:68
 msgid "Delete a Policy"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/policies_controller.rb:75
+msgid "Show a policy's SCAP content"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:85
@@ -408,6 +411,13 @@ msgid "The identifier of the host"
 msgstr ""
 
 #:
+#: ../app/controllers/concerns/foreman_openscap/hosts_and_hostgroups_controller_extensions.rb:10
+msgid ""
+"The %s proxy does not have Openscap feature enabled. Either set correct OpenSC"
+"AP Proxy or unset it."
+msgstr ""
+
+#:
 #: ../app/controllers/concerns/foreman_openscap/hosts_controller_extensions.rb:26
 msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
 msgstr ""
@@ -445,7 +455,7 @@ msgstr ""
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:18
+#: ../app/helpers/arf_report_dashboard_helper.rb:16
 #: ../app/helpers/compliance_dashboard_helper.rb:8
 #: ../app/helpers/compliance_hosts_helper.rb:15
 #: ../app/views/arf_reports/_list.html.erb:11
@@ -454,7 +464,7 @@ msgstr ""
 msgid "Failed"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:19
+#: ../app/helpers/arf_report_dashboard_helper.rb:17
 #: ../app/helpers/compliance_dashboard_helper.rb:6
 #: ../app/helpers/compliance_hosts_helper.rb:14
 #: ../app/views/arf_reports/_list.html.erb:10
@@ -463,18 +473,18 @@ msgstr ""
 msgid "Passed"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:20
+#: ../app/helpers/arf_report_dashboard_helper.rb:18
 #: ../app/views/arf_reports/_list.html.erb:12
 #: ../app/views/foreman_openscap/policy_mailer/_hosts.erb:14
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:11
 msgid "Other"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:28
+#: ../app/helpers/arf_report_dashboard_helper.rb:26
 msgid "Number of Events"
 msgstr ""
 
-#: ../app/helpers/arf_report_dashboard_helper.rb:29
+#: ../app/helpers/arf_report_dashboard_helper.rb:27
 msgid "Rule Results"
 msgstr ""
 
@@ -542,6 +552,7 @@ msgid "Hosts othering this rule"
 msgstr ""
 
 #: ../app/helpers/compliance_dashboard_helper.rb:3
+#: ../app/views/arf_reports/_list.html.erb:6
 #: ../app/views/arf_reports/delete_multiple.html.erb:7
 #: ../app/views/policy_dashboard/_policy_reports.html.erb:6
 msgid "Host"
@@ -586,7 +597,8 @@ msgstr ""
 
 #: ../app/helpers/compliance_hosts_helper.rb:35
 #: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../lib/foreman_openscap/engine.rb:158
+#: ../lib/foreman_openscap/engine.rb:159
+#: ../webpack/components/HostExtentions/HostKebabItems.js:39
 msgid "Compliance"
 msgstr ""
 
@@ -640,11 +652,16 @@ msgstr ""
 
 #: ../app/helpers/policies_helper.rb:109
 #: ../app/views/arf_reports/_list.html.erb:54
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:116
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:97
 msgid "Submit"
 msgstr ""
 
 #: ../app/helpers/policies_helper.rb:113
 #: ../app/views/arf_reports/_list.html.erb:53
+#: ../webpack/components/ConfirmModal.js:27
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:121
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:102
 msgid "Cancel"
 msgstr ""
 
@@ -780,6 +797,7 @@ msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:11
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:67
 msgid "Schedule"
 msgstr ""
 
@@ -798,6 +816,8 @@ msgid "Organizations"
 msgstr ""
 
 #: ../app/models/foreman_openscap/policy.rb:11
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/HostgroupSelect.js:99
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:65
 msgid "Hostgroups"
 msgstr ""
 
@@ -835,25 +855,55 @@ msgstr ""
 msgid "invalid type %s"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/ansible.rb:31
+#: ../app/services/foreman_openscap/client_config/ansible.rb:23
+msgid ""
+"Requires Ansible plugin, %s Ansible role and variables. This will assign the r"
+"ole to the hosts or selected hostgroups."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/ansible.rb:24
+msgid ""
+"To deploy foreman_scap_client, ansible roles run needs to be triggered manuall"
+"y. Manual run is also required after any change to this policy."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/ansible.rb:34
 msgid ""
 "theforeman.foreman_scap_client Ansible Role not found, please import it before"
 " running this action again."
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/ansible.rb:54
+#: ../app/services/foreman_openscap/client_config/ansible.rb:57
 msgid "Ansible role"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/ansible.rb:55
+#: ../app/services/foreman_openscap/client_config/ansible.rb:58
 msgid "Ansible variables"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/puppet.rb:32
+#: ../app/services/foreman_openscap/client_config/manual.rb:14
+msgid ""
+"This leaves the setup of the foreman_scap_client solely on the user. The polic"
+"y still needs to be defined in order to link incoming ARF reports."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/puppet.rb:17
+msgid ""
+"Requires %s Puppet class. This will assign the class to the hosts or selected "
+"hostgroups."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/puppet.rb:18
+msgid ""
+"Every puppet run ensures the foreman_scap_client is configured according to th"
+"e policy."
+msgstr ""
+
+#: ../app/services/foreman_openscap/client_config/puppet.rb:39
 msgid "Puppet class"
 msgstr ""
 
-#: ../app/services/foreman_openscap/client_config/puppet.rb:33
+#: ../app/services/foreman_openscap/client_config/puppet.rb:40
 msgid "Smart Class Parameters"
 msgstr ""
 
@@ -893,15 +943,15 @@ msgid ""
 "lable so Foreman can check their versions."
 msgstr ""
 
-#: ../app/services/foreman_openscap/oval/configure.rb:60
+#: ../app/services/foreman_openscap/oval/configure.rb:65
 msgid "Was %s configured successfully?"
 msgstr ""
 
-#: ../app/services/foreman_openscap/oval/configure.rb:61
+#: ../app/services/foreman_openscap/oval/configure.rb:66
 msgid "Assign openscap_proxy to %s before proceeding."
 msgstr ""
 
-#: ../app/services/foreman_openscap/oval/configure.rb:73
+#: ../app/services/foreman_openscap/oval/configure.rb:75
 msgid "Was %{model_name} %{name} configured successfully?"
 msgstr ""
 
@@ -939,6 +989,14 @@ msgstr ""
 msgid "Is %s param set to be overriden?"
 msgstr ""
 
+#: ../app/services/foreman_openscap/oval/sync_oval_contents.rb:8
+msgid "cause: "
+msgstr ""
+
+#: ../app/services/foreman_openscap/oval/sync_oval_contents.rb:28
+msgid "Failed to fetch content file from %s"
+msgstr ""
+
 #: ../app/validators/foreman_openscap/data_stream_validator.rb:9
 msgid "No proxy with OpenSCAP feature was found."
 msgstr ""
@@ -960,6 +1018,8 @@ msgid "More details"
 msgstr ""
 
 #: ../app/views/arf_reports/_detailed_message.html.erb:6
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:62
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/DetailsTab.js:57
 msgid "Description"
 msgstr ""
 
@@ -1017,7 +1077,7 @@ msgstr ""
 msgid "Report Metrics"
 msgstr ""
 
-#: ../app/views/arf_reports/_metrics.html.erb:13
+#: ../app/views/arf_reports/_metrics.html.erb:14
 msgid "Report Status"
 msgstr ""
 
@@ -1074,6 +1134,7 @@ msgid "Download HTML"
 msgstr ""
 
 #: ../app/views/arf_reports/show_html.html.erb:10
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/HostgroupSelect.js:68
 msgid "Loading..."
 msgstr ""
 
@@ -1105,12 +1166,12 @@ msgstr ""
 msgid "%s reports over time"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:36
+#: ../app/views/compliance_hosts/show.html.erb:34
 msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:182
+#: ../lib/foreman_openscap/engine.rb:183
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -1127,7 +1188,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:184
+#: ../lib/foreman_openscap/engine.rb:185
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -1219,6 +1280,26 @@ msgstr ""
 msgid ""
 "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 val"
 "ues by space"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:3
+#: ../app/views/tailoring_files/_list.html.erb:3
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:19
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:57
+#: ../webpack/routes/OvalContents/OvalContentsShow/OvalContentsShow.js:48
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:19
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:56
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/DetailsTab.js:31
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/HostgroupsTable.js:9
+msgid "Name"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:4
+msgid "Content"
+msgstr ""
+
+#: ../app/views/policies/_list.html.erb:5
+msgid "Profile"
 msgstr ""
 
 #: ../app/views/policies/_list.html.erb:7
@@ -1366,6 +1447,20 @@ msgstr ""
 msgid "SCAP DataStream file"
 msgstr ""
 
+#: ../app/views/scap_contents/_list.html.erb:3
+msgid "Title"
+msgstr ""
+
+#: ../app/views/scap_contents/_list.html.erb:4
+#: ../app/views/tailoring_files/_list.html.erb:4
+msgid "File name"
+msgstr ""
+
+#: ../app/views/scap_contents/_list.html.erb:5
+#: ../app/views/tailoring_files/_list.html.erb:5
+msgid "Created at"
+msgstr ""
+
 #: ../app/views/scap_contents/_list.html.erb:17
 #: ../app/views/tailoring_files/_list.html.erb:23
 msgid "Download"
@@ -1417,14 +1512,14 @@ msgstr ""
 msgid "None found"
 msgstr ""
 
-#: ../app/views/smart_proxies/plugins/_openscap.html.erb:7
+#: ../app/views/smart_proxies/plugins/_openscap.html.erb:6
 msgid ""
 "Proxy failed to send a report from spool to Foreman. This indicates a corrupte"
 "d report format. Report has been moved to directory for storing corrupted file"
 "s on proxy for later inspection."
 msgstr ""
 
-#: ../app/views/smart_proxies/plugins/_openscap.html.erb:8
+#: ../app/views/smart_proxies/plugins/_openscap.html.erb:7
 msgid "Spool errors"
 msgstr ""
 
@@ -1439,7 +1534,7 @@ msgstr ""
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:168
+#: ../lib/foreman_openscap/engine.rb:169
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1476,77 +1571,250 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:159
+#: ../lib/foreman_openscap/bulk_upload.rb:20
+msgid ""
+"Can't find scap-security-guide RPM, are you sure it is installed on your serve"
+"r?"
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:29
+msgid "Expected an array of files to upload, got: %s."
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:35
+msgid "%s is a directory, expecting file."
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:40
+msgid "%s does not exist, skipping."
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:58
+msgid "Failed saving %s:"
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:66
+msgid "No such directory: %s. Please check the path you have provided."
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:88
+msgid "Red Hat %s default content"
+msgstr ""
+
+#: ../lib/foreman_openscap/bulk_upload.rb:88
+msgid "%s content"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:160
 msgid "Policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:162
+#: ../lib/foreman_openscap/engine.rb:163
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:165
+#: ../lib/foreman_openscap/engine.rb:166
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:171
-#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:28
+#: ../lib/foreman_openscap/engine.rb:172
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:33
 msgid "OVAL Contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:176
-#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:29
+#: ../lib/foreman_openscap/engine.rb:177
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:32
 msgid "OVAL Policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:198
+#: ../lib/foreman_openscap/engine.rb:199
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:202 ../lib/foreman_openscap/engine.rb:207
+#: ../lib/foreman_openscap/engine.rb:203 ../lib/foreman_openscap/engine.rb:208
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:204 ../lib/foreman_openscap/engine.rb:209
+#: ../lib/foreman_openscap/engine.rb:205 ../lib/foreman_openscap/engine.rb:210
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:276 ../lib/foreman_openscap/engine.rb:289
+#: ../lib/foreman_openscap/engine.rb:270 ../lib/foreman_openscap/engine.rb:283
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:281 ../lib/foreman_openscap/engine.rb:290
+#: ../lib/foreman_openscap/engine.rb:275 ../lib/foreman_openscap/engine.rb:284
 msgid "Run OVAL scan"
 msgstr ""
 
-#: ../webpack/components/withLoading.js:8
+#: ../webpack/components/ConfirmModal.js:19
+msgid "Confirm"
+msgstr ""
+
+#: ../webpack/components/EditableInput.js:78
+msgid "None provided"
+msgstr ""
+
+#: ../webpack/components/HostExtentions/HostKebabItems.js:37
+msgid "There's no available report for this host"
+msgstr ""
+
+#: ../webpack/components/withDeleteModal.js:27
+msgid "Are you sure you want to delete %s?"
+msgstr ""
+
+#: ../webpack/components/withLoading.js:12
 msgid "Error!"
 msgstr ""
 
-#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:35
+#: ../webpack/components/withLoading.js:64
+msgid "Permission denied"
+msgstr ""
+
+#: ../webpack/helpers/mutationHelper.js:7
+msgid "There was a following error when deleting %(name)s: %(error)s"
+msgstr ""
+
+#: ../webpack/helpers/permissionsHelper.js:34
+msgid "You are not authorized to view the page. "
+msgstr ""
+
+#: ../webpack/helpers/permissionsHelper.js:37
+msgid "Request the following permissions from administrator: %s."
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:40
 msgid "No OVAL Contents found."
 msgstr ""
 
-#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:9
-#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:12
-msgid "Name"
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:42
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:42
+msgid "Delete OVAL Content"
 msgstr ""
 
-#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:26
-msgid "OVAL Contents table"
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:49
+msgid "OVAL Content successfully deleted."
 msgstr ""
 
-#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:36
-msgid "No OVAL Policies found"
-msgstr ""
-
-#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:12
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:51
+#: ../webpack/routes/OvalContents/OvalContentsShow/OvalContentsShow.js:39
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:19
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:74
 msgid "OVAL Content"
 msgstr ""
 
-#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:32
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsIndex.js:56
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:57
+msgid "Create OVAL Content"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:20
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:103
+#: ../webpack/routes/OvalContents/OvalContentsShow/OvalContentsShow.js:21
+msgid "URL"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:21
+msgid "Original File Name"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:69
+msgid "OVAL Contents table"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:39
+msgid "New OVAL Content"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:62
+msgid "OVAL Content Source"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:74
+msgid "OVAL Content from URL"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:88
+msgid "OVAL Content from file"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:92
+#: ../webpack/routes/OvalContents/OvalContentsShow/OvalContentsShow.js:28
+msgid "File"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNewHelper.js:38
+msgid "OVAL Content %s successfully created"
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNewHelper.js:52
+msgid "Unknown error when submitting data, please try again later."
+msgstr ""
+
+#: ../webpack/routes/OvalContents/OvalContentsShow/index.js:26
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/OvalPoliciesNew.js:22
+msgid "No OVAL Content found"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:39
+msgid "No OVAL Policies found"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:41
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:33
+msgid "Delete OVAL Policy"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:48
+msgid "OVAL policy was successfully deleted."
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesIndex.js:50
+msgid "OVAL policy"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:48
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/OvalPoliciesNew.js:17
+msgid "Create OVAL Policy"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesIndex/OvalPoliciesTable.js:60
 msgid "OVAL Policies Table"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/HostgroupSelect.js:107
+msgid "Type a hostgroup name..."
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:76
+msgid "Choose OVAL Content"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyFormHelpers.js:8
+msgid "can't be blank"
+msgstr ""
+
+#:
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyFormHelpers.js:15
+msgid "is not a valid cronline"
+msgstr ""
+
+#:
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyFormHelpers.js:54
+msgid "OVAL Policy succesfully created."
+msgstr ""
+
+#:
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyFormHelpers.js:86
+msgid "Failed to create OVAL Policy: %s"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesNew/OvalPoliciesNew.js:23
+msgid ""
+"OVAL Content is required to create OVAL Policy. Please create one before proce"
+"eding."
 msgstr ""
 
 #: ../webpack/routes/OvalPolicies/OvalPoliciesShow/CvesTab.js:38
@@ -1569,11 +1837,55 @@ msgstr ""
 msgid "Table of CVEs for OVAL policy"
 msgstr ""
 
-#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:47
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/DetailsTab.js:47
+msgid "Period"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/HostgroupsTab.js:38
+msgid "No Hostgroups found."
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/HostgroupsTable.js:26
+msgid "Table of hostgroups for OVAL policy"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:46
 msgid "Scan All Hostgroups"
 msgstr ""
 
-#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/index.js:26
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:53
+msgid "Details"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShow.js:59
+msgid "CVEs"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:9
+msgid "Weekly, on %s"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:11
+msgid "Monthly, day of month: %s"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:13
+msgid "Custom cron: %s"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:15
+msgid "Unknown schedule"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:77
+msgid "OVAL policy was successfully updated."
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/OvalPoliciesShowHelper.js:84
+msgid "There was a following error when updating OVAL policy: %s"
+msgstr ""
+
+#: ../webpack/routes/OvalPolicies/OvalPoliciesShow/index.js:28
 msgid "No OVAL Policy found"
 msgstr ""
 
