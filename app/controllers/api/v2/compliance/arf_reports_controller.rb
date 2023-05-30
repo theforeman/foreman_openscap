@@ -124,7 +124,8 @@ module Api
         end
 
         def handle_download_error(error)
-          render_error 'standard_error', :status => :internal_error, :locals => { :exception => error }
+          render_error :custom_error, :status => :unprocessable_entity,
+                       :locals => { :message => _("Downloading the report failed: #{error.message}") }
         end
 
         def upload_fail(msg)
