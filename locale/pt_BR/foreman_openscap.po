@@ -34,6 +34,15 @@ msgstr[0] "%s relatório de conformidade por política"
 msgstr[1] "%s relatórios de conformidade por política"
 msgstr[2] "%s relatórios de conformidade por política"
 
+msgid "%s content"
+msgstr ""
+
+msgid "%s does not exist, skipping."
+msgstr ""
+
+msgid "%s is a directory, expecting file."
+msgstr ""
+
 msgid "%s latest report"
 msgstr "relatório mais recente %s"
 
@@ -82,6 +91,9 @@ msgstr "Aplicar política aos hosts"
 msgid "Are required variables for theforeman.foreman_scap_client present?"
 msgstr "As variáveis necessárias para oforeman.foreman_scap_client estão presentes?"
 
+msgid "Are you sure you want to delete %s?"
+msgstr ""
+
 msgid "Array of host IDs"
 msgstr "Matriz de IDs de host"
 
@@ -103,6 +115,12 @@ msgstr "Atribua openscap_proxy para %s antes de prosseguir."
 msgid "Back"
 msgstr "Retornar"
 
+msgid "CVEs"
+msgstr ""
+
+msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
+msgstr ""
+
 msgid "Cancel"
 msgstr "Cancelar"
 
@@ -123,6 +141,9 @@ msgstr "O arquivo alterado não inclui perfis de conteúdo SCAP existentes"
 
 msgid "Changed?"
 msgstr "Alterado(a)?"
+
+msgid "Choose OVAL Content"
+msgstr ""
 
 msgid "Choose Tailoring File"
 msgstr "Escolher um arquivo de personalização"
@@ -166,6 +187,12 @@ msgstr "Hosts compatíveis "
 msgid "Compliant with the policy"
 msgstr "Compatível com a política"
 
+msgid "Confirm"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
 msgid "Could not find host identified by: %s"
 msgstr "Não foi possível encontrar o host identificado por: %s"
 
@@ -177,6 +204,12 @@ msgstr "Não foi possível validar %s. Certifique-se de que você tem a versão 
 
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "Não foi possível validar %{file_type}. Erro % % de{error}"
+
+msgid "Create OVAL Content"
+msgstr ""
+
+msgid "Create OVAL Policy"
+msgstr ""
 
 msgid "Create OVAL content"
 msgstr "Criar conteúdo OVAL"
@@ -193,6 +226,12 @@ msgstr "Criar um arquivo de personalização"
 msgid "Create an OVAL Policy"
 msgstr "Criar uma política OVAL"
 
+msgid "Created at"
+msgstr ""
+
+msgid "Custom cron: %s"
+msgstr ""
+
 msgid "Dashboard"
 msgstr "Painel"
 
@@ -207,6 +246,12 @@ msgstr "Perfil XCCDF padrão "
 
 msgid "Delete"
 msgstr "Excluir"
+
+msgid "Delete OVAL Content"
+msgstr ""
+
+msgid "Delete OVAL Policy"
+msgstr ""
 
 msgid "Delete a Policy"
 msgstr "Excluir uma política"
@@ -250,6 +295,9 @@ msgstr "Opções de implantação"
 msgid "Description"
 msgstr "Descrição"
 
+msgid "Details"
+msgstr ""
+
 msgid "Details for Compliance Policy %s"
 msgstr "Detalhes da Política de Conformidade %s"
 
@@ -289,6 +337,12 @@ msgstr "Perfil efetivo"
 msgid "Error!"
 msgstr "Erro!"
 
+msgid "Every puppet run ensures the foreman_scap_client is configured according to the policy."
+msgstr ""
+
+msgid "Expected an array of files to upload, got: %s."
+msgstr ""
+
 msgid "Failed"
 msgstr "Falhou"
 
@@ -297,6 +351,12 @@ msgstr "Reprovado(s) e Outros"
 
 msgid "Failed only"
 msgstr "Somente reprovado(s)"
+
+msgid "Failed saving %s:"
+msgstr ""
+
+msgid "Failed to create OVAL Policy: %s"
+msgstr ""
 
 msgid "Failed to delete %s compliance reports"
 msgstr "Falha ao remover relatórios de conformidade %s"
@@ -309,6 +369,9 @@ msgstr "Falha ao fazer o donwload do relatório ARF como bzip: %s"
 
 msgid "Failed to downloaded ARF report in HTML: %s"
 msgstr "Falha ao fazer download do relatório ARF em HTML: %s"
+
+msgid "Failed to fetch content file from %s"
+msgstr ""
 
 msgid "Failed to fetch spool status from proxy"
 msgstr "Falha ao buscar o status do spool no proxy"
@@ -323,8 +386,14 @@ msgstr "Falha ao carregar relatório ARF. O nome do proxy OpenSCAP ou URL não f
 msgid "Failed|F"
 msgstr "Reprovado|R"
 
+msgid "File"
+msgstr ""
+
 msgid "File Upload"
 msgstr "Carregamento de Arquivo"
+
+msgid "File name"
+msgstr ""
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "Caminhos de arquivos a serem carregados ao usar \"arquivos\" tipo upload"
@@ -478,6 +547,9 @@ msgstr "Locais"
 msgid "Message"
 msgstr "Mensagem"
 
+msgid "Monthly, day of month: %s"
+msgstr ""
+
 msgid "More details"
 msgstr "Mais detalhes"
 
@@ -489,6 +561,9 @@ msgstr "Nunca auditado"
 
 msgid "New Compliance Policy"
 msgstr "Nova Política de Conformidade"
+
+msgid "New OVAL Content"
+msgstr ""
 
 msgid "New Policy"
 msgstr "Nova política"
@@ -510,6 +585,12 @@ msgstr "Nenhum relatório Arf para esta política"
 
 msgid "No CVEs found."
 msgstr "Não foram encontrados CVEs."
+
+msgid "No Hostgroups found."
+msgstr ""
+
+msgid "No OVAL Content found"
+msgstr ""
 
 msgid "No OVAL Contents found."
 msgstr "Não foi encontrado nenhum conteúdo OVAL."
@@ -568,6 +649,9 @@ msgstr "Nenhum relatório para esta política"
 msgid "No reports available"
 msgstr "Nenhum relatório disponível"
 
+msgid "No such directory: %s. Please check the path you have provided."
+msgstr ""
+
 msgid "No valid policy ID provided"
 msgstr "Não foi fornecida uma ID de política válida"
 
@@ -576,6 +660,9 @@ msgstr "Nenhum"
 
 msgid "None found"
 msgstr "Nenhum(a) localizado(a)"
+
+msgid "None provided"
+msgstr ""
 
 msgid "None!"
 msgstr "Nenhum(a)!"
@@ -597,6 +684,24 @@ msgstr "Número de dias no mês, observe que nem todos os meses possuem o mesmo 
 
 msgid "OVAL Content"
 msgstr "Conteúdo OVAL"
+
+msgid "OVAL Content %s successfully created"
+msgstr ""
+
+msgid "OVAL Content Source"
+msgstr ""
+
+msgid "OVAL Content from URL"
+msgstr ""
+
+msgid "OVAL Content from file"
+msgstr ""
+
+msgid "OVAL Content is required to create OVAL Policy. Please create one before proceeding."
+msgstr ""
+
+msgid "OVAL Content successfully deleted."
+msgstr ""
 
 msgid "OVAL Contents"
 msgstr "Conteúdo do OVAL"
@@ -628,11 +733,23 @@ msgstr "Período de agendamento da política (semanalmente, mensalmente, persona
 msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
 msgstr "Dia da semana de agendamento da política (apenas se o período for == \"semanalmente\")"
 
+msgid "OVAL Policy succesfully created."
+msgstr ""
+
 msgid "OVAL content name"
 msgstr "OVAL nome do conteúdo"
 
+msgid "OVAL policy"
+msgstr ""
+
 msgid "OVAL policy successfully configured with %s."
 msgstr "Política OVAL configurada com sucesso com %s."
+
+msgid "OVAL policy was successfully deleted."
+msgstr ""
+
+msgid "OVAL policy was successfully updated."
+msgstr ""
 
 msgid "OVAL scan"
 msgstr "Varredura OVAL"
@@ -651,6 +768,9 @@ msgstr "Proxy OpenSCAP"
 
 msgid "Organizations"
 msgstr "Organizações"
+
+msgid "Original File Name"
+msgstr ""
 
 msgid "Original file name of the OVAL content file"
 msgstr "Nome do arquivo original do arquivo de conteúdo OVAL"
@@ -674,6 +794,12 @@ msgstr "Aprovado(s)"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "Aprovado|A"
+
+msgid "Period"
+msgstr ""
+
+msgid "Permission denied"
+msgstr ""
 
 msgid "Please Confirm"
 msgstr "Por favor confirme"
@@ -735,6 +861,9 @@ msgstr "Dia da semana de agendamento da política (apenas se o período for == \
 msgid "Policy with id %s not found."
 msgstr "Política com ID %s não encontrada."
 
+msgid "Profile"
+msgstr ""
+
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "Falha do proxy ao enviar um relatório do spoll ao Foreman. Isso indica um formato de relatório corrompido. O relatório foi movido para o diretório de armazenamento de arquivos corrompidos no proxy para inspeção posterior."
 
@@ -743,6 +872,9 @@ msgstr "Classe de puppet"
 
 msgid "Rationale"
 msgstr "Base lógica"
+
+msgid "Red Hat %s default content"
+msgstr ""
 
 msgid "Ref Id"
 msgstr "Ref. Id"
@@ -768,11 +900,20 @@ msgstr "Relatar em"
 msgid "Reports"
 msgstr "Relatórios"
 
+msgid "Request the following permissions from administrator: %s."
+msgstr ""
+
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "Solicitação expirou. Tente aumentar as configurações -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
 msgstr "%{msg_name} {class} necessária não foi encontrada, certifique-se de que ele seja importado primeiro."
+
+msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
+msgstr ""
+
+msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups."
+msgstr ""
 
 msgid "Resource"
 msgstr "Recurso"
@@ -840,6 +981,9 @@ msgstr "Exibir uma política"
 msgid "Show a Tailoring file"
 msgstr "Exibir um arquivo de personalização"
 
+msgid "Show a policy's OVAL content"
+msgstr ""
+
 msgid "Show a policy's SCAP content"
 msgstr "Exibir um conteúdo SCAP da política"
 
@@ -906,6 +1050,9 @@ msgstr "Conteúdo de sincronização que tem URL de fonte remota"
 msgid "Table of CVEs for OVAL policy"
 msgstr "Tabela de CVEs para a política OVAL"
 
+msgid "Table of hostgroups for OVAL policy"
+msgstr ""
+
 msgid "Tailoring File"
 msgstr "Arquivo de personalização"
 
@@ -920,6 +1067,9 @@ msgstr "Nome do arquivo de personalização"
 
 msgid "Tailoring file profile ID"
 msgstr "ID do perfil do arquivo de personalização"
+
+msgid "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
+msgstr ""
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
@@ -946,11 +1096,29 @@ msgstr "O identificador do host"
 msgid "There are significant differences in deployment options."
 msgstr "Existem diferenças significativas nas opções de implantação."
 
+msgid "There was a following error when deleting %(name)s: %(error)s"
+msgstr ""
+
+msgid "There was a following error when updating OVAL policy: %s"
+msgstr ""
+
+msgid "There's no available report for this host"
+msgstr ""
+
 msgid "This feature is temporarily disabled. "
 msgstr "Esse recurso está temporariamente desabilitado."
 
+msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
+msgstr ""
+
 msgid "This profile will be used to override the one from scap content"
 msgstr "Esse perfil será usado para substituir o do conteúdo SCAP"
+
+msgid "Title"
+msgstr ""
+
+msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
+msgstr ""
 
 msgid "Total"
 msgstr "Total"
@@ -967,8 +1135,14 @@ msgstr[0] "Total de um host"
 msgstr[1] "Total de %{hosts} hosts"
 msgstr[2] "Total de %{hosts} hosts"
 
+msgid "Type a hostgroup name..."
+msgstr ""
+
 msgid "Type of the upload"
 msgstr "Tipo de upload"
+
+msgid "URL"
+msgstr ""
 
 msgid "URL of the OVAL content file"
 msgstr "URL do arquivo de conteúdo OVAL"
@@ -987,6 +1161,12 @@ msgstr "Status de conformidade desconhecido"
 
 msgid "Unknown OVAL status"
 msgstr "Status OVAL desconhecido"
+
+msgid "Unknown error when submitting data, please try again later."
+msgstr ""
+
+msgid "Unknown schedule"
+msgstr ""
 
 msgid "Update a Policy"
 msgstr "Atualizar uma política"
@@ -1045,6 +1225,9 @@ msgstr "O %s foi configurado com sucesso?"
 msgid "Was %{model_name} %{name} configured successfully?"
 msgstr "Foi %{model_name} %{name} configurado com sucesso?"
 
+msgid "Weekly, on %s"
+msgstr ""
+
 msgid "XCCDF Profile"
 msgstr "O Perfil do XCCDF"
 
@@ -1063,14 +1246,23 @@ msgstr "XML contendo arquivo de personalização"
 msgid "Yes"
 msgstr "Sim"
 
+msgid "You are not authorized to view the page. "
+msgstr ""
+
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr "Você pode especificar cron line personalizado, ex. \"0  3  *  *  *\", separe cada um dos 5 valores por espaço "
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr "Parece que você não tem um relatório ARF. O relatório ARF é um resumo de uma única ocorrência de verificação em um host em específico para uma determinada política de conformidade."
 
+msgid "can't be blank"
+msgstr ""
+
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
 msgstr "não pode atribuir a %s, todas as políticas atribuídas devem ser implantadas da mesma forma, verifique 'implantar por' para cada política atribuída"
+
+msgid "cause: "
+msgstr ""
 
 msgid "documentation"
 msgstr "documentação"
@@ -1095,6 +1287,9 @@ msgstr "hosts"
 
 msgid "invalid type %s"
 msgstr "tipo %s inválido"
+
+msgid "is not a valid cronline"
+msgstr ""
 
 msgid "is not a valid value"
 msgstr "não é um valor válido"

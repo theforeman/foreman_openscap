@@ -20,8 +20,11 @@ module ForemanOpenscap
       end
 
       def inline_help
+        t1 = _("Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups.") % ansible_role_name
+        t2 = _("To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.")
+
         {
-          :text => "Requires Ansible plugin, #{ansible_role_name} Ansible role and variables. This will assign the role to the hosts or selected hostgroups.<br>To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.",
+          :text => "#{t1}<br>#{t2}",
           :replace_text => 'Ansible role',
           :route_helper_method => :hash_for_ansible_roles_path
         }

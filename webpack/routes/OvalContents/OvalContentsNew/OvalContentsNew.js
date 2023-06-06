@@ -54,7 +54,7 @@ const OvalContentsNew = props => {
         {formProps => (
           <PfForm>
             <FormikField
-              label="Name"
+              label={__('Name')}
               name="name"
               component={TextField}
               isRequired
@@ -89,7 +89,7 @@ const OvalContentsNew = props => {
               />
             </FormGroup>
             {!fileFromUrl ? (
-              <FormGroup label="File" isRequired>
+              <FormGroup label={__('File')} isRequired>
                 <FileUpload
                   value={file}
                   filename={file ? file.name : ''}

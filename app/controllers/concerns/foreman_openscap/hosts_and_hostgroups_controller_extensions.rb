@@ -7,7 +7,7 @@ module ForemanOpenscap
 
     def detect_proxy_without_scap
       unless openscap_proxy_id.nil?
-        error = "The #{openscap_proxy_id[:name]} proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
+        error = _("The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it.") % openscap_proxy_id[:name]
         return error(error, :now => true) unless scap_enabled_proxy?(openscap_proxy_id)
       end
     end
