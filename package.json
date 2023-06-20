@@ -9,8 +9,6 @@
     "test:watch": "tfm-test --plugin --watchAll --config jest.config.js",
     "test:current": "tfm-test --plugin --watch --config jest.config.js",
     "publish-coverage": "tfm-publish-coverage",
-    "stories": "tfm-stories --plugin",
-    "stories:build": "tfm-build-stories --plugin",
     "create-react-component": "yo react-domain"
   },
   "repository": {
@@ -31,7 +29,6 @@
     "@theforeman/builder": ">= 10.1.0",
     "@theforeman/eslint-plugin-foreman": ">= 10.1.0",
     "@theforeman/find-foreman": ">= 10.1.0",
-    "@theforeman/stories": ">= 10.1.0",
     "@theforeman/test": ">= 10.1.0",
     "@theforeman/vendor-dev": ">= 10.1.0",
     "babel-eslint": "^10.0.3",
