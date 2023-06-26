@@ -20,6 +20,8 @@ module ComplianceHostsHelper
   end
 
   def compliance_host_multiple_actions
+    return [] unless User.current.can?(:edit_hosts)
+
     [
       { :action => [_('Assign Compliance Policy'), select_multiple_hosts_policies_path], :priority => 1210 },
       { :action => [_('Unassign Compliance Policy'), disassociate_multiple_hosts_policies_path], :priority => 1211 },
