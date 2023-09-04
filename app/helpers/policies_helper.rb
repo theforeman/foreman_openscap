@@ -55,11 +55,13 @@ module PoliciesHelper
       select_f form, :scap_content_id, scap_contents, :id, :title,
                { :include_blank => _("Choose existing SCAP Content") },
                { :label => _("SCAP Content"),
+                 :required => true,
                  :onchange => 'scap_content_selected(this);',
                  :'data-url' => method_path('scap_content_selected') }
     else
       select_f form, :scap_content_id, scap_contents, :id, :title,
                { :label => _("SCAP Content"),
+                 :required => true,
                  :onchange => 'scap_content_selected(this);',
                  :'data-url' => method_path('scap_content_selected') }
     end

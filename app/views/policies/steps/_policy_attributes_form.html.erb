@@ -1,5 +1,5 @@
 <div class="tab-pane <%= show_partial_wizard(step) %>" id="create-policy">
   <%= wizard_header @policy.step_index, *translate_steps(@policy) %>
-  <%= text_f(f, :name) %>
+  <%= text_f(f, :name, :required => true) %>
   <%= text_f(f, :description, :size => "col-md-8" ) %>
 </div>
