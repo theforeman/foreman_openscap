@@ -62,9 +62,22 @@ module ArfReportsHelper
     msg.html_safe
   end
 
-  def host_search_by_rule_result_buttons(source)
-    action_buttons(display_link_if_authorized(_('Hosts failing this rule'), hash_for_hosts_path(:search => "fails_xccdf_rule = #{source}")),
-                   display_link_if_authorized(_('Hosts passing this rule'), hash_for_hosts_path(:search => "passes_xccdf_rule = #{source}")),
-                   display_link_if_authorized(_('Hosts othering this rule'), hash_for_hosts_path(:search => "others_xccdf_rule = #{source}")))
+  def host_search_by_rule_result_buttons(log)
+    buttons = [
+      display_link_if_authorized(_('Hosts failing this rule'), hash_for_hosts_path(:search => "fails_xccdf_rule = #{log.source}")),
+      display_link_if_authorized(_('Hosts passing this rule'), hash_for_hosts_path(:search => "passes_xccdf_rule = #{log.source}")),
+      display_link_if_authorized(_('Hosts othering this rule'), hash_for_hosts_path(:search => "others_xccdf_rule = #{log.source}")),
+    ]
+    if log.result == 'fail' && log.message.fixes.present?
+      buttons << link_to_function_if_authorized(_('Remediation'), "showRemediationWizard(#{log.id})", hash_for_show_log_arf_report_path(id: log.report.id))
+    end
+    action_buttons(buttons)
+  end
+
+  def supported_remediation_snippets
+    snippets = []
+    snippets << 'urn:xccdf:fix:script:sh' if ForemanOpenscap.with_remote_execution?
+    snippets << 'urn:xccdf:fix:script:ansible' if ForemanOpenscap.with_ansible?
+    snippets
   end
 end

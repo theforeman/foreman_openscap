@@ -48,7 +48,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 3.7'
+        requires_foreman '>= 3.9'
         register_gettext
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
@@ -58,7 +58,7 @@ module ForemanOpenscap
 
         # Add permissions
         security_block :foreman_openscap do
-          permission :view_arf_reports, { :arf_reports => %i[index show parse_html show_html
+          permission :view_arf_reports, { :arf_reports => %i[index show parse_html show_html show_log
                                                              parse_bzip auto_complete_search download_html],
                                           'api/v2/compliance/arf_reports' => %i[index show download download_html],
                                           :compliance_hosts => [:show] },
@@ -275,6 +275,16 @@ module ForemanOpenscap
           :description => N_("Run OVAL scan")
         }
 
+        ansible_remediation_options = {
+          :description => N_("Run OpenSCAP remediation with Ansible"),
+          :provided_inputs => ["tasks", "reboot"]
+        }
+
+        script_remediation_options = {
+          :description => N_("Run OpenSCAP remediation with Shell"),
+          :provided_inputs => ["command", "reboot"]
+        }
+
         if Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
           options[:host_action_button] = true
           oval_options[:host_action_button] = (!::Foreman.in_rake? && ActiveRecord::Base.connection.table_exists?(:settings)) ? (Setting.find_by(:name => 'lab_features')&.value || false) : false
@@ -282,6 +292,8 @@ module ForemanOpenscap
 
         RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
         RemoteExecutionFeature.register(:foreman_openscap_run_oval_scans, N_("Run OVAL scan"), oval_options)
+        RemoteExecutionFeature.register(:ansible_run_openscap_remediation, N_("Run OpenSCAP remediation with Ansible"), ansible_remediation_options)
+        RemoteExecutionFeature.register(:script_run_openscap_remediation, N_("Run OpenSCAP remediation with Shell"), script_remediation_options)
       end
     end
 
@@ -302,5 +314,9 @@ module ForemanOpenscap
 
   def self.with_remote_execution?
     RemoteExecutionFeature rescue false
+  end
+
+  def self.with_ansible?
+    ForemanAnsible rescue false
   end
 end

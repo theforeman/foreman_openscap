@@ -56,7 +56,7 @@ EmptyStateIcon.defaultProps = {
 
 EmptyState.propTypes = {
   title: PropTypes.string,
-  body: PropTypes.string,
+  body: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
   error: PropTypes.oneOfType([PropTypes.shape({}), PropTypes.string]),
   search: PropTypes.bool,
   lock: PropTypes.bool,

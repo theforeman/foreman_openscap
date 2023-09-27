@@ -1,0 +1,24 @@
+<%#
+name: Run OpenSCAP remediation - Script Default
+job_category: OpenSCAP
+description_format: Run OpenSCAP remediation on given host. NOTE: Not meant to be used directly.
+snippet: false
+provider_type: script
+kind: job_template
+model: JobTemplate
+feature: script_run_openscap_remediation
+template_inputs:
+- name: command
+  description: Command to run on the host
+  input_type: user
+  required: true
+- name: reboot
+  description: Indicate wether the host should be rebooted after the remediation
+  input_type: user
+  required: false
+%>
+<%= input('command') %>
+<% if truthy?(input('reboot')) -%>
+echo "A reboot is required to finish the remediation. The system is going to reboot now."
+<%= render_template('Power Action - Script Default', action: 'restart') %>
+<% end -%>
