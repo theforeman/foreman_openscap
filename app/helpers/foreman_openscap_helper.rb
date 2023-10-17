@@ -16,7 +16,7 @@ module ForemanOpenscapHelper
   end
 
   def doc_flavor
-    ::Foreman::Plugin.installed?('katello') ? 'katello' : 'foreman'
+    ForemanOpenscap.with_katello? ? 'katello' : 'foreman'
   end
 
   def scap_root_url
