@@ -15,11 +15,15 @@ module ForemanOpenscapHelper
     documentation_url(section, root_url: scap_root_url)
   end
 
+  def doc_flavor
+    ::Foreman::Plugin.installed?('katello') ? 'katello' : 'foreman'
+  end
+
   def scap_root_url
     @scap_root_url ||= begin
       version = SETTINGS[:version]
       version = version.tag == 'develop' ? 'nightly' : version.short
-      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-foreman-el.html#"
+      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-#{doc_flavor}-el.html#"
     end
   end
 end
