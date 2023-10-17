@@ -17,8 +17,9 @@ module ForemanOpenscapHelper
 
   def scap_root_url
     @scap_root_url ||= begin
-      version = ForemanOpenscap::VERSION.split('.')[0..-2].join('.')
-      "https://docs.theforeman.org/#{SETTINGS[:version].short}/Managing_Security_Compliance/index-foreman-el.html#"
+      version = SETTINGS[:version]
+      version = version.tag == 'develop' ? 'nightly' : version.short
+      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-foreman-el.html#"
     end
   end
 end
