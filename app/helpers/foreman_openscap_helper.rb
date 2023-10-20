@@ -16,14 +16,14 @@ module ForemanOpenscapHelper
   end
 
   def doc_flavor
-    ForemanOpenscap.with_katello? ? 'katello' : 'foreman'
+    ForemanOpenscap.with_katello? ? 'katello' : 'foreman-el'
   end
 
   def scap_root_url
     @scap_root_url ||= begin
       version = SETTINGS[:version]
       version = version.tag == 'develop' ? 'nightly' : version.short
-      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-#{doc_flavor}-el.html#"
+      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-#{doc_flavor}.html#"
     end
   end
 end
