@@ -1,6 +1,6 @@
 <% title _("SCAP Contents") %>
 
 <% title_actions(display_link_if_authorized(_("Upload New SCAP Content"), hash_for_new_scap_content_path, :class => 'btn btn-primary'),
-                 documentation_button('Configuring_SCAP_Contents_security-compliance', :root_url => scap_doc_url)) %>
+                 scap_doc_button('Configuring_SCAP_Contents_security-compliance')) %>
 
 <%= render :partial => 'list' %>
