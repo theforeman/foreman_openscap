@@ -1,12 +1,8 @@
 require 'foreman_openscap/version'
 
 module ForemanOpenscapHelper
-  def scap_doc_link(section = '', text = _('documentation'))
-    link_to(
-      text,
-      scap_doc_url(section),
-      :rel => 'external noopener noreferrer', :target => '_blank'
-    )
+  def scap_doc_button(section)
+    documentation_button(section, root_url: scap_doc_url)
   end
 
   def scap_doc_url(section = '')
@@ -15,10 +11,17 @@ module ForemanOpenscapHelper
     documentation_url(section, root_url: scap_root_url)
   end
 
+  private
+
+  def doc_flavor
+    ForemanOpenscap.with_katello? ? 'katello' : 'foreman-el'
+  end
+
   def scap_root_url
     @scap_root_url ||= begin
-      version = ForemanOpenscap::VERSION.split('.')[0..-2].join('.')
-      "https://theforeman.org/plugins/foreman_openscap/#{version}/index.html"
+      version = SETTINGS[:version]
+      version = version.tag == 'develop' ? 'nightly' : version.short
+      "https://docs.theforeman.org/#{version}/Managing_Security_Compliance/index-#{doc_flavor}.html#"
     end
   end
 end

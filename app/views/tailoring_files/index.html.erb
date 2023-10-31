@@ -1,4 +1,4 @@
 <% title _("Tailoring Files") %>
 <% title_actions(display_link_if_authorized(_("Upload New Tailoring file"), hash_for_new_tailoring_file_path, :class => 'btn btn-primary'),
-                documentation_button('#4.5Tailoringfiles(foreman_openscap>=0.6.5)', :root_url => scap_doc_url)) %>
+                scap_doc_button('tailoring-xccdf-profiles_security-compliance')) %>
 <%= render :partial => 'list' %>
