@@ -431,9 +431,6 @@
       "Host is deleted": [
         "L'hôte est supprimé"
       ],
-      "documentation": [
-        "documentation"
-      ],
       "Choose existing SCAP Content": [
         "Sélectionner un contenu SCAP existant"
       ],
@@ -920,6 +917,9 @@
       ],
       "Please make sure you understand them by reading our": [
         "Assurez-vous de les comprendre en lisant notre"
+      ],
+      "documentation": [
+        "documentation"
       ],
       "Choose day in month": [
         "Choisir un jour du mois"

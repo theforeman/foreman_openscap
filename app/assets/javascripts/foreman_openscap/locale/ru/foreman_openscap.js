@@ -431,9 +431,6 @@
       "Host is deleted": [
         "Узел удален"
       ],
-      "documentation": [
-        "документация"
-      ],
       "Choose existing SCAP Content": [
         "Выберите существующее описание SCAP"
       ],
@@ -918,6 +915,9 @@
       ],
       "Please make sure you understand them by reading our": [
         ""
+      ],
+      "documentation": [
+        "документация"
       ],
       "Choose day in month": [
         ""

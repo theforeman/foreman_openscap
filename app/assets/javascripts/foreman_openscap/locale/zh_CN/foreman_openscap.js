@@ -431,9 +431,6 @@
       "Host is deleted": [
         "主机被删除"
       ],
-      "documentation": [
-        "文档"
-      ],
       "Choose existing SCAP Content": [
         "选择现有的SCAP内容"
       ],
@@ -916,6 +913,9 @@
       ],
       "Please make sure you understand them by reading our": [
         "请通过阅读我们的手册确保您了解它们"
+      ],
+      "documentation": [
+        "文档"
       ],
       "Choose day in month": [
         "选择月中的一天"

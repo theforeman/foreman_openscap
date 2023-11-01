@@ -431,9 +431,6 @@
       "Host is deleted": [
         "已刪除主機"
       ],
-      "documentation": [
-        ""
-      ],
       "Choose existing SCAP Content": [
         "選擇現有的 SCAP 內容"
       ],
@@ -917,6 +914,9 @@
         ""
       ],
       "Please make sure you understand them by reading our": [
+        ""
+      ],
+      "documentation": [
         ""
       ],
       "Choose day in month": [

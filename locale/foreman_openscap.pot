@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-06-05 16:48+0200\n"
-"PO-Revision-Date: 2023-06-05 16:48+0200\n"
+"POT-Creation-Date: 2023-11-01 11:19+0100\n"
+"PO-Revision-Date: 2023-11-01 11:19+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -583,26 +583,26 @@ msgstr ""
 msgid "Othered"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:24
+#: ../app/helpers/compliance_hosts_helper.rb:26
 msgid "Assign Compliance Policy"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:25
+#: ../app/helpers/compliance_hosts_helper.rb:27
 msgid "Unassign Compliance Policy"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:26
+#: ../app/helpers/compliance_hosts_helper.rb:28
 msgid "Change OpenSCAP Proxy"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:35
+#: ../app/helpers/compliance_hosts_helper.rb:37
 #: ../app/models/foreman_openscap/compliance_status.rb:8
 #: ../lib/foreman_openscap/engine.rb:159
 #: ../webpack/components/HostExtentions/HostKebabItems.js:39
 msgid "Compliance"
 msgstr ""
 
-#: ../app/helpers/compliance_hosts_helper.rb:37
+#: ../app/helpers/compliance_hosts_helper.rb:39
 msgid "Host compliance details"
 msgstr ""
 
@@ -610,15 +610,11 @@ msgstr ""
 msgid "Host is deleted"
 msgstr ""
 
-#: ../app/helpers/foreman_openscap_helper.rb:4
-msgid "documentation"
-msgstr ""
-
 #: ../app/helpers/policies_helper.rb:56
 msgid "Choose existing SCAP Content"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:57 ../app/helpers/policies_helper.rb:62
+#: ../app/helpers/policies_helper.rb:57 ../app/helpers/policies_helper.rb:63
 #: ../app/models/foreman_openscap/policy.rb:11
 #: ../app/views/policies/_form.html.erb:10
 #: ../app/views/scap_contents/welcome.html.erb:1
@@ -626,38 +622,38 @@ msgstr ""
 msgid "SCAP Content"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:72 ../app/helpers/policies_helper.rb:79
+#: ../app/helpers/policies_helper.rb:74 ../app/helpers/policies_helper.rb:81
 msgid "XCCDF Profile"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:78
+#: ../app/helpers/policies_helper.rb:80
 msgid "Default XCCDF profile"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:87
+#: ../app/helpers/policies_helper.rb:89
 msgid "Choose Tailoring File"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:88 ../app/views/policies/_list.html.erb:6
+#: ../app/helpers/policies_helper.rb:90 ../app/views/policies/_list.html.erb:6
 msgid "Tailoring File"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:97
+#: ../app/helpers/policies_helper.rb:99
 msgid "XCCDF Profile in Tailoring File"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:98
+#: ../app/helpers/policies_helper.rb:100
 msgid "This profile will be used to override the one from scap content"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:109
+#: ../app/helpers/policies_helper.rb:111
 #: ../app/views/arf_reports/_list.html.erb:54
 #: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:116
 #: ../webpack/routes/OvalPolicies/OvalPoliciesNew/NewOvalPolicyForm.js:97
 msgid "Submit"
 msgstr ""
 
-#: ../app/helpers/policies_helper.rb:113
+#: ../app/helpers/policies_helper.rb:115
 #: ../app/views/arf_reports/_list.html.erb:53
 #: ../webpack/components/ConfirmModal.js:27
 #: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:121
@@ -1113,23 +1109,23 @@ msgstr ""
 msgid "these Compliance reports"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:15
+#: ../app/views/arf_reports/show.html.erb:14
 msgid "Back"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:17
+#: ../app/views/arf_reports/show.html.erb:16
 msgid "Host details"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:18
+#: ../app/views/arf_reports/show.html.erb:17
 msgid "View full report"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:19
+#: ../app/views/arf_reports/show.html.erb:18
 msgid "Download XML in bzip"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:20
+#: ../app/views/arf_reports/show.html.erb:19
 msgid "Download HTML"
 msgstr ""
 
@@ -1266,17 +1262,17 @@ msgid "Choose period"
 msgstr ""
 
 #: ../app/views/policies/_form.html.erb:47
-#: ../app/views/policies/steps/_schedule_form.html.erb:8
+#: ../app/views/policies/steps/_schedule_form.html.erb:9
 msgid "Choose weekday"
 msgstr ""
 
 #: ../app/views/policies/_form.html.erb:48
-#: ../app/views/policies/steps/_schedule_form.html.erb:9
+#: ../app/views/policies/steps/_schedule_form.html.erb:13
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr ""
 
 #: ../app/views/policies/_form.html.erb:49
-#: ../app/views/policies/steps/_schedule_form.html.erb:10
+#: ../app/views/policies/steps/_schedule_form.html.erb:14
 msgid ""
 "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 val"
 "ues by space"
@@ -1356,7 +1352,11 @@ msgstr ""
 msgid "Please make sure you understand them by reading our"
 msgstr ""
 
-#: ../app/views/policies/steps/_schedule_form.html.erb:9
+#: ../app/views/policies/steps/_deployment_options_form.html.erb:7
+msgid "documentation"
+msgstr ""
+
+#: ../app/views/policies/steps/_schedule_form.html.erb:12
 msgid "Choose day in month"
 msgstr ""
 

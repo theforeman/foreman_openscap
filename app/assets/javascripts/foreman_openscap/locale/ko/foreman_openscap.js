@@ -431,9 +431,6 @@
       "Host is deleted": [
         "호스트가 삭제되었습니다."
       ],
-      "documentation": [
-        ""
-      ],
       "Choose existing SCAP Content": [
         "기존 SCAP 컨텐츠 선택"
       ],
@@ -917,6 +914,9 @@
         ""
       ],
       "Please make sure you understand them by reading our": [
+        ""
+      ],
+      "documentation": [
         ""
       ],
       "Choose day in month": [

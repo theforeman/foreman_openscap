@@ -431,9 +431,6 @@
       "Host is deleted": [
         "ホストが削除されました"
       ],
-      "documentation": [
-        "ドキュメント"
-      ],
       "Choose existing SCAP Content": [
         "既存の SCAP コンテンツを選択"
       ],
@@ -916,6 +913,9 @@
       ],
       "Please make sure you understand them by reading our": [
         "理解するために読んでください。"
+      ],
+      "documentation": [
+        "ドキュメント"
       ],
       "Choose day in month": [
         "月の日付を選択"
