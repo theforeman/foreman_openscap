@@ -431,9 +431,6 @@
       "Host is deleted": [
         ""
       ],
-      "documentation": [
-        ""
-      ],
       "Choose existing SCAP Content": [
         ""
       ],
@@ -917,6 +914,9 @@
         ""
       ],
       "Please make sure you understand them by reading our": [
+        ""
+      ],
+      "documentation": [
         ""
       ],
       "Choose day in month": [
