@@ -117,13 +117,18 @@ class PoliciesController < ApplicationController
     @tailoring_file = ForemanOpenscap::TailoringFile.find(params[:tailoring_file_id]) if params[:tailoring_file_id].present?
   end
 
+  def multiple_with_filter?
+    params.key?(:search)
+  end
+  
   def find_multiple
-    # Lets search by name or id and make sure one of them exists first
-    if params[:host_ids].present?
-      @hosts = Host.where("id IN (?)", params[:host_ids])
+    if params.key?(:host_names) || params.key?(:host_ids) || multiple_with_filter?
+      @hosts = Host.search_for(params[:search]) if multiple_with_filter?
+      @hosts ||= Host.merge(Host.where(id: params[:host_ids]).or(Host.where(name: params[:host_names])))
       if @hosts.empty?
-        error _('No hosts were found.')
-        redirect_to(hosts_path) && (return false)
+        error _('No hosts were found with that id, name or query filter')
+        redirect_to(hosts_path)
+        return false
       end
     else
       error _('No hosts selected')
