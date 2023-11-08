@@ -24,6 +24,9 @@ class TailoringFilesController < ApplicationController
     else
       process_error
     end
+  rescue RestClient::Exception => e
+    @tailoring_file.errors.add(:scap_file, :invalid, message: e.http_body)
+    process_error
   end
 
   def edit
