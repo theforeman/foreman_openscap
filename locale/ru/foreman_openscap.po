@@ -625,8 +625,8 @@ msgstr ""
 msgid "No hosts selected"
 msgstr "Не выбран узел"
 
-msgid "No hosts were found."
-msgstr "Узлов не найдено."
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""

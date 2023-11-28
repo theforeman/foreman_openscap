@@ -625,8 +625,8 @@ msgstr "没有找到合规报告。"
 msgid "No hosts selected"
 msgstr "未选择主机"
 
-msgid "No hosts were found."
-msgstr "找不到主机。"
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "找不到 %{name} 或 %{url} 的代理服务器"

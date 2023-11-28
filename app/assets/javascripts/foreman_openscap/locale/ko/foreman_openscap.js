@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         ""
       ],
-      "No hosts were found.": [
-        "호스트를 찾을 수 없습니다."
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "선택된 호스트가 없음 "
@@ -1296,6 +1296,9 @@
       ],
       "Remote action:": [
         "원격 작업:"
+      ],
+      "No hosts were found.": [
+        "호스트를 찾을 수 없습니다."
       ]
     }
   }

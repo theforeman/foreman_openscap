@@ -622,8 +622,8 @@ msgstr ""
 msgid "No hosts selected"
 msgstr "未選擇主機"
 
-msgid "No hosts were found."
-msgstr "找不到主機。"
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""

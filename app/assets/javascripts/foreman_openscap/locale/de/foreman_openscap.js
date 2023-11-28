@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         "Keine gültige Richtlinienkennung geliefert"
       ],
-      "No hosts were found.": [
-        "Keine Hosts gefunden."
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "Keine Hosts ausgewählt"
@@ -1296,6 +1296,9 @@
       ],
       "Remote action:": [
         "Entfernte Aktion"
+      ],
+      "No hosts were found.": [
+        "Keine Hosts gefunden."
       ]
     }
   }

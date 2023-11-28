@@ -621,8 +621,8 @@ msgstr ""
 msgid "No hosts selected"
 msgstr "선택된 호스트가 없음 "
 
-msgid "No hosts were found."
-msgstr "호스트를 찾을 수 없습니다."
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""

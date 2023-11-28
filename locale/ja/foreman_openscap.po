@@ -626,8 +626,8 @@ msgstr "コンプライアンスレポートが見つかりませんでした。
 msgid "No hosts selected"
 msgstr "ホストが選択されていません"
 
-msgid "No hosts were found."
-msgstr "ホストが見つかりませんでした。"
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "%{name} または %{url} のプロキシーが見つかりません"

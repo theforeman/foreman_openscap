@@ -629,8 +629,8 @@ msgstr "Kein Compliance-Bericht gefunden."
 msgid "No hosts selected"
 msgstr "Keine Hosts ausgewählt"
 
-msgid "No hosts were found."
-msgstr "Keine Hosts gefunden."
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "Keine Proxy für %{name} oder %{url} gefunden"
