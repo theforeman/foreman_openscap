@@ -623,7 +623,7 @@ msgstr ""
 msgid "No hosts selected"
 msgstr "Nessun host selezionato"
 
-msgid "No hosts were found."
+msgid "No hosts were found with that id, name or query filter"
 msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"

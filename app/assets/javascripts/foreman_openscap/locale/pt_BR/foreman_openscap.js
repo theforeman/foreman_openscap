@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         "Não foi fornecida uma ID de política válida"
       ],
-      "No hosts were found.": [
-        "Nenhum host localizado."
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "Não foi selecionado nenhum host"
@@ -1298,6 +1298,9 @@
       ],
       "Remote action:": [
         "Ação remota:"
+      ],
+      "No hosts were found.": [
+        "Nenhum host localizado."
       ]
     }
   }

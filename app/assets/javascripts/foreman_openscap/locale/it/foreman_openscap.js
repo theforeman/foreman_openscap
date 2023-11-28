@@ -326,7 +326,7 @@
       "No valid policy ID provided": [
         ""
       ],
-      "No hosts were found.": [
+      "No hosts were found with that id, name or query filter": [
         ""
       ],
       "No hosts selected": [

@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         "Aucun ID de stratégie fourni"
       ],
-      "No hosts were found.": [
-        "Aucun hôte trouvé"
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "Aucun hôte sélectionné"
@@ -1298,6 +1298,9 @@
       ],
       "Remote action:": [
         "Action distante :"
+      ],
+      "No hosts were found.": [
+        "Aucun hôte trouvé"
       ]
     }
   }

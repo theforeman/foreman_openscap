@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         ""
       ],
-      "No hosts were found.": [
-        "Узлов не найдено."
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "Не выбран узел"
@@ -1296,6 +1296,9 @@
       ],
       "Remote action:": [
         "Удаленное действие:"
+      ],
+      "No hosts were found.": [
+        "Узлов не найдено."
       ]
     }
   }

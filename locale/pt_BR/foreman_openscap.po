@@ -628,8 +628,8 @@ msgstr "Nenhum relatório de conformidade foi encontrado."
 msgid "No hosts selected"
 msgstr "Não foi selecionado nenhum host"
 
-msgid "No hosts were found."
-msgstr "Nenhum host localizado."
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "Nenhum proxy encontrado para %{name} ou %{url}"

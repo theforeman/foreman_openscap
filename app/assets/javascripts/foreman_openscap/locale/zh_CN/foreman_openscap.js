@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         "未提供有效的策略 ID"
       ],
-      "No hosts were found.": [
-        "找不到主机。"
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "未选择主机"
@@ -1294,6 +1294,9 @@
       ],
       "Remote action:": [
         "远程操作："
+      ],
+      "No hosts were found.": [
+        "找不到主机。"
       ]
     }
   }

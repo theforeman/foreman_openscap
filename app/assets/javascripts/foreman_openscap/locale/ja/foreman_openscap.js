@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         "有効なポリシー ID が提供されていません"
       ],
-      "No hosts were found.": [
-        "ホストが見つかりませんでした。"
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "ホストが選択されていません"
@@ -1294,6 +1294,9 @@
       ],
       "Remote action:": [
         "リモートアクション:"
+      ],
+      "No hosts were found.": [
+        "ホストが見つかりませんでした。"
       ]
     }
   }

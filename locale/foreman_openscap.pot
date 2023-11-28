@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-01 11:19+0100\n"
-"PO-Revision-Date: 2023-11-01 11:19+0100\n"
+"POT-Creation-Date: 2023-11-28 22:29+0100\n"
+"PO-Revision-Date: 2023-11-28 22:29+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -443,15 +443,15 @@ msgstr ""
 msgid "No valid policy ID provided"
 msgstr ""
 
-#: ../app/controllers/policies_controller.rb:125
-msgid "No hosts were found."
-msgstr ""
-
 #: ../app/controllers/policies_controller.rb:129
-msgid "No hosts selected"
+msgid "No hosts were found with that id, name or query filter"
 msgstr ""
 
 #: ../app/controllers/policies_controller.rb:134
+msgid "No hosts selected"
+msgstr ""
+
+#: ../app/controllers/policies_controller.rb:139
 msgid "Something went wrong while selecting hosts - %s"
 msgstr ""
 

@@ -326,8 +326,8 @@
       "No valid policy ID provided": [
         ""
       ],
-      "No hosts were found.": [
-        "找不到主機。"
+      "No hosts were found with that id, name or query filter": [
+        ""
       ],
       "No hosts selected": [
         "未選擇主機"
@@ -1296,6 +1296,9 @@
       ],
       "Remote action:": [
         "遠端動作："
+      ],
+      "No hosts were found.": [
+        "找不到主機。"
       ]
     }
   }
