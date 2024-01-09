@@ -80,6 +80,8 @@ module ForemanOpenscap
         property :policies_enc, String, desc: 'Returns JSON string containing policies for the host'
         property :policies_enc_raw, array_of: Hash, desc: 'Returns a list with key:value objects containing policies for the host'
       end
+
+      base.smart_proxy_reference :self => [:openscap_proxy_id]
     end
 
     def inherited_attributes
