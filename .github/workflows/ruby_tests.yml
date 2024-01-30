@@ -1,79 +1,16 @@
+---
 name: Ruby Testing
+
 on:
+  push:
+    branches:
+      - master
+      - '*-stable'
   pull_request:
-env:
-  BUNDLE_WITHOUT: journald:development:console:libvirt
-  RAILS_ENV: test
-  DATABASE_URL: postgresql://postgres:@localhost/test
-  DATABASE_CLEANER_ALLOW_REMOTE_DATABASE_URL: true
+
 jobs:
-  test_ruby:
-    runs-on: ubuntu-latest
-    services:
-      postgres:
-        image: postgres:12.1
-        ports: ['5432:5432']
-        options: --health-cmd pg_isready --health-interval 10s --health-timeout 5s --health-retries 5
-    strategy:
-      fail-fast: false
-      matrix:
-        foreman-core-branch: [develop]
-        foreman-ansible-branch: [master]
-        foreman-rex-branch: [master]
-        foreman-puppet-branch: [master]
-        ruby-version: [2.7]
-    steps:
-      - name: Install build packages
-        run: |
-          sudo apt-get update
-          sudo apt-get install build-essential libcurl4-openssl-dev zlib1g-dev libpq-dev
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: ${{ matrix.ruby-version }}
-          bundler-cache: true
-      - uses: actions/checkout@v2
-        with:
-          repository: theforeman/foreman
-          ref: ${{ matrix.foreman-core-branch }}
-      - uses: actions/checkout@v2
-        with:
-          path: foreman_openscap
-      - name: Run rubocop for OpenSCAP
-        run: |
-          bundle install
-          bundle exec rubocop
-        working-directory: foreman_openscap
-      - uses: actions/checkout@v2
-        with:
-          repository: theforeman/foreman_ansible
-          ref: ${{ matrix.foreman-ansible-branch }}
-          path: foreman_ansible
-      - uses: actions/checkout@v2
-        with:
-          repository: theforeman/foreman_remote_execution
-          ref: ${{ matrix.foreman-rex-branch }}
-          path: foreman_remote_execution
-      - uses: actions/checkout@v2
-        with:
-          repository: theforeman/foreman_puppet
-          ref: ${{ matrix.foreman-puppet-branch }}
-          path: foreman_puppet
-      - name: Setup Bundler
-        run: |
-          echo "gem 'foreman_openscap', path: './foreman_openscap'" > bundler.d/foreman_openscap.local.rb
-          echo "gem 'foreman_ansible', path: './foreman_ansible'" > bundler.d/foreman_ansible.local.rb
-          echo "gem 'foreman_remote_execution', path: './foreman_remote_execution'" > bundler.d/foreman_remote_execution.local.rb
-          echo "gem 'foreman_puppet', path: './foreman_puppet'" > bundler.d/foreman_puppet.local.rb
-      - name: Bundle install
-        run: |
-          bundle install
-      - name: Run migrations
-        run: |
-          bundle exec rake db:create
-          bundle exec rake db:migrate
-      - name: Run plugin tests
-        run: |
-          bundle exec rake test:foreman_openscap
-      - name: Run selected core tests
-        run: bundle exec rake test:foreman_openscap_extensions
+  test:
+    name: Ruby
+    uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
+    with:
+      plugin: foreman_openscap
