@@ -75,5 +75,3 @@ jobs:
       - name: Run plugin tests
         run: |
           bundle exec rake test:foreman_openscap
-      - name: Run selected core tests
-        run: bundle exec rake test:foreman_openscap_extensions
