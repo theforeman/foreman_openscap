@@ -1,4 +1,4 @@
-import { join, find, map, compact, includes, filter } from 'lodash';
+import { join, find, map, compact, includes, filter, isString } from 'lodash';
 
 const getResponseErrorMsgs = ({ data } = {}) => {
   if (data) {
@@ -9,8 +9,10 @@ const getResponseErrorMsgs = ({ data } = {}) => {
   return [];
 };
 
-export const errorMsg = error => {
-  join(getResponseErrorMsgs(error?.response || {}), '\n');
+export const errorMsg = data => {
+  if (isString(data)) return data;
+
+  return join(getResponseErrorMsgs({ data }), '\n');
 };
 
 export const findFixBySnippet = (fixes, snippet) =>
@@ -29,3 +31,5 @@ export const supportedRemediationSnippets = (
     )
   );
 };
+
+export const reviewHostCount = hostIdsParam => hostIdsParam.split(',').length;

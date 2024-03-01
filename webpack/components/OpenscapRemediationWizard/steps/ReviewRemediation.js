@@ -16,11 +16,12 @@ import ExternalLinkSquareAltIcon from '@patternfly/react-icons/dist/esm/icons/ex
 
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';
+import { getHostsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import WizardHeader from '../WizardHeader';
-import { NEW_HOSTS_PATH, HOSTS_PATH, FAIL_RULE_SEARCH } from '../constants';
-import { findFixBySnippet } from '../helpers';
+import { HOSTS_PATH, FAIL_RULE_SEARCH } from '../constants';
+import { findFixBySnippet, reviewHostCount } from '../helpers';
 
 import './ReviewRemediation.scss';
 
@@ -31,9 +32,9 @@ const ReviewRemediation = () => {
     method,
     hostName,
     source,
-    hostIds,
     isRebootSelected,
     setIsRebootSelected,
+    hostIdsParam,
   } = useContext(OpenscapRemediationWizardContext);
   const [copied, setCopied] = useState(false);
   const selectedFix = findFixBySnippet(fixes, snippet);
@@ -61,7 +62,7 @@ const ReviewRemediation = () => {
           __(
             'Please review the remediation snippet that will be applied to %s host(s).'
           ),
-          hostIds.length
+          reviewHostCount(hostIdsParam)
         );
 
   const rebootAlertTitle = isRebootRequired()
@@ -107,14 +108,14 @@ const ReviewRemediation = () => {
               ${__('Remediation might render the system non-functional.')}`}
           />
         </GridItem>
-        <GridItem span={4} rowSpan={1}>
+        <GridItem md={12} span={4} rowSpan={1}>
           <Button
             variant="link"
             icon={<ExternalLinkSquareAltIcon />}
             iconPosition="right"
             target="_blank"
             component="a"
-            href={foremanUrl(`${NEW_HOSTS_PATH}/${hostName}`)}
+            href={foremanUrl(`${getHostsPageUrl(true)}/${hostName}`)}
           >
             {hostName}
           </Button>{' '}

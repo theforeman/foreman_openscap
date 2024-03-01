@@ -1,5 +1,4 @@
 export const OPENSCAP_REMEDIATION_MODAL_ID = 'openscapRemediationModal';
-export const NEW_HOSTS_PATH = '/new/hosts';
 export const HOSTS_PATH = '/hosts';
 export const FAIL_RULE_SEARCH = 'fails_xccdf_rule';
 

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { isEmpty } from 'lodash';
 import PropTypes from 'prop-types';
 import { Button, Wizard } from '@patternfly/react-core';
 
@@ -29,11 +28,12 @@ const OpenscapRemediationWizard = ({
   const fixes = JSON.parse(log?.message?.fixes || null) || [];
   const source = log?.source?.value || '';
   const title = log?.message?.value || '';
+  const defaultHostIdsParam = `id ^ (${hostId})`;
 
   const [isRemediationWizardOpen, setIsRemediationWizardOpen] = useState(false);
   const [snippet, setSnippet] = useState('');
   const [method, setMethod] = useState('job');
-  const [hostIds, setHostIds] = useState([hostId]);
+  const [hostIdsParam, setHostIdsParam] = useState(defaultHostIdsParam);
   const [isRebootSelected, setIsRebootSelected] = useState(false);
 
   const onModalButtonClick = e => {
@@ -52,7 +52,7 @@ const OpenscapRemediationWizard = ({
 
   const onWizardClose = () => {
     // Reset to defaults
-    setHostIds([hostId]);
+    setHostIdsParam(defaultHostIdsParam);
     setSnippet('');
     setMethod('job');
     setIsRebootSelected(false);
@@ -64,7 +64,7 @@ const OpenscapRemediationWizard = ({
     name: __('Review hosts'),
     component: <ReviewHosts />,
     canJumpTo: Boolean(snippet && method === 'job'),
-    enableNext: Boolean(snippet && method && !isEmpty(hostIds)),
+    enableNext: Boolean(snippet && method),
   };
   const steps = [
     {
@@ -79,7 +79,7 @@ const OpenscapRemediationWizard = ({
       id: 3,
       name: __('Review remediation'),
       component: <ReviewRemediation />,
-      canJumpTo: Boolean(snippet && method && !isEmpty(hostIds)),
+      canJumpTo: Boolean(snippet && method),
       enableNext: method === 'job',
       nextButtonText: __('Run'),
     },
@@ -101,8 +101,6 @@ const OpenscapRemediationWizard = ({
             setSnippet,
             method,
             setMethod,
-            hostIds,
-            setHostIds,
             hostName,
             source,
             logStatus,
@@ -110,6 +108,9 @@ const OpenscapRemediationWizard = ({
             supportedJobSnippets,
             isRebootSelected,
             setIsRebootSelected,
+            hostId,
+            hostIdsParam,
+            setHostIdsParam,
           }}
         >
           <Wizard

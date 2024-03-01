@@ -141,11 +141,7 @@ const SnippetSelect = () => {
         )}
       </Form>
     ) : (
-      <EmptyState
-        error={logError}
-        title={__('Error!')}
-        body={errorMsg(logError)}
-      />
+      <EmptyState error title={__('Error!')} body={errorMsg(logError)} />
     );
 
   return (
