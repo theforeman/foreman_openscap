@@ -1,7 +1,5 @@
 import { decodeModelId } from './globalIdHelper';
 
-const experimental = path => `/experimental${path}`;
-
 const showPath = path => `${path}/:id`;
 const newPath = path => `${path}/new`;
 
@@ -16,14 +14,6 @@ export const resolvePath = (path, params) =>
     path
   );
 
-export const ovalContentsApiPath = '/api/v2/compliance/oval_contents';
-
-export const ovalContentsPath = experimental('/compliance/oval_contents');
-export const ovalContentsShowPath = showPath(ovalContentsPath);
-export const ovalContentsNewPath = newPath(ovalContentsPath);
-export const ovalPoliciesPath = experimental('/compliance/oval_policies');
-export const ovalPoliciesShowPath = `${showPath(ovalPoliciesPath)}/:tab?`;
-export const ovalPoliciesNewPath = newPath(ovalPoliciesPath);
 export const hostsPath = '/hosts';
 export const newJobPath = newPath('/job_invocations');
 export const hostsShowPath = showPath(hostsPath);
