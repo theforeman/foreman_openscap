@@ -94,21 +94,6 @@ Rails.application.routes.draw do
 
         post 'arf_reports/:cname/:policy_id/:date', \
              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
-
-        resources :oval_contents, :except => %i[new edit] do
-          collection do
-            post 'sync'
-          end
-        end
-
-        resources :oval_policies, :except => %i[new edit] do
-          member do
-            post 'assign_hostgroups'
-            post 'assign_hosts'
-            get 'oval_content'
-          end
-        end
-        post 'oval_reports/:cname/:oval_policy_id/:date', :constraints => { :cname => /[^\/]+/ }, :to => 'oval_reports#create'
       end
     end
   end
