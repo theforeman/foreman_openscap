@@ -11,12 +11,11 @@ import { Td } from '@patternfly/react-table';
 
 import { foremanUrl, noop } from 'foremanReact/common/helpers';
 import { translate as __ } from 'foremanReact/common/I18n';
-import SearchBar from 'foremanReact/components/SearchBar';
 import SelectAllCheckbox from 'foremanReact/components/PF4/TableIndexPage/Table/SelectAllCheckbox';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
 import { useBulkSelect } from 'foremanReact/components/PF4/TableIndexPage/Table/TableHooks';
 import { getPageStats } from 'foremanReact/components/PF4/TableIndexPage/Table/helpers';
-import { getControllerSearchProps, STATUS } from 'foremanReact/constants';
+import { STATUS } from 'foremanReact/constants';
 import { useAPI } from 'foremanReact/common/hooks/API/APIHooks';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
@@ -38,11 +37,6 @@ const ReviewHosts = () => {
   };
 
   const [params, setParams] = useState(defaultParams);
-
-  const searchProps = getControllerSearchProps('hosts');
-  searchProps.autocomplete.searchQuery = defaultSearch;
-  searchProps.autocomplete.url = '../../hosts/auto_complete_search'; // TODO: find a way to not use relative path
-  searchProps.disabled = true; // This is to force hosts to be searched by currently remediated rule only
 
   const response = useAPI('get', `${HOSTS_API_PATH}?include_permissions=true`, {
     key: HOSTS_API_REQUEST_KEY,
@@ -66,12 +60,6 @@ const ReviewHosts = () => {
   const setParamsAndAPI = newParams => {
     setParams(newParams);
     setAPIOptions({ key: HOSTS_API_REQUEST_KEY, params: newParams });
-  };
-
-  const onSearch = newSearch => {
-    if (newSearch !== apiSearchQuery) {
-      setParamsAndAPI({ ...params, search: newSearch, page: 1 });
-    }
   };
 
   const { pageRowCount } = getPageStats({
@@ -148,20 +136,13 @@ const ReviewHosts = () => {
       <WizardHeader
         title={__('Review hosts')}
         description={__(
-          'The remediation will be applied to the current host by default. Here you can select additional hosts.'
+          'The remediation will be applied to the current host by default. Here you can select additional hosts which fail the same rule.'
         )}
       />
       <Toolbar ouiaId="table-toolbar" className="table-toolbar">
         <ToolbarContent>
           <ToolbarGroup>
             {selectionToolbar}
-            <ToolbarItem className="toolbar-search">
-              <SearchBar
-                data={searchProps}
-                initialQuery={apiSearchQuery}
-                onSearch={onSearch}
-              />
-            </ToolbarItem>
             {status === STATUS.PENDING && (
               <ToolbarItem>
                 <Spinner size="sm" />
