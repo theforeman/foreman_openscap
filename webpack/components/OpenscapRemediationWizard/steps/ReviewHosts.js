@@ -78,6 +78,7 @@ const ReviewHosts = () => {
     selectPage,
     selectedCount,
     selectOne,
+    selectNone,
     areAllRowsOnPageSelected,
     areAllRowsSelected,
     isSelected,
@@ -93,7 +94,10 @@ const ReviewHosts = () => {
         {...{
           selectAll: noop, // I don't think it really can select all since ids from other pages are still need to be loaded/fetched
           selectPage,
-          selectNone: noop, // we shouldn't allow to select none since it migth lead to selecting a wrong host
+          selectNone: () => {
+            selectNone();
+            selectOne(true, hostId);
+          },
           selectedCount,
           pageRowCount,
         }}
