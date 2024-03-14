@@ -12,7 +12,7 @@ import {
   Alert,
   Checkbox,
 } from '@patternfly/react-core';
-import ExternalLinkSquareAltIcon from '@patternfly/react-icons/dist/esm/icons/external-link-square-alt-icon';
+import { ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
 
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';

@@ -79,6 +79,7 @@ const ReviewHosts = () => {
     selectedCount,
     selectOne,
     selectNone,
+    selectAll,
     areAllRowsOnPageSelected,
     areAllRowsSelected,
     isSelected,
@@ -92,7 +93,7 @@ const ReviewHosts = () => {
     <ToolbarItem key="selectAll">
       <SelectAllCheckbox
         {...{
-          selectAll: noop, // I don't think it really can select all since ids from other pages are still need to be loaded/fetched
+          selectAll, // I don't think it really can select all since ids from other pages are still need to be loaded/fetched
           selectPage,
           selectNone: () => {
             selectNone();
