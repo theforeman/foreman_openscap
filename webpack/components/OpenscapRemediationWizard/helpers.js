@@ -31,5 +31,3 @@ export const supportedRemediationSnippets = (
     )
   );
 };
-
-export const reviewHostCount = hostIdsParam => hostIdsParam.split(',').length;

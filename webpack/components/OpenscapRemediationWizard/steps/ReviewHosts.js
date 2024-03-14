@@ -9,7 +9,7 @@ import {
 } from '@patternfly/react-core';
 import { Td } from '@patternfly/react-table';
 
-import { foremanUrl, noop } from 'foremanReact/common/helpers';
+import { foremanUrl } from 'foremanReact/common/helpers';
 import { translate as __ } from 'foremanReact/common/I18n';
 import SelectAllCheckbox from 'foremanReact/components/PF4/TableIndexPage/Table/SelectAllCheckbox';
 import { Table } from 'foremanReact/components/PF4/TableIndexPage/Table/Table';
@@ -20,20 +20,18 @@ import { useAPI } from 'foremanReact/common/hooks/API/APIHooks';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import WizardHeader from '../WizardHeader';
-import {
-  HOSTS_API_PATH,
-  HOSTS_API_REQUEST_KEY,
-  FAIL_RULE_SEARCH,
-} from '../constants';
+import { HOSTS_API_PATH, HOSTS_API_REQUEST_KEY } from '../constants';
 
 const ReviewHosts = () => {
-  const { source, hostId, setHostIdsParam } = useContext(
-    OpenscapRemediationWizardContext
-  );
+  const {
+    hostId,
+    setHostIdsParam,
+    defaultFailedHostsSearch,
+    setIsAllHostsSelected,
+  } = useContext(OpenscapRemediationWizardContext);
 
-  const defaultSearch = `${FAIL_RULE_SEARCH} = ${source}`;
   const defaultParams = {
-    search: defaultSearch,
+    search: defaultFailedHostsSearch,
   };
 
   const [params, setParams] = useState(defaultParams);
@@ -70,7 +68,7 @@ const ReviewHosts = () => {
   const { fetchBulkParams, ...selectAllOptions } = useBulkSelect({
     results,
     metadata: { total: subtotalCount, page },
-    initialSearchQuery: apiSearchQuery || defaultSearch,
+    initialSearchQuery: apiSearchQuery || defaultFailedHostsSearch,
     isSelectable: () => true,
     initialArry: [hostId],
   });
@@ -93,11 +91,18 @@ const ReviewHosts = () => {
     <ToolbarItem key="selectAll">
       <SelectAllCheckbox
         {...{
-          selectAll, // I don't think it really can select all since ids from other pages are still need to be loaded/fetched
-          selectPage,
+          selectAll: () => {
+            selectAll(true);
+            setIsAllHostsSelected(true);
+          },
+          selectPage: () => {
+            selectPage();
+            setIsAllHostsSelected(false);
+          },
           selectNone: () => {
             selectNone();
             selectOne(true, hostId);
+            setIsAllHostsSelected(false);
           },
           selectedCount,
           pageRowCount,
@@ -115,6 +120,8 @@ const ReviewHosts = () => {
         rowIndex: rowData.id,
         onSelect: (_event, isSelecting) => {
           selectOne(isSelecting, rowData.id);
+          // If at least one was unselected, then it's not all selected
+          if (!isSelecting) setIsAllHostsSelected(false);
         },
         isSelected: rowData.id === hostId || isSelected(rowData.id),
         disable: rowData.id === hostId || false,
@@ -166,7 +173,7 @@ const ReviewHosts = () => {
         refreshData={() =>
           setAPIOptions({
             key: HOSTS_API_REQUEST_KEY,
-            params: { defaultSearch },
+            params: { defaultFailedHostsSearch },
           })
         }
         columns={columns}

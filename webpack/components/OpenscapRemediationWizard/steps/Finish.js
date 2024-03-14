@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button, Bullseye } from '@patternfly/react-core';
 import { ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
 
-import { sprintf, translate as __ } from 'foremanReact/common/I18n';
+import { translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { STATUS } from 'foremanReact/constants';
 import { useAPI } from 'foremanReact/common/hooks/API/APIHooks';
@@ -13,7 +13,8 @@ import PermissionDenied from 'foremanReact/components/PermissionDenied';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import EmptyState from '../../EmptyState';
-import { errorMsg, findFixBySnippet, reviewHostCount } from '../helpers';
+import ViewSelectedHostsLink from '../ViewSelectedHostsLink';
+import { errorMsg, findFixBySnippet } from '../helpers';
 
 import {
   JOB_INVOCATION_PATH,
@@ -24,9 +25,14 @@ import {
 } from '../constants';
 
 const Finish = ({ onClose }) => {
-  const { fixes, snippet, isRebootSelected, hostIdsParam } = useContext(
-    OpenscapRemediationWizardContext
-  );
+  const {
+    fixes,
+    snippet,
+    isRebootSelected,
+    hostIdsParam,
+    isAllHostsSelected,
+    defaultFailedHostsSearch,
+  } = useContext(OpenscapRemediationWizardContext);
 
   const snippetText = findFixBySnippet(fixes, snippet)?.full_text;
 
@@ -50,7 +56,9 @@ const Finish = ({ onClose }) => {
       job_invocation: {
         feature,
         inputs,
-        search_query: hostIdsParam,
+        search_query: isAllHostsSelected
+          ? defaultFailedHostsSearch
+          : hostIdsParam,
       },
     };
   };
@@ -94,13 +102,19 @@ const Finish = ({ onClose }) => {
   const body =
     status === STATUS.RESOLVED ? (
       <EmptyState
-        title={sprintf(
-          __(
-            'The job has started on %s host(s), you can check the status on the job details page.'
-          ),
-          reviewHostCount(hostIdsParam)
+        title={__(
+          'The job has started on selected host(s), you can check the status on the job details page.'
         )}
-        body={linkToJob}
+        body={
+          <>
+            {linkToJob}
+            <ViewSelectedHostsLink
+              isAllHostsSelected={isAllHostsSelected}
+              hostIdsParam={hostIdsParam}
+              defaultFailedHostsSearch={defaultFailedHostsSearch}
+            />
+          </>
+        }
         primaryButton={closeBtn}
       />
     ) : (

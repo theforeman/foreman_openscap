@@ -14,14 +14,15 @@ import {
 } from '@patternfly/react-core';
 import { ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
 
-import { sprintf, translate as __ } from 'foremanReact/common/I18n';
+import { translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { getHostsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import WizardHeader from '../WizardHeader';
+import ViewSelectedHostsLink from '../ViewSelectedHostsLink';
 import { HOSTS_PATH, FAIL_RULE_SEARCH } from '../constants';
-import { findFixBySnippet, reviewHostCount } from '../helpers';
+import { findFixBySnippet } from '../helpers';
 
 import './ReviewRemediation.scss';
 
@@ -34,7 +35,9 @@ const ReviewRemediation = () => {
     source,
     isRebootSelected,
     setIsRebootSelected,
+    isAllHostsSelected,
     hostIdsParam,
+    defaultFailedHostsSearch,
   } = useContext(OpenscapRemediationWizardContext);
   const [copied, setCopied] = useState(false);
   const selectedFix = findFixBySnippet(fixes, snippet);
@@ -58,11 +61,8 @@ const ReviewRemediation = () => {
       ? __(
           'Please review the remediation snippet and apply to the host manually.'
         )
-      : sprintf(
-          __(
-            'Please review the remediation snippet that will be applied to %s host(s).'
-          ),
-          reviewHostCount(hostIdsParam)
+      : __(
+          'Please review the remediation snippet that will be applied to selected host(s).'
         );
 
   const rebootAlertTitle = isRebootRequired()
@@ -109,6 +109,13 @@ const ReviewRemediation = () => {
           />
         </GridItem>
         <GridItem md={12} span={4} rowSpan={1}>
+          <ViewSelectedHostsLink
+            isAllHostsSelected={isAllHostsSelected}
+            hostIdsParam={hostIdsParam}
+            defaultFailedHostsSearch={defaultFailedHostsSearch}
+          />
+        </GridItem>
+        <GridItem md={12} span={4} rowSpan={1}>
           <Button
             variant="link"
             icon={<ExternalLinkSquareAltIcon />}
@@ -120,7 +127,7 @@ const ReviewRemediation = () => {
             {hostName}
           </Button>{' '}
         </GridItem>
-        <GridItem span={8} rowSpan={1}>
+        <GridItem md={12} span={8} rowSpan={1}>
           <Button
             variant="link"
             icon={<ExternalLinkSquareAltIcon />}

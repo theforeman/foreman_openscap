@@ -12,7 +12,7 @@ import {
   selectLogError,
   selectLogStatus,
 } from './OpenscapRemediationSelectors';
-import { REPORT_LOG_REQUEST_KEY } from './constants';
+import { REPORT_LOG_REQUEST_KEY, FAIL_RULE_SEARCH } from './constants';
 import { SnippetSelect, ReviewHosts, ReviewRemediation, Finish } from './steps';
 
 const OpenscapRemediationWizard = ({
@@ -29,12 +29,14 @@ const OpenscapRemediationWizard = ({
   const source = log?.source?.value || '';
   const title = log?.message?.value || '';
   const defaultHostIdsParam = `id ^ (${hostId})`;
+  const defaultFailedHostsSearch = `${FAIL_RULE_SEARCH} = ${source}`;
 
   const [isRemediationWizardOpen, setIsRemediationWizardOpen] = useState(false);
   const [snippet, setSnippet] = useState('');
   const [method, setMethod] = useState('job');
   const [hostIdsParam, setHostIdsParam] = useState(defaultHostIdsParam);
   const [isRebootSelected, setIsRebootSelected] = useState(false);
+  const [isAllHostsSelected, setIsAllHostsSelected] = useState(false);
 
   const onModalButtonClick = e => {
     e.preventDefault();
@@ -111,6 +113,9 @@ const OpenscapRemediationWizard = ({
             hostId,
             hostIdsParam,
             setHostIdsParam,
+            isAllHostsSelected,
+            setIsAllHostsSelected,
+            defaultFailedHostsSearch,
           }}
         >
           <Wizard
