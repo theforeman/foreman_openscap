@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Provider } from 'react-redux';
 import store from 'foremanReact/redux';
 import { MockedProvider } from '@apollo/react-testing';
@@ -19,20 +19,21 @@ export const withRouter = Component => props => (
 );
 
 export const withMockedProvider = Component => props => {
-  const ForemanContext = getForemanContext(ctx);
   // eslint-disable-next-line react/prop-types
   const { mocks, ...rest } = props;
 
-  const ctx = {
+  const [context, setContext] = useState({
     metadata: {
       UISettings: {
         perPage: 20,
       },
     },
-  };
+  });
 
+  const contextData = { context, setContext };
+  const ForemanContext = getForemanContext(contextData);
   return (
-    <ForemanContext.Provider value={ctx}>
+    <ForemanContext.Provider value={contextData}>
       <MockedProvider mocks={mocks}>
         <Component {...rest} />
       </MockedProvider>
