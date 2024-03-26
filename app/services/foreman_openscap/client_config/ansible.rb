@@ -37,7 +37,7 @@ module ForemanOpenscap
       private
 
       def policy_types
-        [ForemanOpenscap::Policy, ForemanOpenscap::OvalPolicy]
+        [ForemanOpenscap::Policy]
       end
 
       def initialize_constants(policy_class)
@@ -56,15 +56,6 @@ module ForemanOpenscap
               :policies_param_default_value => ds_policies_param_default_value,
               :msg_name => _('Ansible role'),
               :lookup_key_plural_name => _('Ansible variables')
-            )
-          )
-        end
-
-        if policy_class == ::ForemanOpenscap::OvalPolicy
-          @constants = OpenStruct.new(
-            base_constants.merge(
-              :policies_param => 'foreman_scap_client_oval_policies',
-              :policies_param_default_value => '<%= @host.oval_policies_enc %>'
             )
           )
         end

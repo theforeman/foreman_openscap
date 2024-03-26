@@ -1,8 +1,0 @@
-query($id: String!) {
-  ovalContent(id: $id) {
-    id
-    name
-    url
-    originalFilename
-  }
-}

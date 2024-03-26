@@ -19,7 +19,6 @@ of Foreman based infrastructure.
   + Waive known issues (one-time waivers, re-occurring, waivers)
   + Ad-hoc audit of given machine
   + Support for PreupgradeAssistant evaluation
-  + Vulnerability Assessment (processing OVAL CVE streams)
   + E-mail notifications
 
 ## Usage
