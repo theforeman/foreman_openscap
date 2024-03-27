@@ -75,7 +75,7 @@ Make sure that
 
 1. Log-in to Web Interface
 2. Create new SCAP Content
-  1. Go to *Hosts -> Compliance -> SCAP contents* page
+  1. Go to *Hosts -> Compliance -> SCAP Content* page
   2. Upload DataSteam file
 3. Create new Policy
   1. Go to Hosts -> Compliance -> Policies page
