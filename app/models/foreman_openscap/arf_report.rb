@@ -131,14 +131,16 @@ module ForemanOpenscap
                   :severity => log[:severity],
                   :description => newline_to_space(log[:description]),
                   :rationale => newline_to_space(log[:rationale]),
-                  :scap_references => references_links(log[:references])
+                  :scap_references => references_links(log[:references]),
+                  :fixes => fixes(log[:fixes])
                 }
               else
                 msg = Message.new(:value => N_(log[:title]),
                                   :severity => log[:severity],
                                   :description => newline_to_space(log[:description]),
                                   :rationale => newline_to_space(log[:rationale]),
-                                  :scap_references => references_links(log[:references]))
+                                  :scap_references => references_links(log[:references]),
+                                  :fixes => fixes(log[:fixes]))
               end
               msg.save!
             end
@@ -222,12 +224,19 @@ module ForemanOpenscap
       html_links.join(', ')
     end
 
+    def self.fixes(raw_fixes)
+      return if raw_fixes.empty?
+
+      JSON.fast_generate(raw_fixes)
+    end
+
     def self.update_msg_with_changes(msg, incoming_data)
       msg.severity = incoming_data['severity']
       msg.description = incoming_data['description']
       msg.rationale = incoming_data['rationale']
       msg.scap_references = incoming_data['references']
       msg.value = incoming_data['title']
+      msg.fixes = fixes(incoming_data['fixes'])
 
       return unless msg.changed?
       msg.save

@@ -2,7 +2,7 @@ class ArfReportsController < ApplicationController
   include Foreman::Controller::AutoCompleteSearch
   include ForemanOpenscap::ArfReportsControllerCommonExtensions
 
-  before_action :find_arf_report, :only => %i[show show_html destroy parse_html parse_bzip download_html]
+  before_action :find_arf_report, :only => %i[show show_html destroy parse_html parse_bzip download_html show_log]
   before_action :find_multiple, :only => %i[delete_multiple submit_delete_multiple]
 
   def model_of_controller
@@ -72,6 +72,27 @@ class ArfReportsController < ApplicationController
     end
   end
 
+  def show_log
+    return not_found unless @arf_report # TODO: use Message/Log model directly instead?
+
+    log = @arf_report.logs.find(params[:log_id])
+    return not_found unless log
+
+    respond_to do |format|
+      format.json do
+        render json: {
+          log: {
+            source: log.source,
+            message: {
+              value: log.message.value,
+              fixes: log.message.fixes,
+            }
+          },
+        }, status: :ok
+      end
+    end
+  end
+
   private
 
   def find_arf_report
@@ -99,7 +120,7 @@ class ArfReportsController < ApplicationController
 
   def action_permission
     case params[:action]
-    when 'show_html', 'parse_html', 'parse_bzip', 'download_html'
+    when 'show_html', 'parse_html', 'parse_bzip', 'download_html', 'show_log'
       :view
     when 'delete_multiple', 'submit_delete_multiple'
       :destroy

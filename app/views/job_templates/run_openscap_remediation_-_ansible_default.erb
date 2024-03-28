@@ -1,0 +1,27 @@
+<%#
+name: Run OpenSCAP remediation - Ansible Default
+job_category: OpenSCAP Ansible Commands
+description_format: Run OpenSCAP remediation on given host. Please note, it is not meant to be used directly.
+snippet: false
+provider_type: Ansible
+kind: job_template
+model: JobTemplate
+feature: ansible_run_openscap_remediation
+template_inputs:
+- name: tasks
+  description: Tasks to run on the host
+  input_type: user
+  required: true
+- name: reboot
+  description: Indicate wether the host should be rebooted after all the remediation
+  input_type: user
+  required: false
+%>
+---
+- hosts: all
+  tasks:
+<%= indent(4) { input('tasks') } -%>
+<% if truthy?(input('reboot')) %>
+    - name: Reboot the machine
+      reboot:
+<% end %>

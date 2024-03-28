@@ -25,7 +25,7 @@
         </td>
         <td><%= log.source %></td>
         <td><%= react_component 'RuleSeverity', { :severity => log.message.severity.downcase } %></td>
-        <td><%= host_search_by_rule_result_buttons(log.source) %></td>
+        <td><%= host_search_by_rule_result_buttons(log) %></td>
       </tr>
     <% end %>
     <tr id='ntsh' <%= "style='display: none;'".html_safe if logs.size > 0%>>
@@ -35,3 +35,7 @@
     </tr>
   </tbody>
 </table>
+<%= react_component 'OpenscapRemediationWizard',
+                    { report_id: @arf_report.id,
+                      host: { name: @arf_report.host.name, id: @arf_report.host.id },
+                      supported_remediation_snippets: supported_remediation_snippets } %>

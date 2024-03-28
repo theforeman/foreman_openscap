@@ -9,6 +9,7 @@ Rails.application.routes.draw do
         get 'parse_html'
         get 'parse_bzip'
         get 'download_html'
+        get 'show_log'
       end
       collection do
         get 'auto_complete_search'
