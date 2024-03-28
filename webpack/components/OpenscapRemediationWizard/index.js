@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Button, Wizard } from '@patternfly/react-core';
@@ -38,6 +38,8 @@ const OpenscapRemediationWizard = ({
   const [isRebootSelected, setIsRebootSelected] = useState(false);
   const [isAllHostsSelected, setIsAllHostsSelected] = useState(false);
 
+  const savedHostSelectionsRef = useRef({});
+
   const onModalButtonClick = e => {
     e.preventDefault();
     const logId = e.target.getAttribute('data-log-id');
@@ -59,6 +61,7 @@ const OpenscapRemediationWizard = ({
     setMethod('job');
     setIsRebootSelected(false);
     setIsRemediationWizardOpen(false);
+    savedHostSelectionsRef.current = {};
   };
 
   const reviewHostsStep = {
@@ -116,6 +119,7 @@ const OpenscapRemediationWizard = ({
             isAllHostsSelected,
             setIsAllHostsSelected,
             defaultFailedHostsSearch,
+            savedHostSelectionsRef,
           }}
         >
           <Wizard

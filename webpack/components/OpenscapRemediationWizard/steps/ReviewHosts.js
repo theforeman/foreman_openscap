@@ -8,6 +8,7 @@ import {
   ToolbarItem,
 } from '@patternfly/react-core';
 import { Td } from '@patternfly/react-table';
+import { toArray } from 'lodash';
 
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { translate as __ } from 'foremanReact/common/I18n';
@@ -28,11 +29,13 @@ const ReviewHosts = () => {
     setHostIdsParam,
     defaultFailedHostsSearch,
     setIsAllHostsSelected,
+    savedHostSelectionsRef,
   } = useContext(OpenscapRemediationWizardContext);
 
   const defaultParams = {
     search: defaultFailedHostsSearch,
   };
+  const defaultHostsArry = [hostId];
 
   const [params, setParams] = useState(defaultParams);
 
@@ -70,21 +73,39 @@ const ReviewHosts = () => {
     metadata: { total: subtotalCount, page },
     initialSearchQuery: apiSearchQuery || defaultFailedHostsSearch,
     isSelectable: () => true,
-    initialArry: [hostId],
+    defaultArry: defaultHostsArry,
+    initialArry: toArray(
+      savedHostSelectionsRef.current.inclusionSet || defaultHostsArry
+    ),
+    initialExclusionArry: toArray(
+      savedHostSelectionsRef.current.exclusionSet || []
+    ),
+    initialSelectAllMode: savedHostSelectionsRef.current.selectAllMode || false,
   });
   const {
     selectPage,
     selectedCount,
     selectOne,
     selectNone,
+    selectDefault,
     selectAll,
     areAllRowsOnPageSelected,
     areAllRowsSelected,
     isSelected,
+    inclusionSet,
+    exclusionSet,
+    selectAllMode,
   } = selectAllOptions;
 
   useEffect(() => {
-    if (selectedCount) setHostIdsParam(fetchBulkParams());
+    if (selectedCount) {
+      setHostIdsParam(fetchBulkParams());
+      savedHostSelectionsRef.current = {
+        inclusionSet,
+        exclusionSet,
+        selectAllMode,
+      };
+    }
   }, [selectedCount, fetchBulkParams, setHostIdsParam]);
 
   const selectionToolbar = (
@@ -99,15 +120,19 @@ const ReviewHosts = () => {
             selectPage();
             setIsAllHostsSelected(false);
           },
+          selectDefault: () => {
+            selectDefault();
+            setIsAllHostsSelected(false);
+          },
           selectNone: () => {
             selectNone();
-            selectOne(true, hostId);
             setIsAllHostsSelected(false);
           },
           selectedCount,
           pageRowCount,
         }}
         totalCount={subtotalCount}
+        selectedDefaultCount={1} // The default host (hostId) is always selected
         areAllRowsOnPageSelected={areAllRowsOnPageSelected()}
         areAllRowsSelected={areAllRowsSelected()}
       />
@@ -119,7 +144,7 @@ const ReviewHosts = () => {
       select={{
         rowIndex: rowData.id,
         onSelect: (_event, isSelecting) => {
-          selectOne(isSelecting, rowData.id);
+          selectOne(isSelecting, rowData.id, rowData);
           // If at least one was unselected, then it's not all selected
           if (!isSelecting) setIsAllHostsSelected(false);
         },
@@ -164,6 +189,7 @@ const ReviewHosts = () => {
         </ToolbarContent>
       </Toolbar>
       <Table
+        ouiaId="hosts-review-table"
         isEmbedded
         params={params}
         setParams={setParamsAndAPI}
