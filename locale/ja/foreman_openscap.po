@@ -62,6 +62,12 @@ msgstr "クライアントへのポリシーのデプロイに %{type} が選択
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP の概要"
 
+msgid "A reboot is required after applying remediation."
+msgstr ""
+
+msgid "A reboot might be required after applying remediation."
+msgstr ""
+
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP ポリシーのレポートの概要"
 
@@ -113,6 +119,9 @@ msgstr "続行する前に、openscap_proxy を %s に割り当てます。"
 msgid "Back"
 msgstr "戻る"
 
+msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
+msgstr ""
+
 msgid "CVEs"
 msgstr ""
 
@@ -158,6 +167,9 @@ msgstr "期間を選択"
 msgid "Choose weekday"
 msgstr "平日を選択"
 
+msgid "Close"
+msgstr ""
+
 msgid "Compliance"
 msgstr "コンプライアンス"
 
@@ -189,6 +201,9 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Content"
+msgstr ""
+
+msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Could not find host identified by: %s"
@@ -302,8 +317,14 @@ msgstr "コンプライアンスポリシー %s の詳細"
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
 
+msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
+msgstr ""
+
 msgid "Documentation"
 msgstr "ドキュメント"
+
+msgid "Done"
+msgstr ""
 
 msgid "Download"
 msgstr "ダウンロード"
@@ -509,6 +530,9 @@ msgstr "theforeman.foreman_scap_client は存在しますか?"
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
 
+msgid "Job details"
+msgstr ""
+
 msgid "Latest Compliance Reports"
 msgstr "最新コンプライアンスレポート"
 
@@ -542,8 +566,14 @@ msgstr "読み込み中..."
 msgid "Locations"
 msgstr "ロケーション"
 
+msgid "Manual"
+msgstr ""
+
 msgid "Message"
 msgstr "メッセージ"
+
+msgid "Method"
+msgstr ""
 
 msgid "Monthly, day of month: %s"
 msgstr ""
@@ -680,6 +710,9 @@ msgstr "イベント数"
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
 
+msgid "OS"
+msgstr ""
+
 msgid "OVAL Content"
 msgstr "OVAL コンテンツ"
 
@@ -779,6 +812,9 @@ msgstr "XML ファイルの元のファイル名"
 msgid "Other"
 msgstr "その他"
 
+msgid "Other hosts failing this rule"
+msgstr ""
+
 msgid "Othered"
 msgstr "Othered"
 
@@ -871,6 +907,9 @@ msgstr "Puppet クラス"
 msgid "Rationale"
 msgstr "理由"
 
+msgid "Reboot the system(s)"
+msgstr ""
+
 msgid "Red Hat %s default content"
 msgstr ""
 
@@ -880,8 +919,20 @@ msgstr "参照 ID"
 msgid "References"
 msgstr "リファレンス"
 
+msgid "Remediate %s rule"
+msgstr ""
+
+msgid "Remediation"
+msgstr ""
+
+msgid "Remediation might render the system non-functional."
+msgstr ""
+
 msgid "Remote action:"
 msgstr "リモートアクション:"
+
+msgid "Remote job"
+msgstr ""
 
 msgid "Report Metrics"
 msgstr "レポートメトリックス"
@@ -919,11 +970,32 @@ msgstr "リソース"
 msgid "Result"
 msgstr "結果"
 
+msgid "Review hosts"
+msgstr ""
+
+msgid "Review remediation"
+msgstr ""
+
+msgid "Review the remediation snippet and apply it to the host manually."
+msgstr ""
+
+msgid "Review the remediation snippet that will be applied to selected host(s)."
+msgstr ""
+
 msgid "Rule Results"
 msgstr "ルールの結果"
 
+msgid "Run"
+msgstr ""
+
 msgid "Run OVAL scan"
 msgstr "OVAL スキャンの実行"
+
+msgid "Run OpenSCAP remediation with Ansible"
+msgstr ""
+
+msgid "Run OpenSCAP remediation with Shell"
+msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "OpenSCAP スキャンの実行"
@@ -967,6 +1039,12 @@ msgstr "OpenSCAP プロキシーの選択"
 msgid "Select all items in this page"
 msgstr "このページのすべての項目を選択"
 
+msgid "Select remediation method"
+msgstr ""
+
+msgid "Select snippet"
+msgstr ""
+
 msgid "Severity"
 msgstr "重要度"
 
@@ -1009,6 +1087,9 @@ msgstr "ログメッセージの表示:"
 msgid "Smart Class Parameters"
 msgstr "スマートクラスパラメーター"
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "コンプライアンスレポートの選択中に問題が発生しました: %s"
 
@@ -1026,6 +1107,9 @@ msgstr "状態テーブル"
 
 msgid "Submit"
 msgstr "送信"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "%s コンプライアンスレポートが正常に削除されました"
@@ -1091,8 +1175,14 @@ msgstr "以下のプロキシーに到達できませんでした: %s。Foreman 
 msgid "The identifier of the host"
 msgstr "ホストの ID"
 
+msgid "The job has started on selected host(s), you can check the status on the job details page."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "デプロイメントオプションには大きな違いがあります。"
+
+msgid "There is no job to remediate with. Please remediate manually."
+msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
 msgstr ""
@@ -1215,6 +1305,9 @@ msgstr "レポートを表示"
 msgid "View full report"
 msgstr "フルレポートを表示"
 
+msgid "View selected hosts"
+msgstr ""
+
 msgid "Was %s configured successfully?"
 msgstr "%s は正常に設定されましたか?"
 
@@ -1243,6 +1336,9 @@ msgid "Yes"
 msgstr "はい"
 
 msgid "You are not authorized to view the page. "
+msgstr ""
+
+msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"

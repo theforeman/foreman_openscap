@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-28 22:29+0100\n"
-"PO-Revision-Date: 2023-11-28 22:29+0100\n"
+"POT-Creation-Date: 2024-04-26 14:46+0000\n"
+"PO-Revision-Date: 2024-04-26 14:46+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -388,15 +388,15 @@ msgstr ""
 msgid "Successfully deleted %s compliance reports"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:85
+#: ../app/controllers/arf_reports_controller.rb:106
 msgid "No compliance reports were found."
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:89
+#: ../app/controllers/arf_reports_controller.rb:110
 msgid "No compliance reports selected"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:94
+#: ../app/controllers/arf_reports_controller.rb:115
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
@@ -539,16 +539,20 @@ msgstr ""
 msgid " through %s"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:66
+#: ../app/helpers/arf_reports_helper.rb:67
 msgid "Hosts failing this rule"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:67
+#: ../app/helpers/arf_reports_helper.rb:68
 msgid "Hosts passing this rule"
 msgstr ""
 
-#: ../app/helpers/arf_reports_helper.rb:68
+#: ../app/helpers/arf_reports_helper.rb:69
 msgid "Hosts othering this rule"
+msgstr ""
+
+#: ../app/helpers/arf_reports_helper.rb:72
+msgid "Remediation"
 msgstr ""
 
 #: ../app/helpers/compliance_dashboard_helper.rb:3
@@ -1280,6 +1284,7 @@ msgstr ""
 
 #: ../app/views/policies/_list.html.erb:3
 #: ../app/views/tailoring_files/_list.html.erb:3
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:162
 #: ../webpack/routes/OvalContents/OvalContentsIndex/OvalContentsTable.js:19
 #: ../webpack/routes/OvalContents/OvalContentsNew/OvalContentsNew.js:57
 #: ../webpack/routes/OvalContents/OvalContentsShow/OvalContentsShow.js:48
@@ -1641,12 +1646,20 @@ msgstr ""
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:270 ../lib/foreman_openscap/engine.rb:283
+#: ../lib/foreman_openscap/engine.rb:270 ../lib/foreman_openscap/engine.rb:293
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:275 ../lib/foreman_openscap/engine.rb:284
+#: ../lib/foreman_openscap/engine.rb:275 ../lib/foreman_openscap/engine.rb:294
 msgid "Run OVAL scan"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:279 ../lib/foreman_openscap/engine.rb:295
+msgid "Run OpenSCAP remediation with Ansible"
+msgstr ""
+
+#: ../lib/foreman_openscap/engine.rb:284 ../lib/foreman_openscap/engine.rb:296
+msgid "Run OpenSCAP remediation with Shell"
 msgstr ""
 
 #: ../webpack/components/ConfirmModal.js:19
@@ -1661,12 +1674,151 @@ msgstr ""
 msgid "There's no available report for this host"
 msgstr ""
 
-#: ../webpack/components/withDeleteModal.js:27
-msgid "Are you sure you want to delete %s?"
+#: ../webpack/components/OpenscapRemediationWizard/ViewSelectedHostsLink.js:27
+msgid "View selected hosts"
 msgstr ""
 
+#: ../webpack/components/OpenscapRemediationWizard/index.js:69
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:174
+msgid "Review hosts"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/index.js:77
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:123
+msgid "Select snippet"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/index.js:85
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:94
+msgid "Review remediation"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/index.js:89
+msgid "Run"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/index.js:93
+msgid "Done"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/index.js:127
+msgid "Remediate %s rule"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/Finish.js:84
+msgid "Job details"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/Finish.js:87
+msgid "Close"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/Finish.js:97
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:144
 #: ../webpack/components/withLoading.js:12
 msgid "Error!"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/Finish.js:105
+msgid ""
+"The job has started on selected host(s), you can check the status on the job d"
+"etails page."
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:167
+msgid "OS"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:175
+msgid ""
+"By default, remediation is applied to the current host. Optionally, remediate "
+"any additional hosts that fail the rule."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:61
+msgid "Review the remediation snippet and apply it to the host manually."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:62
+msgid "Review the remediation snippet that will be applied to selected host(s)."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:67
+msgid "A reboot is required after applying remediation."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:68
+msgid "A reboot might be required after applying remediation."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:84
+msgid "Successfully copied to clipboard!"
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:85
+msgid "Copy to clipboard"
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:103
+msgid ""
+"Do not implement any of the recommended remedial actions or scripts without fi"
+"rst testing them in a non-production environment."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:106
+msgid "Remediation might render the system non-functional."
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:139
+msgid "Other hosts failing this rule"
+msgstr ""
+
+#:
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:155
+msgid "Reboot the system(s)"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:71
+msgid "Method"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:77
+msgid "Remote job"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:86
+msgid "Manual"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:101
+msgid "There is no job to remediate with. Please remediate manually."
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:107
+msgid "Snippet"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:150
+msgid "Select remediation method"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:151
+msgid ""
+"You can remediate by running a remote job or you can display a snippet for man"
+"ual remediation."
+msgstr ""
+
+#: ../webpack/components/withDeleteModal.js:27
+msgid "Are you sure you want to delete %s?"
 msgstr ""
 
 #: ../webpack/components/withLoading.js:64

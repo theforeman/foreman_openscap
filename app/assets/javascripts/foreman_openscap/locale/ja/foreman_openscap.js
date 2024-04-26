@@ -17,773 +17,26 @@
         "domain": "foreman_openscap",
         "plural_forms": "nplurals=1; plural=0;"
       },
-      "List ARF reports": [
-        "ARF レポートの一覧表示"
-      ],
-      "Show an ARF report": [
-        "ARF レポートの表示"
-      ],
-      "Delete an ARF Report": [
-        "ARF レポートの削除"
-      ],
-      "Upload an ARF report": [
-        "ARF レポートのアップロード"
-      ],
-      "Download bzipped ARF report": [
-        "bzip 形式の ARF レポートのダウンロード"
-      ],
-      "Download ARF report in HTML": [
-        "HTML の ARF レポートのダウンロード"
-      ],
-      "Policy with id %s not found.": [
-        "id が %s のポリシーが見つかりません"
-      ],
-      "Could not find host identified by: %s": [
-        "%s が識別したホストが見つかりませんでした"
-      ],
-      "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
-        "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
-      ],
-      "No proxy found for %{name} or %{url}": [
-        "%{name} または %{url} のプロキシーが見つかりません"
-      ],
-      "List OVAL contents": [
-        "OVAL コンテンツの一覧表示"
-      ],
-      "Show an OVAL content": [
-        "OVAL コンテンツの表示"
-      ],
-      "OVAL content name": [
-        "OVAL コンテンツ名"
-      ],
-      "XML containing OVAL content": [
-        "OVAL コンテンツを含む XML"
-      ],
-      "Original file name of the OVAL content file": [
-        "OVAL コンテンツファイルの元のファイル名"
-      ],
-      "URL of the OVAL content file": [
-        "OVAL コンテンツファイルの URL"
-      ],
-      "Create OVAL content": [
-        "OVAL コンテンツの作成"
-      ],
-      "Update an OVAL content": [
-        "OVAL コンテンツの更新"
-      ],
-      "Deletes an OVAL content": [
-        "OVAL コンテンツの削除"
-      ],
-      "Sync contents that have remote source URL": [
-        "リモートソース URL を持つコンテンツの同期"
-      ],
-      "List OVAL Policies": [
-        "OVAL ポリシーの一覧表示"
-      ],
-      "Show an OVAL Policy": [
-        "OVAL ポリシーの表示"
-      ],
-      "OVAL Policy name": [
-        "OVAL ポリシー名"
-      ],
-      "Policy OVAL content ID": [
-        "ポリシー OVAL コンテンツ ID"
-      ],
-      "OVAL Policy description": [
-        "OVAL ポリシーの説明"
-      ],
-      "OVAL Policy schedule period (weekly, monthly, custom)": [
-        "OVAL ポリシーのスケジュール期間 (週次、月次、カスタム)"
-      ],
-      "OVAL Policy schedule weekday (only if period == \\\"weekly\\\")": [
-        "OVAL ポリシーのスケジュール: 平日 (period == \\\"weekly\\\" の場合のみ)"
-      ],
-      "OVAL Policy schedule day of month (only if period == \\\"monthly\\\")": [
-        "OVAL ポリシーのスケジュール: 月の日付 (period == \\\"monthly\\\" の場合のみ)"
-      ],
-      "OVAL Policy schedule cron line (only if period == \\\"custom\\\")": [
-        "OVAL ポリシーのスケジュール: cron 行 (period == \\\"custom\\\" の場合のみ)"
-      ],
-      "Create an OVAL Policy": [
-        "OVAL ポリシーの作成"
-      ],
-      "Update an OVAL Policy": [
-        "OVAL ポリシーの更新"
-      ],
-      "Delete an OVAL Policy": [
-        "OVAL ポリシーの削除"
-      ],
-      "Assign hostgroups to an OVAL Policy": [
-        "OVAL ポリシーへのホストグループの割り当て"
-      ],
-      "Array of hostgroup IDs": [
-        "ホストグループ ID の配列"
-      ],
-      "hostgroups": [
-        "ホストグループ"
-      ],
-      "Assign hosts to an OVAL Policy": [
-        "OVAL ポリシーへのホストの割り当て"
-      ],
-      "Array of host IDs": [
-        "ホスト ID の配列"
-      ],
-      "hosts": [
-        "ホスト"
-      ],
-      "Show a policy's OVAL content": [
-        ""
-      ],
-      "OVAL policy successfully configured with %s.": [
-        "%s で正常に設定された OVAL ポリシー。"
-      ],
-      "Upload an OVAL report - a list of CVEs for given host": [
-        "OVAL レポートのアップロード: 特定のホストの CVE の一覧"
-      ],
-      "List Policies": [
-        "ポリシーの一覧表示"
-      ],
-      "Show a Policy": [
-        "ポリシーの表示"
-      ],
-      "Policy name": [
-        "ポリシー名"
-      ],
-      "Policy description": [
-        "ポリシーの説明"
-      ],
-      "Policy SCAP content ID": [
-        "ポリシー SCAP コンテンツ ID"
-      ],
-      "Policy SCAP content profile ID": [
-        "ポリシー SCAP コンテンツプロファイル ID"
-      ],
-      "Policy schedule period (weekly, monthly, custom)": [
-        "ポリシーのスケジュール期間 (週次、月次、カスタム)"
-      ],
-      "Policy schedule weekday (only if period == \\\"weekly\\\")": [
-        "ポリシースケジュール: 平日 (period == \\\"weekly\\\" の場合のみ)"
-      ],
-      "Policy schedule day of month (only if period == \\\"monthly\\\")": [
-        "ポリシースケジュール: 月の日付 (period == \\\"monthly\\\" の場合のみ)"
-      ],
-      "Policy schedule cron line (only if period == \\\"custom\\\")": [
-        "ポリシースケジュール: cron 行 (period == \\\"custom\\\" の場合のみ)"
-      ],
-      "Apply policy to host groups": [
-        "ホストグループ にポリシーを適用"
-      ],
-      "Apply policy to hosts": [
-        "ホストにポリシーを適用"
-      ],
-      "Tailoring file ID": [
-        "テーラリングファイル ID"
-      ],
-      "Tailoring file profile ID": [
-        "テーラリングファイルのプロファイル ID"
-      ],
-      "How the policy should be deployed": [
-        "ポリシーのデプロイメント方法"
-      ],
-      "Create a Policy": [
-        "ポリシーの作成"
-      ],
-      "Update a Policy": [
-        "ポリシーの更新"
-      ],
-      "Delete a Policy": [
-        "ポリシーの削除"
-      ],
-      "Show a policy's SCAP content": [
-        "ポリシーの SCAP コンテンツの表示"
-      ],
-      "Show a policy's Tailoring file": [
-        "ポリシーのテーラリングファイルの表示"
-      ],
-      "No Tailoring file assigned for policy with id %s": [
-        "id が %s のポリシーに割り当てられているテーラリングファイルはありません"
-      ],
-      "List SCAP content profiles": [
-        "SCAP コンテンツプロファイルの一覧表示"
-      ],
-      "List SCAP contents": [
-        "SCAP コンテンツの一覧表示"
-      ],
-      "Download an SCAP content as XML": [
-        "XML として SCAP コンテンツをダウンロード"
-      ],
-      "Show an SCAP content": [
-        "SCAP コンテンツの表示"
-      ],
-      "SCAP content name": [
-        "SCAP コンテンツ名"
-      ],
-      "XML containing SCAP content": [
-        "SCAP コンテンツを含む XML"
-      ],
-      "Original file name of the XML file": [
-        "XML ファイルの元のファイル名"
-      ],
-      "Create SCAP content": [
-        "SCAP コンテンツの作成"
-      ],
-      "Update an SCAP content": [
-        "SCAP コンテンツの更新"
-      ],
-      "Deletes an SCAP content": [
-        "SCAP コンテンツの削除"
-      ],
-      "Upload scap contents in bulk": [
-        "SCAP コンテンツをまとめてアップロード"
-      ],
-      "Type of the upload": [
-        "アップロードの種類"
-      ],
-      "File paths to upload when using \\\"files\\\" upload type": [
-        "「ファイル」アップロードタイプを使用する場合のアップロードするファイルパス"
-      ],
-      "Directory to upload when using \\\"directory\\\" upload type": [
-        "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
-      ],
-      "Please specify import type, received: %{received}, expected one of: %{expected}": [
-        "インポートタイプを指定してください。受信: %%{received}、次のうち 1 つを想定: %%{expected}"
-      ],
-      "List Tailoring files": [
-        "テーラリングファイルの一覧表示"
-      ],
-      "Download a Tailoring file as XML": [
-        "XML としてテーラリングファイルをダウンロード"
-      ],
-      "Show a Tailoring file": [
-        "テーラリングファイルの表示"
-      ],
-      "Tailoring file name": [
-        "テーラリングファイル名"
-      ],
-      "XML containing tailoring file": [
-        "テーラリングファイルを含む XML"
-      ],
-      "Create a Tailoring file": [
-        "テーラリングファイルの作成"
-      ],
-      "Update a Tailoring file": [
-        "テーラリングファイルの更新"
-      ],
-      "Deletes a Tailoring file": [
-        "テーラリングファイルの削除"
-      ],
-      "Failed to downloaded ARF report as bzip: %s": [
-        "ARFレポートを bzip でダウンロードするのに失敗しました: %s"
-      ],
-      "Failed to downloaded ARF report in HTML: %s": [
-        "ARF レポートを HTML でダウンロードするのに失敗しました: %s"
-      ],
-      "Successfully deleted ARF report.": [
-        "ARF レポートが正常に削除されました。"
-      ],
-      "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
-        "{reported_at} で報告されたホスト {host_name} の ARF レポートの削除に失敗しました"
-      ],
-      "Failed to delete %s compliance reports": [
-        "%s コンプライアンスレポートの削除に失敗しました"
-      ],
-      "Successfully deleted %s compliance reports": [
-        "%s コンプライアンスレポートが正常に削除されました"
-      ],
-      "No compliance reports were found.": [
-        "コンプライアンスレポートが見つかりませんでした。"
-      ],
-      "No compliance reports selected": [
-        "コンプライアンスレポートが選択されていません"
-      ],
-      "Something went wrong while selecting compliance reports - %s": [
-        "コンプライアンスレポートの選択中に問題が発生しました: %s"
-      ],
-      "Show config information for foreman_scap_client": [
-        "foreman_scap_client の設定情報の表示"
-      ],
-      "The identifier of the host": [
-        "ホストの ID"
-      ],
-      "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it.": [
-        ""
-      ],
-      "Updated hosts: Assigned with OpenSCAP Proxy: %s": [
-        "更新済みホスト: OpenSCAP プロキシーで割り当て済み: %s"
-      ],
-      "No OpenSCAP Proxy selected.": [
-        "OpenSCAP プロキシーが選択されていません。"
-      ],
-      "Updated hosts: Assigned with compliance policy: %s": [
-        "更新済みホスト: コンプライアンスポリシーで割り当て済み: %s"
-      ],
-      "No compliance policy selected.": [
-        "コンプライアンスポリシーが選択されていません。"
-      ],
-      "Updated hosts: Unassigned from compliance policy '%s'": [
-        "更新済みホスト: コンプライアンスポリシー '%s' の割り当てなし"
-      ],
-      "No valid policy ID provided": [
-        "有効なポリシー ID が提供されていません"
-      ],
-      "No hosts were found with that id, name or query filter": [
-        ""
-      ],
-      "No hosts selected": [
-        "ホストが選択されていません"
-      ],
-      "Something went wrong while selecting hosts - %s": [
-        "ホストの選択中に問題が発生しました: %s"
-      ],
-      "Failed": [
-        "失敗"
-      ],
-      "Passed": [
-        "合格"
-      ],
-      "Other": [
-        "その他"
-      ],
-      "Number of Events": [
-        "イベント数"
-      ],
-      "Rule Results": [
-        "ルールの結果"
-      ],
-      "Show log messages:": [
-        "ログメッセージの表示:"
-      ],
-      "All messages": [
-        "すべてのメッセージ"
-      ],
-      "Failed and Othered": [
-        "Failed および Othered"
-      ],
-      "Failed only": [
-        "失敗のみ"
-      ],
-      "Compliance Reports": [
-        "コンプライアンスレポート"
-      ],
-      "Delete reports": [
-        "レポートを削除"
-      ],
-      "Select Action": [
-        "アクションの選択"
-      ],
-      "%s - The following compliance reports are about to be changed": [
-        "%s: 次のコンプライアンスレポートが変更されます"
-      ],
-      "No proxy found!": [
-        "プロキシーが見つかりません!"
-      ],
-      "Reported at %s": [
-        "レポート日時: %s"
-      ],
       " for policy %s": [
         " ポリシー %s"
       ],
       " through %s": [
         " %s まで更新を受信できます。"
       ],
-      "Hosts failing this rule": [
-        "このルールに不合格のホスト"
-      ],
-      "Hosts passing this rule": [
-        "このルールに合格のホスト"
-      ],
-      "Hosts othering this rule": [
-        "このルールに該当しないホスト"
-      ],
-      "Host": [
-        "ホスト"
-      ],
-      "Policy": [
-        "ポリシー"
-      ],
-      "Passed|P": [
-        "P"
-      ],
-      "Failed|F": [
-        "F"
-      ],
-      "Othered|O": [
-        "O"
-      ],
-      "Othered": [
-        "Othered"
-      ],
-      "Assign Compliance Policy": [
-        "コンプライアンスポリシーの割り当て"
-      ],
-      "Unassign Compliance Policy": [
-        "コンプライアンスポリシーの割り当て解除"
-      ],
-      "Change OpenSCAP Proxy": [
-        "OpenSCAP プロキシーの変更"
-      ],
-      "Compliance": [
-        "コンプライアンス"
-      ],
-      "Host compliance details": [
-        "ホストコンプライアンス詳細"
-      ],
-      "Host is deleted": [
-        "ホストが削除されました"
-      ],
-      "Choose existing SCAP Content": [
-        "既存の SCAP コンテンツを選択"
-      ],
-      "SCAP Content": [
-        "SCAP コンテンツ"
-      ],
-      "XCCDF Profile": [
-        "XCCDF プロファイル"
-      ],
-      "Default XCCDF profile": [
-        "デフォルトの XCCDF プロファイル"
-      ],
-      "Choose Tailoring File": [
-        "テーラリングファイルの選択"
-      ],
-      "Tailoring File": [
-        "テーラリングファイル"
-      ],
-      "XCCDF Profile in Tailoring File": [
-        "テーラリングファイルでの XCCDF プロファイル"
-      ],
-      "This profile will be used to override the one from scap content": [
-        "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
-      ],
-      "Submit": [
-        "送信"
-      ],
-      "Cancel": [
-        "取り消し"
-      ],
-      "Compliant hosts": [
-        "準拠したホスト"
-      ],
-      "Incompliant hosts": [
-        "準拠しないホスト"
-      ],
-      "Inconclusive": [
-        "不確定"
-      ],
-      "Not audited": [
-        "未監査"
-      ],
-      "Host is assigned to policy": [
-        "ホストはポリシーに割り当てられています"
-      ],
-      "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again.": [
-        "ホストはポリシーに割り当てられていませんが、レポートが見つかりました。レポートを削除するか、ポリシーを再度割り当てることをお勧めします。"
-      ],
-      "Hosts no longer assigned: %s": [
-        "割り当てが解除されたホスト: %s"
-      ],
-      "Total hosts with reports where policy is no longer assigned.": [
-        "ポリシーの割り当てが解除されたレポートが含まれるホストの総数。"
-      ],
-      "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
-        "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
-      ],
-      "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
-        "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
-      ],
-      "Could not validate %{file_type}. Error %{error}": [
-        "％{file_type} を検証できませんでした。エラー: %{error}"
-      ],
-      "Unable to get HTML version of requested report from Smart Proxy": [
-        "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
-      ],
-      "Unable to get XML version of requested report from Smart Proxy": [
-        "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
-      ],
-      "SCAP policies summary": [
-        "SCAP ポリシーの概要"
-      ],
-      "is not included in SCAP_RESULT": [
-        "SCAP_RESULT に含まれていません"
-      ],
-      "must have Openscap feature": [
-        "Openscap 機能がなければなりません"
-      ],
-      "No OpenSCAP proxy found for %{class} with id %{id}": [
-        "ID %{id} の %{class} の OpenSCAP プロキシーが見つかりません"
-      ],
-      "does not consist of 5 parts separated by space": [
-        "スペースで区切られた 5 つの部分で構成されていません"
-      ],
-      "is not a valid value": [
-        "有効な値ではありません"
-      ],
-      "must be between 1 and 31": [
-        "1 から 31 の間でなければなりません"
-      ],
-      "Compliant": [
-        "準拠"
-      ],
-      "Incompliant": [
-        "非準拠"
-      ],
-      "Unknown Compliance status": [
-        "不明なコンプライアンスステータス"
-      ],
-      "OVAL scan": [
-        "OVAL スキャン"
-      ],
-      "No Vulnerabilities found": [
-        "脆弱性は見つかりませんでした"
-      ],
-      "%s vulnerabilities found": [
-        "%s 脆弱性が見つかりました"
-      ],
-      "%s vulnerabilities with available patch found": [
-        "%s 利用可能なパッチがある脆弱性が見つかりました"
-      ],
-      "Unknown OVAL status": [
-        "OVAL の不明なステータス"
-      ],
-      "Deployment Options": [
-        "デプロイメントオプション"
-      ],
-      "Policy Attributes": [
-        "ポリシー属性"
-      ],
-      "Schedule": [
-        "スケジュール"
-      ],
-      "Locations": [
-        "ロケーション"
-      ],
-      "Organizations": [
-        "組織"
-      ],
-      "Hostgroups": [
-        "ホストグループ"
-      ],
-      "Cannot generate HTML guide, scap content is missing.": [
-        "HTML ガイドを生成できません。SCAP のコンテンツがありません。"
-      ],
-      "Cannot generate HTML guide, no valid OpenSCAP proxy server found.": [
-        "HTML ガイドを生成できません。有効な OpenSCAP プロキシーサーバーが見つかりません。"
-      ],
-      "must be present when tailoring file profile present": [
-        "テーラリングファイルのプロファイルがある場合に存在する必要があります"
-      ],
-      "must be present when tailoring file present": [
-        "テーラリングファイルがある場合になければなりません"
-      ],
-      "does not come from selected tailoring file": [
-        "選択したテーラリングファイルからのものではありません"
-      ],
-      "does not have the selected SCAP content profile": [
-        "選択した SCAP コンテンツプロファイルがありません"
-      ],
-      "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
-        "%s に割り当てることができません。割り当てたポリシーはすべて同じ方法でデプロイする必要があります。割り当て済みのポリシーごとに「デプロイ方法 (deploy by)」を確認してください。"
-      ],
-      "invalid type %s": [
-        "無効なタイプ %s"
-      ],
-      "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups.": [
-        ""
-      ],
-      "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
-        ""
-      ],
-      "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again.": [
-        "theforeman.foreman_scap_client Ansible ロールが見つかりません。このアクションを再度実行する前に、インポートしてください。"
-      ],
-      "Ansible role": [
-        "Ansible ロール"
-      ],
-      "Ansible variables": [
-        "Ansible 変数"
-      ],
-      "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
-        ""
-      ],
-      "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
-        ""
-      ],
-      "Every puppet run ensures the foreman_scap_client is configured according to the policy.": [
-        ""
-      ],
-      "Puppet class": [
-        "Puppet クラス"
-      ],
-      "Smart Class Parameters": [
-        "スマートクラスパラメーター"
-      ],
-      "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
-        "クライアントへのポリシーのデプロイに %{type} が選択されましたが、%{type} は利用できません。プラグインがありませんか?"
-      ],
-      "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "必要とされる {msg_name}%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
-      ],
-      "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
-      ],
-      "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "%{config_tool} のパラメーターのオーバーライド時に、保存に失敗しました。原因: %{errors}"
-      ],
-      "This feature is temporarily disabled. ": [
-        "この機能は一時的に無効にされています。 "
-      ],
-      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
-        "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s "
-      ],
-      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
-        "以下のプロキシーに到達できませんでした: %s。Foreman がバージョンを確認できるように、プロキシーが利用可能であることを確認してください。"
-      ],
-      "Was %s configured successfully?": [
-        "%s は正常に設定されましたか?"
-      ],
-      "Assign openscap_proxy to %s before proceeding.": [
-        "続行する前に、openscap_proxy を %s に割り当てます。"
-      ],
-      "Was %{model_name} %{name} configured successfully?": [
-        "%{model_name} %%{name} は正常に設定されましたか?"
-      ],
-      "Could not update Ansible Variables with override: true": [
-        "オーバーライドで Ansible 変数を更新できませんでした: true"
-      ],
-      "Is foreman_ansible present?": [
-        "foreman_ansible は存在しますか?"
-      ],
-      "foreman_ansible plugin not found, please install it before running this action again.": [
-        "foreman_ansible プラグインが見つかりません。このアクションを再度実行する前に、プラグインをインストールしてください。"
-      ],
-      "Is theforeman.foreman_scap_client present?": [
-        "theforeman.foreman_scap_client は存在しますか?"
-      ],
-      "Are required variables for theforeman.foreman_scap_client present?": [
-        "theforeman.foreman_scap_client に必要な変数ですか?"
-      ],
-      "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again.": [
-        "次の Ansible 変数が見つかりませんでした: %{missing_vars}。このアクションを再度実行する前に、Ansible 変数をインポートしてください。"
-      ],
-      "Is %s param set to be overriden?": [
-        "%s param はオーバーライドされるように設定されていますか?"
-      ],
-      "cause: ": [
-        ""
-      ],
-      "Failed to fetch content file from %s": [
-        ""
-      ],
-      "No proxy with OpenSCAP feature was found.": [
-        "OpenSCAP 機能のあるプロキシーが見つかりませんでした。"
-      ],
-      "No proxy with OpenSCAP feature is running.": [
-        "OpenSCAP 機能のあるプロキシーが実行されていません。"
-      ],
-      "No available proxy to validate. Returned with error: %s": [
-        "検証するプロキシーがありません。返されたエラー: %s"
-      ],
-      "Changed file does not include existing SCAP content profiles": [
-        "変更されたファイルには既存の SCAP コンテンツプロファイルが含まれません"
-      ],
-      "More details": [
-        "詳細"
-      ],
-      "Description": [
-        "説明"
-      ],
-      "Rationale": [
-        "理由"
-      ],
-      "References": [
-        "リファレンス"
-      ],
-      "Select all items in this page": [
-        "このページのすべての項目を選択"
-      ],
-      "items selected. Uncheck to Clear": [
-        "項目が選択されています。クリアするにはチェックを解除してください"
-      ],
-      "Reported At": [
-        "報告済み"
-      ],
-      "Openscap Proxy": [
-        "OpenSCAP プロキシー"
-      ],
-      "Actions": [
-        "アクション"
-      ],
-      "Deleted policy": [
-        "削除済みのポリシー"
-      ],
-      "Full Report": [
-        "完全レポート"
-      ],
-      "Delete compliance report for %s?": [
-        "%s のコンプライアンスレポートを削除しますか?"
-      ],
-      "Please Confirm": [
-        "確認してください"
-      ],
-      "Report Metrics": [
-        "レポートメトリックス"
-      ],
-      "Report Status": [
-        "レポートのステータス"
-      ],
-      "Total": [
-        "合計"
-      ],
-      "Result": [
-        "結果"
-      ],
-      "Message": [
-        "メッセージ"
-      ],
-      "Resource": [
-        "リソース"
-      ],
-      "Severity": [
-        "重要度"
-      ],
-      "Nothing to show": [
-        "表示するものがありません"
-      ],
-      "Delete": [
-        "削除"
-      ],
-      "these Compliance reports": [
-        "これらのコンプライアンスレポート"
-      ],
-      "Back": [
-        "戻る"
-      ],
-      "Host details": [
-        "ホストの詳細"
-      ],
-      "View full report": [
-        "フルレポートを表示"
-      ],
-      "Download XML in bzip": [
-        "XML を bzip でダウンロード"
-      ],
-      "Download HTML": [
-        "HTML のダウンロード"
-      ],
-      "Loading...": [
-        "読み込み中..."
-      ],
-      "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
-        "ARF レポートがないようです。ARF レポートは、指定のコンプライアンスポリシーを基に、特定のホストを 1 回スキャンしたときのサマリーです。"
-      ],
-      "Documentation": [
-        "ドキュメント"
+      "%s - The following compliance reports are about to be changed": [
+        "%s: 次のコンプライアンスレポートが変更されます"
       ],
       "%s compliance report by policy": [
         "ポリシー別 コンプライアンスレポート %s 件"
       ],
-      "Policy %s": [
-        "ポリシー %s 件"
+      "%s content": [
+        ""
+      ],
+      "%s does not exist, skipping.": [
+        ""
+      ],
+      "%s is a directory, expecting file.": [
+        ""
       ],
       "%s latest report": [
         "最新レポート %s 件"
@@ -791,71 +44,119 @@
       "%s reports over time": [
         "経過レポート %s 件"
       ],
-      "No report for this policy": [
-        "このポリシーのレポートはありません"
+      "%s spool errors detected, inspect the appropriate file directly on proxy": [
+        "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
       ],
-      "Latest Compliance Reports": [
-        "最新コンプライアンスレポート"
+      "%s vulnerabilities found": [
+        "%s 脆弱性が見つかりました"
       ],
-      "No reports available": [
-        "利用可能なレポートがありません"
+      "%s vulnerabilities with available patch found": [
+        "%s 利用可能なパッチがある脆弱性が見つかりました"
       ],
-      "Host does not exist anymore": [
-        "ホストは存在しません"
-      ],
-      "Policy is missing": [
-        "ポリシーがありません"
-      ],
-      "Compliance Reports Breakdown": [
-        "コンプライアンスレポートの内訳"
-      ],
-      "Changed": [
-        "変更済み"
-      ],
-      "Hostname": [
-        "ホスト名"
-      ],
-      "Changed?": [
-        "変更されましたか?"
-      ],
-      "Yes": [
-        "はい"
-      ],
-      "No": [
-        "いいえ"
-      ],
-      "No ARF reports for this policy": [
-        "このポリシーの ARF レポートがありません"
-      ],
-      "None!": [
-        "なし!"
-      ],
-      "Total of one host": [
-        "合計ホスト 1 台"
-      ],
-      "Summary report for OpenScap from Foreman": [
-        "Foreman からの OpenScap の概要レポート"
+      "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
+        "クライアントへのポリシーのデプロイに %{type} が選択されましたが、%{type} は利用できません。プラグインがありませんか?"
       ],
       "<b>Foreman</b> OpenSCAP summary": [
         "<b>Foreman</b> OpenSCAP の概要"
       ],
-      "Summary from %{time} ago to now": [
-        "過去 %{time} から今までの概要"
+      "A reboot is required after applying remediation.": [
+        ""
       ],
-      "Summary report from Foreman server at %{foreman_url}": [
-        "%{foreman_url} にある Foreman サーバーからの概要レポート"
+      "A reboot might be required after applying remediation.": [
+        ""
       ],
-      "Policies with hosts:": [
-        "ホスト付きポリシー:"
+      "A summary of reports for OpenSCAP policies": [
+        "OpenSCAP ポリシーのレポートの概要"
       ],
-      "Select OpenSCAP Proxy": [
-        "OpenSCAP プロキシーの選択"
+      "Action with sub plans": [
+        "サブプランによるアクション"
       ],
-      "General": [
-        "全般"
+      "Actions": [
+        "アクション"
       ],
-      "Host Groups": [
-        "ホストグループ"
+      "All messages": [
+        "すべてのメッセージ"
+      ],
+      "Ansible role": [
+        "Ansible ロール"
+      ],
+      "Ansible variables": [
+        "Ansible 変数"
+      ],
+      "Apply policy to host groups": [
+        "ホストグループ にポリシーを適用"
+      ],
+      "Apply policy to hosts": [
+        "ホストにポリシーを適用"
+      ],
+      "Are required variables for theforeman.foreman_scap_client present?": [
+        "theforeman.foreman_scap_client に必要な変数ですか?"
+      ],
+      "Are you sure you want to delete %s?": [
+        ""
+      ],
+      "Array of host IDs": [
+        "ホスト ID の配列"
+      ],
+      "Array of hostgroup IDs": [
+        "ホストグループ ID の配列"
+      ],
+      "Assign Compliance Policy": [
+        "コンプライアンスポリシーの割り当て"
+      ],
+      "Assign hostgroups to an OVAL Policy": [
+        "OVAL ポリシーへのホストグループの割り当て"
+      ],
+      "Assign hosts to an OVAL Policy": [
+        "OVAL ポリシーへのホストの割り当て"
+      ],
+      "Assign openscap_proxy to %s before proceeding.": [
+        "続行する前に、openscap_proxy を %s に割り当てます。"
+      ],
+      "Back": [
+        "戻る"
+      ],
+      "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
+        ""
+      ],
+      "CVEs": [
+        ""
+      ],
+      "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
+        ""
+      ],
+      "Cancel": [
+        "取り消し"
+      ],
+      "Cannot generate HTML guide, no valid OpenSCAP proxy server found.": [
+        "HTML ガイドを生成できません。有効な OpenSCAP プロキシーサーバーが見つかりません。"
+      ],
+      "Cannot generate HTML guide, scap content is missing.": [
+        "HTML ガイドを生成できません。SCAP のコンテンツがありません。"
+      ],
+      "Change OpenSCAP Proxy": [
+        "OpenSCAP プロキシーの変更"
+      ],
+      "Changed": [
+        "変更済み"
+      ],
+      "Changed file does not include existing SCAP content profiles": [
+        "変更されたファイルには既存の SCAP コンテンツプロファイルが含まれません"
+      ],
+      "Changed?": [
+        "変更されましたか?"
+      ],
+      "Choose OVAL Content": [
+        ""
+      ],
+      "Choose Tailoring File": [
+        "テーラリングファイルの選択"
+      ],
+      "Choose day in month": [
+        "月の日付を選択"
+      ],
+      "Choose existing SCAP Content": [
+        "既存の SCAP コンテンツを選択"
       ],
       "Choose period": [
         "期間を選択"
@@ -863,310 +164,547 @@
       "Choose weekday": [
         "平日を選択"
       ],
-      "Number of a day in month, note that not all months have same count of days": [
-        "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
-      ],
-      "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [
-        "カスタム cron 行を指定できます (たとえば、\\\"0  3  *  *  *\\\" のように 5 つの値をスペースで区切ります)"
-      ],
-      "Name": [
-        "名前"
-      ],
-      "Content": [
+      "Close": [
         ""
       ],
-      "Profile": [
-        ""
-      ],
-      "Effective Profile": [
-        "有効なプロファイル"
-      ],
-      "None": [
-        "なし"
-      ],
-      "Dashboard": [
-        "ダッシュボード"
-      ],
-      "Show Guide": [
-        "ガイドの表示"
-      ],
-      "Delete compliance policy %s with all of its reports?": [
-        "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
-      ],
-      "New Compliance Policy": [
-        "新規コンプライアンスポリシー"
-      ],
-      "Select Compliance Policy": [
-        "コンプライアンスポリシーの選択"
-      ],
-      "Edit %s": [
-        "%s の編集"
+      "Compliance": [
+        "コンプライアンス"
       ],
       "Compliance Policies": [
         "コンプライアンスポリシー"
       ],
-      "Details for Compliance Policy %s": [
-        "コンプライアンスポリシー %s の詳細"
+      "Compliance Reports": [
+        "コンプライアンスレポート"
       ],
-      "There are significant differences in deployment options.": [
-        "デプロイメントオプションには大きな違いがあります。"
+      "Compliance Reports Breakdown": [
+        "コンプライアンスレポートの内訳"
       ],
-      "Please make sure you understand them by reading our": [
-        "理解するために読んでください。"
-      ],
-      "documentation": [
-        "ドキュメント"
-      ],
-      "Choose day in month": [
-        "月の日付を選択"
-      ],
-      "Next": [
-        "次へ"
-      ],
-      "In Foreman, a compliance policy checklist is defined via %s.": [
-        "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
-      ],
-      "SCAP content": [
-        "SCAP のコンテンツ"
-      ],
-      "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
-        "SCAP コンテンツが表示されたら、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
-      ],
-      "New Policy": [
-        "新規ポリシー"
-      ],
-      "Host Breakdown Chart": [
-        "ホストブレークダウンチャート"
-      ],
-      "Policy assigned": [
-        "割り当て済みのポリシー"
-      ],
-      "Date": [
-        "日付"
-      ],
-      "View Report": [
-        "レポートを表示"
-      ],
-      "Hosts Breakdown": [
-        "ホストブレークダウン"
-      ],
-      "Compliant with the policy": [
-        "ポリシーに準拠"
-      ],
-      "Not compliant with the policy": [
-        "ポリシーに準拠しない"
-      ],
-      "Inconclusive results": [
-        "不確定な結果"
-      ],
-      "Never audited": [
-        "未監査"
-      ],
-      "Total hosts with policy: %s": [
-        "ポリシーが割り当てられたホスト総数: %s"
+      "Compliance policy summary": [
+        "コンプライアンスポリシーの概要"
       ],
       "Compliance policy: %s": [
         "コンプライアンスポリシー: %s"
       ],
-      "Status table": [
-        "状態テーブル"
+      "Compliant": [
+        "準拠"
       ],
-      "Status chart": [
-        "状態チャート"
+      "Compliant hosts": [
+        "準拠したホスト"
       ],
-      "Latest reports for policy: %s": [
-        "ポリシーの最新レポート: %s"
+      "Compliant with the policy": [
+        "ポリシーに準拠"
       ],
-      "File Upload": [
-        "ファイルアップロード"
-      ],
-      "SCAP DataStream file": [
-        "SCAP データストリームファイル"
-      ],
-      "Title": [
+      "Confirm": [
         ""
       ],
-      "File name": [
+      "Content": [
         ""
+      ],
+      "Copy to clipboard": [
+        ""
+      ],
+      "Could not find host identified by: %s": [
+        "%s が識別したホストが見つかりませんでした"
+      ],
+      "Could not update Ansible Variables with override: true": [
+        "オーバーライドで Ansible 変数を更新できませんでした: true"
+      ],
+      "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
+        "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
+      ],
+      "Could not validate %{file_type}. Error %{error}": [
+        "％{file_type} を検証できませんでした。エラー: %{error}"
+      ],
+      "Create OVAL Content": [
+        ""
+      ],
+      "Create OVAL Policy": [
+        ""
+      ],
+      "Create OVAL content": [
+        "OVAL コンテンツの作成"
+      ],
+      "Create SCAP content": [
+        "SCAP コンテンツの作成"
+      ],
+      "Create a Policy": [
+        "ポリシーの作成"
+      ],
+      "Create a Tailoring file": [
+        "テーラリングファイルの作成"
+      ],
+      "Create an OVAL Policy": [
+        "OVAL ポリシーの作成"
       ],
       "Created at": [
+        ""
+      ],
+      "Custom cron: %s": [
+        ""
+      ],
+      "Dashboard": [
+        "ダッシュボード"
+      ],
+      "DataStream Tailoring file": [
+        "DataStream テーラリングファイル"
+      ],
+      "Date": [
+        "日付"
+      ],
+      "Default XCCDF profile": [
+        "デフォルトの XCCDF プロファイル"
+      ],
+      "Delete": [
+        "削除"
+      ],
+      "Delete OVAL Content": [
+        ""
+      ],
+      "Delete OVAL Policy": [
+        ""
+      ],
+      "Delete a Policy": [
+        "ポリシーの削除"
+      ],
+      "Delete an ARF Report": [
+        "ARF レポートの削除"
+      ],
+      "Delete an OVAL Policy": [
+        "OVAL ポリシーの削除"
+      ],
+      "Delete compliance policy %s with all of its reports?": [
+        "すべてのレポートでコンプライアンスポリシー %s を削除しますか?"
+      ],
+      "Delete compliance report for %s?": [
+        "%s のコンプライアンスレポートを削除しますか?"
+      ],
+      "Delete reports": [
+        "レポートを削除"
+      ],
+      "Delete scap content %s?": [
+        "SCAP コンテンツ %s を削除しますか?"
+      ],
+      "Delete tailoring file %s?": [
+        "テーラリングファイル %s を削除しますか?"
+      ],
+      "Deleted policy": [
+        "削除済みのポリシー"
+      ],
+      "Deletes a Tailoring file": [
+        "テーラリングファイルの削除"
+      ],
+      "Deletes an OVAL content": [
+        "OVAL コンテンツの削除"
+      ],
+      "Deletes an SCAP content": [
+        "SCAP コンテンツの削除"
+      ],
+      "Deployment Options": [
+        "デプロイメントオプション"
+      ],
+      "Description": [
+        "説明"
+      ],
+      "Details": [
+        ""
+      ],
+      "Details for Compliance Policy %s": [
+        "コンプライアンスポリシー %s の詳細"
+      ],
+      "Directory to upload when using \\\"directory\\\" upload type": [
+        "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
+      ],
+      "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment.": [
+        ""
+      ],
+      "Documentation": [
+        "ドキュメント"
+      ],
+      "Done": [
         ""
       ],
       "Download": [
         "ダウンロード"
       ],
-      "Delete scap content %s?": [
-        "SCAP コンテンツ %s を削除しますか?"
+      "Download ARF report in HTML": [
+        "HTML の ARF レポートのダウンロード"
       ],
-      "SCAP Contents": [
-        "SCAP コンテンツ"
+      "Download HTML": [
+        "HTML のダウンロード"
       ],
-      "Upload New SCAP Content": [
-        "新規 SCAP コンテンツをアップロード"
+      "Download XML in bzip": [
+        "XML を bzip でダウンロード"
       ],
-      "Upload new SCAP content file": [
-        "新規 SCAP コンテンツファイルをアップロード"
+      "Download a Tailoring file as XML": [
+        "XML としてテーラリングファイルをダウンロード"
       ],
-      "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\\n        configuration issues related to security. ": [
-        "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される\\n        数多くのオープンスタンダードの組み合わせです。 "
+      "Download an SCAP content as XML": [
+        "XML として SCAP コンテンツをダウンロード"
       ],
-      "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\\n    via %s": [
-        "Foreman では、scap_contents はホストの SCAP セキュリティーガイドを表し、%s でホスト/ホストグループに割り当てるための SCAP プロファルを\\n    作成します。"
+      "Download bzipped ARF report": [
+        "bzip 形式の ARF レポートのダウンロード"
       ],
-      "New SCAP Content": [
-        "新規 SCAP コンテンツ"
+      "Edit %s": [
+        "%s の編集"
       ],
-      "%s spool errors detected, inspect the appropriate file directly on proxy": [
-        "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
+      "Effective Profile": [
+        "有効なプロファイル"
       ],
-      "Failed to fetch spool status from proxy": [
-        "プロキシーからスプールステータスを取得できませんでした"
+      "Error!": [
+        "エラー!"
       ],
-      "None found": [
-        "何も見つかりません"
-      ],
-      "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
-        "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
-      ],
-      "Spool errors": [
-        "スプールエラー"
-      ],
-      "DataStream Tailoring file": [
-        "DataStream テーラリングファイル"
-      ],
-      "Delete tailoring file %s?": [
-        "テーラリングファイル %s を削除しますか?"
-      ],
-      "Tailoring Files": [
-        "テーラリングファイル"
-      ],
-      "Upload New Tailoring file": [
-        "新規テーラリングファイルのアップロード"
-      ],
-      "Upload new Tailoring File": [
-        "新規テーラリングファイルのアップロード"
-      ],
-      "It may sometimes be required to adjust the security policy to your specific needs. ": [
-        "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
-      ],
-      "In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\\n    via %s": [
-        "Foreman では、tailoring_files はデフォルトの XCCDF プロファイルへのカスタム修正を表し、%s で\\n    ホストに適用できます"
-      ],
-      "New Tailoring File": [
-        "新規テーラリングファイル"
-      ],
-      "Compliance policy summary": [
-        "コンプライアンスポリシーの概要"
-      ],
-      "A summary of reports for OpenSCAP policies": [
-        "OpenSCAP ポリシーのレポートの概要"
-      ],
-      "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
+      "Every puppet run ensures the foreman_scap_client is configured according to the policy.": [
         ""
       ],
       "Expected an array of files to upload, got: %s.": [
         ""
       ],
-      "%s is a directory, expecting file.": [
-        ""
+      "Failed": [
+        "失敗"
       ],
-      "%s does not exist, skipping.": [
-        ""
+      "Failed and Othered": [
+        "Failed および Othered"
+      ],
+      "Failed only": [
+        "失敗のみ"
       ],
       "Failed saving %s:": [
         ""
       ],
-      "No such directory: %s. Please check the path you have provided.": [
+      "Failed to create OVAL Policy: %s": [
         ""
       ],
-      "Red Hat %s default content": [
+      "Failed to delete %s compliance reports": [
+        "%s コンプライアンスレポートの削除に失敗しました"
+      ],
+      "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
+        "{reported_at} で報告されたホスト {host_name} の ARF レポートの削除に失敗しました"
+      ],
+      "Failed to downloaded ARF report as bzip: %s": [
+        "ARFレポートを bzip でダウンロードするのに失敗しました: %s"
+      ],
+      "Failed to downloaded ARF report in HTML: %s": [
+        "ARF レポートを HTML でダウンロードするのに失敗しました: %s"
+      ],
+      "Failed to fetch content file from %s": [
         ""
       ],
-      "%s content": [
+      "Failed to fetch spool status from proxy": [
+        "プロキシーからスプールステータスを取得できませんでした"
+      ],
+      "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
+        "%{config_tool} のパラメーターのオーバーライド時に、保存に失敗しました。原因: %{errors}"
+      ],
+      "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
+        "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
+      ],
+      "Failed|F": [
+        "F"
+      ],
+      "File": [
         ""
       ],
-      "Policies": [
-        "ポリシー"
+      "File Upload": [
+        "ファイルアップロード"
       ],
-      "SCAP contents": [
-        "SCAP コンテンツ"
+      "File name": [
+        ""
       ],
-      "Reports": [
-        "レポート"
+      "File paths to upload when using \\\"files\\\" upload type": [
+        "「ファイル」アップロードタイプを使用する場合のアップロードするファイルパス"
       ],
-      "OVAL Contents": [
-        "OVAL コンテンツ"
+      "Full Report": [
+        "完全レポート"
       ],
-      "OVAL Policies": [
-        "OVAL ポリシー"
+      "General": [
+        "全般"
       ],
-      "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
-        "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+      "Has Errata?": [
+        "エラータはありますか?"
       ],
-      "OpenSCAP Proxy": [
-        "OpenSCAP プロキシー"
+      "Host": [
+        "ホスト"
+      ],
+      "Host Breakdown Chart": [
+        "ホストブレークダウンチャート"
+      ],
+      "Host Groups": [
+        "ホストグループ"
+      ],
+      "Host compliance details": [
+        "ホストコンプライアンス詳細"
+      ],
+      "Host details": [
+        "ホストの詳細"
+      ],
+      "Host does not exist anymore": [
+        "ホストは存在しません"
+      ],
+      "Host is assigned to policy": [
+        "ホストはポリシーに割り当てられています"
+      ],
+      "Host is deleted": [
+        "ホストが削除されました"
+      ],
+      "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again.": [
+        "ホストはポリシーに割り当てられていませんが、レポートが見つかりました。レポートを削除するか、ポリシーを再度割り当てることをお勧めします。"
+      ],
+      "Hostgroups": [
+        "ホストグループ"
+      ],
+      "Hostname": [
+        "ホスト名"
+      ],
+      "Hosts Breakdown": [
+        "ホストブレークダウン"
+      ],
+      "Hosts Count": [
+        "ホスト数"
+      ],
+      "Hosts failing this rule": [
+        "このルールに不合格のホスト"
+      ],
+      "Hosts no longer assigned: %s": [
+        "割り当てが解除されたホスト: %s"
+      ],
+      "Hosts othering this rule": [
+        "このルールに該当しないホスト"
+      ],
+      "Hosts passing this rule": [
+        "このルールに合格のホスト"
+      ],
+      "How the policy should be deployed": [
+        "ポリシーのデプロイメント方法"
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP プロキシーの ID"
       ],
-      "Run OpenSCAP scan": [
-        "OpenSCAP スキャンの実行"
+      "Import Puppet classes": [
+        "Puppet クラスのインポート"
       ],
-      "Run OVAL scan": [
-        "OVAL スキャンの実行"
+      "Import facts": [
+        "ファクトのインポート"
       ],
-      "Confirm": [
+      "In Foreman, a compliance policy checklist is defined via %s.": [
+        "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
+      ],
+      "In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\\n    via %s": [
+        "Foreman では、scap_contents はホストの SCAP セキュリティーガイドを表し、%s でホスト/ホストグループに割り当てるための SCAP プロファルを\\n    作成します。"
+      ],
+      "In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\\n    via %s": [
+        "Foreman では、tailoring_files はデフォルトの XCCDF プロファイルへのカスタム修正を表し、%s で\\n    ホストに適用できます"
+      ],
+      "Incompliant": [
+        "非準拠"
+      ],
+      "Incompliant hosts": [
+        "準拠しないホスト"
+      ],
+      "Inconclusive": [
+        "不確定"
+      ],
+      "Inconclusive results": [
+        "不確定な結果"
+      ],
+      "Is %s param set to be overriden?": [
+        "%s param はオーバーライドされるように設定されていますか?"
+      ],
+      "Is foreman_ansible present?": [
+        "foreman_ansible は存在しますか?"
+      ],
+      "Is theforeman.foreman_scap_client present?": [
+        "theforeman.foreman_scap_client は存在しますか?"
+      ],
+      "It may sometimes be required to adjust the security policy to your specific needs. ": [
+        "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
+      ],
+      "Job details": [
         ""
       ],
-      "None provided": [
+      "Latest Compliance Reports": [
+        "最新コンプライアンスレポート"
+      ],
+      "Latest reports for policy: %s": [
+        "ポリシーの最新レポート: %s"
+      ],
+      "List ARF reports": [
+        "ARF レポートの一覧表示"
+      ],
+      "List OVAL Policies": [
+        "OVAL ポリシーの一覧表示"
+      ],
+      "List OVAL contents": [
+        "OVAL コンテンツの一覧表示"
+      ],
+      "List Policies": [
+        "ポリシーの一覧表示"
+      ],
+      "List SCAP content profiles": [
+        "SCAP コンテンツプロファイルの一覧表示"
+      ],
+      "List SCAP contents": [
+        "SCAP コンテンツの一覧表示"
+      ],
+      "List Tailoring files": [
+        "テーラリングファイルの一覧表示"
+      ],
+      "Loading...": [
+        "読み込み中..."
+      ],
+      "Locations": [
+        "ロケーション"
+      ],
+      "Manual": [
         ""
       ],
-      "There's no available report for this host": [
+      "Message": [
+        "メッセージ"
+      ],
+      "Method": [
         ""
       ],
-      "Are you sure you want to delete %s?": [
+      "Monthly, day of month: %s": [
         ""
       ],
-      "Error!": [
-        "エラー!"
+      "More details": [
+        "詳細"
       ],
-      "Permission denied": [
+      "Name": [
+        "名前"
+      ],
+      "Never audited": [
+        "未監査"
+      ],
+      "New Compliance Policy": [
+        "新規コンプライアンスポリシー"
+      ],
+      "New OVAL Content": [
         ""
       ],
-      "There was a following error when deleting %(name)s: %(error)s": [
+      "New Policy": [
+        "新規ポリシー"
+      ],
+      "New SCAP Content": [
+        "新規 SCAP コンテンツ"
+      ],
+      "New Tailoring File": [
+        "新規テーラリングファイル"
+      ],
+      "Next": [
+        "次へ"
+      ],
+      "No": [
+        "いいえ"
+      ],
+      "No ARF reports for this policy": [
+        "このポリシーの ARF レポートがありません"
+      ],
+      "No CVEs found.": [
+        "CVE が見つかりません。"
+      ],
+      "No Hostgroups found.": [
         ""
       ],
-      "You are not authorized to view the page. ": [
-        ""
-      ],
-      "Request the following permissions from administrator: %s.": [
+      "No OVAL Content found": [
         ""
       ],
       "No OVAL Contents found.": [
         "OVAL コンテンツが見つかりません。"
       ],
-      "Delete OVAL Content": [
+      "No OVAL Policies found": [
+        "OVAL ポリシーが見つかりません"
+      ],
+      "No OVAL Policy found": [
+        "OVAL ポリシーが見つかりません"
+      ],
+      "No OpenSCAP Proxy selected.": [
+        "OpenSCAP プロキシーが選択されていません。"
+      ],
+      "No OpenSCAP proxy found for %{class} with id %{id}": [
+        "ID %{id} の %{class} の OpenSCAP プロキシーが見つかりません"
+      ],
+      "No Tailoring file assigned for policy with id %s": [
+        "id が %s のポリシーに割り当てられているテーラリングファイルはありません"
+      ],
+      "No Vulnerabilities found": [
+        "脆弱性は見つかりませんでした"
+      ],
+      "No available proxy to validate. Returned with error: %s": [
+        "検証するプロキシーがありません。返されたエラー: %s"
+      ],
+      "No compliance policy selected.": [
+        "コンプライアンスポリシーが選択されていません。"
+      ],
+      "No compliance reports selected": [
+        "コンプライアンスレポートが選択されていません"
+      ],
+      "No compliance reports were found.": [
+        "コンプライアンスレポートが見つかりませんでした。"
+      ],
+      "No hosts selected": [
+        "ホストが選択されていません"
+      ],
+      "No hosts were found with that id, name or query filter": [
         ""
       ],
-      "OVAL Content successfully deleted.": [
+      "No proxy found for %{name} or %{url}": [
+        "%{name} または %{url} のプロキシーが見つかりません"
+      ],
+      "No proxy found!": [
+        "プロキシーが見つかりません!"
+      ],
+      "No proxy with OpenSCAP feature is running.": [
+        "OpenSCAP 機能のあるプロキシーが実行されていません。"
+      ],
+      "No proxy with OpenSCAP feature was found.": [
+        "OpenSCAP 機能のあるプロキシーが見つかりませんでした。"
+      ],
+      "No report for this policy": [
+        "このポリシーのレポートはありません"
+      ],
+      "No reports available": [
+        "利用可能なレポートがありません"
+      ],
+      "No such directory: %s. Please check the path you have provided.": [
+        ""
+      ],
+      "No valid policy ID provided": [
+        "有効なポリシー ID が提供されていません"
+      ],
+      "None": [
+        "なし"
+      ],
+      "None found": [
+        "何も見つかりません"
+      ],
+      "None provided": [
+        ""
+      ],
+      "None!": [
+        "なし!"
+      ],
+      "Not audited": [
+        "未監査"
+      ],
+      "Not compliant with the policy": [
+        "ポリシーに準拠しない"
+      ],
+      "Nothing to show": [
+        "表示するものがありません"
+      ],
+      "Number of Events": [
+        "イベント数"
+      ],
+      "Number of a day in month, note that not all months have same count of days": [
+        "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
+      ],
+      "OS": [
         ""
       ],
       "OVAL Content": [
         "OVAL コンテンツ"
       ],
-      "Create OVAL Content": [
-        ""
-      ],
-      "URL": [
-        ""
-      ],
-      "Original File Name": [
-        ""
-      ],
-      "OVAL Contents table": [
-        "OVAL コンテンツテーブル"
-      ],
-      "New OVAL Content": [
+      "OVAL Content %s successfully created": [
         ""
       ],
       "OVAL Content Source": [
@@ -1178,125 +716,680 @@
       "OVAL Content from file": [
         ""
       ],
-      "File": [
+      "OVAL Content is required to create OVAL Policy. Please create one before proceeding.": [
         ""
       ],
-      "OVAL Content %s successfully created": [
+      "OVAL Content successfully deleted.": [
         ""
       ],
-      "Unknown error when submitting data, please try again later.": [
-        ""
+      "OVAL Contents": [
+        "OVAL コンテンツ"
       ],
-      "No OVAL Content found": [
-        ""
+      "OVAL Contents table": [
+        "OVAL コンテンツテーブル"
       ],
-      "No OVAL Policies found": [
-        "OVAL ポリシーが見つかりません"
-      ],
-      "Delete OVAL Policy": [
-        ""
-      ],
-      "OVAL policy was successfully deleted.": [
-        ""
-      ],
-      "OVAL policy": [
-        ""
-      ],
-      "Create OVAL Policy": [
-        ""
+      "OVAL Policies": [
+        "OVAL ポリシー"
       ],
       "OVAL Policies Table": [
         "OVAL ポリシーテーブル"
       ],
-      "Type a hostgroup name...": [
-        ""
+      "OVAL Policy description": [
+        "OVAL ポリシーの説明"
       ],
-      "Choose OVAL Content": [
-        ""
+      "OVAL Policy name": [
+        "OVAL ポリシー名"
       ],
-      "can't be blank": [
-        ""
+      "OVAL Policy schedule cron line (only if period == \\\"custom\\\")": [
+        "OVAL ポリシーのスケジュール: cron 行 (period == \\\"custom\\\" の場合のみ)"
       ],
-      "is not a valid cronline": [
-        ""
+      "OVAL Policy schedule day of month (only if period == \\\"monthly\\\")": [
+        "OVAL ポリシーのスケジュール: 月の日付 (period == \\\"monthly\\\" の場合のみ)"
+      ],
+      "OVAL Policy schedule period (weekly, monthly, custom)": [
+        "OVAL ポリシーのスケジュール期間 (週次、月次、カスタム)"
+      ],
+      "OVAL Policy schedule weekday (only if period == \\\"weekly\\\")": [
+        "OVAL ポリシーのスケジュール: 平日 (period == \\\"weekly\\\" の場合のみ)"
       ],
       "OVAL Policy succesfully created.": [
         ""
       ],
-      "Failed to create OVAL Policy: %s": [
+      "OVAL content name": [
+        "OVAL コンテンツ名"
+      ],
+      "OVAL policy": [
         ""
       ],
-      "OVAL Content is required to create OVAL Policy. Please create one before proceeding.": [
-        ""
+      "OVAL policy successfully configured with %s.": [
+        "%s で正常に設定された OVAL ポリシー。"
       ],
-      "No CVEs found.": [
-        "CVE が見つかりません。"
-      ],
-      "Ref Id": [
-        "参照 ID"
-      ],
-      "Has Errata?": [
-        "エラータはありますか?"
-      ],
-      "Hosts Count": [
-        "ホスト数"
-      ],
-      "Table of CVEs for OVAL policy": [
-        "OVAL ポリシーの CVE テーブル"
-      ],
-      "Period": [
-        ""
-      ],
-      "No Hostgroups found.": [
-        ""
-      ],
-      "Table of hostgroups for OVAL policy": [
-        ""
-      ],
-      "Scan All Hostgroups": [
-        "すべてのホストグループのスキャン"
-      ],
-      "Details": [
-        ""
-      ],
-      "CVEs": [
-        ""
-      ],
-      "Weekly, on %s": [
-        ""
-      ],
-      "Monthly, day of month: %s": [
-        ""
-      ],
-      "Custom cron: %s": [
-        ""
-      ],
-      "Unknown schedule": [
+      "OVAL policy was successfully deleted.": [
         ""
       ],
       "OVAL policy was successfully updated.": [
         ""
       ],
-      "There was a following error when updating OVAL policy: %s": [
+      "OVAL scan": [
+        "OVAL スキャン"
+      ],
+      "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
+        "SCAP コンテンツが表示されたら、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
+      ],
+      "OpenSCAP Proxy": [
+        "OpenSCAP プロキシー"
+      ],
+      "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
+        "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+      ],
+      "Openscap Proxy": [
+        "OpenSCAP プロキシー"
+      ],
+      "Organizations": [
+        "組織"
+      ],
+      "Original File Name": [
         ""
       ],
-      "No OVAL Policy found": [
-        "OVAL ポリシーが見つかりません"
+      "Original file name of the OVAL content file": [
+        "OVAL コンテンツファイルの元のファイル名"
       ],
-      "Action with sub plans": [
-        "サブプランによるアクション"
+      "Original file name of the XML file": [
+        "XML ファイルの元のファイル名"
       ],
-      "Import facts": [
-        "ファクトのインポート"
+      "Other": [
+        "その他"
       ],
-      "Import Puppet classes": [
-        "Puppet クラスのインポート"
+      "Other hosts failing this rule": [
+        ""
+      ],
+      "Othered": [
+        "Othered"
+      ],
+      "Othered|O": [
+        "O"
+      ],
+      "Passed": [
+        "合格"
+      ],
+      "Passed|P": [
+        "P"
+      ],
+      "Period": [
+        ""
+      ],
+      "Permission denied": [
+        ""
+      ],
+      "Please Confirm": [
+        "確認してください"
+      ],
+      "Please make sure you understand them by reading our": [
+        "理解するために読んでください。"
+      ],
+      "Please specify import type, received: %{received}, expected one of: %{expected}": [
+        "インポートタイプを指定してください。受信: %%{received}、次のうち 1 つを想定: %%{expected}"
+      ],
+      "Policies": [
+        "ポリシー"
+      ],
+      "Policies with hosts:": [
+        "ホスト付きポリシー:"
+      ],
+      "Policy": [
+        "ポリシー"
+      ],
+      "Policy %s": [
+        "ポリシー %s 件"
+      ],
+      "Policy Attributes": [
+        "ポリシー属性"
+      ],
+      "Policy OVAL content ID": [
+        "ポリシー OVAL コンテンツ ID"
+      ],
+      "Policy SCAP content ID": [
+        "ポリシー SCAP コンテンツ ID"
+      ],
+      "Policy SCAP content profile ID": [
+        "ポリシー SCAP コンテンツプロファイル ID"
+      ],
+      "Policy assigned": [
+        "割り当て済みのポリシー"
+      ],
+      "Policy description": [
+        "ポリシーの説明"
+      ],
+      "Policy is missing": [
+        "ポリシーがありません"
+      ],
+      "Policy name": [
+        "ポリシー名"
+      ],
+      "Policy schedule cron line (only if period == \\\"custom\\\")": [
+        "ポリシースケジュール: cron 行 (period == \\\"custom\\\" の場合のみ)"
+      ],
+      "Policy schedule day of month (only if period == \\\"monthly\\\")": [
+        "ポリシースケジュール: 月の日付 (period == \\\"monthly\\\" の場合のみ)"
+      ],
+      "Policy schedule period (weekly, monthly, custom)": [
+        "ポリシーのスケジュール期間 (週次、月次、カスタム)"
+      ],
+      "Policy schedule weekday (only if period == \\\"weekly\\\")": [
+        "ポリシースケジュール: 平日 (period == \\\"weekly\\\" の場合のみ)"
+      ],
+      "Policy with id %s not found.": [
+        "id が %s のポリシーが見つかりません"
+      ],
+      "Profile": [
+        ""
+      ],
+      "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
+        "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
+      ],
+      "Puppet class": [
+        "Puppet クラス"
+      ],
+      "Rationale": [
+        "理由"
+      ],
+      "Reboot the system(s)": [
+        ""
+      ],
+      "Red Hat %s default content": [
+        ""
+      ],
+      "Ref Id": [
+        "参照 ID"
+      ],
+      "References": [
+        "リファレンス"
+      ],
+      "Remediate %s rule": [
+        ""
+      ],
+      "Remediation": [
+        ""
+      ],
+      "Remediation might render the system non-functional.": [
+        ""
       ],
       "Remote action:": [
         "リモートアクション:"
       ],
-      "No hosts were found.": [
-        "ホストが見つかりませんでした。"
+      "Remote job": [
+        ""
+      ],
+      "Report Metrics": [
+        "レポートメトリックス"
+      ],
+      "Report Status": [
+        "レポートのステータス"
+      ],
+      "Reported At": [
+        "報告済み"
+      ],
+      "Reported at %s": [
+        "レポート日時: %s"
+      ],
+      "Reports": [
+        "レポート"
+      ],
+      "Request the following permissions from administrator: %s.": [
+        ""
+      ],
+      "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
+        "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
+      ],
+      "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
+        "必要とされる {msg_name}%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
+      ],
+      "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
+        ""
+      ],
+      "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups.": [
+        ""
+      ],
+      "Resource": [
+        "リソース"
+      ],
+      "Result": [
+        "結果"
+      ],
+      "Review hosts": [
+        ""
+      ],
+      "Review remediation": [
+        ""
+      ],
+      "Review the remediation snippet and apply it to the host manually.": [
+        ""
+      ],
+      "Review the remediation snippet that will be applied to selected host(s).": [
+        ""
+      ],
+      "Rule Results": [
+        "ルールの結果"
+      ],
+      "Run": [
+        ""
+      ],
+      "Run OVAL scan": [
+        "OVAL スキャンの実行"
+      ],
+      "Run OpenSCAP remediation with Ansible": [
+        ""
+      ],
+      "Run OpenSCAP remediation with Shell": [
+        ""
+      ],
+      "Run OpenSCAP scan": [
+        "OpenSCAP スキャンの実行"
+      ],
+      "SCAP Content": [
+        "SCAP コンテンツ"
+      ],
+      "SCAP Contents": [
+        "SCAP コンテンツ"
+      ],
+      "SCAP DataStream file": [
+        "SCAP データストリームファイル"
+      ],
+      "SCAP content": [
+        "SCAP のコンテンツ"
+      ],
+      "SCAP content name": [
+        "SCAP コンテンツ名"
+      ],
+      "SCAP contents": [
+        "SCAP コンテンツ"
+      ],
+      "SCAP policies summary": [
+        "SCAP ポリシーの概要"
+      ],
+      "Scan All Hostgroups": [
+        "すべてのホストグループのスキャン"
+      ],
+      "Schedule": [
+        "スケジュール"
+      ],
+      "Select Action": [
+        "アクションの選択"
+      ],
+      "Select Compliance Policy": [
+        "コンプライアンスポリシーの選択"
+      ],
+      "Select OpenSCAP Proxy": [
+        "OpenSCAP プロキシーの選択"
+      ],
+      "Select all items in this page": [
+        "このページのすべての項目を選択"
+      ],
+      "Select remediation method": [
+        ""
+      ],
+      "Select snippet": [
+        ""
+      ],
+      "Severity": [
+        "重要度"
+      ],
+      "Show Guide": [
+        "ガイドの表示"
+      ],
+      "Show a Policy": [
+        "ポリシーの表示"
+      ],
+      "Show a Tailoring file": [
+        "テーラリングファイルの表示"
+      ],
+      "Show a policy's OVAL content": [
+        ""
+      ],
+      "Show a policy's SCAP content": [
+        "ポリシーの SCAP コンテンツの表示"
+      ],
+      "Show a policy's Tailoring file": [
+        "ポリシーのテーラリングファイルの表示"
+      ],
+      "Show an ARF report": [
+        "ARF レポートの表示"
+      ],
+      "Show an OVAL Policy": [
+        "OVAL ポリシーの表示"
+      ],
+      "Show an OVAL content": [
+        "OVAL コンテンツの表示"
+      ],
+      "Show an SCAP content": [
+        "SCAP コンテンツの表示"
+      ],
+      "Show config information for foreman_scap_client": [
+        "foreman_scap_client の設定情報の表示"
+      ],
+      "Show log messages:": [
+        "ログメッセージの表示:"
+      ],
+      "Smart Class Parameters": [
+        "スマートクラスパラメーター"
+      ],
+      "Snippet": [
+        ""
+      ],
+      "Something went wrong while selecting compliance reports - %s": [
+        "コンプライアンスレポートの選択中に問題が発生しました: %s"
+      ],
+      "Something went wrong while selecting hosts - %s": [
+        "ホストの選択中に問題が発生しました: %s"
+      ],
+      "Spool errors": [
+        "スプールエラー"
+      ],
+      "Status chart": [
+        "状態チャート"
+      ],
+      "Status table": [
+        "状態テーブル"
+      ],
+      "Submit": [
+        "送信"
+      ],
+      "Successfully copied to clipboard!": [
+        ""
+      ],
+      "Successfully deleted %s compliance reports": [
+        "%s コンプライアンスレポートが正常に削除されました"
+      ],
+      "Successfully deleted ARF report.": [
+        "ARF レポートが正常に削除されました。"
+      ],
+      "Summary from %{time} ago to now": [
+        "過去 %{time} から今までの概要"
+      ],
+      "Summary report for OpenScap from Foreman": [
+        "Foreman からの OpenScap の概要レポート"
+      ],
+      "Summary report from Foreman server at %{foreman_url}": [
+        "%{foreman_url} にある Foreman サーバーからの概要レポート"
+      ],
+      "Sync contents that have remote source URL": [
+        "リモートソース URL を持つコンテンツの同期"
+      ],
+      "Table of CVEs for OVAL policy": [
+        "OVAL ポリシーの CVE テーブル"
+      ],
+      "Table of hostgroups for OVAL policy": [
+        ""
+      ],
+      "Tailoring File": [
+        "テーラリングファイル"
+      ],
+      "Tailoring Files": [
+        "テーラリングファイル"
+      ],
+      "Tailoring file ID": [
+        "テーラリングファイル ID"
+      ],
+      "Tailoring file name": [
+        "テーラリングファイル名"
+      ],
+      "Tailoring file profile ID": [
+        "テーラリングファイルのプロファイル ID"
+      ],
+      "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it.": [
+        ""
+      ],
+      "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\\n        configuration issues related to security. ": [
+        "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される\\n        数多くのオープンスタンダードの組み合わせです。 "
+      ],
+      "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
+        "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
+      ],
+      "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again.": [
+        "次の Ansible 変数が見つかりませんでした: %{missing_vars}。このアクションを再度実行する前に、Ansible 変数をインポートしてください。"
+      ],
+      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
+        "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s "
+      ],
+      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
+        "以下のプロキシーに到達できませんでした: %s。Foreman がバージョンを確認できるように、プロキシーが利用可能であることを確認してください。"
+      ],
+      "The identifier of the host": [
+        "ホストの ID"
+      ],
+      "The job has started on selected host(s), you can check the status on the job details page.": [
+        ""
+      ],
+      "There are significant differences in deployment options.": [
+        "デプロイメントオプションには大きな違いがあります。"
+      ],
+      "There is no job to remediate with. Please remediate manually.": [
+        ""
+      ],
+      "There was a following error when deleting %(name)s: %(error)s": [
+        ""
+      ],
+      "There was a following error when updating OVAL policy: %s": [
+        ""
+      ],
+      "There's no available report for this host": [
+        ""
+      ],
+      "This feature is temporarily disabled. ": [
+        "この機能は一時的に無効にされています。 "
+      ],
+      "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
+        ""
+      ],
+      "This profile will be used to override the one from scap content": [
+        "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
+      ],
+      "Title": [
+        ""
+      ],
+      "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
+        ""
+      ],
+      "Total": [
+        "合計"
+      ],
+      "Total hosts with policy: %s": [
+        "ポリシーが割り当てられたホスト総数: %s"
+      ],
+      "Total hosts with reports where policy is no longer assigned.": [
+        "ポリシーの割り当てが解除されたレポートが含まれるホストの総数。"
+      ],
+      "Total of one host": [
+        "合計ホスト 1 台"
+      ],
+      "Type a hostgroup name...": [
+        ""
+      ],
+      "Type of the upload": [
+        "アップロードの種類"
+      ],
+      "URL": [
+        ""
+      ],
+      "URL of the OVAL content file": [
+        "OVAL コンテンツファイルの URL"
+      ],
+      "Unable to get HTML version of requested report from Smart Proxy": [
+        "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
+      ],
+      "Unable to get XML version of requested report from Smart Proxy": [
+        "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
+      ],
+      "Unassign Compliance Policy": [
+        "コンプライアンスポリシーの割り当て解除"
+      ],
+      "Unknown Compliance status": [
+        "不明なコンプライアンスステータス"
+      ],
+      "Unknown OVAL status": [
+        "OVAL の不明なステータス"
+      ],
+      "Unknown error when submitting data, please try again later.": [
+        ""
+      ],
+      "Unknown schedule": [
+        ""
+      ],
+      "Update a Policy": [
+        "ポリシーの更新"
+      ],
+      "Update a Tailoring file": [
+        "テーラリングファイルの更新"
+      ],
+      "Update an OVAL Policy": [
+        "OVAL ポリシーの更新"
+      ],
+      "Update an OVAL content": [
+        "OVAL コンテンツの更新"
+      ],
+      "Update an SCAP content": [
+        "SCAP コンテンツの更新"
+      ],
+      "Updated hosts: Assigned with OpenSCAP Proxy: %s": [
+        "更新済みホスト: OpenSCAP プロキシーで割り当て済み: %s"
+      ],
+      "Updated hosts: Assigned with compliance policy: %s": [
+        "更新済みホスト: コンプライアンスポリシーで割り当て済み: %s"
+      ],
+      "Updated hosts: Unassigned from compliance policy '%s'": [
+        "更新済みホスト: コンプライアンスポリシー '%s' の割り当てなし"
+      ],
+      "Upload New SCAP Content": [
+        "新規 SCAP コンテンツをアップロード"
+      ],
+      "Upload New Tailoring file": [
+        "新規テーラリングファイルのアップロード"
+      ],
+      "Upload an ARF report": [
+        "ARF レポートのアップロード"
+      ],
+      "Upload an OVAL report - a list of CVEs for given host": [
+        "OVAL レポートのアップロード: 特定のホストの CVE の一覧"
+      ],
+      "Upload new SCAP content file": [
+        "新規 SCAP コンテンツファイルをアップロード"
+      ],
+      "Upload new Tailoring File": [
+        "新規テーラリングファイルのアップロード"
+      ],
+      "Upload scap contents in bulk": [
+        "SCAP コンテンツをまとめてアップロード"
+      ],
+      "View Report": [
+        "レポートを表示"
+      ],
+      "View full report": [
+        "フルレポートを表示"
+      ],
+      "View selected hosts": [
+        ""
+      ],
+      "Was %s configured successfully?": [
+        "%s は正常に設定されましたか?"
+      ],
+      "Was %{model_name} %{name} configured successfully?": [
+        "%{model_name} %%{name} は正常に設定されましたか?"
+      ],
+      "Weekly, on %s": [
+        ""
+      ],
+      "XCCDF Profile": [
+        "XCCDF プロファイル"
+      ],
+      "XCCDF Profile in Tailoring File": [
+        "テーラリングファイルでの XCCDF プロファイル"
+      ],
+      "XML containing OVAL content": [
+        "OVAL コンテンツを含む XML"
+      ],
+      "XML containing SCAP content": [
+        "SCAP コンテンツを含む XML"
+      ],
+      "XML containing tailoring file": [
+        "テーラリングファイルを含む XML"
+      ],
+      "Yes": [
+        "はい"
+      ],
+      "You are not authorized to view the page. ": [
+        ""
+      ],
+      "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
+        ""
+      ],
+      "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [
+        "カスタム cron 行を指定できます (たとえば、\\\"0  3  *  *  *\\\" のように 5 つの値をスペースで区切ります)"
+      ],
+      "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
+        "ARF レポートがないようです。ARF レポートは、指定のコンプライアンスポリシーを基に、特定のホストを 1 回スキャンしたときのサマリーです。"
+      ],
+      "can't be blank": [
+        ""
+      ],
+      "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
+        "%s に割り当てることができません。割り当てたポリシーはすべて同じ方法でデプロイする必要があります。割り当て済みのポリシーごとに「デプロイ方法 (deploy by)」を確認してください。"
+      ],
+      "cause: ": [
+        ""
+      ],
+      "documentation": [
+        "ドキュメント"
+      ],
+      "does not come from selected tailoring file": [
+        "選択したテーラリングファイルからのものではありません"
+      ],
+      "does not consist of 5 parts separated by space": [
+        "スペースで区切られた 5 つの部分で構成されていません"
+      ],
+      "does not have the selected SCAP content profile": [
+        "選択した SCAP コンテンツプロファイルがありません"
+      ],
+      "foreman_ansible plugin not found, please install it before running this action again.": [
+        "foreman_ansible プラグインが見つかりません。このアクションを再度実行する前に、プラグインをインストールしてください。"
+      ],
+      "hostgroups": [
+        "ホストグループ"
+      ],
+      "hosts": [
+        "ホスト"
+      ],
+      "invalid type %s": [
+        "無効なタイプ %s"
+      ],
+      "is not a valid cronline": [
+        ""
+      ],
+      "is not a valid value": [
+        "有効な値ではありません"
+      ],
+      "is not included in SCAP_RESULT": [
+        "SCAP_RESULT に含まれていません"
+      ],
+      "items selected. Uncheck to Clear": [
+        "項目が選択されています。クリアするにはチェックを解除してください"
+      ],
+      "must be between 1 and 31": [
+        "1 から 31 の間でなければなりません"
+      ],
+      "must be present when tailoring file present": [
+        "テーラリングファイルがある場合になければなりません"
+      ],
+      "must be present when tailoring file profile present": [
+        "テーラリングファイルのプロファイルがある場合に存在する必要があります"
+      ],
+      "must have Openscap feature": [
+        "Openscap 機能がなければなりません"
+      ],
+      "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again.": [
+        "theforeman.foreman_scap_client Ansible ロールが見つかりません。このアクションを再度実行する前に、インポートしてください。"
+      ],
+      "these Compliance reports": [
+        "これらのコンプライアンスレポート"
       ]
     }
   }

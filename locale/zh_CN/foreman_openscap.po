@@ -61,6 +61,12 @@ msgstr "已选择 %{type} 将策略部署到客户端，但是%{type} 不可用�
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP 摘要"
 
+msgid "A reboot is required after applying remediation."
+msgstr ""
+
+msgid "A reboot might be required after applying remediation."
+msgstr ""
+
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 策略报告摘要"
 
@@ -112,6 +118,9 @@ msgstr "在继续前，把 openscap_proxy 分配给 %s。"
 msgid "Back"
 msgstr "返回"
 
+msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
+msgstr ""
+
 msgid "CVEs"
 msgstr ""
 
@@ -157,6 +166,9 @@ msgstr "选择期间"
 msgid "Choose weekday"
 msgstr "选择星期几"
 
+msgid "Close"
+msgstr ""
+
 msgid "Compliance"
 msgstr "合规"
 
@@ -188,6 +200,9 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Content"
+msgstr ""
+
+msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Could not find host identified by: %s"
@@ -301,8 +316,14 @@ msgstr "合规政策 %s 详情"
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr "当使用 “directory” 上载类型时要上传的目录"
 
+msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
+msgstr ""
+
 msgid "Documentation"
 msgstr "文档"
+
+msgid "Done"
+msgstr ""
 
 msgid "Download"
 msgstr "下載"
@@ -508,6 +529,9 @@ msgstr "是否存在 foreman.foreman_scap_client？"
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "有些可能需要根据您的具体需求调整安全策略。"
 
+msgid "Job details"
+msgstr ""
+
 msgid "Latest Compliance Reports"
 msgstr "最新合规报告"
 
@@ -541,8 +565,14 @@ msgstr "载入中..."
 msgid "Locations"
 msgstr "位置"
 
+msgid "Manual"
+msgstr ""
+
 msgid "Message"
 msgstr "信息"
+
+msgid "Method"
+msgstr ""
 
 msgid "Monthly, day of month: %s"
 msgstr ""
@@ -679,6 +709,9 @@ msgstr "事件数量"
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數"
 
+msgid "OS"
+msgstr ""
+
 msgid "OVAL Content"
 msgstr "OVAL 内容"
 
@@ -778,6 +811,9 @@ msgstr "XML 文件的原文件名称"
 msgid "Other"
 msgstr "其他"
 
+msgid "Other hosts failing this rule"
+msgstr ""
+
 msgid "Othered"
 msgstr "其它"
 
@@ -870,6 +906,9 @@ msgstr "Puppet 类别"
 msgid "Rationale"
 msgstr "理由"
 
+msgid "Reboot the system(s)"
+msgstr ""
+
 msgid "Red Hat %s default content"
 msgstr ""
 
@@ -879,8 +918,20 @@ msgstr "参考  id"
 msgid "References"
 msgstr "参考"
 
+msgid "Remediate %s rule"
+msgstr ""
+
+msgid "Remediation"
+msgstr ""
+
+msgid "Remediation might render the system non-functional."
+msgstr ""
+
 msgid "Remote action:"
 msgstr "远程操作："
+
+msgid "Remote job"
+msgstr ""
 
 msgid "Report Metrics"
 msgstr "报告指标"
@@ -918,11 +969,32 @@ msgstr "资源"
 msgid "Result"
 msgstr "结果"
 
+msgid "Review hosts"
+msgstr ""
+
+msgid "Review remediation"
+msgstr ""
+
+msgid "Review the remediation snippet and apply it to the host manually."
+msgstr ""
+
+msgid "Review the remediation snippet that will be applied to selected host(s)."
+msgstr ""
+
 msgid "Rule Results"
 msgstr "规则结果"
 
+msgid "Run"
+msgstr ""
+
 msgid "Run OVAL scan"
 msgstr "运行 OVAL 扫描"
+
+msgid "Run OpenSCAP remediation with Ansible"
+msgstr ""
+
+msgid "Run OpenSCAP remediation with Shell"
+msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "运行 OpenSCAP 扫描"
@@ -966,6 +1038,12 @@ msgstr "选择 OpenSCAP 代理"
 msgid "Select all items in this page"
 msgstr "选择这个页中的所有项"
 
+msgid "Select remediation method"
+msgstr ""
+
+msgid "Select snippet"
+msgstr ""
+
 msgid "Severity"
 msgstr "严重性"
 
@@ -1008,6 +1086,9 @@ msgstr "显示日志信息："
 msgid "Smart Class Parameters"
 msgstr "智能类参数"
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "在选择合规报告时出错 - %s"
 
@@ -1025,6 +1106,9 @@ msgstr "状态表"
 
 msgid "Submit"
 msgstr "提交"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "刪除 %s 合规报告成功"
@@ -1090,8 +1174,14 @@ msgstr "无法访问下列代理服务器：%s。请确保它们可用，以便 
 msgid "The identifier of the host"
 msgstr "主机 ID"
 
+msgid "The job has started on selected host(s), you can check the status on the job details page."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "部署选项之间存在重大差异。"
+
+msgid "There is no job to remediate with. Please remediate manually."
+msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
 msgstr ""
@@ -1214,6 +1304,9 @@ msgstr "查看报表"
 msgid "View full report"
 msgstr "查看完整报告"
 
+msgid "View selected hosts"
+msgstr ""
+
 msgid "Was %s configured successfully?"
 msgstr "%s 配置成功吗？"
 
@@ -1242,6 +1335,9 @@ msgid "Yes"
 msgstr "是"
 
 msgid "You are not authorized to view the page. "
+msgstr ""
+
+msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"

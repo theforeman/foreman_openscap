@@ -60,6 +60,12 @@
       "<b>Foreman</b> OpenSCAP summary": [
         "<b>Foreman</b> OpenSCAP-ის მიმოხილვა"
       ],
+      "A reboot is required after applying remediation.": [
+        ""
+      ],
+      "A reboot might be required after applying remediation.": [
+        ""
+      ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP-ის პოლიტიკის ანგარიშების შეჯამება"
       ],
@@ -111,6 +117,9 @@
       "Back": [
         "უკან"
       ],
+      "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
+        ""
+      ],
       "CVEs": [
         ""
       ],
@@ -156,6 +165,9 @@
       "Choose weekday": [
         "აირჩიეთ კვირის დღე"
       ],
+      "Close": [
+        ""
+      ],
       "Compliance": [
         "შესაბამისობა"
       ],
@@ -188,6 +200,9 @@
       ],
       "Content": [
         "შემცველობა"
+      ],
+      "Copy to clipboard": [
+        ""
       ],
       "Could not find host identified by: %s": [
         "ჰოსტი იდენტიფიკატორით %s ვერ ვპოვე"
@@ -300,8 +315,14 @@
       "Directory to upload when using \\\"directory\\\" upload type": [
         "ატვირთვის ტიპის \\\"directory\\\" გამოყენებისას ასატვირთი საქაღალდე"
       ],
+      "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment.": [
+        ""
+      ],
       "Documentation": [
         "დოკუმენტაცია"
+      ],
+      "Done": [
+        ""
       ],
       "Download": [
         "ჩამოტვირთვა"
@@ -498,6 +519,9 @@
       "It may sometimes be required to adjust the security policy to your specific needs. ": [
         ""
       ],
+      "Job details": [
+        ""
+      ],
       "Latest Compliance Reports": [
         "თავსებადობის უახლესი ანგარიშები"
       ],
@@ -531,8 +555,14 @@
       "Locations": [
         "მდებარეობები"
       ],
+      "Manual": [
+        ""
+      ],
       "Message": [
         "შეტყობინება"
+      ],
+      "Method": [
+        ""
       ],
       "Monthly, day of month: %s": [
         ""
@@ -669,6 +699,9 @@
       "Number of a day in month, note that not all months have same count of days": [
         "თვის დღეების რაოდენობა. გაითვალისწინეთ, რომ ყველა თვეში დღეების რაოდენობა ტოლი არაა"
       ],
+      "OS": [
+        ""
+      ],
       "OVAL Content": [
         "OVAL-ის შემცველობა"
       ],
@@ -768,6 +801,9 @@
       "Other": [
         "სხვები"
       ],
+      "Other hosts failing this rule": [
+        ""
+      ],
       "Othered": [
         "Othered"
       ],
@@ -858,6 +894,9 @@
       "Rationale": [
         ""
       ],
+      "Reboot the system(s)": [
+        ""
+      ],
       "Red Hat %s default content": [
         ""
       ],
@@ -867,8 +906,20 @@
       "References": [
         "ბმები"
       ],
+      "Remediate %s rule": [
+        ""
+      ],
+      "Remediation": [
+        ""
+      ],
+      "Remediation might render the system non-functional.": [
+        ""
+      ],
       "Remote action:": [
         "დაშორებული ქმედება:"
+      ],
+      "Remote job": [
+        ""
       ],
       "Report Metrics": [
         "ანგარიშის მეტრიკები"
@@ -906,11 +957,32 @@
       "Result": [
         "შედეგი"
       ],
+      "Review hosts": [
+        ""
+      ],
+      "Review remediation": [
+        ""
+      ],
+      "Review the remediation snippet and apply it to the host manually.": [
+        ""
+      ],
+      "Review the remediation snippet that will be applied to selected host(s).": [
+        ""
+      ],
       "Rule Results": [
         "წესის შედეგები"
       ],
+      "Run": [
+        ""
+      ],
       "Run OVAL scan": [
         "OVAL-ის სკანირების გაშვება"
+      ],
+      "Run OpenSCAP remediation with Ansible": [
+        ""
+      ],
+      "Run OpenSCAP remediation with Shell": [
+        ""
       ],
       "Run OpenSCAP scan": [
         "OpenSCAP სკანირების გაშვება"
@@ -954,6 +1026,12 @@
       "Select all items in this page": [
         "ამ გვერდზე ყველა ჩანაწერის მონიშვნა"
       ],
+      "Select remediation method": [
+        ""
+      ],
+      "Select snippet": [
+        ""
+      ],
       "Severity": [
         "სიმძიმე"
       ],
@@ -996,6 +1074,9 @@
       "Smart Class Parameters": [
         "ჭკვიანი კლასის მორგება"
       ],
+      "Snippet": [
+        ""
+      ],
       "Something went wrong while selecting compliance reports - %s": [
         ""
       ],
@@ -1013,6 +1094,9 @@
       ],
       "Submit": [
         "გაგზავნა"
+      ],
+      "Successfully copied to clipboard!": [
+        ""
       ],
       "Successfully deleted %s compliance reports": [
         "%s შესაბამისობის ანგარიში წარმატებით წაიშალა"
@@ -1074,8 +1158,14 @@
       "The identifier of the host": [
         "ჰოსტის იდენტიფიკატორი"
       ],
+      "The job has started on selected host(s), you can check the status on the job details page.": [
+        ""
+      ],
       "There are significant differences in deployment options.": [
         "გაშლის პარამეტრებში მნიშვნელობანი ცვლილებებია."
+      ],
+      "There is no job to remediate with. Please remediate manually.": [
+        ""
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
         ""
@@ -1198,6 +1288,9 @@
       "View full report": [
         "სრული ანგარიშის ნახვა"
       ],
+      "View selected hosts": [
+        ""
+      ],
       "Was %s configured successfully?": [
         "%s წარმატებითაა მორგებული?"
       ],
@@ -1226,6 +1319,9 @@
         "დიახ"
       ],
       "You are not authorized to view the page. ": [
+        ""
+      ],
+      "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         ""
       ],
       "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [

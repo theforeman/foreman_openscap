@@ -65,6 +65,12 @@ msgstr "%{type} wurde ausgewählt, um die Richtlinie für Clients bereitzustelle
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP Zusammenfassung"
 
+msgid "A reboot is required after applying remediation."
+msgstr ""
+
+msgid "A reboot might be required after applying remediation."
+msgstr ""
+
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "Eine Zusammenfassung der Berichte für OpenSCAP-Richtlinien"
 
@@ -116,6 +122,9 @@ msgstr "Weisen Sie openscap_proxy zu %s zu, bevor Sie fortfahren."
 msgid "Back"
 msgstr "Zurück"
 
+msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
+msgstr ""
+
 msgid "CVEs"
 msgstr ""
 
@@ -161,6 +170,9 @@ msgstr "Zeitraum auswählen"
 msgid "Choose weekday"
 msgstr "Wochentag auswählen"
 
+msgid "Close"
+msgstr ""
+
 msgid "Compliance"
 msgstr "Konformität"
 
@@ -192,6 +204,9 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Content"
+msgstr ""
+
+msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Could not find host identified by: %s"
@@ -305,8 +320,14 @@ msgstr "Details zur Compliance-Richtlinie %s"
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr "Hochzuladendes Verzeichnis, wenn der Upload-Typ \"Verzeichnis\" verwendet wird"
 
+msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
+msgstr ""
+
 msgid "Documentation"
 msgstr "Dokumentation"
+
+msgid "Done"
+msgstr ""
 
 msgid "Download"
 msgstr "Herunterladen"
@@ -512,6 +533,9 @@ msgstr "Ist theforeman.foreman_scap_client vorhanden?"
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "Es könnte angebracht sein die Sicherheits-Richtlinien den eigenen Anforderungen anzupassen."
 
+msgid "Job details"
+msgstr ""
+
 msgid "Latest Compliance Reports"
 msgstr "Neuste Compliance-Berichte "
 
@@ -545,8 +569,14 @@ msgstr "Ladevorgang …"
 msgid "Locations"
 msgstr "Standorte"
 
+msgid "Manual"
+msgstr ""
+
 msgid "Message"
 msgstr "Nachricht"
+
+msgid "Method"
+msgstr ""
 
 msgid "Monthly, day of month: %s"
 msgstr ""
@@ -683,6 +713,9 @@ msgstr "Anzahl der Ereignisse"
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr "Tag des Monats, beachten Sie, dass nicht alle Monate gleich viele Tage haben"
 
+msgid "OS"
+msgstr ""
+
 msgid "OVAL Content"
 msgstr "OVAL-Inhalt"
 
@@ -782,6 +815,9 @@ msgstr "Ursprünglicher Dateiname der XML-Datei"
 msgid "Other"
 msgstr "Weitere"
 
+msgid "Other hosts failing this rule"
+msgstr ""
+
 msgid "Othered"
 msgstr "Anderweitiges Ergebnis"
 
@@ -874,6 +910,9 @@ msgstr "Puppet-Klasse"
 msgid "Rationale"
 msgstr "Begründung"
 
+msgid "Reboot the system(s)"
+msgstr ""
+
 msgid "Red Hat %s default content"
 msgstr ""
 
@@ -883,8 +922,20 @@ msgstr "Ref-ID"
 msgid "References"
 msgstr "Verweise"
 
+msgid "Remediate %s rule"
+msgstr ""
+
+msgid "Remediation"
+msgstr ""
+
+msgid "Remediation might render the system non-functional."
+msgstr ""
+
 msgid "Remote action:"
 msgstr "Entfernte Aktion"
+
+msgid "Remote job"
+msgstr ""
 
 msgid "Report Metrics"
 msgstr "Berichtsmetrik"
@@ -922,11 +973,32 @@ msgstr "Ressource"
 msgid "Result"
 msgstr "Ergebnis"
 
+msgid "Review hosts"
+msgstr ""
+
+msgid "Review remediation"
+msgstr ""
+
+msgid "Review the remediation snippet and apply it to the host manually."
+msgstr ""
+
+msgid "Review the remediation snippet that will be applied to selected host(s)."
+msgstr ""
+
 msgid "Rule Results"
 msgstr "Regelergebnisse"
 
+msgid "Run"
+msgstr ""
+
 msgid "Run OVAL scan"
 msgstr "OVAL-Scan ausführen"
+
+msgid "Run OpenSCAP remediation with Ansible"
+msgstr ""
+
+msgid "Run OpenSCAP remediation with Shell"
+msgstr ""
 
 msgid "Run OpenSCAP scan"
 msgstr "Führe OpenSCAP Scan aus"
@@ -970,6 +1042,12 @@ msgstr "Wähle OpenSCAP-Proxy"
 msgid "Select all items in this page"
 msgstr "Alle Elemente auf dieser Seite auswählen"
 
+msgid "Select remediation method"
+msgstr ""
+
+msgid "Select snippet"
+msgstr ""
+
 msgid "Severity"
 msgstr "Schweregrad"
 
@@ -1012,6 +1090,9 @@ msgstr "Protokollnachrichten anzeigen:"
 msgid "Smart Class Parameters"
 msgstr "Smart-Class-Parameter"
 
+msgid "Snippet"
+msgstr ""
+
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Fehler bei der Auswahl der Compliance-Berichte - %s"
 
@@ -1029,6 +1110,9 @@ msgstr "Statustabelle"
 
 msgid "Submit"
 msgstr "Absenden"
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "Compliance-Berichte %s erfolgreich gelöscht"
@@ -1094,8 +1178,14 @@ msgstr "Die folgenden Proxys konnten nicht erreicht werden: %s . Bitte stellen S
 msgid "The identifier of the host"
 msgstr "Die Kennung des Hosts"
 
+msgid "The job has started on selected host(s), you can check the status on the job details page."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "Es gibt erhebliche Unterschiede bei den Bereitstellungsoptionen."
+
+msgid "There is no job to remediate with. Please remediate manually."
+msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
 msgstr ""
@@ -1219,6 +1309,9 @@ msgstr "Bericht anzeigen"
 msgid "View full report"
 msgstr "Ganzen Bericht anzeigen"
 
+msgid "View selected hosts"
+msgstr ""
+
 msgid "Was %s configured successfully?"
 msgstr "Wurde  %serfolgreich konfiguriert?"
 
@@ -1247,6 +1340,9 @@ msgid "Yes"
 msgstr "Ja"
 
 msgid "You are not authorized to view the page. "
+msgstr ""
+
+msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
