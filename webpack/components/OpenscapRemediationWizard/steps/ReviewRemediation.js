@@ -58,16 +58,14 @@ const ReviewRemediation = () => {
 
   const description =
     method === 'manual'
-      ? __(
-          'Please review the remediation snippet and apply to the host manually.'
-        )
+      ? __('Review the remediation snippet and apply it to the host manually.')
       : __(
-          'Please review the remediation snippet that will be applied to selected host(s).'
+          'Review the remediation snippet that will be applied to selected host(s).'
         );
 
   const rebootAlertTitle = isRebootRequired()
-    ? __('A reboot is required.')
-    : __('A reboot might be needed.');
+    ? __('A reboot is required after applying remediation.')
+    : __('A reboot might be required after applying remediation.');
 
   const actions = (
     <React.Fragment>
@@ -148,15 +146,7 @@ const ReviewRemediation = () => {
                 ouiaId="reboot-alert"
                 variant={isRebootRequired() ? 'warning' : 'info'}
                 title={rebootAlertTitle}
-              >
-                {method === 'manual' ? null : (
-                  <p>
-                    {__(
-                      'You can tick the checkbox below to reboot the system(s) automatically after the remediation is applied.'
-                    )}
-                  </p>
-                )}
-              </Alert>
+              />
             </GridItem>
             {method === 'manual' ? null : (
               <GridItem span={4} rowSpan={1}>

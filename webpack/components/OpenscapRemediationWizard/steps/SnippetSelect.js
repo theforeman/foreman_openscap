@@ -149,7 +149,7 @@ const SnippetSelect = () => {
       <WizardHeader
         title={__('Select remediation method')}
         description={__(
-          'Choose whether to run a remote job or show the snippet for manual remediation.'
+          'You can remediate by running a remote job or you can display a snippet for manual remediation.'
         )}
       />
       {logStatus === STATUS.PENDING ? <Loading /> : body}

@@ -173,7 +173,7 @@ const ReviewHosts = () => {
       <WizardHeader
         title={__('Review hosts')}
         description={__(
-          'The remediation will be applied to the current host by default. Here you can select additional hosts which fail the same rule.'
+          'By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.'
         )}
       />
       <Toolbar ouiaId="table-toolbar" className="table-toolbar">
