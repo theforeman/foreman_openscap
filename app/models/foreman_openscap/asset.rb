@@ -1,6 +1,6 @@
 module ForemanOpenscap
   class Asset < ApplicationRecord
-    has_many :asset_policies
+    has_many :asset_policies, :dependent => :delete_all
     has_many :policies, :through => :asset_policies
     belongs_to :assetable, :polymorphic => true
 
