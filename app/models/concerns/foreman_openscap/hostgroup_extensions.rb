@@ -5,8 +5,8 @@ module ForemanOpenscap
     include InheritedPolicies
 
     included do
-      has_one :asset, :as => :assetable, :class_name => "::ForemanOpenscap::Asset", dependent: :destroy
-      has_many :asset_policies, :through => :asset, :class_name => "::ForemanOpenscap::AssetPolicy"
+      has_many :assets, :as => :assetable, :class_name => "::ForemanOpenscap::Asset", dependent: :destroy
+      has_many :asset_policies, :through => :assets, :class_name => "::ForemanOpenscap::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
     end
 
