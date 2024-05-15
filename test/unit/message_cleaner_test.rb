@@ -1,4 +1,5 @@
 require 'test_plugin_helper'
+require 'foreman_openscap/message_cleaner'
 
 class MessageCleanerTest < ActiveSupport::TestCase
   setup do
