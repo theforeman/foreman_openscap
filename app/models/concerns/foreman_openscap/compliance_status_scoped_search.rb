@@ -109,11 +109,15 @@ module ForemanOpenscap
 
     included do
       if ForemanOpenscap.with_katello?
-        has_one :lifecycle_environment, :through => :host
+        has_one :content_facet, :through => :host
+        has_many :content_view_environment_content_facets, through: :content_facet, class_name: 'Katello::ContentViewEnvironmentContentFacet'
+        has_many :content_view_environments, through: :content_view_environment_content_facets
+        has_many :content_views, through: :content_view_environments
+        has_many :lifecycle_environments, through: :content_view_environments
 
         has_many :host_collections, :through => :host
 
-        scoped_search :relation => :lifecycle_environment, :on => :name, :complete_value => true, :rename => :lifecycle_environment
+        scoped_search :relation => :lifecycle_environments, :on => :name, :complete_value => true, :rename => :lifecycle_environment
         scoped_search :relation => :host_collections, :on => :name, :complete_value => true, :rename => :host_collection,
                       :operators => ['= ', '!= '], :ext_method => :search_by_host_collection_name
       end
