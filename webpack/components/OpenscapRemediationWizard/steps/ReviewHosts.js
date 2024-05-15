@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 import React, { useContext, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import {
@@ -160,11 +161,18 @@ const ReviewHosts = () => {
   const columns = {
     name: {
       title: __('Name'),
-      wrapper: ({ id, name }) => <a href={foremanUrl(`hosts/${id}`)}>{name}</a>,
+      wrapper: ({ id, display_name: displayName }) => (
+        <a href={foremanUrl(`hosts/${id}`)}>{displayName}</a>
+      ),
       isSorted: true,
+      weight: 50,
+      isRequired: true,
     },
-    operatingsystem_name: {
+    os_title: {
       title: __('OS'),
+      wrapper: hostDetails => hostDetails?.operatingsystem_name,
+      isSorted: true,
+      weight: 200,
     },
   };
 
