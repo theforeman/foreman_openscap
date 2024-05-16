@@ -6,7 +6,7 @@ import { Button } from '@patternfly/react-core';
 
 import { translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';
-import { getHostsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
+import { useForemanHostsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
 
 const ViewSelectedHostsLink = ({
   hostIdsParam,
@@ -14,7 +14,7 @@ const ViewSelectedHostsLink = ({
   defaultFailedHostsSearch,
 }) => {
   const search = isAllHostsSelected ? defaultFailedHostsSearch : hostIdsParam;
-  const url = foremanUrl(`${getHostsPageUrl(false)}?search=${search}`);
+  const url = foremanUrl(`${useForemanHostsPageUrl()}?search=${search}`);
   return (
     <Button
       component="a"
