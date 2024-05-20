@@ -17,7 +17,6 @@ class ScapContentTest < ActiveSupport::TestCase
 
     test 'scap content should fail if no openscap proxy' do
       SmartProxy.stubs(:with_features).returns([])
-      ProxyAPI::AvailableProxy.any_instance.stubs(:available?).returns(false)
       scap_content = ForemanOpenscap::ScapContent.new(:title => 'Fedora', :scap_file => @scap_file)
       refute(scap_content.save)
       assert_includes(scap_content.errors.messages[:base], 'No proxy with OpenSCAP feature was found.')
@@ -26,8 +25,8 @@ class ScapContentTest < ActiveSupport::TestCase
     test 'proxy_url should return the first available proxy it finds' do
       available_proxy = SmartProxy.with_features('Openscap').first
       unavailable_proxy = FactoryBot.create(:smart_proxy, :url => 'http://proxy.example.com:8443', :features => [FactoryBot.create(:feature, :name => 'Openscap')])
-      available_proxy.stubs(:proxy_url).returns(available_proxy.url)
-      unavailable_proxy.stubs(:proxy_url).returns(nil)
+      SmartProxy.expects(:with_features).with('Openscap').returns([unavailable_proxy, available_proxy])
+      SmartProxy.any_instance.expects(:ping).twice.returns(false).then.returns(true)
       scap_content = ForemanOpenscap::ScapContent.new(:title => 'Fedora', :scap_file => @scap_file)
       assert_equal(available_proxy.url, scap_content.proxy_url)
     end

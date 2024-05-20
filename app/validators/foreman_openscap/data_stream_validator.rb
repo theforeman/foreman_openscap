@@ -22,7 +22,7 @@ module ForemanOpenscap
           errors['errors'].each { |error| data_stream_content.errors.add(:scap_file, _(error)) }
           return false
         end
-      rescue *ProxyAPI::AvailableProxy::HTTP_ERRORS => e
+      rescue *ProxyAPI::Openscap::HTTP_ERRORS => e
         data_stream_content.errors.add(:base, _('No available proxy to validate. Returned with error: %s') % e)
         return false
       end
