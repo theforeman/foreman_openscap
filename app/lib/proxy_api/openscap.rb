@@ -1,5 +1,16 @@
 module ::ProxyAPI
   class Openscap < ::ProxyAPI::Resource
+    HTTP_ERRORS = [
+      EOFError,
+      Errno::ECONNRESET,
+      Errno::EINVAL,
+      Net::HTTPBadResponse,
+      Net::HTTPHeaderSyntaxError,
+      Net::ProtocolError,
+      Timeout::Error,
+      ProxyAPI::ProxyException
+    ].freeze
+
     def initialize(args)
       @url = args[:url] + '/compliance/'
       super args

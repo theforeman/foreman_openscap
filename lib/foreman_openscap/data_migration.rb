@@ -6,14 +6,15 @@ require 'tempfile'
 module ForemanOpenscap
   class DataMigration
     def initialize(proxy_id)
-      @proxy = ::SmartProxy.find(proxy_id)
-      puts "Found proxy #{@proxy.to_label}"
-      @url = @proxy.url
+      @proxy = ::SmartProxy.with_features('Openscap').where(id: proxy_id).first
+      if @proxy
+        puts "Found proxy #{@proxy.to_label}"
+        @url = @proxy.url
+      end
     end
 
     def available?
-      return false unless @proxy && @url
-      ::ProxyAPI::AvailableProxy.new(:url => @url).available? && foreman_available?
+      @proxy&.ping && foreman_available?
     end
 
     def migrate
@@ -47,7 +48,7 @@ module ForemanOpenscap
       foreman_status_url = Setting[:foreman_url] + '/status'
       response = JSON.parse(RestClient.get(foreman_status_url))
       return true if response["status"] == "ok"
-    rescue *::ProxyAPI::AvailableProxy::HTTP_ERRORS
+    rescue *::ProxyAPI::Openscap::HTTP_ERRORS
       return false
     end
 

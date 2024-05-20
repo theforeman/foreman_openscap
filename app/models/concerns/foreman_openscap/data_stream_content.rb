@@ -10,11 +10,7 @@ module ForemanOpenscap
     end
 
     def proxy_url
-      @proxy_url ||= SmartProxy.with_features('Openscap').find do |proxy|
-        available = ProxyAPI::AvailableProxy.new(:url => proxy.url)
-        available.available?
-      end.try(:url)
-      @proxy_url
+      @proxy_url ||= SmartProxy.with_features('Openscap').find(&:ping)&.url
     end
 
     def create_profiles
