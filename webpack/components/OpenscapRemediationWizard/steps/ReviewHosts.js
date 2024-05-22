@@ -7,6 +7,7 @@ import {
   ToolbarContent,
   ToolbarGroup,
   ToolbarItem,
+  Button,
 } from '@patternfly/react-core';
 import { Td } from '@patternfly/react-table';
 import { toArray } from 'lodash';
@@ -19,6 +20,7 @@ import { useBulkSelect } from 'foremanReact/components/PF4/TableIndexPage/Table/
 import { getPageStats } from 'foremanReact/components/PF4/TableIndexPage/Table/helpers';
 import { STATUS } from 'foremanReact/constants';
 import { useAPI } from 'foremanReact/common/hooks/API/APIHooks';
+import { useForemanHostDetailsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import WizardHeader from '../WizardHeader';
@@ -158,11 +160,19 @@ const ReviewHosts = () => {
     rowData: PropTypes.object.isRequired,
   };
 
+  const hostDetailsURL = useForemanHostDetailsPageUrl();
   const columns = {
     name: {
       title: __('Name'),
-      wrapper: ({ id, display_name: displayName }) => (
-        <a href={foremanUrl(`hosts/${id}`)}>{displayName}</a>
+      wrapper: ({ name, display_name: displayName }) => (
+        <Button
+          component="a"
+          variant="link"
+          target="_blank"
+          href={foremanUrl(`${hostDetailsURL}${name}`)}
+        >
+          {displayName}
+        </Button>
       ),
       isSorted: true,
       weight: 50,
