@@ -16,12 +16,15 @@ import { ExternalLinkSquareAltIcon } from '@patternfly/react-icons';
 
 import { translate as __ } from 'foremanReact/common/I18n';
 import { foremanUrl } from 'foremanReact/common/helpers';
-import { getHostsPageUrl } from 'foremanReact/Root/Context/ForemanContext';
+import {
+  useForemanHostsPageUrl,
+  useForemanHostDetailsPageUrl,
+} from 'foremanReact/Root/Context/ForemanContext';
 
 import OpenscapRemediationWizardContext from '../OpenscapRemediationWizardContext';
 import WizardHeader from '../WizardHeader';
 import ViewSelectedHostsLink from '../ViewSelectedHostsLink';
-import { HOSTS_PATH, FAIL_RULE_SEARCH } from '../constants';
+import { FAIL_RULE_SEARCH } from '../constants';
 import { findFixBySnippet } from '../helpers';
 
 import './ReviewRemediation.scss';
@@ -120,7 +123,7 @@ const ReviewRemediation = () => {
             iconPosition="right"
             target="_blank"
             component="a"
-            href={foremanUrl(`${getHostsPageUrl(true)}/${hostName}`)}
+            href={foremanUrl(`${useForemanHostDetailsPageUrl()}${hostName}`)}
           >
             {hostName}
           </Button>{' '}
@@ -133,7 +136,7 @@ const ReviewRemediation = () => {
             target="_blank"
             component="a"
             href={foremanUrl(
-              `${HOSTS_PATH}/?search=${FAIL_RULE_SEARCH} = ${source}`
+              `${useForemanHostsPageUrl()}?search=${FAIL_RULE_SEARCH} = ${source}`
             )}
           >
             {__('Other hosts failing this rule')}
