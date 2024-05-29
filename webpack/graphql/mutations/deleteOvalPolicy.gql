@@ -1,9 +1,0 @@
-mutation DeleteOvalPolicy($id: ID!) {
-  deleteOvalPolicy(input: { id: $id }) {
-    id
-    errors {
-      path
-      message
-    }
-  }
-}

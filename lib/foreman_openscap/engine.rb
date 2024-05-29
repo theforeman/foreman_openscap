@@ -43,7 +43,7 @@ module ForemanOpenscap
     end
 
     initializer 'foreman_openscap.filter_large_params' do |app|
-      app.config.filter_parameters += %i[logs scap_file oval_results] if app.config.filter_parameters
+      app.config.filter_parameters += %i[logs scap_file] if app.config.filter_parameters
     end
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
@@ -54,7 +54,6 @@ module ForemanOpenscap
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
 
         register_custom_status ForemanOpenscap::ComplianceStatus
-        register_custom_status ForemanOpenscap::OvalStatus
 
         # Add permissions
         security_block :foreman_openscap do
@@ -123,24 +122,6 @@ module ForemanOpenscap
                      :resource_type => 'ForemanOpenscap::TailoringFile'
           permission :view_openscap_proxies, { :openscap_proxies => [:openscap_spool] },
                      :resource_type => 'SmartProxy'
-          permission :view_oval_contents, { 'api/v2/compliance/oval_contents' => %i[index show] },
-                     :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :edit_oval_contents, { 'api/v2/compliance/oval_contents' => %i[update sync] },
-                     :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :create_oval_contents, { 'api/v2/compliance/oval_contents' => %i[create] },
-                     :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :destroy_oval_contents, { 'api/v2/compliance/oval_contents' => %i[destroy] },
-                     :resource_type => 'ForemanOpenscap::OvalContent'
-          permission :view_oval_policies, { 'api/v2/compliance/oval_policies' => %i[index show oval_content] },
-                     :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :edit_oval_policies, { 'api/v2/compliance/oval_policies' => %i[update assign_hosts assign_hostgroups] },
-                     :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :create_oval_policies, { 'api/v2/compliance/oval_policies' => %i[create] },
-                     :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :destroy_oval_policies, { 'api/v2/compliance/oval_policies' => %i[destroy] },
-                     :resource_type => 'ForemanOpenscap::OvalPolicy'
-          permission :create_oval_policies, { 'api/v2/compliance/oval_reports' => %i[create] },
-                     :resource_type => 'ForemanOpenscap::Cve'
         end
 
         role "Compliance viewer", %i[view_arf_reports view_policies view_scap_contents view_tailoring_files view_openscap_proxies],
@@ -169,15 +150,7 @@ module ForemanOpenscap
         menu :top_menu, :compliance_files, :caption => N_('Tailoring Files'),
                                            :url_hash => { :controller => :tailoring_files, :action => :index },
                                            :parent => :hosts_menu
-        menu :labs_menu, :oval_contents, :caption => N_('OVAL Contents'),
-                                         :url_hash => { :controller => 'react', :action => 'index' },
-                                         :url => '/experimental/compliance/oval_contents',
-                                         :parent => :lab_features_menu
 
-        menu :labs_menu, :oval_policies, :caption => N_('OVAL Policies'),
-                                         :url_hash => { :controller => 'react', :action => 'index' },
-                                         :url => '/experimental/compliance/oval_policies',
-                                         :parent => :lab_features_menu
         # add dashboard widget
         widget 'compliance_host_reports_widget',
                :name => N_('Latest Compliance Reports'), :sizex => 6, :sizey => 1
@@ -219,27 +192,6 @@ module ForemanOpenscap
 
         register_global_js_file 'global'
 
-        register_graphql_query_field :oval_contents, '::Types::OvalContent', :collection_field
-        register_graphql_query_field :oval_content, '::Types::OvalContent', :record_field
-        register_graphql_query_field :oval_policies, '::Types::OvalPolicy', :collection_field
-        register_graphql_query_field :oval_policy, '::Types::OvalPolicy', :record_field
-        register_graphql_query_field :cves, '::Types::Cve', :collection_field
-
-        register_graphql_mutation_field :delete_oval_policy, ::Mutations::OvalPolicies::Delete
-        register_graphql_mutation_field :delete_oval_content, ::Mutations::OvalContents::Delete
-        register_graphql_mutation_field :update_oval_policy, ::Mutations::OvalPolicies::Update
-        register_graphql_mutation_field :create_oval_policy, ::Mutations::OvalPolicies::Create
-
-        register_facet ForemanOpenscap::Host::OvalFacet, :oval_facet do
-          configure_host do
-            extend_model ForemanOpenscap::OvalFacetHostExtensions
-          end
-
-          configure_hostgroup(ForemanOpenscap::Hostgroup::OvalFacet) do
-            extend_model ForemanOpenscap::OvalFacetHostgroupExtensions
-          end
-        end
-
         describe_host do
           multiple_actions_provider :compliance_host_multiple_actions
           overview_buttons_provider :compliance_host_overview_button
@@ -271,10 +223,6 @@ module ForemanOpenscap
           :provided_inputs => "policies"
         }
 
-        oval_options = {
-          :description => N_("Run OVAL scan")
-        }
-
         ansible_remediation_options = {
           :description => N_("Run OpenSCAP remediation with Ansible"),
           :provided_inputs => ["tasks", "reboot"]
@@ -287,11 +235,9 @@ module ForemanOpenscap
 
         if Gem::Version.new(ForemanRemoteExecution::VERSION) >= Gem::Version.new('1.2.3')
           options[:host_action_button] = true
-          oval_options[:host_action_button] = (!::Foreman.in_rake? && ActiveRecord::Base.connection.table_exists?(:settings)) ? (Setting.find_by(:name => 'lab_features')&.value || false) : false
         end
 
         RemoteExecutionFeature.register(:foreman_openscap_run_scans, N_("Run OpenSCAP scan"), options)
-        RemoteExecutionFeature.register(:foreman_openscap_run_oval_scans, N_("Run OVAL scan"), oval_options)
         RemoteExecutionFeature.register(:ansible_run_openscap_remediation, N_("Run OpenSCAP remediation with Ansible"), ansible_remediation_options)
         RemoteExecutionFeature.register(:script_run_openscap_remediation, N_("Run OpenSCAP remediation with Shell"), script_remediation_options)
       end

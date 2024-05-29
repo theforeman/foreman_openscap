@@ -8,8 +8,6 @@ FactoryBot.definition_file_paths << File.join(ForemanAnsible::Engine.root, '/tes
 FactoryBot.definition_file_paths << File.join(ForemanPuppet::Engine.root, '/test/factories') if defined?(ForemanPuppet::Engine)
 FactoryBot.reload
 
-require "#{ForemanOpenscap::Engine.root}/test/fixtures/cve_fixtures"
-
 module ScapClientPuppetclass
   def puppet_available?
     Foreman::Plugin.installed?("foreman_puppet")
