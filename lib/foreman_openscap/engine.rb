@@ -5,15 +5,6 @@ module ForemanOpenscap
 
   class Engine < ::Rails::Engine
     engine_name 'foreman_openscap'
-    config.autoload_paths += Dir["#{config.root}/app/controllers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/helpers/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/models/concerns"]
-    config.autoload_paths += Dir["#{config.root}/app/models"]
-    config.autoload_paths += Dir["#{config.root}/app/graphql"]
-    config.autoload_paths += Dir["#{config.root}/app/lib"]
-    config.autoload_paths += Dir["#{config.root}/app/services"]
-    config.autoload_paths += Dir["#{config.root}/lib"]
-    config.autoload_paths += Dir["#{config.root}/test/"]
 
     # Add any db migrations
     initializer "foreman_openscap.load_app_instance_data" do |app|
@@ -48,7 +39,7 @@ module ForemanOpenscap
 
     initializer 'foreman_openscap.register_plugin', :before => :finisher_hook do |app|
       Foreman::Plugin.register :foreman_openscap do
-        requires_foreman '>= 3.11'
+        requires_foreman '>= 3.12'
         register_gettext
 
         apipie_documented_controllers ["#{ForemanOpenscap::Engine.root}/app/controllers/api/v2/compliance/*.rb"]
