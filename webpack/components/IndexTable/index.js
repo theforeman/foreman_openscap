@@ -11,6 +11,7 @@ const IndexTable = ({
   totalCount,
   toolbarBtns,
   ariaTableLabel,
+  ouiaTableId,
   columns,
   ...rest
 }) => {
@@ -38,6 +39,7 @@ const IndexTable = ({
         </FlexItem>
       </Flex>
       <Table
+        ouiaId={ouiaTableId}
         aria-label={ariaTableLabel}
         cells={columns}
         {...rest}
@@ -56,6 +58,7 @@ IndexTable.propTypes = {
   toolbarBtns: PropTypes.node,
   totalCount: PropTypes.number.isRequired,
   ariaTableLabel: PropTypes.string.isRequired,
+  ouiaTableId: PropTypes.string.isRequired,
   columns: PropTypes.array.isRequired,
 };
 

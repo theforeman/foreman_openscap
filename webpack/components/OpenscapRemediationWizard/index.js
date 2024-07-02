@@ -132,6 +132,7 @@ const OpenscapRemediationWizard = ({
         </OpenscapRemediationWizardContext.Provider>
       )}
       <Button
+        ouiaId="oscap-rem-wiz-open-wiz-button"
         id="openscapRemediationWizardButton"
         variant="link"
         isInline

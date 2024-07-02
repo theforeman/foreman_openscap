@@ -25,6 +25,7 @@ export const SelectField = props => {
       validated={valid}
     >
       <FormSelect
+        ouiaId={`oscap-form-sel-${field.name}`}
         {...fieldProps}
         className="without_select2"
         aria-label={fieldProps.name}

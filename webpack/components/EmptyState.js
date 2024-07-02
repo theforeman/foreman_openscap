@@ -29,11 +29,19 @@ const EmptyStateIcon = ({ error, search, lock }) => {
   return <PfEmptyStateIcon icon={CubeIcon} />;
 };
 
-const EmptyState = ({ title, body, error, search, lock, primaryButton }) => (
+const EmptyState = ({
+  title,
+  body,
+  error,
+  search,
+  lock,
+  primaryButton,
+  ouiaEmptyStateTitleId,
+}) => (
   <Bullseye>
     <PfEmptyState variant={EmptyStateVariant.small}>
       <EmptyStateIcon error={!!error} search={search} lock={lock} />
-      <Title headingLevel="h2" size="lg">
+      <Title ouiaId={ouiaEmptyStateTitleId} headingLevel="h2" size="lg">
         {title}
       </Title>
       <EmptyStateBody>{body}</EmptyStateBody>
@@ -65,6 +73,7 @@ EmptyState.propTypes = {
   search: PropTypes.bool,
   lock: PropTypes.bool,
   primaryButton: PropTypes.node,
+  ouiaEmptyStateTitleId: PropTypes.string,
 };
 
 EmptyState.defaultProps = {
@@ -75,6 +84,7 @@ EmptyState.defaultProps = {
   search: false,
   lock: false,
   primaryButton: null,
+  ouiaEmptyStateTitleId: 'oscap-empty-state-title',
 };
 
 export default EmptyState;

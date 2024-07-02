@@ -118,6 +118,7 @@ const ReviewRemediation = () => {
         </GridItem>
         <GridItem md={12} span={4} rowSpan={1}>
           <Button
+            ouiaId={`oscap-wiz-host-details-button-${hostName}-revrem-step`}
             variant="link"
             icon={<ExternalLinkSquareAltIcon />}
             iconPosition="right"
@@ -130,6 +131,7 @@ const ReviewRemediation = () => {
         </GridItem>
         <GridItem md={12} span={8} rowSpan={1}>
           <Button
+            ouiaId={`oscap-wiz-ext-link-to-hosts-${source}-revrem-step`}
             variant="link"
             icon={<ExternalLinkSquareAltIcon />}
             iconPosition="right"
@@ -154,6 +156,7 @@ const ReviewRemediation = () => {
             {method === 'manual' ? null : (
               <GridItem span={4} rowSpan={1}>
                 <Checkbox
+                  ouiaId="oscap-wiz-reboot-checkbox-revrem-step"
                   id="reboot-checkbox"
                   label={__('Reboot the system(s)')}
                   name="reboot-checkbox"

@@ -166,6 +166,7 @@ const ReviewHosts = () => {
       title: __('Name'),
       wrapper: ({ name, display_name: displayName }) => (
         <Button
+          ouiaId={`oscap-rem-wiz-ext-link-to-host-${name}-revhst-step`}
           component="a"
           variant="link"
           target="_blank"

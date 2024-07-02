@@ -141,7 +141,12 @@ const SnippetSelect = () => {
         )}
       </Form>
     ) : (
-      <EmptyState error title={__('Error!')} body={errorMsg(logError)} />
+      <EmptyState
+        ouiaEmptyStateTitleId="oscap-rem-wiz-empty-state-title"
+        error
+        title={__('Error!')}
+        body={errorMsg(logError)}
+      />
     );
 
   return (
