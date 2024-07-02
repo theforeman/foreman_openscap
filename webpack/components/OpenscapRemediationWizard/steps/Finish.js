@@ -74,6 +74,7 @@ const Finish = ({ onClose }) => {
 
   const linkToJob = (
     <Button
+      ouiaId="oscap-rem-wiz-job-details-link"
       variant="link"
       icon={<ExternalLinkSquareAltIcon />}
       iconPosition="right"
@@ -84,7 +85,11 @@ const Finish = ({ onClose }) => {
       {__('Job details')}
     </Button>
   );
-  const closeBtn = <Button onClick={onClose}>{__('Close')}</Button>;
+  const closeBtn = (
+    <Button ouiaId="oscap-rem-wiz-close-button-fin-step" onClick={onClose}>
+      {__('Close')}
+    </Button>
+  );
   const errorComponent =
     statusCode === 403 ? (
       <PermissionDenied

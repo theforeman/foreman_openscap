@@ -17,6 +17,7 @@ const ViewSelectedHostsLink = ({
   const url = foremanUrl(`${useForemanHostsPageUrl()}?search=${search}`);
   return (
     <Button
+      ouiaId="oscap-rem-wiz-ext-link-to-hosts"
       component="a"
       variant="link"
       icon={<ExternalLinkSquareAltIcon />}
