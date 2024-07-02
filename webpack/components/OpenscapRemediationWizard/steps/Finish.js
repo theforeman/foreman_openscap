@@ -98,6 +98,7 @@ const Finish = ({ onClose }) => {
       />
     ) : (
       <EmptyState
+        ouiaEmptyStateTitleId="oscap-rem-wiz-empty-state-title"
         error
         title={__('Error!')}
         body={errorMsg(data)}
@@ -107,6 +108,7 @@ const Finish = ({ onClose }) => {
   const body =
     status === STATUS.RESOLVED ? (
       <EmptyState
+        ouiaEmptyStateTitleId="oscap-rem-wiz-empty-state-title"
         title={__(
           'The job has started on selected host(s), you can check the status on the job details page.'
         )}

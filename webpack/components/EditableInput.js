@@ -62,6 +62,7 @@ const EditableInput = props => {
   const editBtn = (
     <SplitItem>
       <Button
+        ouiaId={`oscap-edit-${props.attrName}-edit-button`}
         className="inline-edit-icon"
         aria-label={`edit ${props.attrName}`}
         variant="plain"
@@ -115,6 +116,7 @@ const EditableInput = props => {
       </SplitItem>
       <SplitItem>
         <Button
+          ouiaId={`oscap-edit-${props.attrName}-submit-button`}
           aria-label={`submit ${props.attrName}`}
           variant="plain"
           onClick={onSubmit}
@@ -125,6 +127,7 @@ const EditableInput = props => {
       </SplitItem>
       <SplitItem>
         <Button
+          ouiaId={`oscap-edit-${props.attrName}-cancel-button`}
           aria-label={`cancel editing ${props.attrName}`}
           variant="plain"
           onClick={onCancel}
