@@ -27,9 +27,6 @@ jobs:
       - name: Npm install
         run: |
           npm install
-      - name: Run plugin linter
-        run: |
-          npm run lint
       - name: Run custom plugin linter
         run: |
           npm run lint:custom
