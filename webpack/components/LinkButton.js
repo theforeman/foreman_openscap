@@ -9,9 +9,11 @@ const LinkButton = ({
   btnText,
   isDisabled,
   btnAriaLabel,
+  ouiaId,
 }) => (
   <Link to={path}>
     <Button
+      ouiaId={ouiaId}
       variant={btnVariant}
       isDisabled={isDisabled}
       aria-label={btnAriaLabel}
@@ -27,12 +29,14 @@ LinkButton.propTypes = {
   btnVariant: PropTypes.string,
   isDisabled: PropTypes.bool,
   btnAriaLabel: PropTypes.string,
+  ouiaId: PropTypes.string,
 };
 
 LinkButton.defaultProps = {
   btnVariant: 'primary',
   isDisabled: false,
   btnAriaLabel: null,
+  ouiaId: 'oscap-link-button',
 };
 
 export default LinkButton;

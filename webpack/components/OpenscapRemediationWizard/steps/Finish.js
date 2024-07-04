@@ -74,6 +74,7 @@ const Finish = ({ onClose }) => {
 
   const linkToJob = (
     <Button
+      ouiaId="oscap-rem-wiz-job-details-link"
       variant="link"
       icon={<ExternalLinkSquareAltIcon />}
       iconPosition="right"
@@ -84,7 +85,11 @@ const Finish = ({ onClose }) => {
       {__('Job details')}
     </Button>
   );
-  const closeBtn = <Button onClick={onClose}>{__('Close')}</Button>;
+  const closeBtn = (
+    <Button ouiaId="oscap-rem-wiz-close-button-fin-step" onClick={onClose}>
+      {__('Close')}
+    </Button>
+  );
   const errorComponent =
     statusCode === 403 ? (
       <PermissionDenied
@@ -93,6 +98,7 @@ const Finish = ({ onClose }) => {
       />
     ) : (
       <EmptyState
+        ouiaEmptyStateTitleId="oscap-rem-wiz-empty-state-title"
         error
         title={__('Error!')}
         body={errorMsg(data)}
@@ -102,6 +108,7 @@ const Finish = ({ onClose }) => {
   const body =
     status === STATUS.RESOLVED ? (
       <EmptyState
+        ouiaEmptyStateTitleId="oscap-rem-wiz-empty-state-title"
         title={__(
           'The job has started on selected host(s), you can check the status on the job details page.'
         )}

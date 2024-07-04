@@ -11,6 +11,7 @@ const ConfirmModal = props => {
 
   const actions = [
     <Button
+      ouiaId={`oscap-conf-modal-${props.record?.id}-confirm`}
       key="confirm"
       variant="primary"
       onClick={() => props.onConfirm(callMutation, props.record.id)}
@@ -19,6 +20,7 @@ const ConfirmModal = props => {
       {__('Confirm')}
     </Button>,
     <Button
+      ouiaId={`oscap-conf-modal-${props.record?.id}-cancel`}
       key="cancel"
       variant="link"
       onClick={event => props.onClose()}
@@ -34,6 +36,7 @@ const ConfirmModal = props => {
 
   return (
     <Modal
+      ouiaId={`oscap-conf-modal-${props.record?.id}`}
       variant={ModalVariant.medium}
       title={props.title}
       isOpen={props.isOpen}

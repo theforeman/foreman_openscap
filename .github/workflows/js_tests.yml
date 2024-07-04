@@ -12,6 +12,24 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  lint_custom:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [14]
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v1
+        with:
+          node-version:  ${{ matrix.node-version }}
+      - name: Npm install
+        run: |
+          npm install
+      - name: Run custom plugin linter
+        run: |
+          npm run lint:custom
   test:
     name: JavaScript
     uses: theforeman/actions/.github/workflows/foreman_plugin_js.yml@v0
