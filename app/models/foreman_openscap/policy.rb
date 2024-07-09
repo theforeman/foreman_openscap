@@ -196,10 +196,6 @@ module ForemanOpenscap
       }.merge(period_enc)
     end
 
-    def to_enc_legacy
-      to_enc.tap { |hash| hash['download_path'] = "/compliance/policies/#{self.id}/content" }
-    end
-
     def should_validate?(step_name)
       if new_record? && wizard_initiated?
         step_index > step_to_i(step_name)

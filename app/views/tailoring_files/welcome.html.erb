@@ -8,14 +8,7 @@
     <%= (_('In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts
     via %s') % link_to('compliance policies', policies_path)).html_safe %>
   </p>
-  <% proxy_check = run_tailoring_proxy_check %>
   <div class="blank-slate-pf-main-action">
-    <%= new_link(_('New Tailoring File'), {}, { :class => "btn-lg", :disabled => !proxy_check.pass? }) %>
+    <%= new_link(_('New Tailoring File'), {}, { :class => "btn-lg" }) %>
   </div>
-
-  <p>
-  <% unless proxy_check.pass? %>
-    <%= alert :class => 'alert-warning', :header => '', :text => proxy_check.message.html_safe %>
-  <% end %>
-  </p>
 </div>

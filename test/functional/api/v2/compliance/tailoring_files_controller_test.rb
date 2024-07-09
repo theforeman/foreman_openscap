@@ -24,8 +24,6 @@ class Api::V2::Compliance::TailoringFilesControllerTest < ActionController::Test
   test "should create tailoring_file" do
     tf = FactoryBot.build(:tailoring_file)
     tf_params = { :name => tf.name, :original_filename => tf.original_filename, :scap_file => tf.scap_file }
-    ForemanOpenscap::OpenscapProxyVersionCheck.any_instance.stubs(:openscap_proxy_versions)
-                                              .returns({})
     post :create, :params => tf_params, :session => set_session_user
     assert_response :success
   end
@@ -49,14 +47,5 @@ class Api::V2::Compliance::TailoringFilesControllerTest < ActionController::Test
     delete :destroy, :params => { :id => tailoring_file.id }, :session => set_session_user
     assert_response :ok
     refute ForemanOpenscap::ScapContent.exists?(tailoring_file.id)
-  end
-
-  test "should not create tailoring file when there is outdated proxy version" do
-    tf = FactoryBot.build(:tailoring_file)
-    tf_params = { :name => tf.name, :original_filename => tf.original_filename, :scap_file => tf.scap_file }
-    ForemanOpenscap::OpenscapProxyVersionCheck.any_instance.stubs(:openscap_proxy_versions)
-                                              .returns('test-proxy' => '0.5.4')
-    post :create, :params => tf_params, :session => set_session_user
-    assert_response :unprocessable_entity
   end
 end

@@ -102,9 +102,7 @@ module ForemanOpenscap
     end
 
     def policies_enc_raw
-      check = ForemanOpenscap::OpenscapProxyAssignedVersionCheck.new(self).run
-      method = check.pass? ? :to_enc : :to_enc_legacy
-      combined_policies.map(&method)
+      combined_policies.map(&:to_enc)
     end
 
     def combined_policies
