@@ -6,7 +6,6 @@ module Api::V2
       include ForemanOpenscap::Api::V2::ScapApiControllerExtensions
 
       before_action :find_resource, :except => %w[index create]
-      before_action :openscap_proxy_check, :only => %w[create]
 
       api :GET, '/compliance/tailoring_files', N_('List Tailoring files')
       param_group :search_and_pagination, ::Api::V2::BaseController
@@ -75,13 +74,6 @@ module Api::V2
           :view
         else
           super
-        end
-      end
-
-      def openscap_proxy_check
-        unless ForemanOpenscap::TailoringFile.any?
-          check = ForemanOpenscap::OpenscapProxyVersionCheck.new.run
-          render_error :custom_error, :status => :unprocessable_entity, :locals => { :message => check.message } unless check.pass?
         end
       end
     end
