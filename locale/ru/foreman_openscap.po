@@ -53,12 +53,6 @@ msgstr "Распределение отчетов %s по времени"
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr ""
 
-msgid "%s vulnerabilities found"
-msgstr ""
-
-msgid "%s vulnerabilities with available patch found"
-msgstr ""
-
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr ""
 
@@ -73,9 +67,6 @@ msgstr ""
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
-
-msgid "Action with sub plans"
-msgstr "Действия с подпланами"
 
 msgid "Actions"
 msgstr "Действия"
@@ -95,37 +86,16 @@ msgstr ""
 msgid "Apply policy to hosts"
 msgstr ""
 
-msgid "Are required variables for theforeman.foreman_scap_client present?"
-msgstr ""
-
 msgid "Are you sure you want to delete %s?"
-msgstr ""
-
-msgid "Array of host IDs"
-msgstr ""
-
-msgid "Array of hostgroup IDs"
 msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "Выбрать политику"
 
-msgid "Assign hostgroups to an OVAL Policy"
-msgstr ""
-
-msgid "Assign hosts to an OVAL Policy"
-msgstr ""
-
-msgid "Assign openscap_proxy to %s before proceeding."
-msgstr ""
-
 msgid "Back"
 msgstr "Назад"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
-msgstr ""
-
-msgid "CVEs"
 msgstr ""
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
@@ -151,9 +121,6 @@ msgstr ""
 
 msgid "Changed?"
 msgstr "Изменился?"
-
-msgid "Choose OVAL Content"
-msgstr ""
 
 msgid "Choose Tailoring File"
 msgstr ""
@@ -212,22 +179,10 @@ msgstr ""
 msgid "Could not find host identified by: %s"
 msgstr ""
 
-msgid "Could not update Ansible Variables with override: true"
-msgstr ""
-
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr ""
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr ""
-
-msgid "Create OVAL Content"
-msgstr ""
-
-msgid "Create OVAL Policy"
-msgstr ""
-
-msgid "Create OVAL content"
 msgstr ""
 
 msgid "Create SCAP content"
@@ -239,13 +194,7 @@ msgstr ""
 msgid "Create a Tailoring file"
 msgstr ""
 
-msgid "Create an OVAL Policy"
-msgstr ""
-
 msgid "Created at"
-msgstr ""
-
-msgid "Custom cron: %s"
 msgstr ""
 
 msgid "Dashboard"
@@ -263,19 +212,10 @@ msgstr "Профиль XCCDF по умолчанию"
 msgid "Delete"
 msgstr "Удалить"
 
-msgid "Delete OVAL Content"
-msgstr ""
-
-msgid "Delete OVAL Policy"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr ""
 
 msgid "Delete an ARF Report"
-msgstr ""
-
-msgid "Delete an OVAL Policy"
 msgstr ""
 
 msgid "Delete compliance policy %s with all of its reports?"
@@ -299,9 +239,6 @@ msgstr ""
 msgid "Deletes a Tailoring file"
 msgstr ""
 
-msgid "Deletes an OVAL content"
-msgstr ""
-
 msgid "Deletes an SCAP content"
 msgstr "Удалить описание SCAP"
 
@@ -310,9 +247,6 @@ msgstr ""
 
 msgid "Description"
 msgstr "Описание"
-
-msgid "Details"
-msgstr ""
 
 msgid "Details for Compliance Policy %s"
 msgstr ""
@@ -377,9 +311,6 @@ msgstr "Только «Неудачно»"
 msgid "Failed saving %s:"
 msgstr ""
 
-msgid "Failed to create OVAL Policy: %s"
-msgstr ""
-
 msgid "Failed to delete %s compliance reports"
 msgstr "Некоторые отчеты не были удалены (всего %s)"
 
@@ -390,9 +321,6 @@ msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr ""
 
 msgid "Failed to downloaded ARF report in HTML: %s"
-msgstr ""
-
-msgid "Failed to fetch content file from %s"
 msgstr ""
 
 msgid "Failed to fetch spool status from proxy"
@@ -408,9 +336,6 @@ msgstr ""
 msgid "Failed|F"
 msgstr "Н"
 
-msgid "File"
-msgstr ""
-
 msgid "File Upload"
 msgstr "Добавить файл"
 
@@ -425,9 +350,6 @@ msgstr ""
 
 msgid "General"
 msgstr "Общие"
-
-msgid "Has Errata?"
-msgstr ""
 
 msgid "Host"
 msgstr "Узел"
@@ -465,9 +387,6 @@ msgstr "Имя узла"
 msgid "Hosts Breakdown"
 msgstr "Распределение по узлам"
 
-msgid "Hosts Count"
-msgstr ""
-
 msgid "Hosts failing this rule"
 msgstr ""
 
@@ -485,12 +404,6 @@ msgstr ""
 
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
-
-msgid "Import Puppet classes"
-msgstr "Импорт классов Puppet"
-
-msgid "Import facts"
-msgstr "Импорт фактов"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr ""
@@ -517,15 +430,6 @@ msgstr "Неопределенный результат"
 msgid "Inconclusive results"
 msgstr "Неопределенные результаты"
 
-msgid "Is %s param set to be overriden?"
-msgstr ""
-
-msgid "Is foreman_ansible present?"
-msgstr ""
-
-msgid "Is theforeman.foreman_scap_client present?"
-msgstr ""
-
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr ""
 
@@ -539,12 +443,6 @@ msgid "Latest reports for policy: %s"
 msgstr "Последние отчеты для %s"
 
 msgid "List ARF reports"
-msgstr ""
-
-msgid "List OVAL Policies"
-msgstr ""
-
-msgid "List OVAL contents"
 msgstr ""
 
 msgid "List Policies"
@@ -574,9 +472,6 @@ msgstr "Сообщение"
 msgid "Method"
 msgstr ""
 
-msgid "Monthly, day of month: %s"
-msgstr ""
-
 msgid "More details"
 msgstr "Подробности"
 
@@ -588,9 +483,6 @@ msgstr "Никогда не проверялись"
 
 msgid "New Compliance Policy"
 msgstr "Новая политика"
-
-msgid "New OVAL Content"
-msgstr ""
 
 msgid "New Policy"
 msgstr ""
@@ -610,24 +502,6 @@ msgstr "Нет"
 msgid "No ARF reports for this policy"
 msgstr "Нет отчетов ARF для этой политики"
 
-msgid "No CVEs found."
-msgstr ""
-
-msgid "No Hostgroups found."
-msgstr ""
-
-msgid "No OVAL Content found"
-msgstr ""
-
-msgid "No OVAL Contents found."
-msgstr ""
-
-msgid "No OVAL Policies found"
-msgstr ""
-
-msgid "No OVAL Policy found"
-msgstr ""
-
 msgid "No OpenSCAP Proxy selected."
 msgstr ""
 
@@ -635,9 +509,6 @@ msgid "No OpenSCAP proxy found for %{class} with id %{id}"
 msgstr ""
 
 msgid "No Tailoring file assigned for policy with id %s"
-msgstr ""
-
-msgid "No Vulnerabilities found"
 msgstr ""
 
 msgid "No available proxy to validate. Returned with error: %s"
@@ -712,78 +583,6 @@ msgstr "Порядковый номер дня в месяце (количест
 msgid "OS"
 msgstr ""
 
-msgid "OVAL Content"
-msgstr ""
-
-msgid "OVAL Content %s successfully created"
-msgstr ""
-
-msgid "OVAL Content Source"
-msgstr ""
-
-msgid "OVAL Content from URL"
-msgstr ""
-
-msgid "OVAL Content from file"
-msgstr ""
-
-msgid "OVAL Content is required to create OVAL Policy. Please create one before proceeding."
-msgstr ""
-
-msgid "OVAL Content successfully deleted."
-msgstr ""
-
-msgid "OVAL Contents"
-msgstr ""
-
-msgid "OVAL Contents table"
-msgstr ""
-
-msgid "OVAL Policies"
-msgstr ""
-
-msgid "OVAL Policies Table"
-msgstr ""
-
-msgid "OVAL Policy description"
-msgstr ""
-
-msgid "OVAL Policy name"
-msgstr ""
-
-msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
-msgstr ""
-
-msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
-msgstr ""
-
-msgid "OVAL Policy schedule period (weekly, monthly, custom)"
-msgstr ""
-
-msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
-msgstr ""
-
-msgid "OVAL Policy succesfully created."
-msgstr ""
-
-msgid "OVAL content name"
-msgstr ""
-
-msgid "OVAL policy"
-msgstr ""
-
-msgid "OVAL policy successfully configured with %s."
-msgstr ""
-
-msgid "OVAL policy was successfully deleted."
-msgstr ""
-
-msgid "OVAL policy was successfully updated."
-msgstr ""
-
-msgid "OVAL scan"
-msgstr ""
-
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
 
@@ -798,12 +597,6 @@ msgstr ""
 
 msgid "Organizations"
 msgstr "Организации"
-
-msgid "Original File Name"
-msgstr ""
-
-msgid "Original file name of the OVAL content file"
-msgstr ""
 
 msgid "Original file name of the XML file"
 msgstr ""
@@ -827,9 +620,6 @@ msgstr "Успешно"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "У"
-
-msgid "Period"
-msgstr ""
 
 msgid "Permission denied"
 msgstr ""
@@ -856,9 +646,6 @@ msgid "Policy %s"
 msgstr "Политика %s"
 
 msgid "Policy Attributes"
-msgstr ""
-
-msgid "Policy OVAL content ID"
 msgstr ""
 
 msgid "Policy SCAP content ID"
@@ -912,9 +699,6 @@ msgstr ""
 msgid "Red Hat %s default content"
 msgstr ""
 
-msgid "Ref Id"
-msgstr ""
-
 msgid "References"
 msgstr "Ссылки"
 
@@ -926,9 +710,6 @@ msgstr ""
 
 msgid "Remediation might render the system non-functional."
 msgstr ""
-
-msgid "Remote action:"
-msgstr "Удаленное действие:"
 
 msgid "Remote job"
 msgstr ""
@@ -987,9 +768,6 @@ msgstr ""
 msgid "Run"
 msgstr ""
 
-msgid "Run OVAL scan"
-msgstr ""
-
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
 
@@ -1018,9 +796,6 @@ msgid "SCAP contents"
 msgstr "Описание SCAP"
 
 msgid "SCAP policies summary"
-msgstr ""
-
-msgid "Scan All Hostgroups"
 msgstr ""
 
 msgid "Schedule"
@@ -1056,9 +831,6 @@ msgstr ""
 msgid "Show a Tailoring file"
 msgstr ""
 
-msgid "Show a policy's OVAL content"
-msgstr ""
-
 msgid "Show a policy's SCAP content"
 msgstr "Показать описание политики SCAP"
 
@@ -1066,12 +838,6 @@ msgid "Show a policy's Tailoring file"
 msgstr ""
 
 msgid "Show an ARF report"
-msgstr ""
-
-msgid "Show an OVAL Policy"
-msgstr ""
-
-msgid "Show an OVAL content"
 msgstr ""
 
 msgid "Show an SCAP content"
@@ -1125,15 +891,6 @@ msgstr ""
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "Сводный отчет с сервера Foreman: %{foreman_url}"
 
-msgid "Sync contents that have remote source URL"
-msgstr ""
-
-msgid "Table of CVEs for OVAL policy"
-msgstr ""
-
-msgid "Table of hostgroups for OVAL policy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr ""
 
@@ -1160,9 +917,6 @@ msgstr ""
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
-msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
-msgstr ""
-
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
 msgstr ""
 
@@ -1182,9 +936,6 @@ msgid "There is no job to remediate with. Please remediate manually."
 msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
-
-msgid "There was a following error when updating OVAL policy: %s"
 msgstr ""
 
 msgid "There's no available report for this host"
@@ -1219,16 +970,7 @@ msgid_plural "Total of %{hosts} hosts"
 msgstr[0] ""
 msgstr[1] ""
 
-msgid "Type a hostgroup name..."
-msgstr ""
-
 msgid "Type of the upload"
-msgstr ""
-
-msgid "URL"
-msgstr ""
-
-msgid "URL of the OVAL content file"
 msgstr ""
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
@@ -1243,25 +985,10 @@ msgstr "Отменить политику"
 msgid "Unknown Compliance status"
 msgstr "Неизвестный статус"
 
-msgid "Unknown OVAL status"
-msgstr ""
-
-msgid "Unknown error when submitting data, please try again later."
-msgstr ""
-
-msgid "Unknown schedule"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr ""
 
 msgid "Update a Tailoring file"
-msgstr ""
-
-msgid "Update an OVAL Policy"
-msgstr ""
-
-msgid "Update an OVAL content"
 msgstr ""
 
 msgid "Update an SCAP content"
@@ -1285,9 +1012,6 @@ msgstr ""
 msgid "Upload an ARF report"
 msgstr "Выгрузить отчет ARF"
 
-msgid "Upload an OVAL report - a list of CVEs for given host"
-msgstr ""
-
 msgid "Upload new SCAP content file"
 msgstr "Добавление файла описания SCAP"
 
@@ -1306,22 +1030,10 @@ msgstr "Показать полный отчет"
 msgid "View selected hosts"
 msgstr ""
 
-msgid "Was %s configured successfully?"
-msgstr ""
-
-msgid "Was %{model_name} %{name} configured successfully?"
-msgstr ""
-
-msgid "Weekly, on %s"
-msgstr ""
-
 msgid "XCCDF Profile"
 msgstr "Профиль XCCDF"
 
 msgid "XCCDF Profile in Tailoring File"
-msgstr ""
-
-msgid "XML containing OVAL content"
 msgstr ""
 
 msgid "XML containing SCAP content"
@@ -1345,13 +1057,7 @@ msgstr "Вы можете изменить расписание по своем�
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""
 
-msgid "can't be blank"
-msgstr ""
-
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
-msgstr ""
-
-msgid "cause: "
 msgstr ""
 
 msgid "documentation"
@@ -1366,20 +1072,8 @@ msgstr ""
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
-msgid "foreman_ansible plugin not found, please install it before running this action again."
-msgstr ""
-
-msgid "hostgroups"
-msgstr ""
-
-msgid "hosts"
-msgstr "узлу(ам)"
-
 msgid "invalid type %s"
 msgstr "недопустимый тип %s"
-
-msgid "is not a valid cronline"
-msgstr ""
 
 msgid "is not a valid value"
 msgstr ""

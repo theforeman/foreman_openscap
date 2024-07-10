@@ -48,12 +48,6 @@
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s Spool-Fehler erkannt, überprüfen Sie die entsprechende Datei direkt auf dem Proxy"
       ],
-      "%s vulnerabilities found": [
-        "%sSchwachstellen gefunden"
-      ],
-      "%s vulnerabilities with available patch found": [
-        "%sSchwachstellen mit verfügbarem Patch gefunden"
-      ],
       "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
         "%{type} wurde ausgewählt, um die Richtlinie für Clients bereitzustellen, aber %{type} ist nicht verfügbar. Fehlt Ihnen ein Plugin?"
       ],
@@ -68,9 +62,6 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "Eine Zusammenfassung der Berichte für OpenSCAP-Richtlinien"
-      ],
-      "Action with sub plans": [
-        "Aktion mit Unterplänen"
       ],
       "Actions": [
         "Aktionen"
@@ -90,37 +81,16 @@
       "Apply policy to hosts": [
         "Richtlinie auf Hosts anwenden"
       ],
-      "Are required variables for theforeman.foreman_scap_client present?": [
-        "Sind erforderliche Variablen für theforeman.foreman_scap_client vorhanden?"
-      ],
       "Are you sure you want to delete %s?": [
         ""
       ],
-      "Array of host IDs": [
-        "Array von Host-IDs"
-      ],
-      "Array of hostgroup IDs": [
-        "Array von Hostgruppen-IDs"
-      ],
       "Assign Compliance Policy": [
         "Compliance-Richtlinie zuweisen"
-      ],
-      "Assign hostgroups to an OVAL Policy": [
-        "Hostgruppen einer OVAL-Richtlinie zuweisen"
-      ],
-      "Assign hosts to an OVAL Policy": [
-        "Hosts einer OVAL-Richtlinie zuweisen"
-      ],
-      "Assign openscap_proxy to %s before proceeding.": [
-        "Weisen Sie openscap_proxy zu %s zu, bevor Sie fortfahren."
       ],
       "Back": [
         "Zurück"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
-        ""
-      ],
-      "CVEs": [
         ""
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
@@ -146,9 +116,6 @@
       ],
       "Changed?": [
         "Geändert?"
-      ],
-      "Choose OVAL Content": [
-        ""
       ],
       "Choose Tailoring File": [
         "Tailoring-Datei auswählen"
@@ -207,23 +174,11 @@
       "Could not find host identified by: %s": [
         "Host identifiziert durch %s nicht gefunden"
       ],
-      "Could not update Ansible Variables with override: true": [
-        "Ansible-Variablen konnten nicht mit Überschreibung aktualisiert werden: true"
-      ],
       "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
         "Kann nicht validiert werden %s. Bitte stellen Sie sicher, dass Sie über die entsprechende Proxy-Version verfügen, um diese Funktionalität zu nutzen"
       ],
       "Could not validate %{file_type}. Error %{error}": [
         "Konnte nicht %{file_type} validieren. Fehler: %{error}"
-      ],
-      "Create OVAL Content": [
-        ""
-      ],
-      "Create OVAL Policy": [
-        ""
-      ],
-      "Create OVAL content": [
-        "OVAL-Inhalte erstellen"
       ],
       "Create SCAP content": [
         "SCAP-Inhalt erstellen"
@@ -234,13 +189,7 @@
       "Create a Tailoring file": [
         "Erstellen einer Tailoring datei"
       ],
-      "Create an OVAL Policy": [
-        "Erstellen Sie eine OVAL-Richtlinie"
-      ],
       "Created at": [
-        ""
-      ],
-      "Custom cron: %s": [
         ""
       ],
       "Dashboard": [
@@ -258,20 +207,11 @@
       "Delete": [
         "Löschen"
       ],
-      "Delete OVAL Content": [
-        ""
-      ],
-      "Delete OVAL Policy": [
-        ""
-      ],
       "Delete a Policy": [
         "Richtlinie löschen"
       ],
       "Delete an ARF Report": [
         "ARF-Bericht löschen"
-      ],
-      "Delete an OVAL Policy": [
-        "Löschen einer OVAL-Richtlinie"
       ],
       "Delete compliance policy %s with all of its reports?": [
         "Compliance-Richtline %s löschen mit allen Berichten?"
@@ -294,9 +234,6 @@
       "Deletes a Tailoring file": [
         "Löscht eine Tailoring-Datei"
       ],
-      "Deletes an OVAL content": [
-        "Löscht einen OVAL-Inhalt"
-      ],
       "Deletes an SCAP content": [
         "Einen SCAP-Inhalt löschen"
       ],
@@ -305,9 +242,6 @@
       ],
       "Description": [
         "Beschreibung"
-      ],
-      "Details": [
-        ""
       ],
       "Details for Compliance Policy %s": [
         "Details zur Compliance-Richtlinie %s"
@@ -372,9 +306,6 @@
       "Failed saving %s:": [
         ""
       ],
-      "Failed to create OVAL Policy: %s": [
-        ""
-      ],
       "Failed to delete %s compliance reports": [
         "Compliance-Berichte %s konnten nicht gelöscht werden"
       ],
@@ -387,9 +318,6 @@
       "Failed to downloaded ARF report in HTML: %s": [
         "ARF Bericht im HTML Format konnte nicht heruntergeladen werden: %s"
       ],
-      "Failed to fetch content file from %s": [
-        ""
-      ],
       "Failed to fetch spool status from proxy": [
         "Fehler beim Abrufen des Spool-Status vom Proxy"
       ],
@@ -401,9 +329,6 @@
       ],
       "Failed|F": [
         "Fehlgeschlagen|F "
-      ],
-      "File": [
-        ""
       ],
       "File Upload": [
         "Datei hochladen"
@@ -419,9 +344,6 @@
       ],
       "General": [
         "Allgemein"
-      ],
-      "Has Errata?": [
-        "Hat Errata?"
       ],
       "Host": [
         "Rechner"
@@ -459,9 +381,6 @@
       "Hosts Breakdown": [
         "Aufgliederung der Hosts"
       ],
-      "Hosts Count": [
-        "Anzahl der Hosts"
-      ],
       "Hosts failing this rule": [
         "Regel schlägt auf Hosts fehl."
       ],
@@ -479,12 +398,6 @@
       ],
       "ID of OpenSCAP Proxy": [
         "Kennung des OpenSCAP-Proxys"
-      ],
-      "Import Puppet classes": [
-        "Puppet-Klassen importieren"
-      ],
-      "Import facts": [
-        "Fakten importieren"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "In Foreman wird eine Compliance-Richtlinien-Checkliste definiert via %s."
@@ -507,15 +420,6 @@
       "Inconclusive results": [
         "Ergebnisse sind nicht eindeutig"
       ],
-      "Is %s param set to be overriden?": [
-        "Soll %s param überschrieben werden?"
-      ],
-      "Is foreman_ansible present?": [
-        "Ist foreman_ansible vorhanden?"
-      ],
-      "Is theforeman.foreman_scap_client present?": [
-        "Ist theforeman.foreman_scap_client vorhanden?"
-      ],
       "It may sometimes be required to adjust the security policy to your specific needs. ": [
         "Es könnte angebracht sein die Sicherheits-Richtlinien den eigenen Anforderungen anzupassen."
       ],
@@ -530,12 +434,6 @@
       ],
       "List ARF reports": [
         "ARF-Berichte auflisten"
-      ],
-      "List OVAL Policies": [
-        "OVAL-Richtlinien auflisten"
-      ],
-      "List OVAL contents": [
-        "OVAL-Inhalte auflisten"
       ],
       "List Policies": [
         "Richtlinien auflisten"
@@ -564,9 +462,6 @@
       "Method": [
         ""
       ],
-      "Monthly, day of month: %s": [
-        ""
-      ],
       "More details": [
         "Weitere Details"
       ],
@@ -578,9 +473,6 @@
       ],
       "New Compliance Policy": [
         "Neue Compliance-Richtlinie"
-      ],
-      "New OVAL Content": [
-        ""
       ],
       "New Policy": [
         "Neue Richtlinie"
@@ -600,24 +492,6 @@
       "No ARF reports for this policy": [
         "Keine Arf-Berichte für diese Richtlinie"
       ],
-      "No CVEs found.": [
-        "Keine CVEs gefunden."
-      ],
-      "No Hostgroups found.": [
-        ""
-      ],
-      "No OVAL Content found": [
-        ""
-      ],
-      "No OVAL Contents found.": [
-        "Keine OVAL-Inhalte gefunden."
-      ],
-      "No OVAL Policies found": [
-        "Keine OVAL-Richtlinien gefunden"
-      ],
-      "No OVAL Policy found": [
-        "Keine OVAL-Richtlinie gefunden"
-      ],
       "No OpenSCAP Proxy selected.": [
         "Kein OpenSCAP Proxy ausgewählt."
       ],
@@ -626,9 +500,6 @@
       ],
       "No Tailoring file assigned for policy with id %s": [
         "Keine Tailoring-Datei für Richtlinie mit ID %s zugewiesen"
-      ],
-      "No Vulnerabilities found": [
-        "Keine Schwachstellen gefunden"
       ],
       "No available proxy to validate. Returned with error: %s": [
         "Kein Proxy zum Validieren verfügbar. Fehler: %s"
@@ -702,78 +573,6 @@
       "OS": [
         ""
       ],
-      "OVAL Content": [
-        "OVAL-Inhalt"
-      ],
-      "OVAL Content %s successfully created": [
-        ""
-      ],
-      "OVAL Content Source": [
-        ""
-      ],
-      "OVAL Content from URL": [
-        ""
-      ],
-      "OVAL Content from file": [
-        ""
-      ],
-      "OVAL Content is required to create OVAL Policy. Please create one before proceeding.": [
-        ""
-      ],
-      "OVAL Content successfully deleted.": [
-        ""
-      ],
-      "OVAL Contents": [
-        "OVAL Inhalt"
-      ],
-      "OVAL Contents table": [
-        "OVAL Inhaltstabelle"
-      ],
-      "OVAL Policies": [
-        "OVAL-Richtlinien"
-      ],
-      "OVAL Policies Table": [
-        "OVAL-Richtlinientabelle"
-      ],
-      "OVAL Policy description": [
-        "Beschreibung der OVAL-Richtlinie"
-      ],
-      "OVAL Policy name": [
-        "OVAL-Richtlinienname"
-      ],
-      "OVAL Policy schedule cron line (only if period == \\\"custom\\\")": [
-        "Cron-Linie des OVAL-Richtlinienplans (nur wenn Zeitraum == \\\"custom\\\")"
-      ],
-      "OVAL Policy schedule day of month (only if period == \\\"monthly\\\")": [
-        "OVAL Versicherungsplan Tag des Monats (nur wenn Zeitraum == \\\"monthly\\\")"
-      ],
-      "OVAL Policy schedule period (weekly, monthly, custom)": [
-        "Zeitplan der OVAL-Richtlinie (wöchentlich, monatlich, benutzerdefiniert)"
-      ],
-      "OVAL Policy schedule weekday (only if period == \\\"weekly\\\")": [
-        "OVAL Richtlinienplan Wochentag (nur wenn Zeitraum == \\\"weekly\\\")"
-      ],
-      "OVAL Policy succesfully created.": [
-        ""
-      ],
-      "OVAL content name": [
-        "OVAL-Inhaltsname"
-      ],
-      "OVAL policy": [
-        ""
-      ],
-      "OVAL policy successfully configured with %s.": [
-        "OVAL-Richtlinie erfolgreich konfiguriert mit %s."
-      ],
-      "OVAL policy was successfully deleted.": [
-        ""
-      ],
-      "OVAL policy was successfully updated.": [
-        ""
-      ],
-      "OVAL scan": [
-        "OVAL-Scan"
-      ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         "Sobald SCAP-Inhalt vorhanden ist, können Sie eine Richtlinie erstellen, ausgewählte Hostgruppen zuweisen und die Ausführung planen."
       ],
@@ -788,12 +587,6 @@
       ],
       "Organizations": [
         "Organisationen"
-      ],
-      "Original File Name": [
-        ""
-      ],
-      "Original file name of the OVAL content file": [
-        "Ursprünglicher Dateiname der OVAL-Inhaltsdatei"
       ],
       "Original file name of the XML file": [
         "Ursprünglicher Dateiname der XML-Datei"
@@ -815,9 +608,6 @@
       ],
       "Passed|P": [
         "Erfolgreich|E"
-      ],
-      "Period": [
-        ""
       ],
       "Permission denied": [
         ""
@@ -845,9 +635,6 @@
       ],
       "Policy Attributes": [
         "Richtlinien Eigenschaften"
-      ],
-      "Policy OVAL content ID": [
-        "Richtlinien-OVAL-Content-ID"
       ],
       "Policy SCAP content ID": [
         "Richtlinien-SCAP-Inhalts-ID"
@@ -900,9 +687,6 @@
       "Red Hat %s default content": [
         ""
       ],
-      "Ref Id": [
-        "Ref-ID"
-      ],
       "References": [
         "Verweise"
       ],
@@ -914,9 +698,6 @@
       ],
       "Remediation might render the system non-functional.": [
         ""
-      ],
-      "Remote action:": [
-        "Entfernte Aktion"
       ],
       "Remote job": [
         ""
@@ -975,9 +756,6 @@
       "Run": [
         ""
       ],
-      "Run OVAL scan": [
-        "OVAL-Scan ausführen"
-      ],
       "Run OpenSCAP remediation with Ansible": [
         ""
       ],
@@ -1007,9 +785,6 @@
       ],
       "SCAP policies summary": [
         "SCAP-Richtlinienzusammenfassung"
-      ],
-      "Scan All Hostgroups": [
-        "Alle Hostgruppen scannen"
       ],
       "Schedule": [
         "Plan"
@@ -1044,9 +819,6 @@
       "Show a Tailoring file": [
         "Eine Tailoring-Datei anzeigen"
       ],
-      "Show a policy's OVAL content": [
-        ""
-      ],
       "Show a policy's SCAP content": [
         "SCAP-Inhalt einer Richtlinie anzeigen"
       ],
@@ -1055,12 +827,6 @@
       ],
       "Show an ARF report": [
         "ARF-Bericht anzeigen"
-      ],
-      "Show an OVAL Policy": [
-        "Zeigen Sie eine OVAL-Richtlinie an"
-      ],
-      "Show an OVAL content": [
-        "OVAL-Inhalt anzeigen"
       ],
       "Show an SCAP content": [
         "Einen SCAP-Inhalt anzeigen"
@@ -1113,15 +879,6 @@
       "Summary report from Foreman server at %{foreman_url}": [
         "Zusammenfassungbericht vom Foreman-Server unter %{foreman_url}"
       ],
-      "Sync contents that have remote source URL": [
-        "Inhalte mit Remote-Quell-URL synchronisieren"
-      ],
-      "Table of CVEs for OVAL policy": [
-        "Tabelle der CVEs für die OVAL-Richtlinie"
-      ],
-      "Table of hostgroups for OVAL policy": [
-        ""
-      ],
       "Tailoring File": [
         "Tailoring-Datei"
       ],
@@ -1146,9 +903,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "Die folgenden %{key_name} fehlten für %{item_name}: %{key_names}. Stellen Sie sicher, dass sie importiert wurden, bevor Sie fortfahren."
       ],
-      "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again.": [
-        "Die folgenden Ansible-Variablen wurden nicht gefunden: %{missing_vars}, bitte importieren Sie sie, bevor Sie diese Aktion erneut ausführen."
-      ],
       "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
         "Die folgenden Smart-Proxys müssen aktualisiert werden um das Feature freizuschalten: %s."
       ],
@@ -1168,9 +922,6 @@
         ""
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
-      ],
-      "There was a following error when updating OVAL policy: %s": [
         ""
       ],
       "There's no available report for this host": [
@@ -1204,17 +955,8 @@
         "",
         ""
       ],
-      "Type a hostgroup name...": [
-        ""
-      ],
       "Type of the upload": [
         "Art des Uploads"
-      ],
-      "URL": [
-        ""
-      ],
-      "URL of the OVAL content file": [
-        "URL der OVAL-Inhaltsdatei"
       ],
       "Unable to get HTML version of requested report from Smart Proxy": [
         "Bericht des Smart-Proxy in HTML konnte nicht abgerufen werden"
@@ -1228,26 +970,11 @@
       "Unknown Compliance status": [
         "Compliance-Status unbekannt"
       ],
-      "Unknown OVAL status": [
-        "Unbekannter OVAL-Status"
-      ],
-      "Unknown error when submitting data, please try again later.": [
-        ""
-      ],
-      "Unknown schedule": [
-        ""
-      ],
       "Update a Policy": [
         "Richtlinie aktualisieren "
       ],
       "Update a Tailoring file": [
         "Aktualisieren einer Tailoring-Datei"
-      ],
-      "Update an OVAL Policy": [
-        "Aktualisieren einer OVAL-Richtlinie"
-      ],
-      "Update an OVAL content": [
-        "OVAL-Inhalte aktualisieren"
       ],
       "Update an SCAP content": [
         "Einen SCAP-Inhalt aktualisieren "
@@ -1270,9 +997,6 @@
       "Upload an ARF report": [
         "Einen Arf-Bericht hochladen"
       ],
-      "Upload an OVAL report - a list of CVEs for given host": [
-        "Laden Sie einen OVAL-Bericht hoch – eine Liste von CVEs für einen bestimmten Host"
-      ],
       "Upload new SCAP content file": [
         "Neue Datei für SCAP-Inhalt hochladen"
       ],
@@ -1291,23 +1015,11 @@
       "View selected hosts": [
         ""
       ],
-      "Was %s configured successfully?": [
-        "Wurde  %serfolgreich konfiguriert?"
-      ],
-      "Was %{model_name} %{name} configured successfully?": [
-        "Wurde %{model_name} %{name} erfolgreich konfiguriert?"
-      ],
-      "Weekly, on %s": [
-        ""
-      ],
       "XCCDF Profile": [
         "XCCDF-Profil"
       ],
       "XCCDF Profile in Tailoring File": [
         "XCCDF Profile in Tailoring-Datei"
-      ],
-      "XML containing OVAL content": [
-        "XML mit OVAL-Inhalten"
       ],
       "XML containing SCAP content": [
         "XML, welches SCAP-Inhalte enthält"
@@ -1330,14 +1042,8 @@
       "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
         "Sie scheinen keinen ARF-Bericht zu haben. Der ARF-Bericht ist eine Zusammenfassung eines einzelnen Scanvorgangs auf einem bestimmten Host für eine gegebene Compliance-Richtlinie."
       ],
-      "can't be blank": [
-        ""
-      ],
       "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
         "kann %s nicht zugewiesen werden, alle zugewiesenen Richtlinien müssen auf die gleiche Weise bereitgestellt werden. Aktivieren Sie \\\"Bereitstellen von\\\" für jede zugewiesene Richtlinie"
-      ],
-      "cause: ": [
-        ""
       ],
       "documentation": [
         "Dokumentation"
@@ -1351,20 +1057,8 @@
       "does not have the selected SCAP content profile": [
         "hat nicht das ausgewählte SCAP-Inhaltsprofil"
       ],
-      "foreman_ansible plugin not found, please install it before running this action again.": [
-        "foreman_ansible Plugin nicht gefunden, bitte installieren Sie es, bevor Sie diese Aktion erneut ausführen."
-      ],
-      "hostgroups": [
-        "Hostgruppen"
-      ],
-      "hosts": [
-        "Hosts"
-      ],
       "invalid type %s": [
         "ungültiger Typ %s"
-      ],
-      "is not a valid cronline": [
-        ""
       ],
       "is not a valid value": [
         "ist kein gültiger Wert"

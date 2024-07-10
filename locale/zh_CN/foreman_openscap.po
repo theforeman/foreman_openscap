@@ -49,12 +49,6 @@ msgstr "一直以來的 %s 报告"
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "发现了 %s 个 spool 错误，在代理上直接检查相关的文件"
 
-msgid "%s vulnerabilities found"
-msgstr "找到了 %s 个漏洞"
-
-msgid "%s vulnerabilities with available patch found"
-msgstr "找到了 %s 个有可用补丁的漏洞"
-
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr "已选择 %{type} 将策略部署到客户端，但是%{type} 不可用。您是否缺少插件？"
 
@@ -69,9 +63,6 @@ msgstr ""
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 策略报告摘要"
-
-msgid "Action with sub plans"
-msgstr "有子计划的操作"
 
 msgid "Actions"
 msgstr "操作"
@@ -91,37 +82,16 @@ msgstr "应用策略到主机组"
 msgid "Apply policy to hosts"
 msgstr "对主机应用策略"
 
-msgid "Are required variables for theforeman.foreman_scap_client present?"
-msgstr "是否存在 forforeman.foreman_scap_client 所需的变量？"
-
 msgid "Are you sure you want to delete %s?"
 msgstr ""
 
-msgid "Array of host IDs"
-msgstr "主机 ID 数组"
-
-msgid "Array of hostgroup IDs"
-msgstr "主机组 ID 的数组"
-
 msgid "Assign Compliance Policy"
 msgstr "分配合规政策"
-
-msgid "Assign hostgroups to an OVAL Policy"
-msgstr "将主机组分配给一个 OVAL 策略"
-
-msgid "Assign hosts to an OVAL Policy"
-msgstr "将主机分配给一个 OVAL 策略"
-
-msgid "Assign openscap_proxy to %s before proceeding."
-msgstr "在继续前，把 openscap_proxy 分配给 %s。"
 
 msgid "Back"
 msgstr "返回"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
-msgstr ""
-
-msgid "CVEs"
 msgstr ""
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
@@ -147,9 +117,6 @@ msgstr "更改的文件不含现有的 SCAP 内容配置文件"
 
 msgid "Changed?"
 msgstr "已改变？"
-
-msgid "Choose OVAL Content"
-msgstr ""
 
 msgid "Choose Tailoring File"
 msgstr "选择 Tailoring 文件"
@@ -208,23 +175,11 @@ msgstr ""
 msgid "Could not find host identified by: %s"
 msgstr "无法找到由 %s 标识的主机"
 
-msgid "Could not update Ansible Variables with override: true"
-msgstr "无法使用替代更新 Ansible 变量：true"
-
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr "无法验证 %s。请确保您具备合适的代理服务器版本，以便使用此功能"
 
 msgid "Could not validate %{file_type}. Error %{error}"
 msgstr "无法验证％{file_type} 。错误 %{error}"
-
-msgid "Create OVAL Content"
-msgstr ""
-
-msgid "Create OVAL Policy"
-msgstr ""
-
-msgid "Create OVAL content"
-msgstr "创建 OVAL 内容"
 
 msgid "Create SCAP content"
 msgstr "建立 SCAP 內容"
@@ -235,13 +190,7 @@ msgstr "创建策略"
 msgid "Create a Tailoring file"
 msgstr "创建定制文件"
 
-msgid "Create an OVAL Policy"
-msgstr "创建一个 OVAL 策略"
-
 msgid "Created at"
-msgstr ""
-
-msgid "Custom cron: %s"
 msgstr ""
 
 msgid "Dashboard"
@@ -259,20 +208,11 @@ msgstr "默认的 XCCDF 配置集"
 msgid "Delete"
 msgstr "刪除"
 
-msgid "Delete OVAL Content"
-msgstr ""
-
-msgid "Delete OVAL Policy"
-msgstr ""
-
 msgid "Delete a Policy"
 msgstr "删除一个策略"
 
 msgid "Delete an ARF Report"
 msgstr "删除 ARF 报告"
-
-msgid "Delete an OVAL Policy"
-msgstr "删除 OVAL 策略"
 
 msgid "Delete compliance policy %s with all of its reports?"
 msgstr "是否删除所有报告中的合规策略 %s？"
@@ -295,9 +235,6 @@ msgstr "删除策略"
 msgid "Deletes a Tailoring file"
 msgstr "删除定制文件"
 
-msgid "Deletes an OVAL content"
-msgstr "删除 OVAL 内容"
-
 msgid "Deletes an SCAP content"
 msgstr "刪除 SCAP 內容"
 
@@ -306,9 +243,6 @@ msgstr "部署选项"
 
 msgid "Description"
 msgstr "描述"
-
-msgid "Details"
-msgstr ""
 
 msgid "Details for Compliance Policy %s"
 msgstr "合规政策 %s 详情"
@@ -373,9 +307,6 @@ msgstr "只有失敗"
 msgid "Failed saving %s:"
 msgstr ""
 
-msgid "Failed to create OVAL Policy: %s"
-msgstr ""
-
 msgid "Failed to delete %s compliance reports"
 msgstr "刪除 %s 合规报告失败"
 
@@ -387,9 +318,6 @@ msgstr "无法将 ARF 报告下载为 bzip：%s"
 
 msgid "Failed to downloaded ARF report in HTML: %s"
 msgstr "无法以 HTML 格式下载 ARF 报告：%s"
-
-msgid "Failed to fetch content file from %s"
-msgstr ""
 
 msgid "Failed to fetch spool status from proxy"
 msgstr "从代理获取 spool 状态失败"
@@ -403,9 +331,6 @@ msgstr "上传 Arf Report 失败，在为 %s 上传时没有在参数中找到 O
 #. TRANSLATORS: initial character of Failed
 msgid "Failed|F"
 msgstr "Failed|F"
-
-msgid "File"
-msgstr ""
 
 msgid "File Upload"
 msgstr "上传文件"
@@ -421,9 +346,6 @@ msgstr "完整报告"
 
 msgid "General"
 msgstr "常规"
-
-msgid "Has Errata?"
-msgstr "有勘误？"
 
 msgid "Host"
 msgstr "主机"
@@ -461,9 +383,6 @@ msgstr "主机名"
 msgid "Hosts Breakdown"
 msgstr "主机分解"
 
-msgid "Hosts Count"
-msgstr "主机数"
-
 msgid "Hosts failing this rule"
 msgstr "主机在这个规则上失败"
 
@@ -481,12 +400,6 @@ msgstr "应如何部署策略"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP 代理服务器的 ID"
-
-msgid "Import Puppet classes"
-msgstr "导入 Puppet 类"
-
-msgid "Import facts"
-msgstr "导入事实"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "在 Foreman 中，合规策略检查清单通过 %s 定义。"
@@ -517,15 +430,6 @@ msgstr "非決定性"
 msgid "Inconclusive results"
 msgstr "非決定性的结果"
 
-msgid "Is %s param set to be overriden?"
-msgstr "是否设置了 %s 参数？"
-
-msgid "Is foreman_ansible present?"
-msgstr "foreman_ansible 存在吗？"
-
-msgid "Is theforeman.foreman_scap_client present?"
-msgstr "是否存在 foreman.foreman_scap_client？"
-
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
 msgstr "有些可能需要根据您的具体需求调整安全策略。"
 
@@ -540,12 +444,6 @@ msgstr "最新的政策报告：%s"
 
 msgid "List ARF reports"
 msgstr "列出 ARF 报告"
-
-msgid "List OVAL Policies"
-msgstr "列出 OVAL 政策"
-
-msgid "List OVAL contents"
-msgstr "列出 OVAL 内容"
 
 msgid "List Policies"
 msgstr "列出策略"
@@ -574,9 +472,6 @@ msgstr "信息"
 msgid "Method"
 msgstr ""
 
-msgid "Monthly, day of month: %s"
-msgstr ""
-
 msgid "More details"
 msgstr "更多细节"
 
@@ -588,9 +483,6 @@ msgstr "从未审核"
 
 msgid "New Compliance Policy"
 msgstr "新的合规政策"
-
-msgid "New OVAL Content"
-msgstr ""
 
 msgid "New Policy"
 msgstr "新建策略"
@@ -610,24 +502,6 @@ msgstr "否"
 msgid "No ARF reports for this policy"
 msgstr "此政策沒有 ARF 報告"
 
-msgid "No CVEs found."
-msgstr "找不到 CVE。"
-
-msgid "No Hostgroups found."
-msgstr ""
-
-msgid "No OVAL Content found"
-msgstr ""
-
-msgid "No OVAL Contents found."
-msgstr "找不到 OVAL 内容。"
-
-msgid "No OVAL Policies found"
-msgstr "找不到 OVAL 政策"
-
-msgid "No OVAL Policy found"
-msgstr "找不到 OVAL 政策"
-
 msgid "No OpenSCAP Proxy selected."
 msgstr "没有选择 OpenSCAP 代理。"
 
@@ -636,9 +510,6 @@ msgstr "没有找到 id 为 %%{id} 的 %%{class} 的 OpenSCAP 代理服务器"
 
 msgid "No Tailoring file assigned for policy with id %s"
 msgstr "没有为 id %s 的策略分配定制文件"
-
-msgid "No Vulnerabilities found"
-msgstr "没有找到漏洞"
 
 msgid "No available proxy to validate. Returned with error: %s"
 msgstr "没有可用的代理进行验证。返回错误： %s"
@@ -712,78 +583,6 @@ msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數
 msgid "OS"
 msgstr ""
 
-msgid "OVAL Content"
-msgstr "OVAL 内容"
-
-msgid "OVAL Content %s successfully created"
-msgstr ""
-
-msgid "OVAL Content Source"
-msgstr ""
-
-msgid "OVAL Content from URL"
-msgstr ""
-
-msgid "OVAL Content from file"
-msgstr ""
-
-msgid "OVAL Content is required to create OVAL Policy. Please create one before proceeding."
-msgstr ""
-
-msgid "OVAL Content successfully deleted."
-msgstr ""
-
-msgid "OVAL Contents"
-msgstr "OVAL 內容"
-
-msgid "OVAL Contents table"
-msgstr "OVAL 内容表"
-
-msgid "OVAL Policies"
-msgstr "OVAL 策略"
-
-msgid "OVAL Policies Table"
-msgstr "OVAL 策略表"
-
-msgid "OVAL Policy description"
-msgstr "OVAL 政策描述"
-
-msgid "OVAL Policy name"
-msgstr "OVAL 政策名称"
-
-msgid "OVAL Policy schedule cron line (only if period == \"custom\")"
-msgstr "OVAL 策略调度 cron 行（只在时段为 \"custom\" 时适用）"
-
-msgid "OVAL Policy schedule day of month (only if period == \"monthly\")"
-msgstr "OVAL 每月的策略调度日（只在时段为 \"monthly\" 时适用）"
-
-msgid "OVAL Policy schedule period (weekly, monthly, custom)"
-msgstr "OVAL 策略调度时段（每周、每月、自定义）"
-
-msgid "OVAL Policy schedule weekday (only if period == \"weekly\")"
-msgstr "OVAL 策略调度工作日（只在时段为 \"weekly\" 时适用）"
-
-msgid "OVAL Policy succesfully created."
-msgstr ""
-
-msgid "OVAL content name"
-msgstr "OVAL 内容名称"
-
-msgid "OVAL policy"
-msgstr ""
-
-msgid "OVAL policy successfully configured with %s."
-msgstr "已成功使用 %s 配置了OVAL策略。"
-
-msgid "OVAL policy was successfully deleted."
-msgstr ""
-
-msgid "OVAL policy was successfully updated."
-msgstr ""
-
-msgid "OVAL scan"
-msgstr "OVAL 扫描"
-
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr "存在 SCAP 内容时，您可以创建策略、分配选定主机组，并调度运行时间。"
 
@@ -798,12 +597,6 @@ msgstr "Openscap 代理"
 
 msgid "Organizations"
 msgstr "机构"
-
-msgid "Original File Name"
-msgstr ""
-
-msgid "Original file name of the OVAL content file"
-msgstr "OVAL 内容文件的原文件名称"
 
 msgid "Original file name of the XML file"
 msgstr "XML 文件的原文件名称"
@@ -827,9 +620,6 @@ msgstr "通过"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "Passed|P"
-
-msgid "Period"
-msgstr ""
 
 msgid "Permission denied"
 msgstr ""
@@ -857,9 +647,6 @@ msgstr "策略 %s"
 
 msgid "Policy Attributes"
 msgstr "策略属性"
-
-msgid "Policy OVAL content ID"
-msgstr "策略 OVAL 内容 ID"
 
 msgid "Policy SCAP content ID"
 msgstr "策略 SCAP 内容 ID"
@@ -912,9 +699,6 @@ msgstr ""
 msgid "Red Hat %s default content"
 msgstr ""
 
-msgid "Ref Id"
-msgstr "参考  id"
-
 msgid "References"
 msgstr "参考"
 
@@ -926,9 +710,6 @@ msgstr ""
 
 msgid "Remediation might render the system non-functional."
 msgstr ""
-
-msgid "Remote action:"
-msgstr "远程操作："
 
 msgid "Remote job"
 msgstr ""
@@ -987,9 +768,6 @@ msgstr "规则结果"
 msgid "Run"
 msgstr ""
 
-msgid "Run OVAL scan"
-msgstr "运行 OVAL 扫描"
-
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
 
@@ -1019,9 +797,6 @@ msgstr "SCAP 內容"
 
 msgid "SCAP policies summary"
 msgstr "SCAP 策略摘要"
-
-msgid "Scan All Hostgroups"
-msgstr "扫描所有主机组"
 
 msgid "Schedule"
 msgstr "调度"
@@ -1056,9 +831,6 @@ msgstr "显示策略"
 msgid "Show a Tailoring file"
 msgstr "显示定制文件"
 
-msgid "Show a policy's OVAL content"
-msgstr ""
-
 msgid "Show a policy's SCAP content"
 msgstr "显示政策的 SCAP 內容"
 
@@ -1067,12 +839,6 @@ msgstr "显示策略的 Tailoring 文件"
 
 msgid "Show an ARF report"
 msgstr "显示 ARF 报告"
-
-msgid "Show an OVAL Policy"
-msgstr "显示 OVAL 政策"
-
-msgid "Show an OVAL content"
-msgstr "显示 OVAL 内容"
 
 msgid "Show an SCAP content"
 msgstr "显示 SCAP 內容"
@@ -1125,15 +891,6 @@ msgstr "来自于 Foreman 的 OpenScap 概述报告"
 msgid "Summary report from Foreman server at %{foreman_url}"
 msgstr "來自 Foreman 服务器的摘要报告，于 %{foreman_url}"
 
-msgid "Sync contents that have remote source URL"
-msgstr "同步具有远程源 URL 的内容"
-
-msgid "Table of CVEs for OVAL policy"
-msgstr "OVAL 策略的 CVE 表"
-
-msgid "Table of hostgroups for OVAL policy"
-msgstr ""
-
 msgid "Tailoring File"
 msgstr "定制文件"
 
@@ -1162,9 +919,6 @@ msgstr ""
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr "％{item_name} 缺少以下 ％{key_name}：％{key_names}。在继续操作之前，请确保已将其导入。"
 
-msgid "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again."
-msgstr "找不到以下 Ansible 变量：％{missing_vars}，请再次导入它们，然后再运行此操作。"
-
 msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
 msgstr "下列智能代理服务器需要更新，以便解锁功能：%s。 "
 
@@ -1184,9 +938,6 @@ msgid "There is no job to remediate with. Please remediate manually."
 msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
-
-msgid "There was a following error when updating OVAL policy: %s"
 msgstr ""
 
 msgid "There's no available report for this host"
@@ -1220,17 +971,8 @@ msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
 msgstr[0] "总共一个主机"
 
-msgid "Type a hostgroup name..."
-msgstr ""
-
 msgid "Type of the upload"
 msgstr "上传类型"
-
-msgid "URL"
-msgstr ""
-
-msgid "URL of the OVAL content file"
-msgstr "OVAL 内容文件的 URL"
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
 msgstr "无法从智能代理获取所请求报告的 HTML 版本"
@@ -1244,26 +986,11 @@ msgstr "取消分配合规政策"
 msgid "Unknown Compliance status"
 msgstr "未知的合规状态"
 
-msgid "Unknown OVAL status"
-msgstr "未知的 OVAL 状态"
-
-msgid "Unknown error when submitting data, please try again later."
-msgstr ""
-
-msgid "Unknown schedule"
-msgstr ""
-
 msgid "Update a Policy"
 msgstr "更新策略"
 
 msgid "Update a Tailoring file"
 msgstr "更新定制文件"
-
-msgid "Update an OVAL Policy"
-msgstr "更新 OVAL 策略"
-
-msgid "Update an OVAL content"
-msgstr "更新 OVAL 内容"
 
 msgid "Update an SCAP content"
 msgstr "更新 SCAP 內容"
@@ -1286,9 +1013,6 @@ msgstr "上传新定制文件"
 msgid "Upload an ARF report"
 msgstr "上传 ARF 報告"
 
-msgid "Upload an OVAL report - a list of CVEs for given host"
-msgstr "上传一个 OVAL 报告 - 给定主机的 CVE 列表"
-
 msgid "Upload new SCAP content file"
 msgstr "上载新的 SCAP 内容文件"
 
@@ -1307,23 +1031,11 @@ msgstr "查看完整报告"
 msgid "View selected hosts"
 msgstr ""
 
-msgid "Was %s configured successfully?"
-msgstr "%s 配置成功吗？"
-
-msgid "Was %{model_name} %{name} configured successfully?"
-msgstr "％{model_name}％%{name}配置成功了吗？"
-
-msgid "Weekly, on %s"
-msgstr ""
-
 msgid "XCCDF Profile"
 msgstr "XCCDF 配置集"
 
 msgid "XCCDF Profile in Tailoring File"
 msgstr "定制文件中的 XCCDF 配置文件"
-
-msgid "XML containing OVAL content"
-msgstr "包含 OVAL 内容的 XML"
 
 msgid "XML containing SCAP content"
 msgstr "包含 SCAP 内容的 XML"
@@ -1346,14 +1058,8 @@ msgstr "您可以设置定制的 cron 行，如 \"0  3  *  *  *\"，其中的 5 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr "您似乎没有 ARF 报告。ARF 报告是针对给定的合规策略对特定主机执行单次扫描的摘要。"
 
-msgid "can't be blank"
-msgstr ""
-
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
 msgstr "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'。"
-
-msgid "cause: "
-msgstr ""
 
 msgid "documentation"
 msgstr "文档"
@@ -1367,20 +1073,8 @@ msgstr "不是由使用空格分开的 5 个部分组成"
 msgid "does not have the selected SCAP content profile"
 msgstr "不具备所选的 SCAP 内容配置文件"
 
-msgid "foreman_ansible plugin not found, please install it before running this action again."
-msgstr "没有找到 foreman_ansible 插件，请先安装它，然后再次运行此操作。"
-
-msgid "hostgroups"
-msgstr "主机组"
-
-msgid "hosts"
-msgstr "主机"
-
 msgid "invalid type %s"
 msgstr "无效类型 %s"
-
-msgid "is not a valid cronline"
-msgstr ""
 
 msgid "is not a valid value"
 msgstr "不是有效值"

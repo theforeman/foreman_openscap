@@ -48,12 +48,6 @@
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         ""
       ],
-      "%s vulnerabilities found": [
-        "ნაპოვნია %s მოწყვლადობა"
-      ],
-      "%s vulnerabilities with available patch found": [
-        "ნაპოვნია %s მოწყვლადობა ხელმისაწვდომი პაჩით"
-      ],
       "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
         ""
       ],
@@ -68,9 +62,6 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP-ის პოლიტიკის ანგარიშების შეჯამება"
-      ],
-      "Action with sub plans": [
-        "ქმედება ქვე-გეგმებით"
       ],
       "Actions": [
         "ქმედებები"
@@ -90,37 +81,16 @@
       "Apply policy to hosts": [
         "წესის ჰოსტებზე გადატარება"
       ],
-      "Are required variables for theforeman.foreman_scap_client present?": [
-        "მითითებულია თუ არა აუცილებელი ცვლადები theforeman.foreman_scap_client-სთვის?"
-      ],
       "Are you sure you want to delete %s?": [
         ""
       ],
-      "Array of host IDs": [
-        "ჰოსტის ID-ების მასივი"
-      ],
-      "Array of hostgroup IDs": [
-        "ჰოსტის ჯგუფების ID-ების მასივი"
-      ],
       "Assign Compliance Policy": [
         "შესაბამისობის პოლიტიკის მინიჭება"
-      ],
-      "Assign hostgroups to an OVAL Policy": [
-        "OVAL-ის წესში ჰოსტის ჯგუფების მინიჭება"
-      ],
-      "Assign hosts to an OVAL Policy": [
-        "OVAL-ის წესზე ჰოსტების მინიჭება"
-      ],
-      "Assign openscap_proxy to %s before proceeding.": [
-        "გაგრძელებამდე %s-ს openscap_proxy მიანიჭეთ."
       ],
       "Back": [
         "უკან"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
-        ""
-      ],
-      "CVEs": [
         ""
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
@@ -146,9 +116,6 @@
       ],
       "Changed?": [
         "შეიცვალა?"
-      ],
-      "Choose OVAL Content": [
-        ""
       ],
       "Choose Tailoring File": [
         "არჩიეთ შესაბამისობის ფაილი"
@@ -207,23 +174,11 @@
       "Could not find host identified by: %s": [
         "ჰოსტი იდენტიფიკატორით %s ვერ ვპოვე"
       ],
-      "Could not update Ansible Variables with override: true": [
-        "Ansible-ის ცვლადების override:true -ით განახლება შეუძლებელია"
-      ],
       "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
         ""
       ],
       "Could not validate %{file_type}. Error %{error}": [
         "%{file_type}-ის გადამოწმება შეუძლებელია. შეცდომა %{error}"
-      ],
-      "Create OVAL Content": [
-        ""
-      ],
-      "Create OVAL Policy": [
-        ""
-      ],
-      "Create OVAL content": [
-        "OVAL-ის შემცველობის შექმნა"
       ],
       "Create SCAP content": [
         "SCAP შემცველობის შექმნა"
@@ -234,13 +189,7 @@
       "Create a Tailoring file": [
         "შესაბამისობის ფაილის შექმნა"
       ],
-      "Create an OVAL Policy": [
-        "OVAL-ის წესის შექმნა"
-      ],
       "Created at": [
-        ""
-      ],
-      "Custom cron: %s": [
         ""
       ],
       "Dashboard": [
@@ -258,20 +207,11 @@
       "Delete": [
         "წაშლა"
       ],
-      "Delete OVAL Content": [
-        ""
-      ],
-      "Delete OVAL Policy": [
-        ""
-      ],
       "Delete a Policy": [
         "წესის წაშლა"
       ],
       "Delete an ARF Report": [
         "ARF ანგარიშის წაშლა"
-      ],
-      "Delete an OVAL Policy": [
-        "OVAL-ის წესის წაშლა"
       ],
       "Delete compliance policy %s with all of its reports?": [
         "წავშალო შესაბამისობის პოლიტიკა %s ყველა მისი ანგარიშით?"
@@ -294,9 +234,6 @@
       "Deletes a Tailoring file": [
         "შესაბამისობის ფაილის წაშლა"
       ],
-      "Deletes an OVAL content": [
-        "OVAL-ის შემცველობის წაშლა"
-      ],
       "Deletes an SCAP content": [
         "SCAP შემცველობის წაშლა"
       ],
@@ -305,9 +242,6 @@
       ],
       "Description": [
         "აღწერილობა"
-      ],
-      "Details": [
-        "დეტალები"
       ],
       "Details for Compliance Policy %s": [
         "დეტალები შესაბამისობის წესის შესახებ: %s"
@@ -372,9 +306,6 @@
       "Failed saving %s:": [
         ""
       ],
-      "Failed to create OVAL Policy: %s": [
-        ""
-      ],
       "Failed to delete %s compliance reports": [
         "%s შესაბამისობის ანგარიშის წაშლის შეცდომა"
       ],
@@ -387,9 +318,6 @@
       "Failed to downloaded ARF report in HTML: %s": [
         "ARF ანგარიშის HTML ფორმატში გადმოწერის შეცდომა: %s"
       ],
-      "Failed to fetch content file from %s": [
-        ""
-      ],
       "Failed to fetch spool status from proxy": [
         "პულის სტატუსის პროქსიდან გამოთხოვის შეცდომა"
       ],
@@ -401,9 +329,6 @@
       ],
       "Failed|F": [
         "ვერ|F"
-      ],
-      "File": [
-        ""
       ],
       "File Upload": [
         "ფაილის ატვირთვა"
@@ -419,9 +344,6 @@
       ],
       "General": [
         "მთავარი"
-      ],
-      "Has Errata?": [
-        "აქვს თუ არა მორჩენილი პაჩები?"
       ],
       "Host": [
         "ჰოსტი"
@@ -459,9 +381,6 @@
       "Hosts Breakdown": [
         "ჰოსტების დაშლა"
       ],
-      "Hosts Count": [
-        "ჰოსტების ჯამური რაოდენობა"
-      ],
       "Hosts failing this rule": [
         "ჰოსტები, რომლებსაც არ გააჩნიათ ეს წესი"
       ],
@@ -479,12 +398,6 @@
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP პროქსის ID"
-      ],
-      "Import Puppet classes": [
-        "Puppet-ის კლასების შემოტანა"
-      ],
-      "Import facts": [
-        "ფაქტების შემოტანა"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman-ში შესაბამისობის პოლიტიკის სია %s-ის გავლითაა აღწერილი."
@@ -507,15 +420,6 @@
       "Inconclusive results": [
         "არადამაჯერებელი პასუხები"
       ],
-      "Is %s param set to be overriden?": [
-        ""
-      ],
-      "Is foreman_ansible present?": [
-        "არსებობს ტუ არა foreman_ansible?"
-      ],
-      "Is theforeman.foreman_scap_client present?": [
-        "არსებობს თუ არა theforeman.foreman_scap_client present?"
-      ],
       "It may sometimes be required to adjust the security policy to your specific needs. ": [
         ""
       ],
@@ -530,12 +434,6 @@
       ],
       "List ARF reports": [
         "ARF ანგარიშების სია"
-      ],
-      "List OVAL Policies": [
-        "OVAL-ის წესების სია"
-      ],
-      "List OVAL contents": [
-        "OVAL-ის შემცველობის სია"
       ],
       "List Policies": [
         "წესების სია"
@@ -564,9 +462,6 @@
       "Method": [
         ""
       ],
-      "Monthly, day of month: %s": [
-        ""
-      ],
       "More details": [
         "მეტი დეტალი"
       ],
@@ -578,9 +473,6 @@
       ],
       "New Compliance Policy": [
         "შესაბამისობის ახალი წესი"
-      ],
-      "New OVAL Content": [
-        ""
       ],
       "New Policy": [
         "ახალი წესი"
@@ -600,24 +492,6 @@
       "No ARF reports for this policy": [
         "ამ წესისთვის ARF ანგარიშები არ არსებობს"
       ],
-      "No CVEs found.": [
-        "CVE-ები ნაპოვნი არაა."
-      ],
-      "No Hostgroups found.": [
-        ""
-      ],
-      "No OVAL Content found": [
-        ""
-      ],
-      "No OVAL Contents found.": [
-        "OVAL-ის შემცველობა ნაპოვნი არაა."
-      ],
-      "No OVAL Policies found": [
-        "OVAL-ის წესები ნაპოვნი არაა"
-      ],
-      "No OVAL Policy found": [
-        "OVAL-ის წესი ნაპოვნი არაა"
-      ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP-ის პროქსი არჩეული არაა."
       ],
@@ -626,9 +500,6 @@
       ],
       "No Tailoring file assigned for policy with id %s": [
         "წესზე ID-ით %s შესაბამისობის ფაილი მინიჭებული არაა"
-      ],
-      "No Vulnerabilities found": [
-        "მოწყვლადობები ნაპოვნი არაა"
       ],
       "No available proxy to validate. Returned with error: %s": [
         "გადასამოწმებელი პროქსის გარეშე. დაბრუნებული შეცდომაა: %s"
@@ -702,78 +573,6 @@
       "OS": [
         ""
       ],
-      "OVAL Content": [
-        "OVAL-ის შემცველობა"
-      ],
-      "OVAL Content %s successfully created": [
-        ""
-      ],
-      "OVAL Content Source": [
-        ""
-      ],
-      "OVAL Content from URL": [
-        ""
-      ],
-      "OVAL Content from file": [
-        ""
-      ],
-      "OVAL Content is required to create OVAL Policy. Please create one before proceeding.": [
-        ""
-      ],
-      "OVAL Content successfully deleted.": [
-        ""
-      ],
-      "OVAL Contents": [
-        "OVAL-ის შემცველობა"
-      ],
-      "OVAL Contents table": [
-        "OVAL-ის შემცველობის ცხრილი"
-      ],
-      "OVAL Policies": [
-        "OVAL-ის წესები"
-      ],
-      "OVAL Policies Table": [
-        "OVAL-ის წესების ცხრილი"
-      ],
-      "OVAL Policy description": [
-        "OVAL-ის წესის აღწერა"
-      ],
-      "OVAL Policy name": [
-        "OVAL-ის წესის სახელი"
-      ],
-      "OVAL Policy schedule cron line (only if period == \\\"custom\\\")": [
-        "OVAL-ის წესის განრიგის ხელით მითთება (თუ period == 'custom')"
-      ],
-      "OVAL Policy schedule day of month (only if period == \\\"monthly\\\")": [
-        "OVAL-ის წესის განრივი თვეში ერთხელ (თუ period == 'monthly')"
-      ],
-      "OVAL Policy schedule period (weekly, monthly, custom)": [
-        "OVAL-ის წესის განრიგის პერიოდი (კვირაში, თვეში თუ ხელით მითითითებული)"
-      ],
-      "OVAL Policy schedule weekday (only if period == \\\"weekly\\\")": [
-        "OVAL-ის წესის განრიგი კვირაობით (თუ period == 'weekly')"
-      ],
-      "OVAL Policy succesfully created.": [
-        ""
-      ],
-      "OVAL content name": [
-        "OVAL-ის შემცველობის სახელი"
-      ],
-      "OVAL policy": [
-        ""
-      ],
-      "OVAL policy successfully configured with %s.": [
-        "OVAL-ის წესი წარმატებით მოერგო %s-ს."
-      ],
-      "OVAL policy was successfully deleted.": [
-        ""
-      ],
-      "OVAL policy was successfully updated.": [
-        ""
-      ],
-      "OVAL scan": [
-        "OVAL-ის სკანირება"
-      ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         ""
       ],
@@ -788,12 +587,6 @@
       ],
       "Organizations": [
         "ორგანიზაციები"
-      ],
-      "Original File Name": [
-        ""
-      ],
-      "Original file name of the OVAL content file": [
-        "OVAL-ის შემცველობის ფაილის საწყისი სახელი"
       ],
       "Original file name of the XML file": [
         "XML ფაილის საწყისი სახელი"
@@ -815,9 +608,6 @@
       ],
       "Passed|P": [
         "გაიარა|P"
-      ],
-      "Period": [
-        ""
       ],
       "Permission denied": [
         "წვდომა აკრძალულია"
@@ -845,9 +635,6 @@
       ],
       "Policy Attributes": [
         "წესის ატრიბუტები"
-      ],
-      "Policy OVAL content ID": [
-        "OVAL-ის წესის შემცველობის ID"
       ],
       "Policy SCAP content ID": [
         "წესის SCAP შემცველობის ID"
@@ -900,9 +687,6 @@
       "Red Hat %s default content": [
         ""
       ],
-      "Ref Id": [
-        "ბმ ID"
-      ],
       "References": [
         "ბმები"
       ],
@@ -914,9 +698,6 @@
       ],
       "Remediation might render the system non-functional.": [
         ""
-      ],
-      "Remote action:": [
-        "დაშორებული ქმედება:"
       ],
       "Remote job": [
         ""
@@ -975,9 +756,6 @@
       "Run": [
         ""
       ],
-      "Run OVAL scan": [
-        "OVAL-ის სკანირების გაშვება"
-      ],
       "Run OpenSCAP remediation with Ansible": [
         ""
       ],
@@ -1007,9 +785,6 @@
       ],
       "SCAP policies summary": [
         "SCAP_ის წესის მიმოხილვა"
-      ],
-      "Scan All Hostgroups": [
-        "ჰოსტის ყველა ჯგუფის სკანირება"
       ],
       "Schedule": [
         "განრიგი"
@@ -1044,9 +819,6 @@
       "Show a Tailoring file": [
         "შესაბამისობის ფაილის ჩვენება"
       ],
-      "Show a policy's OVAL content": [
-        ""
-      ],
       "Show a policy's SCAP content": [
         "წესის SCAP შემცველობის ჩვენება"
       ],
@@ -1055,12 +827,6 @@
       ],
       "Show an ARF report": [
         "ARF ანგარიშის ჩვენება"
-      ],
-      "Show an OVAL Policy": [
-        "OVAL-ის წესის ჩვენება"
-      ],
-      "Show an OVAL content": [
-        "OVAL-ის შემცველობის ნახვა"
       ],
       "Show an SCAP content": [
         "SCAP შემცველობის ჩვენება"
@@ -1113,15 +879,6 @@
       "Summary report from Foreman server at %{foreman_url}": [
         "შემაჯამებელი მიმოხილვა Foreman-ის სერვერიდან: %{foreman_url}"
       ],
-      "Sync contents that have remote source URL": [
-        "შემცველობის, რომლებსაც დაშორებული წყაროს URL-ები აქვთ მითითებული, სინქი"
-      ],
-      "Table of CVEs for OVAL policy": [
-        "CVE-ის ცხრილები OVAL-ის წესისთვის"
-      ],
-      "Table of hostgroups for OVAL policy": [
-        ""
-      ],
       "Tailoring File": [
         "შესაბამისობის ფაილის"
       ],
@@ -1146,9 +903,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         ""
       ],
-      "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again.": [
-        ""
-      ],
       "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
         "ფუნქციის ჩასართავად საჭიროა შემდეგი ჭკვიანი პროქსიების განახლება: %s. "
       ],
@@ -1168,9 +922,6 @@
         ""
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
-      ],
-      "There was a following error when updating OVAL policy: %s": [
         ""
       ],
       "There's no available report for this host": [
@@ -1204,17 +955,8 @@
         "სულ ერთი ჰოსტი",
         "სულ %{hosts} ჰოსტი"
       ],
-      "Type a hostgroup name...": [
-        ""
-      ],
       "Type of the upload": [
         "ატვირთვის ტიპი"
-      ],
-      "URL": [
-        "ბმული"
-      ],
-      "URL of the OVAL content file": [
-        "OVAL-ის შემცველობის ფაილის URL-ი"
       ],
       "Unable to get HTML version of requested report from Smart Proxy": [
         "ჭკვიანი პროქსიდან მოთხოვნილი ანგარიშის HTML ვერსიის მიღების პრობლემა"
@@ -1228,26 +970,11 @@
       "Unknown Compliance status": [
         "შესაბამისობის უცნობი სტატუსი"
       ],
-      "Unknown OVAL status": [
-        "OVAL-ის უცნობი სტატუსი"
-      ],
-      "Unknown error when submitting data, please try again later.": [
-        ""
-      ],
-      "Unknown schedule": [
-        ""
-      ],
       "Update a Policy": [
         "წესის განახლება"
       ],
       "Update a Tailoring file": [
         "შესაბამისობის ფაილის განახლება"
-      ],
-      "Update an OVAL Policy": [
-        "OVAL-ის წესის განახლება"
-      ],
-      "Update an OVAL content": [
-        "OVAL-ის შემცველობის განახლება"
       ],
       "Update an SCAP content": [
         "SCAP შემცველობის განახლება"
@@ -1270,9 +997,6 @@
       "Upload an ARF report": [
         "ARF ანგარიშის ატვირთვა"
       ],
-      "Upload an OVAL report - a list of CVEs for given host": [
-        "OVAL-ის ანგარიშის ატვირთვა - მოცემული ჰოსტის CVE-ების სია"
-      ],
       "Upload new SCAP content file": [
         "SCAP-ის ახალი შემცველობის ფაილის ატვირთვა"
       ],
@@ -1291,23 +1015,11 @@
       "View selected hosts": [
         ""
       ],
-      "Was %s configured successfully?": [
-        "%s წარმატებითაა მორგებული?"
-      ],
-      "Was %{model_name} %{name} configured successfully?": [
-        "არის თუ არა%{model_name} %{name} მორგებული წარმატებით?"
-      ],
-      "Weekly, on %s": [
-        ""
-      ],
       "XCCDF Profile": [
         "XCCDF პროფილი"
       ],
       "XCCDF Profile in Tailoring File": [
         "XCCDF პროფილი შესაბამისობის ფაილში"
-      ],
-      "XML containing OVAL content": [
-        "OVAL-ის შემცველი XML-ი"
       ],
       "XML containing SCAP content": [
         "SCAP-ის შემცველი XML-ი"
@@ -1330,13 +1042,7 @@
       "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
         ""
       ],
-      "can't be blank": [
-        "არ შეიძლება ცარიელი იყოს"
-      ],
       "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
-        ""
-      ],
-      "cause: ": [
         ""
       ],
       "documentation": [
@@ -1351,20 +1057,8 @@
       "does not have the selected SCAP content profile": [
         "scap-ის მითითებული შემცველობის პროფილი არ გააჩნია"
       ],
-      "foreman_ansible plugin not found, please install it before running this action again.": [
-        "მოდული foreman_ansible ნაპოვნი არაა. სანამ ამ ქმედებას გაუშვებთ, გთხოვთ დააყენოთ."
-      ],
-      "hostgroups": [
-        "ჰოსტის ჯგუფები"
-      ],
-      "hosts": [
-        "ჰოსტი"
-      ],
       "invalid type %s": [
         "%s-ის არასწორი ტიპი"
-      ],
-      "is not a valid cronline": [
-        ""
       ],
       "is not a valid value": [
         "სწორ მნიშვნელობას არ წარმოადგენს"

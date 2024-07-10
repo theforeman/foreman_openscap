@@ -47,12 +47,6 @@
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "发现了 %s 个 spool 错误，在代理上直接检查相关的文件"
       ],
-      "%s vulnerabilities found": [
-        "找到了 %s 个漏洞"
-      ],
-      "%s vulnerabilities with available patch found": [
-        "找到了 %s 个有可用补丁的漏洞"
-      ],
       "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
         "已选择 %{type} 将策略部署到客户端，但是%{type} 不可用。您是否缺少插件？"
       ],
@@ -67,9 +61,6 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP 策略报告摘要"
-      ],
-      "Action with sub plans": [
-        "有子计划的操作"
       ],
       "Actions": [
         "操作"
@@ -89,37 +80,16 @@
       "Apply policy to hosts": [
         "对主机应用策略"
       ],
-      "Are required variables for theforeman.foreman_scap_client present?": [
-        "是否存在 forforeman.foreman_scap_client 所需的变量？"
-      ],
       "Are you sure you want to delete %s?": [
         ""
       ],
-      "Array of host IDs": [
-        "主机 ID 数组"
-      ],
-      "Array of hostgroup IDs": [
-        "主机组 ID 的数组"
-      ],
       "Assign Compliance Policy": [
         "分配合规政策"
-      ],
-      "Assign hostgroups to an OVAL Policy": [
-        "将主机组分配给一个 OVAL 策略"
-      ],
-      "Assign hosts to an OVAL Policy": [
-        "将主机分配给一个 OVAL 策略"
-      ],
-      "Assign openscap_proxy to %s before proceeding.": [
-        "在继续前，把 openscap_proxy 分配给 %s。"
       ],
       "Back": [
         "返回"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
-        ""
-      ],
-      "CVEs": [
         ""
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
@@ -145,9 +115,6 @@
       ],
       "Changed?": [
         "已改变？"
-      ],
-      "Choose OVAL Content": [
-        ""
       ],
       "Choose Tailoring File": [
         "选择 Tailoring 文件"
@@ -206,23 +173,11 @@
       "Could not find host identified by: %s": [
         "无法找到由 %s 标识的主机"
       ],
-      "Could not update Ansible Variables with override: true": [
-        "无法使用替代更新 Ansible 变量：true"
-      ],
       "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
         "无法验证 %s。请确保您具备合适的代理服务器版本，以便使用此功能"
       ],
       "Could not validate %{file_type}. Error %{error}": [
         "无法验证％{file_type} 。错误 %{error}"
-      ],
-      "Create OVAL Content": [
-        ""
-      ],
-      "Create OVAL Policy": [
-        ""
-      ],
-      "Create OVAL content": [
-        "创建 OVAL 内容"
       ],
       "Create SCAP content": [
         "建立 SCAP 內容"
@@ -233,13 +188,7 @@
       "Create a Tailoring file": [
         "创建定制文件"
       ],
-      "Create an OVAL Policy": [
-        "创建一个 OVAL 策略"
-      ],
       "Created at": [
-        ""
-      ],
-      "Custom cron: %s": [
         ""
       ],
       "Dashboard": [
@@ -257,20 +206,11 @@
       "Delete": [
         "刪除"
       ],
-      "Delete OVAL Content": [
-        ""
-      ],
-      "Delete OVAL Policy": [
-        ""
-      ],
       "Delete a Policy": [
         "删除一个策略"
       ],
       "Delete an ARF Report": [
         "删除 ARF 报告"
-      ],
-      "Delete an OVAL Policy": [
-        "删除 OVAL 策略"
       ],
       "Delete compliance policy %s with all of its reports?": [
         "是否删除所有报告中的合规策略 %s？"
@@ -293,9 +233,6 @@
       "Deletes a Tailoring file": [
         "删除定制文件"
       ],
-      "Deletes an OVAL content": [
-        "删除 OVAL 内容"
-      ],
       "Deletes an SCAP content": [
         "刪除 SCAP 內容"
       ],
@@ -304,9 +241,6 @@
       ],
       "Description": [
         "描述"
-      ],
-      "Details": [
-        ""
       ],
       "Details for Compliance Policy %s": [
         "合规政策 %s 详情"
@@ -371,9 +305,6 @@
       "Failed saving %s:": [
         ""
       ],
-      "Failed to create OVAL Policy: %s": [
-        ""
-      ],
       "Failed to delete %s compliance reports": [
         "刪除 %s 合规报告失败"
       ],
@@ -386,9 +317,6 @@
       "Failed to downloaded ARF report in HTML: %s": [
         "无法以 HTML 格式下载 ARF 报告：%s"
       ],
-      "Failed to fetch content file from %s": [
-        ""
-      ],
       "Failed to fetch spool status from proxy": [
         "从代理获取 spool 状态失败"
       ],
@@ -400,9 +328,6 @@
       ],
       "Failed|F": [
         "Failed|F"
-      ],
-      "File": [
-        ""
       ],
       "File Upload": [
         "上传文件"
@@ -418,9 +343,6 @@
       ],
       "General": [
         "常规"
-      ],
-      "Has Errata?": [
-        "有勘误？"
       ],
       "Host": [
         "主机"
@@ -458,9 +380,6 @@
       "Hosts Breakdown": [
         "主机分解"
       ],
-      "Hosts Count": [
-        "主机数"
-      ],
       "Hosts failing this rule": [
         "主机在这个规则上失败"
       ],
@@ -478,12 +397,6 @@
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP 代理服务器的 ID"
-      ],
-      "Import Puppet classes": [
-        "导入 Puppet 类"
-      ],
-      "Import facts": [
-        "导入事实"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "在 Foreman 中，合规策略检查清单通过 %s 定义。"
@@ -506,15 +419,6 @@
       "Inconclusive results": [
         "非決定性的结果"
       ],
-      "Is %s param set to be overriden?": [
-        "是否设置了 %s 参数？"
-      ],
-      "Is foreman_ansible present?": [
-        "foreman_ansible 存在吗？"
-      ],
-      "Is theforeman.foreman_scap_client present?": [
-        "是否存在 foreman.foreman_scap_client？"
-      ],
       "It may sometimes be required to adjust the security policy to your specific needs. ": [
         "有些可能需要根据您的具体需求调整安全策略。"
       ],
@@ -529,12 +433,6 @@
       ],
       "List ARF reports": [
         "列出 ARF 报告"
-      ],
-      "List OVAL Policies": [
-        "列出 OVAL 政策"
-      ],
-      "List OVAL contents": [
-        "列出 OVAL 内容"
       ],
       "List Policies": [
         "列出策略"
@@ -563,9 +461,6 @@
       "Method": [
         ""
       ],
-      "Monthly, day of month: %s": [
-        ""
-      ],
       "More details": [
         "更多细节"
       ],
@@ -577,9 +472,6 @@
       ],
       "New Compliance Policy": [
         "新的合规政策"
-      ],
-      "New OVAL Content": [
-        ""
       ],
       "New Policy": [
         "新建策略"
@@ -599,24 +491,6 @@
       "No ARF reports for this policy": [
         "此政策沒有 ARF 報告"
       ],
-      "No CVEs found.": [
-        "找不到 CVE。"
-      ],
-      "No Hostgroups found.": [
-        ""
-      ],
-      "No OVAL Content found": [
-        ""
-      ],
-      "No OVAL Contents found.": [
-        "找不到 OVAL 内容。"
-      ],
-      "No OVAL Policies found": [
-        "找不到 OVAL 政策"
-      ],
-      "No OVAL Policy found": [
-        "找不到 OVAL 政策"
-      ],
       "No OpenSCAP Proxy selected.": [
         "没有选择 OpenSCAP 代理。"
       ],
@@ -625,9 +499,6 @@
       ],
       "No Tailoring file assigned for policy with id %s": [
         "没有为 id %s 的策略分配定制文件"
-      ],
-      "No Vulnerabilities found": [
-        "没有找到漏洞"
       ],
       "No available proxy to validate. Returned with error: %s": [
         "没有可用的代理进行验证。返回错误： %s"
@@ -701,78 +572,6 @@
       "OS": [
         ""
       ],
-      "OVAL Content": [
-        "OVAL 内容"
-      ],
-      "OVAL Content %s successfully created": [
-        ""
-      ],
-      "OVAL Content Source": [
-        ""
-      ],
-      "OVAL Content from URL": [
-        ""
-      ],
-      "OVAL Content from file": [
-        ""
-      ],
-      "OVAL Content is required to create OVAL Policy. Please create one before proceeding.": [
-        ""
-      ],
-      "OVAL Content successfully deleted.": [
-        ""
-      ],
-      "OVAL Contents": [
-        "OVAL 內容"
-      ],
-      "OVAL Contents table": [
-        "OVAL 内容表"
-      ],
-      "OVAL Policies": [
-        "OVAL 策略"
-      ],
-      "OVAL Policies Table": [
-        "OVAL 策略表"
-      ],
-      "OVAL Policy description": [
-        "OVAL 政策描述"
-      ],
-      "OVAL Policy name": [
-        "OVAL 政策名称"
-      ],
-      "OVAL Policy schedule cron line (only if period == \\\"custom\\\")": [
-        "OVAL 策略调度 cron 行（只在时段为 \\\"custom\\\" 时适用）"
-      ],
-      "OVAL Policy schedule day of month (only if period == \\\"monthly\\\")": [
-        "OVAL 每月的策略调度日（只在时段为 \\\"monthly\\\" 时适用）"
-      ],
-      "OVAL Policy schedule period (weekly, monthly, custom)": [
-        "OVAL 策略调度时段（每周、每月、自定义）"
-      ],
-      "OVAL Policy schedule weekday (only if period == \\\"weekly\\\")": [
-        "OVAL 策略调度工作日（只在时段为 \\\"weekly\\\" 时适用）"
-      ],
-      "OVAL Policy succesfully created.": [
-        ""
-      ],
-      "OVAL content name": [
-        "OVAL 内容名称"
-      ],
-      "OVAL policy": [
-        ""
-      ],
-      "OVAL policy successfully configured with %s.": [
-        "已成功使用 %s 配置了OVAL策略。"
-      ],
-      "OVAL policy was successfully deleted.": [
-        ""
-      ],
-      "OVAL policy was successfully updated.": [
-        ""
-      ],
-      "OVAL scan": [
-        "OVAL 扫描"
-      ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         "存在 SCAP 内容时，您可以创建策略、分配选定主机组，并调度运行时间。"
       ],
@@ -787,12 +586,6 @@
       ],
       "Organizations": [
         "机构"
-      ],
-      "Original File Name": [
-        ""
-      ],
-      "Original file name of the OVAL content file": [
-        "OVAL 内容文件的原文件名称"
       ],
       "Original file name of the XML file": [
         "XML 文件的原文件名称"
@@ -814,9 +607,6 @@
       ],
       "Passed|P": [
         "Passed|P"
-      ],
-      "Period": [
-        ""
       ],
       "Permission denied": [
         ""
@@ -844,9 +634,6 @@
       ],
       "Policy Attributes": [
         "策略属性"
-      ],
-      "Policy OVAL content ID": [
-        "策略 OVAL 内容 ID"
       ],
       "Policy SCAP content ID": [
         "策略 SCAP 内容 ID"
@@ -899,9 +686,6 @@
       "Red Hat %s default content": [
         ""
       ],
-      "Ref Id": [
-        "参考  id"
-      ],
       "References": [
         "参考"
       ],
@@ -913,9 +697,6 @@
       ],
       "Remediation might render the system non-functional.": [
         ""
-      ],
-      "Remote action:": [
-        "远程操作："
       ],
       "Remote job": [
         ""
@@ -974,9 +755,6 @@
       "Run": [
         ""
       ],
-      "Run OVAL scan": [
-        "运行 OVAL 扫描"
-      ],
       "Run OpenSCAP remediation with Ansible": [
         ""
       ],
@@ -1006,9 +784,6 @@
       ],
       "SCAP policies summary": [
         "SCAP 策略摘要"
-      ],
-      "Scan All Hostgroups": [
-        "扫描所有主机组"
       ],
       "Schedule": [
         "调度"
@@ -1043,9 +818,6 @@
       "Show a Tailoring file": [
         "显示定制文件"
       ],
-      "Show a policy's OVAL content": [
-        ""
-      ],
       "Show a policy's SCAP content": [
         "显示政策的 SCAP 內容"
       ],
@@ -1054,12 +826,6 @@
       ],
       "Show an ARF report": [
         "显示 ARF 报告"
-      ],
-      "Show an OVAL Policy": [
-        "显示 OVAL 政策"
-      ],
-      "Show an OVAL content": [
-        "显示 OVAL 内容"
       ],
       "Show an SCAP content": [
         "显示 SCAP 內容"
@@ -1112,15 +878,6 @@
       "Summary report from Foreman server at %{foreman_url}": [
         "來自 Foreman 服务器的摘要报告，于 %{foreman_url}"
       ],
-      "Sync contents that have remote source URL": [
-        "同步具有远程源 URL 的内容"
-      ],
-      "Table of CVEs for OVAL policy": [
-        "OVAL 策略的 CVE 表"
-      ],
-      "Table of hostgroups for OVAL policy": [
-        ""
-      ],
       "Tailoring File": [
         "定制文件"
       ],
@@ -1145,9 +902,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "％{item_name} 缺少以下 ％{key_name}：％{key_names}。在继续操作之前，请确保已将其导入。"
       ],
-      "The following Ansible Variables were not found: %{missing_vars}, please import them before running this action again.": [
-        "找不到以下 Ansible 变量：％{missing_vars}，请再次导入它们，然后再运行此操作。"
-      ],
       "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
         "下列智能代理服务器需要更新，以便解锁功能：%s。 "
       ],
@@ -1167,9 +921,6 @@
         ""
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
-      ],
-      "There was a following error when updating OVAL policy: %s": [
         ""
       ],
       "There's no available report for this host": [
@@ -1202,17 +953,8 @@
       "Total of one host": [
         "总共一个主机"
       ],
-      "Type a hostgroup name...": [
-        ""
-      ],
       "Type of the upload": [
         "上传类型"
-      ],
-      "URL": [
-        ""
-      ],
-      "URL of the OVAL content file": [
-        "OVAL 内容文件的 URL"
       ],
       "Unable to get HTML version of requested report from Smart Proxy": [
         "无法从智能代理获取所请求报告的 HTML 版本"
@@ -1226,26 +968,11 @@
       "Unknown Compliance status": [
         "未知的合规状态"
       ],
-      "Unknown OVAL status": [
-        "未知的 OVAL 状态"
-      ],
-      "Unknown error when submitting data, please try again later.": [
-        ""
-      ],
-      "Unknown schedule": [
-        ""
-      ],
       "Update a Policy": [
         "更新策略"
       ],
       "Update a Tailoring file": [
         "更新定制文件"
-      ],
-      "Update an OVAL Policy": [
-        "更新 OVAL 策略"
-      ],
-      "Update an OVAL content": [
-        "更新 OVAL 内容"
       ],
       "Update an SCAP content": [
         "更新 SCAP 內容"
@@ -1268,9 +995,6 @@
       "Upload an ARF report": [
         "上传 ARF 報告"
       ],
-      "Upload an OVAL report - a list of CVEs for given host": [
-        "上传一个 OVAL 报告 - 给定主机的 CVE 列表"
-      ],
       "Upload new SCAP content file": [
         "上载新的 SCAP 内容文件"
       ],
@@ -1289,23 +1013,11 @@
       "View selected hosts": [
         ""
       ],
-      "Was %s configured successfully?": [
-        "%s 配置成功吗？"
-      ],
-      "Was %{model_name} %{name} configured successfully?": [
-        "％{model_name}％%{name}配置成功了吗？"
-      ],
-      "Weekly, on %s": [
-        ""
-      ],
       "XCCDF Profile": [
         "XCCDF 配置集"
       ],
       "XCCDF Profile in Tailoring File": [
         "定制文件中的 XCCDF 配置文件"
-      ],
-      "XML containing OVAL content": [
-        "包含 OVAL 内容的 XML"
       ],
       "XML containing SCAP content": [
         "包含 SCAP 内容的 XML"
@@ -1328,14 +1040,8 @@
       "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
         "您似乎没有 ARF 报告。ARF 报告是针对给定的合规策略对特定主机执行单次扫描的摘要。"
       ],
-      "can't be blank": [
-        ""
-      ],
       "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
         "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'。"
-      ],
-      "cause: ": [
-        ""
       ],
       "documentation": [
         "文档"
@@ -1349,20 +1055,8 @@
       "does not have the selected SCAP content profile": [
         "不具备所选的 SCAP 内容配置文件"
       ],
-      "foreman_ansible plugin not found, please install it before running this action again.": [
-        "没有找到 foreman_ansible 插件，请先安装它，然后再次运行此操作。"
-      ],
-      "hostgroups": [
-        "主机组"
-      ],
-      "hosts": [
-        "主机"
-      ],
       "invalid type %s": [
         "无效类型 %s"
-      ],
-      "is not a valid cronline": [
-        ""
       ],
       "is not a valid value": [
         "不是有效值"
