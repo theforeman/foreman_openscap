@@ -7,5 +7,5 @@ function showReportDetails(log_id, event) {
 function showRemediationWizard(log_id) {
   var wizard_button = $('#openscapRemediationWizardButton');
   wizard_button.attr('data-log-id', log_id);
-  wizard_button.click();
+  wizard_button.trigger("click");
 }
