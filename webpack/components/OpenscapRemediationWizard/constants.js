@@ -1,3 +1,5 @@
+import { translate as __ } from 'foremanReact/common/I18n';
+
 export const OPENSCAP_REMEDIATION_MODAL_ID = 'openscapRemediationModal';
 export const HOSTS_PATH = '/hosts';
 export const FAIL_RULE_SEARCH = 'fails_xccdf_rule';
@@ -12,3 +14,10 @@ export const JOB_INVOCATION_API_REQUEST_KEY = 'OPENSCAP_REX_JOB_INVOCATIONS';
 
 export const SNIPPET_SH = 'urn:xccdf:fix:script:sh';
 export const SNIPPET_ANSIBLE = 'urn:xccdf:fix:script:ansible';
+
+export const WIZARD_TITLES = {
+  snippetSelect: __('Select snippet'),
+  reviewHosts: __('Review hosts'),
+  reviewRemediation: __('Review remediation'),
+  finish: __('Done'),
+};
