@@ -7,12 +7,17 @@ import { sprintf, translate as __ } from 'foremanReact/common/I18n';
 import { API_OPERATIONS, get } from 'foremanReact/redux/API';
 
 import OpenscapRemediationWizardContext from './OpenscapRemediationWizardContext';
+import { Footer } from './Footer';
 import {
   selectLogResponse,
   selectLogError,
   selectLogStatus,
 } from './OpenscapRemediationSelectors';
-import { REPORT_LOG_REQUEST_KEY, FAIL_RULE_SEARCH } from './constants';
+import {
+  REPORT_LOG_REQUEST_KEY,
+  FAIL_RULE_SEARCH,
+  WIZARD_TITLES,
+} from './constants';
 import { SnippetSelect, ReviewHosts, ReviewRemediation, Finish } from './steps';
 
 const OpenscapRemediationWizard = ({
@@ -66,7 +71,7 @@ const OpenscapRemediationWizard = ({
 
   const reviewHostsStep = {
     id: 2,
-    name: __('Review hosts'),
+    name: WIZARD_TITLES.reviewHosts,
     component: <ReviewHosts />,
     canJumpTo: Boolean(snippet && method === 'job'),
     enableNext: Boolean(snippet && method),
@@ -74,7 +79,7 @@ const OpenscapRemediationWizard = ({
   const steps = [
     {
       id: 1,
-      name: __('Select snippet'),
+      name: WIZARD_TITLES.snippetSelect,
       component: <SnippetSelect />,
       canJumpTo: true,
       enableNext: Boolean(snippet && method),
@@ -82,7 +87,7 @@ const OpenscapRemediationWizard = ({
     ...(snippet && method === 'job' ? [reviewHostsStep] : []),
     {
       id: 3,
-      name: __('Review remediation'),
+      name: WIZARD_TITLES.reviewRemediation,
       component: <ReviewRemediation />,
       canJumpTo: Boolean(snippet && method),
       enableNext: method === 'job',
@@ -90,7 +95,7 @@ const OpenscapRemediationWizard = ({
     },
     {
       id: 4,
-      name: __('Done'),
+      name: WIZARD_TITLES.finish,
       component: <Finish onClose={onWizardClose} />,
       isFinishedStep: true,
     },
@@ -128,6 +133,7 @@ const OpenscapRemediationWizard = ({
             isOpen={isRemediationWizardOpen}
             steps={steps}
             onClose={onWizardClose}
+            footer={<Footer />}
           />
         </OpenscapRemediationWizardContext.Provider>
       )}
