@@ -913,12 +913,6 @@ msgstr ""
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr ""
 
-msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr "ფუნქციის ჩასართავად საჭიროა შემდეგი ჭკვიანი პროქსიების განახლება: %s. "
-
-msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr ""
-
 msgid "The identifier of the host"
 msgstr "ჰოსტის იდენტიფიკატორი"
 
@@ -936,9 +930,6 @@ msgstr ""
 
 msgid "There's no available report for this host"
 msgstr ""
-
-msgid "This feature is temporarily disabled. "
-msgstr "ფუნქცია დროებით გათიშულია. "
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
 msgstr ""

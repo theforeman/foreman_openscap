@@ -903,12 +903,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         ""
       ],
-      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
-        ""
-      ],
-      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
-        ""
-      ],
       "The identifier of the host": [
         ""
       ],
@@ -925,9 +919,6 @@
         ""
       ],
       "There's no available report for this host": [
-        ""
-      ],
-      "This feature is temporarily disabled. ": [
         ""
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [

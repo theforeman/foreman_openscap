@@ -917,12 +917,6 @@ msgstr "En el Protocolo de Automatización del Contenido de Seguridad (SCAP, por
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr "Faltan los siguientes %{key_name} para %{item_name}: %{key_names}. Asegúrese de que se importan antes de continuar."
 
-msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr "Deben actualizarse los siguientes proxies inteligentes al desbloquear la funcionalidad: %s. "
-
-msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr "No se pudieron alcanzar los siguientes proxies: %s. Asegúrese de que estén disponibles para que Foreman pueda verificar sus versiones."
-
 msgid "The identifier of the host"
 msgstr "El identificador del host"
 
@@ -940,9 +934,6 @@ msgstr ""
 
 msgid "There's no available report for this host"
 msgstr ""
-
-msgid "This feature is temporarily disabled. "
-msgstr "Esta función se encuentra temporalmente deshabilitada."
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
 msgstr ""

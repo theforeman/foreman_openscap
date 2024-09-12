@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-07-10 15:24+0000\n"
-"PO-Revision-Date: 2024-07-10 15:24+0000\n"
+"POT-Creation-Date: 2024-09-12 14:42+0000\n"
+"PO-Revision-Date: 2024-09-12 14:42+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -169,7 +169,7 @@ msgid "XML containing SCAP content"
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:42
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:37
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:36
 msgid "Original file name of the XML file"
 msgstr ""
 
@@ -207,35 +207,35 @@ msgid ""
 "}"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:11
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:10
 msgid "List Tailoring files"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:19
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:18
 msgid "Download a Tailoring file as XML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:28
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:27
 msgid "Show a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:35
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:34
 msgid "Tailoring file name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:36
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:35
 msgid "XML containing tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:42
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:41
 msgid "Create a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:50
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:49
 msgid "Update a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:58
+#: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:57
 msgid "Deletes a Tailoring file"
 msgstr ""
 
@@ -476,7 +476,7 @@ msgstr ""
 
 #: ../app/helpers/compliance_hosts_helper.rb:37
 #: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../lib/foreman_openscap/engine.rb:140
+#: ../lib/foreman_openscap/engine.rb:132
 #: ../webpack/components/HostExtentions/HostKebabItems.js:39
 msgid "Compliance"
 msgstr ""
@@ -533,6 +533,7 @@ msgstr ""
 #: ../app/helpers/policies_helper.rb:115
 #: ../app/views/arf_reports/_list.html.erb:53
 #: ../webpack/components/ConfirmModal.js:29
+#: ../webpack/components/OpenscapRemediationWizard/Footer.js:47
 msgid "Cancel"
 msgstr ""
 
@@ -676,23 +677,23 @@ msgstr ""
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:227
+#: ../app/models/foreman_openscap/policy.rb:223
 msgid "must be present when tailoring file profile present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:228
+#: ../app/models/foreman_openscap/policy.rb:224
 msgid "must be present when tailoring file present"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:233
+#: ../app/models/foreman_openscap/policy.rb:229
 msgid "does not come from selected tailoring file"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:239
+#: ../app/models/foreman_openscap/policy.rb:235
 msgid "does not have the selected SCAP content profile"
 msgstr ""
 
-#: ../app/models/foreman_openscap/policy.rb:271
+#: ../app/models/foreman_openscap/policy.rb:267
 msgid ""
 "cannot assign to %s, all assigned policies must be deployed in the same way, c"
 "heck 'deploy by' for each assigned policy"
@@ -774,20 +775,6 @@ msgstr ""
 
 #: ../app/services/foreman_openscap/lookup_key_overrider.rb:56
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr ""
-
-#: ../app/services/foreman_openscap/openscap_proxy_version_check.rb:39
-msgid "This feature is temporarily disabled. "
-msgstr ""
-
-#: ../app/services/foreman_openscap/openscap_proxy_version_check.rb:40
-msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr ""
-
-#: ../app/services/foreman_openscap/openscap_proxy_version_check.rb:41
-msgid ""
-"The following proxies could not be reached: %s. Please make sure they are avai"
-"lable so Foreman can check their versions."
 msgstr ""
 
 #: ../app/validators/foreman_openscap/data_stream_validator.rb:9
@@ -905,6 +892,7 @@ msgid "these Compliance reports"
 msgstr ""
 
 #: ../app/views/arf_reports/show.html.erb:14
+#: ../webpack/components/OpenscapRemediationWizard/Footer.js:40
 msgid "Back"
 msgstr ""
 
@@ -961,7 +949,7 @@ msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:156
+#: ../lib/foreman_openscap/engine.rb:148
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -978,7 +966,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:158
+#: ../lib/foreman_openscap/engine.rb:150
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -1147,6 +1135,7 @@ msgid "Choose day in month"
 msgstr ""
 
 #: ../app/views/policies/steps/_step_form.html.erb:11
+#: ../webpack/components/OpenscapRemediationWizard/Footer.js:31
 msgid "Next"
 msgstr ""
 
@@ -1320,7 +1309,7 @@ msgstr ""
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:150
+#: ../lib/foreman_openscap/engine.rb:142
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1345,7 +1334,7 @@ msgid ""
 "    via %s"
 msgstr ""
 
-#: ../app/views/tailoring_files/welcome.html.erb:13
+#: ../app/views/tailoring_files/welcome.html.erb:12
 msgid "New Tailoring File"
 msgstr ""
 
@@ -1391,41 +1380,41 @@ msgstr ""
 msgid "%s content"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:141
+#: ../lib/foreman_openscap/engine.rb:133
 msgid "Policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:144
+#: ../lib/foreman_openscap/engine.rb:136
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:147
+#: ../lib/foreman_openscap/engine.rb:139
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:172
+#: ../lib/foreman_openscap/engine.rb:164
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:176 ../lib/foreman_openscap/engine.rb:181
+#: ../lib/foreman_openscap/engine.rb:168 ../lib/foreman_openscap/engine.rb:173
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:178 ../lib/foreman_openscap/engine.rb:183
+#: ../lib/foreman_openscap/engine.rb:170 ../lib/foreman_openscap/engine.rb:175
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:222 ../lib/foreman_openscap/engine.rb:240
+#: ../lib/foreman_openscap/engine.rb:215 ../lib/foreman_openscap/engine.rb:233
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:227 ../lib/foreman_openscap/engine.rb:241
+#: ../lib/foreman_openscap/engine.rb:220 ../lib/foreman_openscap/engine.rb:234
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:232 ../lib/foreman_openscap/engine.rb:242
+#: ../lib/foreman_openscap/engine.rb:225 ../lib/foreman_openscap/engine.rb:235
 msgid "Run OpenSCAP remediation with Shell"
 msgstr ""
 
@@ -1441,34 +1430,35 @@ msgstr ""
 msgid "There's no available report for this host"
 msgstr ""
 
+#: ../webpack/components/OpenscapRemediationWizard/Footer.js:30
+#: ../webpack/components/OpenscapRemediationWizard/index.js:94
+msgid "Run"
+msgstr ""
+
 #: ../webpack/components/OpenscapRemediationWizard/ViewSelectedHostsLink.js:28
 msgid "View selected hosts"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/index.js:69
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:193
-msgid "Review hosts"
-msgstr ""
-
-#: ../webpack/components/OpenscapRemediationWizard/index.js:77
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:19
 #: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:123
 msgid "Select snippet"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/index.js:85
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:20
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:193
+msgid "Review hosts"
+msgstr ""
+
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:21
 #: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:97
 msgid "Review remediation"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/index.js:89
-msgid "Run"
-msgstr ""
-
-#: ../webpack/components/OpenscapRemediationWizard/index.js:93
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:22
 msgid "Done"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/index.js:127
+#: ../webpack/components/OpenscapRemediationWizard/index.js:132
 msgid "Remediate %s rule"
 msgstr ""
 

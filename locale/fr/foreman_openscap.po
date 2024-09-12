@@ -923,12 +923,6 @@ msgstr ""
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr "Les %%s suivants étaient manquants pour %{class} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
 
-msgid "The following Smart Proxies need to be updated to unlock the feature: %s. "
-msgstr "Les smart proxies suivants doivent être mis à jour pour déverrouiller la fonction : %s "
-
-msgid "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions."
-msgstr "Impossible d'atteindre les proxies suivants : %s. Veillez à ce qu'ils soient disponibles de sorte que Foreman puisse vérifier leur version."
-
 msgid "The identifier of the host"
 msgstr "Identifiant de l’hôte"
 
@@ -946,9 +940,6 @@ msgstr ""
 
 msgid "There's no available report for this host"
 msgstr ""
-
-msgid "This feature is temporarily disabled. "
-msgstr "Cette fonction est temporairement désactivée."
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
 msgstr ""

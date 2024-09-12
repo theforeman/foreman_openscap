@@ -902,12 +902,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
       ],
-      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
-        "以下のスマートプロキシーを更新して機能のロックを解除する必要があります: %s "
-      ],
-      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
-        "以下のプロキシーに到達できませんでした: %s。Foreman がバージョンを確認できるように、プロキシーが利用可能であることを確認してください。"
-      ],
       "The identifier of the host": [
         "ホストの ID"
       ],
@@ -925,9 +919,6 @@
       ],
       "There's no available report for this host": [
         ""
-      ],
-      "This feature is temporarily disabled. ": [
-        "この機能は一時的に無効にされています。 "
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
         ""

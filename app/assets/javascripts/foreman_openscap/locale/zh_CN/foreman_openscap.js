@@ -902,12 +902,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "％{item_name} 缺少以下 ％{key_name}：％{key_names}。在继续操作之前，请确保已将其导入。"
       ],
-      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
-        "下列智能代理服务器需要更新，以便解锁功能：%s。 "
-      ],
-      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
-        "无法访问下列代理服务器：%s。请确保它们可用，以便 Foreman 检查其版本。"
-      ],
       "The identifier of the host": [
         "主机 ID"
       ],
@@ -925,9 +919,6 @@
       ],
       "There's no available report for this host": [
         ""
-      ],
-      "This feature is temporarily disabled. ": [
-        "此功能暂时被禁用。"
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
         ""

@@ -904,12 +904,6 @@
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "Les %%s suivants étaient manquants pour %{class} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
       ],
-      "The following Smart Proxies need to be updated to unlock the feature: %s. ": [
-        "Les smart proxies suivants doivent être mis à jour pour déverrouiller la fonction : %s "
-      ],
-      "The following proxies could not be reached: %s. Please make sure they are available so Foreman can check their versions.": [
-        "Impossible d'atteindre les proxies suivants : %s. Veillez à ce qu'ils soient disponibles de sorte que Foreman puisse vérifier leur version."
-      ],
       "The identifier of the host": [
         "Identifiant de l’hôte"
       ],
@@ -927,9 +921,6 @@
       ],
       "There's no available report for this host": [
         ""
-      ],
-      "This feature is temporarily disabled. ": [
-        "Cette fonction est temporairement désactivée."
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
         ""
