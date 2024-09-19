@@ -7,14 +7,14 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2016-2017
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 # Ludwig B <lbayerlein@lbayerlein.de>, 2020
-# Patrick Dolinic, 2021
+# pdolinic, 2021
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
-"Last-Translator: Patrick Dolinic, 2021\n"
-"Language-Team: German (http://www.transifex.com/foreman/foreman/language/de/)\n"
+"Last-Translator: pdolinic, 2021\n"
+"Language-Team: German (http://app.transifex.com/foreman/foreman/language/de/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -138,7 +138,7 @@ msgid "Choose weekday"
 msgstr "Wochentag auswählen"
 
 msgid "Close"
-msgstr ""
+msgstr "Schließen"
 
 msgid "Compliance"
 msgstr "Konformität"
@@ -168,7 +168,7 @@ msgid "Compliant with the policy"
 msgstr "Konform mit der Richtlinie"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Bestätigen"
 
 msgid "Content"
 msgstr ""
@@ -195,7 +195,7 @@ msgid "Create a Tailoring file"
 msgstr "Erstellen einer Tailoring datei"
 
 msgid "Created at"
-msgstr ""
+msgstr "Erstellt um"
 
 msgid "Dashboard"
 msgstr "Übersichtsseite"
@@ -468,7 +468,7 @@ msgid "Locations"
 msgstr "Standorte"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 msgid "Message"
 msgstr "Nachricht"
@@ -531,7 +531,7 @@ msgid "No hosts selected"
 msgstr "Keine Hosts ausgewählt"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "Keine Hosts wurden mit dieser Kennung, Name oder Abfrage-Filter gefunden"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "Keine Proxy für %{name} oder %{url} gefunden"
@@ -564,7 +564,7 @@ msgid "None found"
 msgstr "Keine gefunden"
 
 msgid "None provided"
-msgstr ""
+msgstr "Keine bereitgestellt"
 
 msgid "None!"
 msgstr "Keine!"
@@ -626,7 +626,7 @@ msgid "Passed|P"
 msgstr "Erfolgreich|E"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Erlaubnis verweigert"
 
 msgid "Please Confirm"
 msgstr "Bitte bestätigen"
@@ -686,7 +686,7 @@ msgid "Policy with id %s not found."
 msgstr "Richtlinie mit Kennung %s nicht gefunden."
 
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "Der Proxy konnte keinen Bericht vom Spool an Foreman senden. Dies weist auf ein beschädigtes Berichtsformat hin. Der Bericht wurde in ein Verzeichnis verschoben, in dem beschädigte Dateien auf einem Proxy zur späteren Überprüfung gespeichert werden."
@@ -770,7 +770,7 @@ msgid "Rule Results"
 msgstr "Regelergebnisse"
 
 msgid "Run"
-msgstr ""
+msgstr "Ausführen"
 
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
@@ -857,7 +857,7 @@ msgid "Smart Class Parameters"
 msgstr "Smart-Class-Parameter"
 
 msgid "Snippet"
-msgstr ""
+msgstr "Snippet"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Fehler bei der Auswahl der Compliance-Berichte - %s"

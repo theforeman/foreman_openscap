@@ -6,11 +6,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
-"Language-Team: Chinese (China) (http://www.transifex.com/foreman/foreman/langu"
+"Language-Team: Chinese (China) (http://app.transifex.com/foreman/foreman/langu"
 "age/zh_CN/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -32,13 +32,13 @@ msgid_plural "%s compliance reports by policy"
 msgstr[0] "根据策略的 %s 合规报告"
 
 msgid "%s content"
-msgstr ""
+msgstr "%s 内容"
 
 msgid "%s does not exist, skipping."
-msgstr ""
+msgstr "%s 不存在，跳过。"
 
 msgid "%s is a directory, expecting file."
-msgstr ""
+msgstr "%s 是一个目录，预期为文件。"
 
 msgid "%s latest report"
 msgstr "%s 最新报告"
@@ -56,10 +56,10 @@ msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP 摘要"
 
 msgid "A reboot is required after applying remediation."
-msgstr ""
+msgstr "在应用补救后需要重启。"
 
 msgid "A reboot might be required after applying remediation."
-msgstr ""
+msgstr "在应用补救后可能需要重启。"
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 策略报告摘要"
@@ -83,7 +83,7 @@ msgid "Apply policy to hosts"
 msgstr "对主机应用策略"
 
 msgid "Are you sure you want to delete %s?"
-msgstr ""
+msgstr "您确定要删除 %s 吗？"
 
 msgid "Assign Compliance Policy"
 msgstr "分配合规政策"
@@ -92,10 +92,10 @@ msgid "Back"
 msgstr "返回"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
-msgstr ""
+msgstr "默认情况下，补救会应用到当前主机。（可选）修复任何规则失败的额外主机。"
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
-msgstr ""
+msgstr "无法找到 scap-security-guide RPM，您确定是否已安装在服务器上？"
 
 msgid "Cancel"
 msgstr "取消"
@@ -134,7 +134,7 @@ msgid "Choose weekday"
 msgstr "选择星期几"
 
 msgid "Close"
-msgstr ""
+msgstr "关闭"
 
 msgid "Compliance"
 msgstr "合规"
@@ -164,13 +164,13 @@ msgid "Compliant with the policy"
 msgstr "与策略合规"
 
 msgid "Confirm"
-msgstr ""
+msgstr "确认"
 
 msgid "Content"
-msgstr ""
+msgstr "内容"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "复制到剪贴板"
 
 msgid "Could not find host identified by: %s"
 msgstr "无法找到由 %s 标识的主机"
@@ -179,7 +179,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "无法验证 %s。请确保您具备合适的代理服务器版本，以便使用此功能"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "无法验证％{file_type} 。错误 %{error}"
+msgstr "无法验证％%{file_type} 。错误 %{error}"
 
 msgid "Create SCAP content"
 msgstr "建立 SCAP 內容"
@@ -191,7 +191,7 @@ msgid "Create a Tailoring file"
 msgstr "创建定制文件"
 
 msgid "Created at"
-msgstr ""
+msgstr "建立于"
 
 msgid "Dashboard"
 msgstr "仪表板"
@@ -251,13 +251,13 @@ msgid "Directory to upload when using \"directory\" upload type"
 msgstr "当使用 “directory” 上载类型时要上传的目录"
 
 msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
-msgstr ""
+msgstr "在非生产环境中测试之前，不要实施任何推荐的补救操作或脚本。"
 
 msgid "Documentation"
 msgstr "文档"
 
 msgid "Done"
-msgstr ""
+msgstr "完成"
 
 msgid "Download"
 msgstr "下載"
@@ -290,10 +290,10 @@ msgid "Error!"
 msgstr "错误！"
 
 msgid "Every puppet run ensures the foreman_scap_client is configured according to the policy."
-msgstr ""
+msgstr "每个 puppet 运行确保了 foreman_scap_client 会根据策略配置。"
 
 msgid "Expected an array of files to upload, got: %s."
-msgstr ""
+msgstr "预期上传一个文件数组，实际为：%s。"
 
 msgid "Failed"
 msgstr "失败"
@@ -305,13 +305,13 @@ msgid "Failed only"
 msgstr "只有失敗"
 
 msgid "Failed saving %s:"
-msgstr ""
+msgstr "保存失败 %s:"
 
 msgid "Failed to delete %s compliance reports"
 msgstr "刪除 %s 合规报告失败"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr "无法删除主机 %{host_name} 在 %{reported_at} 报告的 ARF 报告"
+msgstr "无法删除主机 %%{host_name} 在 %%{reported_at} 报告的 ARF 报告"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "无法将 ARF 报告下载为 bzip：%s"
@@ -323,7 +323,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "从代理获取 spool 状态失败"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "覆盖％{config_tool} 的参数时无法保存，原因是：%{errors}"
+msgstr "覆盖％%{config_tool} 的参数时无法保存，原因是：%{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "上传 Arf Report 失败，在为 %s 上传时没有在参数中找到 OpenSCAP 代理名或 url，主机缺少 openscap_proxy"
@@ -336,7 +336,7 @@ msgid "File Upload"
 msgstr "上传文件"
 
 msgid "File name"
-msgstr ""
+msgstr "文件名"
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "当使用 “files” 上传类型时要上传的文件路径"
@@ -434,7 +434,7 @@ msgid "It may sometimes be required to adjust the security policy to your specif
 msgstr "有些可能需要根据您的具体需求调整安全策略。"
 
 msgid "Job details"
-msgstr ""
+msgstr "作业详情"
 
 msgid "Latest Compliance Reports"
 msgstr "最新合规报告"
@@ -464,13 +464,13 @@ msgid "Locations"
 msgstr "位置"
 
 msgid "Manual"
-msgstr ""
+msgstr "手册"
 
 msgid "Message"
 msgstr "信息"
 
 msgid "Method"
-msgstr ""
+msgstr "方法"
 
 msgid "More details"
 msgstr "更多细节"
@@ -527,7 +527,7 @@ msgid "No hosts selected"
 msgstr "未选择主机"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "未找到符合此 id、名称或者查询过滤器的主机"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "找不到 %{name} 或 %{url} 的代理服务器"
@@ -548,7 +548,7 @@ msgid "No reports available"
 msgstr "无可用报告"
 
 msgid "No such directory: %s. Please check the path you have provided."
-msgstr ""
+msgstr "没有这个目录：%s。请检查您所提供的路径。"
 
 msgid "No valid policy ID provided"
 msgstr "未提供有效的策略 ID"
@@ -560,7 +560,7 @@ msgid "None found"
 msgstr "未找到"
 
 msgid "None provided"
-msgstr ""
+msgstr "没有提供"
 
 msgid "None!"
 msgstr "无！"
@@ -581,7 +581,7 @@ msgid "Number of a day in month, note that not all months have same count of day
 msgstr "月份中的日子，請注意並不是所有月份都有同樣的天數"
 
 msgid "OS"
-msgstr ""
+msgstr "OS"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr "存在 SCAP 内容时，您可以创建策略、分配选定主机组，并调度运行时间。"
@@ -605,7 +605,7 @@ msgid "Other"
 msgstr "其他"
 
 msgid "Other hosts failing this rule"
-msgstr ""
+msgstr "其他这个规则失败的主机"
 
 msgid "Othered"
 msgstr "其它"
@@ -622,7 +622,7 @@ msgid "Passed|P"
 msgstr "Passed|P"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "没有权限"
 
 msgid "Please Confirm"
 msgstr "请确认"
@@ -682,7 +682,7 @@ msgid "Policy with id %s not found."
 msgstr "没有找到带有 id %s 的策略。"
 
 msgid "Profile"
-msgstr ""
+msgstr "配置集"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "代理服务器未能从 spool 发送报告至 Foreman。这表示报告格式损坏。报告已被移动至目录，以便将破坏文件存储到代理服务器上供以后检查。"
@@ -694,25 +694,25 @@ msgid "Rationale"
 msgstr "理由"
 
 msgid "Reboot the system(s)"
-msgstr ""
+msgstr "重启系统"
 
 msgid "Red Hat %s default content"
-msgstr ""
+msgstr "Red Hat %s 默认内容"
 
 msgid "References"
 msgstr "参考"
 
 msgid "Remediate %s rule"
-msgstr ""
+msgstr "补救 %s 规则"
 
 msgid "Remediation"
-msgstr ""
+msgstr "补救"
 
 msgid "Remediation might render the system non-functional."
-msgstr ""
+msgstr "补救可能会导致系统无法正常工作。"
 
 msgid "Remote job"
-msgstr ""
+msgstr "远程作业"
 
 msgid "Report Metrics"
 msgstr "报告指标"
@@ -730,19 +730,19 @@ msgid "Reports"
 msgstr "报表"
 
 msgid "Request the following permissions from administrator: %s."
-msgstr ""
+msgstr "连续管理员来获得以下权限：%s。"
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "请求超时。请尝试增加 Settings -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "没有找到所需的％{msg_name}%{class}，请确认它已被导入。"
+msgstr "没有找到所需的％%{msg_name}%%{class}，请确认它已被导入。"
 
 msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
-msgstr ""
+msgstr "需要 %s Puppet 类。这会将类分配给主机或所选主机组。"
 
 msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups."
-msgstr ""
+msgstr "需要 Ansible 插件，%s Ansible 角色和变量。这将为主机或选定的主机组分配角色。"
 
 msgid "Resource"
 msgstr "资源"
@@ -751,28 +751,28 @@ msgid "Result"
 msgstr "结果"
 
 msgid "Review hosts"
-msgstr ""
+msgstr "审阅主机"
 
 msgid "Review remediation"
-msgstr ""
+msgstr "审阅补救"
 
 msgid "Review the remediation snippet and apply it to the host manually."
-msgstr ""
+msgstr "检查补救片段，并手动应用到主机。"
 
 msgid "Review the remediation snippet that will be applied to selected host(s)."
-msgstr ""
+msgstr "检查将应用到所选主机的补救片段。"
 
 msgid "Rule Results"
 msgstr "规则结果"
 
 msgid "Run"
-msgstr ""
+msgstr "运行"
 
 msgid "Run OpenSCAP remediation with Ansible"
-msgstr ""
+msgstr "使用 Ansible 运行 OpenSCAP 补救"
 
 msgid "Run OpenSCAP remediation with Shell"
-msgstr ""
+msgstr "使用 Shell 运行 OpenSCAP 补救"
 
 msgid "Run OpenSCAP scan"
 msgstr "运行 OpenSCAP 扫描"
@@ -814,10 +814,10 @@ msgid "Select all items in this page"
 msgstr "选择这个页中的所有项"
 
 msgid "Select remediation method"
-msgstr ""
+msgstr "选择补救方法"
 
 msgid "Select snippet"
-msgstr ""
+msgstr "选择片断"
 
 msgid "Severity"
 msgstr "严重性"
@@ -853,7 +853,7 @@ msgid "Smart Class Parameters"
 msgstr "智能类参数"
 
 msgid "Snippet"
-msgstr ""
+msgstr "程序代码片段"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "在选择合规报告时出错 - %s"
@@ -874,7 +874,7 @@ msgid "Submit"
 msgstr "提交"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "成功复制到剪贴板！"
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "刪除 %s 合规报告成功"
@@ -907,7 +907,7 @@ msgid "Tailoring file profile ID"
 msgstr "定制文件配置文件 ID"
 
 msgid "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
-msgstr ""
+msgstr "%s 代理没有启用 Openscap 功能。设置正确的 OpenSCAP 代理或取消设置它。"
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
@@ -917,37 +917,37 @@ msgstr ""
 "        配置问题的开源标准。"
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "％{item_name} 缺少以下 ％{key_name}：％{key_names}。在继续操作之前，请确保已将其导入。"
+msgstr "％%{item_name} 缺少以下 ％%{key_name}：％%{key_names}。在继续操作之前，请确保已将其导入。"
 
 msgid "The identifier of the host"
 msgstr "主机 ID"
 
 msgid "The job has started on selected host(s), you can check the status on the job details page."
-msgstr ""
+msgstr "作业已在所选主机上启动，您可以在详情页中检查作业的状态。"
 
 msgid "There are significant differences in deployment options."
 msgstr "部署选项之间存在重大差异。"
 
 msgid "There is no job to remediate with. Please remediate manually."
-msgstr ""
+msgstr "没有可以修复的作业。请手动修复。"
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
+msgstr "删除 %(name)s 时出现以下错误：%(error)s"
 
 msgid "There's no available report for this host"
-msgstr ""
+msgstr "此主机没有可用的报告"
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
-msgstr ""
+msgstr "这会使用户只保留 foreman_scap_client 的设置。策略仍然需要定义才能来链接传入的 ARF 报告。"
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "这个配置文件将用于覆盖 scap 内容中的配置文件"
 
 msgid "Title"
-msgstr ""
+msgstr "提示"
 
 msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
-msgstr ""
+msgstr "要部署 foreman_scap_client，需要手动触发 ansible 角色运行。在更改此策略后，还需要手动运行。"
 
 msgid "Total"
 msgstr "总计"
@@ -1020,7 +1020,7 @@ msgid "View full report"
 msgstr "查看完整报告"
 
 msgid "View selected hosts"
-msgstr ""
+msgstr "查看所选主机"
 
 msgid "XCCDF Profile"
 msgstr "XCCDF 配置集"
@@ -1038,10 +1038,10 @@ msgid "Yes"
 msgstr "是"
 
 msgid "You are not authorized to view the page. "
-msgstr ""
+msgstr "您没有权利查看该页面。 "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
-msgstr ""
+msgstr "您可以通过运行远程作业来修复，也可以显示用于手动修复的代码片段。"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr "您可以设置定制的 cron 行，如 \"0  3  *  *  *\"，其中的 5 个值由空格分隔"
@@ -1050,7 +1050,7 @@ msgid "You don't seem to have any ARF report. ARF report is a summary of a singl
 msgstr "您似乎没有 ARF 报告。ARF 报告是针对给定的合规策略对特定主机执行单次扫描的摘要。"
 
 msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
-msgstr "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'。"
+msgstr "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'"
 
 msgid "documentation"
 msgstr "文档"

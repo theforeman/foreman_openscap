@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Portuguese (Brazil) (http://www.transifex.com/foreman/foreman/language/pt_BR/)",
+        "Language-Team": "Portuguese (Brazil) (http://app.transifex.com/foreman/foreman/language/pt_BR/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -134,7 +134,7 @@
         "Selecionar dia útil"
       ],
       "Close": [
-        ""
+        "Fechar"
       ],
       "Compliance": [
         "Conformidade"
@@ -455,7 +455,7 @@
         "Locais"
       ],
       "Manual": [
-        ""
+        "Manual"
       ],
       "Message": [
         "Mensagem"
@@ -518,7 +518,7 @@
         "Não foi selecionado nenhum host"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "Nenhum host encontrado com esse filtro de ID, nome ou consulta"
       ],
       "No proxy found for %{name} or %{url}": [
         "Nenhum proxy encontrado para %{name} ou %{url}"
@@ -551,7 +551,7 @@
         "Nenhum(a) localizado(a)"
       ],
       "None provided": [
-        ""
+        "Nenhum fornecido"
       ],
       "None!": [
         "Nenhum(a)!"
@@ -611,7 +611,7 @@
         "Aprovado|A"
       ],
       "Permission denied": [
-        ""
+        "Permissão recusada"
       ],
       "Please Confirm": [
         "Por favor confirme"
@@ -671,7 +671,7 @@
         "Política com ID %s não encontrada."
       ],
       "Profile": [
-        ""
+        "Perfil"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "Falha do proxy ao enviar um relatório do spoll ao Foreman. Isso indica um formato de relatório corrompido. O relatório foi movido para o diretório de armazenamento de arquivos corrompidos no proxy para inspeção posterior."
@@ -755,7 +755,7 @@
         "Resultados de regras"
       ],
       "Run": [
-        ""
+        "Executar"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -842,7 +842,7 @@
         "Parâmetros de classe inteligentes"
       ],
       "Snippet": [
-        ""
+        "Snippet"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "Algo deu errado ao selecionar os relatórios de conformidade - %s"

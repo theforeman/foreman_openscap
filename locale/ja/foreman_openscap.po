@@ -7,11 +7,11 @@
 # Kazuki Omo <kazuki.omo@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>, 2016\n"
-"Language-Team: Japanese (http://www.transifex.com/foreman/foreman/language/ja/"
+"Language-Team: Japanese (http://app.transifex.com/foreman/foreman/language/ja/"
 ")\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,13 +33,13 @@ msgid_plural "%s compliance reports by policy"
 msgstr[0] "ポリシー別 コンプライアンスレポート %s 件"
 
 msgid "%s content"
-msgstr ""
+msgstr "%s のコンテンツ"
 
 msgid "%s does not exist, skipping."
-msgstr ""
+msgstr "%s は存在しないため、スキップします。"
 
 msgid "%s is a directory, expecting file."
-msgstr ""
+msgstr "%s はディレクトリーで、ファイルが必要です。"
 
 msgid "%s latest report"
 msgstr "最新レポート %s 件"
@@ -57,10 +57,10 @@ msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP の概要"
 
 msgid "A reboot is required after applying remediation."
-msgstr ""
+msgstr "修復を適用した後に再起動が必要です。"
 
 msgid "A reboot might be required after applying remediation."
-msgstr ""
+msgstr "修復を適用した後に再起動が必要になる場合があります。"
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP ポリシーのレポートの概要"
@@ -84,7 +84,7 @@ msgid "Apply policy to hosts"
 msgstr "ホストにポリシーを適用"
 
 msgid "Are you sure you want to delete %s?"
-msgstr ""
+msgstr "本当に %s を削除しますか?"
 
 msgid "Assign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て"
@@ -93,10 +93,10 @@ msgid "Back"
 msgstr "戻る"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
-msgstr ""
+msgstr "修復はデフォルトで現在のホストに適用されます。必要に応じて、ルールに違反する他のホストを修復してください。"
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
-msgstr ""
+msgstr "scap-security-guide RPM が見つかりません。サーバーにインストールされていますか?"
 
 msgid "Cancel"
 msgstr "取り消し"
@@ -135,7 +135,7 @@ msgid "Choose weekday"
 msgstr "平日を選択"
 
 msgid "Close"
-msgstr ""
+msgstr "閉じる"
 
 msgid "Compliance"
 msgstr "コンプライアンス"
@@ -165,13 +165,13 @@ msgid "Compliant with the policy"
 msgstr "ポリシーに準拠"
 
 msgid "Confirm"
-msgstr ""
+msgstr "確認"
 
 msgid "Content"
-msgstr ""
+msgstr "コンテンツ"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "クリップボードにコピー"
 
 msgid "Could not find host identified by: %s"
 msgstr "%s が識別したホストが見つかりませんでした"
@@ -180,7 +180,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "％{file_type} を検証できませんでした。エラー: %{error}"
+msgstr "％%{file_type} を検証できませんでした。エラー: ％%{error}"
 
 msgid "Create SCAP content"
 msgstr "SCAP コンテンツの作成"
@@ -192,7 +192,7 @@ msgid "Create a Tailoring file"
 msgstr "テーラリングファイルの作成"
 
 msgid "Created at"
-msgstr ""
+msgstr "作成:"
 
 msgid "Dashboard"
 msgstr "ダッシュボード"
@@ -252,13 +252,13 @@ msgid "Directory to upload when using \"directory\" upload type"
 msgstr "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
 
 msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
-msgstr ""
+msgstr "推奨される修復アクションまたはスクリプトは、必ず実稼働以外の環境でテストしてから実装してください。"
 
 msgid "Documentation"
 msgstr "ドキュメント"
 
 msgid "Done"
-msgstr ""
+msgstr "完了"
 
 msgid "Download"
 msgstr "ダウンロード"
@@ -291,10 +291,10 @@ msgid "Error!"
 msgstr "エラー!"
 
 msgid "Every puppet run ensures the foreman_scap_client is configured according to the policy."
-msgstr ""
+msgstr "すべての Puppet 実行により、foreman_scap_client がポリシーに従って設定されます。"
 
 msgid "Expected an array of files to upload, got: %s."
-msgstr ""
+msgstr "アップロードするファイルの配列が必要とされており、以下を取得しました: %s。"
 
 msgid "Failed"
 msgstr "失敗"
@@ -306,13 +306,13 @@ msgid "Failed only"
 msgstr "失敗のみ"
 
 msgid "Failed saving %s:"
-msgstr ""
+msgstr "%s の保存に失敗しました:"
 
 msgid "Failed to delete %s compliance reports"
 msgstr "%s コンプライアンスレポートの削除に失敗しました"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr "{reported_at} で報告されたホスト {host_name} の ARF レポートの削除に失敗しました"
+msgstr "%{reported_at} で報告されたホスト %{host_name} の ARF レポートの削除に失敗しました"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "ARFレポートを bzip でダウンロードするのに失敗しました: %s"
@@ -324,7 +324,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "プロキシーからスプールステータスを取得できませんでした"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "%{config_tool} のパラメーターのオーバーライド時に、保存に失敗しました。原因: %{errors}"
+msgstr "%%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %%{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -337,7 +337,7 @@ msgid "File Upload"
 msgstr "ファイルアップロード"
 
 msgid "File name"
-msgstr ""
+msgstr "ファイル名"
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "「ファイル」アップロードタイプを使用する場合のアップロードするファイルパス"
@@ -435,7 +435,7 @@ msgid "It may sometimes be required to adjust the security policy to your specif
 msgstr "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
 
 msgid "Job details"
-msgstr ""
+msgstr "ジョブの詳細"
 
 msgid "Latest Compliance Reports"
 msgstr "最新コンプライアンスレポート"
@@ -459,19 +459,19 @@ msgid "List Tailoring files"
 msgstr "テーラリングファイルの一覧表示"
 
 msgid "Loading..."
-msgstr "読み込み中..."
+msgstr "ロード中..."
 
 msgid "Locations"
 msgstr "ロケーション"
 
 msgid "Manual"
-msgstr ""
+msgstr "手動"
 
 msgid "Message"
 msgstr "メッセージ"
 
 msgid "Method"
-msgstr ""
+msgstr "方法"
 
 msgid "More details"
 msgstr "詳細"
@@ -528,7 +528,7 @@ msgid "No hosts selected"
 msgstr "ホストが選択されていません"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "その ID、名前またはクエリーフィルターを使ってホストを見つけることができませんでした"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "%{name} または %{url} のプロキシーが見つかりません"
@@ -549,7 +549,7 @@ msgid "No reports available"
 msgstr "利用可能なレポートがありません"
 
 msgid "No such directory: %s. Please check the path you have provided."
-msgstr ""
+msgstr "次のディレクトリーは存在しません: %s。指定したパスを確認してください。"
 
 msgid "No valid policy ID provided"
 msgstr "有効なポリシー ID が提供されていません"
@@ -561,7 +561,7 @@ msgid "None found"
 msgstr "何も見つかりません"
 
 msgid "None provided"
-msgstr ""
+msgstr "指定なし"
 
 msgid "None!"
 msgstr "なし!"
@@ -582,7 +582,7 @@ msgid "Number of a day in month, note that not all months have same count of day
 msgstr "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
 
 msgid "OS"
-msgstr ""
+msgstr "OS"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr "SCAP コンテンツが表示されたら、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
@@ -606,7 +606,7 @@ msgid "Other"
 msgstr "その他"
 
 msgid "Other hosts failing this rule"
-msgstr ""
+msgstr "このルールに違反する他のホスト"
 
 msgid "Othered"
 msgstr "Othered"
@@ -623,7 +623,7 @@ msgid "Passed|P"
 msgstr "P"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "パーミッションが拒否されました。"
 
 msgid "Please Confirm"
 msgstr "確認してください"
@@ -683,7 +683,7 @@ msgid "Policy with id %s not found."
 msgstr "id が %s のポリシーが見つかりません"
 
 msgid "Profile"
-msgstr ""
+msgstr "profile"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
@@ -695,25 +695,25 @@ msgid "Rationale"
 msgstr "理由"
 
 msgid "Reboot the system(s)"
-msgstr ""
+msgstr "システムの再起動"
 
 msgid "Red Hat %s default content"
-msgstr ""
+msgstr "Red Hat %s のデフォルトコンテンツ"
 
 msgid "References"
 msgstr "リファレンス"
 
 msgid "Remediate %s rule"
-msgstr ""
+msgstr "%s ルールの修復"
 
 msgid "Remediation"
-msgstr ""
+msgstr "修復"
 
 msgid "Remediation might render the system non-functional."
-msgstr ""
+msgstr "修復によりシステムが機能しなくなる可能性があります。"
 
 msgid "Remote job"
-msgstr ""
+msgstr "リモートジョブ"
 
 msgid "Report Metrics"
 msgstr "レポートメトリックス"
@@ -731,19 +731,19 @@ msgid "Reports"
 msgstr "レポート"
 
 msgid "Request the following permissions from administrator: %s."
-msgstr ""
+msgstr "管理者に次のパーミッションを要求してください: %s。"
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "必要とされる {msg_name}%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
+msgstr "必要とされる %%{msg_name} %%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
 
 msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
-msgstr ""
+msgstr "%s Puppet クラスが必要です。ホストまたは選択したホストグループに、そのクラスが割り当てられます。"
 
 msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups."
-msgstr ""
+msgstr "Ansible プラグイン、%s Ansible ロール、変数が必要です。ホストまたは選択したホストグループにロールが割り当てられます。"
 
 msgid "Resource"
 msgstr "リソース"
@@ -752,28 +752,28 @@ msgid "Result"
 msgstr "結果"
 
 msgid "Review hosts"
-msgstr ""
+msgstr "ホストの確認"
 
 msgid "Review remediation"
-msgstr ""
+msgstr "修復の確認"
 
 msgid "Review the remediation snippet and apply it to the host manually."
-msgstr ""
+msgstr "修復スニペットを確認し、手動でホストに適用します。"
 
 msgid "Review the remediation snippet that will be applied to selected host(s)."
-msgstr ""
+msgstr "選択したホストに適用される修復スニペットを確認します。"
 
 msgid "Rule Results"
 msgstr "ルールの結果"
 
 msgid "Run"
-msgstr ""
+msgstr "実行"
 
 msgid "Run OpenSCAP remediation with Ansible"
-msgstr ""
+msgstr "Ansible で OpenSCAP 修復を実行"
 
 msgid "Run OpenSCAP remediation with Shell"
-msgstr ""
+msgstr "シェルで OpenSCAP 修復を実行"
 
 msgid "Run OpenSCAP scan"
 msgstr "OpenSCAP スキャンの実行"
@@ -815,10 +815,10 @@ msgid "Select all items in this page"
 msgstr "このページのすべての項目を選択"
 
 msgid "Select remediation method"
-msgstr ""
+msgstr "修復方法の選択"
 
 msgid "Select snippet"
-msgstr ""
+msgstr "スニペットの選択"
 
 msgid "Severity"
 msgstr "重要度"
@@ -854,7 +854,7 @@ msgid "Smart Class Parameters"
 msgstr "スマートクラスパラメーター"
 
 msgid "Snippet"
-msgstr ""
+msgstr "スニペット"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "コンプライアンスレポートの選択中に問題が発生しました: %s"
@@ -875,7 +875,7 @@ msgid "Submit"
 msgstr "送信"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "クリップボードにコピーされました!"
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "%s コンプライアンスレポートが正常に削除されました"
@@ -890,7 +890,7 @@ msgid "Summary report for OpenScap from Foreman"
 msgstr "Foreman からの OpenScap の概要レポート"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "%{foreman_url} にある Foreman サーバーからの概要レポート"
+msgstr "%%{foreman_url} にある Foreman サーバーからの概要レポート"
 
 msgid "Tailoring File"
 msgstr "テーラリングファイル"
@@ -908,7 +908,7 @@ msgid "Tailoring file profile ID"
 msgstr "テーラリングファイルのプロファイル ID"
 
 msgid "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
-msgstr ""
+msgstr "%s プロキシーでは Openscap 機能が有効になっていません。正しい OpenSCAP プロキシーを設定するか、未設定にしてください。"
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
@@ -918,37 +918,37 @@ msgstr ""
 "        数多くのオープンスタンダードの組み合わせです。 "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
+msgstr "以下の %%{key_name} が %%{item_name}: %%{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
 
 msgid "The identifier of the host"
 msgstr "ホストの ID"
 
 msgid "The job has started on selected host(s), you can check the status on the job details page."
-msgstr ""
+msgstr "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
 
 msgid "There are significant differences in deployment options."
 msgstr "デプロイメントオプションには大きな違いがあります。"
 
 msgid "There is no job to remediate with. Please remediate manually."
-msgstr ""
+msgstr "修復に使用するジョブがありません。手動で修復してください。"
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
+msgstr "%(name)s を削除する際に、次のエラーが発生しました: %(error)s"
 
 msgid "There's no available report for this host"
-msgstr ""
+msgstr "このホストの利用可能なレポートはありません。"
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
-msgstr ""
+msgstr "これにより、foreman_scap_client のセットアップはユーザーにのみ残ります。受信 ARF レポートをリンクするには、ポリシーを定義する必要があります。"
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
 
 msgid "Title"
-msgstr ""
+msgstr "タイトル"
 
 msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
-msgstr ""
+msgstr "foreman_scap_client をデプロイするには、ansible ロールの実行を手動でトリガーする必要があります。このポリシーを変更した場合も、変更後に手動での実行が必要になります。"
 
 msgid "Total"
 msgstr "合計"
@@ -1021,7 +1021,7 @@ msgid "View full report"
 msgstr "フルレポートを表示"
 
 msgid "View selected hosts"
-msgstr ""
+msgstr "選択したホストの表示"
 
 msgid "XCCDF Profile"
 msgstr "XCCDF プロファイル"
@@ -1039,10 +1039,10 @@ msgid "Yes"
 msgstr "はい"
 
 msgid "You are not authorized to view the page. "
-msgstr ""
+msgstr "ページを表示する権限がありません。 "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
-msgstr ""
+msgstr "リモートジョブを実行して修復することも、手動修復用のスニペットを表示することもできます。"
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr "カスタム cron 行を指定できます (たとえば、\"0  3  *  *  *\" のように 5 つの値をスペースで区切ります)"

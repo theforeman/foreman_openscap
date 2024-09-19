@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Chinese (Taiwan) (http://www.transifex.com/foreman/foreman/language/zh_TW/)",
+        "Language-Team": "Chinese (Taiwan) (http://app.transifex.com/foreman/foreman/language/zh_TW/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -133,7 +133,7 @@
         "選擇星期幾"
       ],
       "Close": [
-        ""
+        "關閉"
       ],
       "Compliance": [
         "合規"
@@ -190,7 +190,7 @@
         ""
       ],
       "Created at": [
-        ""
+        "建立於"
       ],
       "Dashboard": [
         "控制面板"
@@ -454,7 +454,7 @@
         "位置"
       ],
       "Manual": [
-        ""
+        "手動式"
       ],
       "Message": [
         "訊息"
@@ -610,7 +610,7 @@
         "Passed|P"
       ],
       "Permission denied": [
-        ""
+        "使用權限被拒"
       ],
       "Please Confirm": [
         "請確認"
@@ -754,7 +754,7 @@
         ""
       ],
       "Run": [
-        ""
+        "執行"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -841,7 +841,7 @@
         ""
       ],
       "Snippet": [
-        ""
+        "程式碼片段"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "選擇合規報告時發生了錯誤 - %s"
@@ -928,7 +928,7 @@
         ""
       ],
       "Title": [
-        ""
+        "標題"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
         ""

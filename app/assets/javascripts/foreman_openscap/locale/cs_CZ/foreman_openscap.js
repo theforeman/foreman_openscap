@@ -3,25 +3,25 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 1.0.0",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2023-05-16 14:11+0200",
-        "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "Czech",
-        "Language": "cs_CZ",
+        "PO-Revision-Date": "2016-04-14 07:48+0000",
+        "Last-Translator": "Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020",
+        "Language-Team": "Czech (Czech Republic) (http://app.transifex.com/foreman/foreman/language/cs_CZ/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Plural-Forms": "nplurals=; plural=;",
+        "Language": "cs_CZ",
+        "Plural-Forms": "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;",
         "lang": "cs_CZ",
         "domain": "foreman_openscap",
-        "plural_forms": "nplurals=; plural=;"
+        "plural_forms": "nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;"
       },
       " for policy %s": [
-        ""
+        "pro zásadu %s"
       ],
       " through %s": [
-        ""
+        "prostřednictvím %s"
       ],
       "%s - The following compliance reports are about to be changed": [
         ""
@@ -64,22 +64,22 @@
         ""
       ],
       "Actions": [
-        ""
+        "Akce"
       ],
       "All messages": [
-        ""
+        "Všechny zprávy"
       ],
       "Ansible role": [
-        ""
+        "Ansible role"
       ],
       "Ansible variables": [
-        ""
+        "Ansible proměnné"
       ],
       "Apply policy to host groups": [
         ""
       ],
       "Apply policy to hosts": [
-        ""
+        "Uplatnit zásadu na stroje"
       ],
       "Are you sure you want to delete %s?": [
         ""
@@ -88,7 +88,7 @@
         ""
       ],
       "Back": [
-        ""
+        "Zpět"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
         ""
@@ -97,7 +97,7 @@
         ""
       ],
       "Cancel": [
-        ""
+        "Zrušit"
       ],
       "Cannot generate HTML guide, no valid OpenSCAP proxy server found.": [
         ""
@@ -109,31 +109,31 @@
         ""
       ],
       "Changed": [
-        ""
+        "Změněno"
       ],
       "Changed file does not include existing SCAP content profiles": [
         ""
       ],
       "Changed?": [
-        ""
+        "Změněno?"
       ],
       "Choose Tailoring File": [
-        ""
+        "Zvolit vylaďovací soubor"
       ],
       "Choose day in month": [
-        ""
+        "Zvolte den v měsíci"
       ],
       "Choose existing SCAP Content": [
         ""
       ],
       "Choose period": [
-        ""
+        "Zvolte periodu"
       ],
       "Choose weekday": [
-        ""
+        "Zvolte den v týdnu"
       ],
       "Close": [
-        ""
+        "Zavřít"
       ],
       "Compliance": [
         ""
@@ -166,13 +166,13 @@
         ""
       ],
       "Content": [
-        ""
+        "Obsah"
       ],
       "Copy to clipboard": [
         ""
       ],
       "Could not find host identified by: %s": [
-        ""
+        "Nepodařilo se najít stroj identifikovaným podle: %s"
       ],
       "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality": [
         ""
@@ -184,31 +184,31 @@
         ""
       ],
       "Create a Policy": [
-        ""
+        "Vytvořit zásadu"
       ],
       "Create a Tailoring file": [
         ""
       ],
       "Created at": [
-        ""
+        "Vytvořeno v"
       ],
       "Dashboard": [
-        ""
+        "Nástěnka"
       ],
       "DataStream Tailoring file": [
         ""
       ],
       "Date": [
-        ""
+        "Datum"
       ],
       "Default XCCDF profile": [
         ""
       ],
       "Delete": [
-        ""
+        "Smazat"
       ],
       "Delete a Policy": [
-        ""
+        "Smazat zásadu"
       ],
       "Delete an ARF Report": [
         ""
@@ -220,7 +220,7 @@
         ""
       ],
       "Delete reports": [
-        ""
+        "Smazat hlášení"
       ],
       "Delete scap content %s?": [
         ""
@@ -229,19 +229,19 @@
         ""
       ],
       "Deleted policy": [
-        ""
+        "Smazaná zásada"
       ],
       "Deletes a Tailoring file": [
-        ""
+        "Smazat vylaďovací soubor"
       ],
       "Deletes an SCAP content": [
         ""
       ],
       "Deployment Options": [
-        ""
+        "Předvolby nasazení"
       ],
       "Description": [
-        ""
+        "Popis"
       ],
       "Details for Compliance Policy %s": [
         ""
@@ -253,19 +253,19 @@
         ""
       ],
       "Documentation": [
-        ""
+        "Dokumentace"
       ],
       "Done": [
         ""
       ],
       "Download": [
-        ""
+        "Stažen"
       ],
       "Download ARF report in HTML": [
         ""
       ],
       "Download HTML": [
-        ""
+        "Stáhnout HTML"
       ],
       "Download XML in bzip": [
         ""
@@ -280,10 +280,10 @@
         ""
       ],
       "Edit %s": [
-        ""
+        "Upravit %s"
       ],
       "Effective Profile": [
-        ""
+        "Skutečný profil"
       ],
       "Error!": [
         ""
@@ -295,7 +295,7 @@
         ""
       ],
       "Failed": [
-        ""
+        "Nezdařilo se"
       ],
       "Failed and Othered": [
         ""
@@ -331,7 +331,7 @@
         ""
       ],
       "File Upload": [
-        ""
+        "Nahrání souboru"
       ],
       "File name": [
         ""
@@ -340,43 +340,43 @@
         ""
       ],
       "Full Report": [
-        ""
+        "Úplný výkaz"
       ],
       "General": [
-        ""
+        "Obecné"
       ],
       "Host": [
-        ""
+        "Stroj"
       ],
       "Host Breakdown Chart": [
         ""
       ],
       "Host Groups": [
-        ""
+        "Skupiny hostitelů"
       ],
       "Host compliance details": [
         ""
       ],
       "Host details": [
-        ""
+        "Podrobnosti o stroji"
       ],
       "Host does not exist anymore": [
         ""
       ],
       "Host is assigned to policy": [
-        ""
+        "Stroji je přiřazena zásada"
       ],
       "Host is deleted": [
-        ""
+        "Stroj je smazaný"
       ],
       "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again.": [
         ""
       ],
       "Hostgroups": [
-        ""
+        "Skupiny strojů"
       ],
       "Hostname": [
-        ""
+        "Název stroje"
       ],
       "Hosts Breakdown": [
         ""
@@ -394,7 +394,7 @@
         ""
       ],
       "How the policy should be deployed": [
-        ""
+        "Jak má být tato zásada nasazena"
       ],
       "ID of OpenSCAP Proxy": [
         ""
@@ -436,7 +436,7 @@
         ""
       ],
       "List Policies": [
-        ""
+        "Vypsat zásady"
       ],
       "List SCAP content profiles": [
         ""
@@ -448,34 +448,34 @@
         ""
       ],
       "Loading...": [
-        ""
+        "Načítání…"
       ],
       "Locations": [
-        ""
+        "Umístění"
       ],
       "Manual": [
-        ""
+        "Ruční"
       ],
       "Message": [
-        ""
+        "Zpráva"
       ],
       "Method": [
         ""
       ],
       "More details": [
-        ""
+        "Další podrobnosti"
       ],
       "Name": [
-        ""
+        "Název"
       ],
       "Never audited": [
-        ""
+        "Nikdy neauditováno"
       ],
       "New Compliance Policy": [
         ""
       ],
       "New Policy": [
-        ""
+        "Nová zásada"
       ],
       "New SCAP Content": [
         ""
@@ -484,10 +484,10 @@
         ""
       ],
       "Next": [
-        ""
+        "Další"
       ],
       "No": [
-        ""
+        "Ne"
       ],
       "No ARF reports for this policy": [
         ""
@@ -514,16 +514,16 @@
         ""
       ],
       "No hosts selected": [
-        ""
+        "Nejsou vybrány žádné stroje"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "Pro takový identifikátor, název nebo dotazovací filtr nebyly nalezeni žádní hostitelé"
       ],
       "No proxy found for %{name} or %{url}": [
         ""
       ],
       "No proxy found!": [
-        ""
+        "Nenalezena žádná proxy!"
       ],
       "No proxy with OpenSCAP feature is running.": [
         ""
@@ -544,16 +544,16 @@
         ""
       ],
       "None": [
-        ""
+        "Žádné"
       ],
       "None found": [
-        ""
+        "Nenalezeno žádné"
       ],
       "None provided": [
         ""
       ],
       "None!": [
-        ""
+        "Žádné!"
       ],
       "Not audited": [
         ""
@@ -562,10 +562,10 @@
         ""
       ],
       "Nothing to show": [
-        ""
+        "Není co zobrazit"
       ],
       "Number of Events": [
-        ""
+        "Počet událostí"
       ],
       "Number of a day in month, note that not all months have same count of days": [
         ""
@@ -586,13 +586,13 @@
         ""
       ],
       "Organizations": [
-        ""
+        "Organizace"
       ],
       "Original file name of the XML file": [
         ""
       ],
       "Other": [
-        ""
+        "Ostatní"
       ],
       "Other hosts failing this rule": [
         ""
@@ -604,16 +604,16 @@
         ""
       ],
       "Passed": [
-        ""
+        "Pozastaveno"
       ],
       "Passed|P": [
         ""
       ],
       "Permission denied": [
-        ""
+        "Oprávnění odepřeno"
       ],
       "Please Confirm": [
-        ""
+        "Potvrďte"
       ],
       "Please make sure you understand them by reading our": [
         ""
@@ -622,19 +622,19 @@
         ""
       ],
       "Policies": [
-        ""
+        "Zásady"
       ],
       "Policies with hosts:": [
         ""
       ],
       "Policy": [
-        ""
+        "Zásada"
       ],
       "Policy %s": [
-        ""
+        "Zásada %s"
       ],
       "Policy Attributes": [
-        ""
+        "Atributy zásady"
       ],
       "Policy SCAP content ID": [
         ""
@@ -646,13 +646,13 @@
         ""
       ],
       "Policy description": [
-        ""
+        "Popis zásady"
       ],
       "Policy is missing": [
-        ""
+        "Zásada chybí"
       ],
       "Policy name": [
-        ""
+        "Název zásady"
       ],
       "Policy schedule cron line (only if period == \\\"custom\\\")": [
         ""
@@ -667,19 +667,19 @@
         ""
       ],
       "Policy with id %s not found.": [
-        ""
+        "Zásada s identif. %s nenalezena."
       ],
       "Profile": [
-        ""
+        "Profil"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         ""
       ],
       "Puppet class": [
-        ""
+        "Puppet třída"
       ],
       "Rationale": [
-        ""
+        "Zdůvodnění"
       ],
       "Reboot the system(s)": [
         ""
@@ -712,10 +712,10 @@
         ""
       ],
       "Reported at %s": [
-        ""
+        "Nahlášeno v %s"
       ],
       "Reports": [
-        ""
+        "Výkazy"
       ],
       "Request the following permissions from administrator: %s.": [
         ""
@@ -733,10 +733,10 @@
         ""
       ],
       "Resource": [
-        ""
+        "Prostředek"
       ],
       "Result": [
-        ""
+        "Výsledek"
       ],
       "Review hosts": [
         ""
@@ -751,10 +751,10 @@
         ""
       ],
       "Rule Results": [
-        ""
+        "Výsledky pravidla"
       ],
       "Run": [
-        ""
+        "Spustit"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -787,10 +787,10 @@
         ""
       ],
       "Schedule": [
-        ""
+        "Plán"
       ],
       "Select Action": [
-        ""
+        "Vybrat akci"
       ],
       "Select Compliance Policy": [
         ""
@@ -799,7 +799,7 @@
         ""
       ],
       "Select all items in this page": [
-        ""
+        "Vybrat všechny položky na této stránce"
       ],
       "Select remediation method": [
         ""
@@ -808,13 +808,13 @@
         ""
       ],
       "Severity": [
-        ""
+        "Závažnost"
       ],
       "Show Guide": [
-        ""
+        "Zobrazit příručku"
       ],
       "Show a Policy": [
-        ""
+        "Zobrazit zásadu"
       ],
       "Show a Tailoring file": [
         ""
@@ -835,7 +835,7 @@
         ""
       ],
       "Show log messages:": [
-        ""
+        "Zobrazit zprávy záznamu událostí:"
       ],
       "Smart Class Parameters": [
         ""
@@ -847,19 +847,19 @@
         ""
       ],
       "Something went wrong while selecting hosts - %s": [
-        ""
+        "Při vybírání strojů se něco pokazilo – %s"
       ],
       "Spool errors": [
         ""
       ],
       "Status chart": [
-        ""
+        "Graf stavů"
       ],
       "Status table": [
-        ""
+        "Tabulka stavů"
       ],
       "Submit": [
-        ""
+        "Odeslat"
       ],
       "Successfully copied to clipboard!": [
         ""
@@ -934,7 +934,7 @@
         ""
       ],
       "Total": [
-        ""
+        "Celkem"
       ],
       "Total hosts with policy: %s": [
         ""
@@ -962,7 +962,7 @@
         ""
       ],
       "Update a Policy": [
-        ""
+        "Aktualizovat zásadu"
       ],
       "Update a Tailoring file": [
         ""
@@ -998,10 +998,10 @@
         ""
       ],
       "View Report": [
-        ""
+        "Zobrazit výkaz"
       ],
       "View full report": [
-        ""
+        "Zobrazit úplný výkaz"
       ],
       "View selected hosts": [
         ""
@@ -1019,7 +1019,7 @@
         ""
       ],
       "Yes": [
-        ""
+        "Ano"
       ],
       "You are not authorized to view the page. ": [
         ""
@@ -1037,7 +1037,7 @@
         ""
       ],
       "documentation": [
-        ""
+        "dokumnetace"
       ],
       "does not come from selected tailoring file": [
         ""
@@ -1049,19 +1049,19 @@
         ""
       ],
       "invalid type %s": [
-        ""
+        "neplatný typ %s"
       ],
       "is not a valid value": [
-        ""
+        "není platná hodnota"
       ],
       "is not included in SCAP_RESULT": [
         ""
       ],
       "items selected. Uncheck to Clear": [
-        ""
+        "položky označeny. Vyčistíte zrušením zaškrtnutí"
       ],
       "must be between 1 and 31": [
-        ""
+        "je třeba, aby bylo z rozmezí 1 až 31"
       ],
       "must be present when tailoring file present": [
         ""

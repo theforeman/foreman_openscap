@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Spanish (http://www.transifex.com/foreman/foreman/language/es/)",
+        "Language-Team": "Spanish (http://app.transifex.com/foreman/foreman/language/es/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -134,7 +134,7 @@
         "Elegir día de la semana"
       ],
       "Close": [
-        ""
+        "Cerrar"
       ],
       "Compliance": [
         "Cumplimiento"
@@ -164,7 +164,7 @@
         "En conformidad con la política"
       ],
       "Confirm": [
-        ""
+        "Confirmar"
       ],
       "Content": [
         ""
@@ -191,7 +191,7 @@
         "Crear un archivo de personalización"
       ],
       "Created at": [
-        ""
+        "Creado"
       ],
       "Dashboard": [
         "Tablero de mandos"
@@ -455,7 +455,7 @@
         "Ubicaciones"
       ],
       "Manual": [
-        ""
+        "Manual"
       ],
       "Message": [
         "Mensaje"
@@ -518,7 +518,7 @@
         "Ningún host seleccionado"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "No se hallaron hosts con ese ID, nombre o filtro de consulta"
       ],
       "No proxy found for %{name} or %{url}": [
         "No se ha encontrado ningún proxy para %{name} o %{url}"
@@ -551,7 +551,7 @@
         "No se encontró ninguno."
       ],
       "None provided": [
-        ""
+        "No se ha proporcionado ninguna"
       ],
       "None!": [
         "Ninguno"
@@ -611,7 +611,7 @@
         "Leído|P"
       ],
       "Permission denied": [
-        ""
+        "Permiso negado"
       ],
       "Please Confirm": [
         "Confirmar"
@@ -671,7 +671,7 @@
         "No se encontró la política con el ID %s."
       ],
       "Profile": [
-        ""
+        "Perfil"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "El proxy no logró enviar un informe desde la cola de espera a Foreman. Esto indica un formato de informe corrupto. El informe se movió al directorio para almacenar los archivos corruptos en el proxy para una inspección posterior."
@@ -755,7 +755,7 @@
         "Resultados de regla"
       ],
       "Run": [
-        ""
+        "Ejecutar"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -842,7 +842,7 @@
         "Parámetros de clase inteligente"
       ],
       "Snippet": [
-        ""
+        "Snippet"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "Algo ha fallado al seleccionar los informes de cumplimiento: %s."
@@ -929,7 +929,7 @@
         "Este perfil se utilizará para anular el perfil del contenido scap"
       ],
       "Title": [
-        ""
+        "Título"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
         ""

@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "Swedish (Sweden) (http://www.transifex.com/foreman/foreman/language/sv_SE/)",
+        "Language-Team": "Swedish (Sweden) (http://app.transifex.com/foreman/foreman/language/sv_SE/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -133,7 +133,7 @@
         ""
       ],
       "Close": [
-        ""
+        "Stäng"
       ],
       "Compliance": [
         ""
@@ -454,7 +454,7 @@
         "Lokationer"
       ],
       "Manual": [
-        ""
+        "Manual"
       ],
       "Message": [
         "Meddelande"
@@ -610,7 +610,7 @@
         ""
       ],
       "Permission denied": [
-        ""
+        "Tillåts ej"
       ],
       "Please Confirm": [
         "Vänligen bekräfta"
@@ -841,7 +841,7 @@
         ""
       ],
       "Snippet": [
-        ""
+        "Remsa"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         ""

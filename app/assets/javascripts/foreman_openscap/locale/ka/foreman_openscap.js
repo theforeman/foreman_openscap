@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
@@ -31,13 +31,13 @@
         "%s შესაბამისობის ანგარიში პოლიტიკიდან"
       ],
       "%s content": [
-        ""
+        "%s შემცველობა"
       ],
       "%s does not exist, skipping.": [
-        ""
+        "%s არ არსებობს. გამოტოვება."
       ],
       "%s is a directory, expecting file.": [
-        ""
+        "%s საქაღალდეა. მოველოდი ფაილს."
       ],
       "%s latest report": [
         "%s უახლესი ანგარიში"
@@ -46,7 +46,7 @@
         "სულ %s ანგარიში"
       ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
-        ""
+        "აღმოჩენილია %s სპულის შეცდომა. შეამოწმეთ შესაბამისი ფაილი პირდაპირ პროქსიზე"
       ],
       "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?": [
         ""
@@ -82,7 +82,7 @@
         "წესის ჰოსტებზე გადატარება"
       ],
       "Are you sure you want to delete %s?": [
-        ""
+        "დარწმუნებული ხართ, რომ გსურთ %s-ის წაშლა?"
       ],
       "Assign Compliance Policy": [
         "შესაბამისობის პოლიტიკის მინიჭება"
@@ -94,7 +94,7 @@
         ""
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
-        ""
+        "RPM პაკეტი scap-security-guide ვერ ვიპოვე. დარწმუნებული ბრძანდებით, რომ დააყენეთ ის?"
       ],
       "Cancel": [
         "გაუქმება"
@@ -133,7 +133,7 @@
         "აირჩიეთ კვირის დღე"
       ],
       "Close": [
-        ""
+        "დახურვა"
       ],
       "Compliance": [
         "შესაბამისობა"
@@ -169,7 +169,7 @@
         "შემცველობა"
       ],
       "Copy to clipboard": [
-        ""
+        "ბუფერში კოპირება"
       ],
       "Could not find host identified by: %s": [
         "ჰოსტი იდენტიფიკატორით %s ვერ ვპოვე"
@@ -190,7 +190,7 @@
         "შესაბამისობის ფაილის შექმნა"
       ],
       "Created at": [
-        ""
+        "შექმნის დრო"
       ],
       "Dashboard": [
         "სამუშაო დაფა"
@@ -292,7 +292,7 @@
         ""
       ],
       "Expected an array of files to upload, got: %s.": [
-        ""
+        "მოველოდი ასატვირთი ფაილების მასივს. მივიღე: %s."
       ],
       "Failed": [
         "შეცდომა"
@@ -304,7 +304,7 @@
         "მხოლოდ ავარიულები"
       ],
       "Failed saving %s:": [
-        ""
+        "%s-ის შენახვა ჩავარდა:"
       ],
       "Failed to delete %s compliance reports": [
         "%s შესაბამისობის ანგარიშის წაშლის შეცდომა"
@@ -334,7 +334,7 @@
         "ფაილის ატვირთვა"
       ],
       "File name": [
-        ""
+        "ფაილის სახელი"
       ],
       "File paths to upload when using \\\"files\\\" upload type": [
         "ატვირთვის ტიპის \\\"files\\\" გამოყენებისას ასატვირთი ფაილის ბილიკები"
@@ -421,7 +421,7 @@
         "არადამაჯერებელი პასუხები"
       ],
       "It may sometimes be required to adjust the security policy to your specific needs. ": [
-        ""
+        "ხანდახან შეიძლება უსაფრთხოების პოლიტიკის თქვენი საჭიროებებისათვის მორგება მოგიწიოთ. "
       ],
       "Job details": [
         ""
@@ -454,7 +454,7 @@
         "მდებარეობები"
       ],
       "Manual": [
-        ""
+        "ხელით"
       ],
       "Message": [
         "შეტყობინება"
@@ -517,7 +517,7 @@
         "ჰოსტები მონიშნული არაა"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "მითითებული ID-ით, სახელით ან საძებნი სტრიქონით ჰოსტები ნაპოვნი არაა"
       ],
       "No proxy found for %{name} or %{url}": [
         "%{name}-სთვის და %{url}-სთვის პროქსი ნაპოვნი არაა"
@@ -538,7 +538,7 @@
         "ანგარიშების გარეშე"
       ],
       "No such directory: %s. Please check the path you have provided.": [
-        ""
+        "ასეთი საქაღალდე არ არსებობს: %s. შეამოწმეთ ბილიკი, რომელიც შეიყვანეთ."
       ],
       "No valid policy ID provided": [
         "წესის სწორი  ID მითითებული არაა"
@@ -670,7 +670,7 @@
         "წესი ID-ით %s არ არსებობს."
       ],
       "Profile": [
-        ""
+        "პროფილი"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         ""
@@ -679,13 +679,13 @@
         "Puppet-ის კლასი"
       ],
       "Rationale": [
-        ""
+        "დასაბუთება"
       ],
       "Reboot the system(s)": [
         ""
       ],
       "Red Hat %s default content": [
-        ""
+        "Red Hat %s ნაგულისხმევი შემცველობა"
       ],
       "References": [
         "ბმები"
@@ -718,7 +718,7 @@
         "ანგარიშები"
       ],
       "Request the following permissions from administrator: %s.": [
-        ""
+        "ადმინისტრატორისგან შემდეგი წვდომების გამოთხოვა: %s."
       ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "მოთხოვნის მოლოდინის ვადა ამოიწურა. სცადეთ შეცვალოთ პარამეტრი მორგება -> proxy_request_timeout"
@@ -754,7 +754,7 @@
         "წესის შედეგები"
       ],
       "Run": [
-        ""
+        "გაშვება"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -841,10 +841,10 @@
         "ჭკვიანი კლასის მორგება"
       ],
       "Snippet": [
-        ""
+        "ნაწყვეტი"
       ],
       "Something went wrong while selecting compliance reports - %s": [
-        ""
+        "შეცდომა თავსებადობის ანგარიშების მონიშვნისას - %s"
       ],
       "Something went wrong while selecting hosts - %s": [
         "შეცდომა ჰოსტების მონიშვნისას - %s"
@@ -916,10 +916,10 @@
         ""
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
+        "დაფიქსირდა შემდეგი შეცდომა %(name)s-ის წაშლისას: %(error)s"
       ],
       "There's no available report for this host": [
-        ""
+        "ამ ჰოსტისთვის ხელმისაწვდომი ანგარიში არ არსებობს"
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
         ""
@@ -1022,13 +1022,13 @@
         "დიახ"
       ],
       "You are not authorized to view the page. ": [
-        ""
+        "ამ გვერდთან წვდომა არ გაგაჩნიათ. "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         ""
       ],
       "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [
-        ""
+        "შეგიძლიათ მიუთითოთ თქვენი cron-ის ხაზი. მაგ: \\\"0  3  *  *  *\\\", ეს 5 მნიშვნელობა გამოტოვებით გამოყავით"
       ],
       "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy.": [
         ""

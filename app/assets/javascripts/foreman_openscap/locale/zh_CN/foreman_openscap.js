@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Chinese (China) (http://www.transifex.com/foreman/foreman/language/zh_CN/)",
+        "Language-Team": "Chinese (China) (http://app.transifex.com/foreman/foreman/language/zh_CN/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -30,13 +30,13 @@
         "根据策略的 %s 合规报告"
       ],
       "%s content": [
-        ""
+        "%s 内容"
       ],
       "%s does not exist, skipping.": [
-        ""
+        "%s 不存在，跳过。"
       ],
       "%s is a directory, expecting file.": [
-        ""
+        "%s 是一个目录，预期为文件。"
       ],
       "%s latest report": [
         "%s 最新报告"
@@ -54,10 +54,10 @@
         "<b>Foreman</b> OpenSCAP 摘要"
       ],
       "A reboot is required after applying remediation.": [
-        ""
+        "在应用补救后需要重启。"
       ],
       "A reboot might be required after applying remediation.": [
-        ""
+        "在应用补救后可能需要重启。"
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP 策略报告摘要"
@@ -81,7 +81,7 @@
         "对主机应用策略"
       ],
       "Are you sure you want to delete %s?": [
-        ""
+        "您确定要删除 %s 吗？"
       ],
       "Assign Compliance Policy": [
         "分配合规政策"
@@ -90,10 +90,10 @@
         "返回"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
-        ""
+        "默认情况下，补救会应用到当前主机。（可选）修复任何规则失败的额外主机。"
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
-        ""
+        "无法找到 scap-security-guide RPM，您确定是否已安装在服务器上？"
       ],
       "Cancel": [
         "取消"
@@ -132,7 +132,7 @@
         "选择星期几"
       ],
       "Close": [
-        ""
+        "关闭"
       ],
       "Compliance": [
         "合规"
@@ -162,13 +162,13 @@
         "与策略合规"
       ],
       "Confirm": [
-        ""
+        "确认"
       ],
       "Content": [
-        ""
+        "内容"
       ],
       "Copy to clipboard": [
-        ""
+        "复制到剪贴板"
       ],
       "Could not find host identified by: %s": [
         "无法找到由 %s 标识的主机"
@@ -177,7 +177,7 @@
         "无法验证 %s。请确保您具备合适的代理服务器版本，以便使用此功能"
       ],
       "Could not validate %{file_type}. Error %{error}": [
-        "无法验证％{file_type} 。错误 %{error}"
+        "无法验证％%{file_type} 。错误 %{error}"
       ],
       "Create SCAP content": [
         "建立 SCAP 內容"
@@ -189,7 +189,7 @@
         "创建定制文件"
       ],
       "Created at": [
-        ""
+        "建立于"
       ],
       "Dashboard": [
         "仪表板"
@@ -249,13 +249,13 @@
         "当使用 “directory” 上载类型时要上传的目录"
       ],
       "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment.": [
-        ""
+        "在非生产环境中测试之前，不要实施任何推荐的补救操作或脚本。"
       ],
       "Documentation": [
         "文档"
       ],
       "Done": [
-        ""
+        "完成"
       ],
       "Download": [
         "下載"
@@ -288,10 +288,10 @@
         "错误！"
       ],
       "Every puppet run ensures the foreman_scap_client is configured according to the policy.": [
-        ""
+        "每个 puppet 运行确保了 foreman_scap_client 会根据策略配置。"
       ],
       "Expected an array of files to upload, got: %s.": [
-        ""
+        "预期上传一个文件数组，实际为：%s。"
       ],
       "Failed": [
         "失败"
@@ -303,13 +303,13 @@
         "只有失敗"
       ],
       "Failed saving %s:": [
-        ""
+        "保存失败 %s:"
       ],
       "Failed to delete %s compliance reports": [
         "刪除 %s 合规报告失败"
       ],
       "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
-        "无法删除主机 %{host_name} 在 %{reported_at} 报告的 ARF 报告"
+        "无法删除主机 %%{host_name} 在 %%{reported_at} 报告的 ARF 报告"
       ],
       "Failed to downloaded ARF report as bzip: %s": [
         "无法将 ARF 报告下载为 bzip：%s"
@@ -321,7 +321,7 @@
         "从代理获取 spool 状态失败"
       ],
       "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "覆盖％{config_tool} 的参数时无法保存，原因是：%{errors}"
+        "覆盖％%{config_tool} 的参数时无法保存，原因是：%{errors}"
       ],
       "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
         "上传 Arf Report 失败，在为 %s 上传时没有在参数中找到 OpenSCAP 代理名或 url，主机缺少 openscap_proxy"
@@ -333,7 +333,7 @@
         "上传文件"
       ],
       "File name": [
-        ""
+        "文件名"
       ],
       "File paths to upload when using \\\"files\\\" upload type": [
         "当使用 “files” 上传类型时要上传的文件路径"
@@ -423,7 +423,7 @@
         "有些可能需要根据您的具体需求调整安全策略。"
       ],
       "Job details": [
-        ""
+        "作业详情"
       ],
       "Latest Compliance Reports": [
         "最新合规报告"
@@ -453,13 +453,13 @@
         "位置"
       ],
       "Manual": [
-        ""
+        "手册"
       ],
       "Message": [
         "信息"
       ],
       "Method": [
-        ""
+        "方法"
       ],
       "More details": [
         "更多细节"
@@ -516,7 +516,7 @@
         "未选择主机"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "未找到符合此 id、名称或者查询过滤器的主机"
       ],
       "No proxy found for %{name} or %{url}": [
         "找不到 %{name} 或 %{url} 的代理服务器"
@@ -537,7 +537,7 @@
         "无可用报告"
       ],
       "No such directory: %s. Please check the path you have provided.": [
-        ""
+        "没有这个目录：%s。请检查您所提供的路径。"
       ],
       "No valid policy ID provided": [
         "未提供有效的策略 ID"
@@ -549,7 +549,7 @@
         "未找到"
       ],
       "None provided": [
-        ""
+        "没有提供"
       ],
       "None!": [
         "无！"
@@ -570,7 +570,7 @@
         "月份中的日子，請注意並不是所有月份都有同樣的天數"
       ],
       "OS": [
-        ""
+        "OS"
       ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         "存在 SCAP 内容时，您可以创建策略、分配选定主机组，并调度运行时间。"
@@ -594,7 +594,7 @@
         "其他"
       ],
       "Other hosts failing this rule": [
-        ""
+        "其他这个规则失败的主机"
       ],
       "Othered": [
         "其它"
@@ -609,7 +609,7 @@
         "Passed|P"
       ],
       "Permission denied": [
-        ""
+        "没有权限"
       ],
       "Please Confirm": [
         "请确认"
@@ -669,7 +669,7 @@
         "没有找到带有 id %s 的策略。"
       ],
       "Profile": [
-        ""
+        "配置集"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "代理服务器未能从 spool 发送报告至 Foreman。这表示报告格式损坏。报告已被移动至目录，以便将破坏文件存储到代理服务器上供以后检查。"
@@ -681,25 +681,25 @@
         "理由"
       ],
       "Reboot the system(s)": [
-        ""
+        "重启系统"
       ],
       "Red Hat %s default content": [
-        ""
+        "Red Hat %s 默认内容"
       ],
       "References": [
         "参考"
       ],
       "Remediate %s rule": [
-        ""
+        "补救 %s 规则"
       ],
       "Remediation": [
-        ""
+        "补救"
       ],
       "Remediation might render the system non-functional.": [
-        ""
+        "补救可能会导致系统无法正常工作。"
       ],
       "Remote job": [
-        ""
+        "远程作业"
       ],
       "Report Metrics": [
         "报告指标"
@@ -717,19 +717,19 @@
         "报表"
       ],
       "Request the following permissions from administrator: %s.": [
-        ""
+        "连续管理员来获得以下权限：%s。"
       ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "请求超时。请尝试增加 Settings -> proxy_request_timeout"
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "没有找到所需的％{msg_name}%{class}，请确认它已被导入。"
+        "没有找到所需的％%{msg_name}%%{class}，请确认它已被导入。"
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
-        ""
+        "需要 %s Puppet 类。这会将类分配给主机或所选主机组。"
       ],
       "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups.": [
-        ""
+        "需要 Ansible 插件，%s Ansible 角色和变量。这将为主机或选定的主机组分配角色。"
       ],
       "Resource": [
         "资源"
@@ -738,28 +738,28 @@
         "结果"
       ],
       "Review hosts": [
-        ""
+        "审阅主机"
       ],
       "Review remediation": [
-        ""
+        "审阅补救"
       ],
       "Review the remediation snippet and apply it to the host manually.": [
-        ""
+        "检查补救片段，并手动应用到主机。"
       ],
       "Review the remediation snippet that will be applied to selected host(s).": [
-        ""
+        "检查将应用到所选主机的补救片段。"
       ],
       "Rule Results": [
         "规则结果"
       ],
       "Run": [
-        ""
+        "运行"
       ],
       "Run OpenSCAP remediation with Ansible": [
-        ""
+        "使用 Ansible 运行 OpenSCAP 补救"
       ],
       "Run OpenSCAP remediation with Shell": [
-        ""
+        "使用 Shell 运行 OpenSCAP 补救"
       ],
       "Run OpenSCAP scan": [
         "运行 OpenSCAP 扫描"
@@ -801,10 +801,10 @@
         "选择这个页中的所有项"
       ],
       "Select remediation method": [
-        ""
+        "选择补救方法"
       ],
       "Select snippet": [
-        ""
+        "选择片断"
       ],
       "Severity": [
         "严重性"
@@ -840,7 +840,7 @@
         "智能类参数"
       ],
       "Snippet": [
-        ""
+        "程序代码片段"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "在选择合规报告时出错 - %s"
@@ -861,7 +861,7 @@
         "提交"
       ],
       "Successfully copied to clipboard!": [
-        ""
+        "成功复制到剪贴板！"
       ],
       "Successfully deleted %s compliance reports": [
         "刪除 %s 合规报告成功"
@@ -894,43 +894,43 @@
         "定制文件配置文件 ID"
       ],
       "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it.": [
-        ""
+        "%s 代理没有启用 Openscap 功能。设置正确的 OpenSCAP 代理或取消设置它。"
       ],
       "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\\n        configuration issues related to security. ": [
         "安全内容自动化协议（SCAP）是由一系列用来枚举与安全性有关的软件漏洞和\\n        配置问题的开源标准。"
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "％{item_name} 缺少以下 ％{key_name}：％{key_names}。在继续操作之前，请确保已将其导入。"
+        "％%{item_name} 缺少以下 ％%{key_name}：％%{key_names}。在继续操作之前，请确保已将其导入。"
       ],
       "The identifier of the host": [
         "主机 ID"
       ],
       "The job has started on selected host(s), you can check the status on the job details page.": [
-        ""
+        "作业已在所选主机上启动，您可以在详情页中检查作业的状态。"
       ],
       "There are significant differences in deployment options.": [
         "部署选项之间存在重大差异。"
       ],
       "There is no job to remediate with. Please remediate manually.": [
-        ""
+        "没有可以修复的作业。请手动修复。"
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
+        "删除 %(name)s 时出现以下错误：%(error)s"
       ],
       "There's no available report for this host": [
-        ""
+        "此主机没有可用的报告"
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
-        ""
+        "这会使用户只保留 foreman_scap_client 的设置。策略仍然需要定义才能来链接传入的 ARF 报告。"
       ],
       "This profile will be used to override the one from scap content": [
         "这个配置文件将用于覆盖 scap 内容中的配置文件"
       ],
       "Title": [
-        ""
+        "提示"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
-        ""
+        "要部署 foreman_scap_client，需要手动触发 ansible 角色运行。在更改此策略后，还需要手动运行。"
       ],
       "Total": [
         "总计"
@@ -1002,7 +1002,7 @@
         "查看完整报告"
       ],
       "View selected hosts": [
-        ""
+        "查看所选主机"
       ],
       "XCCDF Profile": [
         "XCCDF 配置集"
@@ -1020,10 +1020,10 @@
         "是"
       ],
       "You are not authorized to view the page. ": [
-        ""
+        "您没有权利查看该页面。 "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
-        ""
+        "您可以通过运行远程作业来修复，也可以显示用于手动修复的代码片段。"
       ],
       "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [
         "您可以设置定制的 cron 行，如 \\\"0  3  *  *  *\\\"，其中的 5 个值由空格分隔"
@@ -1032,7 +1032,7 @@
         "您似乎没有 ARF 报告。ARF 报告是针对给定的合规策略对特定主机执行单次扫描的摘要。"
       ],
       "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy": [
-        "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'。"
+        "无法分配给 %s，必须以相同的方式部署所有分配的策略，请为每个分配的策略选择 'deploy by'"
       ],
       "documentation": [
         "文档"
