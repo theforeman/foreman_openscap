@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Korean (http://www.transifex.com/foreman/foreman/language/ko/)",
+        "Language-Team": "Korean (http://app.transifex.com/foreman/foreman/language/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -133,7 +133,7 @@
         "요일 선택"
       ],
       "Close": [
-        ""
+        "종료 "
       ],
       "Compliance": [
         "컴플라이언스 "
@@ -190,7 +190,7 @@
         ""
       ],
       "Created at": [
-        ""
+        "생성 일시 "
       ],
       "Dashboard": [
         "대시보드 "
@@ -454,7 +454,7 @@
         "위치"
       ],
       "Manual": [
-        ""
+        "수동"
       ],
       "Message": [
         "메시지"
@@ -517,7 +517,7 @@
         "선택된 호스트가 없음 "
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "해당 ID, 이름 또는 쿼리 필터를 가진 호스트를 찾을 수 없습니다."
       ],
       "No proxy found for %{name} or %{url}": [
         ""
@@ -607,10 +607,10 @@
         "통과됨"
       ],
       "Passed|P": [
-        "통과됨|P"
+        "Passed|P"
       ],
       "Permission denied": [
-        ""
+        "권한이 거부되었습니다"
       ],
       "Please Confirm": [
         "확인해 주십시오 "
@@ -754,7 +754,7 @@
         ""
       ],
       "Run": [
-        ""
+        "실행"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -838,10 +838,10 @@
         "로그 메세지 표시: "
       ],
       "Smart Class Parameters": [
-        ""
+        "스마트 클래스 매개변수"
       ],
       "Snippet": [
-        ""
+        "조각 모음 "
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "컴플라이언스 보고서를 선택하는 도중 문제가 발생했습니다 -  %s"
@@ -928,7 +928,7 @@
         ""
       ],
       "Title": [
-        ""
+        "직위"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
         ""

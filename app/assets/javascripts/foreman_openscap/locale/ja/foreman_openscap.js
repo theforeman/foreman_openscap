@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
-        "Language-Team": "Japanese (http://www.transifex.com/foreman/foreman/language/ja/)",
+        "Language-Team": "Japanese (http://app.transifex.com/foreman/foreman/language/ja/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -30,13 +30,13 @@
         "ポリシー別 コンプライアンスレポート %s 件"
       ],
       "%s content": [
-        ""
+        "%s のコンテンツ"
       ],
       "%s does not exist, skipping.": [
-        ""
+        "%s は存在しないため、スキップします。"
       ],
       "%s is a directory, expecting file.": [
-        ""
+        "%s はディレクトリーで、ファイルが必要です。"
       ],
       "%s latest report": [
         "最新レポート %s 件"
@@ -54,10 +54,10 @@
         "<b>Foreman</b> OpenSCAP の概要"
       ],
       "A reboot is required after applying remediation.": [
-        ""
+        "修復を適用した後に再起動が必要です。"
       ],
       "A reboot might be required after applying remediation.": [
-        ""
+        "修復を適用した後に再起動が必要になる場合があります。"
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP ポリシーのレポートの概要"
@@ -81,7 +81,7 @@
         "ホストにポリシーを適用"
       ],
       "Are you sure you want to delete %s?": [
-        ""
+        "本当に %s を削除しますか?"
       ],
       "Assign Compliance Policy": [
         "コンプライアンスポリシーの割り当て"
@@ -90,10 +90,10 @@
         "戻る"
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
-        ""
+        "修復はデフォルトで現在のホストに適用されます。必要に応じて、ルールに違反する他のホストを修復してください。"
       ],
       "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
-        ""
+        "scap-security-guide RPM が見つかりません。サーバーにインストールされていますか?"
       ],
       "Cancel": [
         "取り消し"
@@ -132,7 +132,7 @@
         "平日を選択"
       ],
       "Close": [
-        ""
+        "閉じる"
       ],
       "Compliance": [
         "コンプライアンス"
@@ -162,13 +162,13 @@
         "ポリシーに準拠"
       ],
       "Confirm": [
-        ""
+        "確認"
       ],
       "Content": [
-        ""
+        "コンテンツ"
       ],
       "Copy to clipboard": [
-        ""
+        "クリップボードにコピー"
       ],
       "Could not find host identified by: %s": [
         "%s が識別したホストが見つかりませんでした"
@@ -177,7 +177,7 @@
         "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
       ],
       "Could not validate %{file_type}. Error %{error}": [
-        "％{file_type} を検証できませんでした。エラー: %{error}"
+        "％%{file_type} を検証できませんでした。エラー: ％%{error}"
       ],
       "Create SCAP content": [
         "SCAP コンテンツの作成"
@@ -189,7 +189,7 @@
         "テーラリングファイルの作成"
       ],
       "Created at": [
-        ""
+        "作成:"
       ],
       "Dashboard": [
         "ダッシュボード"
@@ -249,13 +249,13 @@
         "「ディレクトリ」アップロードタイプを使用する場合のアップロードするディレクトリー"
       ],
       "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment.": [
-        ""
+        "推奨される修復アクションまたはスクリプトは、必ず実稼働以外の環境でテストしてから実装してください。"
       ],
       "Documentation": [
         "ドキュメント"
       ],
       "Done": [
-        ""
+        "完了"
       ],
       "Download": [
         "ダウンロード"
@@ -288,10 +288,10 @@
         "エラー!"
       ],
       "Every puppet run ensures the foreman_scap_client is configured according to the policy.": [
-        ""
+        "すべての Puppet 実行により、foreman_scap_client がポリシーに従って設定されます。"
       ],
       "Expected an array of files to upload, got: %s.": [
-        ""
+        "アップロードするファイルの配列が必要とされており、以下を取得しました: %s。"
       ],
       "Failed": [
         "失敗"
@@ -303,13 +303,13 @@
         "失敗のみ"
       ],
       "Failed saving %s:": [
-        ""
+        "%s の保存に失敗しました:"
       ],
       "Failed to delete %s compliance reports": [
         "%s コンプライアンスレポートの削除に失敗しました"
       ],
       "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
-        "{reported_at} で報告されたホスト {host_name} の ARF レポートの削除に失敗しました"
+        "%{reported_at} で報告されたホスト %{host_name} の ARF レポートの削除に失敗しました"
       ],
       "Failed to downloaded ARF report as bzip: %s": [
         "ARFレポートを bzip でダウンロードするのに失敗しました: %s"
@@ -321,7 +321,7 @@
         "プロキシーからスプールステータスを取得できませんでした"
       ],
       "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "%{config_tool} のパラメーターのオーバーライド時に、保存に失敗しました。原因: %{errors}"
+        "%%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %%{errors}"
       ],
       "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
         "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -333,7 +333,7 @@
         "ファイルアップロード"
       ],
       "File name": [
-        ""
+        "ファイル名"
       ],
       "File paths to upload when using \\\"files\\\" upload type": [
         "「ファイル」アップロードタイプを使用する場合のアップロードするファイルパス"
@@ -423,7 +423,7 @@
         "セキュリティーポリシーを特定のニーズに合わせて調整することが必要になることがあります。 "
       ],
       "Job details": [
-        ""
+        "ジョブの詳細"
       ],
       "Latest Compliance Reports": [
         "最新コンプライアンスレポート"
@@ -447,19 +447,19 @@
         "テーラリングファイルの一覧表示"
       ],
       "Loading...": [
-        "読み込み中..."
+        "ロード中..."
       ],
       "Locations": [
         "ロケーション"
       ],
       "Manual": [
-        ""
+        "手動"
       ],
       "Message": [
         "メッセージ"
       ],
       "Method": [
-        ""
+        "方法"
       ],
       "More details": [
         "詳細"
@@ -516,7 +516,7 @@
         "ホストが選択されていません"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "その ID、名前またはクエリーフィルターを使ってホストを見つけることができませんでした"
       ],
       "No proxy found for %{name} or %{url}": [
         "%{name} または %{url} のプロキシーが見つかりません"
@@ -537,7 +537,7 @@
         "利用可能なレポートがありません"
       ],
       "No such directory: %s. Please check the path you have provided.": [
-        ""
+        "次のディレクトリーは存在しません: %s。指定したパスを確認してください。"
       ],
       "No valid policy ID provided": [
         "有効なポリシー ID が提供されていません"
@@ -549,7 +549,7 @@
         "何も見つかりません"
       ],
       "None provided": [
-        ""
+        "指定なし"
       ],
       "None!": [
         "なし!"
@@ -570,7 +570,7 @@
         "月の日数。すべての月の日数が同じであるとは限らないことに注意してください"
       ],
       "OS": [
-        ""
+        "OS"
       ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         "SCAP コンテンツが表示されたら、ポリシーの作成、選択したホストグループの割り当て、実行のスケジューリングが可能です。"
@@ -594,7 +594,7 @@
         "その他"
       ],
       "Other hosts failing this rule": [
-        ""
+        "このルールに違反する他のホスト"
       ],
       "Othered": [
         "Othered"
@@ -609,7 +609,7 @@
         "P"
       ],
       "Permission denied": [
-        ""
+        "パーミッションが拒否されました。"
       ],
       "Please Confirm": [
         "確認してください"
@@ -669,7 +669,7 @@
         "id が %s のポリシーが見つかりません"
       ],
       "Profile": [
-        ""
+        "profile"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
@@ -681,25 +681,25 @@
         "理由"
       ],
       "Reboot the system(s)": [
-        ""
+        "システムの再起動"
       ],
       "Red Hat %s default content": [
-        ""
+        "Red Hat %s のデフォルトコンテンツ"
       ],
       "References": [
         "リファレンス"
       ],
       "Remediate %s rule": [
-        ""
+        "%s ルールの修復"
       ],
       "Remediation": [
-        ""
+        "修復"
       ],
       "Remediation might render the system non-functional.": [
-        ""
+        "修復によりシステムが機能しなくなる可能性があります。"
       ],
       "Remote job": [
-        ""
+        "リモートジョブ"
       ],
       "Report Metrics": [
         "レポートメトリックス"
@@ -717,19 +717,19 @@
         "レポート"
       ],
       "Request the following permissions from administrator: %s.": [
-        ""
+        "管理者に次のパーミッションを要求してください: %s。"
       ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "必要とされる {msg_name}%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
+        "必要とされる %%{msg_name} %%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
-        ""
+        "%s Puppet クラスが必要です。ホストまたは選択したホストグループに、そのクラスが割り当てられます。"
       ],
       "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups.": [
-        ""
+        "Ansible プラグイン、%s Ansible ロール、変数が必要です。ホストまたは選択したホストグループにロールが割り当てられます。"
       ],
       "Resource": [
         "リソース"
@@ -738,28 +738,28 @@
         "結果"
       ],
       "Review hosts": [
-        ""
+        "ホストの確認"
       ],
       "Review remediation": [
-        ""
+        "修復の確認"
       ],
       "Review the remediation snippet and apply it to the host manually.": [
-        ""
+        "修復スニペットを確認し、手動でホストに適用します。"
       ],
       "Review the remediation snippet that will be applied to selected host(s).": [
-        ""
+        "選択したホストに適用される修復スニペットを確認します。"
       ],
       "Rule Results": [
         "ルールの結果"
       ],
       "Run": [
-        ""
+        "実行"
       ],
       "Run OpenSCAP remediation with Ansible": [
-        ""
+        "Ansible で OpenSCAP 修復を実行"
       ],
       "Run OpenSCAP remediation with Shell": [
-        ""
+        "シェルで OpenSCAP 修復を実行"
       ],
       "Run OpenSCAP scan": [
         "OpenSCAP スキャンの実行"
@@ -801,10 +801,10 @@
         "このページのすべての項目を選択"
       ],
       "Select remediation method": [
-        ""
+        "修復方法の選択"
       ],
       "Select snippet": [
-        ""
+        "スニペットの選択"
       ],
       "Severity": [
         "重要度"
@@ -840,7 +840,7 @@
         "スマートクラスパラメーター"
       ],
       "Snippet": [
-        ""
+        "スニペット"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "コンプライアンスレポートの選択中に問題が発生しました: %s"
@@ -861,7 +861,7 @@
         "送信"
       ],
       "Successfully copied to clipboard!": [
-        ""
+        "クリップボードにコピーされました!"
       ],
       "Successfully deleted %s compliance reports": [
         "%s コンプライアンスレポートが正常に削除されました"
@@ -876,7 +876,7 @@
         "Foreman からの OpenScap の概要レポート"
       ],
       "Summary report from Foreman server at %{foreman_url}": [
-        "%{foreman_url} にある Foreman サーバーからの概要レポート"
+        "%%{foreman_url} にある Foreman サーバーからの概要レポート"
       ],
       "Tailoring File": [
         "テーラリングファイル"
@@ -894,43 +894,43 @@
         "テーラリングファイルのプロファイル ID"
       ],
       "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it.": [
-        ""
+        "%s プロキシーでは Openscap 機能が有効になっていません。正しい OpenSCAP プロキシーを設定するか、未設定にしてください。"
       ],
       "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\\n        configuration issues related to security. ": [
         "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される\\n        数多くのオープンスタンダードの組み合わせです。 "
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "以下の %{key_name} が %{item_name}: %{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
+        "以下の %%{key_name} が %%{item_name}: %%{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
       ],
       "The identifier of the host": [
         "ホストの ID"
       ],
       "The job has started on selected host(s), you can check the status on the job details page.": [
-        ""
+        "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
       ],
       "There are significant differences in deployment options.": [
         "デプロイメントオプションには大きな違いがあります。"
       ],
       "There is no job to remediate with. Please remediate manually.": [
-        ""
+        "修復に使用するジョブがありません。手動で修復してください。"
       ],
       "There was a following error when deleting %(name)s: %(error)s": [
-        ""
+        "%(name)s を削除する際に、次のエラーが発生しました: %(error)s"
       ],
       "There's no available report for this host": [
-        ""
+        "このホストの利用可能なレポートはありません。"
       ],
       "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports.": [
-        ""
+        "これにより、foreman_scap_client のセットアップはユーザーにのみ残ります。受信 ARF レポートをリンクするには、ポリシーを定義する必要があります。"
       ],
       "This profile will be used to override the one from scap content": [
         "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
       ],
       "Title": [
-        ""
+        "タイトル"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
-        ""
+        "foreman_scap_client をデプロイするには、ansible ロールの実行を手動でトリガーする必要があります。このポリシーを変更した場合も、変更後に手動での実行が必要になります。"
       ],
       "Total": [
         "合計"
@@ -1002,7 +1002,7 @@
         "フルレポートを表示"
       ],
       "View selected hosts": [
-        ""
+        "選択したホストの表示"
       ],
       "XCCDF Profile": [
         "XCCDF プロファイル"
@@ -1020,10 +1020,10 @@
         "はい"
       ],
       "You are not authorized to view the page. ": [
-        ""
+        "ページを表示する権限がありません。 "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
-        ""
+        "リモートジョブを実行して修復することも、手動修復用のスニペットを表示することもできます。"
       ],
       "You can specify custom cron line, e.g. \\\"0  3  *  *  *\\\", separate each of 5 values by space": [
         "カスタム cron 行を指定できます (たとえば、\\\"0  3  *  *  *\\\" のように 5 つの値をスペースで区切ります)"

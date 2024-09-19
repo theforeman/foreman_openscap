@@ -5,11 +5,11 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Swedish (Sweden) (http://www.transifex.com/foreman/foreman/lang"
+"Language-Team: Swedish (Sweden) (http://app.transifex.com/foreman/foreman/lang"
 "uage/sv_SE/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -134,7 +134,7 @@ msgid "Choose weekday"
 msgstr ""
 
 msgid "Close"
-msgstr ""
+msgstr "Stäng"
 
 msgid "Compliance"
 msgstr ""
@@ -460,7 +460,7 @@ msgid "Locations"
 msgstr "Lokationer"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgid "Message"
 msgstr "Meddelande"
@@ -618,7 +618,7 @@ msgid "Passed|P"
 msgstr ""
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Tillåts ej"
 
 msgid "Please Confirm"
 msgstr "Vänligen bekräfta"
@@ -849,7 +849,7 @@ msgid "Smart Class Parameters"
 msgstr ""
 
 msgid "Snippet"
-msgstr ""
+msgstr "Remsa"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""

@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
-        "Last-Translator": "Patrick Dolinic, 2021",
-        "Language-Team": "German (http://www.transifex.com/foreman/foreman/language/de/)",
+        "Last-Translator": "pdolinic, 2021",
+        "Language-Team": "German (http://app.transifex.com/foreman/foreman/language/de/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -133,7 +133,7 @@
         "Wochentag auswählen"
       ],
       "Close": [
-        ""
+        "Schließen"
       ],
       "Compliance": [
         "Konformität"
@@ -163,7 +163,7 @@
         "Konform mit der Richtlinie"
       ],
       "Confirm": [
-        ""
+        "Bestätigen"
       ],
       "Content": [
         ""
@@ -190,7 +190,7 @@
         "Erstellen einer Tailoring datei"
       ],
       "Created at": [
-        ""
+        "Erstellt um"
       ],
       "Dashboard": [
         "Übersichtsseite"
@@ -454,7 +454,7 @@
         "Standorte"
       ],
       "Manual": [
-        ""
+        "Manuell"
       ],
       "Message": [
         "Nachricht"
@@ -517,7 +517,7 @@
         "Keine Hosts ausgewählt"
       ],
       "No hosts were found with that id, name or query filter": [
-        ""
+        "Keine Hosts wurden mit dieser Kennung, Name oder Abfrage-Filter gefunden"
       ],
       "No proxy found for %{name} or %{url}": [
         "Keine Proxy für %{name} oder %{url} gefunden"
@@ -550,7 +550,7 @@
         "Keine gefunden"
       ],
       "None provided": [
-        ""
+        "Keine bereitgestellt"
       ],
       "None!": [
         "Keine!"
@@ -610,7 +610,7 @@
         "Erfolgreich|E"
       ],
       "Permission denied": [
-        ""
+        "Erlaubnis verweigert"
       ],
       "Please Confirm": [
         "Bitte bestätigen"
@@ -670,7 +670,7 @@
         "Richtlinie mit Kennung %s nicht gefunden."
       ],
       "Profile": [
-        ""
+        "Profil"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "Der Proxy konnte keinen Bericht vom Spool an Foreman senden. Dies weist auf ein beschädigtes Berichtsformat hin. Der Bericht wurde in ein Verzeichnis verschoben, in dem beschädigte Dateien auf einem Proxy zur späteren Überprüfung gespeichert werden."
@@ -754,7 +754,7 @@
         "Regelergebnisse"
       ],
       "Run": [
-        ""
+        "Ausführen"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -841,7 +841,7 @@
         "Smart-Class-Parameter"
       ],
       "Snippet": [
-        ""
+        "Snippet"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "Fehler bei der Auswahl der Compliance-Berichte - %s"

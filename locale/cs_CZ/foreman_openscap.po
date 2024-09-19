@@ -1,27 +1,29 @@
-# Czech translations for foreman_openscap package.
-# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the foreman_openscap package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
 #
+# Translators:
+# Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 1.0.0\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"PO-Revision-Date: 2023-05-16 14:11+0200\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Czech\n"
-"Language: cs_CZ\n"
+"PO-Revision-Date: 2016-04-14 07:48+0000\n"
+"Last-Translator: Pavel Borecki <pavel.borecki@gmail.com>, 2018-2020\n"
+"Language-Team: Czech (Czech Republic) (http://app.transifex.com/foreman/forema"
+"n/language/cs_CZ/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=; plural=;\n"
-"\n"
+"Language: cs_CZ\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n <= "
+"4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 msgid " for policy %s"
-msgstr ""
+msgstr "pro zásadu %s"
 
 msgid " through %s"
-msgstr ""
+msgstr "prostřednictvím %s"
 
 msgid "%s - The following compliance reports are about to be changed"
 msgstr ""
@@ -65,22 +67,22 @@ msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
 msgid "Actions"
-msgstr ""
+msgstr "Akce"
 
 msgid "All messages"
-msgstr ""
+msgstr "Všechny zprávy"
 
 msgid "Ansible role"
-msgstr ""
+msgstr "Ansible role"
 
 msgid "Ansible variables"
-msgstr ""
+msgstr "Ansible proměnné"
 
 msgid "Apply policy to host groups"
 msgstr ""
 
 msgid "Apply policy to hosts"
-msgstr ""
+msgstr "Uplatnit zásadu na stroje"
 
 msgid "Are you sure you want to delete %s?"
 msgstr ""
@@ -89,7 +91,7 @@ msgid "Assign Compliance Policy"
 msgstr ""
 
 msgid "Back"
-msgstr ""
+msgstr "Zpět"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
 msgstr ""
@@ -98,7 +100,7 @@ msgid "Can't find scap-security-guide RPM, are you sure it is installed on your 
 msgstr ""
 
 msgid "Cancel"
-msgstr ""
+msgstr "Zrušit"
 
 msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
 msgstr ""
@@ -110,31 +112,31 @@ msgid "Change OpenSCAP Proxy"
 msgstr ""
 
 msgid "Changed"
-msgstr ""
+msgstr "Změněno"
 
 msgid "Changed file does not include existing SCAP content profiles"
 msgstr ""
 
 msgid "Changed?"
-msgstr ""
+msgstr "Změněno?"
 
 msgid "Choose Tailoring File"
-msgstr ""
+msgstr "Zvolit vylaďovací soubor"
 
 msgid "Choose day in month"
-msgstr ""
+msgstr "Zvolte den v měsíci"
 
 msgid "Choose existing SCAP Content"
 msgstr ""
 
 msgid "Choose period"
-msgstr ""
+msgstr "Zvolte periodu"
 
 msgid "Choose weekday"
-msgstr ""
+msgstr "Zvolte den v týdnu"
 
 msgid "Close"
-msgstr ""
+msgstr "Zavřít"
 
 msgid "Compliance"
 msgstr ""
@@ -167,13 +169,13 @@ msgid "Confirm"
 msgstr ""
 
 msgid "Content"
-msgstr ""
+msgstr "Obsah"
 
 msgid "Copy to clipboard"
 msgstr ""
 
 msgid "Could not find host identified by: %s"
-msgstr ""
+msgstr "Nepodařilo se najít stroj identifikovaným podle: %s"
 
 msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
 msgstr ""
@@ -185,31 +187,31 @@ msgid "Create SCAP content"
 msgstr ""
 
 msgid "Create a Policy"
-msgstr ""
+msgstr "Vytvořit zásadu"
 
 msgid "Create a Tailoring file"
 msgstr ""
 
 msgid "Created at"
-msgstr ""
+msgstr "Vytvořeno v"
 
 msgid "Dashboard"
-msgstr ""
+msgstr "Nástěnka"
 
 msgid "DataStream Tailoring file"
 msgstr ""
 
 msgid "Date"
-msgstr ""
+msgstr "Datum"
 
 msgid "Default XCCDF profile"
 msgstr ""
 
 msgid "Delete"
-msgstr ""
+msgstr "Smazat"
 
 msgid "Delete a Policy"
-msgstr ""
+msgstr "Smazat zásadu"
 
 msgid "Delete an ARF Report"
 msgstr ""
@@ -221,7 +223,7 @@ msgid "Delete compliance report for %s?"
 msgstr ""
 
 msgid "Delete reports"
-msgstr ""
+msgstr "Smazat hlášení"
 
 msgid "Delete scap content %s?"
 msgstr ""
@@ -230,19 +232,19 @@ msgid "Delete tailoring file %s?"
 msgstr ""
 
 msgid "Deleted policy"
-msgstr ""
+msgstr "Smazaná zásada"
 
 msgid "Deletes a Tailoring file"
-msgstr ""
+msgstr "Smazat vylaďovací soubor"
 
 msgid "Deletes an SCAP content"
 msgstr ""
 
 msgid "Deployment Options"
-msgstr ""
+msgstr "Předvolby nasazení"
 
 msgid "Description"
-msgstr ""
+msgstr "Popis"
 
 msgid "Details for Compliance Policy %s"
 msgstr ""
@@ -254,19 +256,19 @@ msgid "Do not implement any of the recommended remedial actions or scripts witho
 msgstr ""
 
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentace"
 
 msgid "Done"
 msgstr ""
 
 msgid "Download"
-msgstr ""
+msgstr "Stažen"
 
 msgid "Download ARF report in HTML"
 msgstr ""
 
 msgid "Download HTML"
-msgstr ""
+msgstr "Stáhnout HTML"
 
 msgid "Download XML in bzip"
 msgstr ""
@@ -281,10 +283,10 @@ msgid "Download bzipped ARF report"
 msgstr ""
 
 msgid "Edit %s"
-msgstr ""
+msgstr "Upravit %s"
 
 msgid "Effective Profile"
-msgstr ""
+msgstr "Skutečný profil"
 
 msgid "Error!"
 msgstr ""
@@ -296,7 +298,7 @@ msgid "Expected an array of files to upload, got: %s."
 msgstr ""
 
 msgid "Failed"
-msgstr ""
+msgstr "Nezdařilo se"
 
 msgid "Failed and Othered"
 msgstr ""
@@ -333,7 +335,7 @@ msgid "Failed|F"
 msgstr ""
 
 msgid "File Upload"
-msgstr ""
+msgstr "Nahrání souboru"
 
 msgid "File name"
 msgstr ""
@@ -342,43 +344,43 @@ msgid "File paths to upload when using \"files\" upload type"
 msgstr ""
 
 msgid "Full Report"
-msgstr ""
+msgstr "Úplný výkaz"
 
 msgid "General"
-msgstr ""
+msgstr "Obecné"
 
 msgid "Host"
-msgstr ""
+msgstr "Stroj"
 
 msgid "Host Breakdown Chart"
 msgstr ""
 
 msgid "Host Groups"
-msgstr ""
+msgstr "Skupiny hostitelů"
 
 msgid "Host compliance details"
 msgstr ""
 
 msgid "Host details"
-msgstr ""
+msgstr "Podrobnosti o stroji"
 
 msgid "Host does not exist anymore"
 msgstr ""
 
 msgid "Host is assigned to policy"
-msgstr ""
+msgstr "Stroji je přiřazena zásada"
 
 msgid "Host is deleted"
-msgstr ""
+msgstr "Stroj je smazaný"
 
 msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
 msgstr ""
 
 msgid "Hostgroups"
-msgstr ""
+msgstr "Skupiny strojů"
 
 msgid "Hostname"
-msgstr ""
+msgstr "Název stroje"
 
 msgid "Hosts Breakdown"
 msgstr ""
@@ -396,7 +398,7 @@ msgid "Hosts passing this rule"
 msgstr ""
 
 msgid "How the policy should be deployed"
-msgstr ""
+msgstr "Jak má být tato zásada nasazena"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
@@ -442,7 +444,7 @@ msgid "List ARF reports"
 msgstr ""
 
 msgid "List Policies"
-msgstr ""
+msgstr "Vypsat zásady"
 
 msgid "List SCAP content profiles"
 msgstr ""
@@ -454,34 +456,34 @@ msgid "List Tailoring files"
 msgstr ""
 
 msgid "Loading..."
-msgstr ""
+msgstr "Načítání…"
 
 msgid "Locations"
-msgstr ""
+msgstr "Umístění"
 
 msgid "Manual"
-msgstr ""
+msgstr "Ruční"
 
 msgid "Message"
-msgstr ""
+msgstr "Zpráva"
 
 msgid "Method"
 msgstr ""
 
 msgid "More details"
-msgstr ""
+msgstr "Další podrobnosti"
 
 msgid "Name"
-msgstr ""
+msgstr "Název"
 
 msgid "Never audited"
-msgstr ""
+msgstr "Nikdy neauditováno"
 
 msgid "New Compliance Policy"
 msgstr ""
 
 msgid "New Policy"
-msgstr ""
+msgstr "Nová zásada"
 
 msgid "New SCAP Content"
 msgstr ""
@@ -490,10 +492,10 @@ msgid "New Tailoring File"
 msgstr ""
 
 msgid "Next"
-msgstr ""
+msgstr "Další"
 
 msgid "No"
-msgstr ""
+msgstr "Ne"
 
 msgid "No ARF reports for this policy"
 msgstr ""
@@ -520,16 +522,16 @@ msgid "No compliance reports were found."
 msgstr ""
 
 msgid "No hosts selected"
-msgstr ""
+msgstr "Nejsou vybrány žádné stroje"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "Pro takový identifikátor, název nebo dotazovací filtr nebyly nalezeni žádní hostitelé"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr ""
 
 msgid "No proxy found!"
-msgstr ""
+msgstr "Nenalezena žádná proxy!"
 
 msgid "No proxy with OpenSCAP feature is running."
 msgstr ""
@@ -550,16 +552,16 @@ msgid "No valid policy ID provided"
 msgstr ""
 
 msgid "None"
-msgstr ""
+msgstr "Žádné"
 
 msgid "None found"
-msgstr ""
+msgstr "Nenalezeno žádné"
 
 msgid "None provided"
 msgstr ""
 
 msgid "None!"
-msgstr ""
+msgstr "Žádné!"
 
 msgid "Not audited"
 msgstr ""
@@ -568,10 +570,10 @@ msgid "Not compliant with the policy"
 msgstr ""
 
 msgid "Nothing to show"
-msgstr ""
+msgstr "Není co zobrazit"
 
 msgid "Number of Events"
-msgstr ""
+msgstr "Počet událostí"
 
 msgid "Number of a day in month, note that not all months have same count of days"
 msgstr ""
@@ -592,13 +594,13 @@ msgid "Openscap Proxy"
 msgstr ""
 
 msgid "Organizations"
-msgstr ""
+msgstr "Organizace"
 
 msgid "Original file name of the XML file"
 msgstr ""
 
 msgid "Other"
-msgstr ""
+msgstr "Ostatní"
 
 msgid "Other hosts failing this rule"
 msgstr ""
@@ -611,17 +613,17 @@ msgid "Othered|O"
 msgstr ""
 
 msgid "Passed"
-msgstr ""
+msgstr "Pozastaveno"
 
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr ""
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Oprávnění odepřeno"
 
 msgid "Please Confirm"
-msgstr ""
+msgstr "Potvrďte"
 
 msgid "Please make sure you understand them by reading our"
 msgstr ""
@@ -630,19 +632,19 @@ msgid "Please specify import type, received: %{received}, expected one of: %{exp
 msgstr ""
 
 msgid "Policies"
-msgstr ""
+msgstr "Zásady"
 
 msgid "Policies with hosts:"
 msgstr ""
 
 msgid "Policy"
-msgstr ""
+msgstr "Zásada"
 
 msgid "Policy %s"
-msgstr ""
+msgstr "Zásada %s"
 
 msgid "Policy Attributes"
-msgstr ""
+msgstr "Atributy zásady"
 
 msgid "Policy SCAP content ID"
 msgstr ""
@@ -654,13 +656,13 @@ msgid "Policy assigned"
 msgstr ""
 
 msgid "Policy description"
-msgstr ""
+msgstr "Popis zásady"
 
 msgid "Policy is missing"
-msgstr ""
+msgstr "Zásada chybí"
 
 msgid "Policy name"
-msgstr ""
+msgstr "Název zásady"
 
 msgid "Policy schedule cron line (only if period == \"custom\")"
 msgstr ""
@@ -675,19 +677,19 @@ msgid "Policy schedule weekday (only if period == \"weekly\")"
 msgstr ""
 
 msgid "Policy with id %s not found."
-msgstr ""
+msgstr "Zásada s identif. %s nenalezena."
 
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
 
 msgid "Puppet class"
-msgstr ""
+msgstr "Puppet třída"
 
 msgid "Rationale"
-msgstr ""
+msgstr "Zdůvodnění"
 
 msgid "Reboot the system(s)"
 msgstr ""
@@ -720,10 +722,10 @@ msgid "Reported At"
 msgstr ""
 
 msgid "Reported at %s"
-msgstr ""
+msgstr "Nahlášeno v %s"
 
 msgid "Reports"
-msgstr ""
+msgstr "Výkazy"
 
 msgid "Request the following permissions from administrator: %s."
 msgstr ""
@@ -741,10 +743,10 @@ msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign 
 msgstr ""
 
 msgid "Resource"
-msgstr ""
+msgstr "Prostředek"
 
 msgid "Result"
-msgstr ""
+msgstr "Výsledek"
 
 msgid "Review hosts"
 msgstr ""
@@ -759,10 +761,10 @@ msgid "Review the remediation snippet that will be applied to selected host(s)."
 msgstr ""
 
 msgid "Rule Results"
-msgstr ""
+msgstr "Výsledky pravidla"
 
 msgid "Run"
-msgstr ""
+msgstr "Spustit"
 
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
@@ -795,10 +797,10 @@ msgid "SCAP policies summary"
 msgstr ""
 
 msgid "Schedule"
-msgstr ""
+msgstr "Plán"
 
 msgid "Select Action"
-msgstr ""
+msgstr "Vybrat akci"
 
 msgid "Select Compliance Policy"
 msgstr ""
@@ -807,7 +809,7 @@ msgid "Select OpenSCAP Proxy"
 msgstr ""
 
 msgid "Select all items in this page"
-msgstr ""
+msgstr "Vybrat všechny položky na této stránce"
 
 msgid "Select remediation method"
 msgstr ""
@@ -816,13 +818,13 @@ msgid "Select snippet"
 msgstr ""
 
 msgid "Severity"
-msgstr ""
+msgstr "Závažnost"
 
 msgid "Show Guide"
-msgstr ""
+msgstr "Zobrazit příručku"
 
 msgid "Show a Policy"
-msgstr ""
+msgstr "Zobrazit zásadu"
 
 msgid "Show a Tailoring file"
 msgstr ""
@@ -843,7 +845,7 @@ msgid "Show config information for foreman_scap_client"
 msgstr ""
 
 msgid "Show log messages:"
-msgstr ""
+msgstr "Zobrazit zprávy záznamu událostí:"
 
 msgid "Smart Class Parameters"
 msgstr ""
@@ -855,19 +857,19 @@ msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
 msgid "Something went wrong while selecting hosts - %s"
-msgstr ""
+msgstr "Při vybírání strojů se něco pokazilo – %s"
 
 msgid "Spool errors"
 msgstr ""
 
 msgid "Status chart"
-msgstr ""
+msgstr "Graf stavů"
 
 msgid "Status table"
-msgstr ""
+msgstr "Tabulka stavů"
 
 msgid "Submit"
-msgstr ""
+msgstr "Odeslat"
 
 msgid "Successfully copied to clipboard!"
 msgstr ""
@@ -944,7 +946,7 @@ msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered ma
 msgstr ""
 
 msgid "Total"
-msgstr ""
+msgstr "Celkem"
 
 msgid "Total hosts with policy: %s"
 msgstr ""
@@ -973,7 +975,7 @@ msgid "Unknown Compliance status"
 msgstr ""
 
 msgid "Update a Policy"
-msgstr ""
+msgstr "Aktualizovat zásadu"
 
 msgid "Update a Tailoring file"
 msgstr ""
@@ -1009,10 +1011,10 @@ msgid "Upload scap contents in bulk"
 msgstr ""
 
 msgid "View Report"
-msgstr ""
+msgstr "Zobrazit výkaz"
 
 msgid "View full report"
-msgstr ""
+msgstr "Zobrazit úplný výkaz"
 
 msgid "View selected hosts"
 msgstr ""
@@ -1030,7 +1032,7 @@ msgid "XML containing tailoring file"
 msgstr ""
 
 msgid "Yes"
-msgstr ""
+msgstr "Ano"
 
 msgid "You are not authorized to view the page. "
 msgstr ""
@@ -1048,7 +1050,7 @@ msgid "cannot assign to %s, all assigned policies must be deployed in the same w
 msgstr ""
 
 msgid "documentation"
-msgstr ""
+msgstr "dokumnetace"
 
 msgid "does not come from selected tailoring file"
 msgstr ""
@@ -1060,19 +1062,19 @@ msgid "does not have the selected SCAP content profile"
 msgstr ""
 
 msgid "invalid type %s"
-msgstr ""
+msgstr "neplatný typ %s"
 
 msgid "is not a valid value"
-msgstr ""
+msgstr "není platná hodnota"
 
 msgid "is not included in SCAP_RESULT"
 msgstr ""
 
 msgid "items selected. Uncheck to Clear"
-msgstr ""
+msgstr "položky označeny. Vyčistíte zrušením zaškrtnutí"
 
 msgid "must be between 1 and 31"
-msgstr ""
+msgstr "je třeba, aby bylo z rozmezí 1 až 31"
 
 msgid "must be present when tailoring file present"
 msgstr ""

@@ -7,11 +7,11 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
-"Language-Team: Spanish (http://www.transifex.com/foreman/foreman/language/es/)"
+"Language-Team: Spanish (http://app.transifex.com/foreman/foreman/language/es/)"
 "\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,7 +138,7 @@ msgid "Choose weekday"
 msgstr "Elegir día de la semana"
 
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 msgid "Compliance"
 msgstr "Cumplimiento"
@@ -168,7 +168,7 @@ msgid "Compliant with the policy"
 msgstr "En conformidad con la política"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmar"
 
 msgid "Content"
 msgstr ""
@@ -195,7 +195,7 @@ msgid "Create a Tailoring file"
 msgstr "Crear un archivo de personalización"
 
 msgid "Created at"
-msgstr ""
+msgstr "Creado"
 
 msgid "Dashboard"
 msgstr "Tablero de mandos"
@@ -464,7 +464,7 @@ msgid "Locations"
 msgstr "Ubicaciones"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 msgid "Message"
 msgstr "Mensaje"
@@ -527,7 +527,7 @@ msgid "No hosts selected"
 msgstr "Ningún host seleccionado"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "No se hallaron hosts con ese ID, nombre o filtro de consulta"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "No se ha encontrado ningún proxy para %{name} o %{url}"
@@ -560,7 +560,7 @@ msgid "None found"
 msgstr "No se encontró ninguno."
 
 msgid "None provided"
-msgstr ""
+msgstr "No se ha proporcionado ninguna"
 
 msgid "None!"
 msgstr "Ninguno"
@@ -622,7 +622,7 @@ msgid "Passed|P"
 msgstr "Leído|P"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Permiso negado"
 
 msgid "Please Confirm"
 msgstr "Confirmar"
@@ -682,7 +682,7 @@ msgid "Policy with id %s not found."
 msgstr "No se encontró la política con el ID %s."
 
 msgid "Profile"
-msgstr ""
+msgstr "Perfil"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "El proxy no logró enviar un informe desde la cola de espera a Foreman. Esto indica un formato de informe corrupto. El informe se movió al directorio para almacenar los archivos corruptos en el proxy para una inspección posterior."
@@ -766,7 +766,7 @@ msgid "Rule Results"
 msgstr "Resultados de regla"
 
 msgid "Run"
-msgstr ""
+msgstr "Ejecutar"
 
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Smart Class Parameters"
 msgstr "Parámetros de clase inteligente"
 
 msgid "Snippet"
-msgstr ""
+msgstr "Snippet"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Algo ha fallado al seleccionar los informes de cumplimiento: %s."
@@ -942,7 +942,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr "Este perfil se utilizará para anular el perfil del contenido scap"
 
 msgid "Title"
-msgstr ""
+msgstr "Título"
 
 msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
 msgstr ""

@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -32,13 +32,13 @@ msgstr[0] "%s შესაბამისობის ანგარიში �
 msgstr[1] "%s შესაბამისობის ანგარიში პოლიტიკიდან"
 
 msgid "%s content"
-msgstr ""
+msgstr "%s შემცველობა"
 
 msgid "%s does not exist, skipping."
-msgstr ""
+msgstr "%s არ არსებობს. გამოტოვება."
 
 msgid "%s is a directory, expecting file."
-msgstr ""
+msgstr "%s საქაღალდეა. მოველოდი ფაილს."
 
 msgid "%s latest report"
 msgstr "%s უახლესი ანგარიში"
@@ -47,7 +47,7 @@ msgid "%s reports over time"
 msgstr "სულ %s ანგარიში"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
-msgstr ""
+msgstr "აღმოჩენილია %s სპულის შეცდომა. შეამოწმეთ შესაბამისი ფაილი პირდაპირ პროქსიზე"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
 msgstr ""
@@ -83,7 +83,7 @@ msgid "Apply policy to hosts"
 msgstr "წესის ჰოსტებზე გადატარება"
 
 msgid "Are you sure you want to delete %s?"
-msgstr ""
+msgstr "დარწმუნებული ხართ, რომ გსურთ %s-ის წაშლა?"
 
 msgid "Assign Compliance Policy"
 msgstr "შესაბამისობის პოლიტიკის მინიჭება"
@@ -95,7 +95,7 @@ msgid "By default, remediation is applied to the current host. Optionally, remed
 msgstr ""
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
-msgstr ""
+msgstr "RPM პაკეტი scap-security-guide ვერ ვიპოვე. დარწმუნებული ბრძანდებით, რომ დააყენეთ ის?"
 
 msgid "Cancel"
 msgstr "გაუქმება"
@@ -134,7 +134,7 @@ msgid "Choose weekday"
 msgstr "აირჩიეთ კვირის დღე"
 
 msgid "Close"
-msgstr ""
+msgstr "დახურვა"
 
 msgid "Compliance"
 msgstr "შესაბამისობა"
@@ -170,7 +170,7 @@ msgid "Content"
 msgstr "შემცველობა"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "ბუფერში კოპირება"
 
 msgid "Could not find host identified by: %s"
 msgstr "ჰოსტი იდენტიფიკატორით %s ვერ ვპოვე"
@@ -191,7 +191,7 @@ msgid "Create a Tailoring file"
 msgstr "შესაბამისობის ფაილის შექმნა"
 
 msgid "Created at"
-msgstr ""
+msgstr "შექმნის დრო"
 
 msgid "Dashboard"
 msgstr "სამუშაო დაფა"
@@ -293,7 +293,7 @@ msgid "Every puppet run ensures the foreman_scap_client is configured according 
 msgstr ""
 
 msgid "Expected an array of files to upload, got: %s."
-msgstr ""
+msgstr "მოველოდი ასატვირთი ფაილების მასივს. მივიღე: %s."
 
 msgid "Failed"
 msgstr "შეცდომა"
@@ -305,7 +305,7 @@ msgid "Failed only"
 msgstr "მხოლოდ ავარიულები"
 
 msgid "Failed saving %s:"
-msgstr ""
+msgstr "%s-ის შენახვა ჩავარდა:"
 
 msgid "Failed to delete %s compliance reports"
 msgstr "%s შესაბამისობის ანგარიშის წაშლის შეცდომა"
@@ -336,7 +336,7 @@ msgid "File Upload"
 msgstr "ფაილის ატვირთვა"
 
 msgid "File name"
-msgstr ""
+msgstr "ფაილის სახელი"
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "ატვირთვის ტიპის \"files\" გამოყენებისას ასატვირთი ფაილის ბილიკები"
@@ -427,7 +427,7 @@ msgid "Inconclusive results"
 msgstr "არადამაჯერებელი პასუხები"
 
 msgid "It may sometimes be required to adjust the security policy to your specific needs. "
-msgstr ""
+msgstr "ხანდახან შეიძლება უსაფრთხოების პოლიტიკის თქვენი საჭიროებებისათვის მორგება მოგიწიოთ. "
 
 msgid "Job details"
 msgstr ""
@@ -460,7 +460,7 @@ msgid "Locations"
 msgstr "მდებარეობები"
 
 msgid "Manual"
-msgstr ""
+msgstr "ხელით"
 
 msgid "Message"
 msgstr "შეტყობინება"
@@ -523,7 +523,7 @@ msgid "No hosts selected"
 msgstr "ჰოსტები მონიშნული არაა"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "მითითებული ID-ით, სახელით ან საძებნი სტრიქონით ჰოსტები ნაპოვნი არაა"
 
 msgid "No proxy found for %{name} or %{url}"
 msgstr "%{name}-სთვის და %{url}-სთვის პროქსი ნაპოვნი არაა"
@@ -544,7 +544,7 @@ msgid "No reports available"
 msgstr "ანგარიშების გარეშე"
 
 msgid "No such directory: %s. Please check the path you have provided."
-msgstr ""
+msgstr "ასეთი საქაღალდე არ არსებობს: %s. შეამოწმეთ ბილიკი, რომელიც შეიყვანეთ."
 
 msgid "No valid policy ID provided"
 msgstr "წესის სწორი  ID მითითებული არაა"
@@ -678,7 +678,7 @@ msgid "Policy with id %s not found."
 msgstr "წესი ID-ით %s არ არსებობს."
 
 msgid "Profile"
-msgstr ""
+msgstr "პროფილი"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr ""
@@ -687,13 +687,13 @@ msgid "Puppet class"
 msgstr "Puppet-ის კლასი"
 
 msgid "Rationale"
-msgstr ""
+msgstr "დასაბუთება"
 
 msgid "Reboot the system(s)"
 msgstr ""
 
 msgid "Red Hat %s default content"
-msgstr ""
+msgstr "Red Hat %s ნაგულისხმევი შემცველობა"
 
 msgid "References"
 msgstr "ბმები"
@@ -726,7 +726,7 @@ msgid "Reports"
 msgstr "ანგარიშები"
 
 msgid "Request the following permissions from administrator: %s."
-msgstr ""
+msgstr "ადმინისტრატორისგან შემდეგი წვდომების გამოთხოვა: %s."
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "მოთხოვნის მოლოდინის ვადა ამოიწურა. სცადეთ შეცვალოთ პარამეტრი მორგება -> proxy_request_timeout"
@@ -762,7 +762,7 @@ msgid "Rule Results"
 msgstr "წესის შედეგები"
 
 msgid "Run"
-msgstr ""
+msgstr "გაშვება"
 
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
@@ -849,10 +849,10 @@ msgid "Smart Class Parameters"
 msgstr "ჭკვიანი კლასის მორგება"
 
 msgid "Snippet"
-msgstr ""
+msgstr "ნაწყვეტი"
 
 msgid "Something went wrong while selecting compliance reports - %s"
-msgstr ""
+msgstr "შეცდომა თავსებადობის ანგარიშების მონიშვნისას - %s"
 
 msgid "Something went wrong while selecting hosts - %s"
 msgstr "შეცდომა ჰოსტების მონიშვნისას - %s"
@@ -926,10 +926,10 @@ msgid "There is no job to remediate with. Please remediate manually."
 msgstr ""
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
+msgstr "დაფიქსირდა შემდეგი შეცდომა %(name)s-ის წაშლისას: %(error)s"
 
 msgid "There's no available report for this host"
-msgstr ""
+msgstr "ამ ჰოსტისთვის ხელმისაწვდომი ანგარიში არ არსებობს"
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
 msgstr ""
@@ -1033,13 +1033,13 @@ msgid "Yes"
 msgstr "დიახ"
 
 msgid "You are not authorized to view the page. "
-msgstr ""
+msgstr "ამ გვერდთან წვდომა არ გაგაჩნიათ. "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
-msgstr ""
+msgstr "შეგიძლიათ მიუთითოთ თქვენი cron-ის ხაზი. მაგ: \"0  3  *  *  *\", ეს 5 მნიშვნელობა გამოტოვებით გამოყავით"
 
 msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
 msgstr ""

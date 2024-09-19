@@ -8,11 +8,11 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016\n"
-"Language-Team: French (http://www.transifex.com/foreman/foreman/language/fr/)\n"
+"Language-Team: French (http://app.transifex.com/foreman/foreman/language/fr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -36,13 +36,13 @@ msgstr[1] "Rapports de conformité %s par stratégie"
 msgstr[2] "Rapports de conformité %s par stratégie"
 
 msgid "%s content"
-msgstr ""
+msgstr "%s contenu"
 
 msgid "%s does not exist, skipping."
-msgstr ""
+msgstr "%s n'existe pas, ignoré."
 
 msgid "%s is a directory, expecting file."
-msgstr ""
+msgstr "%s est un répertoire, attendant un fichier."
 
 msgid "%s latest report"
 msgstr "%s derniers rapports"
@@ -54,16 +54,16 @@ msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s erreurs de spool détectées, inspectez le fichier approprié directement sur le proxy"
 
 msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
-msgstr "%%{type} a été sélectionné pour déployer la stratégie auprès des clients, mais %%{type} n'est pas disponible. Il vous manque un plugin ?"
+msgstr "%{type} a été sélectionné pour déployer la stratégie auprès des clients, mais %{type} n'est pas disponible. Il vous manque un plugin ?"
 
 msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP Récapitulatif"
 
 msgid "A reboot is required after applying remediation."
-msgstr ""
+msgstr "Un redémarrage est nécessaire après l'application de la remédiation."
 
 msgid "A reboot might be required after applying remediation."
-msgstr ""
+msgstr "Un redémarrage peut être nécessaire après l'application de la remédiation."
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "Récapitulatif des rapports de stratégies OpenSCAP"
@@ -81,13 +81,13 @@ msgid "Ansible variables"
 msgstr "Variables Ansible"
 
 msgid "Apply policy to host groups"
-msgstr "Appliquer Groupes hôtes de la stratégie"
+msgstr "Appliquer la politique aux groupes d'hôtes"
 
 msgid "Apply policy to hosts"
 msgstr "Appliquer la politique aux hôtes"
 
 msgid "Are you sure you want to delete %s?"
-msgstr ""
+msgstr "Êtes-vous sûr de vouloir activer %s  ?"
 
 msgid "Assign Compliance Policy"
 msgstr "Attribuer un stratégie de conformité"
@@ -96,10 +96,10 @@ msgid "Back"
 msgstr "Précédent"
 
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
-msgstr ""
+msgstr "Par défaut, la correction est appliquée à l'hôte actuel. Vous pouvez éventuellement corriger tous les hôtes supplémentaires qui ne respectent pas la règle."
 
 msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
-msgstr ""
+msgstr "Vous ne trouvez pas le RPM scap-security-guide, êtes-vous sûr qu'il est installé sur votre serveur ?"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -138,7 +138,7 @@ msgid "Choose weekday"
 msgstr "Sélectionner un jour de la semaine"
 
 msgid "Close"
-msgstr ""
+msgstr "Fermer"
 
 msgid "Compliance"
 msgstr "Conformité"
@@ -168,13 +168,13 @@ msgid "Compliant with the policy"
 msgstr "Conforme à la stratégie"
 
 msgid "Confirm"
-msgstr ""
+msgstr "Confirmer"
 
 msgid "Content"
-msgstr ""
+msgstr "Contenu"
 
 msgid "Copy to clipboard"
-msgstr ""
+msgstr "Copier dans le presse-papiers"
 
 msgid "Could not find host identified by: %s"
 msgstr "Impossible de trouver l'hôte identifié par : %s"
@@ -183,7 +183,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "Impossible de valider %s. Veuillez vérifier que vous disposez de la bonne version du proxy pour utiliser cette fonctionnalité"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "Impossible de valider %{file_type}. Erreur %%{error}"
+msgstr "Impossible de valider %%{file_type}. Erreur %{error}"
 
 msgid "Create SCAP content"
 msgstr "Créer un contenu SCAP"
@@ -195,7 +195,7 @@ msgid "Create a Tailoring file"
 msgstr "Créer un fichier de personnalisation"
 
 msgid "Created at"
-msgstr ""
+msgstr "Créé le"
 
 msgid "Dashboard"
 msgstr "Tableau de bord"
@@ -249,19 +249,19 @@ msgid "Description"
 msgstr "Description"
 
 msgid "Details for Compliance Policy %s"
-msgstr "Détails de la stratégie de conformité {missing_vars}"
+msgstr "Détails de la stratégie de conformité %s"
 
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr "Répertoire à télécharger lors de l'utilisation du type de téléchargement \"répertoire\""
 
 msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
-msgstr ""
+msgstr "N’implémentez aucune des actions correctives ou aucun des scripts recommandés sans les avoir d’abord testés dans un environnement hors production."
 
 msgid "Documentation"
 msgstr "Documentation"
 
 msgid "Done"
-msgstr ""
+msgstr "Complété"
 
 msgid "Download"
 msgstr "Télécharger"
@@ -291,13 +291,13 @@ msgid "Effective Profile"
 msgstr "Profil effectif"
 
 msgid "Error!"
-msgstr "Erreur"
+msgstr "Erreur !"
 
 msgid "Every puppet run ensures the foreman_scap_client is configured according to the policy."
-msgstr ""
+msgstr "Chaque exécution de Puppet garantit que le foreman_scap_client est configuré conformément à la politique."
 
 msgid "Expected an array of files to upload, got: %s."
-msgstr ""
+msgstr "Attendu un tableau de fichiers à télécharger, obtenu :%s ."
 
 msgid "Failed"
 msgstr "Échec"
@@ -309,13 +309,13 @@ msgid "Failed only"
 msgstr "Échec uniquement"
 
 msgid "Failed saving %s:"
-msgstr ""
+msgstr "Échec de l'enregistrement%s :"
 
 msgid "Failed to delete %s compliance reports"
 msgstr "Impossible de supprimer les rapports de conformité %s"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr "Échec de la suppression du rapport ARF pour l'hôte %%s signalé à %{reported_at}"
+msgstr "Échec de la suppression du rapport ARF pour l'hôte %%{host_name} signalé à %%{reported_at}"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "N'a pas pu télécharger le rapport ARF sous format bzip : %s"
@@ -327,7 +327,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "Impossible d'extraire le statut du spool du proxy"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %{config_tool}, cause : %%{errors}"
+msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %%{config_tool}, cause : %{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Échec de chargement du rapport ARF, l'URL ou le nom de proxy OpenSCAP n'a pas été trouvé dans les paramètres lors du téléchargement pour %s et openscap_proxy manque sur l'hôte"
@@ -340,7 +340,7 @@ msgid "File Upload"
 msgstr "Téléchargement du ficher"
 
 msgid "File name"
-msgstr ""
+msgstr "Nom de fichier"
 
 msgid "File paths to upload when using \"files\" upload type"
 msgstr "Chemins d'accès aux fichiers à télécharger lors de l'utilisation du type de téléchargement \"files\""
@@ -358,7 +358,7 @@ msgid "Host Breakdown Chart"
 msgstr "Diagramme des divers hôtes"
 
 msgid "Host Groups"
-msgstr "Groupe d'Hôtes"
+msgstr "Groupes d'Hôtes"
 
 msgid "Host compliance details"
 msgstr "Détails de conformité de l'hôte"
@@ -438,7 +438,7 @@ msgid "It may sometimes be required to adjust the security policy to your specif
 msgstr "Il est parfois nécessaire d'ajuster la stratégie de sécurité en fonction de vos besoins spécifiques."
 
 msgid "Job details"
-msgstr ""
+msgstr "Détails Job"
 
 msgid "Latest Compliance Reports"
 msgstr "Derniers rapports de conformité"
@@ -468,13 +468,13 @@ msgid "Locations"
 msgstr "Emplacements"
 
 msgid "Manual"
-msgstr ""
+msgstr "Manuelle"
 
 msgid "Message"
 msgstr "Message"
 
 msgid "Method"
-msgstr ""
+msgstr "Méthode"
 
 msgid "More details"
 msgstr "Plus de détails"
@@ -510,10 +510,10 @@ msgid "No OpenSCAP Proxy selected."
 msgstr "Aucun proxy OpenSCAP n'a été sélectionné."
 
 msgid "No OpenSCAP proxy found for %{class} with id %{id}"
-msgstr "Aucun proxy OpenSCAP trouvé pour %%{class} avec id %%{id}"
+msgstr "Aucun proxy OpenSCAP trouvé pour %{class} avec id %{id}"
 
 msgid "No Tailoring file assigned for policy with id %s"
-msgstr "Aucun fichier de personnalisation attribué pour la stratégie avec l'Id  %s"
+msgstr "Aucun fichier de personnalisation attribué pour la stratégie avec l'Id %s"
 
 msgid "No available proxy to validate. Returned with error: %s"
 msgstr "Aucun proxy disponible pour valider. Erreur retournée : %s"
@@ -525,16 +525,16 @@ msgid "No compliance reports selected"
 msgstr "Aucun rapport de conformité sélectionné"
 
 msgid "No compliance reports were found."
-msgstr "Aucun rapport de conformité trouvé"
+msgstr "Aucun rapport de conformité trouvé."
 
 msgid "No hosts selected"
 msgstr "Aucun hôte sélectionné"
 
 msgid "No hosts were found with that id, name or query filter"
-msgstr ""
+msgstr "Aucun hôte trouvé avec cet ID, ce nom ou filtre de requête"
 
 msgid "No proxy found for %{name} or %{url}"
-msgstr "Aucun proxy trouvé pour %%{name} ou %%{url}"
+msgstr "Aucun proxy trouvé pour %{name} ou %{url}"
 
 msgid "No proxy found!"
 msgstr "Aucun proxy trouvé !"
@@ -552,7 +552,7 @@ msgid "No reports available"
 msgstr "Aucuns rapports disponibles"
 
 msgid "No such directory: %s. Please check the path you have provided."
-msgstr ""
+msgstr "Aucun répertoire de ce type :%s. Veuillez vérifier le chemin que vous avez fourni."
 
 msgid "No valid policy ID provided"
 msgstr "Aucun ID de stratégie fourni"
@@ -564,10 +564,10 @@ msgid "None found"
 msgstr "Rien trouvé"
 
 msgid "None provided"
-msgstr ""
+msgstr "Aucun n'est prévu"
 
 msgid "None!"
-msgstr "Aucun"
+msgstr "Aucun."
 
 msgid "Not audited"
 msgstr "Non audité"
@@ -585,7 +585,7 @@ msgid "Number of a day in month, note that not all months have same count of day
 msgstr "Nombre de jours dans un mois, notez que chaque mois n'a pas le même nombre de jours"
 
 msgid "OS"
-msgstr ""
+msgstr "OS"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr "Une fois que le contenu SCAP est présent, vous pouvez créer une stratégie, affecter des groupes d'hôtes sélectionnés et programmer une exécution."
@@ -609,7 +609,7 @@ msgid "Other"
 msgstr "Autre"
 
 msgid "Other hosts failing this rule"
-msgstr ""
+msgstr "Hôtes échouant à cette règle"
 
 msgid "Othered"
 msgstr "Autre"
@@ -626,7 +626,7 @@ msgid "Passed|P"
 msgstr "Succés|S"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Permission non accordée"
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
@@ -635,7 +635,7 @@ msgid "Please make sure you understand them by reading our"
 msgstr "Assurez-vous de les comprendre en lisant notre"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr "Veuillez spécifier le type d'importation, reçu : %%{received}, attendu : un %%{expected}"
+msgstr "Veuillez spécifier le type d'importation, reçu : %{received}, attendu : un %{expected}"
 
 msgid "Policies"
 msgstr "Comportements"
@@ -665,7 +665,7 @@ msgid "Policy description"
 msgstr "Description de la stratégie"
 
 msgid "Policy is missing"
-msgstr "La stratégie est  manquante"
+msgstr "La stratégie est manquante"
 
 msgid "Policy name"
 msgstr "Nom de la stratégie"
@@ -686,7 +686,7 @@ msgid "Policy with id %s not found."
 msgstr "Stratégie ayant pour ID %s est introuvable."
 
 msgid "Profile"
-msgstr ""
+msgstr "Profil"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "Le proxy n'a pas réussi à envoyer un rapport du spool à Foreman. Cela indique que le format du rapport est endommagé. Le rapport a été déplacé dans le répertoire pour stocker les fichiers endommagés sur le proxy en vue d'une inspection ultérieure."
@@ -698,25 +698,25 @@ msgid "Rationale"
 msgstr "Rationale"
 
 msgid "Reboot the system(s)"
-msgstr ""
+msgstr "Redémarrer le(s) système(s)"
 
 msgid "Red Hat %s default content"
-msgstr ""
+msgstr "Contenu Red Hat %s par défaut"
 
 msgid "References"
 msgstr "Références"
 
 msgid "Remediate %s rule"
-msgstr ""
+msgstr "Remédier%s règle"
 
 msgid "Remediation"
-msgstr ""
+msgstr "Remédiation"
 
 msgid "Remediation might render the system non-functional."
-msgstr ""
+msgstr "La correction pourrait rendre le système non fonctionnel."
 
 msgid "Remote job"
-msgstr ""
+msgstr "Travail à distance"
 
 msgid "Report Metrics"
 msgstr "Métriques du rapport"
@@ -734,19 +734,19 @@ msgid "Reports"
 msgstr "Rapports"
 
 msgid "Request the following permissions from administrator: %s."
-msgstr ""
+msgstr "Demandez les permissions suivantes à l'administrateur : %s."
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "%{msg_name} % %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
+msgstr "%%{msg_name} %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
 
 msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
-msgstr ""
+msgstr "Requiert %s classe Puppet. Cela affectera la classe aux hôtes ou aux groupes d'hôtes sélectionnés."
 
 msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups."
-msgstr ""
+msgstr "Nécessite le plugin Ansible,%s Rôle et variables Ansible. Cela attribuera le rôle aux hôtes ou aux groupes d'hôtes sélectionnés."
 
 msgid "Resource"
 msgstr "Ressource"
@@ -755,28 +755,28 @@ msgid "Result"
 msgstr "Résultat"
 
 msgid "Review hosts"
-msgstr ""
+msgstr "Vérification des hôtes"
 
 msgid "Review remediation"
-msgstr ""
+msgstr "Revoir la remédiation"
 
 msgid "Review the remediation snippet and apply it to the host manually."
-msgstr ""
+msgstr "Consultez l’extrait de correction et appliquez-le manuellement à l’hôte."
 
 msgid "Review the remediation snippet that will be applied to selected host(s)."
-msgstr ""
+msgstr "Consultez l’extrait de correction qui sera appliqué aux hôtes sélectionnés."
 
 msgid "Rule Results"
 msgstr "Résultats de règle"
 
 msgid "Run"
-msgstr ""
+msgstr "Exécuter"
 
 msgid "Run OpenSCAP remediation with Ansible"
-msgstr ""
+msgstr "Exécutez la remédiation OpenSCAP avec Ansible"
 
 msgid "Run OpenSCAP remediation with Shell"
-msgstr ""
+msgstr "Exécutez la remédiation OpenSCAP avec Shell"
 
 msgid "Run OpenSCAP scan"
 msgstr "Exécuter une analyse OpenSCAP"
@@ -818,10 +818,10 @@ msgid "Select all items in this page"
 msgstr "Sélectionner tous les éléments de cette page"
 
 msgid "Select remediation method"
-msgstr ""
+msgstr "Sélectionnez la méthode de remédiation"
 
 msgid "Select snippet"
-msgstr ""
+msgstr "Sélectionner un extrait"
 
 msgid "Severity"
 msgstr "Sévérité"
@@ -857,7 +857,7 @@ msgid "Smart Class Parameters"
 msgstr "Paramètres smart class"
 
 msgid "Snippet"
-msgstr ""
+msgstr "Snippet"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Quelque chose s'est mal passé lors de la sélection des rapports de conformité - %s"
@@ -878,7 +878,7 @@ msgid "Submit"
 msgstr "Envoyer"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "Copié dans le presse-papiers"
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "Rapports de conformité %s supprimés"
@@ -887,13 +887,13 @@ msgid "Successfully deleted ARF report."
 msgstr "Rapport ARF supprimé."
 
 msgid "Summary from %{time} ago to now"
-msgstr "Résumé de %%{time} à maintenant"
+msgstr "Résumé de %{time} à maintenant"
 
 msgid "Summary report for OpenScap from Foreman"
 msgstr "Rapport de synthèse pour OpenScap depuis Foreman"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "Rapport récapitulatif de Foreman à %{foreman_url}"
+msgstr "Rapport récapitulatif de Foreman à %%{foreman_url}"
 
 msgid "Tailoring File"
 msgstr "Fichier de personnalisation"
@@ -911,7 +911,7 @@ msgid "Tailoring file profile ID"
 msgstr "ID du profil de fichier de personnalisation"
 
 msgid "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
-msgstr ""
+msgstr "Le proxy %s n’a pas la fonctionnalité Openscap activée. Corriger le proxy OpenSCAP correctement ou bien, désactiver."
 
 msgid ""
 "The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
@@ -921,37 +921,37 @@ msgstr ""
 "        configuration liés à la sécurité. "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "Les %%s suivants étaient manquants pour %{class} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
+msgstr "Les %%{key_name} suivants étaient manquants pour %%{item_name} : %%{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
 
 msgid "The identifier of the host"
 msgstr "Identifiant de l’hôte"
 
 msgid "The job has started on selected host(s), you can check the status on the job details page."
-msgstr ""
+msgstr "Le job a démarré sur le ou les hôtes sélectionnés, vous pouvez vérifier l'état sur la page des détails de ce job."
 
 msgid "There are significant differences in deployment options."
 msgstr "Il existe des différences importantes dans les options de déploiement."
 
 msgid "There is no job to remediate with. Please remediate manually."
-msgstr ""
+msgstr "Il n'y a aucune tâche à corriger. Veuillez corriger manuellement."
 
 msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
+msgstr "L’erreur suivante s'est produite lors de la suppression%(name)s : %(error)s"
 
 msgid "There's no available report for this host"
-msgstr ""
+msgstr "Il n'y a pas de rapport disponible pour cet hôte"
 
 msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
-msgstr ""
+msgstr "Cela laisse la configuration de foreman_scap_client uniquement à l'utilisateur. La politique doit encore être définie afin de lier les rapports ARF entrants."
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "Ce profil sera utilisé pour remplacer celui du contenu scap"
 
 msgid "Title"
-msgstr ""
+msgstr "Titre"
 
 msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
-msgstr ""
+msgstr "Pour déployer foreman_scap_client, l'exécution des rôles ansible doit être déclenchée manuellement. Une exécution manuelle est également requise après toute modification de cette politique."
 
 msgid "Total"
 msgstr "Total"
@@ -965,8 +965,8 @@ msgstr "Total des hôtes avec des rapports où la stratégie n'est plus assigné
 msgid "Total of one host"
 msgid_plural "Total of %{hosts} hosts"
 msgstr[0] "Total de un hôte"
-msgstr[1] "Total de %%{hosts} hôtes"
-msgstr[2] "Total de %%{hosts} hôtes"
+msgstr[1] "Total de %{hosts} hôtes"
+msgstr[2] "Total de %{hosts} hôtes"
 
 msgid "Type of the upload"
 msgstr "Type de téléchargement"
@@ -1026,7 +1026,7 @@ msgid "View full report"
 msgstr "Voir le rapport complet"
 
 msgid "View selected hosts"
-msgstr ""
+msgstr "Voir les hôtes sélectionnés"
 
 msgid "XCCDF Profile"
 msgstr "Profil XCCDF"
@@ -1035,7 +1035,7 @@ msgid "XCCDF Profile in Tailoring File"
 msgstr "Profil XCCDF dans le fichier de personnalisation"
 
 msgid "XML containing SCAP content"
-msgstr "XML avec contenu SCAP "
+msgstr "XML avec contenu SCAP"
 
 msgid "XML containing tailoring file"
 msgstr "XML contenant le fichier de personnalisation"
@@ -1044,10 +1044,10 @@ msgid "Yes"
 msgstr "Oui"
 
 msgid "You are not authorized to view the page. "
-msgstr ""
+msgstr "Vous n'êtes pas autorisé à voir cette page. "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
-msgstr ""
+msgstr "Vous pouvez résoudre le problème en exécutant une tâche à distance ou en affichant un extrait pour une résolution manuelle."
 
 msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
 msgstr "Vous pouvez personnaliser votre ligne cron. \"0  3  *  *  *\", séparer chacune des 5 valeurs par un espace"

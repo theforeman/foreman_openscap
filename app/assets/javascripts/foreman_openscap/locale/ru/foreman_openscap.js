@@ -3,11 +3,11 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "Foreman",
+        "Project-Id-Version": "foreman_openscap 10.0.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
-        "Language-Team": "Russian (http://www.transifex.com/foreman/foreman/language/ru/)",
+        "Language-Team": "Russian (http://app.transifex.com/foreman/foreman/language/ru/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
@@ -133,7 +133,7 @@
         "Выберите день недели"
       ],
       "Close": [
-        ""
+        "Закрыть"
       ],
       "Compliance": [
         "Соответствие стандартам"
@@ -454,7 +454,7 @@
         "Местоположение"
       ],
       "Manual": [
-        ""
+        "Вручную"
       ],
       "Message": [
         "Сообщение"
@@ -610,7 +610,7 @@
         "У"
       ],
       "Permission denied": [
-        ""
+        "Отказано в разрешении"
       ],
       "Please Confirm": [
         "Подтвердите"
@@ -754,7 +754,7 @@
         ""
       ],
       "Run": [
-        ""
+        "Выполнить"
       ],
       "Run OpenSCAP remediation with Ansible": [
         ""
@@ -841,7 +841,7 @@
         "Параметры Смарт-класса"
       ],
       "Snippet": [
-        ""
+        "Фрагмент"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "Произошли ошибки при выборе отчетов: %s"
@@ -928,7 +928,7 @@
         ""
       ],
       "Title": [
-        ""
+        "Заголовок"
       ],
       "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy.": [
         ""

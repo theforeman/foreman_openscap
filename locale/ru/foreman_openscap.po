@@ -7,11 +7,11 @@
 # Yulia <yulia.poyarkova@redhat.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: Foreman\n"
+"Project-Id-Version: foreman_openscap 10.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
-"Language-Team: Russian (http://www.transifex.com/foreman/foreman/language/ru/)"
+"Language-Team: Russian (http://app.transifex.com/foreman/foreman/language/ru/)"
 "\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -138,7 +138,7 @@ msgid "Choose weekday"
 msgstr "Выберите день недели"
 
 msgid "Close"
-msgstr ""
+msgstr "Закрыть"
 
 msgid "Compliance"
 msgstr "Соответствие стандартам"
@@ -464,7 +464,7 @@ msgid "Locations"
 msgstr "Местоположение"
 
 msgid "Manual"
-msgstr ""
+msgstr "Вручную"
 
 msgid "Message"
 msgstr "Сообщение"
@@ -622,7 +622,7 @@ msgid "Passed|P"
 msgstr "У"
 
 msgid "Permission denied"
-msgstr ""
+msgstr "Отказано в разрешении"
 
 msgid "Please Confirm"
 msgstr "Подтвердите"
@@ -766,7 +766,7 @@ msgid "Rule Results"
 msgstr ""
 
 msgid "Run"
-msgstr ""
+msgstr "Выполнить"
 
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
@@ -853,7 +853,7 @@ msgid "Smart Class Parameters"
 msgstr "Параметры Смарт-класса"
 
 msgid "Snippet"
-msgstr ""
+msgstr "Фрагмент"
 
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr "Произошли ошибки при выборе отчетов: %s"
@@ -942,7 +942,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr ""
 
 msgid "Title"
-msgstr ""
+msgstr "Заголовок"
 
 msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
 msgstr ""
