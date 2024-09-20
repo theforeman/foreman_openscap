@@ -1,5 +1,4 @@
 require 'test_plugin_helper'
-require 'application_helper'
 
 class OpenscapProxiesControllerTest < ActionController::TestCase
   include ActionView::Helpers::DateHelper
