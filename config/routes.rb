@@ -62,7 +62,7 @@ Rails.application.routes.draw do
 
   namespace :api, :defaults => { :format => 'json' } do
     scope "(:apiv)", :module => :v2, :defaults => { :apiv => 'v2' },
-                     :apiv => /v1|v2/, :constraints => ApiConstraints.new(:version => 2, :default => true) do
+                     :apiv => /v2/, :constraints => ApiConstraints.new(:version => 2, :default => true) do
       namespace :compliance do
         resources :scap_contents, :except => %i[new edit] do
           member do
@@ -95,6 +95,14 @@ Rails.application.routes.draw do
         post 'arf_reports/:cname/:policy_id/:date', \
              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
       end
+
+      constraints(:id => %r{[^\/]+}) do
+        resources :hosts, :except => [:new, :edit] do
+          member do
+            get :policies_enc
+          end
+        end
+      end
     end
   end
 end
@@ -111,21 +119,6 @@ Foreman::Application.routes.draw do
   resources :hostgroups do
     collection do
       post 'openscap_proxy_changed'
-    end
-  end
-
-  namespace :api do
-    scope "(:api_version)", :module => :v2,
-                            :defaults => { :api_version => 'v2' },
-                            :api_version => /v2/,
-                            :constraints => ApiConstraints.new(:version => 2, :default => true) do
-      constraints(:id => %r{[^\/]+}) do
-        resources :hosts, :only => [] do
-          member do
-            get :policies_enc
-          end
-        end
-      end
     end
   end
 end
