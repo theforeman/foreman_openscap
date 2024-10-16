@@ -15,9 +15,10 @@ module ForemanOpenscap
 
     def handle_config_not_available(config)
       return true if config.available?
-      @policy.errors[:deploy_by] <<
+      @policy.errors.add(:deploy_by,
         _("%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?") %
           { :type => config.type.to_s.camelize }
+      )
       false
     end
 
@@ -25,7 +26,7 @@ module ForemanOpenscap
       return true if item
       err = _("Required %{msg_name} %{class} was not found, please ensure it is imported first.") %
           { :class => config.config_item_name, :msg_name => config.msg_name }
-      @policy.errors[:base] << err
+      @policy.errors.add(:base, err)
       false
     end
 
@@ -34,7 +35,7 @@ module ForemanOpenscap
       err = _("The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.") %
         { :key_name => config.lookup_key_plural_name, :key_names => key_names, :item_name => config.config_item_name }
 
-      @policy.errors[:base] << err
+      @policy.errors.add(:base, err)
       false
     end
 
@@ -52,9 +53,9 @@ module ForemanOpenscap
 
     def handle_param_override(config, param)
       if param.changed? && !param.save
-        @policy.errors[:base] <<
+        @policy.errors.add(:base,
           _('Failed to save when overriding parameters for %{config_tool}, cause: %{errors}') %
-          { :config_tool => config.type, :errors => param.errors.full_messages.join(', ') }
+          { :config_tool => config.type, :errors => param.errors.full_messages.join(', ') })
         return false
       end
       true
