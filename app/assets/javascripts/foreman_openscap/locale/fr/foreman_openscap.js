@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.0.0",
+        "Project-Id-Version": "foreman_openscap 10.0.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016",
@@ -549,9 +549,6 @@
       ],
       "None found": [
         "Rien trouvé"
-      ],
-      "None provided": [
-        "Aucun n'est prévu"
       ],
       "None!": [
         "Aucun."

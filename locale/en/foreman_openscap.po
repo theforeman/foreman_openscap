@@ -1,0 +1,1087 @@
+# English translations for foreman_openscap package.
+# Copyright (C) 2023 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the foreman_openscap package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2023.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: foreman_openscap 10.0.1\n"
+"Report-Msgid-Bugs-To: \n"
+"PO-Revision-Date: 2023-05-16 14:11+0200\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: English\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=; plural=;\n"
+"\n"
+
+msgid " for policy %s"
+msgstr ""
+
+msgid " through %s"
+msgstr ""
+
+msgid "%s - The following compliance reports are about to be changed"
+msgstr ""
+
+msgid "%s compliance report by policy"
+msgid_plural "%s compliance reports by policy"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "%s content"
+msgstr ""
+
+msgid "%s does not exist, skipping."
+msgstr ""
+
+msgid "%s is a directory, expecting file."
+msgstr ""
+
+msgid "%s latest report"
+msgstr ""
+
+msgid "%s reports over time"
+msgstr ""
+
+msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
+msgstr ""
+
+msgid "%{type} was selected to deploy policy to clients, but %{type} is not available. Are you missing a plugin?"
+msgstr ""
+
+msgid "<b>Foreman</b> OpenSCAP summary"
+msgstr ""
+
+msgid "A reboot is required after applying remediation."
+msgstr ""
+
+msgid "A reboot might be required after applying remediation."
+msgstr ""
+
+msgid "A summary of reports for OpenSCAP policies"
+msgstr ""
+
+msgid "Actions"
+msgstr ""
+
+msgid "All messages"
+msgstr ""
+
+msgid "Ansible role"
+msgstr ""
+
+msgid "Ansible variables"
+msgstr ""
+
+msgid "Apply policy to host groups"
+msgstr ""
+
+msgid "Apply policy to hosts"
+msgstr ""
+
+msgid "Are you sure you want to delete %s?"
+msgstr ""
+
+msgid "Assign Compliance Policy"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
+msgstr ""
+
+msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
+msgstr ""
+
+msgid "Cancel"
+msgstr ""
+
+msgid "Cannot generate HTML guide, no valid OpenSCAP proxy server found."
+msgstr ""
+
+msgid "Cannot generate HTML guide, scap content is missing."
+msgstr ""
+
+msgid "Change OpenSCAP Proxy"
+msgstr ""
+
+msgid "Changed"
+msgstr ""
+
+msgid "Changed file does not include existing SCAP content profiles"
+msgstr ""
+
+msgid "Changed?"
+msgstr ""
+
+msgid "Choose Tailoring File"
+msgstr ""
+
+msgid "Choose day in month"
+msgstr ""
+
+msgid "Choose existing SCAP Content"
+msgstr ""
+
+msgid "Choose period"
+msgstr ""
+
+msgid "Choose weekday"
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Compliance"
+msgstr ""
+
+msgid "Compliance Policies"
+msgstr ""
+
+msgid "Compliance Reports"
+msgstr ""
+
+msgid "Compliance Reports Breakdown"
+msgstr ""
+
+msgid "Compliance policy summary"
+msgstr ""
+
+msgid "Compliance policy: %s"
+msgstr ""
+
+msgid "Compliant"
+msgstr ""
+
+msgid "Compliant hosts"
+msgstr ""
+
+msgid "Compliant with the policy"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Content"
+msgstr ""
+
+msgid "Copy to clipboard"
+msgstr ""
+
+msgid "Could not find host identified by: %s"
+msgstr ""
+
+msgid "Could not validate %s. Please make sure you have appropriate proxy version to use this functionality"
+msgstr ""
+
+msgid "Could not validate %{file_type}. Error %{error}"
+msgstr ""
+
+msgid "Create SCAP content"
+msgstr ""
+
+msgid "Create a Policy"
+msgstr ""
+
+msgid "Create a Tailoring file"
+msgstr ""
+
+msgid "Created at"
+msgstr ""
+
+msgid "Dashboard"
+msgstr ""
+
+msgid "DataStream Tailoring file"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Default XCCDF profile"
+msgstr ""
+
+msgid "Delete"
+msgstr ""
+
+msgid "Delete a Policy"
+msgstr ""
+
+msgid "Delete an ARF Report"
+msgstr ""
+
+msgid "Delete compliance policy %s with all of its reports?"
+msgstr ""
+
+msgid "Delete compliance report for %s?"
+msgstr ""
+
+msgid "Delete reports"
+msgstr ""
+
+msgid "Delete scap content %s?"
+msgstr ""
+
+msgid "Delete tailoring file %s?"
+msgstr ""
+
+msgid "Deleted policy"
+msgstr ""
+
+msgid "Deletes a Tailoring file"
+msgstr ""
+
+msgid "Deletes an SCAP content"
+msgstr ""
+
+msgid "Deployment Options"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Details for Compliance Policy %s"
+msgstr ""
+
+msgid "Directory to upload when using \"directory\" upload type"
+msgstr ""
+
+msgid "Do not implement any of the recommended remedial actions or scripts without first testing them in a non-production environment."
+msgstr ""
+
+msgid "Documentation"
+msgstr ""
+
+msgid "Done"
+msgstr ""
+
+msgid "Download"
+msgstr ""
+
+msgid "Download ARF report in HTML"
+msgstr ""
+
+msgid "Download HTML"
+msgstr ""
+
+msgid "Download XML in bzip"
+msgstr ""
+
+msgid "Download a Tailoring file as XML"
+msgstr ""
+
+msgid "Download an SCAP content as XML"
+msgstr ""
+
+msgid "Download bzipped ARF report"
+msgstr ""
+
+msgid "Edit %s"
+msgstr ""
+
+msgid "Effective Profile"
+msgstr ""
+
+msgid "Error!"
+msgstr ""
+
+msgid "Every puppet run ensures the foreman_scap_client is configured according to the policy."
+msgstr ""
+
+msgid "Expected an array of files to upload, got: %s."
+msgstr ""
+
+msgid "Failed"
+msgstr ""
+
+msgid "Failed and Othered"
+msgstr ""
+
+msgid "Failed only"
+msgstr ""
+
+msgid "Failed saving %s:"
+msgstr ""
+
+msgid "Failed to delete %s compliance reports"
+msgstr ""
+
+msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
+msgstr ""
+
+msgid "Failed to downloaded ARF report as bzip: %s"
+msgstr ""
+
+msgid "Failed to downloaded ARF report in HTML: %s"
+msgstr ""
+
+msgid "Failed to fetch spool status from proxy"
+msgstr ""
+
+msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
+msgstr ""
+
+msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
+msgstr ""
+
+#. TRANSLATORS: initial character of Failed
+msgid "Failed|F"
+msgstr ""
+
+msgid "File Upload"
+msgstr ""
+
+msgid "File name"
+msgstr ""
+
+msgid "File paths to upload when using \"files\" upload type"
+msgstr ""
+
+msgid "Full Report"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Host"
+msgstr ""
+
+msgid "Host Breakdown Chart"
+msgstr ""
+
+msgid "Host Groups"
+msgstr ""
+
+msgid "Host compliance details"
+msgstr ""
+
+msgid "Host details"
+msgstr ""
+
+msgid "Host does not exist anymore"
+msgstr ""
+
+msgid "Host is assigned to policy"
+msgstr ""
+
+msgid "Host is deleted"
+msgstr ""
+
+msgid "Host is not assigned to policy but reports were found. You may want to delete the reports or assign the policy again."
+msgstr ""
+
+msgid "Hostgroups"
+msgstr ""
+
+msgid "Hostname"
+msgstr ""
+
+msgid "Hosts Breakdown"
+msgstr ""
+
+msgid "Hosts failing this rule"
+msgstr ""
+
+msgid "Hosts no longer assigned: %s"
+msgstr ""
+
+msgid "Hosts othering this rule"
+msgstr ""
+
+msgid "Hosts passing this rule"
+msgstr ""
+
+msgid "How the policy should be deployed"
+msgstr ""
+
+msgid "ID of OpenSCAP Proxy"
+msgstr ""
+
+msgid "In Foreman, a compliance policy checklist is defined via %s."
+msgstr ""
+
+msgid ""
+"In Foreman, scap_contents represent the SCAP security guides on your hosts, and create SCAP profiles for you to assign to hosts / host groups\n"
+"    via %s"
+msgstr ""
+
+msgid ""
+"In Foreman, tailoring_files represent the custom modifications to default XCCDF profiles and they can be applied to hosts\n"
+"    via %s"
+msgstr ""
+
+msgid "Incompliant"
+msgstr ""
+
+msgid "Incompliant hosts"
+msgstr ""
+
+msgid "Inconclusive"
+msgstr ""
+
+msgid "Inconclusive results"
+msgstr ""
+
+msgid "It may sometimes be required to adjust the security policy to your specific needs. "
+msgstr ""
+
+msgid "Job details"
+msgstr ""
+
+msgid "Latest Compliance Reports"
+msgstr ""
+
+msgid "Latest reports for policy: %s"
+msgstr ""
+
+msgid "List ARF reports"
+msgstr ""
+
+msgid "List Policies"
+msgstr ""
+
+msgid "List SCAP content profiles"
+msgstr ""
+
+msgid "List SCAP contents"
+msgstr ""
+
+msgid "List Tailoring files"
+msgstr ""
+
+msgid "Loading..."
+msgstr ""
+
+msgid "Locations"
+msgstr ""
+
+msgid "Manual"
+msgstr ""
+
+msgid "Message"
+msgstr ""
+
+msgid "Method"
+msgstr ""
+
+msgid "More details"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Never audited"
+msgstr ""
+
+msgid "New Compliance Policy"
+msgstr ""
+
+msgid "New Policy"
+msgstr ""
+
+msgid "New SCAP Content"
+msgstr ""
+
+msgid "New Tailoring File"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "No"
+msgstr ""
+
+msgid "No ARF reports for this policy"
+msgstr ""
+
+msgid "No OpenSCAP Proxy selected."
+msgstr ""
+
+msgid "No OpenSCAP proxy found for %{class} with id %{id}"
+msgstr ""
+
+msgid "No Tailoring file assigned for policy with id %s"
+msgstr ""
+
+msgid "No available proxy to validate. Returned with error: %s"
+msgstr ""
+
+msgid "No compliance policy selected."
+msgstr ""
+
+msgid "No compliance reports selected"
+msgstr ""
+
+msgid "No compliance reports were found."
+msgstr ""
+
+msgid "No hosts selected"
+msgstr ""
+
+msgid "No hosts were found with that id, name or query filter"
+msgstr ""
+
+msgid "No proxy found for %{name} or %{url}"
+msgstr ""
+
+msgid "No proxy found!"
+msgstr ""
+
+msgid "No proxy with OpenSCAP feature is running."
+msgstr ""
+
+msgid "No proxy with OpenSCAP feature was found."
+msgstr ""
+
+msgid "No report for this policy"
+msgstr ""
+
+msgid "No reports available"
+msgstr ""
+
+msgid "No such directory: %s. Please check the path you have provided."
+msgstr ""
+
+msgid "No valid policy ID provided"
+msgstr ""
+
+msgid "None"
+msgstr ""
+
+msgid "None found"
+msgstr ""
+
+msgid "None!"
+msgstr ""
+
+msgid "Not audited"
+msgstr ""
+
+msgid "Not compliant with the policy"
+msgstr ""
+
+msgid "Nothing to show"
+msgstr ""
+
+msgid "Number of Events"
+msgstr ""
+
+msgid "Number of a day in month, note that not all months have same count of days"
+msgstr ""
+
+msgid "OS"
+msgstr ""
+
+msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
+msgstr ""
+
+msgid "OpenSCAP Proxy"
+msgstr ""
+
+msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
+msgstr ""
+
+msgid "Openscap Proxy"
+msgstr ""
+
+msgid "Organizations"
+msgstr ""
+
+msgid "Original file name of the XML file"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Other hosts failing this rule"
+msgstr ""
+
+msgid "Othered"
+msgstr ""
+
+#. TRANSLATORS: initial character of Othered which is an SCAP term
+msgid "Othered|O"
+msgstr ""
+
+msgid "Passed"
+msgstr ""
+
+#. TRANSLATORS: initial character of Passed
+msgid "Passed|P"
+msgstr ""
+
+msgid "Permission denied"
+msgstr ""
+
+msgid "Please Confirm"
+msgstr ""
+
+msgid "Please make sure you understand them by reading our"
+msgstr ""
+
+msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
+msgstr ""
+
+msgid "Policies"
+msgstr ""
+
+msgid "Policies with hosts:"
+msgstr ""
+
+msgid "Policy"
+msgstr ""
+
+msgid "Policy %s"
+msgstr ""
+
+msgid "Policy Attributes"
+msgstr ""
+
+msgid "Policy SCAP content ID"
+msgstr ""
+
+msgid "Policy SCAP content profile ID"
+msgstr ""
+
+msgid "Policy assigned"
+msgstr ""
+
+msgid "Policy description"
+msgstr ""
+
+msgid "Policy is missing"
+msgstr ""
+
+msgid "Policy name"
+msgstr ""
+
+msgid "Policy schedule cron line (only if period == \"custom\")"
+msgstr ""
+
+msgid "Policy schedule day of month (only if period == \"monthly\")"
+msgstr ""
+
+msgid "Policy schedule period (weekly, monthly, custom)"
+msgstr ""
+
+msgid "Policy schedule weekday (only if period == \"weekly\")"
+msgstr ""
+
+msgid "Policy with id %s not found."
+msgstr ""
+
+msgid "Profile"
+msgstr ""
+
+msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
+msgstr ""
+
+msgid "Puppet class"
+msgstr ""
+
+msgid "Rationale"
+msgstr ""
+
+msgid "Reboot the system(s)"
+msgstr ""
+
+msgid "Red Hat %s default content"
+msgstr ""
+
+msgid "References"
+msgstr ""
+
+msgid "Remediate %s rule"
+msgstr ""
+
+msgid "Remediation"
+msgstr ""
+
+msgid "Remediation might render the system non-functional."
+msgstr ""
+
+msgid "Remote job"
+msgstr ""
+
+msgid "Report Metrics"
+msgstr ""
+
+msgid "Report Status"
+msgstr ""
+
+msgid "Reported At"
+msgstr ""
+
+msgid "Reported at %s"
+msgstr ""
+
+msgid "Reports"
+msgstr ""
+
+msgid "Request the following permissions from administrator: %s."
+msgstr ""
+
+msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
+msgstr ""
+
+msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
+msgstr ""
+
+msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
+msgstr ""
+
+msgid "Requires Ansible plugin, %s Ansible role and variables. This will assign the role to the hosts or selected hostgroups."
+msgstr ""
+
+msgid "Resource"
+msgstr ""
+
+msgid "Result"
+msgstr ""
+
+msgid "Review hosts"
+msgstr ""
+
+msgid "Review remediation"
+msgstr ""
+
+msgid "Review the remediation snippet and apply it to the host manually."
+msgstr ""
+
+msgid "Review the remediation snippet that will be applied to selected host(s)."
+msgstr ""
+
+msgid "Rule Results"
+msgstr ""
+
+msgid "Run"
+msgstr ""
+
+msgid "Run OpenSCAP remediation with Ansible"
+msgstr ""
+
+msgid "Run OpenSCAP remediation with Shell"
+msgstr ""
+
+msgid "Run OpenSCAP scan"
+msgstr ""
+
+msgid "SCAP Content"
+msgstr ""
+
+msgid "SCAP Contents"
+msgstr ""
+
+msgid "SCAP DataStream file"
+msgstr ""
+
+msgid "SCAP content"
+msgstr ""
+
+msgid "SCAP content name"
+msgstr ""
+
+msgid "SCAP contents"
+msgstr ""
+
+msgid "SCAP policies summary"
+msgstr ""
+
+msgid "Schedule"
+msgstr ""
+
+msgid "Select Action"
+msgstr ""
+
+msgid "Select Compliance Policy"
+msgstr ""
+
+msgid "Select OpenSCAP Proxy"
+msgstr ""
+
+msgid "Select all items in this page"
+msgstr ""
+
+msgid "Select remediation method"
+msgstr ""
+
+msgid "Select snippet"
+msgstr ""
+
+msgid "Severity"
+msgstr ""
+
+msgid "Show Guide"
+msgstr ""
+
+msgid "Show a Policy"
+msgstr ""
+
+msgid "Show a Tailoring file"
+msgstr ""
+
+msgid "Show a policy's SCAP content"
+msgstr ""
+
+msgid "Show a policy's Tailoring file"
+msgstr ""
+
+msgid "Show an ARF report"
+msgstr ""
+
+msgid "Show an SCAP content"
+msgstr ""
+
+msgid "Show config information for foreman_scap_client"
+msgstr ""
+
+msgid "Show log messages:"
+msgstr ""
+
+msgid "Smart Class Parameters"
+msgstr ""
+
+msgid "Snippet"
+msgstr ""
+
+msgid "Something went wrong while selecting compliance reports - %s"
+msgstr ""
+
+msgid "Something went wrong while selecting hosts - %s"
+msgstr ""
+
+msgid "Spool errors"
+msgstr ""
+
+msgid "Status chart"
+msgstr ""
+
+msgid "Status table"
+msgstr ""
+
+msgid "Submit"
+msgstr ""
+
+msgid "Successfully copied to clipboard!"
+msgstr ""
+
+msgid "Successfully deleted %s compliance reports"
+msgstr ""
+
+msgid "Successfully deleted ARF report."
+msgstr ""
+
+msgid "Summary from %{time} ago to now"
+msgstr ""
+
+msgid "Summary report for OpenScap from Foreman"
+msgstr ""
+
+msgid "Summary report from Foreman server at %{foreman_url}"
+msgstr ""
+
+msgid "Tailoring File"
+msgstr ""
+
+msgid "Tailoring Files"
+msgstr ""
+
+msgid "Tailoring file ID"
+msgstr ""
+
+msgid "Tailoring file name"
+msgstr ""
+
+msgid "Tailoring file profile ID"
+msgstr ""
+
+msgid "The %s proxy does not have Openscap feature enabled. Either set correct OpenSCAP Proxy or unset it."
+msgstr ""
+
+msgid ""
+"The Security Content Automation Protocol (SCAP), combines a number of open standards that are used to enumerate software flaws and\n"
+"        configuration issues related to security. "
+msgstr ""
+
+msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
+msgstr ""
+
+msgid "The identifier of the host"
+msgstr ""
+
+msgid "The job has started on selected host(s), you can check the status on the job details page."
+msgstr ""
+
+msgid "There are significant differences in deployment options."
+msgstr ""
+
+msgid "There is no job to remediate with. Please remediate manually."
+msgstr ""
+
+msgid "There was a following error when deleting %(name)s: %(error)s"
+msgstr ""
+
+msgid "There's no available report for this host"
+msgstr ""
+
+msgid "This leaves the setup of the foreman_scap_client solely on the user. The policy still needs to be defined in order to link incoming ARF reports."
+msgstr ""
+
+msgid "This profile will be used to override the one from scap content"
+msgstr ""
+
+msgid "Title"
+msgstr ""
+
+msgid "To deploy foreman_scap_client, ansible roles run needs to be triggered manually. Manual run is also required after any change to this policy."
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Total hosts with policy: %s"
+msgstr ""
+
+msgid "Total hosts with reports where policy is no longer assigned."
+msgstr ""
+
+msgid "Total of one host"
+msgid_plural "Total of %{hosts} hosts"
+msgstr[0] ""
+msgstr[1] ""
+
+msgid "Type of the upload"
+msgstr ""
+
+msgid "Unable to get HTML version of requested report from Smart Proxy"
+msgstr ""
+
+msgid "Unable to get XML version of requested report from Smart Proxy"
+msgstr ""
+
+msgid "Unassign Compliance Policy"
+msgstr ""
+
+msgid "Unknown Compliance status"
+msgstr ""
+
+msgid "Update a Policy"
+msgstr ""
+
+msgid "Update a Tailoring file"
+msgstr ""
+
+msgid "Update an SCAP content"
+msgstr ""
+
+msgid "Updated hosts: Assigned with OpenSCAP Proxy: %s"
+msgstr ""
+
+msgid "Updated hosts: Assigned with compliance policy: %s"
+msgstr ""
+
+msgid "Updated hosts: Unassigned from compliance policy '%s'"
+msgstr ""
+
+msgid "Upload New SCAP Content"
+msgstr ""
+
+msgid "Upload New Tailoring file"
+msgstr ""
+
+msgid "Upload an ARF report"
+msgstr ""
+
+msgid "Upload new SCAP content file"
+msgstr ""
+
+msgid "Upload new Tailoring File"
+msgstr ""
+
+msgid "Upload scap contents in bulk"
+msgstr ""
+
+msgid "View Report"
+msgstr ""
+
+msgid "View full report"
+msgstr ""
+
+msgid "View selected hosts"
+msgstr ""
+
+msgid "XCCDF Profile"
+msgstr ""
+
+msgid "XCCDF Profile in Tailoring File"
+msgstr ""
+
+msgid "XML containing SCAP content"
+msgstr ""
+
+msgid "XML containing tailoring file"
+msgstr ""
+
+msgid "Yes"
+msgstr ""
+
+msgid "You are not authorized to view the page. "
+msgstr ""
+
+msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
+msgstr ""
+
+msgid "You can specify custom cron line, e.g. \"0  3  *  *  *\", separate each of 5 values by space"
+msgstr ""
+
+msgid "You don't seem to have any ARF report. ARF report is a summary of a single scan occurrence on a particular host for a given Compliance Policy."
+msgstr ""
+
+msgid "cannot assign to %s, all assigned policies must be deployed in the same way, check 'deploy by' for each assigned policy"
+msgstr ""
+
+msgid "documentation"
+msgstr ""
+
+msgid "does not come from selected tailoring file"
+msgstr ""
+
+msgid "does not consist of 5 parts separated by space"
+msgstr ""
+
+msgid "does not have the selected SCAP content profile"
+msgstr ""
+
+msgid "invalid type %s"
+msgstr ""
+
+msgid "is not a valid value"
+msgstr ""
+
+msgid "is not included in SCAP_RESULT"
+msgstr ""
+
+msgid "items selected. Uncheck to Clear"
+msgstr ""
+
+msgid "must be between 1 and 31"
+msgstr ""
+
+msgid "must be present when tailoring file present"
+msgstr ""
+
+msgid "must be present when tailoring file profile present"
+msgstr ""
+
+msgid "must have Openscap feature"
+msgstr ""
+
+msgid "theforeman.foreman_scap_client Ansible Role not found, please import it before running this action again."
+msgstr ""
+
+msgid "these Compliance reports"
+msgstr ""

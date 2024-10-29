@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 10.0.0\n"
+"Project-Id-Version: foreman_openscap 10.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016\n"
@@ -562,9 +562,6 @@ msgstr "Aucun(e)"
 
 msgid "None found"
 msgstr "Rien trouvé"
-
-msgid "None provided"
-msgstr "Aucun n'est prévu"
 
 msgid "None!"
 msgstr "Aucun."

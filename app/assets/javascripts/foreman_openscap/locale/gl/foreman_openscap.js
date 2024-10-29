@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.0.0",
+        "Project-Id-Version": "foreman_openscap 10.0.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
@@ -547,9 +547,6 @@
         "Ningún"
       ],
       "None found": [
-        ""
-      ],
-      "None provided": [
         ""
       ],
       "None!": [
