@@ -16,6 +16,8 @@ template_inputs:
   description: Indicate wether the host should be rebooted after all the remediation
   input_type: user
   required: false
+require:
+- plugin: foreman_ansible
 %>
 ---
 - hosts: all
