@@ -48,14 +48,14 @@ class BulkUploadTest < ActiveSupport::TestCase
 
   test 'should handle case when scap security guide is not installed' do
     upload = ForemanOpenscap::BulkUpload.new
-    upload.stubs(:scap_guide_installed?).returns(false)
+    upload.stubs(:package_installed?).returns(false)
     res = upload.upload_from_scap_guide
-    assert_equal "Can't find scap-security-guide RPM, are you sure it is installed on your server?", res.errors.first
+    assert_equal "Can't find scap-security-guide RPM(s), are you sure it is installed on your server?", res.errors.first
   end
 
   test 'should upload files from guide' do
     upload = ForemanOpenscap::BulkUpload.new
-    upload.stubs(:scap_guide_installed?).returns(true)
+    upload.stubs(:package_installed?).returns(true)
     upload.stubs(:files_from_guide).returns(["#{ForemanOpenscap::Engine.root}/test/files/scap_contents/ssg-fedora-ds.xml"])
     assert_difference('ForemanOpenscap::ScapContent.count', 1) do
       upload.upload_from_scap_guide
