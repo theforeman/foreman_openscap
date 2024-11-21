@@ -96,8 +96,8 @@ Rails.application.routes.draw do
              :constraints => { :cname => /[^\/]+/ }, :to => 'arf_reports#create'
       end
 
-      constraints(:id => %r{[^\/]+}) do
-        resources :hosts, :except => [:new, :edit] do
+      constraints(:id => /[^\/]+/) do
+        resources :hosts, :only => [] do
           member do
             get :policies_enc
           end
