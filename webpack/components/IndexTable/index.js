@@ -1,6 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Table, TableHeader, TableBody } from '@patternfly/react-table';
+import {
+	Table,
+	TableHeader,
+	TableBody
+} from '@patternfly/react-table/deprecated';
 import { Flex, FlexItem } from '@patternfly/react-core';
 import Pagination from 'foremanReact/components/Pagination';
 import { refreshPage } from './IndexTableHelper';
