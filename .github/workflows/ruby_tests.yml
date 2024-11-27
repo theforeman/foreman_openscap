@@ -9,8 +9,13 @@ on:
   pull_request:
 
 jobs:
+  rubocop:
+    name: Rubocop
+    uses: theforeman/actions/.github/workflows/rubocop.yml@v0
+
   test:
     name: Ruby
+    needs: rubocop
     uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
     with:
       plugin: foreman_openscap

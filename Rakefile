@@ -34,3 +34,10 @@ Rake::TestTask.new(:test) do |t|
 end
 
 task :default => :test
+
+begin
+  require 'rubocop/rake_task'
+  RuboCop::RakeTask.new
+rescue => _
+  puts 'Rubocop not loaded.'
+end
