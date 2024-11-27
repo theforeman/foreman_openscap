@@ -10,9 +10,15 @@ class ArfReportsController < ApplicationController
   end
 
   def index
+    # Avoid using includes() with nested associations and "order by" together. Otherwise,
+    # includes() will use join tables instead and Rails somehow create many objects and
+    # high memory consumption.
+    @arf_reports_pg = resource_base.search_for(params[:search], :order => params[:order])
+                                   .paginate(:page => params[:page], :per_page => params[:per_page])
+    arf_report_ids = @arf_reports_pg.pluck(:id)
     @arf_reports = resource_base.includes(:policy, :openscap_proxy, :host => %i[policies last_report_object host_statuses])
-                                .search_for(params[:search], :order => params[:order])
-                                .paginate(:page => params[:page], :per_page => params[:per_page])
+                                .where(id: arf_report_ids)
+                                .sort_by { |arf_report| arf_report_ids.index(arf_report.id) }
   end
 
   def show
