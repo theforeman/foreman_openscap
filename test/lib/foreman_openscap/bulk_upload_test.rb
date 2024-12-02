@@ -2,7 +2,6 @@ require 'test_plugin_helper'
 
 class BulkUploadTest < ActiveSupport::TestCase
   setup do
-    require 'foreman_openscap/bulk_upload'
     ForemanOpenscap::ScapContent.all.map(&:destroy)
   end
 
