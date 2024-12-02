@@ -30,7 +30,7 @@ function tailoring_file_selected(element) {
 
 function previous_step(previous) {
   $('#policy_current_step').val(previous);
-  $('#new_policy').submit();
+  $('#new_policy').trigger("submit");
 }
 
 function period_selected(period) {

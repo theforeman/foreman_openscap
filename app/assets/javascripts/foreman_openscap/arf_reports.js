@@ -1,8 +1,8 @@
 function readFromCookie() {
   try {
-    var r = $.cookie(cookieName);
+    var r = tfm.Cookies.get(cookieName);
     if (r) {
-      return $.parseJSON(r);
+      return JSON.parse(r);
     }
     return [];
   } catch (err) {
@@ -12,7 +12,7 @@ function readFromCookie() {
 }
 
 function removeCookie() {
-  $.removeCookie(cookieName);
+  tfm.Cookies.remove(cookieName);
 }
 
 var cookieName = '_ForemanSelected' + window.location.pathname.replace(/\//, '');
