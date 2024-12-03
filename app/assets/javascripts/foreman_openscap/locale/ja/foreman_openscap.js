@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.0.1",
+        "Project-Id-Version": "foreman_openscap 10.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
@@ -92,8 +92,8 @@
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
         "修復はデフォルトで現在のホストに適用されます。必要に応じて、ルールに違反する他のホストを修復してください。"
       ],
-      "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
-        "scap-security-guide RPM が見つかりません。サーバーにインストールされていますか?"
+      "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
+        ""
       ],
       "Cancel": [
         "取り消し"

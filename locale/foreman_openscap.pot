@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-10-29 14:04+0000\n"
-"PO-Revision-Date: 2024-10-29 14:04+0000\n"
+"POT-Creation-Date: 2024-12-03 14:01+0000\n"
+"PO-Revision-Date: 2024-12-03 14:01+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -148,60 +148,60 @@ msgstr ""
 msgid "List SCAP content profiles"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:16
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:14
 msgid "List SCAP contents"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:24
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:22
 msgid "Download an SCAP content as XML"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:33
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:31
 msgid "Show an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:40
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:38
 msgid "SCAP content name"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:41
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:39
 msgid "XML containing SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:42
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:40
 #: ../app/controllers/api/v2/compliance/tailoring_files_controller.rb:36
 msgid "Original file name of the XML file"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:47
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:45
 msgid "Create SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:55
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:53
 msgid "Update an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:63
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:61
 msgid "Deletes an SCAP content"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:70
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:68
 msgid "Upload scap contents in bulk"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:71
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:69
 msgid "Type of the upload"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:72
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:70
 msgid "File paths to upload when using \"files\" upload type"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:73
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:71
 msgid "Directory to upload when using \"directory\" upload type"
 msgstr ""
 
-#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:86
+#: ../app/controllers/api/v2/compliance/scap_contents_controller.rb:84
 msgid ""
 "Please specify import type, received: %{received}, expected one of: %{expected"
 "}"
@@ -239,39 +239,39 @@ msgstr ""
 msgid "Deletes a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:37
+#: ../app/controllers/arf_reports_controller.rb:43
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:48
+#: ../app/controllers/arf_reports_controller.rb:54
 msgid "Failed to downloaded ARF report in HTML: %s"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:55
+#: ../app/controllers/arf_reports_controller.rb:61
 msgid "Successfully deleted ARF report."
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:57
+#: ../app/controllers/arf_reports_controller.rb:63
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:67
+#: ../app/controllers/arf_reports_controller.rb:73
 msgid "Failed to delete %s compliance reports"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:70
+#: ../app/controllers/arf_reports_controller.rb:76
 msgid "Successfully deleted %s compliance reports"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:106
+#: ../app/controllers/arf_reports_controller.rb:112
 msgid "No compliance reports were found."
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:110
+#: ../app/controllers/arf_reports_controller.rb:116
 msgid "No compliance reports selected"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:115
+#: ../app/controllers/arf_reports_controller.rb:121
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
@@ -703,6 +703,38 @@ msgstr ""
 msgid "invalid type %s"
 msgstr ""
 
+#: ../app/services/foreman_openscap/bulk_upload.rb:26
+msgid "Can't find %{packages} RPM(s), are you sure it is installed on your server?"
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:36
+msgid "Expected an array of files to upload, got: %s."
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:42
+msgid "%s is a directory, expecting file."
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:47
+msgid "%s does not exist, skipping."
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:65
+msgid "Failed saving %s:"
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:73
+msgid "No such directory: %s. Please check the path you have provided."
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:95
+msgid "Red Hat %s default content"
+msgstr ""
+
+#: ../app/services/foreman_openscap/bulk_upload.rb:95
+msgid "%s content"
+msgstr ""
+
 #: ../app/services/foreman_openscap/client_config/ansible.rb:23
 msgid ""
 "Requires Ansible plugin, %s Ansible role and variables. This will assign the r"
@@ -761,19 +793,19 @@ msgid ""
 ". Are you missing a plugin?"
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:26
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:27
 msgid ""
 "Required %{msg_name} %{class} was not found, please ensure it is imported firs"
 "t."
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:34
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:35
 msgid ""
 "The following %{key_name} were missing for %{item_name}: %{key_names}. Make su"
 "re they are imported before proceeding."
 msgstr ""
 
-#: ../app/services/foreman_openscap/lookup_key_overrider.rb:56
+#: ../app/services/foreman_openscap/lookup_key_overrider.rb:57
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
 msgstr ""
 
@@ -1344,40 +1376,6 @@ msgstr ""
 
 #: ../db/seeds.d/openscap_policy_notification.rb:5
 msgid "A summary of reports for OpenSCAP policies"
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:20
-msgid ""
-"Can't find scap-security-guide RPM, are you sure it is installed on your serve"
-"r?"
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:29
-msgid "Expected an array of files to upload, got: %s."
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:35
-msgid "%s is a directory, expecting file."
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:40
-msgid "%s does not exist, skipping."
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:58
-msgid "Failed saving %s:"
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:66
-msgid "No such directory: %s. Please check the path you have provided."
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:88
-msgid "Red Hat %s default content"
-msgstr ""
-
-#: ../lib/foreman_openscap/bulk_upload.rb:88
-msgid "%s content"
 msgstr ""
 
 #: ../lib/foreman_openscap/engine.rb:133

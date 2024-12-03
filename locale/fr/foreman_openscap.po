@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 10.0.1\n"
+"Project-Id-Version: foreman_openscap 10.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016\n"
@@ -98,8 +98,8 @@ msgstr "Précédent"
 msgid "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule."
 msgstr "Par défaut, la correction est appliquée à l'hôte actuel. Vous pouvez éventuellement corriger tous les hôtes supplémentaires qui ne respectent pas la règle."
 
-msgid "Can't find scap-security-guide RPM, are you sure it is installed on your server?"
-msgstr "Vous ne trouvez pas le RPM scap-security-guide, êtes-vous sûr qu'il est installé sur votre serveur ?"
+msgid "Can't find %{packages} RPM(s), are you sure it is installed on your server?"
+msgstr ""
 
 msgid "Cancel"
 msgstr "Annuler"

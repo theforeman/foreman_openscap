@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.0.1",
+        "Project-Id-Version": "foreman_openscap 10.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
@@ -92,8 +92,8 @@
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
         "默认情况下，补救会应用到当前主机。（可选）修复任何规则失败的额外主机。"
       ],
-      "Can't find scap-security-guide RPM, are you sure it is installed on your server?": [
-        "无法找到 scap-security-guide RPM，您确定是否已安装在服务器上？"
+      "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
+        ""
       ],
       "Cancel": [
         "取消"
