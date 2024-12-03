@@ -7,21 +7,28 @@ module ForemanOpenscap
       @result = OpenStruct.new(:errors => [], :results => [])
     end
 
-    def files_from_guide
-      `rpm -ql scap-security-guide | grep ds.xml`.split
+    def security_guide_packages
+      %w(scap-security-guide)
     end
 
-    def scap_guide_installed?
-      `rpm -qa | grep scap-security-guide`.present?
+    def files_from_guide(package)
+      `rpm -ql #{package} | grep ds.xml`.split
+    end
+
+    def package_installed?(package)
+      `rpm -qa | grep #{package}`.present?
     end
 
     def upload_from_scap_guide
-      unless scap_guide_installed?
-        @result.errors.push(_("Can't find scap-security-guide RPM, are you sure it is installed on your server?"))
+      package = security_guide_packages.find { |p| package_installed? p }
+      unless package
+        joined_packages = security_guide_packages.join(', ')
+        msg = _("Can't find %{packages} RPM(s), are you sure it is installed on your server?")
+        @result.errors.push(msg % {packages: joined_packages})
         return @result
       end
 
-      upload_from_files(files_from_guide, true)
+      upload_from_files(files_from_guide(package), true)
     end
 
     def upload_from_files(files_array, from_scap_guide = false)
