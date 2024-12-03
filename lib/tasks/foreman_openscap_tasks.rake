@@ -1,6 +1,5 @@
 # Tasks
 namespace :foreman_openscap do
-  require 'foreman_openscap/bulk_upload'
   require 'foreman_openscap/message_cleaner'
 
   namespace :bulk_upload do
