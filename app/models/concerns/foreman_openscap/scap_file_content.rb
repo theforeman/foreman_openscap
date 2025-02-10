@@ -8,7 +8,7 @@ module ForemanOpenscap
       validates :digest, :presence => true
       validates :scap_file, :presence => true
 
-      before_validation :redigest, :if => lambda { |file_content| file_content.persisted? && file_content.scap_file_changed? }
+      before_validation :redigest, :if => lambda { |file_content| !file_content.persisted? || file_content.scap_file_changed? }
     end
 
     def digest

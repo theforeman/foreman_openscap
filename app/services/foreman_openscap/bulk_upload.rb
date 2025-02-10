@@ -49,15 +49,10 @@ module ForemanOpenscap
         end
 
         file = File.read(datastream, mode: 'rb')
-        digest = Digest::SHA2.hexdigest(datastream)
         title = content_name(datastream, from_scap_guide)
         filename = original_filename(datastream)
-        search_cond = { :title => title }
-        # Change behavior only if uploading from scap guide
-        search_cond[:digest] = digest unless from_scap_guide
-        scap_content = ScapContent.where(search_cond).first_or_initialize
 
-        next if scap_content.persisted? && !from_scap_guide
+        scap_content = ScapContent.where(:title => title).first_or_initialize
         scap_content.scap_file = file
         scap_content.original_filename = filename
         scap_content.location_ids = Location.all.pluck(:id)
