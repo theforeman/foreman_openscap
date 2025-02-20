@@ -1,3 +1,3 @@
 module ForemanOpenscap
-  VERSION = "10.2.0".freeze
+  VERSION = "10.2.1".freeze
 end
