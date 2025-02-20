@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 10.1.0\n"
+"Project-Id-Version: foreman_openscap 10.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016\n"
@@ -99,7 +99,7 @@ msgid "By default, remediation is applied to the current host. Optionally, remed
 msgstr "Par défaut, la correction est appliquée à l'hôte actuel. Vous pouvez éventuellement corriger tous les hôtes supplémentaires qui ne respectent pas la règle."
 
 msgid "Can't find %{packages} RPM(s), are you sure it is installed on your server?"
-msgstr ""
+msgstr "Je ne trouve pas%{packages} RPM(s), êtes-vous sûr qu'il est installé sur votre serveur ?"
 
 msgid "Cancel"
 msgstr "Annuler"
@@ -183,7 +183,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "Impossible de valider %s. Veuillez vérifier que vous disposez de la bonne version du proxy pour utiliser cette fonctionnalité"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "Impossible de valider %%{file_type}. Erreur %{error}"
+msgstr "Impossible de valider %{file_type}. Erreur %{error}"
 
 msgid "Create SCAP content"
 msgstr "Créer un contenu SCAP"
@@ -315,7 +315,7 @@ msgid "Failed to delete %s compliance reports"
 msgstr "Impossible de supprimer les rapports de conformité %s"
 
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
-msgstr "Échec de la suppression du rapport ARF pour l'hôte %%{host_name} signalé à %%{reported_at}"
+msgstr "Échec de la suppression du rapport ARF pour l'hôte %{host_name} signalé à %{reported_at}"
 
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr "N'a pas pu télécharger le rapport ARF sous format bzip : %s"
@@ -327,7 +327,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "Impossible d'extraire le statut du spool du proxy"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %%{config_tool}, cause : %{errors}"
+msgstr "Echec de la sauvegarde lors de l'écrasement des paramètres pour %{config_tool}, cause : %{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Échec de chargement du rapport ARF, l'URL ou le nom de proxy OpenSCAP n'a pas été trouvé dans les paramètres lors du téléchargement pour %s et openscap_proxy manque sur l'hôte"
@@ -737,7 +737,7 @@ msgid "Request timed out. Please try increasing Settings -> proxy_request_timeou
 msgstr "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "%%{msg_name} %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
+msgstr "%{msg_name} %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
 
 msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
 msgstr "Requiert %s classe Puppet. Cela affectera la classe aux hôtes ou aux groupes d'hôtes sélectionnés."
@@ -878,7 +878,7 @@ msgid "Successfully copied to clipboard!"
 msgstr "Copié dans le presse-papiers"
 
 msgid "Successfully deleted %s compliance reports"
-msgstr "Rapports de conformité %s supprimés"
+msgstr "%s rapports de conformité supprimés"
 
 msgid "Successfully deleted ARF report."
 msgstr "Rapport ARF supprimé."
@@ -890,7 +890,7 @@ msgid "Summary report for OpenScap from Foreman"
 msgstr "Rapport de synthèse pour OpenScap depuis Foreman"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "Rapport récapitulatif de Foreman à %%{foreman_url}"
+msgstr "Rapport de synthèse du serveur Foreman à %{foreman_url}"
 
 msgid "Tailoring File"
 msgstr "Fichier de personnalisation"
@@ -918,7 +918,7 @@ msgstr ""
 "        configuration liés à la sécurité. "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "Les %%{key_name} suivants étaient manquants pour %%{item_name} : %%{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
+msgstr "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
 
 msgid "The identifier of the host"
 msgstr "Identifiant de l’hôte"

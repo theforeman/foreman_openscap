@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-03 14:01+0000\n"
-"PO-Revision-Date: 2024-12-03 14:01+0000\n"
+"POT-Creation-Date: 2025-02-20 11:19+0100\n"
+"PO-Revision-Date: 2025-02-20 11:19+0100\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -719,19 +719,19 @@ msgstr ""
 msgid "%s does not exist, skipping."
 msgstr ""
 
-#: ../app/services/foreman_openscap/bulk_upload.rb:65
+#: ../app/services/foreman_openscap/bulk_upload.rb:64
 msgid "Failed saving %s:"
 msgstr ""
 
-#: ../app/services/foreman_openscap/bulk_upload.rb:73
+#: ../app/services/foreman_openscap/bulk_upload.rb:72
 msgid "No such directory: %s. Please check the path you have provided."
 msgstr ""
 
-#: ../app/services/foreman_openscap/bulk_upload.rb:95
+#: ../app/services/foreman_openscap/bulk_upload.rb:94
 msgid "Red Hat %s default content"
 msgstr ""
 
-#: ../app/services/foreman_openscap/bulk_upload.rb:95
+#: ../app/services/foreman_openscap/bulk_upload.rb:94
 msgid "%s content"
 msgstr ""
 

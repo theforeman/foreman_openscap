@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.1.0",
+        "Project-Id-Version": "foreman_openscap 10.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
@@ -93,7 +93,7 @@
         "修復はデフォルトで現在のホストに適用されます。必要に応じて、ルールに違反する他のホストを修復してください。"
       ],
       "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
-        ""
+        "%{packages} RPM が見つかりません。この RPM がサーバーにインストールされていますか?"
       ],
       "Cancel": [
         "取り消し"
@@ -177,7 +177,7 @@
         "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
       ],
       "Could not validate %{file_type}. Error %{error}": [
-        "％%{file_type} を検証できませんでした。エラー: ％%{error}"
+        "%{file_type} を検証できませんでした。エラー: %{error}"
       ],
       "Create SCAP content": [
         "SCAP コンテンツの作成"
@@ -321,7 +321,7 @@
         "プロキシーからスプールステータスを取得できませんでした"
       ],
       "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "%%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %%{errors}"
+        "%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %{errors}"
       ],
       "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
         "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -447,7 +447,7 @@
         "テーラリングファイルの一覧表示"
       ],
       "Loading...": [
-        "ロード中..."
+        "読み込み中..."
       ],
       "Locations": [
         "ロケーション"
@@ -615,7 +615,7 @@
         "理解するために読んでください。"
       ],
       "Please specify import type, received: %{received}, expected one of: %{expected}": [
-        "インポートタイプを指定してください。受信: %%{received}、次のうち 1 つを想定: %%{expected}"
+        "インポートタイプを指定してください。受信: %{received}、次のうちの 1 つが必要です: %{expected}"
       ],
       "Policies": [
         "ポリシー"
@@ -666,7 +666,7 @@
         "id が %s のポリシーが見つかりません"
       ],
       "Profile": [
-        "profile"
+        "プロファイル"
       ],
       "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection.": [
         "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
@@ -720,7 +720,7 @@
         "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "必要とされる %%{msg_name} %%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
+        "必要とされる %{msg_name} %{class} が見つかりませんでした。先にインポートされていることを確認してください。"
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
         "%s Puppet クラスが必要です。ホストまたは選択したホストグループに、そのクラスが割り当てられます。"
@@ -735,7 +735,7 @@
         "結果"
       ],
       "Review hosts": [
-        "ホストの確認"
+        "ホストのプレビュー"
       ],
       "Review remediation": [
         "修復の確認"
@@ -873,7 +873,7 @@
         "Foreman からの OpenScap の概要レポート"
       ],
       "Summary report from Foreman server at %{foreman_url}": [
-        "%%{foreman_url} にある Foreman サーバーからの概要レポート"
+        "%{foreman_url} にある Foreman サーバーからの概要レポート"
       ],
       "Tailoring File": [
         "テーラリングファイル"
@@ -897,7 +897,7 @@
         "Security Content Automation Protocol (SCAP) は、ソフトウェアの不具合およびセキュリティーに関連する設定の問題を列挙するために使用される\\n        数多くのオープンスタンダードの組み合わせです。 "
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "以下の %%{key_name} が %%{item_name}: %%{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
+        "%{item_name} には、以下の %{key_name} がありませんでした: %{key_names}。続行前にインポートされていることを確認してください。"
       ],
       "The identifier of the host": [
         "ホストの ID"
@@ -945,10 +945,10 @@
         "アップロードの種類"
       ],
       "Unable to get HTML version of requested report from Smart Proxy": [
-        "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
+        "要求されたレポートの HTML バージョンを Smart Proxy から取得できません"
       ],
       "Unable to get XML version of requested report from Smart Proxy": [
-        "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
+        "要求されたレポートの XML バージョンを Smart Proxy から取得できません"
       ],
       "Unassign Compliance Policy": [
         "コンプライアンスポリシーの割り当て解除"
