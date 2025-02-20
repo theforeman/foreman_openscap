@@ -7,7 +7,7 @@
 # Kazuki Omo <kazuki.omo@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 10.1.0\n"
+"Project-Id-Version: foreman_openscap 10.2.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>, 2016\n"
@@ -96,7 +96,7 @@ msgid "By default, remediation is applied to the current host. Optionally, remed
 msgstr "修復はデフォルトで現在のホストに適用されます。必要に応じて、ルールに違反する他のホストを修復してください。"
 
 msgid "Can't find %{packages} RPM(s), are you sure it is installed on your server?"
-msgstr ""
+msgstr "%{packages} RPM が見つかりません。この RPM がサーバーにインストールされていますか?"
 
 msgid "Cancel"
 msgstr "取り消し"
@@ -180,7 +180,7 @@ msgid "Could not validate %s. Please make sure you have appropriate proxy versio
 msgstr "%s を検証できませんでした。この機能を使用するための適切なプロキシーバージョンがあることを確認してください。"
 
 msgid "Could not validate %{file_type}. Error %{error}"
-msgstr "％%{file_type} を検証できませんでした。エラー: ％%{error}"
+msgstr "%{file_type} を検証できませんでした。エラー: %{error}"
 
 msgid "Create SCAP content"
 msgstr "SCAP コンテンツの作成"
@@ -324,7 +324,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "プロキシーからスプールステータスを取得できませんでした"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "%%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %%{errors}"
+msgstr "%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -459,7 +459,7 @@ msgid "List Tailoring files"
 msgstr "テーラリングファイルの一覧表示"
 
 msgid "Loading..."
-msgstr "ロード中..."
+msgstr "読み込み中..."
 
 msgid "Locations"
 msgstr "ロケーション"
@@ -629,7 +629,7 @@ msgid "Please make sure you understand them by reading our"
 msgstr "理解するために読んでください。"
 
 msgid "Please specify import type, received: %{received}, expected one of: %{expected}"
-msgstr "インポートタイプを指定してください。受信: %%{received}、次のうち 1 つを想定: %%{expected}"
+msgstr "インポートタイプを指定してください。受信: %{received}、次のうちの 1 つが必要です: %{expected}"
 
 msgid "Policies"
 msgstr "ポリシー"
@@ -680,7 +680,7 @@ msgid "Policy with id %s not found."
 msgstr "id が %s のポリシーが見つかりません"
 
 msgid "Profile"
-msgstr "profile"
+msgstr "プロファイル"
 
 msgid "Proxy failed to send a report from spool to Foreman. This indicates a corrupted report format. Report has been moved to directory for storing corrupted files on proxy for later inspection."
 msgstr "プロキシーは、スプールから Foreman へのレポートの送信に失敗しました。これは、レポート形式が破損していることを示しています。レポートは、後で検査できるようプロキシーの破損ファイルを保存するディレクトリーに移動しました。"
@@ -734,7 +734,7 @@ msgid "Request timed out. Please try increasing Settings -> proxy_request_timeou
 msgstr "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
 
 msgid "Required %{msg_name} %{class} was not found, please ensure it is imported first."
-msgstr "必要とされる %%{msg_name} %%{class} が見つかりませんでした。最初にインポートされていることを確認してください。"
+msgstr "必要とされる %{msg_name} %{class} が見つかりませんでした。先にインポートされていることを確認してください。"
 
 msgid "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups."
 msgstr "%s Puppet クラスが必要です。ホストまたは選択したホストグループに、そのクラスが割り当てられます。"
@@ -749,7 +749,7 @@ msgid "Result"
 msgstr "結果"
 
 msgid "Review hosts"
-msgstr "ホストの確認"
+msgstr "ホストのプレビュー"
 
 msgid "Review remediation"
 msgstr "修復の確認"
@@ -887,7 +887,7 @@ msgid "Summary report for OpenScap from Foreman"
 msgstr "Foreman からの OpenScap の概要レポート"
 
 msgid "Summary report from Foreman server at %{foreman_url}"
-msgstr "%%{foreman_url} にある Foreman サーバーからの概要レポート"
+msgstr "%{foreman_url} にある Foreman サーバーからの概要レポート"
 
 msgid "Tailoring File"
 msgstr "テーラリングファイル"
@@ -915,7 +915,7 @@ msgstr ""
 "        数多くのオープンスタンダードの組み合わせです。 "
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
-msgstr "以下の %%{key_name} が %%{item_name}: %%{key_names} にありませんでした。続行前にインポートされていることを確認してください。"
+msgstr "%{item_name} には、以下の %{key_name} がありませんでした: %{key_names}。続行前にインポートされていることを確認してください。"
 
 msgid "The identifier of the host"
 msgstr "ホストの ID"
@@ -964,10 +964,10 @@ msgid "Type of the upload"
 msgstr "アップロードの種類"
 
 msgid "Unable to get HTML version of requested report from Smart Proxy"
-msgstr "要求されたレポートの HTML バージョンをスマートプロキシーから取得できません"
+msgstr "要求されたレポートの HTML バージョンを Smart Proxy から取得できません"
 
 msgid "Unable to get XML version of requested report from Smart Proxy"
-msgstr "要求されたレポートの XML バージョンをスマートプロキシーから取得できません"
+msgstr "要求されたレポートの XML バージョンを Smart Proxy から取得できません"
 
 msgid "Unassign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て解除"

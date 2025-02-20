@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.1.0",
+        "Project-Id-Version": "foreman_openscap 10.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
@@ -93,7 +93,7 @@
         "默认情况下，补救会应用到当前主机。（可选）修复任何规则失败的额外主机。"
       ],
       "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
-        ""
+        "无法找到 %{packages} RPM，您确定是否已安装在服务器上？"
       ],
       "Cancel": [
         "取消"
@@ -309,7 +309,7 @@
         "刪除 %s 合规报告失败"
       ],
       "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
-        "无法删除主机 %%{host_name} 在 %%{reported_at} 报告的 ARF 报告"
+        "无法删除主机 %{host_name} 在 %{reported_at} 报告的 ARF 报告"
       ],
       "Failed to downloaded ARF report as bzip: %s": [
         "无法将 ARF 报告下载为 bzip：%s"
@@ -615,7 +615,7 @@
         "请通过阅读我们的手册确保您了解它们"
       ],
       "Please specify import type, received: %{received}, expected one of: %{expected}": [
-        "请指定导入类型，已收到：％%{received}，预期为％%{expected} 中的一个"
+        "请指定导入类型，已收到：%{received}，预期为%{expected} 中的一个"
       ],
       "Policies": [
         "策略"
@@ -720,7 +720,7 @@
         "请求超时。请尝试增加 Settings -> proxy_request_timeout"
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "没有找到所需的％%{msg_name}%%{class}，请确认它已被导入。"
+        "没有找到所需的%{msg_name}%{class}，请确认它已被导入。"
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
         "需要 %s Puppet 类。这会将类分配给主机或所选主机组。"
@@ -897,7 +897,7 @@
         "安全内容自动化协议（SCAP）是由一系列用来枚举与安全性有关的软件漏洞和\\n        配置问题的开源标准。"
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "％%{item_name} 缺少以下 ％%{key_name}：％%{key_names}。在继续操作之前，请确保已将其导入。"
+        "%{item_name} 缺少以下 %{key_name}：%{key_names}。在继续操作之前，请确保已将其导入。"
       ],
       "The identifier of the host": [
         "主机 ID"

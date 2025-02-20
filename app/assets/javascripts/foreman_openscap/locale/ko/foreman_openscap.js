@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.1.0",
+        "Project-Id-Version": "foreman_openscap 10.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
-        "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
+        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
         "Language-Team": "Korean (http://app.transifex.com/foreman/foreman/language/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -87,16 +87,16 @@
         "컴플라이언스 정책 할당"
       ],
       "Back": [
-        "뒤로(_B)"
+        "뒤로 "
       ],
       "By default, remediation is applied to the current host. Optionally, remediate any additional hosts that fail the rule.": [
         "기본적으로 수정은 현재 호스트에 적용됩니다. 선택적으로 규칙에 실패한 추가 호스트를 수정합니다."
       ],
       "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
-        ""
+        "%{packages} RPM을 찾을 수 없습니다. 확실히 서버에 설치되어 있습니까?"
       ],
       "Cancel": [
-        "취소"
+        "취소 "
       ],
       "Cannot generate HTML guide, no valid OpenSCAP proxy server found.": [
         "HTML 가이드를 생성할 수 없습니다. 유효한 OpenSCAP 프록시 서버를 찾을 수 없습니다."
@@ -165,7 +165,7 @@
         "확인"
       ],
       "Content": [
-        "콘텐츠"
+        "컨텐츠"
       ],
       "Copy to clipboard": [
         "클립보드에 복사"
@@ -198,13 +198,13 @@
         "DataStream 테일러링 파일"
       ],
       "Date": [
-        "날짜"
+        "날짜 "
       ],
       "Default XCCDF profile": [
         "기본 XCCDF 프로파일"
       ],
       "Delete": [
-        "삭제"
+        "삭제 "
       ],
       "Delete a Policy": [
         "정책 삭제"
@@ -240,7 +240,7 @@
         "배포 옵션"
       ],
       "Description": [
-        "설명"
+        "설명 "
       ],
       "Details for Compliance Policy %s": [
         "컴플라이언스 정책에 대한 세부 정보 %s"
@@ -294,7 +294,7 @@
         "다양한 파일을 업로드할 것으로 예상했지만 다음과 같은 결과가 나왔습니다: %s"
       ],
       "Failed": [
-        "실패"
+        "실패 "
       ],
       "Failed and Othered": [
         "실패함 및 제외됨"
@@ -345,7 +345,7 @@
         "일반"
       ],
       "Host": [
-        "호스트"
+        "호스트 "
       ],
       "Host Breakdown Chart": [
         "호스트 분류 차트"
@@ -375,7 +375,7 @@
         "호스트 그룹 "
       ],
       "Hostname": [
-        "호스트 이름 "
+        "호스트 이름"
       ],
       "Hosts Breakdown": [
         "호스트 분류"
@@ -447,7 +447,7 @@
         "맞춤형 파일 목록"
       ],
       "Loading...": [
-        "읽어들이는 중..."
+        "로딩..."
       ],
       "Locations": [
         "위치"
@@ -456,7 +456,7 @@
         "수동"
       ],
       "Message": [
-        "메시지"
+        "메세지 "
       ],
       "Method": [
         "방법"
@@ -486,7 +486,7 @@
         "다음"
       ],
       "No": [
-        "제공되지 않음"
+        "아니오  "
       ],
       "No ARF reports for this policy": [
         "이 정책에 대한 ARF 보고서가 없습니다."
@@ -513,7 +513,7 @@
         "컴플라이언트 보고서를 찾을 수 없습니다."
       ],
       "No hosts selected": [
-        "선택된 호스트가 없음 "
+        "선택된 호스트가 없음"
       ],
       "No hosts were found with that id, name or query filter": [
         "해당 ID, 이름 또는 쿼리 필터를 가진 호스트를 찾을 수 없습니다."
@@ -543,7 +543,7 @@
         "유효한 정책 ID가 제공되지 않았습니다."
       ],
       "None": [
-        "없음"
+        "없음 "
       ],
       "None found": [
         "찾을 수 없습니다."
@@ -582,13 +582,13 @@
         "Openscap 프록시"
       ],
       "Organizations": [
-        "조직 "
+        "조직"
       ],
       "Original file name of the XML file": [
         "XML 파일의 원래 파일 이름"
       ],
       "Other": [
-        "기타"
+        "기타 "
       ],
       "Other hosts failing this rule": [
         "이 규칙에 실패한 다른 호스트"
@@ -609,7 +609,7 @@
         "권한이 거부되었습니다"
       ],
       "Please Confirm": [
-        "확인해 주십시오 "
+        "확인해 주십시오"
       ],
       "Please make sure you understand them by reading our": [
         "문서를 읽은 후 이해했는지 "
@@ -720,7 +720,7 @@
         "요청 시간이 초과되었습니다. 설정 -> proxy_request_timeout을 늘려보세요."
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "필수의 %{msg_name} %{class}을/를 찾을 수 없습니다. 먼저 가져왔는지 확인하세요."
+        "필수의 %{msg_name} %{class} 을/를 찾을 수 없습니다. 먼저 가져왔는지 확인하세요."
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
         "%s Puppet 클래스가 필요합니다. 이는 클래스를 호스트 또는 선택된 호스트그룹에 할당합니다."
@@ -729,10 +729,10 @@
         "Ansible 플러그인이 필요합니다.%s Ansible 역할 및 변수. 이것은 호스트 또는 선택된 호스트 그룹에 역할을 할당합니다."
       ],
       "Resource": [
-        "자원"
+        "리소스"
       ],
       "Result": [
-        "결과"
+        "결과 "
       ],
       "Review hosts": [
         "호스트 미리보기"
@@ -786,7 +786,7 @@
         "스케줄 "
       ],
       "Select Action": [
-        "작업 선택 "
+        "작업 선택"
       ],
       "Select Compliance Policy": [
         "컴플라이언스 정책 선택"
@@ -795,7 +795,7 @@
         "OpenSCAP 프록시 선택"
       ],
       "Select all items in this page": [
-        "이 페이지에 있는 모든 항목을 선택 "
+        "이 페이지에 있는 모든 항목을 선택"
       ],
       "Select remediation method": [
         "개선 방법을 선택하세요"
@@ -804,7 +804,7 @@
         "스니펫 선택"
       ],
       "Severity": [
-        "심각도"
+        "중요도"
       ],
       "Show Guide": [
         "가이드 표시"
@@ -1014,7 +1014,7 @@
         "맞춤형 파일을 포함하는 XML"
       ],
       "Yes": [
-        "제공됨"
+        "예  "
       ],
       "You are not authorized to view the page. ": [
         "해당 페이지를 볼 권한이 없습니다. "
@@ -1032,7 +1032,7 @@
         "%s에 할당할 수 없습니다, 모든 할당된 정책은 동일한 방식으로 배포되어야 하며 할당된 각 정책에 대해 '배포 기준'을 선택하십시오."
       ],
       "documentation": [
-        "확인하십시오."
+        "문서"
       ],
       "does not come from selected tailoring file": [
         "선택된 맞춤형 파일에서 나오지 않습니다"
@@ -1053,7 +1053,7 @@
         "SCAP_RESULT에 포함되지 않습니다."
       ],
       "items selected. Uncheck to Clear": [
-        "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다 "
+        "항목이 선택되어 있습니다. 삭제하려면 선택 해제합니다"
       ],
       "must be between 1 and 31": [
         "1~31 사이여야 합니다."

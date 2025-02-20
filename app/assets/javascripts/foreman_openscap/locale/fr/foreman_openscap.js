@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.1.0",
+        "Project-Id-Version": "foreman_openscap 10.2.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016",
@@ -95,7 +95,7 @@
         "Par défaut, la correction est appliquée à l'hôte actuel. Vous pouvez éventuellement corriger tous les hôtes supplémentaires qui ne respectent pas la règle."
       ],
       "Can't find %{packages} RPM(s), are you sure it is installed on your server?": [
-        ""
+        "Je ne trouve pas%{packages} RPM(s), êtes-vous sûr qu'il est installé sur votre serveur ?"
       ],
       "Cancel": [
         "Annuler"
@@ -179,7 +179,7 @@
         "Impossible de valider %s. Veuillez vérifier que vous disposez de la bonne version du proxy pour utiliser cette fonctionnalité"
       ],
       "Could not validate %{file_type}. Error %{error}": [
-        "Impossible de valider %%{file_type}. Erreur %{error}"
+        "Impossible de valider %{file_type}. Erreur %{error}"
       ],
       "Create SCAP content": [
         "Créer un contenu SCAP"
@@ -311,7 +311,7 @@
         "Impossible de supprimer les rapports de conformité %s"
       ],
       "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}": [
-        "Échec de la suppression du rapport ARF pour l'hôte %%{host_name} signalé à %%{reported_at}"
+        "Échec de la suppression du rapport ARF pour l'hôte %{host_name} signalé à %{reported_at}"
       ],
       "Failed to downloaded ARF report as bzip: %s": [
         "N'a pas pu télécharger le rapport ARF sous format bzip : %s"
@@ -323,7 +323,7 @@
         "Impossible d'extraire le statut du spool du proxy"
       ],
       "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "Echec de la sauvegarde lors de l'écrasement des paramètres pour %%{config_tool}, cause : %{errors}"
+        "Echec de la sauvegarde lors de l'écrasement des paramètres pour %{config_tool}, cause : %{errors}"
       ],
       "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
         "Échec de chargement du rapport ARF, l'URL ou le nom de proxy OpenSCAP n'a pas été trouvé dans les paramètres lors du téléchargement pour %s et openscap_proxy manque sur l'hôte"
@@ -722,7 +722,7 @@
         "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "%%{msg_name} %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
+        "%{msg_name} %{class} requis non trouvé, veuillez vous assurer qu'il y a bien eu une importation pour commencer."
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
         "Requiert %s classe Puppet. Cela affectera la classe aux hôtes ou aux groupes d'hôtes sélectionnés."
@@ -863,7 +863,7 @@
         "Copié dans le presse-papiers"
       ],
       "Successfully deleted %s compliance reports": [
-        "Rapports de conformité %s supprimés"
+        "%s rapports de conformité supprimés"
       ],
       "Successfully deleted ARF report.": [
         "Rapport ARF supprimé."
@@ -875,7 +875,7 @@
         "Rapport de synthèse pour OpenScap depuis Foreman"
       ],
       "Summary report from Foreman server at %{foreman_url}": [
-        "Rapport récapitulatif de Foreman à %%{foreman_url}"
+        "Rapport de synthèse du serveur Foreman à %{foreman_url}"
       ],
       "Tailoring File": [
         "Fichier de personnalisation"
@@ -899,7 +899,7 @@
         "Le protocole SACP (Security Content Automation Protocol) combine un certain nombre de normes ouvertes permettant d'énumérer les défauts logiciels et les problèmes de\\n        configuration liés à la sécurité. "
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
-        "Les %%{key_name} suivants étaient manquants pour %%{item_name} : %%{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
+        "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
       ],
       "The identifier of the host": [
         "Identifiant de l’hôte"
