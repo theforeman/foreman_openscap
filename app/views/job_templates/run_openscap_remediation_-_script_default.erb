@@ -17,6 +17,9 @@ template_inputs:
   input_type: user
   required: false
 %>
+<% if @host.respond_to?(:image_mode_host?) && @host.image_mode_host? -%>
+bootc usr-overlay
+<% end -%>
 <%= input('command') %>
 <% if truthy?(input('reboot')) -%>
 echo "A reboot is required to finish the remediation. The system is going to reboot now."

@@ -22,6 +22,15 @@ require:
 ---
 - hosts: all
   tasks:
+<%= indent(4) { snippet('check_bootc_status') } %>
+    - name: Enable bootc overlay
+      shell:
+        cmd: 'bootc usr-overlay'
+      register: out
+      ignore_errors: true
+      when: is_bootc_host
+    - debug: var=out
+      when: is_bootc_host
 <%= indent(4) { input('tasks') } -%>
 <% if truthy?(input('reboot')) %>
     - name: Reboot the machine
