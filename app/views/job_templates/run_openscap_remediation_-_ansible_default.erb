@@ -31,6 +31,14 @@ require:
       when: is_bootc_host
     - debug: var=out
       when: is_bootc_host
+    - name: Set ansible_pkg_mgr to dnf for image mode hosts (Ansible 2.4 compatibility)
+      set_fact:
+        ansible_pkg_mgr: dnf
+      when: is_bootc_host
+    - name: Set pkg_mgr to dnf for image mode hosts
+      set_fact:
+        ansible_facts: "{{ ansible_facts | combine({'pkg_mgr': 'dnf'}) }}"
+      when: is_bootc_host
 <%= indent(4) { input('tasks') } -%>
 <% if truthy?(input('reboot')) %>
     - name: Reboot the machine
