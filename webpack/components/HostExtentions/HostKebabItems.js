@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { DropdownItem } from '@patternfly/react-core/deprecated';
+import { DropdownItem } from '@patternfly/react-core';
 import { SecurityIcon } from '@patternfly/react-icons';
 import { selectAPIResponse } from 'foremanReact/redux/API/APISelectors';
 import { useAPI } from 'foremanReact/common/hooks/API/APIHooks';
@@ -30,11 +30,14 @@ const HostKebabItems = () => {
       ouiaId="compliance-dropdown-item"
       key="compliance-report"
       icon={<SecurityIcon />}
-      href={compliancePath}
+      to={compliancePath}
       target="_blank"
-      rel="noreferrer"
       isAriaDisabled={isDisabled}
-      tooltip={isDisabled && __("There's no available report for this host")}
+      tooltipProps={
+        isDisabled
+          ? { content: __("There's no available report for this host") }
+          : undefined
+      }
     >
       {__('Compliance')}
     </DropdownItem>
