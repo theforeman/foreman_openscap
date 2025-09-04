@@ -37,5 +37,5 @@
 </table>
 <%= react_component 'OpenscapRemediationWizard',
                     { report_id: @arf_report.id,
-                      host: { name: @arf_report.host.name, id: @arf_report.host.id },
+                      host: { name: @arf_report.host&.name, id: @arf_report.host&.id },
                       supported_remediation_snippets: supported_remediation_snippets } %>
