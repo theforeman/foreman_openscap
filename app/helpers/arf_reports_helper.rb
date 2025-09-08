@@ -68,7 +68,7 @@ module ArfReportsHelper
       display_link_if_authorized(_('Hosts passing this rule'), hash_for_hosts_path(:search => "passes_xccdf_rule = #{log.source}")),
       display_link_if_authorized(_('Hosts othering this rule'), hash_for_hosts_path(:search => "others_xccdf_rule = #{log.source}")),
     ]
-    if log.result == 'fail' && log.message.fixes.present?
+    if log.report.host && log.result == 'fail' && log.message.fixes.present?
       buttons << link_to_function_if_authorized(_('Remediation'), "showRemediationWizard(#{log.id})", hash_for_show_log_arf_report_path(id: log.report.id))
     end
     action_buttons(buttons)
