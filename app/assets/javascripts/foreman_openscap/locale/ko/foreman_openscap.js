@@ -3,10 +3,10 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.2.0",
+        "Project-Id-Version": "foreman_openscap 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
-        "Last-Translator": "Ewoud Kohl van Wijngaarden <ewoud+transifex@kohlvanwijngaarden.nl>, 2025",
+        "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
         "Language-Team": "Korean (http://app.transifex.com/foreman/foreman/language/ko/)",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
@@ -898,6 +898,9 @@
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "다음은%{key_name}이/가 %{item_name}에 대해 누락되었습니다:%{key_names}. 계속하기 전에 반드시 가져왔는지 확인하세요."
+      ],
+      "The host was moved or deleted": [
+        ""
       ],
       "The identifier of the host": [
         "호스트의 식별자"

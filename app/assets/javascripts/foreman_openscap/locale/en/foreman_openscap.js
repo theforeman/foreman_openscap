@@ -3,19 +3,19 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 1.0.0",
+        "Project-Id-Version": "foreman_openscap 11.1.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2025-02-20 11:19+0100",
+        "PO-Revision-Date": "2023-05-16 14:11+0200",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "LANGUAGE <LL@li.org>",
-        "Language": "",
+        "Language-Team": "English",
+        "Language": "en",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Plural-Forms": "nplurals=INTEGER; plural=EXPRESSION;",
+        "Plural-Forms": "nplurals=; plural=;",
         "lang": "en",
         "domain": "foreman_openscap",
-        "plural_forms": "nplurals=INTEGER; plural=EXPRESSION;"
+        "plural_forms": "nplurals=; plural=;"
       },
       " for policy %s": [
         ""
@@ -898,6 +898,9 @@
         ""
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
+        ""
+      ],
+      "The host was moved or deleted": [
         ""
       ],
       "The identifier of the host": [

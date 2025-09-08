@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-20 11:19+0100\n"
-"PO-Revision-Date: 2025-02-20 11:19+0100\n"
+"POT-Creation-Date: 2025-09-08 13:17+0000\n"
+"PO-Revision-Date: 2025-09-08 13:17+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -477,7 +477,7 @@ msgstr ""
 #: ../app/helpers/compliance_hosts_helper.rb:37
 #: ../app/models/foreman_openscap/compliance_status.rb:8
 #: ../lib/foreman_openscap/engine.rb:132
-#: ../webpack/components/HostExtentions/HostKebabItems.js:39
+#: ../webpack/components/HostExtentions/HostKebabItems.js:42
 msgid "Compliance"
 msgstr ""
 
@@ -924,23 +924,28 @@ msgid "these Compliance reports"
 msgstr ""
 
 #: ../app/views/arf_reports/show.html.erb:14
-#: ../webpack/components/OpenscapRemediationWizard/Footer.js:40
-msgid "Back"
-msgstr ""
-
 #: ../app/views/arf_reports/show.html.erb:16
 msgid "Host details"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:17
-msgid "View full report"
+#: ../app/views/arf_reports/show.html.erb:16
+msgid "The host was moved or deleted"
 msgstr ""
 
 #: ../app/views/arf_reports/show.html.erb:18
+#: ../webpack/components/OpenscapRemediationWizard/Footer.js:40
+msgid "Back"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:21
+msgid "View full report"
+msgstr ""
+
+#: ../app/views/arf_reports/show.html.erb:22
 msgid "Download XML in bzip"
 msgstr ""
 
-#: ../app/views/arf_reports/show.html.erb:19
+#: ../app/views/arf_reports/show.html.erb:23
 msgid "Download HTML"
 msgstr ""
 
@@ -1420,12 +1425,12 @@ msgstr ""
 msgid "Confirm"
 msgstr ""
 
-#: ../webpack/components/HostExtentions/HostKebabItems.js:37
+#: ../webpack/components/HostExtentions/HostKebabItems.js:38
 msgid "There's no available report for this host"
 msgstr ""
 
 #: ../webpack/components/OpenscapRemediationWizard/Footer.js:30
-#: ../webpack/components/OpenscapRemediationWizard/index.js:94
+#: ../webpack/components/OpenscapRemediationWizard/index.js:95
 msgid "Run"
 msgstr ""
 
@@ -1452,7 +1457,7 @@ msgstr ""
 msgid "Done"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/index.js:132
+#: ../webpack/components/OpenscapRemediationWizard/index.js:133
 msgid "Remediate %s rule"
 msgstr ""
 

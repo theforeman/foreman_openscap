@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 10.2.0",
+        "Project-Id-Version": "foreman_openscap 11.1.0",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
@@ -898,6 +898,9 @@
       ],
       "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding.": [
         "%{item_name} には、以下の %{key_name} がありませんでした: %{key_names}。続行前にインポートされていることを確認してください。"
+      ],
+      "The host was moved or deleted": [
+        ""
       ],
       "The identifier of the host": [
         "ホストの ID"

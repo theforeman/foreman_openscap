@@ -7,7 +7,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 10.2.0\n"
+"Project-Id-Version: foreman_openscap 11.1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
@@ -913,6 +913,9 @@ msgstr "En el Protocolo de Automatización del Contenido de Seguridad (SCAP, por
 
 msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Make sure they are imported before proceeding."
 msgstr "Faltan los siguientes %{key_name} para %{item_name}: %{key_names}. Asegúrese de que se importan antes de continuar."
+
+msgid "The host was moved or deleted"
+msgstr ""
 
 msgid "The identifier of the host"
 msgstr "El identificador del host"
