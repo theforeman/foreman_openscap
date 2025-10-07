@@ -900,7 +900,7 @@
         "%{item_name} 缺少以下 %{key_name}：%{key_names}。在继续操作之前，请确保已将其导入。"
       ],
       "The host was moved or deleted": [
-        ""
+        "主机被移动或删除"
       ],
       "The identifier of the host": [
         "主机 ID"

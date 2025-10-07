@@ -900,7 +900,7 @@
         "다음은%{key_name}이/가 %{item_name}에 대해 누락되었습니다:%{key_names}. 계속하기 전에 반드시 가져왔는지 확인하세요."
       ],
       "The host was moved or deleted": [
-        ""
+        "호스트가 이동되었거나 삭제되었습니다."
       ],
       "The identifier of the host": [
         "호스트의 식별자"

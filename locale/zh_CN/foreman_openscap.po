@@ -917,7 +917,7 @@ msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Ma
 msgstr "%{item_name} 缺少以下 %{key_name}：%{key_names}。在继续操作之前，请确保已将其导入。"
 
 msgid "The host was moved or deleted"
-msgstr ""
+msgstr "主机被移动或删除"
 
 msgid "The identifier of the host"
 msgstr "主机 ID"

@@ -902,7 +902,7 @@
         "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
       ],
       "The host was moved or deleted": [
-        ""
+        "L'hôte a été déplacé ou supprimé"
       ],
       "The identifier of the host": [
         "Identifiant de l’hôte"

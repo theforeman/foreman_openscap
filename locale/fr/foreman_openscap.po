@@ -921,7 +921,7 @@ msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Ma
 msgstr "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
 
 msgid "The host was moved or deleted"
-msgstr ""
+msgstr "L'hôte a été déplacé ou supprimé"
 
 msgid "The identifier of the host"
 msgstr "Identifiant de l’hôte"
