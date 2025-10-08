@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-08 13:17+0000\n"
-"PO-Revision-Date: 2025-09-08 13:17+0000\n"
+"POT-Creation-Date: 2025-10-08 11:04+0000\n"
+"PO-Revision-Date: 2025-10-08 11:04+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -239,39 +239,39 @@ msgstr ""
 msgid "Deletes a Tailoring file"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:43
+#: ../app/controllers/arf_reports_controller.rb:42
 msgid "Failed to downloaded ARF report as bzip: %s"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:54
+#: ../app/controllers/arf_reports_controller.rb:53
 msgid "Failed to downloaded ARF report in HTML: %s"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:61
+#: ../app/controllers/arf_reports_controller.rb:60
 msgid "Successfully deleted ARF report."
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:63
+#: ../app/controllers/arf_reports_controller.rb:62
 msgid "Failed to delete ARF Report for host %{host_name} reported at %{reported_at}"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:73
+#: ../app/controllers/arf_reports_controller.rb:72
 msgid "Failed to delete %s compliance reports"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:76
+#: ../app/controllers/arf_reports_controller.rb:75
 msgid "Successfully deleted %s compliance reports"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:112
+#: ../app/controllers/arf_reports_controller.rb:111
 msgid "No compliance reports were found."
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:116
+#: ../app/controllers/arf_reports_controller.rb:115
 msgid "No compliance reports selected"
 msgstr ""
 
-#: ../app/controllers/arf_reports_controller.rb:121
+#: ../app/controllers/arf_reports_controller.rb:120
 msgid "Something went wrong while selecting compliance reports - %s"
 msgstr ""
 
