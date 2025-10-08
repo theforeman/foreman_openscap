@@ -7,7 +7,7 @@
 # Kazuki Omo <kazuki.omo@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 11.1.0\n"
+"Project-Id-Version: foreman_openscap 12.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>, 2016\n"
@@ -918,7 +918,7 @@ msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Ma
 msgstr "%{item_name} には、以下の %{key_name} がありませんでした: %{key_names}。続行前にインポートされていることを確認してください。"
 
 msgid "The host was moved or deleted"
-msgstr ""
+msgstr "ホストが移動または削除されました"
 
 msgid "The identifier of the host"
 msgstr "ホストの ID"
@@ -942,7 +942,7 @@ msgid "This leaves the setup of the foreman_scap_client solely on the user. The 
 msgstr "これにより、foreman_scap_client のセットアップはユーザーにのみ残ります。受信 ARF レポートをリンクするには、ポリシーを定義する必要があります。"
 
 msgid "This profile will be used to override the one from scap content"
-msgstr "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
+msgstr "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
 
 msgid "Title"
 msgstr "タイトル"
