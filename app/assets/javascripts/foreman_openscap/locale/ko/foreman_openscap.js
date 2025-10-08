@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 11.1.0",
+        "Project-Id-Version": "foreman_openscap 11.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
@@ -900,7 +900,7 @@
         "다음은%{key_name}이/가 %{item_name}에 대해 누락되었습니다:%{key_names}. 계속하기 전에 반드시 가져왔는지 확인하세요."
       ],
       "The host was moved or deleted": [
-        ""
+        "호스트가 이동되었거나 삭제되었습니다."
       ],
       "The identifier of the host": [
         "호스트의 식별자"

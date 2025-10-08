@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 11.1.0",
+        "Project-Id-Version": "foreman_openscap 11.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016",
@@ -902,7 +902,7 @@
         "Les %{key_name} suivants étaient manquants pour %{item_name} : %{key_names}. Assurez-vous qu'ils aient bien été importés avant de poursuivre."
       ],
       "The host was moved or deleted": [
-        ""
+        "L'hôte a été déplacé ou supprimé"
       ],
       "The identifier of the host": [
         "Identifiant de l’hôte"

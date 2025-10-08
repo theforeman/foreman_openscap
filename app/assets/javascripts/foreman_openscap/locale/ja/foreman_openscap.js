@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 11.1.0",
+        "Project-Id-Version": "foreman_openscap 11.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
@@ -900,7 +900,7 @@
         "%{item_name} には、以下の %{key_name} がありませんでした: %{key_names}。続行前にインポートされていることを確認してください。"
       ],
       "The host was moved or deleted": [
-        ""
+        "ホストが移動または削除されました"
       ],
       "The identifier of the host": [
         "ホストの ID"
@@ -924,7 +924,7 @@
         "これにより、foreman_scap_client のセットアップはユーザーにのみ残ります。受信 ARF レポートをリンクするには、ポリシーを定義する必要があります。"
       ],
       "This profile will be used to override the one from scap content": [
-        "このプロファイルは scrap コンテンツからのものを上書きするために使用されます"
+        "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
       ],
       "Title": [
         "タイトル"
