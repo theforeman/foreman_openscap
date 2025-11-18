@@ -447,17 +447,32 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     get :index, :params => { :order => "compliance_failed DESC" }, :session => set_session_user
     assert_response :success
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_equal 7, response['results'].first['failed']
+    assert_equal [7, 1, 0, 0], response['results'].map { |r| r['failed'] }
+
+    get :index, :params => { :order => "compliance_failed ASC" }, :session => set_session_user
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal [0, 0, 1, 7], response['results'].map { |r| r['failed'] }
 
     get :index, :params => { :order => "compliance_passed DESC" }, :session => set_session_user
     assert_response :success
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_equal 15, response['results'].first['passed']
+    assert_equal [15, 4, 2, 1], response['results'].map { |r| r['passed'] }
+
+    get :index, :params => { :order => "compliance_passed ASC" }, :session => set_session_user
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal [1, 2, 4, 15], response['results'].map { |r| r['passed'] }
 
     get :index, :params => { :order => "compliance_othered DESC" }, :session => set_session_user
     assert_response :success
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_equal 9, response['results'].first['othered']
+    assert_equal [9, 3, 0, 0], response['results'].map { |r| r['othered'] }
+
+    get :index, :params => { :order => "compliance_othered ASC" }, :session => set_session_user
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_equal [0, 0, 3, 9], response['results'].map { |r| r['othered'] }
   end
 
   private
