@@ -3,19 +3,19 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.0",
+        "Project-Id-Version": "foreman_openscap 12.0.1",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2023-05-16 14:11+0200",
+        "PO-Revision-Date": "2026-02-10 13:04+0100",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
-        "Language-Team": "English",
-        "Language": "en",
+        "Language-Team": "LANGUAGE <LL@li.org>",
+        "Language": "",
         "MIME-Version": "1.0",
         "Content-Type": "text/plain; charset=UTF-8",
         "Content-Transfer-Encoding": "8bit",
-        "Plural-Forms": "nplurals=; plural=;",
+        "Plural-Forms": "nplurals=INTEGER; plural=EXPRESSION;",
         "lang": "en",
         "domain": "foreman_openscap",
-        "plural_forms": "nplurals=; plural=;"
+        "plural_forms": "nplurals=INTEGER; plural=EXPRESSION;"
       },
       " for policy %s": [
         ""

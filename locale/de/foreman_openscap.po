@@ -3,14 +3,14 @@
 # This file is distributed under the same license as the foreman_openscap package.
 #
 # Translators:
-# Crited <Alexander.Stoll@netways.de>, 2019
+# Alexander Stoll <Alexander.Stoll@netways.de>, 2019
 # Ettore Atalan <atalanttore@googlemail.com>, 2016-2017
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 # Ludwig B <lbayerlein@lbayerlein.de>, 2020
 # pdolinic, 2021
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.0\n"
+"Project-Id-Version: foreman_openscap 12.0.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: pdolinic, 2021\n"
