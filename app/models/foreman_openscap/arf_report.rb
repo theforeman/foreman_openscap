@@ -230,7 +230,7 @@ module ForemanOpenscap
     def self.fixes(raw_fixes)
       return if raw_fixes.empty?
 
-      JSON.fast_generate(raw_fixes)
+      JSON.generate(raw_fixes)
     end
 
     def self.update_msg_with_changes(msg, incoming_data)
