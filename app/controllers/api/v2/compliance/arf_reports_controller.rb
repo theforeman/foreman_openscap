@@ -49,8 +49,8 @@ module Api
         param :date, :identifier, :required => true
 
         def create
-          arf_report = ForemanOpenscap::ArfReport.create_arf(@asset, @smart_proxy, params.to_unsafe_h)
-          @asset.host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
+          arf_report = ForemanOpenscap::ArfReport.create_arf(@host, @smart_proxy, params.to_unsafe_h)
+          @host.refresh_statuses([HostStatus.find_status_by_humanized_name("compliance")])
           respond_for_report arf_report
         end
 
@@ -97,20 +97,20 @@ module Api
             return
           end
 
-          @asset = ForemanOpenscap::Helper::get_asset(params[:cname], policy_id)
+          @host = ForemanOpenscap::Helper::find_host_by_name_or_uuid(params[:cname])
 
-          unless @asset
+          unless @host
             upload_fail(_('Could not find host identified by: %s') % params[:cname])
             return
           end
 
-          if !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && !@asset.host.openscap_proxy
-            msg = _('Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy') % @asset.host.name
+          if !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && !@host.openscap_proxy
+            msg = _('Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy') % @host.name
             upload_fail(msg)
             return
-          elsif !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && @asset.host.openscap_proxy
-            logger.debug 'No proxy params found when uploading arf report, falling back to asset.host.openscap_proxy'
-            @smart_proxy = @asset.host.openscap_proxy
+          elsif !params[:openscap_proxy_url] && !params[:openscap_proxy_name] && @host.openscap_proxy
+            logger.debug 'No proxy params found when uploading arf report, falling back to host.openscap_proxy'
+            @smart_proxy = @host.openscap_proxy
           else
             @smart_proxy = SmartProxy.unscoped.find_by :name => params[:openscap_proxy_name]
             @smart_proxy ||= SmartProxy.unscoped.find_by :url => params[:openscap_proxy_url]
