@@ -65,8 +65,8 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
   test "should create report using proxy url" do
     reports_cleanup
     date = Time.new(1984, 9, 15)
-    host = ForemanOpenscap::Helper.stubs(:find_host_by_name_or_uuid).returns(@host)
-    host.stubs(:openscap_proxy).returns(nil)
+    ForemanOpenscap::Helper.stubs(:find_host_by_name_or_uuid).returns(@host)
+    @host.stubs(:openscap_proxy).returns(nil)
     post :create,
          :params => @from_json.merge(:cname => @cname,
                                      :policy_id => @policy.id,
@@ -76,7 +76,7 @@ class Api::V2::Compliance::ArfReportsControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create host asset and tie to policy when policy is from hostgroup" do
+  test "should not create host asset but tie report to hostgroup policy when policy is from hostgroup" do
     reports_cleanup
     policy = FactoryBot.create(:policy)
     hostgroup = FactoryBot.create(:hostgroup, :openscap_proxy => @proxy)
