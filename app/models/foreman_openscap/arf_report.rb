@@ -107,13 +107,13 @@ module ForemanOpenscap
       status.values.sum
     end
 
-    def self.create_arf(asset, proxy, params)
+    def self.create_arf(host, proxy, params)
       arf_report = nil
       policy = Policy.find_by :id => params[:policy_id]
       return unless policy
 
       ArfReport.transaction do
-        arf_report = ArfReport.create(:host => asset.host,
+        arf_report = ArfReport.create(:host => host,
                                       :reported_at => Time.at(params[:date].to_i),
                                       :status => params[:metrics],
                                       :metrics => params[:metrics],
@@ -230,7 +230,7 @@ module ForemanOpenscap
     def self.fixes(raw_fixes)
       return if raw_fixes.empty?
 
-      JSON.fast_generate(raw_fixes)
+      JSON.generate(raw_fixes)
     end
 
     def self.update_msg_with_changes(msg, incoming_data)
