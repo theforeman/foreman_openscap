@@ -18,9 +18,13 @@ class DropHostPolicyAssignmentsShadowingHostgroupPolicyAssignments < ActiveRecor
                 .where(asset: { assetable_type: 'Host::Base', assetable_id: host_subselect })
                 .where(policy_id: policy_ids)
       
-      scope.each do |asset_policy|
-        # Composite primary keys are supported in rails >=7.1, since we're on 7.0, raw SQL will have to do
-        ActiveRecord::Base.connection.execute("DELETE FROM foreman_openscap_asset_policies WHERE asset_id = #{asset_policy.asset_id} AND policy_id = #{asset_policy.policy_id}")
+      scope.pluck(:asset_id, :policy_id).each_slice(1000) do |asset_id_policy_id_pairs|
+        # Composite primary keys are supported in rails >=7.1, since we're on 7.0, raw SQL will have to do.
+        connection = ActiveRecord::Base.connection
+        tuples_sql = asset_id_policy_id_pairs.map { |asset_id, policy_id|
+          "(#{connection.quote(asset_id)}, #{connection.quote(policy_id)})"
+        }.join(', ')
+        connection.execute("DELETE FROM foreman_openscap_asset_policies WHERE (asset_id, policy_id) IN (#{tuples_sql})")
       end
     end
 
