@@ -34,6 +34,11 @@ class ArfReportsControllerTest < ActionController::TestCase
     arf_report = FactoryBot.create(:arf_report, :host_id => @host.id)
     report_html = File.read("#{ForemanOpenscap::Engine.root}/test/files/arf_report/arf_report.html")
     ForemanOpenscap::ArfReport.any_instance.stubs(:to_html).returns(report_html)
+    refute arf_report.asset.nil?
+    get :download_html, :params => { :id => arf_report.id }, :session => set_session_user
+    assert_equal report_html, @response.body
+
+    arf_report.asset.destroy
     get :download_html, :params => { :id => arf_report.id }, :session => set_session_user
     assert_equal report_html, @response.body
   end
