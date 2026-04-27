@@ -1,5 +1,7 @@
 source "http://rubygems.org"
 
-gem 'theforeman-rubocop', '~> 0.1.1', groups: %i[development rubocop]
-
 gemspec
+
+gem 'rake'
+gem 'rdoc'
+gem 'theforeman-rubocop', '~> 0.1.2', groups: %i[development rubocop]
