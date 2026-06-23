@@ -43,11 +43,11 @@ module ForemanOpenscap
     def relevant?(options = {})
       # May fail host status during migration
       return false unless ForemanOpenscap::Asset.table_exists?
-      host.policies.present?
+      host.combined_policies.present?
     end
 
     def to_status(options = {})
-      latest_reports = host.policies.map { |p| host.last_report_for_policy p }.flatten
+      latest_reports = host.combined_policies.flat_map { |p| host.last_report_for_policy p }
       return INCOMPLIANT if latest_reports.any?(&:failed?)
       return INCONCLUSIVE if latest_reports.any?(&:othered?)
       COMPLIANT
