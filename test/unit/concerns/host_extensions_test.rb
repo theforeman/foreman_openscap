@@ -162,6 +162,26 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_empty ForemanOpenscap::Asset.where(:assetable_id => host.id, :assetable_type => 'Host::Base')
   end
 
+  test 'compliance_status returns stored persisted status without recalculation' do
+    status = @host.get_status(ForemanOpenscap::ComplianceStatus)
+    status.status = ForemanOpenscap::ComplianceStatus::INCONCLUSIVE
+    status.reported_at = Time.current
+    status.save!
+    status.expects(:to_status).never
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, @host.compliance_status
+  end
+
+  test 'compliance_status_label returns label from stored persisted status without recalculation' do
+    status = @host.get_status(ForemanOpenscap::ComplianceStatus)
+    status.status = ForemanOpenscap::ComplianceStatus::INCOMPLIANT
+    status.reported_at = Time.current
+    status.save!
+    status.expects(:to_status).never
+
+    assert_equal 'Incompliant', @host.compliance_status_label
+  end
+
   private
 
   def setup_hosts_with_policy

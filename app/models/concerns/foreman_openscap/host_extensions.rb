@@ -129,12 +129,12 @@ module ForemanOpenscap
       report_scope
     end
 
-    def compliance_status(options = {})
-      @compliance_status ||= get_status(ForemanOpenscap::ComplianceStatus).to_status(options)
+    def compliance_status(_options = {})
+      @compliance_status ||= get_status(ForemanOpenscap::ComplianceStatus).status
     end
 
-    def compliance_status_label(options = {})
-      @compliance_status_label ||= get_status(ForemanOpenscap::ComplianceStatus).to_label(options)
+    def compliance_status_label(_options = {})
+      @compliance_status_label ||= get_status(ForemanOpenscap::ComplianceStatus).to_label
     end
 
     def openscap_proxy_in_taxonomy
