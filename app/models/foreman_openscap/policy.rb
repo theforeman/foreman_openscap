@@ -42,6 +42,7 @@ module ForemanOpenscap
     validate :valid_tailoring, :valid_tailoring_profile, :no_mixed_deployments
     validate :valid_cron_line, :valid_weekday, :valid_day_of_month, :if => Proc.new { |policy| policy.should_validate?('Schedule') }
     after_save :assign_policy_to_hostgroups
+    after_save :reset_changed_assignment_hosts_to_inconclusive
     # before_destroy - ensure that the policy has no hostgroups, or classes
 
     default_scope do
@@ -179,10 +180,14 @@ module ForemanOpenscap
         :assetable_type => 'Host::Base',
         :assetable_id => hosts.map(&:id),
         :foreman_openscap_asset_policies => { :policy_id => id }
-      ).pluck(:id)
+      ).pluck(:id, :assetable_id)
 
-      self.asset_ids = self.asset_ids - policy_host_assets
-      ForemanOpenscap::Asset.where(:id => policy_host_assets).destroy_all
+      asset_ids = policy_host_assets.map(&:first)
+      host_ids_to_reset = policy_host_assets.map(&:second)
+
+      self.asset_ids = self.asset_ids - asset_ids
+      ForemanOpenscap::Asset.where(:id => asset_ids).destroy_all
+      ForemanOpenscap::ComplianceStatusResetter.to_inconclusive(host_ids_to_reset)
     end
 
     def to_enc
@@ -251,12 +256,47 @@ module ForemanOpenscap
     end
 
     def assign_ids(ids, class_name)
+      before_host_ids = host_ids_reached_by_assignments(class_name)
       new_assets = ids.uniq.reject { |id| id.respond_to?(:empty?) && id.empty? }.reduce([]) do |memo, id|
         memo << assets.where(:assetable_type => class_name, :assetable_id => id).first_or_initialize
       end
       complimentary_class_name = class_name == 'Host::Base' ? 'Hostgroup' : 'Host::Base'
       existing_assets = self.assets.select { |assigned_asset| assigned_asset.assetable_type == complimentary_class_name }
       self.assets = existing_assets + new_assets
+      after_host_ids = host_ids_reached_by_assignments(class_name, self.assets)
+
+      return unless host_assignment_changed?(before_host_ids, after_host_ids)
+
+      remember_hosts_for_compliance_status_reset(before_host_ids + after_host_ids)
+    end
+
+    def host_ids_reached_by_assignments(class_name, assigned_assets = assets)
+      assetable_ids = assigned_assets.select { |asset| asset.assetable_type == class_name }.map { |asset| asset.assetable_id.to_i }
+
+      if class_name == 'Host::Base'
+        assetable_ids
+      else
+        hostgroup_ids = ::Hostgroup.where(:id => assetable_ids).flat_map(&:subtree_ids).uniq
+        ::Host.where(:hostgroup_id => hostgroup_ids).pluck(:id)
+      end
+    end
+
+    def remember_hosts_for_compliance_status_reset(host_ids)
+      @compliance_status_reset_host_ids ||= []
+      @compliance_status_reset_host_ids.concat(host_ids)
+    end
+
+    def host_assignment_changed?(before_host_ids, after_host_ids)
+      before_host_ids.to_set != after_host_ids.to_set
+    end
+
+    def reset_changed_assignment_hosts_to_inconclusive
+      host_ids = Array(@compliance_status_reset_host_ids).compact.uniq
+      return if host_ids.empty?
+
+      ForemanOpenscap::ComplianceStatusResetter.to_inconclusive(host_ids)
+    ensure
+      @compliance_status_reset_host_ids = nil
     end
 
     def no_mixed_deployments
