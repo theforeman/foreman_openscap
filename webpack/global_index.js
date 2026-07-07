@@ -9,10 +9,12 @@ import {
   BulkAssignPolicyModalScene,
   BulkUnassignPolicyModalScene,
 } from './components/BulkActions/compliancePolicy/BulkCompliancePolicyModalScene';
+import OpenscapCard from './components/HostDetails/OpenscapCard';
 
 const HOST_ASSOCIATIONS_WEIGHT = 1212;
 const BULK_MODAL_WEIGHT = 100;
 const BULK_POLICY_MODAL_WEIGHT = 200;
+const OPENSCAP_COMPLIANCE_CARD_WEIGHT = 2800;
 const OPENSCAP_KEBAB_WEIGHT = 400;
 
 addGlobalFill(
@@ -55,4 +57,11 @@ addGlobalFill(
   'unassign-compliance-policy-modal',
   <BulkUnassignPolicyModalScene key="bulk-unassign-policy-modal" />,
   BULK_POLICY_MODAL_WEIGHT
+);
+
+addGlobalFill(
+  'host-overview-cards',
+  'openscap-compliance-card',
+  <OpenscapCard key="openscap-compliance-card" />,
+  OPENSCAP_COMPLIANCE_CARD_WEIGHT
 );
