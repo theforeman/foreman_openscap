@@ -1,7 +1,5 @@
 import { translate as __ } from 'foremanReact/common/I18n';
 
-export const OPENSCAP_REMEDIATION_MODAL_ID = 'openscapRemediationModal';
-export const HOSTS_PATH = '/hosts';
 export const FAIL_RULE_SEARCH = 'fails_xccdf_rule';
 
 export const HOSTS_API_PATH = '/api/hosts';
@@ -24,3 +22,8 @@ export const WIZARD_TITLES = {
   reviewRemediation: __('Review remediation'),
   finish: __('Done'),
 };
+
+export const BULK_CHANGE_OPENSCAP_PROXY_KEY = 'BULK_CHANGE_OPENSCAP_PROXY';
+export const OPENSCAP_PROXIES_KEY = 'OPENSCAP_PROXIES_KEY';
+
+export const CHANGE_OPENSCAP_MODAL_ID = 'BULK_CHANGE_OPENSCAP_PROXY_MODAL';
