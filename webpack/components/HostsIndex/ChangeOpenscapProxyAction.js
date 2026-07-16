@@ -20,7 +20,7 @@ export const ChangeOpenscapProxyMenuItem = ({ selectedCount }) => {
       onClick={openModal}
       isDisabled={selectedCount === 0}
     >
-      {__('OpenSCAP Capsule')}
+      {__('OpenSCAP Proxy')}
     </MenuItem>
   );
 };

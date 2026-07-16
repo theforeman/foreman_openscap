@@ -8,13 +8,11 @@ import {
   GridItem,
   Form,
   FormGroup,
-  Select,
   Stack,
   StackItem,
-  SelectOption,
-  SelectList,
-  MenuToggle,
 } from '@patternfly/react-core';
+// eslint-disable-next-line import/no-unresolved
+import { SimpleDropdown } from '@patternfly/react-templates';
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { APIActions } from 'foremanReact/redux/API';
 import { sprintf, translate as __ } from 'foremanReact/common/I18n';
@@ -23,26 +21,13 @@ import {
   selectAPIStatus,
   selectAPIResponse,
 } from 'foremanReact/redux/API/APISelectors';
+import { buildBulkRequestBody } from 'foremanReact/components/HostsIndex/BulkActions/helpers';
 import {
   BULK_CHANGE_OPENSCAP_PROXY_KEY,
   HOSTS_API_PATH,
   HOSTS_API_REQUEST_KEY,
   OPENSCAP_PROXIES_KEY,
 } from '../../../OpenscapRemediationWizard/constants';
-
-const buildBulkRequestBody = ({
-  fetchBulkParams,
-  organizationId,
-  locationId,
-  ...params
-}) => ({
-  included: {
-    search: fetchBulkParams(),
-  },
-  ...(organizationId != null ? { organization_id: organizationId } : {}),
-  ...(locationId != null ? { location_id: locationId } : {}),
-  ...params,
-});
 
 const fetchOpenscapProxies = () =>
   APIActions.get({
@@ -63,7 +48,6 @@ const BulkChangeOpenscapProxyModal = ({
 }) => {
   const dispatch = useDispatch();
   const [proxyId, setProxyId] = useState('');
-  const [proxySelectOpen, setProxySelectOpen] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
@@ -81,25 +65,8 @@ const BulkChangeOpenscapProxyModal = ({
     selectAPIStatus(state, OPENSCAP_PROXIES_KEY)
   );
 
-  const getProxyLabel = id => {
-    const proxy = proxies?.results?.find(
-      p => p.id.toString() === id.toString()
-    );
-    return proxy?.name || id;
-  };
-
-  const handleProxySelect = (_event, selection) => {
-    setProxyId(selection);
-    setProxySelectOpen(false);
-  };
-
-  const handleToggleClick = () => {
-    setProxySelectOpen(!proxySelectOpen);
-  };
-
   const handleModalClose = () => {
     setProxyId('');
-    setProxySelectOpen(false);
     setIsSubmitting(false);
     closeModal();
   };
@@ -144,28 +111,38 @@ const BulkChangeOpenscapProxyModal = ({
 
   const descriptionText = selectAllHostsMode ? (
     <>
-      {__('Assign OpenSCAP capsule for ')}
-      <strong>{__('ALL selected hosts')}</strong>
+      {__('Assign OpenSCAP Proxy for ')}
+      <strong>{__('ALL selected hosts.')}</strong>
       <br />
-      {__(
-        '. This will change previous capsule assignments on the selected hosts.'
-      )}
+      {__('This will change previous proxy assignments on the selected hosts.')}
     </>
   ) : (
     <>
-      {__('Assign OpenSCAP capsule for ')}
+      {__('Assign OpenSCAP Proxy for ')}
       <strong>{sprintf(__('%s selected hosts.'), selectedCount)}</strong>
       <br />
-      {__(
-        'This will change previous capsule assignments on the selected hosts.'
-      )}
+      {__('This will change previous proxy assignments on the selected hosts.')}
     </>
   );
+
+  const getProxyLabel = id => {
+    const proxy = proxies?.results?.find(
+      p => p.id.toString() === id.toString()
+    );
+    return proxy?.name || id;
+  };
+
+  const proxyItems =
+    proxies?.results?.map(proxy => ({
+      value: proxy.id.toString(),
+      content: proxy.name,
+      onClick: () => setProxyId(proxy.id.toString()),
+    })) || [];
 
   const modalActions = [
     <Button
       key="confirm"
-      ouiaId="bulk-change-openscap-capsule-modal-confirm-button"
+      ouiaId="bulk-change-openscap-proxy-modal-confirm-button"
       variant="primary"
       onClick={handleConfirm}
       isDisabled={proxyId === '' || isSubmitting}
@@ -176,7 +153,7 @@ const BulkChangeOpenscapProxyModal = ({
     </Button>,
     <Button
       key="cancel"
-      ouiaId="bulk-change-openscap-capsule-modal-cancel-button"
+      ouiaId="bulk-change-openscap-proxy-modal-cancel-button"
       variant="link"
       onClick={handleModalClose}
       isDisabled={isSubmitting}
@@ -190,13 +167,13 @@ const BulkChangeOpenscapProxyModal = ({
       isOpen={isOpen}
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
-      title={__('Assign OpenSCAP Capsule')}
-      width={650}
+      title={__('Assign OpenSCAP Proxy')}
+      variant="small"
       position="top"
       actions={modalActions}
-      id="bulk-change-openscap-capsule-modal"
-      key="bulk-change-openscap-capsule-modal"
-      ouiaId="bulk-change-openscap-capsule-modal"
+      id="bulk-change-openscap-proxy-modal"
+      key="bulk-change-openscap-proxy-modal"
+      ouiaId="bulk-change-openscap-proxy-modal"
     >
       <Stack hasGutter>
         <StackItem>{descriptionText}</StackItem>
@@ -205,40 +182,17 @@ const BulkChangeOpenscapProxyModal = ({
             <Grid>
               <GridItem span={8}>
                 <Form>
-                  <FormGroup label={__('Select OpenSCAP Capsule')}>
-                    <Select
+                  <FormGroup label={__('Select OpenSCAP Proxy')}>
+                    <SimpleDropdown
                       id="openscap-proxy-select"
-                      isOpen={proxySelectOpen}
-                      selected={proxyId}
-                      onSelect={handleProxySelect}
-                      onOpenChange={isSelectOpen =>
-                        setProxySelectOpen(isSelectOpen)
+                      ouiaId="bulk-change-openscap-proxy-select"
+                      toggleContent={
+                        proxyId
+                          ? getProxyLabel(proxyId)
+                          : __('Select OpenSCAP Proxy')
                       }
-                      ouiaId="bulk-change-openscap-capsule-select"
-                      toggle={toggleRef => (
-                        <MenuToggle
-                          ref={toggleRef}
-                          onClick={handleToggleClick}
-                          isExpanded={proxySelectOpen}
-                          style={{ width: '100%' }}
-                        >
-                          {proxyId
-                            ? getProxyLabel(proxyId)
-                            : __('Select OpenSCAP Proxy')}
-                        </MenuToggle>
-                      )}
-                    >
-                      <SelectList>
-                        {proxies.results.map(proxy => (
-                          <SelectOption
-                            key={proxy.id}
-                            value={proxy.id.toString()}
-                          >
-                            {proxy.name}
-                          </SelectOption>
-                        ))}
-                      </SelectList>
-                    </Select>
+                      initialItems={proxyItems}
+                    />
                   </FormGroup>
                 </Form>
               </GridItem>

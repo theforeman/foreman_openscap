@@ -14,7 +14,7 @@ module ForemanOpenscap
           if openscap_proxy_id.blank?
             return render json: {
               error: {
-                message: _("No OpenSCAP Capsule selected."),
+                message: _("No OpenSCAP Proxy selected."),
               },
             }, status: :unprocessable_entity
           end
@@ -28,7 +28,7 @@ module ForemanOpenscap
           if smart_proxy.nil?
             return render json: {
               error: {
-                message: _("OpenSCAP Capsule with id %s not found") % openscap_proxy_id,
+                message: _("OpenSCAP proxy with id %s not found") % openscap_proxy_id,
               },
             }, status: :unprocessable_entity
           end
@@ -36,7 +36,7 @@ module ForemanOpenscap
           unless smart_proxy.has_feature?('Openscap')
             return render json: {
               error: {
-                message: _("The selected capsule does not have the OpenSCAP feature enabled."),
+                message: _("The selected proxy does not have the OpenSCAP feature enabled."),
               },
             }, status: :unprocessable_entity
           end
@@ -49,13 +49,13 @@ module ForemanOpenscap
 
           if failed_hosts.empty?
             process_response(true, {
-              message: _("OpenSCAP Capsule set to %s") % smart_proxy.name,
+              message: _("OpenSCAP Proxy set to %s") % smart_proxy.name,
             })
           else
             render_error(:bulk_hosts_error, status: :unprocessable_entity,
                          locals: {
-                           message: n_("Failed to assign OpenSCAP Capsule to %s host",
-                                       "Failed to assign OpenSCAP Capsule to %s hosts",
+                           message: n_("Failed to assign OpenSCAP Proxy to %s host",
+                                       "Failed to assign OpenSCAP Proxy to %s hosts",
                                        failed_hosts.count) % failed_hosts.count,
                            failed_host_ids: failed_hosts.map(&:id),
                          })
