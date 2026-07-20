@@ -95,4 +95,33 @@ class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
     @host2.reload
     assert_nil @host2.openscap_proxy_id
   end
+
+  test "should report failed and successful counts on partial failure" do
+    Host.any_instance.stubs(:save).returns(false).then.returns(true)
+
+    put :change_openscap_proxy,
+        params: valid_bulk_params.merge(:openscap_proxy_id => @proxy.id),
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Failed to assign OpenSCAP Proxy to 1 of 2 hosts/, response['error']['message'])
+    assert_match(/Successfully updated 1 host/, response['error']['message'])
+    assert_equal 1, response['error']['failed_host_ids'].size
+    assert_includes @host_ids, response['error']['failed_host_ids'].first
+  end
+
+  test "should report only failures when all hosts fail" do
+    Host.any_instance.stubs(:save).returns(false)
+
+    put :change_openscap_proxy,
+        params: valid_bulk_params.merge(:openscap_proxy_id => @proxy.id),
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Failed to assign OpenSCAP Proxy to 2 of 2 hosts/, response['error']['message'])
+    refute_match(/Successfully updated/, response['error']['message'])
+    assert_equal @host_ids.sort, response['error']['failed_host_ids'].sort
+  end
 end

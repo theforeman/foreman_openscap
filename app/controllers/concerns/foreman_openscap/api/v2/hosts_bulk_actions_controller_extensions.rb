@@ -52,11 +52,24 @@ module ForemanOpenscap
               message: _("OpenSCAP Proxy set to %s") % smart_proxy.name,
             })
           else
+            total_count = @hosts.count
+            failed_count = failed_hosts.count
+            success_count = total_count - failed_count
+
+            parts = [
+              n_("Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.",
+                 "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts.",
+                 total_count) % { failed: failed_count, total: total_count },
+            ]
+            if success_count > 0
+              parts << n_("Successfully updated %{success} host.",
+                          "Successfully updated %{success} hosts.",
+                          success_count) % { success: success_count }
+            end
+
             render_error(:bulk_hosts_error, status: :unprocessable_entity,
                          locals: {
-                           message: n_("Failed to assign OpenSCAP Proxy to %s host",
-                                       "Failed to assign OpenSCAP Proxy to %s hosts",
-                                       failed_hosts.count) % failed_hosts.count,
+                           message: parts.join(' '),
                            failed_host_ids: failed_hosts.map(&:id),
                          })
           end

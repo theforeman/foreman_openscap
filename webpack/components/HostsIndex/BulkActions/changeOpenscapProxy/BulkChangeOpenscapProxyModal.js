@@ -10,6 +10,7 @@ import {
   FormGroup,
   Stack,
   StackItem,
+  Skeleton,
 } from '@patternfly/react-core';
 // eslint-disable-next-line import/no-unresolved
 import { SimpleDropdown } from '@patternfly/react-templates';
@@ -204,6 +205,9 @@ const BulkChangeOpenscapProxyModal = ({
           __(
             'No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.'
           )}
+        {proxyStatus === STATUS.PENDING && (
+          <Skeleton screenreaderText="Loading contents" />
+        )}
       </Stack>
     </Modal>
   );
