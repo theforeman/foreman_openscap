@@ -8,6 +8,19 @@ module ForemanOpenscap
           before_action :find_editable_hosts, only: [:change_openscap_proxy]
         end
 
+        extend Apipie::DSL::Concern
+
+        api :PUT, "/hosts/bulk/change_openscap_proxy", N_("Assign OpenSCAP Proxy to multiple hosts")
+        param :included, Hash, :desc => N_("Hosts to include in the action"), :required => true, :action_aware => true do
+          param :search, String, :required => false, :desc => N_("Search string describing which hosts to perform the action on")
+          param :ids, Array, :required => false, :desc => N_("List of host ids to perform the action on")
+        end
+        param :excluded, Hash, :desc => N_("Hosts to explicitly exclude in the action."\
+                                           " All other hosts will be included in the action,"\
+                                           " unless an included parameter is passed as well."), :required => true, :action_aware => true do
+          param :ids, Array, :required => false, :desc => N_("List of host ids to exclude and not perform the action on")
+        end
+        param :openscap_proxy_id, :number, :required => true, :desc => N_("ID of the OpenSCAP Proxy to assign to the hosts")
         def change_openscap_proxy
           openscap_proxy_id = params[:openscap_proxy_id]
 
@@ -52,8 +65,8 @@ module ForemanOpenscap
               message: _("OpenSCAP Proxy set to %s") % smart_proxy.name,
             })
           else
-            total_count = @hosts.count
-            failed_count = failed_hosts.count
+            total_count = @hosts.size
+            failed_count = failed_hosts.size
             success_count = total_count - failed_count
 
             parts = [

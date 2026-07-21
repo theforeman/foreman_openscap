@@ -12,7 +12,6 @@ import {
   StackItem,
   Skeleton,
 } from '@patternfly/react-core';
-// eslint-disable-next-line import/no-unresolved
 import { SimpleDropdown } from '@patternfly/react-templates';
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { APIActions } from 'foremanReact/redux/API';
@@ -103,8 +102,7 @@ const BulkChangeOpenscapProxyModal = ({
         handleSuccess,
         successToast: response => response.data.message,
         handleError,
-        errorToast: error =>
-          error?.response?.data?.error?.message || __('Error'),
+        errorToast: error => error?.response?.data?.error?.message,
         params: requestBody,
       })
     );

@@ -17,8 +17,6 @@ import BulkChangeOpenscapProxyModalScene, {
 
 const { renderWithStore } = rtlHelpers;
 
-jest.mock('foremanReact/common/I18n');
-
 jest.spyOn(APIActions, 'get');
 jest.spyOn(APIActions, 'put');
 
