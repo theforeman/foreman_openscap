@@ -24,8 +24,6 @@ import {
 import { buildBulkRequestBody } from 'foremanReact/components/HostsIndex/BulkActions/helpers';
 import {
   BULK_CHANGE_OPENSCAP_PROXY_KEY,
-  HOSTS_API_PATH,
-  HOSTS_API_REQUEST_KEY,
   OPENSCAP_PROXIES_KEY,
 } from '../../../OpenscapRemediationWizard/constants';
 
@@ -45,6 +43,7 @@ const BulkChangeOpenscapProxyModal = ({
   fetchBulkParams,
   organizationId,
   locationId,
+  onSuccess: onSuccessCallback,
 }) => {
   const dispatch = useDispatch();
   const [proxyId, setProxyId] = useState('');
@@ -72,13 +71,8 @@ const BulkChangeOpenscapProxyModal = ({
   };
 
   const handleSuccess = () => {
-    dispatch(
-      APIActions.get({
-        key: HOSTS_API_REQUEST_KEY,
-        url: foremanUrl(HOSTS_API_PATH),
-      })
-    );
     handleModalClose();
+    if (onSuccessCallback) onSuccessCallback();
   };
 
   const handleError = () => {
@@ -219,6 +213,7 @@ BulkChangeOpenscapProxyModal.propTypes = {
   selectAllHostsMode: PropTypes.bool.isRequired,
   organizationId: PropTypes.number,
   locationId: PropTypes.number,
+  onSuccess: PropTypes.func,
 };
 
 BulkChangeOpenscapProxyModal.defaultProps = {
@@ -226,6 +221,7 @@ BulkChangeOpenscapProxyModal.defaultProps = {
   closeModal: () => {},
   organizationId: undefined,
   locationId: undefined,
+  onSuccess: undefined,
 };
 
 export default BulkChangeOpenscapProxyModal;

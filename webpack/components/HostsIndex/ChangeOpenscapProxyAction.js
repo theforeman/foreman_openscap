@@ -40,6 +40,7 @@ const BulkChangeOpenscapProxyModalScene = () => {
     fetchBulkParams,
     organizationId,
     locationId,
+    refreshTableData,
   } = useContext(ForemanActionsBarContext) || {};
 
   const { isOpen, close: closeModal } = useBulkModalOpen(
@@ -56,6 +57,7 @@ const BulkChangeOpenscapProxyModalScene = () => {
       locationId={locationId}
       isOpen={isOpen}
       closeModal={closeModal}
+      onSuccess={refreshTableData}
     />
   );
 };

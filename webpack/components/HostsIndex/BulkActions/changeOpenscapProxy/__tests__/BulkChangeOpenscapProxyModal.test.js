@@ -1,5 +1,11 @@
 import React from 'react';
-import { screen, fireEvent, waitFor, within } from '@testing-library/react';
+import {
+  screen,
+  fireEvent,
+  waitFor,
+  within,
+  act,
+} from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { rtlHelpers, initMockStore } from 'foremanReact/common/testHelpers';
 import { STATUS } from 'foremanReact/constants';
@@ -135,6 +141,38 @@ describe('BulkChangeOpenscapProxyModal', () => {
         }),
       })
     );
+  });
+
+  it('calls onSuccess and closeModal after a successful bulk PUT', async () => {
+    const onSuccess = jest.fn();
+    const closeModal = jest.fn();
+    renderModal({ onSuccess, closeModal });
+
+    fireEvent.click(
+      screen.getByRole('button', { name: 'Select OpenSCAP Proxy' })
+    );
+
+    const menu = await screen.findByRole('menu');
+    fireEvent.click(
+      within(menu).getByRole('menuitem', {
+        name: 'openscap-proxy-1.example.com',
+      })
+    );
+
+    const assignBtn = screen.getByRole('button', { name: 'Assign' });
+    await waitFor(() => {
+      expect(assignBtn).not.toBeDisabled();
+    });
+
+    fireEvent.click(assignBtn);
+
+    const { handleSuccess } = APIActions.put.mock.calls[0][0];
+    act(() => {
+      handleSuccess();
+    });
+
+    expect(onSuccess).toHaveBeenCalled();
+    expect(closeModal).toHaveBeenCalled();
   });
 
   it('calls closeModal on Cancel', () => {
