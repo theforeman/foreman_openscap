@@ -1,6 +1,8 @@
 require 'test_plugin_helper'
 
-class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
+class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::TestCase
+  tests Api::V2::Compliance::HostsBulkActionsController
+
   def setup
     as_admin do
       @organization = FactoryBot.create(:organization)
@@ -38,7 +40,7 @@ class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
 
     assert_response :success
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_match(/OpenSCAP Proxy set to/, response['message'])
+    assert_match(/Updated hosts: OpenSCAP Proxy is set to/, response['message'])
     assert_includes response['message'], @proxy.name
 
     [@host1, @host2].each do |host|
@@ -64,7 +66,7 @@ class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
 
     assert_response :unprocessable_entity
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_match(/not found/, response['error']['message'])
+    assert_match(/OpenSCAP Proxy with id .* not found/, response['error']['message'])
   end
 
   test "should return error when proxy lacks Openscap feature" do
@@ -81,7 +83,7 @@ class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
 
     assert_response :unprocessable_entity
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_match(/OpenSCAP feature/, response['error']['message'])
+    assert_match(/OpenSCAP Proxy does not have the OpenSCAP feature/, response['error']['message'])
   end
 
   test "should assign openscap proxy for a single host" do
@@ -90,6 +92,9 @@ class Api::V2::HostsBulkActionsControllerTest < ActionController::TestCase
         session: set_session_user
 
     assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Updated host: OpenSCAP Proxy is set to/, response['message'])
+
     @host1.reload
     assert_equal @proxy.id, @host1.openscap_proxy_id
     @host2.reload

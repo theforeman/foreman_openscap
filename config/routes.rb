@@ -104,7 +104,7 @@ Rails.application.routes.draw do
         end
       end
 
-      match 'hosts/bulk/change_openscap_proxy', :to => 'hosts_bulk_actions#change_openscap_proxy', :via => [:put]
+      match 'hosts/bulk/change_openscap_proxy', :to => 'compliance/hosts_bulk_actions#change_openscap_proxy', :via => [:put]
     end
   end
 end
