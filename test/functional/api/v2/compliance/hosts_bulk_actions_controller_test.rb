@@ -56,7 +56,7 @@ class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::Te
 
     assert_response :unprocessable_entity
     response = ActiveSupport::JSON.decode(@response.body)
-    assert_match(/No OpenSCAP Proxy selected/, response['error']['message'])
+    assert_match(/openscap_proxy_id/, response['error']['message'])
   end
 
   test "should return error when proxy is not found" do
