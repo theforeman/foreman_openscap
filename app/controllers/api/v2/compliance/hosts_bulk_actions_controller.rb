@@ -1,7 +1,6 @@
 module Api::V2
   module Compliance
     class HostsBulkActionsController < ::Api::V2::BaseController
-      include Api::Version2
       include Api::V2::BulkHostsExtension
 
       rescue_from ActionController::ParameterMissing do |exception|
