@@ -16,6 +16,8 @@ import {
   EmptyStateHeader,
   EmptyStateIcon,
   EmptyStateBody,
+  Flex,
+  FlexItem,
 } from '@patternfly/react-core';
 import { ExclamationCircleIcon, SearchIcon } from '@patternfly/react-icons';
 import { STATUS } from 'foremanReact/constants';
@@ -168,7 +170,7 @@ const BulkCompliancePolicyModal = ({
       onClose={handleModalClose}
       onEscapePress={handleModalClose}
       title={title}
-      width="50%"
+      variant="medium"
       position="top"
       actions={modalActions}
       id="bulk-compliance-policy-modal"
@@ -202,12 +204,20 @@ const BulkCompliancePolicyModal = ({
       </TextContent>
 
       {policiesStatus === STATUS.PENDING && (
-        <div style={{ textAlign: 'center', padding: '20px' }}>
-          <Spinner size="lg" aria-label={__('Loading policies')} />
-          <Text ouiaId="loading-policies-text" style={{ marginTop: '10px' }}>
-            {__('Loading policies...')}
-          </Text>
-        </div>
+        <Flex
+          direction={{ default: 'column' }}
+          alignItems={{ default: 'alignItemsCenter' }}
+          spaceItems={{ default: 'spaceItemsSm' }}
+        >
+          <FlexItem>
+            <Spinner size="lg" aria-label={__('Loading policies')} />
+          </FlexItem>
+          <FlexItem>
+            <Text ouiaId="loading-policies-text">
+              {__('Loading policies...')}
+            </Text>
+          </FlexItem>
+        </Flex>
       )}
 
       {policiesStatus === STATUS.ERROR && (

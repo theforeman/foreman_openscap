@@ -27,7 +27,6 @@ export const bulkAssignPolicy = (requestBody, onSuccess, onError) => {
     params: { policy: { id: policy_id } },
     successToast: () =>
       __('Successfully assigned compliance policy to selected hosts'),
-    errorToast: ({ message }) => message,
     handleSuccess: onSuccess,
     handleError: onError,
   });
@@ -47,7 +46,6 @@ export const bulkUnassignPolicy = (requestBody, onSuccess, onError) => {
     params: { policy: { id: policy_id } },
     successToast: () =>
       __('Successfully unassigned compliance policy from selected hosts'),
-    errorToast: ({ message }) => message,
     handleSuccess: onSuccess,
     handleError: onError,
   });

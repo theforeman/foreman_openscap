@@ -125,14 +125,12 @@ describe('Compliance Policy Actions', () => {
       expect(toastMessage).toContain('compliance policy');
     });
 
-    it('has error toast handler', () => {
+    it('passes error handler callback', () => {
       bulkAssignPolicy(requestBody, onSuccess, onError);
 
       const callArgs = APIActions.post.mock.calls[0][0];
-      const errorMessage = 'Assignment failed';
-      const toastMessage = callArgs.errorToast({ message: errorMessage });
 
-      expect(toastMessage).toBe(errorMessage);
+      expect(callArgs.handleError).toBe(onError);
     });
   });
 
@@ -180,14 +178,12 @@ describe('Compliance Policy Actions', () => {
       expect(toastMessage).toContain('compliance policy');
     });
 
-    it('has error toast handler', () => {
+    it('passes error handler callback', () => {
       bulkUnassignPolicy(requestBody, onSuccess, onError);
 
       const callArgs = APIActions.post.mock.calls[0][0];
-      const errorMessage = 'Unassignment failed';
-      const toastMessage = callArgs.errorToast({ message: errorMessage });
 
-      expect(toastMessage).toBe(errorMessage);
+      expect(callArgs.handleError).toBe(onError);
     });
   });
 });

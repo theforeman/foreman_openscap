@@ -5,7 +5,10 @@ import BulkChangeOpenscapProxyModalScene, {
   ChangeOpenscapProxyMenuItem,
 } from './components/HostsIndex/ChangeOpenscapProxyAction';
 import BulkCompliancePolicyMenuItems from './components/BulkActions/compliancePolicy/BulkCompliancePolicyMenuItems';
-import BulkCompliancePolicyModals from './components/BulkActions/compliancePolicy/BulkCompliancePolicyWrapper';
+import {
+  BulkAssignPolicyModalScene,
+  BulkUnassignPolicyModalScene,
+} from './components/BulkActions/compliancePolicy/BulkCompliancePolicyModalScene';
 
 const HOST_ASSOCIATIONS_WEIGHT = 1212;
 const BULK_MODAL_WEIGHT = 100;
@@ -42,7 +45,14 @@ addGlobalFill(
 
 addGlobalFill(
   '_all-hosts-modals',
-  'compliance-policy-modals',
-  <BulkCompliancePolicyModals key="compliance-policy-modals" />,
+  'assign-compliance-policy-modal',
+  <BulkAssignPolicyModalScene key="bulk-assign-policy-modal" />,
+  BULK_POLICY_MODAL_WEIGHT
+);
+
+addGlobalFill(
+  '_all-hosts-modals',
+  'unassign-compliance-policy-modal',
+  <BulkUnassignPolicyModalScene key="bulk-unassign-policy-modal" />,
   BULK_POLICY_MODAL_WEIGHT
 );
