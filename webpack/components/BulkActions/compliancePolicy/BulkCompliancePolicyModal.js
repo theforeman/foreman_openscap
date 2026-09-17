@@ -96,7 +96,9 @@ const BulkCompliancePolicyModal = ({
       addToast({
         type: 'danger',
         message:
-          error?.response?.data?.error?.message || __('An error occurred'),
+          error?.response?.data?.error ||
+          error?.message ||
+          __('An error occurred'),
       })
     );
   };

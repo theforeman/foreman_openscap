@@ -81,11 +81,21 @@ class PoliciesController < ApplicationController
       policy = ::ForemanOpenscap::Policy.find(id)
       policy.host_ids = policy.host_ids + @hosts.pluck(:id)
       if policy.save
-        success _("Updated hosts: Assigned with compliance policy: %s") % policy.name
-        # We prefer to go back as this does not lose the current search
-        return redirect_to hosts_path
+        message = _("Updated hosts: Assigned with compliance policy: %s") % policy.name
+        if request.xhr? || request.format.json?
+          render :json => { :message => message }, :status => :ok
+        else
+          success(message)
+          # We prefer to go back as this does not lose the current search
+          redirect_to hosts_path
+        end
       else
-        return process_error :object => policy, :redirect => hosts_path
+        # Handle AJAX requests differently - return JSON error instead of redirect
+        if request.xhr? || request.format.json?
+          render :json => { :error => policy.errors.full_messages.to_sentence }, :status => :unprocessable_entity
+        else
+          return process_error :object => policy, :redirect => hosts_path
+        end
       end
     else
       error _('No compliance policy selected.')
@@ -99,12 +109,26 @@ class PoliciesController < ApplicationController
   def remove_policy_from_multiple_hosts
     if (id = params.fetch(:policy, {})[:id])
       policy = ::ForemanOpenscap::Policy.find(id)
-      policy.unassign_hosts(@hosts)
-      success _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
+      if policy.unassign_hosts(@hosts)
+        message = _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
+        if request.xhr? || request.format.json?
+          render :json => { :message => message }, :status => :ok
+        else
+          success(message)
+          redirect_to hosts_path
+        end
+      else
+        # Handle AJAX requests - return JSON error
+        if request.xhr? || request.format.json?
+          render :json => { :error => policy.errors.full_messages.to_sentence }, :status => :unprocessable_entity
+        else
+          process_error :object => policy, :redirect => hosts_path
+        end
+      end
     else
       error _('No valid policy ID provided')
+      redirect_to hosts_path
     end
-    redirect_to hosts_path
   end
 
   private
