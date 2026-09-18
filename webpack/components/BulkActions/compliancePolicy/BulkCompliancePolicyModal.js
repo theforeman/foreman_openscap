@@ -27,8 +27,16 @@ import {
   selectAPIStatus,
   selectAPIResponse,
 } from 'foremanReact/redux/API/APISelectors';
+import {
+  buildBulkRequestBody,
+  bulkErrorToastParams,
+} from 'foremanReact/components/HostsIndex/BulkActions/helpers';
 import { fetchPolicies, bulkAssignPolicy, bulkUnassignPolicy } from './actions';
-import { POLICIES_KEY } from './constants';
+import {
+  POLICIES_KEY,
+  BULK_ASSIGN_POLICY_KEY,
+  BULK_UNASSIGN_POLICY_KEY,
+} from './constants';
 
 const BulkCompliancePolicyModal = ({
   isOpen,
@@ -92,35 +100,29 @@ const BulkCompliancePolicyModal = ({
 
   const handleError = error => {
     handleModalClose();
-    dispatch(
-      addToast({
-        type: 'danger',
-        message:
-          error?.response?.data?.error ||
-          error?.message ||
-          __('An error occurred'),
-      })
-    );
+    const key =
+      mode === 'assign' ? BULK_ASSIGN_POLICY_KEY : BULK_UNASSIGN_POLICY_KEY;
+    dispatch(addToast(bulkErrorToastParams(error, key)));
   };
 
-  const handleSuccess = () => {
+  const handleSuccess = response => {
+    dispatch(
+      addToast({
+        type: 'success',
+        message: response.data.message,
+      })
+    );
     if (onSuccessCallback) onSuccessCallback();
     handleModalClose();
   };
 
   const handleConfirm = () => {
-    const bulkParams = fetchBulkParams();
-    const requestBody = {
-      search: bulkParams,
+    const requestBody = buildBulkRequestBody({
+      fetchBulkParams,
+      organizationId,
+      locationId,
       policy_id: policyId,
-    };
-
-    if (organizationId) {
-      requestBody.organization_id = organizationId;
-    }
-    if (locationId) {
-      requestBody.location_id = locationId;
-    }
+    });
 
     if (mode === 'assign') {
       dispatch(bulkAssignPolicy(requestBody, handleSuccess, handleError));

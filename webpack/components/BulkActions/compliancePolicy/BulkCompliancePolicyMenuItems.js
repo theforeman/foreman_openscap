@@ -2,16 +2,19 @@ import React, { useContext } from 'react';
 import { MenuItem } from '@patternfly/react-core';
 import { translate as __ } from 'foremanReact/common/I18n';
 import { openBulkModal } from 'foremanReact/common/BulkModalStateHelper';
-import { useForemanPermissions } from 'foremanReact/Root/Context/ForemanContext';
+import { usePermissions } from 'foremanReact/common/hooks/Permissions/permissionHooks';
+import { EDIT_HOSTS } from 'foremanReact/permissions';
 import { ForemanHostsIndexActionsBarContext } from 'foremanReact/components/HostsIndex';
-import { ASSIGN_POLICY_MODAL_ID, UNASSIGN_POLICY_MODAL_ID } from './constants';
+import {
+  ASSIGN_POLICY_MODAL_ID,
+  UNASSIGN_POLICY_MODAL_ID,
+  ASSIGN_POLICIES,
+} from './constants';
 
 const BulkCompliancePolicyMenuItems = () => {
   const { selectedCount } = useContext(ForemanHostsIndexActionsBarContext);
-  const userPermissions = useForemanPermissions();
 
-  const hasPermission =
-    userPermissions.has('assign_policies') && userPermissions.has('edit_hosts');
+  const hasPermission = usePermissions([ASSIGN_POLICIES, EDIT_HOSTS]);
 
   const handleAssignClick = () => openBulkModal(ASSIGN_POLICY_MODAL_ID, true);
   const handleUnassignClick = () =>
