@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.1",
+        "Project-Id-Version": "foreman_openscap 13.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
@@ -45,6 +45,9 @@
       "%s reports over time": [
         "სულ %s ანგარიში"
       ],
+      "%s selected hosts.": [
+        ""
+      ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "აღმოჩენილია %s სპულის შეცდომა. შეამოწმეთ შესაბამისი ფაილი პირდაპირ პროქსიზე"
       ],
@@ -55,13 +58,16 @@
         "<b>Foreman</b> OpenSCAP-ის მიმოხილვა"
       ],
       "A reboot is required after applying remediation.": [
-        ""
+        "გამოსწორების გამოყენების შემდეგ საჭიროა გადატვირთვა."
       ],
       "A reboot might be required after applying remediation.": [
-        ""
+        "გამოსწორების გამოყენების შემდეგ, შეიძლება, გადატვირთვა გახდეს საჭირო."
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP-ის პოლიტიკის ანგარიშების შეჯამება"
+      ],
+      "ALL selected hosts.": [
+        ""
       ],
       "Actions": [
         "ქმედებები"
@@ -81,11 +87,20 @@
       "Apply policy to hosts": [
         "წესის ჰოსტებზე გადატარება"
       ],
-      "Are you sure you want to delete %s?": [
-        "დარწმუნებული ხართ, რომ გსურთ %s-ის წაშლა?"
+      "Assign": [
+        ""
       ],
       "Assign Compliance Policy": [
         "შესაბამისობის პოლიტიკის მინიჭება"
+      ],
+      "Assign OpenSCAP Proxy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy for ": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy to multiple hosts": [
+        ""
       ],
       "Back": [
         "უკან"
@@ -161,9 +176,6 @@
       ],
       "Compliant with the policy": [
         "შეესაბამება წესს"
-      ],
-      "Confirm": [
-        "დადასტურება"
       ],
       "Content": [
         "შემცველობა"
@@ -256,7 +268,7 @@
         "დოკუმენტაცია"
       ],
       "Done": [
-        ""
+        "მზადაა"
       ],
       "Download": [
         "ჩამოტვირთვა"
@@ -305,6 +317,10 @@
       ],
       "Failed saving %s:": [
         "%s-ის შენახვა ჩავარდა:"
+      ],
+      "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
+        "",
+        ""
       ],
       "Failed to delete %s compliance reports": [
         "%s შესაბამისობის ანგარიშის წაშლის შეცდომა"
@@ -393,11 +409,20 @@
       "Hosts passing this rule": [
         "ჰოსტები, რომლებსაც გააჩნიათ, ეს წესი"
       ],
+      "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
+        ""
+      ],
+      "Hosts to include in the action": [
+        ""
+      ],
       "How the policy should be deployed": [
         "წესის გაშლის მიმდევრობა"
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP პროქსის ID"
+      ],
+      "ID of the OpenSCAP Proxy to assign to the hosts": [
+        ""
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman-ში შესაბამისობის პოლიტიკის სია %s-ის გავლითაა აღწერილი."
@@ -424,13 +449,16 @@
         "ხანდახან შეიძლება უსაფრთხოების პოლიტიკის თქვენი საჭიროებებისათვის მორგება მოგიწიოთ. "
       ],
       "Job details": [
-        ""
+        "დავალების დეტალები"
       ],
       "Latest Compliance Reports": [
         "თავსებადობის უახლესი ანგარიშები"
       ],
       "Latest reports for policy: %s": [
         "უახლესი ანგარიშები წესისთვის: %s"
+      ],
+      "Line chart": [
+        ""
       ],
       "List ARF reports": [
         "ARF ანგარიშების სია"
@@ -447,6 +475,15 @@
       "List Tailoring files": [
         "მორგების ფაილების სია"
       ],
+      "List of host ids to exclude and not perform the action on": [
+        ""
+      ],
+      "List of host ids to perform the action on": [
+        ""
+      ],
+      "Loading": [
+        ""
+      ],
       "Loading...": [
         "იტვირთება..."
       ],
@@ -460,7 +497,7 @@
         "შეტყობინება"
       ],
       "Method": [
-        ""
+        "მეთოდი"
       ],
       "More details": [
         "მეტი დეტალი"
@@ -492,6 +529,9 @@
       "No ARF reports for this policy": [
         "ამ წესისთვის ARF ანგარიშები არ არსებობს"
       ],
+      "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
+        ""
+      ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP-ის პროქსი არჩეული არაა."
       ],
@@ -512,6 +552,9 @@
       ],
       "No compliance reports were found.": [
         "შესაბამისობის ანგარიშები ნაპოვნი არაა."
+      ],
+      "No data available": [
+        ""
       ],
       "No hosts selected": [
         "ჰოსტები მონიშნული არაა"
@@ -568,7 +611,7 @@
         "თვის დღეების რაოდენობა. გაითვალისწინეთ, რომ ყველა თვეში დღეების რაოდენობა ტოლი არაა"
       ],
       "OS": [
-        ""
+        "OS"
       ],
       "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run.": [
         ""
@@ -576,7 +619,13 @@
       "OpenSCAP Proxy": [
         "OpenSCAP პროქსი"
       ],
+      "OpenSCAP Proxy is set to %s": [
+        ""
+      ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
+        ""
+      ],
+      "OpenSCAP Proxy with id %s not found": [
         ""
       ],
       "Openscap Proxy": [
@@ -592,7 +641,7 @@
         "სხვები"
       ],
       "Other hosts failing this rule": [
-        ""
+        "სხვა ჰოსტები, რომლებიც ამ წესს აგდებენ"
       ],
       "Othered": [
         "Othered"
@@ -605,9 +654,6 @@
       ],
       "Passed|P": [
         "გაიარა|P"
-      ],
-      "Permission denied": [
-        "წვდომა აკრძალულია"
       ],
       "Please Confirm": [
         "დაადასტურეთ"
@@ -679,7 +725,7 @@
         "დასაბუთება"
       ],
       "Reboot the system(s)": [
-        ""
+        "სისტემ(ებ)-ის გადატვირთვა"
       ],
       "Red Hat %s default content": [
         "Red Hat %s ნაგულისხმევი შემცველობა"
@@ -688,16 +734,16 @@
         "ბმები"
       ],
       "Remediate %s rule": [
-        ""
+        "%s წესის გამოსწორება"
       ],
       "Remediation": [
-        ""
+        "გამოსწორება"
       ],
       "Remediation might render the system non-functional.": [
         ""
       ],
       "Remote job": [
-        ""
+        "დაშორებული დავალება"
       ],
       "Report Metrics": [
         "ანგარიშის მეტრიკები"
@@ -713,9 +759,6 @@
       ],
       "Reports": [
         "ანგარიშები"
-      ],
-      "Request the following permissions from administrator: %s.": [
-        "ადმინისტრატორისგან შემდეგი წვდომების გამოთხოვა: %s."
       ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "მოთხოვნის მოლოდინის ვადა ამოიწურა. სცადეთ შეცვალოთ პარამეტრი მორგება -> proxy_request_timeout"
@@ -736,10 +779,10 @@
         "შედეგი"
       ],
       "Review hosts": [
-        ""
+        "ჰოსტების მიმოხილვა"
       ],
       "Review remediation": [
-        ""
+        "გამოსწორების მიმოხილვა"
       ],
       "Review the remediation snippet and apply it to the host manually.": [
         ""
@@ -754,10 +797,10 @@
         "გაშვება"
       ],
       "Run OpenSCAP remediation with Ansible": [
-        ""
+        "OpenSCAP-ით გამოსწორების გაშვება Ansible-ით"
       ],
       "Run OpenSCAP remediation with Shell": [
-        ""
+        "OpenSCAP-ით გამოსწორების გაშვება გარსით"
       ],
       "Run OpenSCAP scan": [
         "OpenSCAP სკანირების გაშვება"
@@ -786,6 +829,9 @@
       "Schedule": [
         "განრიგი"
       ],
+      "Search string describing which hosts to perform the action on": [
+        ""
+      ],
       "Select Action": [
         "აირჩიეთ ქმედება"
       ],
@@ -799,10 +845,10 @@
         "ამ გვერდზე ყველა ჩანაწერის მონიშვნა"
       ],
       "Select remediation method": [
-        ""
+        "აირჩიეთ გამოსწორების მეთოდი"
       ],
       "Select snippet": [
-        ""
+        "აირჩიეთ ფრაგმენტი"
       ],
       "Severity": [
         "სიმძიმე"
@@ -859,13 +905,17 @@
         "გაგზავნა"
       ],
       "Successfully copied to clipboard!": [
-        ""
+        "წარმატებით დაკოპირდა ბუფერში!"
       ],
       "Successfully deleted %s compliance reports": [
         "%s შესაბამისობის ანგარიში წარმატებით წაიშალა"
       ],
       "Successfully deleted ARF report.": [
         "ARF ანგარიში წარმატებით წაიშალა."
+      ],
+      "Successfully updated %{success} host.": [
+        "",
+        ""
       ],
       "Summary from %{time} ago to now": [
         "მიმოხილვის ბოლო განახლების დრო %{time}"
@@ -901,12 +951,15 @@
         ""
       ],
       "The host was moved or deleted": [
-        ""
+        "ჰოსტი გადატანილი, ან წაშლილია"
       ],
       "The identifier of the host": [
         "ჰოსტის იდენტიფიკატორი"
       ],
       "The job has started on selected host(s), you can check the status on the job details page.": [
+        ""
+      ],
+      "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
         ""
       ],
       "There are significant differences in deployment options.": [
@@ -915,9 +968,6 @@
       "There is no job to remediate with. Please remediate manually.": [
         ""
       ],
-      "There was a following error when deleting %(name)s: %(error)s": [
-        "დაფიქსირდა შემდეგი შეცდომა %(name)s-ის წაშლისას: %(error)s"
-      ],
       "There's no available report for this host": [
         "ამ ჰოსტისთვის ხელმისაწვდომი ანგარიში არ არსებობს"
       ],
@@ -925,6 +975,9 @@
         ""
       ],
       "This profile will be used to override the one from scap content": [
+        ""
+      ],
+      "This will change previous proxy assignments on the selected hosts.": [
         ""
       ],
       "Title": [
@@ -1004,7 +1057,7 @@
         "სრული ანგარიშის ნახვა"
       ],
       "View selected hosts": [
-        ""
+        "მონიშნული ჰოსტების ნახვა"
       ],
       "XCCDF Profile": [
         "XCCDF პროფილი"
@@ -1020,9 +1073,6 @@
       ],
       "Yes": [
         "დიახ"
-      ],
-      "You are not authorized to view the page. ": [
-        "ამ გვერდთან წვდომა არ გაგაჩნიათ. "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         ""

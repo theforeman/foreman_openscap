@@ -6,7 +6,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.1\n"
+"Project-Id-Version: foreman_openscap 13.1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
@@ -47,6 +47,9 @@ msgstr "%s 最新報告"
 msgid "%s reports over time"
 msgstr "%s 一直以來的報告"
 
+msgid "%s selected hosts."
+msgstr ""
+
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr ""
 
@@ -63,6 +66,9 @@ msgid "A reboot might be required after applying remediation."
 msgstr ""
 
 msgid "A summary of reports for OpenSCAP policies"
+msgstr ""
+
+msgid "ALL selected hosts."
 msgstr ""
 
 msgid "Actions"
@@ -83,11 +89,20 @@ msgstr ""
 msgid "Apply policy to hosts"
 msgstr ""
 
-msgid "Are you sure you want to delete %s?"
+msgid "Assign"
 msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "指定合規政策"
+
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
 
 msgid "Back"
 msgstr "上一頁"
@@ -163,9 +178,6 @@ msgstr "合規主機"
 
 msgid "Compliant with the policy"
 msgstr "合於政策"
-
-msgid "Confirm"
-msgstr ""
 
 msgid "Content"
 msgstr ""
@@ -308,6 +320,11 @@ msgstr "只有失敗"
 msgid "Failed saving %s:"
 msgstr ""
 
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to delete %s compliance reports"
 msgstr "刪除 %s 合規報告失敗"
 
@@ -396,10 +413,19 @@ msgstr ""
 msgid "Hosts passing this rule"
 msgstr ""
 
+msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
+msgstr ""
+
+msgid "Hosts to include in the action"
+msgstr ""
+
 msgid "How the policy should be deployed"
 msgstr ""
 
 msgid "ID of OpenSCAP Proxy"
+msgstr ""
+
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
 msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
@@ -439,6 +465,9 @@ msgstr ""
 msgid "Latest reports for policy: %s"
 msgstr "最新的政策報告：%s"
 
+msgid "Line chart"
+msgstr ""
+
 msgid "List ARF reports"
 msgstr ""
 
@@ -452,6 +481,15 @@ msgid "List SCAP contents"
 msgstr "列出 SCAP 內容"
 
 msgid "List Tailoring files"
+msgstr ""
+
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+msgid "Loading"
 msgstr ""
 
 msgid "Loading..."
@@ -499,6 +537,9 @@ msgstr "否"
 msgid "No ARF reports for this policy"
 msgstr "此政策沒有 ARF 報告"
 
+msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr ""
 
@@ -518,6 +559,9 @@ msgid "No compliance reports selected"
 msgstr ""
 
 msgid "No compliance reports were found."
+msgstr ""
+
+msgid "No data available"
 msgstr ""
 
 msgid "No hosts selected"
@@ -583,7 +627,13 @@ msgstr ""
 msgid "OpenSCAP Proxy"
 msgstr ""
 
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
+msgstr ""
+
+msgid "OpenSCAP Proxy with id %s not found"
 msgstr ""
 
 msgid "Openscap Proxy"
@@ -614,9 +664,6 @@ msgstr "已通過"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "Passed|P"
-
-msgid "Permission denied"
-msgstr "使用權限被拒"
 
 msgid "Please Confirm"
 msgstr "請確認"
@@ -723,9 +770,6 @@ msgstr ""
 msgid "Reports"
 msgstr "報告"
 
-msgid "Request the following permissions from administrator: %s."
-msgstr ""
-
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr ""
 
@@ -794,6 +838,9 @@ msgstr ""
 
 msgid "Schedule"
 msgstr "排程"
+
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
 
 msgid "Select Action"
 msgstr "選擇動作"
@@ -876,6 +923,11 @@ msgstr "刪除 %s 合規報告成功"
 msgid "Successfully deleted ARF report."
 msgstr ""
 
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Summary from %{time} ago to now"
 msgstr "%{time} 之前到現在的摘要"
 
@@ -920,13 +972,13 @@ msgstr ""
 msgid "The job has started on selected host(s), you can check the status on the job details page."
 msgstr ""
 
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr ""
 
 msgid "There is no job to remediate with. Please remediate manually."
-msgstr ""
-
-msgid "There was a following error when deleting %(name)s: %(error)s"
 msgstr ""
 
 msgid "There's no available report for this host"
@@ -936,6 +988,9 @@ msgid "This leaves the setup of the foreman_scap_client solely on the user. The 
 msgstr ""
 
 msgid "This profile will be used to override the one from scap content"
+msgstr ""
+
+msgid "This will change previous proxy assignments on the selected hosts."
 msgstr ""
 
 msgid "Title"
@@ -1032,9 +1087,6 @@ msgstr ""
 
 msgid "Yes"
 msgstr "是"
-
-msgid "You are not authorized to view the page. "
-msgstr ""
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""

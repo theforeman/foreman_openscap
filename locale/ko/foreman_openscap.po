@@ -7,7 +7,7 @@
 # FIRST AUTHOR <EMAIL@ADDRESS>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.1\n"
+"Project-Id-Version: foreman_openscap 13.1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FIRST AUTHOR <EMAIL@ADDRESS>, 2016\n"
@@ -46,6 +46,9 @@ msgstr "%s 최신 보고서"
 msgid "%s reports over time"
 msgstr "기간별 %s 보고서"
 
+msgid "%s selected hosts."
+msgstr ""
+
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s spool 오류가 감지되었습니다. 프록시에서 직접 해당 파일을 검사하세요."
 
@@ -63,6 +66,9 @@ msgstr "수정 사항을 적용한 후에는 재부팅이 필요할 수 있습�
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP 정책에 대한 보고서 요약"
+
+msgid "ALL selected hosts."
+msgstr ""
 
 msgid "Actions"
 msgstr "동작 "
@@ -82,11 +88,20 @@ msgstr "호스트 그룹에 정책 적용"
 msgid "Apply policy to hosts"
 msgstr "호스트에 정책 적용"
 
-msgid "Are you sure you want to delete %s?"
-msgstr "%s을/를 삭제하시겠습니까?"
+msgid "Assign"
+msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "컴플라이언스 정책 할당"
+
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
 
 msgid "Back"
 msgstr "뒤로 "
@@ -162,9 +177,6 @@ msgstr "부합하는 호스트"
 
 msgid "Compliant with the policy"
 msgstr "정책에 부합"
-
-msgid "Confirm"
-msgstr "확인"
 
 msgid "Content"
 msgstr "컨텐츠"
@@ -307,6 +319,11 @@ msgstr "실패함만"
 msgid "Failed saving %s:"
 msgstr "%s 저장에 실패했습니다:"
 
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to delete %s compliance reports"
 msgstr "%s 컴플라이언스 보고서를 삭제하지 못했습니다."
 
@@ -395,11 +412,20 @@ msgstr "이 규칙의 다른 호스트"
 msgid "Hosts passing this rule"
 msgstr "이 규칙을 통과하는 호스트"
 
+msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
+msgstr ""
+
+msgid "Hosts to include in the action"
+msgstr ""
+
 msgid "How the policy should be deployed"
 msgstr "정책이 어떻게 배포되어야 하는가"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP 프록시 ID"
+
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
+msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "Foreman에서는 컴플라이언스 정책 체크리스트는 %s을/를 통해 정의됩니다."
@@ -438,6 +464,9 @@ msgstr "최신 컴플라이언스 보고서"
 msgid "Latest reports for policy: %s"
 msgstr "정책에 대한 최신 보고서: %s"
 
+msgid "Line chart"
+msgstr ""
+
 msgid "List ARF reports"
 msgstr "ARF 보고서 목록"
 
@@ -452,6 +481,15 @@ msgstr "SCAP 컨텐츠 나열"
 
 msgid "List Tailoring files"
 msgstr "맞춤형 파일 목록"
+
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
 
 msgid "Loading..."
 msgstr "로딩..."
@@ -498,6 +536,9 @@ msgstr "아니오  "
 msgid "No ARF reports for this policy"
 msgstr "이 정책에 대한 ARF 보고서가 없습니다."
 
+msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr "OpenSCAP 프록시가 선택되지 않았습니다."
 
@@ -518,6 +559,9 @@ msgstr "선택된 컴플라이언트 보고서가 없습니다"
 
 msgid "No compliance reports were found."
 msgstr "컴플라이언트 보고서를 찾을 수 없습니다."
+
+msgid "No data available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "선택된 호스트가 없음"
@@ -582,8 +626,14 @@ msgstr "SCAP 콘텐츠가 있으면 정책을 만들고, 선택한 호스트 그
 msgid "OpenSCAP Proxy"
 msgstr "OpenSCAP Proxy"
 
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
 msgstr "SCAP 콘텐츠를 가져오고 ARF 보고서를 업로드하는 데 사용할 OpenSCAP 프록시입니다. 프록시 로드 밸런서를 사용할 때는 공백으로 두고 적절한 매개변수를 재정의합니다."
+
+msgid "OpenSCAP Proxy with id %s not found"
+msgstr ""
 
 msgid "Openscap Proxy"
 msgstr "Openscap 프록시"
@@ -613,9 +663,6 @@ msgstr "통과됨"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "Passed|P"
-
-msgid "Permission denied"
-msgstr "권한이 거부되었습니다"
 
 msgid "Please Confirm"
 msgstr "확인해 주십시오"
@@ -722,9 +769,6 @@ msgstr "보고된 위치 %s"
 msgid "Reports"
 msgstr "보고서 "
 
-msgid "Request the following permissions from administrator: %s."
-msgstr "관리자에게 다음 권한을 요청하세요: %s ."
-
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "요청 시간이 초과되었습니다. 설정 -> proxy_request_timeout을 늘려보세요."
 
@@ -793,6 +837,9 @@ msgstr "SCAP 정책 요약"
 
 msgid "Schedule"
 msgstr "스케줄 "
+
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
 
 msgid "Select Action"
 msgstr "작업 선택"
@@ -875,6 +922,11 @@ msgstr "%s 컴플라이언스 보고서를 삭제했습니다."
 msgid "Successfully deleted ARF report."
 msgstr "ARF 보고서를 성공적으로 삭제했습니다."
 
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Summary from %{time} ago to now"
 msgstr "%{time} 전에서 현재까지의 요약"
 
@@ -919,14 +971,14 @@ msgstr "호스트의 식별자"
 msgid "The job has started on selected host(s), you can check the status on the job details page."
 msgstr "선택한 호스트에서 작업이 시작되었습니다. 작업 세부 정보 페이지에서 상태를 확인할 수 있습니다."
 
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "배포 옵션에는 상당한 차이가 있습니다."
 
 msgid "There is no job to remediate with. Please remediate manually."
 msgstr "수정할 작업이 없습니다. 수동으로 수정해 주세요."
-
-msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr "%(name)s 삭제시 다음과 같은 오류가 발생했습니다: %(error)s"
 
 msgid "There's no available report for this host"
 msgstr "이 호스트에 사용 가능한 보고서가 없습니다."
@@ -936,6 +988,9 @@ msgstr "이렇게 하면 forman_scap_client의 설정은 사용자에게만 맡�
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "이 프로필은 scap 콘텐츠의 프로필을 재정의하는 데 사용됩니다."
+
+msgid "This will change previous proxy assignments on the selected hosts."
+msgstr ""
 
 msgid "Title"
 msgstr "제목"
@@ -1030,9 +1085,6 @@ msgstr "맞춤형 파일을 포함하는 XML"
 
 msgid "Yes"
 msgstr "예  "
-
-msgid "You are not authorized to view the page. "
-msgstr "해당 페이지를 볼 권한이 없습니다. "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr "원격 작업을 실행하여 수정할 수도 있고, 수동으로 수정할 스니펫을 표시할 수도 있습니다."

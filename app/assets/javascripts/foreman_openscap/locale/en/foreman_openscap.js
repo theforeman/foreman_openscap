@@ -3,9 +3,9 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.1",
+        "Project-Id-Version": "foreman_openscap 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2026-02-10 13:04+0100",
+        "PO-Revision-Date": "2026-09-22 17:29+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",
@@ -45,6 +45,9 @@
       "%s reports over time": [
         ""
       ],
+      "%s selected hosts.": [
+        ""
+      ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         ""
       ],
@@ -61,6 +64,9 @@
         ""
       ],
       "A summary of reports for OpenSCAP policies": [
+        ""
+      ],
+      "ALL selected hosts.": [
         ""
       ],
       "Actions": [
@@ -81,10 +87,19 @@
       "Apply policy to hosts": [
         ""
       ],
-      "Are you sure you want to delete %s?": [
+      "Assign": [
         ""
       ],
       "Assign Compliance Policy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy for ": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy to multiple hosts": [
         ""
       ],
       "Back": [
@@ -160,9 +175,6 @@
         ""
       ],
       "Compliant with the policy": [
-        ""
-      ],
-      "Confirm": [
         ""
       ],
       "Content": [
@@ -306,6 +318,10 @@
       "Failed saving %s:": [
         ""
       ],
+      "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
+        "",
+        ""
+      ],
       "Failed to delete %s compliance reports": [
         ""
       ],
@@ -393,10 +409,19 @@
       "Hosts passing this rule": [
         ""
       ],
+      "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
+        ""
+      ],
+      "Hosts to include in the action": [
+        ""
+      ],
       "How the policy should be deployed": [
         ""
       ],
       "ID of OpenSCAP Proxy": [
+        ""
+      ],
+      "ID of the OpenSCAP Proxy to assign to the hosts": [
         ""
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
@@ -432,6 +457,9 @@
       "Latest reports for policy: %s": [
         ""
       ],
+      "Line chart": [
+        ""
+      ],
       "List ARF reports": [
         ""
       ],
@@ -445,6 +473,15 @@
         ""
       ],
       "List Tailoring files": [
+        ""
+      ],
+      "List of host ids to exclude and not perform the action on": [
+        ""
+      ],
+      "List of host ids to perform the action on": [
+        ""
+      ],
+      "Loading": [
         ""
       ],
       "Loading...": [
@@ -492,6 +529,9 @@
       "No ARF reports for this policy": [
         ""
       ],
+      "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
+        ""
+      ],
       "No OpenSCAP Proxy selected.": [
         ""
       ],
@@ -511,6 +551,9 @@
         ""
       ],
       "No compliance reports were found.": [
+        ""
+      ],
+      "No data available": [
         ""
       ],
       "No hosts selected": [
@@ -576,7 +619,13 @@
       "OpenSCAP Proxy": [
         ""
       ],
+      "OpenSCAP Proxy is set to %s": [
+        ""
+      ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
+        ""
+      ],
+      "OpenSCAP Proxy with id %s not found": [
         ""
       ],
       "Openscap Proxy": [
@@ -604,9 +653,6 @@
         ""
       ],
       "Passed|P": [
-        ""
-      ],
-      "Permission denied": [
         ""
       ],
       "Please Confirm": [
@@ -714,9 +760,6 @@
       "Reports": [
         ""
       ],
-      "Request the following permissions from administrator: %s.": [
-        ""
-      ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         ""
       ],
@@ -784,6 +827,9 @@
         ""
       ],
       "Schedule": [
+        ""
+      ],
+      "Search string describing which hosts to perform the action on": [
         ""
       ],
       "Select Action": [
@@ -867,6 +913,10 @@
       "Successfully deleted ARF report.": [
         ""
       ],
+      "Successfully updated %{success} host.": [
+        "",
+        ""
+      ],
       "Summary from %{time} ago to now": [
         ""
       ],
@@ -909,13 +959,13 @@
       "The job has started on selected host(s), you can check the status on the job details page.": [
         ""
       ],
+      "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
+        ""
+      ],
       "There are significant differences in deployment options.": [
         ""
       ],
       "There is no job to remediate with. Please remediate manually.": [
-        ""
-      ],
-      "There was a following error when deleting %(name)s: %(error)s": [
         ""
       ],
       "There's no available report for this host": [
@@ -925,6 +975,9 @@
         ""
       ],
       "This profile will be used to override the one from scap content": [
+        ""
+      ],
+      "This will change previous proxy assignments on the selected hosts.": [
         ""
       ],
       "Title": [
@@ -1019,9 +1072,6 @@
         ""
       ],
       "Yes": [
-        ""
-      ],
-      "You are not authorized to view the page. ": [
         ""
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
