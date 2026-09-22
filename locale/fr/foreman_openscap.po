@@ -8,7 +8,7 @@
 # Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.1\n"
+"Project-Id-Version: foreman_openscap 13.1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Pierre-Emmanuel Dutang <dutangp@gmail.com>, 2016\n"
@@ -50,6 +50,9 @@ msgstr "%s derniers rapports"
 msgid "%s reports over time"
 msgstr "%s rapports sur la durée"
 
+msgid "%s selected hosts."
+msgstr ""
+
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s erreurs de spool détectées, inspectez le fichier approprié directement sur le proxy"
 
@@ -67,6 +70,9 @@ msgstr "Un redémarrage peut être nécessaire après l'application de la reméd
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "Récapitulatif des rapports de stratégies OpenSCAP"
+
+msgid "ALL selected hosts."
+msgstr ""
 
 msgid "Actions"
 msgstr "Actions"
@@ -86,11 +92,20 @@ msgstr "Appliquer la politique aux groupes d'hôtes"
 msgid "Apply policy to hosts"
 msgstr "Appliquer la politique aux hôtes"
 
-msgid "Are you sure you want to delete %s?"
-msgstr "Êtes-vous sûr de vouloir activer %s  ?"
+msgid "Assign"
+msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "Attribuer un stratégie de conformité"
+
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
 
 msgid "Back"
 msgstr "Précédent"
@@ -166,9 +181,6 @@ msgstr "Hôtes conformes"
 
 msgid "Compliant with the policy"
 msgstr "Conforme à la stratégie"
-
-msgid "Confirm"
-msgstr "Confirmer"
 
 msgid "Content"
 msgstr "Contenu"
@@ -311,6 +323,11 @@ msgstr "Échec uniquement"
 msgid "Failed saving %s:"
 msgstr "Échec de l'enregistrement%s :"
 
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to delete %s compliance reports"
 msgstr "Impossible de supprimer les rapports de conformité %s"
 
@@ -399,11 +416,20 @@ msgstr "Hôtes modifiant cette règle"
 msgid "Hosts passing this rule"
 msgstr "Hôtes passant cette règle"
 
+msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
+msgstr ""
+
+msgid "Hosts to include in the action"
+msgstr ""
+
 msgid "How the policy should be deployed"
 msgstr "Comment la stratégie doit-elle être déployée"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr "ID du proxy OpenSCAP"
+
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
+msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "Dans Foreman, une liste de stratégies de conformité est définie via %s."
@@ -446,6 +472,9 @@ msgstr "Derniers rapports de conformité"
 msgid "Latest reports for policy: %s"
 msgstr "Derniers rapports pour stratégie : %s"
 
+msgid "Line chart"
+msgstr ""
+
 msgid "List ARF reports"
 msgstr "Afficher tous les rapports ARF"
 
@@ -460,6 +489,15 @@ msgstr "Lister le contenu SCAP"
 
 msgid "List Tailoring files"
 msgstr "Répertorier les fichiers de personnalisation"
+
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
 
 msgid "Loading..."
 msgstr "Chargement..."
@@ -506,6 +544,9 @@ msgstr "Non"
 msgid "No ARF reports for this policy"
 msgstr "Aucun rapport ARF pour cette stratégie"
 
+msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr "Aucun proxy OpenSCAP n'a été sélectionné."
 
@@ -526,6 +567,9 @@ msgstr "Aucun rapport de conformité sélectionné"
 
 msgid "No compliance reports were found."
 msgstr "Aucun rapport de conformité trouvé."
+
+msgid "No data available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "Aucun hôte sélectionné"
@@ -590,8 +634,14 @@ msgstr "Une fois que le contenu SCAP est présent, vous pouvez créer une strat�
 msgid "OpenSCAP Proxy"
 msgstr "Proxy OpenSCAP"
 
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
 msgstr "Proxy OpenSCAP à utiliser pour récupérer le contenu SCAP et télécharger les rapports ARF. Laissez ce champ vide et remplacez les paramètres appropriés lors de l'utilisation de l'équilibreur de charge proxy."
+
+msgid "OpenSCAP Proxy with id %s not found"
+msgstr ""
 
 msgid "Openscap Proxy"
 msgstr "Proxy Openscap"
@@ -621,9 +671,6 @@ msgstr "Succès"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "Succés|S"
-
-msgid "Permission denied"
-msgstr "Permission non accordée"
 
 msgid "Please Confirm"
 msgstr "Merci de confirmer"
@@ -730,9 +777,6 @@ msgstr "Rapporté le %s"
 msgid "Reports"
 msgstr "Rapports"
 
-msgid "Request the following permissions from administrator: %s."
-msgstr "Demandez les permissions suivantes à l'administrateur : %s."
-
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "Expiration du délai de requête. Veuillez augmenter les valeurs dans Paramètres -> proxy_request_timeout"
 
@@ -801,6 +845,9 @@ msgstr "Récapitulatif des stratégies SCAP"
 
 msgid "Schedule"
 msgstr "Programmer"
+
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
 
 msgid "Select Action"
 msgstr "Choisir l'action"
@@ -883,6 +930,11 @@ msgstr "%s rapports de conformité supprimés"
 msgid "Successfully deleted ARF report."
 msgstr "Rapport ARF supprimé."
 
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Summary from %{time} ago to now"
 msgstr "Résumé de %{time} à maintenant"
 
@@ -929,14 +981,14 @@ msgstr "Identifiant de l’hôte"
 msgid "The job has started on selected host(s), you can check the status on the job details page."
 msgstr "Le job a démarré sur le ou les hôtes sélectionnés, vous pouvez vérifier l'état sur la page des détails de ce job."
 
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "Il existe des différences importantes dans les options de déploiement."
 
 msgid "There is no job to remediate with. Please remediate manually."
 msgstr "Il n'y a aucune tâche à corriger. Veuillez corriger manuellement."
-
-msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr "L’erreur suivante s'est produite lors de la suppression%(name)s : %(error)s"
 
 msgid "There's no available report for this host"
 msgstr "Il n'y a pas de rapport disponible pour cet hôte"
@@ -946,6 +998,9 @@ msgstr "Cela laisse la configuration de foreman_scap_client uniquement à l'util
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "Ce profil sera utilisé pour remplacer celui du contenu scap"
+
+msgid "This will change previous proxy assignments on the selected hosts."
+msgstr ""
 
 msgid "Title"
 msgstr "Titre"
@@ -1042,9 +1097,6 @@ msgstr "XML contenant le fichier de personnalisation"
 
 msgid "Yes"
 msgstr "Oui"
-
-msgid "You are not authorized to view the page. "
-msgstr "Vous n'êtes pas autorisé à voir cette page. "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr "Vous pouvez résoudre le problème en exécutant une tâche à distance ou en affichant un extrait pour une résolution manuelle."

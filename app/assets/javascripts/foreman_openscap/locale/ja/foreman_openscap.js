@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.1",
+        "Project-Id-Version": "foreman_openscap 13.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "Kazuki Omo <kazuki.omo@gmail.com>, 2016",
@@ -44,6 +44,9 @@
       "%s reports over time": [
         "経過レポート %s 件"
       ],
+      "%s selected hosts.": [
+        ""
+      ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
       ],
@@ -61,6 +64,9 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP ポリシーのレポートの概要"
+      ],
+      "ALL selected hosts.": [
+        ""
       ],
       "Actions": [
         "アクション"
@@ -80,11 +86,20 @@
       "Apply policy to hosts": [
         "ホストにポリシーを適用"
       ],
-      "Are you sure you want to delete %s?": [
-        "本当に %s を削除しますか?"
+      "Assign": [
+        ""
       ],
       "Assign Compliance Policy": [
         "コンプライアンスポリシーの割り当て"
+      ],
+      "Assign OpenSCAP Proxy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy for ": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy to multiple hosts": [
+        ""
       ],
       "Back": [
         "戻る"
@@ -160,9 +175,6 @@
       ],
       "Compliant with the policy": [
         "ポリシーに準拠"
-      ],
-      "Confirm": [
-        "確認"
       ],
       "Content": [
         "コンテンツ"
@@ -305,6 +317,10 @@
       "Failed saving %s:": [
         "%s の保存に失敗しました:"
       ],
+      "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
+        "",
+        ""
+      ],
       "Failed to delete %s compliance reports": [
         "%s コンプライアンスレポートの削除に失敗しました"
       ],
@@ -392,11 +408,20 @@
       "Hosts passing this rule": [
         "このルールに合格のホスト"
       ],
+      "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
+        ""
+      ],
+      "Hosts to include in the action": [
+        ""
+      ],
       "How the policy should be deployed": [
         "ポリシーのデプロイメント方法"
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP プロキシーの ID"
+      ],
+      "ID of the OpenSCAP Proxy to assign to the hosts": [
+        ""
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
@@ -431,6 +456,9 @@
       "Latest reports for policy: %s": [
         "ポリシーの最新レポート: %s"
       ],
+      "Line chart": [
+        ""
+      ],
       "List ARF reports": [
         "ARF レポートの一覧表示"
       ],
@@ -445,6 +473,15 @@
       ],
       "List Tailoring files": [
         "テーラリングファイルの一覧表示"
+      ],
+      "List of host ids to exclude and not perform the action on": [
+        ""
+      ],
+      "List of host ids to perform the action on": [
+        ""
+      ],
+      "Loading": [
+        ""
       ],
       "Loading...": [
         "読み込み中..."
@@ -491,6 +528,9 @@
       "No ARF reports for this policy": [
         "このポリシーの ARF レポートがありません"
       ],
+      "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
+        ""
+      ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP プロキシーが選択されていません。"
       ],
@@ -511,6 +551,9 @@
       ],
       "No compliance reports were found.": [
         "コンプライアンスレポートが見つかりませんでした。"
+      ],
+      "No data available": [
+        ""
       ],
       "No hosts selected": [
         "ホストが選択されていません"
@@ -575,8 +618,14 @@
       "OpenSCAP Proxy": [
         "OpenSCAP プロキシー"
       ],
+      "OpenSCAP Proxy is set to %s": [
+        ""
+      ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+      ],
+      "OpenSCAP Proxy with id %s not found": [
+        ""
       ],
       "Openscap Proxy": [
         "OpenSCAP プロキシー"
@@ -604,9 +653,6 @@
       ],
       "Passed|P": [
         "P"
-      ],
-      "Permission denied": [
-        "パーミッションが拒否されました。"
       ],
       "Please Confirm": [
         "確認してください"
@@ -713,9 +759,6 @@
       "Reports": [
         "レポート"
       ],
-      "Request the following permissions from administrator: %s.": [
-        "管理者に次のパーミッションを要求してください: %s。"
-      ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
       ],
@@ -784,6 +827,9 @@
       ],
       "Schedule": [
         "スケジュール"
+      ],
+      "Search string describing which hosts to perform the action on": [
+        ""
       ],
       "Select Action": [
         "アクションの選択"
@@ -866,6 +912,10 @@
       "Successfully deleted ARF report.": [
         "ARF レポートが正常に削除されました。"
       ],
+      "Successfully updated %{success} host.": [
+        "",
+        ""
+      ],
       "Summary from %{time} ago to now": [
         "過去 %{time} から今までの概要"
       ],
@@ -908,14 +958,14 @@
       "The job has started on selected host(s), you can check the status on the job details page.": [
         "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
       ],
+      "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
+        ""
+      ],
       "There are significant differences in deployment options.": [
         "デプロイメントオプションには大きな違いがあります。"
       ],
       "There is no job to remediate with. Please remediate manually.": [
         "修復に使用するジョブがありません。手動で修復してください。"
-      ],
-      "There was a following error when deleting %(name)s: %(error)s": [
-        "%(name)s を削除する際に、次のエラーが発生しました: %(error)s"
       ],
       "There's no available report for this host": [
         "このホストの利用可能なレポートはありません。"
@@ -925,6 +975,9 @@
       ],
       "This profile will be used to override the one from scap content": [
         "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
+      ],
+      "This will change previous proxy assignments on the selected hosts.": [
+        ""
       ],
       "Title": [
         "タイトル"
@@ -1018,9 +1071,6 @@
       ],
       "Yes": [
         "はい"
-      ],
-      "You are not authorized to view the page. ": [
-        "ページを表示する権限がありません。 "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         "リモートジョブを実行して修復することも、手動修復用のスニペットを表示することもできます。"

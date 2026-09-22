@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: foreman_openscap 1.0.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-08 11:04+0000\n"
-"PO-Revision-Date: 2025-10-08 11:04+0000\n"
+"POT-Creation-Date: 2026-09-22 17:29+0000\n"
+"PO-Revision-Date: 2026-09-22 17:29+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
@@ -58,6 +58,60 @@ msgstr ""
 
 #: ../app/controllers/api/v2/compliance/arf_reports_controller.rb:120
 msgid "No proxy found for %{name} or %{url}"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:15
+msgid "Hosts to include in the action"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:16
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:17
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:19
+msgid ""
+"Hosts to explicitly exclude in the action. All other hosts will be included in"
+" the action, unless an included parameter is passed as well."
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:22
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:26
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:28
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:39
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:48
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:53
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:78
+msgid "OpenSCAP Proxy with id %s not found"
+msgstr ""
+
+#: ../app/controllers/api/v2/compliance/hosts_bulk_actions_controller.rb:85
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
 msgstr ""
 
 #: ../app/controllers/api/v2/compliance/policies_controller.rb:18
@@ -476,7 +530,7 @@ msgstr ""
 
 #: ../app/helpers/compliance_hosts_helper.rb:37
 #: ../app/models/foreman_openscap/compliance_status.rb:8
-#: ../lib/foreman_openscap/engine.rb:132
+#: ../lib/foreman_openscap/engine.rb:133
 #: ../webpack/components/HostExtentions/HostKebabItems.js:42
 msgid "Compliance"
 msgstr ""
@@ -532,7 +586,7 @@ msgstr ""
 
 #: ../app/helpers/policies_helper.rb:115
 #: ../app/views/arf_reports/_list.html.erb:53
-#: ../webpack/components/ConfirmModal.js:29
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:154
 #: ../webpack/components/OpenscapRemediationWizard/Footer.js:47
 msgid "Cancel"
 msgstr ""
@@ -963,30 +1017,30 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:8
+#: ../app/views/compliance_hosts/show.html.erb:10
 msgid "%s compliance report by policy"
 msgid_plural "%s compliance reports by policy"
 msgstr[0] ""
 msgstr[1] ""
 
-#: ../app/views/compliance_hosts/show.html.erb:10
+#: ../app/views/compliance_hosts/show.html.erb:12
 msgid "Policy %s"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:16
+#: ../app/views/compliance_hosts/show.html.erb:18
 msgid "%s latest report"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:28
+#: ../app/views/compliance_hosts/show.html.erb:30
 msgid "%s reports over time"
 msgstr ""
 
-#: ../app/views/compliance_hosts/show.html.erb:34
+#: ../app/views/compliance_hosts/show.html.erb:36
 msgid "No report for this policy"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_host_reports_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:148
+#: ../lib/foreman_openscap/engine.rb:149
 msgid "Latest Compliance Reports"
 msgstr ""
 
@@ -1003,7 +1057,7 @@ msgid "Policy is missing"
 msgstr ""
 
 #: ../app/views/dashboard/_compliance_reports_breakdown_widget.html.erb:1
-#: ../lib/foreman_openscap/engine.rb:150
+#: ../lib/foreman_openscap/engine.rb:151
 msgid "Compliance Reports Breakdown"
 msgstr ""
 
@@ -1062,6 +1116,8 @@ msgid "Policies with hosts:"
 msgstr ""
 
 #: ../app/views/hosts/select_multiple_openscap_proxy.html.erb:5
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:178
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:185
 msgid "Select OpenSCAP Proxy"
 msgstr ""
 
@@ -1346,7 +1402,7 @@ msgstr ""
 #: ../app/views/tailoring_files/index.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:1
 #: ../app/views/tailoring_files/welcome.html.erb:6
-#: ../lib/foreman_openscap/engine.rb:142
+#: ../lib/foreman_openscap/engine.rb:143
 msgid "Tailoring Files"
 msgstr ""
 
@@ -1383,50 +1439,99 @@ msgstr ""
 msgid "A summary of reports for OpenSCAP policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:133
+#: ../lib/foreman_openscap/engine.rb:134
 msgid "Policies"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:136
+#: ../lib/foreman_openscap/engine.rb:137
 msgid "SCAP contents"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:139
+#: ../lib/foreman_openscap/engine.rb:140
 msgid "Reports"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:164
+#: ../lib/foreman_openscap/engine.rb:165
 msgid ""
 "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Lea"
 "ve blank and override appropriate parameters when using proxy load balancer."
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:168 ../lib/foreman_openscap/engine.rb:173
+#: ../lib/foreman_openscap/engine.rb:169 ../lib/foreman_openscap/engine.rb:174
+#: ../webpack/components/HostsIndex/ChangeOpenscapProxyAction.js:23
 msgid "OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:170 ../lib/foreman_openscap/engine.rb:175
+#: ../lib/foreman_openscap/engine.rb:171 ../lib/foreman_openscap/engine.rb:176
 msgid "ID of OpenSCAP Proxy"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:215 ../lib/foreman_openscap/engine.rb:233
+#: ../lib/foreman_openscap/engine.rb:216 ../lib/foreman_openscap/engine.rb:234
 msgid "Run OpenSCAP scan"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:220 ../lib/foreman_openscap/engine.rb:234
+#: ../lib/foreman_openscap/engine.rb:221 ../lib/foreman_openscap/engine.rb:235
 msgid "Run OpenSCAP remediation with Ansible"
 msgstr ""
 
-#: ../lib/foreman_openscap/engine.rb:225 ../lib/foreman_openscap/engine.rb:235
+#: ../lib/foreman_openscap/engine.rb:226 ../lib/foreman_openscap/engine.rb:236
 msgid "Run OpenSCAP remediation with Shell"
-msgstr ""
-
-#: ../webpack/components/ConfirmModal.js:20
-msgid "Confirm"
 msgstr ""
 
 #: ../webpack/components/HostExtentions/HostKebabItems.js:38
 msgid "There's no available report for this host"
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:107
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:114
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:108
+msgid "ALL selected hosts."
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:110
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:117
+msgid "This will change previous proxy assignments on the selected hosts."
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:115
+msgid "%s selected hosts."
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:143
+msgid "Loading"
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:145
+msgid "Assign"
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:163
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+#:
+#: ../webpack/components/HostsIndex/BulkActions/changeOpenscapProxy/BulkChangeOpenscapProxyModal.js:197
+msgid ""
+"No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCA"
+"P feature."
+msgstr ""
+
+#: ../webpack/components/LineChart/index.js:202
+msgid "Line chart"
+msgstr ""
+
+#: ../webpack/components/LineChart/index.js:314
+msgid "No data available"
 msgstr ""
 
 #: ../webpack/components/OpenscapRemediationWizard/Footer.js:30
@@ -1438,22 +1543,22 @@ msgstr ""
 msgid "View selected hosts"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/constants.js:19
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:123
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:20
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:125
 msgid "Select snippet"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/constants.js:20
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:21
 #: ../webpack/components/OpenscapRemediationWizard/steps/ReviewHosts.js:193
 msgid "Review hosts"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/constants.js:21
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:97
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:22
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:105
 msgid "Review remediation"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/constants.js:22
+#: ../webpack/components/OpenscapRemediationWizard/constants.js:23
 msgid "Done"
 msgstr ""
 
@@ -1470,8 +1575,7 @@ msgid "Close"
 msgstr ""
 
 #: ../webpack/components/OpenscapRemediationWizard/steps/Finish.js:103
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:147
-#: ../webpack/components/withLoading.js:12
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:149
 msgid "Error!"
 msgstr ""
 
@@ -1492,103 +1596,83 @@ msgid ""
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:64
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:68
 msgid "Review the remediation snippet and apply it to the host manually."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:65
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:69
 msgid "Review the remediation snippet that will be applied to selected host(s)."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:70
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:74
 msgid "A reboot is required after applying remediation."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:71
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:75
 msgid "A reboot might be required after applying remediation."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:87
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:95
 msgid "Successfully copied to clipboard!"
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:88
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:96
 msgid "Copy to clipboard"
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:106
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:114
 msgid ""
 "Do not implement any of the recommended remedial actions or scripts without fi"
 "rst testing them in a non-production environment."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:109
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:117
 msgid "Remediation might render the system non-functional."
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:144
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:152
 msgid "Other hosts failing this rule"
 msgstr ""
 
 #:
-#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:161
+#: ../webpack/components/OpenscapRemediationWizard/steps/ReviewRemediation.js:169
 msgid "Reboot the system(s)"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:71
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:73
 msgid "Method"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:77
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:79
 msgid "Remote job"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:86
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:88
 msgid "Manual"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:101
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:103
 msgid "There is no job to remediate with. Please remediate manually."
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:107
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:109
 msgid "Snippet"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:155
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:157
 msgid "Select remediation method"
 msgstr ""
 
-#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:156
+#: ../webpack/components/OpenscapRemediationWizard/steps/SnippetSelect.js:158
 msgid ""
 "You can remediate by running a remote job or you can display a snippet for man"
 "ual remediation."
-msgstr ""
-
-#: ../webpack/components/withDeleteModal.js:27
-msgid "Are you sure you want to delete %s?"
-msgstr ""
-
-#: ../webpack/components/withLoading.js:64
-msgid "Permission denied"
-msgstr ""
-
-#: ../webpack/helpers/mutationHelper.js:7
-msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr ""
-
-#: ../webpack/helpers/permissionsHelper.js:34
-msgid "You are not authorized to view the page. "
-msgstr ""
-
-#: ../webpack/helpers/permissionsHelper.js:37
-msgid "Request the following permissions from administrator: %s."
 msgstr ""

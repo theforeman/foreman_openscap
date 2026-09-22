@@ -5,7 +5,7 @@
 # Translators:
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.1\n"
+"Project-Id-Version: foreman_openscap 13.1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
@@ -46,6 +46,9 @@ msgstr "%s უახლესი ანგარიში"
 msgid "%s reports over time"
 msgstr "სულ %s ანგარიში"
 
+msgid "%s selected hosts."
+msgstr ""
+
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "აღმოჩენილია %s სპულის შეცდომა. შეამოწმეთ შესაბამისი ფაილი პირდაპირ პროქსიზე"
 
@@ -56,13 +59,16 @@ msgid "<b>Foreman</b> OpenSCAP summary"
 msgstr "<b>Foreman</b> OpenSCAP-ის მიმოხილვა"
 
 msgid "A reboot is required after applying remediation."
-msgstr ""
+msgstr "გამოსწორების გამოყენების შემდეგ საჭიროა გადატვირთვა."
 
 msgid "A reboot might be required after applying remediation."
-msgstr ""
+msgstr "გამოსწორების გამოყენების შემდეგ, შეიძლება, გადატვირთვა გახდეს საჭირო."
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP-ის პოლიტიკის ანგარიშების შეჯამება"
+
+msgid "ALL selected hosts."
+msgstr ""
 
 msgid "Actions"
 msgstr "ქმედებები"
@@ -82,11 +88,20 @@ msgstr "წესის ჰოსტების ჯგუფზე გადა
 msgid "Apply policy to hosts"
 msgstr "წესის ჰოსტებზე გადატარება"
 
-msgid "Are you sure you want to delete %s?"
-msgstr "დარწმუნებული ხართ, რომ გსურთ %s-ის წაშლა?"
+msgid "Assign"
+msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "შესაბამისობის პოლიტიკის მინიჭება"
+
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
 
 msgid "Back"
 msgstr "უკან"
@@ -162,9 +177,6 @@ msgstr "შესაბამისი ჰოსტები"
 
 msgid "Compliant with the policy"
 msgstr "შეესაბამება წესს"
-
-msgid "Confirm"
-msgstr "დადასტურება"
 
 msgid "Content"
 msgstr "შემცველობა"
@@ -257,7 +269,7 @@ msgid "Documentation"
 msgstr "დოკუმენტაცია"
 
 msgid "Done"
-msgstr ""
+msgstr "მზადაა"
 
 msgid "Download"
 msgstr "ჩამოტვირთვა"
@@ -306,6 +318,11 @@ msgstr "მხოლოდ ავარიულები"
 
 msgid "Failed saving %s:"
 msgstr "%s-ის შენახვა ჩავარდა:"
+
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Failed to delete %s compliance reports"
 msgstr "%s შესაბამისობის ანგარიშის წაშლის შეცდომა"
@@ -395,11 +412,20 @@ msgstr "ჰოსტები, რომლებიც გაურკვევ
 msgid "Hosts passing this rule"
 msgstr "ჰოსტები, რომლებსაც გააჩნიათ, ეს წესი"
 
+msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
+msgstr ""
+
+msgid "Hosts to include in the action"
+msgstr ""
+
 msgid "How the policy should be deployed"
 msgstr "წესის გაშლის მიმდევრობა"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP პროქსის ID"
+
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
+msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "Foreman-ში შესაბამისობის პოლიტიკის სია %s-ის გავლითაა აღწერილი."
@@ -430,13 +456,16 @@ msgid "It may sometimes be required to adjust the security policy to your specif
 msgstr "ხანდახან შეიძლება უსაფრთხოების პოლიტიკის თქვენი საჭიროებებისათვის მორგება მოგიწიოთ. "
 
 msgid "Job details"
-msgstr ""
+msgstr "დავალების დეტალები"
 
 msgid "Latest Compliance Reports"
 msgstr "თავსებადობის უახლესი ანგარიშები"
 
 msgid "Latest reports for policy: %s"
 msgstr "უახლესი ანგარიშები წესისთვის: %s"
+
+msgid "Line chart"
+msgstr ""
 
 msgid "List ARF reports"
 msgstr "ARF ანგარიშების სია"
@@ -453,6 +482,15 @@ msgstr "SCAP შემცველობის სია"
 msgid "List Tailoring files"
 msgstr "მორგების ფაილების სია"
 
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
+
 msgid "Loading..."
 msgstr "იტვირთება..."
 
@@ -466,7 +504,7 @@ msgid "Message"
 msgstr "შეტყობინება"
 
 msgid "Method"
-msgstr ""
+msgstr "მეთოდი"
 
 msgid "More details"
 msgstr "მეტი დეტალი"
@@ -498,6 +536,9 @@ msgstr "არა"
 msgid "No ARF reports for this policy"
 msgstr "ამ წესისთვის ARF ანგარიშები არ არსებობს"
 
+msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr "OpenSCAP-ის პროქსი არჩეული არაა."
 
@@ -518,6 +559,9 @@ msgstr "შესაბამისობის ანგარიში არ�
 
 msgid "No compliance reports were found."
 msgstr "შესაბამისობის ანგარიშები ნაპოვნი არაა."
+
+msgid "No data available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "ჰოსტები მონიშნული არაა"
@@ -574,7 +618,7 @@ msgid "Number of a day in month, note that not all months have same count of day
 msgstr "თვის დღეების რაოდენობა. გაითვალისწინეთ, რომ ყველა თვეში დღეების რაოდენობა ტოლი არაა"
 
 msgid "OS"
-msgstr ""
+msgstr "OS"
 
 msgid "Once SCAP content is present, you can create a policy, assign select host groups and schedule to run."
 msgstr ""
@@ -582,7 +626,13 @@ msgstr ""
 msgid "OpenSCAP Proxy"
 msgstr "OpenSCAP პროქსი"
 
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
+msgstr ""
+
+msgid "OpenSCAP Proxy with id %s not found"
 msgstr ""
 
 msgid "Openscap Proxy"
@@ -598,7 +648,7 @@ msgid "Other"
 msgstr "სხვები"
 
 msgid "Other hosts failing this rule"
-msgstr ""
+msgstr "სხვა ჰოსტები, რომლებიც ამ წესს აგდებენ"
 
 msgid "Othered"
 msgstr "Othered"
@@ -613,9 +663,6 @@ msgstr "გაიარა"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "გაიარა|P"
-
-msgid "Permission denied"
-msgstr "წვდომა აკრძალულია"
 
 msgid "Please Confirm"
 msgstr "დაადასტურეთ"
@@ -687,7 +734,7 @@ msgid "Rationale"
 msgstr "დასაბუთება"
 
 msgid "Reboot the system(s)"
-msgstr ""
+msgstr "სისტემ(ებ)-ის გადატვირთვა"
 
 msgid "Red Hat %s default content"
 msgstr "Red Hat %s ნაგულისხმევი შემცველობა"
@@ -696,16 +743,16 @@ msgid "References"
 msgstr "ბმები"
 
 msgid "Remediate %s rule"
-msgstr ""
+msgstr "%s წესის გამოსწორება"
 
 msgid "Remediation"
-msgstr ""
+msgstr "გამოსწორება"
 
 msgid "Remediation might render the system non-functional."
 msgstr ""
 
 msgid "Remote job"
-msgstr ""
+msgstr "დაშორებული დავალება"
 
 msgid "Report Metrics"
 msgstr "ანგარიშის მეტრიკები"
@@ -721,9 +768,6 @@ msgstr "ანგარიშის დრო %s"
 
 msgid "Reports"
 msgstr "ანგარიშები"
-
-msgid "Request the following permissions from administrator: %s."
-msgstr "ადმინისტრატორისგან შემდეგი წვდომების გამოთხოვა: %s."
 
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "მოთხოვნის მოლოდინის ვადა ამოიწურა. სცადეთ შეცვალოთ პარამეტრი მორგება -> proxy_request_timeout"
@@ -744,10 +788,10 @@ msgid "Result"
 msgstr "შედეგი"
 
 msgid "Review hosts"
-msgstr ""
+msgstr "ჰოსტების მიმოხილვა"
 
 msgid "Review remediation"
-msgstr ""
+msgstr "გამოსწორების მიმოხილვა"
 
 msgid "Review the remediation snippet and apply it to the host manually."
 msgstr ""
@@ -762,10 +806,10 @@ msgid "Run"
 msgstr "გაშვება"
 
 msgid "Run OpenSCAP remediation with Ansible"
-msgstr ""
+msgstr "OpenSCAP-ით გამოსწორების გაშვება Ansible-ით"
 
 msgid "Run OpenSCAP remediation with Shell"
-msgstr ""
+msgstr "OpenSCAP-ით გამოსწორების გაშვება გარსით"
 
 msgid "Run OpenSCAP scan"
 msgstr "OpenSCAP სკანირების გაშვება"
@@ -794,6 +838,9 @@ msgstr "SCAP_ის წესის მიმოხილვა"
 msgid "Schedule"
 msgstr "განრიგი"
 
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
+
 msgid "Select Action"
 msgstr "აირჩიეთ ქმედება"
 
@@ -807,10 +854,10 @@ msgid "Select all items in this page"
 msgstr "ამ გვერდზე ყველა ჩანაწერის მონიშვნა"
 
 msgid "Select remediation method"
-msgstr ""
+msgstr "აირჩიეთ გამოსწორების მეთოდი"
 
 msgid "Select snippet"
-msgstr ""
+msgstr "აირჩიეთ ფრაგმენტი"
 
 msgid "Severity"
 msgstr "სიმძიმე"
@@ -867,13 +914,18 @@ msgid "Submit"
 msgstr "გაგზავნა"
 
 msgid "Successfully copied to clipboard!"
-msgstr ""
+msgstr "წარმატებით დაკოპირდა ბუფერში!"
 
 msgid "Successfully deleted %s compliance reports"
 msgstr "%s შესაბამისობის ანგარიში წარმატებით წაიშალა"
 
 msgid "Successfully deleted ARF report."
 msgstr "ARF ანგარიში წარმატებით წაიშალა."
+
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
 
 msgid "Summary from %{time} ago to now"
 msgstr "მიმოხილვის ბოლო განახლების დრო %{time}"
@@ -911,12 +963,15 @@ msgid "The following %{key_name} were missing for %{item_name}: %{key_names}. Ma
 msgstr ""
 
 msgid "The host was moved or deleted"
-msgstr ""
+msgstr "ჰოსტი გადატანილი, ან წაშლილია"
 
 msgid "The identifier of the host"
 msgstr "ჰოსტის იდენტიფიკატორი"
 
 msgid "The job has started on selected host(s), you can check the status on the job details page."
+msgstr ""
+
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
 msgstr ""
 
 msgid "There are significant differences in deployment options."
@@ -925,9 +980,6 @@ msgstr "გაშლის პარამეტრებში მნიშვ�
 msgid "There is no job to remediate with. Please remediate manually."
 msgstr ""
 
-msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr "დაფიქსირდა შემდეგი შეცდომა %(name)s-ის წაშლისას: %(error)s"
-
 msgid "There's no available report for this host"
 msgstr "ამ ჰოსტისთვის ხელმისაწვდომი ანგარიში არ არსებობს"
 
@@ -935,6 +987,9 @@ msgid "This leaves the setup of the foreman_scap_client solely on the user. The 
 msgstr ""
 
 msgid "This profile will be used to override the one from scap content"
+msgstr ""
+
+msgid "This will change previous proxy assignments on the selected hosts."
 msgstr ""
 
 msgid "Title"
@@ -1015,7 +1070,7 @@ msgid "View full report"
 msgstr "სრული ანგარიშის ნახვა"
 
 msgid "View selected hosts"
-msgstr ""
+msgstr "მონიშნული ჰოსტების ნახვა"
 
 msgid "XCCDF Profile"
 msgstr "XCCDF პროფილი"
@@ -1031,9 +1086,6 @@ msgstr "შესაბამისობის ფაილის შემც�
 
 msgid "Yes"
 msgstr "დიახ"
-
-msgid "You are not authorized to view the page. "
-msgstr "ამ გვერდთან წვდომა არ გაგაჩნიათ. "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr ""

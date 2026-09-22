@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.1",
+        "Project-Id-Version": "foreman_openscap 13.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
@@ -44,6 +44,9 @@
       "%s reports over time": [
         "一直以來的 %s 报告"
       ],
+      "%s selected hosts.": [
+        ""
+      ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "发现了 %s 个 spool 错误，在代理上直接检查相关的文件"
       ],
@@ -61,6 +64,9 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP 策略报告摘要"
+      ],
+      "ALL selected hosts.": [
+        ""
       ],
       "Actions": [
         "操作"
@@ -80,11 +86,20 @@
       "Apply policy to hosts": [
         "对主机应用策略"
       ],
-      "Are you sure you want to delete %s?": [
-        "您确定要删除 %s 吗？"
+      "Assign": [
+        ""
       ],
       "Assign Compliance Policy": [
         "分配合规政策"
+      ],
+      "Assign OpenSCAP Proxy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy for ": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy to multiple hosts": [
+        ""
       ],
       "Back": [
         "返回"
@@ -160,9 +175,6 @@
       ],
       "Compliant with the policy": [
         "与策略合规"
-      ],
-      "Confirm": [
-        "确认"
       ],
       "Content": [
         "内容"
@@ -305,6 +317,10 @@
       "Failed saving %s:": [
         "保存失败 %s:"
       ],
+      "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
+        "",
+        ""
+      ],
       "Failed to delete %s compliance reports": [
         "刪除 %s 合规报告失败"
       ],
@@ -392,11 +408,20 @@
       "Hosts passing this rule": [
         "主机通过了这个规则"
       ],
+      "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
+        ""
+      ],
+      "Hosts to include in the action": [
+        ""
+      ],
       "How the policy should be deployed": [
         "应如何部署策略"
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP 代理服务器的 ID"
+      ],
+      "ID of the OpenSCAP Proxy to assign to the hosts": [
+        ""
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "在 Foreman 中，合规策略检查清单通过 %s 定义。"
@@ -431,6 +456,9 @@
       "Latest reports for policy: %s": [
         "最新的政策报告：%s"
       ],
+      "Line chart": [
+        ""
+      ],
       "List ARF reports": [
         "列出 ARF 报告"
       ],
@@ -445,6 +473,15 @@
       ],
       "List Tailoring files": [
         "列出 Tailoring 文件"
+      ],
+      "List of host ids to exclude and not perform the action on": [
+        ""
+      ],
+      "List of host ids to perform the action on": [
+        ""
+      ],
+      "Loading": [
+        ""
       ],
       "Loading...": [
         "载入中..."
@@ -491,6 +528,9 @@
       "No ARF reports for this policy": [
         "此政策沒有 ARF 報告"
       ],
+      "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
+        ""
+      ],
       "No OpenSCAP Proxy selected.": [
         "没有选择 OpenSCAP 代理。"
       ],
@@ -511,6 +551,9 @@
       ],
       "No compliance reports were found.": [
         "没有找到合规报告。"
+      ],
+      "No data available": [
+        ""
       ],
       "No hosts selected": [
         "未选择主机"
@@ -575,8 +618,14 @@
       "OpenSCAP Proxy": [
         "OpenSCAP 代理"
       ],
+      "OpenSCAP Proxy is set to %s": [
+        ""
+      ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "用来获取 SCAP 内容以及上传 ARF 报告的 OpenSCAP 代理。如果为空，则在使用代理负责均衡器时覆盖相应的参数。"
+      ],
+      "OpenSCAP Proxy with id %s not found": [
+        ""
       ],
       "Openscap Proxy": [
         "Openscap 代理"
@@ -604,9 +653,6 @@
       ],
       "Passed|P": [
         "Passed|P"
-      ],
-      "Permission denied": [
-        "没有权限"
       ],
       "Please Confirm": [
         "请确认"
@@ -713,9 +759,6 @@
       "Reports": [
         "报表"
       ],
-      "Request the following permissions from administrator: %s.": [
-        "连续管理员来获得以下权限：%s。"
-      ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "请求超时。请尝试增加 Settings -> proxy_request_timeout"
       ],
@@ -784,6 +827,9 @@
       ],
       "Schedule": [
         "调度"
+      ],
+      "Search string describing which hosts to perform the action on": [
+        ""
       ],
       "Select Action": [
         "选择操作"
@@ -866,6 +912,10 @@
       "Successfully deleted ARF report.": [
         "成功删除了 ARF 报告。"
       ],
+      "Successfully updated %{success} host.": [
+        "",
+        ""
+      ],
       "Summary from %{time} ago to now": [
         "从 %{time} 到现在的摘要"
       ],
@@ -908,14 +958,14 @@
       "The job has started on selected host(s), you can check the status on the job details page.": [
         "作业已在所选主机上启动，您可以在详情页中检查作业的状态。"
       ],
+      "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
+        ""
+      ],
       "There are significant differences in deployment options.": [
         "部署选项之间存在重大差异。"
       ],
       "There is no job to remediate with. Please remediate manually.": [
         "没有可以修复的作业。请手动修复。"
-      ],
-      "There was a following error when deleting %(name)s: %(error)s": [
-        "删除 %(name)s 时出现以下错误：%(error)s"
       ],
       "There's no available report for this host": [
         "此主机没有可用的报告"
@@ -925,6 +975,9 @@
       ],
       "This profile will be used to override the one from scap content": [
         "这个配置文件将用于覆盖 scap 内容中的配置文件"
+      ],
+      "This will change previous proxy assignments on the selected hosts.": [
+        ""
       ],
       "Title": [
         "提示"
@@ -1018,9 +1071,6 @@
       ],
       "Yes": [
         "是"
-      ],
-      "You are not authorized to view the page. ": [
-        "您没有权利查看该页面。 "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         "您可以通过运行远程作业来修复，也可以显示用于手动修复的代码片段。"

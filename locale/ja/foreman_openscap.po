@@ -7,7 +7,7 @@
 # Kazuki Omo <kazuki.omo@gmail.com>, 2016
 msgid ""
 msgstr ""
-"Project-Id-Version: foreman_openscap 12.0.1\n"
+"Project-Id-Version: foreman_openscap 13.1.1\n"
 "Report-Msgid-Bugs-To: \n"
 "PO-Revision-Date: 2016-04-14 07:48+0000\n"
 "Last-Translator: Kazuki Omo <kazuki.omo@gmail.com>, 2016\n"
@@ -47,6 +47,9 @@ msgstr "最新レポート %s 件"
 msgid "%s reports over time"
 msgstr "経過レポート %s 件"
 
+msgid "%s selected hosts."
+msgstr ""
+
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
 
@@ -64,6 +67,9 @@ msgstr "修復を適用した後に再起動が必要になる場合がありま
 
 msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP ポリシーのレポートの概要"
+
+msgid "ALL selected hosts."
+msgstr ""
 
 msgid "Actions"
 msgstr "アクション"
@@ -83,11 +89,20 @@ msgstr "ホストグループ にポリシーを適用"
 msgid "Apply policy to hosts"
 msgstr "ホストにポリシーを適用"
 
-msgid "Are you sure you want to delete %s?"
-msgstr "本当に %s を削除しますか?"
+msgid "Assign"
+msgstr ""
 
 msgid "Assign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て"
+
+msgid "Assign OpenSCAP Proxy"
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy for "
+msgstr ""
+
+msgid "Assign OpenSCAP Proxy to multiple hosts"
+msgstr ""
 
 msgid "Back"
 msgstr "戻る"
@@ -163,9 +178,6 @@ msgstr "準拠したホスト"
 
 msgid "Compliant with the policy"
 msgstr "ポリシーに準拠"
-
-msgid "Confirm"
-msgstr "確認"
 
 msgid "Content"
 msgstr "コンテンツ"
@@ -308,6 +320,11 @@ msgstr "失敗のみ"
 msgid "Failed saving %s:"
 msgstr "%s の保存に失敗しました:"
 
+msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
+msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Failed to delete %s compliance reports"
 msgstr "%s コンプライアンスレポートの削除に失敗しました"
 
@@ -396,11 +413,20 @@ msgstr "このルールに該当しないホスト"
 msgid "Hosts passing this rule"
 msgstr "このルールに合格のホスト"
 
+msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
+msgstr ""
+
+msgid "Hosts to include in the action"
+msgstr ""
+
 msgid "How the policy should be deployed"
 msgstr "ポリシーのデプロイメント方法"
 
 msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシーの ID"
+
+msgid "ID of the OpenSCAP Proxy to assign to the hosts"
+msgstr ""
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
@@ -443,6 +469,9 @@ msgstr "最新コンプライアンスレポート"
 msgid "Latest reports for policy: %s"
 msgstr "ポリシーの最新レポート: %s"
 
+msgid "Line chart"
+msgstr ""
+
 msgid "List ARF reports"
 msgstr "ARF レポートの一覧表示"
 
@@ -457,6 +486,15 @@ msgstr "SCAP コンテンツの一覧表示"
 
 msgid "List Tailoring files"
 msgstr "テーラリングファイルの一覧表示"
+
+msgid "List of host ids to exclude and not perform the action on"
+msgstr ""
+
+msgid "List of host ids to perform the action on"
+msgstr ""
+
+msgid "Loading"
+msgstr ""
 
 msgid "Loading..."
 msgstr "読み込み中..."
@@ -503,6 +541,9 @@ msgstr "いいえ"
 msgid "No ARF reports for this policy"
 msgstr "このポリシーの ARF レポートがありません"
 
+msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
+msgstr ""
+
 msgid "No OpenSCAP Proxy selected."
 msgstr "OpenSCAP プロキシーが選択されていません。"
 
@@ -523,6 +564,9 @@ msgstr "コンプライアンスレポートが選択されていません"
 
 msgid "No compliance reports were found."
 msgstr "コンプライアンスレポートが見つかりませんでした。"
+
+msgid "No data available"
+msgstr ""
 
 msgid "No hosts selected"
 msgstr "ホストが選択されていません"
@@ -587,8 +631,14 @@ msgstr "SCAP コンテンツが表示されたら、ポリシーの作成、選�
 msgid "OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシー"
 
+msgid "OpenSCAP Proxy is set to %s"
+msgstr ""
+
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
 msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+
+msgid "OpenSCAP Proxy with id %s not found"
+msgstr ""
 
 msgid "Openscap Proxy"
 msgstr "OpenSCAP プロキシー"
@@ -618,9 +668,6 @@ msgstr "合格"
 #. TRANSLATORS: initial character of Passed
 msgid "Passed|P"
 msgstr "P"
-
-msgid "Permission denied"
-msgstr "パーミッションが拒否されました。"
 
 msgid "Please Confirm"
 msgstr "確認してください"
@@ -727,9 +774,6 @@ msgstr "レポート日時: %s"
 msgid "Reports"
 msgstr "レポート"
 
-msgid "Request the following permissions from administrator: %s."
-msgstr "管理者に次のパーミッションを要求してください: %s。"
-
 msgid "Request timed out. Please try increasing Settings -> proxy_request_timeout"
 msgstr "要求がタイムアウトしました。Settings -> proxy_request_timeout で値を増やしてみてください"
 
@@ -798,6 +842,9 @@ msgstr "SCAP ポリシーの概要"
 
 msgid "Schedule"
 msgstr "スケジュール"
+
+msgid "Search string describing which hosts to perform the action on"
+msgstr ""
 
 msgid "Select Action"
 msgstr "アクションの選択"
@@ -880,6 +927,11 @@ msgstr "%s コンプライアンスレポートが正常に削除されました
 msgid "Successfully deleted ARF report."
 msgstr "ARF レポートが正常に削除されました。"
 
+msgid "Successfully updated %{success} host."
+msgid_plural "Successfully updated %{success} hosts."
+msgstr[0] ""
+msgstr[1] ""
+
 msgid "Summary from %{time} ago to now"
 msgstr "過去 %{time} から今までの概要"
 
@@ -926,14 +978,14 @@ msgstr "ホストの ID"
 msgid "The job has started on selected host(s), you can check the status on the job details page."
 msgstr "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
 
+msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
+msgstr ""
+
 msgid "There are significant differences in deployment options."
 msgstr "デプロイメントオプションには大きな違いがあります。"
 
 msgid "There is no job to remediate with. Please remediate manually."
 msgstr "修復に使用するジョブがありません。手動で修復してください。"
-
-msgid "There was a following error when deleting %(name)s: %(error)s"
-msgstr "%(name)s を削除する際に、次のエラーが発生しました: %(error)s"
 
 msgid "There's no available report for this host"
 msgstr "このホストの利用可能なレポートはありません。"
@@ -943,6 +995,9 @@ msgstr "これにより、foreman_scap_client のセットアップはユーザ�
 
 msgid "This profile will be used to override the one from scap content"
 msgstr "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
+
+msgid "This will change previous proxy assignments on the selected hosts."
+msgstr ""
 
 msgid "Title"
 msgstr "タイトル"
@@ -1037,9 +1092,6 @@ msgstr "テーラリングファイルを含む XML"
 
 msgid "Yes"
 msgstr "はい"
-
-msgid "You are not authorized to view the page. "
-msgstr "ページを表示する権限がありません。 "
 
 msgid "You can remediate by running a remote job or you can display a snippet for manual remediation."
 msgstr "リモートジョブを実行して修復することも、手動修復用のスニペットを表示することもできます。"

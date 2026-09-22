@@ -3,7 +3,7 @@
   "locale_data": {
     "foreman_openscap": {
       "": {
-        "Project-Id-Version": "foreman_openscap 12.0.1",
+        "Project-Id-Version": "foreman_openscap 13.1.1",
         "Report-Msgid-Bugs-To": "",
         "PO-Revision-Date": "2016-04-14 07:48+0000",
         "Last-Translator": "FIRST AUTHOR <EMAIL@ADDRESS>, 2016",
@@ -44,6 +44,9 @@
       "%s reports over time": [
         "기간별 %s 보고서"
       ],
+      "%s selected hosts.": [
+        ""
+      ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s spool 오류가 감지되었습니다. 프록시에서 직접 해당 파일을 검사하세요."
       ],
@@ -61,6 +64,9 @@
       ],
       "A summary of reports for OpenSCAP policies": [
         "OpenSCAP 정책에 대한 보고서 요약"
+      ],
+      "ALL selected hosts.": [
+        ""
       ],
       "Actions": [
         "동작 "
@@ -80,11 +86,20 @@
       "Apply policy to hosts": [
         "호스트에 정책 적용"
       ],
-      "Are you sure you want to delete %s?": [
-        "%s을/를 삭제하시겠습니까?"
+      "Assign": [
+        ""
       ],
       "Assign Compliance Policy": [
         "컴플라이언스 정책 할당"
+      ],
+      "Assign OpenSCAP Proxy": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy for ": [
+        ""
+      ],
+      "Assign OpenSCAP Proxy to multiple hosts": [
+        ""
       ],
       "Back": [
         "뒤로 "
@@ -160,9 +175,6 @@
       ],
       "Compliant with the policy": [
         "정책에 부합"
-      ],
-      "Confirm": [
-        "확인"
       ],
       "Content": [
         "컨텐츠"
@@ -305,6 +317,10 @@
       "Failed saving %s:": [
         "%s 저장에 실패했습니다:"
       ],
+      "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
+        "",
+        ""
+      ],
       "Failed to delete %s compliance reports": [
         "%s 컴플라이언스 보고서를 삭제하지 못했습니다."
       ],
@@ -392,11 +408,20 @@
       "Hosts passing this rule": [
         "이 규칙을 통과하는 호스트"
       ],
+      "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
+        ""
+      ],
+      "Hosts to include in the action": [
+        ""
+      ],
       "How the policy should be deployed": [
         "정책이 어떻게 배포되어야 하는가"
       ],
       "ID of OpenSCAP Proxy": [
         "OpenSCAP 프록시 ID"
+      ],
+      "ID of the OpenSCAP Proxy to assign to the hosts": [
+        ""
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman에서는 컴플라이언스 정책 체크리스트는 %s을/를 통해 정의됩니다."
@@ -431,6 +456,9 @@
       "Latest reports for policy: %s": [
         "정책에 대한 최신 보고서: %s"
       ],
+      "Line chart": [
+        ""
+      ],
       "List ARF reports": [
         "ARF 보고서 목록"
       ],
@@ -445,6 +473,15 @@
       ],
       "List Tailoring files": [
         "맞춤형 파일 목록"
+      ],
+      "List of host ids to exclude and not perform the action on": [
+        ""
+      ],
+      "List of host ids to perform the action on": [
+        ""
+      ],
+      "Loading": [
+        ""
       ],
       "Loading...": [
         "로딩..."
@@ -491,6 +528,9 @@
       "No ARF reports for this policy": [
         "이 정책에 대한 ARF 보고서가 없습니다."
       ],
+      "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
+        ""
+      ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP 프록시가 선택되지 않았습니다."
       ],
@@ -511,6 +551,9 @@
       ],
       "No compliance reports were found.": [
         "컴플라이언트 보고서를 찾을 수 없습니다."
+      ],
+      "No data available": [
+        ""
       ],
       "No hosts selected": [
         "선택된 호스트가 없음"
@@ -575,8 +618,14 @@
       "OpenSCAP Proxy": [
         "OpenSCAP Proxy"
       ],
+      "OpenSCAP Proxy is set to %s": [
+        ""
+      ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "SCAP 콘텐츠를 가져오고 ARF 보고서를 업로드하는 데 사용할 OpenSCAP 프록시입니다. 프록시 로드 밸런서를 사용할 때는 공백으로 두고 적절한 매개변수를 재정의합니다."
+      ],
+      "OpenSCAP Proxy with id %s not found": [
+        ""
       ],
       "Openscap Proxy": [
         "Openscap 프록시"
@@ -604,9 +653,6 @@
       ],
       "Passed|P": [
         "Passed|P"
-      ],
-      "Permission denied": [
-        "권한이 거부되었습니다"
       ],
       "Please Confirm": [
         "확인해 주십시오"
@@ -713,9 +759,6 @@
       "Reports": [
         "보고서 "
       ],
-      "Request the following permissions from administrator: %s.": [
-        "관리자에게 다음 권한을 요청하세요: %s ."
-      ],
       "Request timed out. Please try increasing Settings -> proxy_request_timeout": [
         "요청 시간이 초과되었습니다. 설정 -> proxy_request_timeout을 늘려보세요."
       ],
@@ -784,6 +827,9 @@
       ],
       "Schedule": [
         "스케줄 "
+      ],
+      "Search string describing which hosts to perform the action on": [
+        ""
       ],
       "Select Action": [
         "작업 선택"
@@ -866,6 +912,10 @@
       "Successfully deleted ARF report.": [
         "ARF 보고서를 성공적으로 삭제했습니다."
       ],
+      "Successfully updated %{success} host.": [
+        "",
+        ""
+      ],
       "Summary from %{time} ago to now": [
         "%{time} 전에서 현재까지의 요약"
       ],
@@ -908,14 +958,14 @@
       "The job has started on selected host(s), you can check the status on the job details page.": [
         "선택한 호스트에서 작업이 시작되었습니다. 작업 세부 정보 페이지에서 상태를 확인할 수 있습니다."
       ],
+      "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
+        ""
+      ],
       "There are significant differences in deployment options.": [
         "배포 옵션에는 상당한 차이가 있습니다."
       ],
       "There is no job to remediate with. Please remediate manually.": [
         "수정할 작업이 없습니다. 수동으로 수정해 주세요."
-      ],
-      "There was a following error when deleting %(name)s: %(error)s": [
-        "%(name)s 삭제시 다음과 같은 오류가 발생했습니다: %(error)s"
       ],
       "There's no available report for this host": [
         "이 호스트에 사용 가능한 보고서가 없습니다."
@@ -925,6 +975,9 @@
       ],
       "This profile will be used to override the one from scap content": [
         "이 프로필은 scap 콘텐츠의 프로필을 재정의하는 데 사용됩니다."
+      ],
+      "This will change previous proxy assignments on the selected hosts.": [
+        ""
       ],
       "Title": [
         "제목"
@@ -1018,9 +1071,6 @@
       ],
       "Yes": [
         "예  "
-      ],
-      "You are not authorized to view the page. ": [
-        "해당 페이지를 볼 권한이 없습니다. "
       ],
       "You can remediate by running a remote job or you can display a snippet for manual remediation.": [
         "원격 작업을 실행하여 수정할 수도 있고, 수동으로 수정할 스니펫을 표시할 수도 있습니다."
