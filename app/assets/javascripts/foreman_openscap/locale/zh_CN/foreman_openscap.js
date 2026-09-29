@@ -45,7 +45,7 @@
         "一直以來的 %s 报告"
       ],
       "%s selected hosts.": [
-        ""
+        "%{failed} 所选的主机"
       ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "发现了 %s 个 spool 错误，在代理上直接检查相关的文件"
@@ -66,7 +66,7 @@
         "OpenSCAP 策略报告摘要"
       ],
       "ALL selected hosts.": [
-        ""
+        "所有选定的主机。"
       ],
       "Actions": [
         "操作"
@@ -87,19 +87,19 @@
         "对主机应用策略"
       ],
       "Assign": [
-        ""
+        "分配"
       ],
       "Assign Compliance Policy": [
         "分配合规政策"
       ],
       "Assign OpenSCAP Proxy": [
-        ""
+        "分配 OpenSCAP 代理"
       ],
       "Assign OpenSCAP Proxy for ": [
-        ""
+        "分配 OpenSCAP 代理 "
       ],
       "Assign OpenSCAP Proxy to multiple hosts": [
-        ""
+        "为多个主机分配 OpenSCAP 代理"
       ],
       "Back": [
         "返回"
@@ -318,8 +318,7 @@
         "保存失败 %s:"
       ],
       "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
-        "",
-        ""
+        "将 OpenSCAP 代理分配给 %{total} 主机的 %{failed} 失败。"
       ],
       "Failed to delete %s compliance reports": [
         "刪除 %s 合规报告失败"
@@ -409,10 +408,10 @@
         "主机通过了这个规则"
       ],
       "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
-        ""
+        "主机明确排除在操作之外。除非还传递了包含的参数，否则所有其他主机都将包含在操作中。"
       ],
       "Hosts to include in the action": [
-        ""
+        "操作中要包含的主机"
       ],
       "How the policy should be deployed": [
         "应如何部署策略"
@@ -421,7 +420,7 @@
         "OpenSCAP 代理服务器的 ID"
       ],
       "ID of the OpenSCAP Proxy to assign to the hosts": [
-        ""
+        "分配给主机的 OpenSCAP 代理的 ID"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "在 Foreman 中，合规策略检查清单通过 %s 定义。"
@@ -457,7 +456,7 @@
         "最新的政策报告：%s"
       ],
       "Line chart": [
-        ""
+        "折线图"
       ],
       "List ARF reports": [
         "列出 ARF 报告"
@@ -475,13 +474,13 @@
         "列出 Tailoring 文件"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "要排除的主机 ID 列表，不对其执行操作"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "要执行操作的主机 ID 列表"
       ],
       "Loading": [
-        ""
+        "加载"
       ],
       "Loading...": [
         "载入中..."
@@ -529,7 +528,7 @@
         "此政策沒有 ARF 報告"
       ],
       "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
-        ""
+        "没有可用的 OpenSCAP 代理。请使用 OpenSCAP 功能配置智能代理。"
       ],
       "No OpenSCAP Proxy selected.": [
         "没有选择 OpenSCAP 代理。"
@@ -553,7 +552,7 @@
         "没有找到合规报告。"
       ],
       "No data available": [
-        ""
+        "无可用数据"
       ],
       "No hosts selected": [
         "未选择主机"
@@ -619,13 +618,13 @@
         "OpenSCAP 代理"
       ],
       "OpenSCAP Proxy is set to %s": [
-        ""
+        "OpenSCAP 代理被设置为 %s"
       ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "用来获取 SCAP 内容以及上传 ARF 报告的 OpenSCAP 代理。如果为空，则在使用代理负责均衡器时覆盖相应的参数。"
       ],
       "OpenSCAP Proxy with id %s not found": [
-        ""
+        "未找到 ID 为 %s 的 OpenSCAP 代理"
       ],
       "Openscap Proxy": [
         "Openscap 代理"
@@ -829,7 +828,7 @@
         "调度"
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "搜索字符串，描述要对其执行操作的主机"
       ],
       "Select Action": [
         "选择操作"
@@ -913,8 +912,7 @@
         "成功删除了 ARF 报告。"
       ],
       "Successfully updated %{success} host.": [
-        "",
-        ""
+        "成功更新了 %{success} 主机。"
       ],
       "Summary from %{time} ago to now": [
         "从 %{time} 到现在的摘要"
@@ -959,7 +957,7 @@
         "作业已在所选主机上启动，您可以在详情页中检查作业的状态。"
       ],
       "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
-        ""
+        "所选的 OpenSCAP 代理没有启用 OpenSCAP 功能。"
       ],
       "There are significant differences in deployment options.": [
         "部署选项之间存在重大差异。"
@@ -977,7 +975,7 @@
         "这个配置文件将用于覆盖 scap 内容中的配置文件"
       ],
       "This will change previous proxy assignments on the selected hosts.": [
-        ""
+        "这将更改所选主机上的以前的代理分配。"
       ],
       "Title": [
         "提示"

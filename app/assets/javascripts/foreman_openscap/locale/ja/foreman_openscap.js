@@ -45,7 +45,7 @@
         "経過レポート %s 件"
       ],
       "%s selected hosts.": [
-        ""
+        "選択した %s 台のホスト。"
       ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
@@ -66,7 +66,7 @@
         "OpenSCAP ポリシーのレポートの概要"
       ],
       "ALL selected hosts.": [
-        ""
+        "選択されたすべてのホスト。"
       ],
       "Actions": [
         "アクション"
@@ -87,19 +87,19 @@
         "ホストにポリシーを適用"
       ],
       "Assign": [
-        ""
+        "割り当て"
       ],
       "Assign Compliance Policy": [
         "コンプライアンスポリシーの割り当て"
       ],
       "Assign OpenSCAP Proxy": [
-        ""
+        "OpenSCAP プロキシーを割り当てる"
       ],
       "Assign OpenSCAP Proxy for ": [
-        ""
+        "OpenSCAP プロキシーを割り当てる:"
       ],
       "Assign OpenSCAP Proxy to multiple hosts": [
-        ""
+        "複数のホストに OpenSCAP プロキシーを割り当てる"
       ],
       "Back": [
         "戻る"
@@ -318,8 +318,7 @@
         "%s の保存に失敗しました:"
       ],
       "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
-        "",
-        ""
+        "%{total} 台中 %{failed} 台のホストへの OpenSCAP プロキシーの割り当てに失敗しました。"
       ],
       "Failed to delete %s compliance reports": [
         "%s コンプライアンスレポートの削除に失敗しました"
@@ -337,7 +336,7 @@
         "プロキシーからスプールステータスを取得できませんでした"
       ],
       "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}": [
-        "%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %{errors}"
+        "%{config_tool} のパラメーターのオーバーライド時に保存に失敗しました。原因: %{errors}"
       ],
       "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy": [
         "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -409,10 +408,10 @@
         "このルールに合格のホスト"
       ],
       "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
-        ""
+        "アクションから明示的に除外するホスト。それ以外のホストは、包含パラメーターが指定されていない限り、すべてアクションに追加されます。"
       ],
       "Hosts to include in the action": [
-        ""
+        "アクションに追加するホスト"
       ],
       "How the policy should be deployed": [
         "ポリシーのデプロイメント方法"
@@ -421,7 +420,7 @@
         "OpenSCAP プロキシーの ID"
       ],
       "ID of the OpenSCAP Proxy to assign to the hosts": [
-        ""
+        "ホストに割り当てる OpenSCAP プロキシーの ID"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
@@ -457,7 +456,7 @@
         "ポリシーの最新レポート: %s"
       ],
       "Line chart": [
-        ""
+        "折れ線グラフ"
       ],
       "List ARF reports": [
         "ARF レポートの一覧表示"
@@ -475,16 +474,16 @@
         "テーラリングファイルの一覧表示"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "除外してアクションを実行しないホスト ID の一覧"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "アクションを実行するホスト ID の一覧"
       ],
       "Loading": [
-        ""
+        "ロード中"
       ],
       "Loading...": [
-        "読み込み中..."
+        "ロード中..."
       ],
       "Locations": [
         "ロケーション"
@@ -529,7 +528,7 @@
         "このポリシーの ARF レポートがありません"
       ],
       "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
-        ""
+        "利用可能な OpenSCAP プロキシーがありません。OpenSCAP 機能を備えた Smart Proxy を設定してください。"
       ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP プロキシーが選択されていません。"
@@ -553,7 +552,7 @@
         "コンプライアンスレポートが見つかりませんでした。"
       ],
       "No data available": [
-        ""
+        "利用可能なデータはありません"
       ],
       "No hosts selected": [
         "ホストが選択されていません"
@@ -619,13 +618,13 @@
         "OpenSCAP プロキシー"
       ],
       "OpenSCAP Proxy is set to %s": [
-        ""
+        "OpenSCAP プロキシーは %s に設定されています。"
       ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
-        "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+        "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターをオーバーライドします。"
       ],
       "OpenSCAP Proxy with id %s not found": [
-        ""
+        "ID %s の OpenSCAP プロキシーが見つかりません"
       ],
       "Openscap Proxy": [
         "OpenSCAP プロキシー"
@@ -745,7 +744,7 @@
         "リモートジョブ"
       ],
       "Report Metrics": [
-        "レポートメトリックス"
+        "レポートメトリクス"
       ],
       "Report Status": [
         "レポートのステータス"
@@ -829,7 +828,7 @@
         "スケジュール"
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "アクションを実行するホストを表す検索文字列"
       ],
       "Select Action": [
         "アクションの選択"
@@ -913,8 +912,7 @@
         "ARF レポートが正常に削除されました。"
       ],
       "Successfully updated %{success} host.": [
-        "",
-        ""
+        "%{success} 台のホストを正常に更新しました。"
       ],
       "Summary from %{time} ago to now": [
         "過去 %{time} から今までの概要"
@@ -959,7 +957,7 @@
         "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
       ],
       "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
-        ""
+        "選択された OpenSCAP プロキシーでは、OpenSCAP 機能が有効化されていません。"
       ],
       "There are significant differences in deployment options.": [
         "デプロイメントオプションには大きな違いがあります。"
@@ -977,7 +975,7 @@
         "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
       ],
       "This will change previous proxy assignments on the selected hosts.": [
-        ""
+        "これにより、選択したホスト上の以前のプロキシー割り当てが変更されます。"
       ],
       "Title": [
         "タイトル"

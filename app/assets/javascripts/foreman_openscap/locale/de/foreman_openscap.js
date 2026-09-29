@@ -410,7 +410,7 @@
         "Regel angewandt auf Hosts."
       ],
       "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
-        ""
+        "Hosts, die explizit von der Aktion ausgeschlossen werden sollen. Alle anderen Hosts werden in die Aktion einbezogen, sofern nicht zusätzlich ein Parameter \\\"included\\\" übergeben wird."
       ],
       "Hosts to include in the action": [
         ""
@@ -476,13 +476,13 @@
         "Tailoring-Dateien anzeigen"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "Liste der Host-Kennungen, die beim Ausführen der Aktion ignoriert werden sollen"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "Liste der Host-Kennungen, für die die Aktion durchgeführt werden soll"
       ],
       "Loading": [
-        ""
+        "Lade"
       ],
       "Loading...": [
         "Ladevorgang …"
@@ -830,7 +830,7 @@
         "Plan"
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "Suchbegriff, der angibt, auf welchen Hosts die Aktion ausgeführt werden soll"
       ],
       "Select Action": [
         "Aktion auswählen"

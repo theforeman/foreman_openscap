@@ -45,7 +45,7 @@
         "기간별 %s 보고서"
       ],
       "%s selected hosts.": [
-        ""
+        "%s개 호스트가 선택되었습니다."
       ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s spool 오류가 감지되었습니다. 프록시에서 직접 해당 파일을 검사하세요."
@@ -66,7 +66,7 @@
         "OpenSCAP 정책에 대한 보고서 요약"
       ],
       "ALL selected hosts.": [
-        ""
+        "선택한 모든 호스트"
       ],
       "Actions": [
         "동작 "
@@ -87,19 +87,19 @@
         "호스트에 정책 적용"
       ],
       "Assign": [
-        ""
+        "할당"
       ],
       "Assign Compliance Policy": [
         "컴플라이언스 정책 할당"
       ],
       "Assign OpenSCAP Proxy": [
-        ""
+        "OpenSCAP 프록시 할당"
       ],
       "Assign OpenSCAP Proxy for ": [
-        ""
+        "OpenSCAP 프록시 할당 대상"
       ],
       "Assign OpenSCAP Proxy to multiple hosts": [
-        ""
+        "여러 호스트에 OpenSCAP 프록시 할당"
       ],
       "Back": [
         "뒤로 "
@@ -291,7 +291,7 @@
         "bzipped ARF 보고서 다운로드"
       ],
       "Edit %s": [
-        "%s 편집 "
+        "%s 편집"
       ],
       "Effective Profile": [
         "효과적인 프로필"
@@ -318,8 +318,7 @@
         "%s 저장에 실패했습니다:"
       ],
       "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
-        "",
-        ""
+        "%{total}개 호스트 중 %{failed}개 호스트에 OpenSCAP 프록시를 할당하지 못했습니다."
       ],
       "Failed to delete %s compliance reports": [
         "%s 컴플라이언스 보고서를 삭제하지 못했습니다."
@@ -409,10 +408,10 @@
         "이 규칙을 통과하는 호스트"
       ],
       "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
-        ""
+        "작업에서 명시적으로 제외할 호스트. 포함된 매개변수가 전달되지 않는 한 다른 모든 호스트는 작업에 포함됩니다."
       ],
       "Hosts to include in the action": [
-        ""
+        "작업에 포함할 호스트"
       ],
       "How the policy should be deployed": [
         "정책이 어떻게 배포되어야 하는가"
@@ -421,7 +420,7 @@
         "OpenSCAP 프록시 ID"
       ],
       "ID of the OpenSCAP Proxy to assign to the hosts": [
-        ""
+        "호스트에 할당할 OpenSCAP 프록시의 ID"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Foreman에서는 컴플라이언스 정책 체크리스트는 %s을/를 통해 정의됩니다."
@@ -457,7 +456,7 @@
         "정책에 대한 최신 보고서: %s"
       ],
       "Line chart": [
-        ""
+        "선 그래프"
       ],
       "List ARF reports": [
         "ARF 보고서 목록"
@@ -475,16 +474,16 @@
         "맞춤형 파일 목록"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "제외하고 작업을 수행하지 않을 호스트 ID 목록"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "작업을 수행할 호스트 ID 목록"
       ],
       "Loading": [
-        ""
+        "로딩 중 "
       ],
       "Loading...": [
-        "로딩..."
+        "로딩 중..."
       ],
       "Locations": [
         "위치"
@@ -529,7 +528,7 @@
         "이 정책에 대한 ARF 보고서가 없습니다."
       ],
       "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
-        ""
+        "사용 가능한 OpenSCAP 프록시가 없습니다. OpenSCAP 기능을 갖춘 Smart Proxy를 구성하십시오."
       ],
       "No OpenSCAP Proxy selected.": [
         "OpenSCAP 프록시가 선택되지 않았습니다."
@@ -553,7 +552,7 @@
         "컴플라이언트 보고서를 찾을 수 없습니다."
       ],
       "No data available": [
-        ""
+        "사용 가능한 데이터가 없음"
       ],
       "No hosts selected": [
         "선택된 호스트가 없음"
@@ -619,13 +618,13 @@
         "OpenSCAP Proxy"
       ],
       "OpenSCAP Proxy is set to %s": [
-        ""
+        "OpenSCAP 프록시가 %s(으)로 설정되었습니다."
       ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "SCAP 콘텐츠를 가져오고 ARF 보고서를 업로드하는 데 사용할 OpenSCAP 프록시입니다. 프록시 로드 밸런서를 사용할 때는 공백으로 두고 적절한 매개변수를 재정의합니다."
       ],
       "OpenSCAP Proxy with id %s not found": [
-        ""
+        "ID가 %s인 OpenSCAP 프록시를 찾을 수 없습니다."
       ],
       "Openscap Proxy": [
         "Openscap 프록시"
@@ -763,7 +762,7 @@
         "요청 시간이 초과되었습니다. 설정 -> proxy_request_timeout을 늘려보세요."
       ],
       "Required %{msg_name} %{class} was not found, please ensure it is imported first.": [
-        "필수의 %{msg_name} %{class} 을/를 찾을 수 없습니다. 먼저 가져왔는지 확인하세요."
+        "필수의 %{msg_name} %{class}을/를 찾을 수 없습니다. 먼저 가져왔는지 확인하세요."
       ],
       "Requires %s Puppet class. This will assign the class to the hosts or selected hostgroups.": [
         "%s Puppet 클래스가 필요합니다. 이는 클래스를 호스트 또는 선택된 호스트그룹에 할당합니다."
@@ -829,7 +828,7 @@
         "스케줄 "
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "작업을 수행할 호스트를 설명하는 검색 문자열"
       ],
       "Select Action": [
         "작업 선택"
@@ -883,7 +882,7 @@
         "스마트 클래스 매개변수"
       ],
       "Snippet": [
-        "조각 모음 "
+        "스니펫"
       ],
       "Something went wrong while selecting compliance reports - %s": [
         "컴플라이언스 보고서를 선택하는 도중 문제가 발생했습니다 -  %s"
@@ -913,8 +912,7 @@
         "ARF 보고서를 성공적으로 삭제했습니다."
       ],
       "Successfully updated %{success} host.": [
-        "",
-        ""
+        "%{success}개 호스트를 성공적으로 업데이트했습니다."
       ],
       "Summary from %{time} ago to now": [
         "%{time} 전에서 현재까지의 요약"
@@ -959,7 +957,7 @@
         "선택한 호스트에서 작업이 시작되었습니다. 작업 세부 정보 페이지에서 상태를 확인할 수 있습니다."
       ],
       "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
-        ""
+        "선택한 OpenSCAP 프록시에 OpenSCAP 기능이 활성화되어 있지 않습니다."
       ],
       "There are significant differences in deployment options.": [
         "배포 옵션에는 상당한 차이가 있습니다."
@@ -977,7 +975,7 @@
         "이 프로필은 scap 콘텐츠의 프로필을 재정의하는 데 사용됩니다."
       ],
       "This will change previous proxy assignments on the selected hosts.": [
-        ""
+        "이렇게 하면 선택한 호스트에 대한 기존 프록시 할당이 변경됩니다."
       ],
       "Title": [
         "제목"
