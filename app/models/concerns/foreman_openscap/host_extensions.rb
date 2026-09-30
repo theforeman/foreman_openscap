@@ -11,6 +11,8 @@ module ForemanOpenscap
 
       base.validate :openscap_proxy_in_taxonomy, :if => Proc.new { |host| host.openscap_proxy_id.present? }
 
+      base.after_update :reset_compliance_status_on_hostgroup_change, :if => :saved_change_to_hostgroup_id?
+
       base.scoped_search :relation => :policies, :on => :name, :complete_value => true, :rename => :compliance_policy,
                     :only_explicit => true, :operators => ['= '], :ext_method => :search_by_policy_name
 
@@ -139,6 +141,10 @@ module ForemanOpenscap
 
     def openscap_proxy_in_taxonomy
       validate_association_taxonomy(:openscap_proxy)
+    end
+
+    def reset_compliance_status_on_hostgroup_change
+      ForemanOpenscap::ComplianceStatusResetter.to_inconclusive([id])
     end
 
     module ClassMethods

@@ -180,6 +180,27 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, host.reload.compliance_status
   end
 
+  test 'should reset compliance status when host is moved to a different hostgroup' do
+    old_hostgroup = FactoryBot.create(:hostgroup)
+    new_hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:compliance_host, :hostgroup_id => old_hostgroup.id)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.update!(:hostgroup_id => new_hostgroup.id)
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, host.reload.compliance_status
+  end
+
+  test 'should not reset compliance status when host is saved without hostgroup change' do
+    hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:compliance_host, :hostgroup_id => hostgroup.id)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.update!(:comment => 'unrelated change')
+
+    assert_equal ForemanOpenscap::ComplianceStatus::COMPLIANT, host.reload.compliance_status
+  end
+
   test 'compliance_status returns stored persisted status without recalculation' do
     set_compliance_status(@host, ForemanOpenscap::ComplianceStatus::INCONCLUSIVE)
     status = @host.reload.get_status(ForemanOpenscap::ComplianceStatus)
