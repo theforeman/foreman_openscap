@@ -15,6 +15,12 @@ module ForemanOpenscap
       end
 
       ComplianceStatus.upsert_all(rows, :unique_by => %i[type host_id], :update_only => %i[status reported_at])
+
+      refresh_global_statuses(host_ids)
+    end
+
+    def self.refresh_global_statuses(host_ids)
+      ::Host::Managed.where(:id => host_ids).find_each(&:refresh_global_status!)
     end
   end
 end
