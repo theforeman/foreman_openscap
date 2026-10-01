@@ -59,12 +59,20 @@ const BulkCompliancePolicyModal = ({
     }
   }, [dispatch, isOpen]);
 
+  const isAssignMode = mode === 'assign';
+  const actionKey = isAssignMode
+    ? BULK_ASSIGN_POLICY_KEY
+    : BULK_UNASSIGN_POLICY_KEY;
+
   const policies = useSelector(state => selectAPIResponse(state, POLICIES_KEY));
   const policiesStatus = useSelector(state =>
     selectAPIStatus(state, POLICIES_KEY)
   );
   const policiesError = useSelector(
     state => state.API?.[POLICIES_KEY]?.error?.message
+  );
+  const hostUpdateStatus = useSelector(state =>
+    selectAPIStatus(state, actionKey)
   );
 
   const onToggleClick = () => {
@@ -86,7 +94,7 @@ const BulkCompliancePolicyModal = ({
       ouiaId="bulk-compliance-policy-toggle"
       onClick={onToggleClick}
       isExpanded={policySelectOpen}
-      style={{ width: '500px' }}
+      style={{ width: '100%' }}
     >
       {policyId ? getPolicyLabel(policyId) : __('Select a policy')}
     </MenuToggle>
@@ -100,9 +108,7 @@ const BulkCompliancePolicyModal = ({
 
   const handleError = error => {
     handleModalClose();
-    const key =
-      mode === 'assign' ? BULK_ASSIGN_POLICY_KEY : BULK_UNASSIGN_POLICY_KEY;
-    dispatch(addToast(bulkErrorToastParams(error, key)));
+    dispatch(addToast(bulkErrorToastParams(error, actionKey)));
   };
 
   const handleSuccess = response => {
@@ -131,7 +137,6 @@ const BulkCompliancePolicyModal = ({
     }
   };
 
-  const isAssignMode = mode === 'assign';
   const title = isAssignMode
     ? __('Assign Compliance Policy')
     : __('Unassign Compliance Policy');
@@ -145,8 +150,8 @@ const BulkCompliancePolicyModal = ({
       ouiaId="bulk-compliance-policy-modal-confirm-button"
       variant="primary"
       onClick={handleConfirm}
-      isDisabled={policyId === ''}
-      isLoading={policiesStatus === STATUS.PENDING}
+      isDisabled={hostUpdateStatus === STATUS.PENDING || policyId === ''}
+      isLoading={hostUpdateStatus === STATUS.PENDING}
     >
       {confirmButtonText}
     </Button>,

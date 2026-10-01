@@ -45,6 +45,7 @@ describe('Compliance Policy Actions', () => {
       expect(APIActions.get).toHaveBeenCalledWith({
         url: '/api/v2/compliance/policies',
         key: POLICIES_KEY,
+        params: { per_page: 'all' },
       });
       expect(action.type).toBe('API_GET');
     });

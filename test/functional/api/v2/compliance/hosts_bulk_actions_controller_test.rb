@@ -17,6 +17,10 @@ class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::Te
                                  :organization => @organization,
                                  :location => @location)
       @host_ids = [@host1.id, @host2.id]
+      @policy = FactoryBot.create(:policy,
+                                  :organizations => [@organization],
+                                  :locations => [@location])
+      @policy.scap_content.update(:organization_ids => [@organization.id], :location_ids => [@location.id])
     end
   end
 
@@ -128,5 +132,117 @@ class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::Te
     assert_match(/Failed to assign OpenSCAP Proxy to 2 of 2 hosts/, response['error']['message'])
     refute_match(/Successfully updated/, response['error']['message'])
     assert_equal @host_ids.sort, response['error']['failed_host_ids'].sort
+  end
+
+  test "should assign compliance policy to selected hosts" do
+    put :assign_compliance_policy,
+        params: valid_bulk_params.merge(:policy_id => @policy.id),
+        session: set_session_user
+
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Updated hosts: Assigned with compliance policy/, response['message'])
+    assert_includes response['message'], @policy.name
+
+    @policy.reload
+    assert_includes @policy.hosts.map(&:id), @host1.id
+    assert_includes @policy.hosts.map(&:id), @host2.id
+  end
+
+  test "should assign compliance policy to a single host" do
+    put :assign_compliance_policy,
+        params: valid_bulk_params([@host1.id]).merge(:policy_id => @policy.id),
+        session: set_session_user
+
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Updated host: Assigned with compliance policy/, response['message'])
+
+    @policy.reload
+    assert_includes @policy.hosts.map(&:id), @host1.id
+    refute_includes @policy.hosts.map(&:id), @host2.id
+  end
+
+  test "should require policy_id for assign" do
+    put :assign_compliance_policy,
+        params: valid_bulk_params,
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/policy_id/, response['error']['message'])
+  end
+
+  test "should return error when policy is not found for assign" do
+    put :assign_compliance_policy,
+        params: valid_bulk_params.merge(:policy_id => 0),
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Compliance policy with id .* not found/, response['error']['message'])
+  end
+
+  test "should unassign compliance policy from selected hosts" do
+    as_admin do
+      @host1.policies = [@policy]
+      @host1.save!
+      @host2.policies = [@policy]
+      @host2.save!
+    end
+
+    put :unassign_compliance_policy,
+        params: valid_bulk_params.merge(:policy_id => @policy.id),
+        session: set_session_user
+
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Updated hosts: Unassigned from compliance policy/, response['message'])
+    assert_includes response['message'], @policy.name
+
+    @policy.reload
+    refute_includes @policy.hosts.map(&:id), @host1.id
+    refute_includes @policy.hosts.map(&:id), @host2.id
+  end
+
+  test "should unassign compliance policy from a single host" do
+    as_admin do
+      @host1.policies = [@policy]
+      @host1.save!
+      @host2.policies = [@policy]
+      @host2.save!
+    end
+
+    put :unassign_compliance_policy,
+        params: valid_bulk_params([@host1.id]).merge(:policy_id => @policy.id),
+        session: set_session_user
+
+    assert_response :success
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Updated host: Unassigned from compliance policy/, response['message'])
+
+    @policy.reload
+    refute_includes @policy.hosts.map(&:id), @host1.id
+    assert_includes @policy.hosts.map(&:id), @host2.id
+  end
+
+  test "should require policy_id for unassign" do
+    put :unassign_compliance_policy,
+        params: valid_bulk_params,
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/policy_id/, response['error']['message'])
+  end
+
+  test "should return error when policy is not found for unassign" do
+    put :unassign_compliance_policy,
+        params: valid_bulk_params.merge(:policy_id => 0),
+        session: set_session_user
+
+    assert_response :unprocessable_entity
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_match(/Compliance policy with id .* not found/, response['error']['message'])
   end
 end

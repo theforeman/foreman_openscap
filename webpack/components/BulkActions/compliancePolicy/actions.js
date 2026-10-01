@@ -10,6 +10,7 @@ export const fetchPolicies = () =>
   APIActions.get({
     url: foremanUrl('/api/v2/compliance/policies'),
     key: POLICIES_KEY,
+    params: { per_page: 'all' },
   });
 
 export const bulkAssignPolicy = (params, handleSuccess, handleError) =>
