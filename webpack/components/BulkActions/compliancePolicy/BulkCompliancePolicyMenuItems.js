@@ -20,13 +20,17 @@ const BulkCompliancePolicyMenuItems = () => {
   const handleUnassignClick = () =>
     openBulkModal(UNASSIGN_POLICY_MODAL_ID, true);
 
+  if (!hasPermission) {
+    return null;
+  }
+
   return (
     <>
       <MenuItem
         itemId="assign-compliance-policy-dropdown-item"
         key="assign-compliance-policy-dropdown-item"
         onClick={handleAssignClick}
-        isDisabled={selectedCount === 0 || !hasPermission}
+        isDisabled={selectedCount === 0}
       >
         {__('Assign compliance policy')}
       </MenuItem>
@@ -34,7 +38,7 @@ const BulkCompliancePolicyMenuItems = () => {
         itemId="unassign-compliance-policy-dropdown-item"
         key="unassign-compliance-policy-dropdown-item"
         onClick={handleUnassignClick}
-        isDisabled={selectedCount === 0 || !hasPermission}
+        isDisabled={selectedCount === 0}
       >
         {__('Unassign compliance policy')}
       </MenuItem>

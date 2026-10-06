@@ -3,7 +3,7 @@ require 'test_plugin_helper'
 class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::TestCase
   tests Api::V2::Compliance::HostsBulkActionsController
 
-  def setup
+  setup do
     as_admin do
       @organization = FactoryBot.create(:organization)
       @location = FactoryBot.create(:location)
@@ -244,5 +244,63 @@ class Api::V2::Compliance::HostsBulkActionsControllerTest < ActionController::Te
     assert_response :unprocessable_entity
     response = ActiveSupport::JSON.decode(@response.body)
     assert_match(/Compliance policy with id .* not found/, response['error']['message'])
+  end
+
+  context "forbidden user" do
+    setup do
+      @user = FactoryBot.create(:user, :admin => false,
+                                :organizations => [@organization],
+                                :locations => [@location])
+    end
+
+    test "should forbid assign compliance policy without assign_policies permission" do
+      setup_user('edit', 'hosts', nil, @user)
+
+      put :assign_compliance_policy,
+          params: valid_bulk_params.merge(:policy_id => @policy.id),
+          session: set_session_user(@user)
+
+      assert_forbidden_missing_permission('assign_policies')
+    end
+
+    test "should forbid unassign compliance policy without assign_policies permission" do
+      setup_user('edit', 'hosts', nil, @user)
+
+      put :unassign_compliance_policy,
+          params: valid_bulk_params.merge(:policy_id => @policy.id),
+          session: set_session_user(@user)
+
+      assert_forbidden_missing_permission('assign_policies')
+    end
+
+    test "should forbid change openscap proxy without edit_hosts permission" do
+      setup_user('assign', 'policies', nil, @user)
+
+      put :change_openscap_proxy,
+          params: valid_bulk_params.merge(:openscap_proxy_id => @proxy.id),
+          session: set_session_user(@user)
+
+      assert_forbidden_missing_permission('edit_hosts')
+    end
+
+    test "should forbid assign compliance policy when user cannot edit hosts" do
+      setup_user('assign', 'policies', nil, @user)
+
+      put :assign_compliance_policy,
+          params: valid_bulk_params.merge(:policy_id => @policy.id),
+          session: set_session_user(@user)
+
+      assert_response :forbidden
+      response = ActiveSupport::JSON.decode(@response.body)
+      assert_match(/No hosts matched search, or action unauthorized for selected hosts/, response['error']['message'])
+    end
+  end
+
+  private
+
+  def assert_forbidden_missing_permission(permission)
+    assert_response :forbidden
+    response = ActiveSupport::JSON.decode(@response.body)
+    assert_includes response['error']['missing_permissions'], permission
   end
 end
