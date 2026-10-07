@@ -46,6 +46,90 @@ class PolicyTest < ActiveSupport::TestCase
     assert_equal 1, policy.hosts.count
   end
 
+  test "should reset compliance status when assigning policy to host" do
+    host = FactoryBot.create(:compliance_host)
+    unrelated_host = FactoryBot.create(:compliance_host)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+    set_compliance_status(unrelated_host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+
+    policy.host_ids = [host.id]
+    policy.save!
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(host)
+    assert_equal ForemanOpenscap::ComplianceStatus::COMPLIANT, compliance_status_for(unrelated_host)
+  end
+
+  test "should create inconclusive compliance status when assigning policy to host without status" do
+    host = FactoryBot.create(:compliance_host)
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+
+    policy.host_ids = [host.id]
+    policy.save!
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(host)
+  end
+
+  test "should reset compliance status when removing policy from host assignment" do
+    host = FactoryBot.create(:compliance_host)
+    asset = FactoryBot.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    policy.host_ids = []
+    policy.save!
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(host)
+  end
+
+  test "should reset compliance status when unassigning host from policy" do
+    host = FactoryBot.create(:compliance_host)
+    asset = FactoryBot.create(:asset, :assetable_id => host.id, :assetable_type => 'Host::Base')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    policy.unassign_hosts([host])
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(host)
+  end
+
+  test "should reset compliance status for hostgroup subtree when assigning policy to hostgroup" do
+    parent = FactoryBot.create(:hostgroup)
+    child = FactoryBot.create(:hostgroup, :ancestry => parent.id.to_s)
+    parent_host = FactoryBot.create(:compliance_host, :hostgroup_id => parent.id)
+    child_host = FactoryBot.create(:compliance_host, :hostgroup_id => child.id)
+    unrelated_host = FactoryBot.create(:compliance_host)
+    [parent_host, child_host, unrelated_host].each do |host|
+      set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+    end
+    policy = FactoryBot.create(:policy, :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+
+    policy.hostgroup_ids = [parent.id]
+    policy.save!
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(parent_host)
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(child_host)
+    assert_equal ForemanOpenscap::ComplianceStatus::COMPLIANT, compliance_status_for(unrelated_host)
+  end
+
+  test "should reset compliance status for hostgroup subtree when removing policy from hostgroup" do
+    parent = FactoryBot.create(:hostgroup)
+    child = FactoryBot.create(:hostgroup, :ancestry => parent.id.to_s)
+    parent_host = FactoryBot.create(:compliance_host, :hostgroup_id => parent.id)
+    child_host = FactoryBot.create(:compliance_host, :hostgroup_id => child.id)
+    asset = FactoryBot.create(:asset, :assetable_id => parent.id, :assetable_type => 'Hostgroup')
+    policy = FactoryBot.create(:policy, :assets => [asset], :scap_content => @scap_content, :scap_content_profile => @scap_profile)
+    [parent_host, child_host].each do |host|
+      set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+    end
+
+    policy.hostgroup_ids = []
+    policy.save!
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(parent_host)
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, compliance_status_for(child_host)
+  end
+
   test "should delete assets when unassigning hosts" do
     host1 = FactoryBot.create(:compliance_host)
     host2 = FactoryBot.create(:compliance_host)
@@ -330,5 +414,11 @@ class PolicyTest < ActiveSupport::TestCase
     policy.reload
     assert_equal policy.deploy_by, 'manual'
     assert_equal policy.name, name
+  end
+
+  private
+
+  def compliance_status_for(host)
+    ForemanOpenscap::ComplianceStatus.find_by(:host_id => host.id).try(:status)
   end
 end

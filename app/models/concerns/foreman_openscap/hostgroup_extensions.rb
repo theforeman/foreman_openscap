@@ -8,10 +8,17 @@ module ForemanOpenscap
       has_many :assets, :as => :assetable, :class_name => "::ForemanOpenscap::Asset", dependent: :destroy
       has_many :asset_policies, :through => :assets, :class_name => "::ForemanOpenscap::AssetPolicy"
       has_many :policies, :through => :asset_policies, :class_name => "::ForemanOpenscap::Policy"
+
+      after_update :reset_compliance_status_on_ancestry_change, :if => :saved_change_to_ancestry?
     end
 
     def inherited_policies
       find_inherited_policies :policies
+    end
+
+    def reset_compliance_status_on_ancestry_change
+      host_ids = ::Host.where(:hostgroup_id => subtree_ids).pluck(:id)
+      ForemanOpenscap::ComplianceStatusResetter.to_inconclusive(host_ids)
     end
 
     def openscap_proxy

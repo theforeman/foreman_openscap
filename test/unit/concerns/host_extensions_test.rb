@@ -162,6 +162,61 @@ class HostExtensionsTest < ActiveSupport::TestCase
     assert_empty ForemanOpenscap::Asset.where(:assetable_id => host.id, :assetable_type => 'Host::Base')
   end
 
+  test 'should reset compliance status when assigning policy through host policies' do
+    host = FactoryBot.create(:compliance_host)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.policies = [@policy]
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, host.reload.compliance_status
+  end
+
+  test 'should reset compliance status when removing policy through host policies' do
+    host = FactoryBot.create(:compliance_host, :policies => [@policy])
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.policies = []
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, host.reload.compliance_status
+  end
+
+  test 'should reset compliance status when host is moved to a different hostgroup' do
+    old_hostgroup = FactoryBot.create(:hostgroup)
+    new_hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:compliance_host, :hostgroup_id => old_hostgroup.id)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.update!(:hostgroup_id => new_hostgroup.id)
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, host.reload.compliance_status
+  end
+
+  test 'should not reset compliance status when host is saved without hostgroup change' do
+    hostgroup = FactoryBot.create(:hostgroup)
+    host = FactoryBot.create(:compliance_host, :hostgroup_id => hostgroup.id)
+    set_compliance_status(host, ForemanOpenscap::ComplianceStatus::COMPLIANT)
+
+    host.update!(:comment => 'unrelated change')
+
+    assert_equal ForemanOpenscap::ComplianceStatus::COMPLIANT, host.reload.compliance_status
+  end
+
+  test 'compliance_status returns stored persisted status without recalculation' do
+    set_compliance_status(@host, ForemanOpenscap::ComplianceStatus::INCONCLUSIVE)
+    status = @host.reload.get_status(ForemanOpenscap::ComplianceStatus)
+    status.expects(:to_status).never
+
+    assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, @host.compliance_status
+  end
+
+  test 'compliance_status_label returns label from stored persisted status without recalculation' do
+    set_compliance_status(@host, ForemanOpenscap::ComplianceStatus::INCOMPLIANT)
+    status = @host.reload.get_status(ForemanOpenscap::ComplianceStatus)
+    status.expects(:to_status).never
+
+    assert_equal 'Incompliant', @host.compliance_status_label
+  end
+
   private
 
   def setup_hosts_with_policy

@@ -59,6 +59,13 @@ end
 module ScapTestCommon
   private
 
+  def set_compliance_status(host, status)
+    compliance_status = host.get_status(ForemanOpenscap::ComplianceStatus)
+    compliance_status.status = status
+    compliance_status.reported_at = Time.current
+    compliance_status.save!
+  end
+
   def create_report_with_rules(host, rule_names, rule_results)
     raise "rule_names and rule_results should have the same length!" if rule_names.size != rule_results.size
     metrics = {
