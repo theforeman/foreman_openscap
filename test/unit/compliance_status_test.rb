@@ -74,12 +74,48 @@ class ComplianceStatusTest < ActiveSupport::TestCase
     status = ForemanOpenscap::ComplianceStatus.new
     host = FactoryBot.create(:compliance_host, :policies => [@policy_a])
 
+    host.expects(:combined_policies).never
     status.host = host
 
     assert status.relevant?
   end
 
-  test 'relevant? should be true for hostgroup policies and to_status should use them' do
+  test 'relevant? should be false for host without policies' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryBot.create(:host)
+
+    status.host = host
+
+    refute status.relevant?
+  end
+
+  test 'relevant? should be false for host with hostgroup but no policies' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryBot.create(:host, :with_hostgroup)
+
+    status.host = host
+
+    refute status.relevant?
+  end
+
+  test 'relevant? should be true for hostgroup policies without loading combined_policies' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    host = FactoryBot.create(:host, :with_hostgroup)
+
+    assert_empty host.policies
+    @policy_a.hostgroup_ids = [host.hostgroup.id]
+    assert @policy_a.save
+
+    host.reload
+    assert_includes host.combined_policies, @policy_a
+
+    status.host = host
+    host.expects(:combined_policies).never
+
+    assert status.relevant?
+  end
+
+  test 'to_status should use hostgroup policies' do
     status = ForemanOpenscap::ComplianceStatus.new
     host = FactoryBot.create(:host, :with_hostgroup)
     othered_status = { :passed => 0, :failed => 0, :othered => 1 }.with_indifferent_access
@@ -95,12 +131,10 @@ class ComplianceStatusTest < ActiveSupport::TestCase
     FactoryBot.create(:policy_arf_report, :policy_id => @policy_a.id, :arf_report_id => report.id)
 
     status.host = host
-
-    assert status.relevant?
     assert_equal ForemanOpenscap::ComplianceStatus::INCONCLUSIVE, status.to_status
   end
 
-  test 'relevant? should be true for inherited parent hostgroup policies' do
+  test 'relevant? should be true for inherited parent hostgroup policies without loading combined_policies' do
     status = ForemanOpenscap::ComplianceStatus.new
     host = FactoryBot.create(:host, :with_hostgroup)
     hostgroup = host.hostgroup
@@ -116,7 +150,22 @@ class ComplianceStatusTest < ActiveSupport::TestCase
     assert_includes host.combined_policies, @policy_a
 
     status.host = host
+    host.expects(:combined_policies).never
 
     assert status.relevant?
+  end
+
+  test 'to_label returns label based on stored status' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    status.status = ForemanOpenscap::ComplianceStatus::COMPLIANT
+    status.expects(:to_status).never
+    assert_equal 'Compliant', status.to_label
+  end
+
+  test 'to_global returns global status based on stored status' do
+    status = ForemanOpenscap::ComplianceStatus.new
+    status.status = ForemanOpenscap::ComplianceStatus::COMPLIANT
+    status.expects(:to_status).never
+    assert_equal ::HostStatus::Global::OK, status.to_global
   end
 end
