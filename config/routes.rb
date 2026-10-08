@@ -105,6 +105,8 @@ Rails.application.routes.draw do
       end
 
       match 'hosts/bulk/change_openscap_proxy', :to => 'compliance/hosts_bulk_actions#change_openscap_proxy', :via => [:put]
+      match 'compliance/hosts/bulk/assign_compliance_policy', :to => 'compliance/hosts_bulk_actions#assign_compliance_policy', :via => [:put]
+      match 'compliance/hosts/bulk/unassign_compliance_policy', :to => 'compliance/hosts_bulk_actions#unassign_compliance_policy', :via => [:put]
     end
   end
 end

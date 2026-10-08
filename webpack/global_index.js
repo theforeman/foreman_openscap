@@ -4,10 +4,15 @@ import HostKebabItems from './components/HostExtentions/HostKebabItems';
 import BulkChangeOpenscapProxyModalScene, {
   ChangeOpenscapProxyMenuItem,
 } from './components/HostsIndex/ChangeOpenscapProxyAction';
+import BulkCompliancePolicyMenuItems from './components/BulkActions/compliancePolicy/BulkCompliancePolicyMenuItems';
+import {
+  BulkAssignPolicyModalScene,
+  BulkUnassignPolicyModalScene,
+} from './components/BulkActions/compliancePolicy/BulkCompliancePolicyModalScene';
 
 const HOST_ASSOCIATIONS_WEIGHT = 1212;
 const BULK_MODAL_WEIGHT = 100;
-
+const BULK_POLICY_MODAL_WEIGHT = 200;
 const OPENSCAP_KEBAB_WEIGHT = 400;
 
 addGlobalFill(
@@ -29,4 +34,25 @@ addGlobalFill(
   'BulkChangeOpenscapProxyModal',
   <BulkChangeOpenscapProxyModalScene key="bulk-change-openscap-proxy-modal" />,
   BULK_MODAL_WEIGHT
+);
+
+addGlobalFill(
+  '_host-associations',
+  'compliance-policy-bulk-actions',
+  <BulkCompliancePolicyMenuItems key="compliance-policy-menu-items" />,
+  BULK_POLICY_MODAL_WEIGHT
+);
+
+addGlobalFill(
+  '_all-hosts-modals',
+  'assign-compliance-policy-modal',
+  <BulkAssignPolicyModalScene key="bulk-assign-policy-modal" />,
+  BULK_POLICY_MODAL_WEIGHT
+);
+
+addGlobalFill(
+  '_all-hosts-modals',
+  'unassign-compliance-policy-modal',
+  <BulkUnassignPolicyModalScene key="bulk-unassign-policy-modal" />,
+  BULK_POLICY_MODAL_WEIGHT
 );

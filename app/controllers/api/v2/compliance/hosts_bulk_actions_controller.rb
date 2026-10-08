@@ -7,9 +7,10 @@ module Api::V2
         render_error(:custom_error, :status => :unprocessable_entity, :locals => { :message => exception.message })
       end
 
-      before_action :find_editable_hosts, only: [:change_openscap_proxy]
+      before_action :find_editable_hosts, only: [:change_openscap_proxy, :assign_compliance_policy, :unassign_compliance_policy]
       before_action :find_openscap_proxy, only: [:change_openscap_proxy]
       before_action :validate_openscap_proxy_feature, only: [:change_openscap_proxy]
+      before_action :find_compliance_policy, only: [:assign_compliance_policy, :unassign_compliance_policy]
 
       def_param_group :bulk_host_ids do
         param :included, Hash, :desc => N_("Hosts to include in the action"), :required => true, :action_aware => true do
@@ -20,6 +21,37 @@ module Api::V2
                                            " All other hosts will be included in the action,"\
                                            " unless an included parameter is passed as well."), :required => true, :action_aware => true do
           param :ids, Array, :required => false, :desc => N_("List of host ids to exclude and not perform the action on")
+        end
+      end
+
+      api :PUT, "/compliance/hosts/bulk/assign_compliance_policy", N_("Assign compliance policy to multiple hosts")
+      param_group :bulk_host_ids
+      param :policy_id, :number, :required => true, :desc => N_("ID of the compliance policy to assign to the hosts")
+      def assign_compliance_policy
+        @policy.host_ids = @policy.host_ids + @hosts.pluck(:id)
+        if @policy.save
+          message = _("Assigned with compliance policy: %s") % @policy.name
+          process_response(true, {
+            :message => n_("Updated host: #{message}", "Updated hosts: #{message}", @hosts.count),
+          })
+        else
+          render_error(:custom_error, :status => :unprocessable_entity,
+                       :locals => { :message => @policy.errors.full_messages.to_sentence })
+        end
+      end
+
+      api :PUT, "/compliance/hosts/bulk/unassign_compliance_policy", N_("Unassign compliance policy from multiple hosts")
+      param_group :bulk_host_ids
+      param :policy_id, :number, :required => true, :desc => N_("ID of the compliance policy to unassign from the hosts")
+      def unassign_compliance_policy
+        if @policy.unassign_hosts(@hosts)
+          message = _("Unassigned from compliance policy '%s'") % @policy.name
+          process_response(true, {
+            :message => n_("Updated host: #{message}", "Updated hosts: #{message}", @hosts.count),
+          })
+        else
+          render_error(:custom_error, :status => :unprocessable_entity,
+                       :locals => { :message => @policy.errors.full_messages.to_sentence })
         end
       end
 
@@ -83,6 +115,15 @@ module Api::V2
 
         render_error(:custom_error, :status => :unprocessable_entity,
                      :locals => { :message => _("The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.") })
+      end
+
+      def find_compliance_policy
+        @policy = ::ForemanOpenscap::Policy.authorized(:assign_policies)
+          .find_by(:id => params.require(:policy_id))
+        return if @policy
+
+        render_error(:custom_error, :status => :unprocessable_entity,
+                     :locals => { :message => _("Compliance policy with id %s not found") % params[:policy_id] })
       end
     end
   end
