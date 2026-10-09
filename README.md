@@ -122,6 +122,15 @@ Make sure that
   ```
 - start your Rails server, verify openscap plugin is present
 
+### JavaScript testing and linting
+
+Run the plugin's JavaScript checks from the Foreman core checkout, which provides the shared test and lint tools:
+
+```sh
+npm run test:plugins foreman_openscap
+npm run lint:plugins foreman_openscap
+```
+
 ## Releasing
 
 follow these steps:
