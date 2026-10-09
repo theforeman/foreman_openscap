@@ -489,7 +489,7 @@ msgid "List of host ids to perform the action on"
 msgstr ""
 
 msgid "Loading"
-msgstr ""
+msgstr "Loading"
 
 msgid "Loading..."
 msgstr ""

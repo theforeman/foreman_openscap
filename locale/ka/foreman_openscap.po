@@ -416,7 +416,7 @@ msgid "Hosts to explicitly exclude in the action. All other hosts will be includ
 msgstr ""
 
 msgid "Hosts to include in the action"
-msgstr ""
+msgstr "ჰოსტები, რომლებზეც ქმედებები გადატარდება"
 
 msgid "How the policy should be deployed"
 msgstr "წესის გაშლის მიმდევრობა"
@@ -483,13 +483,13 @@ msgid "List Tailoring files"
 msgstr "მორგების ფაილების სია"
 
 msgid "List of host ids to exclude and not perform the action on"
-msgstr ""
+msgstr "ქმედების გადატარებისას ამოსაღები ჰოსტების ID-ების სია"
 
 msgid "List of host ids to perform the action on"
-msgstr ""
+msgstr "ქმედების გადასატარებელი ჰოსტების ID-ების სია"
 
 msgid "Loading"
-msgstr ""
+msgstr "იტვირთება"
 
 msgid "Loading..."
 msgstr "იტვირთება..."
@@ -839,7 +839,7 @@ msgid "Schedule"
 msgstr "განრიგი"
 
 msgid "Search string describing which hosts to perform the action on"
-msgstr ""
+msgstr "ქმედების გადასატარებელი ჰოსტების მოსაძებნი სტრიქონი"
 
 msgid "Select Action"
 msgstr "აირჩიეთ ქმედება"

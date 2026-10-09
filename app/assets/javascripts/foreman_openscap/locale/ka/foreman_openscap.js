@@ -413,7 +413,7 @@
         ""
       ],
       "Hosts to include in the action": [
-        ""
+        "ჰოსტები, რომლებზეც ქმედებები გადატარდება"
       ],
       "How the policy should be deployed": [
         "წესის გაშლის მიმდევრობა"
@@ -476,13 +476,13 @@
         "მორგების ფაილების სია"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "ქმედების გადატარებისას ამოსაღები ჰოსტების ID-ების სია"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "ქმედების გადასატარებელი ჰოსტების ID-ების სია"
       ],
       "Loading": [
-        ""
+        "იტვირთება"
       ],
       "Loading...": [
         "იტვირთება..."
@@ -830,7 +830,7 @@
         "განრიგი"
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "ქმედების გადასატარებელი ჰოსტების მოსაძებნი სტრიქონი"
       ],
       "Select Action": [
         "აირჩიეთ ქმედება"

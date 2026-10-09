@@ -417,7 +417,7 @@ msgid "Hosts passing this rule"
 msgstr "Regel angewandt auf Hosts."
 
 msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
-msgstr ""
+msgstr "Hosts, die explizit von der Aktion ausgeschlossen werden sollen. Alle anderen Hosts werden in die Aktion einbezogen, sofern nicht zusätzlich ein Parameter \"included\" übergeben wird."
 
 msgid "Hosts to include in the action"
 msgstr ""
@@ -491,13 +491,13 @@ msgid "List Tailoring files"
 msgstr "Tailoring-Dateien anzeigen"
 
 msgid "List of host ids to exclude and not perform the action on"
-msgstr ""
+msgstr "Liste der Host-Kennungen, die beim Ausführen der Aktion ignoriert werden sollen"
 
 msgid "List of host ids to perform the action on"
-msgstr ""
+msgstr "Liste der Host-Kennungen, für die die Aktion durchgeführt werden soll"
 
 msgid "Loading"
-msgstr ""
+msgstr "Lade"
 
 msgid "Loading..."
 msgstr "Ladevorgang …"
@@ -847,7 +847,7 @@ msgid "Schedule"
 msgstr "Plan"
 
 msgid "Search string describing which hosts to perform the action on"
-msgstr ""
+msgstr "Suchbegriff, der angibt, auf welchen Hosts die Aktion ausgeführt werden soll"
 
 msgid "Select Action"
 msgstr "Aktion auswählen"

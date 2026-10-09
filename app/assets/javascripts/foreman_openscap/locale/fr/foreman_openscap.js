@@ -47,7 +47,7 @@
         "%s rapports sur la durée"
       ],
       "%s selected hosts.": [
-        ""
+        "%s hôtes sélectionnés"
       ],
       "%s spool errors detected, inspect the appropriate file directly on proxy": [
         "%s erreurs de spool détectées, inspectez le fichier approprié directement sur le proxy"
@@ -68,7 +68,7 @@
         "Récapitulatif des rapports de stratégies OpenSCAP"
       ],
       "ALL selected hosts.": [
-        ""
+        "TOUS les hôtes sélectionnés."
       ],
       "Actions": [
         "Actions"
@@ -89,19 +89,19 @@
         "Appliquer la politique aux hôtes"
       ],
       "Assign": [
-        ""
+        "Attribuer"
       ],
       "Assign Compliance Policy": [
         "Attribuer un stratégie de conformité"
       ],
       "Assign OpenSCAP Proxy": [
-        ""
+        "Attribuer un proxy OpenSCAP"
       ],
       "Assign OpenSCAP Proxy for ": [
-        ""
+        "Attribuer un proxy OpenSCAP pour "
       ],
       "Assign OpenSCAP Proxy to multiple hosts": [
-        ""
+        "Attribuer le proxy OpenSCAP à plusieurs hôtes"
       ],
       "Back": [
         "Précédent"
@@ -320,8 +320,9 @@
         "Échec de l'enregistrement%s :"
       ],
       "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host.": [
-        "",
-        ""
+        "Échec de l'attribution du proxy OpenSCAP à %{failed} de %{total} hôte.",
+        "Échec de l'attribution du proxy OpenSCAP à %{failed} de %{total} hôtes.",
+        "Échec de l'attribution du proxy OpenSCAP à %{failed} de %{total} hôtes."
       ],
       "Failed to delete %s compliance reports": [
         "Impossible de supprimer les rapports de conformité %s"
@@ -411,10 +412,10 @@
         "Hôtes passant cette règle"
       ],
       "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well.": [
-        ""
+        "Versions à exclure explicitement dans l'action. Tous les autres versions applicables seront incluses dans l'action, à moins qu'un paramètre inclus ne soit également transmis."
       ],
       "Hosts to include in the action": [
-        ""
+        "Hôtes à inclure dans l'action"
       ],
       "How the policy should be deployed": [
         "Comment la stratégie doit-elle être déployée"
@@ -423,7 +424,7 @@
         "ID du proxy OpenSCAP"
       ],
       "ID of the OpenSCAP Proxy to assign to the hosts": [
-        ""
+        "Identifiant du proxy OpenSCAP à attribuer aux hôtes"
       ],
       "In Foreman, a compliance policy checklist is defined via %s.": [
         "Dans Foreman, une liste de stratégies de conformité est définie via %s."
@@ -459,7 +460,7 @@
         "Derniers rapports pour stratégie : %s"
       ],
       "Line chart": [
-        ""
+        "Graphique linéaire"
       ],
       "List ARF reports": [
         "Afficher tous les rapports ARF"
@@ -477,13 +478,13 @@
         "Répertorier les fichiers de personnalisation"
       ],
       "List of host ids to exclude and not perform the action on": [
-        ""
+        "Liste des identifiants d'hôte à exclure et sur lesquels ne pas performer l'action"
       ],
       "List of host ids to perform the action on": [
-        ""
+        "Liste des identifiants d'hôte sur lesquels performer l'action"
       ],
       "Loading": [
-        ""
+        "Chargement"
       ],
       "Loading...": [
         "Chargement..."
@@ -531,7 +532,7 @@
         "Aucun rapport ARF pour cette stratégie"
       ],
       "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature.": [
-        ""
+        "Aucun proxy OpenSCAP disponible. Veuillez configurer un proxy intelligent compatible avec OpenSCAP."
       ],
       "No OpenSCAP Proxy selected.": [
         "Aucun proxy OpenSCAP n'a été sélectionné."
@@ -555,7 +556,7 @@
         "Aucun rapport de conformité trouvé."
       ],
       "No data available": [
-        ""
+        "Aucune donnée disponible"
       ],
       "No hosts selected": [
         "Aucun hôte sélectionné"
@@ -621,13 +622,13 @@
         "Proxy OpenSCAP"
       ],
       "OpenSCAP Proxy is set to %s": [
-        ""
+        "OpenSCAP Proxy est configuré pour %s"
       ],
       "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer.": [
         "Proxy OpenSCAP à utiliser pour récupérer le contenu SCAP et télécharger les rapports ARF. Laissez ce champ vide et remplacez les paramètres appropriés lors de l'utilisation de l'équilibreur de charge proxy."
       ],
       "OpenSCAP Proxy with id %s not found": [
-        ""
+        "Proxy OpenSCAP avec identifiant %s introuvable"
       ],
       "Openscap Proxy": [
         "Proxy Openscap"
@@ -831,7 +832,7 @@
         "Programmer"
       ],
       "Search string describing which hosts to perform the action on": [
-        ""
+        "Chaîne de recherche décrivant les hôtes sur lesquels performer l'action"
       ],
       "Select Action": [
         "Choisir l'action"
@@ -915,8 +916,9 @@
         "Rapport ARF supprimé."
       ],
       "Successfully updated %{success} host.": [
-        "",
-        ""
+        "Mise à jour réussie %{success} hôte.",
+        "Mise à jour réussie %{success} hôtes.",
+        "Mise à jour réussie %{success} hôtes."
       ],
       "Summary from %{time} ago to now": [
         "Résumé de %{time} à maintenant"
@@ -961,7 +963,7 @@
         "Le job a démarré sur le ou les hôtes sélectionnés, vous pouvez vérifier l'état sur la page des détails de ce job."
       ],
       "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled.": [
-        ""
+        "Le proxy OpenSCAP sélectionné ne dispose pas de la fonctionnalité OpenSCAP activée."
       ],
       "There are significant differences in deployment options.": [
         "Il existe des différences importantes dans les options de déploiement."
@@ -979,7 +981,7 @@
         "Ce profil sera utilisé pour remplacer celui du contenu scap"
       ],
       "This will change previous proxy assignments on the selected hosts.": [
-        ""
+        "Cela modifiera les affectations de proxy précédentes sur les hôtes sélectionnés."
       ],
       "Title": [
         "Titre"
