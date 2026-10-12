@@ -188,6 +188,7 @@ module ForemanOpenscap
       self.asset_ids = self.asset_ids - asset_ids
       ForemanOpenscap::Asset.where(:id => asset_ids).destroy_all
       ForemanOpenscap::ComplianceStatusResetter.to_inconclusive(host_ids_to_reset)
+      true
     end
 
     def to_enc
