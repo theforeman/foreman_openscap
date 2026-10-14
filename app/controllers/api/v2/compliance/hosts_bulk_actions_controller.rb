@@ -44,15 +44,11 @@ module Api::V2
       param_group :bulk_host_ids
       param :policy_id, :number, :required => true, :desc => N_("ID of the compliance policy to unassign from the hosts")
       def unassign_compliance_policy
-        if @policy.unassign_hosts(@hosts)
-          message = _("Unassigned from compliance policy '%s'") % @policy.name
-          process_response(true, {
-            :message => n_("Updated host: #{message}", "Updated hosts: #{message}", @hosts.count),
-          })
-        else
-          render_error(:custom_error, :status => :unprocessable_entity,
-                       :locals => { :message => @policy.errors.full_messages.to_sentence })
-        end
+        @policy.unassign_hosts(@hosts)
+        message = _("Unassigned from compliance policy '%s'") % @policy.name
+        process_response(true, {
+          :message => n_("Updated host: #{message}", "Updated hosts: #{message}", @hosts.count),
+        })
       end
 
       api :PUT, "/hosts/bulk/change_openscap_proxy", N_("Assign OpenSCAP Proxy to multiple hosts")
