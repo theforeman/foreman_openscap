@@ -11,9 +11,21 @@ class Api::V2::Compliance::TailoringFilesControllerTest < ActionController::Test
 
   test "should return xml of tailoring_file" do
     tailoring_file = FactoryBot.create(:tailoring_file)
-    get :show, :params => { :id => tailoring_file.id }, :session => set_session_user
-    assert(@response.header['Content-Type'], 'application/xml')
+    get :xml, :params => { :id => tailoring_file.id }, :session => set_session_user
+    assert_equal 'application/xml', @response.media_type
     assert_response :success
+    assert_equal tailoring_file.scap_file.b, @response.body.b
+  end
+
+  test 'XML download still requires permission to view tailoring files' do
+    tailoring_file = FactoryBot.create(:tailoring_file)
+    user = FactoryBot.create(:user, :admin => false)
+    user.roles = []
+    # API test authentication uses User.current before the supplied session.
+    User.current = user
+    ActiveStorage::Blob.any_instance.expects(:download).never
+    get :xml, :params => { :id => tailoring_file.id }, :session => set_session_user(user)
+    assert_response :forbidden
   end
 
   test "should not create invalid tailoring_file" do
