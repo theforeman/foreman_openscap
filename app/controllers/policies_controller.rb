@@ -99,16 +99,12 @@ class PoliciesController < ApplicationController
   def remove_policy_from_multiple_hosts
     if (id = params.fetch(:policy, {})[:id])
       policy = ::ForemanOpenscap::Policy.find(id)
-      if policy.unassign_hosts(@hosts)
-        success _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
-        redirect_to hosts_path
-      else
-        process_error :object => policy, :redirect => hosts_path
-      end
+      policy.unassign_hosts(@hosts)
+      success _("Updated hosts: Unassigned from compliance policy '%s'") % policy.name
     else
       error _('No valid policy ID provided')
-      redirect_to hosts_path
     end
+    redirect_to hosts_path
   end
 
   private
