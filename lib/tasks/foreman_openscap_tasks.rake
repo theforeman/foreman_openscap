@@ -2,6 +2,30 @@
 namespace :foreman_openscap do
   require 'foreman_openscap/message_cleaner'
 
+  namespace :storage do
+    desc 'Preview or copy legacy SCAP and tailoring XML to Active Storage (APPLY=true to copy)'
+    task :migrate => :environment do
+      require 'foreman_openscap/document_migration'
+      apply = ENV.fetch('APPLY', 'false')
+      abort('APPLY must be true or false') unless ['true', 'false'].include?(apply)
+      User.as_anonymous_admin do
+        counts = ForemanOpenscap::DocumentMigration.new(:apply => apply == 'true').run
+        abort('Some documents could not be migrated; original SQL data was retained') if counts[:failed].positive?
+      end
+    end
+
+    desc 'Preview removal of migrated SQL XML (APPLY=true to remove verified copies)'
+    task :cleanup => :environment do
+      require 'foreman_openscap/document_migration'
+      apply = ENV.fetch('APPLY', 'false')
+      abort('APPLY must be true or false') unless ['true', 'false'].include?(apply)
+      User.as_anonymous_admin do
+        counts = ForemanOpenscap::DocumentMigration.new(:apply => apply == 'true', :cleanup => true).run
+        abort('Some documents could not be verified; their SQL data was retained') if counts[:failed].positive?
+      end
+    end
+  end
+
   namespace :bulk_upload do
     desc 'Bulk upload SCAP content from directory'
     task :directory, [:directory] => [:environment] do |task, args|

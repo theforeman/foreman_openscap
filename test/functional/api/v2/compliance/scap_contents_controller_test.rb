@@ -11,9 +11,21 @@ class Api::V2::Compliance::ScapContentsControllerTest < ActionController::TestCa
 
   test "should return xml of scap content" do
     scap_content = FactoryBot.create(:scap_content)
-    get :show, :params => { :id => scap_content.id }, :session => set_session_user
-    assert(@response.header['Content-Type'], 'application/xml')
+    get :xml, :params => { :id => scap_content.id }, :session => set_session_user
+    assert_equal 'application/xml', @response.media_type
     assert_response :success
+    assert_equal scap_content.scap_file.b, @response.body.b
+  end
+
+  test 'XML download still requires permission to view SCAP content' do
+    scap_content = FactoryBot.create(:scap_content)
+    user = FactoryBot.create(:user, :admin => false)
+    user.roles = []
+    # API test authentication uses User.current before the supplied session.
+    User.current = user
+    ActiveStorage::Blob.any_instance.expects(:download).never
+    get :xml, :params => { :id => scap_content.id }, :session => set_session_user(user)
+    assert_response :forbidden
   end
 
   test "should not create invalid scap content" do
