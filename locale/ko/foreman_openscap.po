@@ -488,7 +488,7 @@ msgid "List of host ids to perform the action on"
 msgstr "작업을 수행할 호스트 ID 목록"
 
 msgid "Loading"
-msgstr "로딩 중 "
+msgstr "로딩 중"
 
 msgid "Loading..."
 msgstr "로딩 중..."
