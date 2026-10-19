@@ -482,7 +482,7 @@
         ""
       ],
       "Loading": [
-        ""
+        "Caricamento in corso"
       ],
       "Loading...": [
         "Caricamento..."

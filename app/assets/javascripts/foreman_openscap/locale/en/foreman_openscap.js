@@ -5,7 +5,7 @@
       "": {
         "Project-Id-Version": "foreman_openscap 1.0.0",
         "Report-Msgid-Bugs-To": "",
-        "PO-Revision-Date": "2026-09-22 17:29+0000",
+        "PO-Revision-Date": "2026-09-29 11:05+0000",
         "Last-Translator": "FULL NAME <EMAIL@ADDRESS>",
         "Language-Team": "LANGUAGE <LL@li.org>",
         "Language": "",

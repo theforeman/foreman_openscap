@@ -48,7 +48,7 @@ msgid "%s reports over time"
 msgstr "経過レポート %s 件"
 
 msgid "%s selected hosts."
-msgstr ""
+msgstr "選択した %s 台のホスト。"
 
 msgid "%s spool errors detected, inspect the appropriate file directly on proxy"
 msgstr "%s のスプールエラーが検出されました。プロキシーで直接適切なファイルを検証してください。"
@@ -69,7 +69,7 @@ msgid "A summary of reports for OpenSCAP policies"
 msgstr "OpenSCAP ポリシーのレポートの概要"
 
 msgid "ALL selected hosts."
-msgstr ""
+msgstr "選択されたすべてのホスト。"
 
 msgid "Actions"
 msgstr "アクション"
@@ -90,19 +90,19 @@ msgid "Apply policy to hosts"
 msgstr "ホストにポリシーを適用"
 
 msgid "Assign"
-msgstr ""
+msgstr "割り当て"
 
 msgid "Assign Compliance Policy"
 msgstr "コンプライアンスポリシーの割り当て"
 
 msgid "Assign OpenSCAP Proxy"
-msgstr ""
+msgstr "OpenSCAP プロキシーを割り当てる"
 
 msgid "Assign OpenSCAP Proxy for "
-msgstr ""
+msgstr "OpenSCAP プロキシーを割り当てる:"
 
 msgid "Assign OpenSCAP Proxy to multiple hosts"
-msgstr ""
+msgstr "複数のホストに OpenSCAP プロキシーを割り当てる"
 
 msgid "Back"
 msgstr "戻る"
@@ -322,8 +322,7 @@ msgstr "%s の保存に失敗しました:"
 
 msgid "Failed to assign OpenSCAP Proxy to %{failed} of %{total} host."
 msgid_plural "Failed to assign OpenSCAP Proxy to %{failed} of %{total} hosts."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{total} 台中 %{failed} 台のホストへの OpenSCAP プロキシーの割り当てに失敗しました。"
 
 msgid "Failed to delete %s compliance reports"
 msgstr "%s コンプライアンスレポートの削除に失敗しました"
@@ -341,7 +340,7 @@ msgid "Failed to fetch spool status from proxy"
 msgstr "プロキシーからスプールステータスを取得できませんでした"
 
 msgid "Failed to save when overriding parameters for %{config_tool}, cause: %{errors}"
-msgstr "%{config_tool} のパラメーターの上書き時に保存に失敗しました。原因: %{errors}"
+msgstr "%{config_tool} のパラメーターのオーバーライド時に保存に失敗しました。原因: %{errors}"
 
 msgid "Failed to upload Arf Report, OpenSCAP proxy name or url not found in params when uploading for %s and host is missing openscap_proxy"
 msgstr "Arf レポートのアップロードに失敗しました。%s のアップロード時にパラメーターで OpenSCAP プロキシー名または url が見つかりませんでした。ホストには openscap_proxy が設定されていません。"
@@ -414,10 +413,10 @@ msgid "Hosts passing this rule"
 msgstr "このルールに合格のホスト"
 
 msgid "Hosts to explicitly exclude in the action. All other hosts will be included in the action, unless an included parameter is passed as well."
-msgstr ""
+msgstr "アクションから明示的に除外するホスト。それ以外のホストは、包含パラメーターが指定されていない限り、すべてアクションに追加されます。"
 
 msgid "Hosts to include in the action"
-msgstr ""
+msgstr "アクションに追加するホスト"
 
 msgid "How the policy should be deployed"
 msgstr "ポリシーのデプロイメント方法"
@@ -426,7 +425,7 @@ msgid "ID of OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシーの ID"
 
 msgid "ID of the OpenSCAP Proxy to assign to the hosts"
-msgstr ""
+msgstr "ホストに割り当てる OpenSCAP プロキシーの ID"
 
 msgid "In Foreman, a compliance policy checklist is defined via %s."
 msgstr "Foreman では、コンプライアンスポリシーのチェックリストは %s で定義されます。"
@@ -470,7 +469,7 @@ msgid "Latest reports for policy: %s"
 msgstr "ポリシーの最新レポート: %s"
 
 msgid "Line chart"
-msgstr ""
+msgstr "折れ線グラフ"
 
 msgid "List ARF reports"
 msgstr "ARF レポートの一覧表示"
@@ -488,16 +487,16 @@ msgid "List Tailoring files"
 msgstr "テーラリングファイルの一覧表示"
 
 msgid "List of host ids to exclude and not perform the action on"
-msgstr ""
+msgstr "除外してアクションを実行しないホスト ID の一覧"
 
 msgid "List of host ids to perform the action on"
-msgstr ""
+msgstr "アクションを実行するホスト ID の一覧"
 
 msgid "Loading"
-msgstr ""
+msgstr "ロード中"
 
 msgid "Loading..."
-msgstr "読み込み中..."
+msgstr "ロード中..."
 
 msgid "Locations"
 msgstr "ロケーション"
@@ -542,7 +541,7 @@ msgid "No ARF reports for this policy"
 msgstr "このポリシーの ARF レポートがありません"
 
 msgid "No OpenSCAP Proxies available. Please configure a Smart Proxy with the OpenSCAP feature."
-msgstr ""
+msgstr "利用可能な OpenSCAP プロキシーがありません。OpenSCAP 機能を備えた Smart Proxy を設定してください。"
 
 msgid "No OpenSCAP Proxy selected."
 msgstr "OpenSCAP プロキシーが選択されていません。"
@@ -566,7 +565,7 @@ msgid "No compliance reports were found."
 msgstr "コンプライアンスレポートが見つかりませんでした。"
 
 msgid "No data available"
-msgstr ""
+msgstr "利用可能なデータはありません"
 
 msgid "No hosts selected"
 msgstr "ホストが選択されていません"
@@ -632,13 +631,13 @@ msgid "OpenSCAP Proxy"
 msgstr "OpenSCAP プロキシー"
 
 msgid "OpenSCAP Proxy is set to %s"
-msgstr ""
+msgstr "OpenSCAP プロキシーは %s に設定されています。"
 
 msgid "OpenSCAP Proxy to use for fetching SCAP content and uploading ARF reports. Leave blank and override appropriate parameters when using proxy load balancer."
-msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターを上書きします。"
+msgstr "SCAP コンテンツのフェッチおよび ARF レポートのアップロードに使用する OpenSCAP プロキシー。プロキシーロードバランサーを使用する場合には、空白にして、適切なパラメーターをオーバーライドします。"
 
 msgid "OpenSCAP Proxy with id %s not found"
-msgstr ""
+msgstr "ID %s の OpenSCAP プロキシーが見つかりません"
 
 msgid "Openscap Proxy"
 msgstr "OpenSCAP プロキシー"
@@ -760,7 +759,7 @@ msgid "Remote job"
 msgstr "リモートジョブ"
 
 msgid "Report Metrics"
-msgstr "レポートメトリックス"
+msgstr "レポートメトリクス"
 
 msgid "Report Status"
 msgstr "レポートのステータス"
@@ -844,7 +843,7 @@ msgid "Schedule"
 msgstr "スケジュール"
 
 msgid "Search string describing which hosts to perform the action on"
-msgstr ""
+msgstr "アクションを実行するホストを表す検索文字列"
 
 msgid "Select Action"
 msgstr "アクションの選択"
@@ -929,8 +928,7 @@ msgstr "ARF レポートが正常に削除されました。"
 
 msgid "Successfully updated %{success} host."
 msgid_plural "Successfully updated %{success} hosts."
-msgstr[0] ""
-msgstr[1] ""
+msgstr[0] "%{success} 台のホストを正常に更新しました。"
 
 msgid "Summary from %{time} ago to now"
 msgstr "過去 %{time} から今までの概要"
@@ -979,7 +977,7 @@ msgid "The job has started on selected host(s), you can check the status on the 
 msgstr "選択したホストでジョブが開始しました。ジョブの詳細ページでステータスを確認できます。"
 
 msgid "The selected OpenSCAP Proxy does not have the OpenSCAP feature enabled."
-msgstr ""
+msgstr "選択された OpenSCAP プロキシーでは、OpenSCAP 機能が有効化されていません。"
 
 msgid "There are significant differences in deployment options."
 msgstr "デプロイメントオプションには大きな違いがあります。"
@@ -997,7 +995,7 @@ msgid "This profile will be used to override the one from scap content"
 msgstr "このプロファイルは、scap コンテンツのプロファイルをオーバーライドするために使用されます"
 
 msgid "This will change previous proxy assignments on the selected hosts."
-msgstr ""
+msgstr "これにより、選択したホスト上の以前のプロキシー割り当てが変更されます。"
 
 msgid "Title"
 msgstr "タイトル"

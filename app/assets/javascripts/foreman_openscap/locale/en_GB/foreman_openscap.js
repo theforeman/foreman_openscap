@@ -482,7 +482,7 @@
         ""
       ],
       "Loading": [
-        ""
+        "Loading"
       ],
       "Loading...": [
         ""

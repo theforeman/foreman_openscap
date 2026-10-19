@@ -483,7 +483,7 @@
         ""
       ],
       "Loading": [
-        ""
+        "Cargando"
       ],
       "Loading...": [
         "Cargando..."

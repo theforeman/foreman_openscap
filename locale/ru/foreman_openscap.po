@@ -493,7 +493,7 @@ msgid "List of host ids to perform the action on"
 msgstr ""
 
 msgid "Loading"
-msgstr ""
+msgstr "Загружается"
 
 msgid "Loading..."
 msgstr "Загрузка..."
