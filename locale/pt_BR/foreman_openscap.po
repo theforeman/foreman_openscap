@@ -496,7 +496,7 @@ msgid "List of host ids to perform the action on"
 msgstr ""
 
 msgid "Loading"
-msgstr ""
+msgstr "Carregando"
 
 msgid "Loading..."
 msgstr "Carregando..."
