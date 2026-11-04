@@ -44,8 +44,7 @@ const actionsBarValue = {
 
 const renderMenuItem = (props = {}) =>
   renderWithStore(
-    // eslint-disable-next-line @theforeman/rules/require-ouiaid
-    <Menu activeItemId={null}>
+    <Menu ouiaId="change-openscap-proxy-menu" activeItemId={null}>
       <MenuContent>
         <MenuList>
           <ChangeOpenscapProxyMenuItem selectedCount={3} {...props} />
@@ -73,8 +72,7 @@ const renderMenuItemWithScene = (
     <ForemanActionsBarContext.Provider
       value={{ ...actionsBarValue, ...contextValue }}
     >
-      {/* eslint-disable-next-line @theforeman/rules/require-ouiaid */}
-      <Menu activeItemId={null}>
+      <Menu ouiaId="change-openscap-proxy-menu-with-scene" activeItemId={null}>
         <MenuContent>
           <MenuList>
             <ChangeOpenscapProxyMenuItem selectedCount={3} {...menuProps} />
