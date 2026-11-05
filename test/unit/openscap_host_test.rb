@@ -63,12 +63,12 @@ class OpenscapHostTest < ActiveSupport::TestCase
     end
 
     test 'scap_status_changed should detect status change' do
-      ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(false)
+      ForemanOpenscap::ArfReport.any_instance.stubs(:same_content?).returns(false)
       assert @host.scap_status_changed?(@policy)
     end
 
     test 'scap_status_changed should not detect status change when there is none' do
-      ForemanOpenscap::ArfReport.any_instance.stubs(:equal?).returns(true)
+      ForemanOpenscap::ArfReport.any_instance.stubs(:same_content?).returns(true)
       refute @host.scap_status_changed?(@policy)
     end
 
