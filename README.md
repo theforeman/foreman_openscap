@@ -102,6 +102,68 @@ Make sure that
 
 - Follow the official guide on [theforeman.org](https://theforeman.org/plugins/foreman_openscap/0.8/index.html#2.Installation)
 
+## SCAP document storage and upgrade
+
+This plugin requires Foreman 5.1 or newer. New SCAP content and tailoring XML files
+use Foreman's configured Active Storage service instead of SQL payloads. No
+Kubernetes-specific setting is needed. With object storage configured by Foreman,
+web and worker processes can read the same documents without sharing a filesystem.
+SCAP profiles, policies, digests, taxonomy assignments, XML API responses and their
+existing authorization remain unchanged. No public Active Storage download routes
+are added. ARF reports and files held by Smart Proxies are not moved by this change.
+
+Existing SQL documents remain readable until migrated. Before migrating, run the
+Foreman database migrations, configure and test Foreman's storage service, and
+take a database backup. All Foreman processes must use the same storage
+configuration and credentials. Local disk storage must be persistent and shared
+by any processes that need to read it; this change alone does not make it shared.
+Allow temporary disk space for the largest XML document during verification.
+
+From a packaged Foreman installation, preview the copy first:
+
+```console
+foreman-rake foreman_openscap:storage:migrate
+```
+
+Then copy and verify each document:
+
+```console
+APPLY=true foreman-rake foreman_openscap:storage:migrate
+```
+
+The task covers all organizations and locations in batches, checks the original
+SHA-256 digest, uploads the file, and reads it back before attaching it. It does
+not contact Smart Proxies, regenerate profiles or delete SQL data. Re-running it
+skips existing attachments. Failures are reported per record and produce a
+non-zero exit status; fix the cause and re-run the task. A partially completed
+copy remains usable through SQL fallback for the remaining documents.
+
+After checking document downloads and taking a coordinated backup of the database
+and attachment store, preview removal of the legacy SQL payloads:
+
+```console
+foreman-rake foreman_openscap:storage:cleanup
+```
+
+Remove only verified copies by explicitly applying cleanup:
+
+```console
+APPLY=true foreman-rake foreman_openscap:storage:cleanup
+```
+
+Cleanup reads each attachment and checks it against the record's current digest
+before setting its legacy SQL column to NULL. Missing or corrupt objects leave
+their SQL source untouched and cause a non-zero exit status. Neither task removes
+attachments or unrelated blobs. Both tasks are safe to repeat. Schedule them in
+a maintenance window to avoid competing uploads and long row-lock waits.
+
+New uploads and subsequent edits are stored only in Active Storage, so downgrading
+to an older plugin or Foreman that only reads SQL requires restoring the matching
+pre-upgrade database and storage backup. Retaining SQL during the copy stage is
+not a complete downgrade mechanism. Clearing SQL payloads permits PostgreSQL to
+reuse space after normal vacuuming; it does not immediately shrink database files
+or existing backups.
+
 ## Development setup
 
 - set up Foreman for development, preferably using [forklift](https://github.com/theforeman/forklift)
