@@ -11,11 +11,11 @@ on:
 jobs:
   rubocop:
     name: Rubocop
-    uses: theforeman/actions/.github/workflows/rubocop.yml@v0
+    uses: theforeman/actions/.github/workflows/rubocop.yml@v1
 
   test:
     name: Ruby
     needs: rubocop
-    uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v0
+    uses: theforeman/actions/.github/workflows/foreman_plugin.yml@v1
     with:
       plugin: foreman_openscap

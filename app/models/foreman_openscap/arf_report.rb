@@ -186,7 +186,8 @@ module ForemanOpenscap
       openscap_proxy_api.arf_report_bzip(self, ForemanOpenscap::Helper::find_name_or_uuid_by_host(host))
     end
 
-    def equal?(other)
+    def same_content?(other)
+      return false unless other
       results = [logs, other.logs].flatten.group_by(&:source_id).values
       # for each rule, there should be one result from both reports
       return false unless results.map(&:length).all? { |item| item == 2 }

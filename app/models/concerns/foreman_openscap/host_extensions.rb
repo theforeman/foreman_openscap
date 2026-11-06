@@ -116,7 +116,7 @@ module ForemanOpenscap
     def scap_status_changed?(policy)
       last_reports = reports_for_policy(policy, 2)
       return false if last_reports.length != 2
-      !last_reports.first.equal? last_reports.last
+      !last_reports.first.same_content?(last_reports.last)
     end
 
     def last_report_for_policy(policy)

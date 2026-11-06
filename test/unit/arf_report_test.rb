@@ -17,16 +17,16 @@ module ForemanOpenscap
       @status = { :passed => 5, :failed => 1, :othered => 7 }.with_indifferent_access
     end
 
-    test 'equal? should return true when there is no change in report results' do
+    test 'same_content? should return true when there is no change in report results' do
       report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
       create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
-      assert(report_1.equal?(report_2))
+      assert(report_1.same_content?(report_2))
     end
 
-    test 'equal? should return false when there is change in report results' do
+    test 'same_content? should return false when there is change in report results' do
       new_source = FactoryBot.create(:source)
 
       report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
@@ -34,36 +34,36 @@ module ForemanOpenscap
       create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
       create_logs_for_report(report_2, [@passed_log_params, @passed_log_params])
 
-      refute(report_1.equal?(report_2))
+      refute(report_1.same_content?(report_2))
     end
 
-    test 'equal? should return false when reports have different sets of rules' do
+    test 'same_content? should return false when reports have different sets of rules' do
       report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
       create_logs_for_report(report_2, [@passed_log_params])
 
-      refute(report_1.equal?(report_2))
+      refute(report_1.same_content?(report_2))
     end
 
-    test 'equal? should return false when reports have different hosts' do
+    test 'same_content? should return false when reports have different hosts' do
       host = FactoryBot.create(:compliance_host)
       report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       report_2 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => host.id)
       create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
       create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
-      refute(report_1.equal?(report_2))
+      refute(report_1.same_content?(report_2))
     end
 
-    test 'equal? should return false when reports have different policies' do
+    test 'same_content? should return false when reports have different policies' do
       policy = FactoryBot.create(:policy)
       report_1 = FactoryBot.create(:arf_report, :policy => @policy, :host_id => @host.id)
       report_2 = FactoryBot.create(:arf_report, :policy => policy, :host_id => @host.id)
       create_logs_for_report(report_1, [@passed_log_params, @failed_log_params])
       create_logs_for_report(report_2, [@passed_log_params, @failed_log_params])
 
-      refute(report_1.equal?(report_2))
+      refute(report_1.same_content?(report_2))
     end
 
     test 'should recognize report that failed' do
