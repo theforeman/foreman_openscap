@@ -7,11 +7,11 @@
                 :resource_filter => "is_compliance_host = true",
                 :name_field => 'name')
 %>
-<% title n_("%s compliance report by policy", "%s compliance reports by policy" , @host.combined_policies.length) % @host.to_label %>
-<% @host.combined_policies.each do |policy| %>
+<% title n_("%s compliance report by policy", "%s compliance reports by policy" , @compliance_host.combined_policies.length) % @compliance_host.to_label %>
+<% @compliance_host.combined_policies.each do |policy| %>
   <h2 class="center-block"><%= _('Policy %s') % policy %></h2>
   <div class="row compliance-host-policy-row">
-    <% data = ForemanOpenscap::HostReportDashboard::Data.new(policy, @host) %>
+    <% data = ForemanOpenscap::HostReportDashboard::Data.new(policy, @compliance_host) %>
     <% if data.has_data? %>
     <div class="col-md-4">
       <div class="stats-well">
