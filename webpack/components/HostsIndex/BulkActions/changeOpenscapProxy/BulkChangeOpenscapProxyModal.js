@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Modal,
   Button,
   Grid,
   GridItem,
@@ -12,6 +11,7 @@ import {
   StackItem,
   Skeleton,
 } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/deprecated';
 import { SimpleDropdown } from '@patternfly/react-templates';
 import { foremanUrl } from 'foremanReact/common/helpers';
 import { APIActions } from 'foremanReact/redux/API';
