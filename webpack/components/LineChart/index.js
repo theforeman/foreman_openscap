@@ -16,7 +16,7 @@ import {
   ChartLegendTooltip,
   ChartThemeColor,
   createContainer,
-} from '@patternfly/react-charts';
+} from '@patternfly/react-charts/victory';
 
 import { translate as __ } from 'foremanReact/common/I18n';
 import {

@@ -2,10 +2,9 @@ import React from 'react';
 import {
   EmptyState as PfEmptyState,
   EmptyStateBody,
-  EmptyStateIcon as PfEmptyStateIcon,
+  EmptyStateFooter,
   EmptyStateVariant,
   Bullseye,
-  Title,
 } from '@patternfly/react-core';
 import PropTypes from 'prop-types';
 import {
@@ -14,19 +13,12 @@ import {
   SearchIcon,
   LockIcon,
 } from '@patternfly/react-icons';
-import { global_danger_color_200 as dangerColor } from '@patternfly/react-tokens';
 
-const EmptyStateIcon = ({ error, search, lock }) => {
-  if (error)
-    return (
-      <PfEmptyStateIcon
-        icon={ExclamationCircleIcon}
-        color={dangerColor.value}
-      />
-    );
-  if (lock) return <PfEmptyStateIcon icon={LockIcon} />;
-  if (search) return <PfEmptyStateIcon icon={SearchIcon} />;
-  return <PfEmptyStateIcon icon={CubeIcon} />;
+const pickIcon = ({ error, search, lock }) => {
+  if (error) return ExclamationCircleIcon;
+  if (lock) return LockIcon;
+  if (search) return SearchIcon;
+  return CubeIcon;
 };
 
 const EmptyState = ({
@@ -39,28 +31,19 @@ const EmptyState = ({
   ouiaEmptyStateTitleId,
 }) => (
   <Bullseye>
-    <PfEmptyState variant={EmptyStateVariant.sm}>
-      <EmptyStateIcon error={!!error} search={search} lock={lock} />
-      <Title ouiaId={ouiaEmptyStateTitleId} headingLevel="h2" size="lg">
-        {title}
-      </Title>
+    <PfEmptyState
+      ouiaId={ouiaEmptyStateTitleId}
+      variant={EmptyStateVariant.sm}
+      headingLevel="h2"
+      titleText={title}
+      icon={pickIcon({ error: !!error, search, lock })}
+      status={error ? 'danger' : undefined}
+    >
       <EmptyStateBody>{body}</EmptyStateBody>
-      {primaryButton}
+      {primaryButton && <EmptyStateFooter>{primaryButton}</EmptyStateFooter>}
     </PfEmptyState>
   </Bullseye>
 );
-
-EmptyStateIcon.propTypes = {
-  error: PropTypes.bool,
-  search: PropTypes.bool,
-  lock: PropTypes.bool,
-};
-
-EmptyStateIcon.defaultProps = {
-  error: false,
-  search: false,
-  lock: false,
-};
 
 EmptyState.propTypes = {
   title: PropTypes.string,

@@ -3,22 +3,19 @@ import PropTypes from 'prop-types';
 import { FormattedMessage } from 'react-intl';
 import { useDispatch, useSelector } from 'react-redux';
 import {
-  Modal,
   Button,
-  TextContent,
-  Text,
+  Content,
   Select,
   SelectOption,
   SelectList,
   MenuToggle,
   Spinner,
   EmptyState,
-  EmptyStateHeader,
-  EmptyStateIcon,
   EmptyStateBody,
   Flex,
   FlexItem,
 } from '@patternfly/react-core';
+import { Modal } from '@patternfly/react-core/deprecated';
 import { ExclamationCircleIcon, SearchIcon } from '@patternfly/react-icons';
 import { STATUS } from 'foremanReact/constants';
 import { addToast } from 'foremanReact/components/ToastsList/slice';
@@ -186,8 +183,8 @@ const BulkCompliancePolicyModal = ({
       key="bulk-compliance-policy-modal"
       ouiaId="bulk-compliance-policy-modal"
     >
-      <TextContent>
-        <Text ouiaId="bulk-compliance-policy-count">
+      <Content>
+        <Content component="p" ouiaId="bulk-compliance-policy-count">
           {selectAllHostsMode ? (
             <FormattedMessage
               id="bulk-compliance-policy-all-hosts"
@@ -208,9 +205,11 @@ const BulkCompliancePolicyModal = ({
               }}
             />
           )}
-        </Text>
-        <Text ouiaId="bulk-compliance-policy-warning">{warningMessage}</Text>
-      </TextContent>
+        </Content>
+        <Content component="p" ouiaId="bulk-compliance-policy-warning">
+          {warningMessage}
+        </Content>
+      </Content>
 
       {policiesStatus === STATUS.PENDING && (
         <Flex
@@ -222,20 +221,20 @@ const BulkCompliancePolicyModal = ({
             <Spinner size="lg" aria-label={__('Loading policies')} />
           </FlexItem>
           <FlexItem>
-            <Text ouiaId="loading-policies-text">
+            <Content component="p" ouiaId="loading-policies-text">
               {__('Loading policies...')}
-            </Text>
+            </Content>
           </FlexItem>
         </Flex>
       )}
 
       {policiesStatus === STATUS.ERROR && (
-        <EmptyState>
-          <EmptyStateHeader
-            titleText={__('Failed to load policies')}
-            icon={<EmptyStateIcon icon={ExclamationCircleIcon} />}
-            headingLevel="h4"
-          />
+        <EmptyState
+          headingLevel="h4"
+          icon={ExclamationCircleIcon}
+          titleText={__('Failed to load policies')}
+          status="danger"
+        >
           <EmptyStateBody>
             {policiesError || __('An error occurred while fetching policies.')}
           </EmptyStateBody>
@@ -243,12 +242,11 @@ const BulkCompliancePolicyModal = ({
       )}
 
       {policiesStatus === STATUS.RESOLVED && policies?.results?.length === 0 && (
-        <EmptyState>
-          <EmptyStateHeader
-            titleText={__('No policies available')}
-            icon={<EmptyStateIcon icon={SearchIcon} />}
-            headingLevel="h4"
-          />
+        <EmptyState
+          headingLevel="h4"
+          icon={SearchIcon}
+          titleText={__('No policies available')}
+        >
           <EmptyStateBody>
             {__(
               'There are no compliance policies available in your current organization and location.'
@@ -265,6 +263,7 @@ const BulkCompliancePolicyModal = ({
           onSelect={handlePolicySelect}
           onOpenChange={isSelectOpen => setPolicySelectOpen(isSelectOpen)}
           toggle={toggle}
+          appendTo="inline"
           shouldFocusToggleOnSelect
           ouiaId="bulk-compliance-policy-select"
         >

@@ -2,30 +2,31 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   Grid,
-  TextContent,
-  Text,
-  TextVariants,
+  Content,
+  ContentVariants,
   Flex,
   FlexItem,
 } from '@patternfly/react-core';
 
+import './WizardHeader.scss';
+
 const WizardHeader = ({ title, description }) => (
-  <Grid style={{ gridGap: '24px' }}>
+  <Grid className="oscap-wizard-header">
     {title && (
-      <TextContent>
-        <Text ouiaId="wizard-header-text" component={TextVariants.h2}>
+      <Content>
+        <Content ouiaId="wizard-header-text" component={ContentVariants.h2}>
           {title}
-        </Text>
-      </TextContent>
+        </Content>
+      </Content>
     )}
     {description && (
-      <TextContent>
+      <Content>
         <Flex flex={{ default: 'inlineFlex' }}>
           <FlexItem>
-            <TextContent>{description}</TextContent>
+            <Content>{description}</Content>
           </FlexItem>
         </Flex>
-      </TextContent>
+      </Content>
     )}
   </Grid>
 );
